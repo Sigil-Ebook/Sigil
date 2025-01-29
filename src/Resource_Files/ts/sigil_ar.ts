@@ -29,7 +29,7 @@
     <message>
         <location filename="../../Form_Files/About.ui" line="170"/>
         <source>Loaded Qt:</source>
-        <translation>إصدار Qt المحمّل:</translation>
+        <translation>‏Qt المحمّل:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="200"/>
@@ -39,7 +39,7 @@
     <message>
         <location filename="../../Form_Files/About.ui" line="218"/>
         <source>Build time:</source>
-        <translation>تاريخ الاصدار:</translation>
+        <translation>وقت التركيب:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/About.ui" line="245"/>
@@ -118,12 +118,12 @@
     <message>
         <location filename="../../Form_Files/AddMetadata.ui" line="14"/>
         <source>Add metadata property</source>
-        <translation>أضف خاصية بيانات وصفية</translation>
+        <translation>أضف خاصية بيانات فوقية</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddMetadata.ui" line="50"/>
         <source>Metadata description</source>
-        <translation>وصف البيانات الوصفية</translation>
+        <translation>وصف البيانات الفوقية</translation>
     </message>
 </context>
 <context>
@@ -295,12 +295,12 @@
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="175"/>
         <source>Item Colors:</source>
-        <translation>خطوط العنصر:</translation>
+        <translation>ألوان البند:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="197"/>
         <source>Select an alternative color for this display item</source>
-        <translation>حدّد لوناً بديلاً لعنصر العَرض هذا</translation>
+        <translation>حدّد لوناً بديلاً لبند العَرض هذا</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="200"/>
@@ -729,7 +729,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="304"/>
         <source>Generate NCX and OPF Guide from Epub3 Nav.</source>
-        <translation>أنشيء NCX ومرشد OPF من تنقل الكتاب Epub3 Nav.</translation>
+        <translation>أنشئ ملف تنقل NCX ومرشد ملف محتوى OPF من ملف إبحار الكتاب Epub3 Nav.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="305"/>
@@ -759,7 +759,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="310"/>
         <source>Remove NCX and OPF Guide from Epub3.</source>
-        <translation>أزل NCX ومرشد OPF من كتاب Epub3.</translation>
+        <translation>أزل ملف التنقل NCX ومرشد ملف المحتوى OPF من كتاب Epub3.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="311"/>
@@ -814,7 +814,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="322"/>
         <source>Update Epub3 OPF Manifest properties.</source>
-        <translation>حدّث خصائص ملف بيان OPF لـ Epub3.</translation>
+        <translation>حدّث خصائص بيان ملف المحتوى OPF لـ Epub3.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="323"/>
@@ -1005,17 +1005,17 @@ A file with this name already exists in the book.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1495"/>
         <source>The Nav document can not be removed.</source>
-        <translation>لا يمكن إزالة مستند التنقل Nav.</translation>
+        <translation>لا يمكن إزالة مستند الابحار Nav.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1503"/>
         <source>The NCX can not be removed.</source>
-        <translation>لا يمكن إزالة NCX.</translation>
+        <translation>لا يمكن إزالة التنقل NCX.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1510"/>
         <source>The OPF is required for epub and can not be removed.</source>
-        <translation>جزء OPF مطلوب للكتاب الالكتروني ولا يمكن إزالته.</translation>
+        <translation>ملف المحتوى OPF مطلوب للكتاب ولا يمكن إزالته.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1519"/>
@@ -1112,7 +1112,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1797"/>
         <source>Semantics OPF Guide or Nav Landmarks</source>
-        <translation>مرشد بيان OPF أو علامات الإبحار</translation>
+        <translation>مرشد ملف المحتوى OPF أو علامات الابحار</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1806"/>
@@ -1633,7 +1633,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="203"/>
         <source>You must select an item immediately under a group to move it into the group.</source>
-        <translation>يجب أن تحدد عنصراً أسفل المجموعة مباشرة لتنقله الى المجموعة.</translation>
+        <translation>يجب أن تحدد بنداً أسفل المجموعة مباشرة لتنقله الى المجموعة.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="236"/>
@@ -2265,18 +2265,18 @@ other end to continue searching.</source>
         <location filename="../../Dialogs/Controls.cpp" line="342"/>
         <location filename="../../Dialogs/Controls.cpp" line="343"/>
         <source>OPF File</source>
-        <translation>ملف OPF</translation>
+        <translation>ملف المحتوى OPF</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="343"/>
         <source>Restrict the find or replace to the OPF file.</source>
-        <translation>أقصر البحث أو الإستبدال على ملف OPF.</translation>
+        <translation>أقصر البحث أو الاستبدال على ملف المحتوى OPF.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="345"/>
         <location filename="../../Dialogs/Controls.cpp" line="346"/>
         <source>NCX File</source>
-        <translation>ملف NCX</translation>
+        <translation>ملف التنقل NCX</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="346"/>
@@ -2423,7 +2423,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="107"/>
         <source>OPF File</source>
-        <translation>ملف OPF</translation>
+        <translation>ملف المحتوى OPF</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="108"/>
@@ -2787,7 +2787,7 @@ You can also use the right arrow key.</source>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="133"/>
         <source>Rename a folder or OPF, NCX or Nav marker.</source>
-        <translation>أعد تسمية مجلد أو مؤشّر الحزمة OPF أو المحتويات NCX أو التنقل Nav.</translation>
+        <translation>أعد تسمية مجلد أو ملف محتوى OPF أو التنقل NCX أو علامة إبحار Nav.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="136"/>
@@ -2853,17 +2853,17 @@ locations and names for the OPF, NCX and/or Nav.</source>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="150"/>
         <source>OPF file</source>
-        <translation>ملف OPF</translation>
+        <translation>ملف المحتوى OPF</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="150"/>
         <source>NCX file</source>
-        <translation>ملف NCX</translation>
+        <translation>ملف التنقل NCX</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="151"/>
         <source>Nav file</source>
-        <translation>ملف Nav</translation>
+        <translation>ملف الابحار Nav</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="224"/>
@@ -2918,7 +2918,7 @@ locations and names for the OPF, NCX and/or Nav.</source>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="467"/>
         <source>A single OPF file is required.</source>
-        <translation>المطلوب ملف OPF وحيد.</translation>
+        <translation>المطلوب ملف محتوى OPF وحيد.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="468"/>
@@ -2943,7 +2943,7 @@ locations and names for the OPF, NCX and/or Nav.</source>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="474"/>
         <source>A single NAV file is required.</source>
-        <translation>المطلوب ملف NAV وحيد.</translation>
+        <translation>المطلوب ملف إبحار NAV وحيد.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="478"/>
@@ -3334,12 +3334,12 @@ Valid only when searching HTML files.</source>
         <location filename="../../MainUI/FindReplace.cpp" line="2173"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2174"/>
         <source>OPF File</source>
-        <translation>ملف OPF</translation>
+        <translation>ملف المحتوى OPF</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2174"/>
         <source>Restrict the find or replace to the OPF file.</source>
-        <translation>أقصر البحث أو الإستبدال على ملف OPF.</translation>
+        <translation>أقصر البحث أو الاستبدال على ملف المحتوى OPF.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2176"/>
@@ -3629,7 +3629,7 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="164"/>
         <source>Number of clipboard history items to save (0 disables):</source>
-        <translation>عدد عناصر تاريخ الحافظة المحفوظة (0 يعطّلها):</translation>
+        <translation>عدد بنود تاريخ الحافظة التي ستُحفظ (0 يعطّلها):</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="179"/>
@@ -3858,7 +3858,7 @@ mended.</source>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="167"/>
         <source>A closing statement from the author or a person of importance to the story, typically providing insight into how the story came to be written, its significance or related events that have transpired since its timeline.</source>
-        <translation>كلمة ختامية من المؤلف أو من شخص ذي أهمية للقصة، وعادة تعطي كشفا عن كيف حصل وأن كُتبت القصة، مغزاها أو الأحداث ذات العلاقة والتي رشحت منذ انبثاقها.</translation>
+        <translation>كلمة خاتمة من المؤلف أو من شخص ذي أهمية للقصة، وعادة تعطي كشفاً عن كيف حصل وأن كُتبت القصة، مغزاها أو الأحداث ذات العلاقة والتي رشحت منذ انبثاقها.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="168"/>
@@ -3873,7 +3873,7 @@ mended.</source>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="169"/>
         <source>Back Matter</source>
-        <translation>مادة ماضية</translation>
+        <translation>المادة الخلفية</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="169"/>
@@ -3913,7 +3913,7 @@ mended.</source>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="173"/>
         <source>Conclusion</source>
-        <translation>خاتمة</translation>
+        <translation>الخاتمة</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="173"/>
@@ -3963,22 +3963,22 @@ mended.</source>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="178"/>
         <source>Epilogue</source>
-        <translation>اختتام</translation>
+        <translation>الاختتام</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="178"/>
         <source>A concluding section that is typically written from a later point in time than the main story, although still part of the narrative.</source>
-        <translation>مقطع اختتامي في العادة مكتوب من نقطة زمنية لاحقة على زمن القصة الرئيسية، على أنها لا تزال جزءا من القصة.</translation>
+        <translation>مقطع اختتامي في العادة مكتوب من نقطة زمنية لاحقة على زمن القصة الرئيسية، على أنها لا تزال جزءا من السرد.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="179"/>
         <source>Epigraph</source>
-        <translation>مستهل</translation>
+        <translation>العبارة التذكارية</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="179"/>
         <source>A quotation that is pertinent but not integral to the text.</source>
-        <translation>اقتباس ذو صلة بالقصة لكنه ليس جزءا من النص.</translation>
+        <translation>اقتباس ذو صلة لكنه ليس جزءا مكوّنًا في النص.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="180"/>
@@ -4003,17 +4003,17 @@ mended.</source>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="182"/>
         <source>Foreword</source>
-        <translation>تقديم</translation>
+        <translation>التمهيد</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="182"/>
         <source>An introductory section that precedes the work, typically not written by the work&apos;s author.</source>
-        <translation>مقطع تقديم يسبق العمل، عادة لا يكتبه مؤلف العمل.</translation>
+        <translation>مقطع تقديمي يسبق العمل، عادة لا يكتبه مؤلف العمل.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="183"/>
         <source>Front Matter</source>
-        <translation>مادة آتية</translation>
+        <translation>المادة الأمامية</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="183"/>
@@ -4153,12 +4153,12 @@ mended.</source>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="197"/>
         <source>Preface</source>
-        <translation>تقديم</translation>
+        <translation>التوطئة</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="197"/>
         <source>An introductory section that precedes the work, typically written by the work&apos;s author.</source>
-        <translation>مقطع مقدمة يسبق العمل، عادة يكتبه مؤلف العمل.</translation>
+        <translation>مقطع تقديمي يسبق العمل، عادة يكتبه مؤلف العمل.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="198"/>
@@ -4168,7 +4168,7 @@ mended.</source>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="198"/>
         <source>An introductory section that sets the background to a story, typically part of the narrative.</source>
-        <translation>مقطع مقدمة يعيّن الخلفية للقصة، عادة ما يكون جزءاً من القصص.</translation>
+        <translation>مقطع تقديمي يعيّن الخلفية للقصة، عادة ما يكون جزءاً من السرد.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="199"/>
@@ -4341,13 +4341,13 @@ You can also use the right arrow key.</source>
         <location filename="../../Form_Files/HeadingSelector.ui" line="142"/>
         <source>Only display the items that will be added to the Table Of Contents.
 Check or uncheck an entry to determine if it will be added to the TOC.</source>
-        <translation>إعرض فقط العناصر التي ستُضاف إلى جدول المحتويات.
-أشّر أو أزل التأشير لمُدخَل لتحدد فيما سيُضاف إلى جدول المحتويات.</translation>
+        <translation>إعرض فقط البنود التي ستُضاف إلى جدول المحتويات.
+أشّر أو أزل تأشير مُدخَل لتحدد فيما لو سيُضاف إلى جدول المحتويات.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="146"/>
         <source>Show TOC items only</source>
-        <translation>أظهر عناصر جدول المحتويات فقط</translation>
+        <translation>أظهر بنود جدول المحتويات فقط</translation>
     </message>
     <message>
         <location filename="../../Form_Files/HeadingSelector.ui" line="165"/>
@@ -4581,7 +4581,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="606"/>
         <source>Epub has missing or improperly specified OPF.</source>
-        <translation>للكتاب مؤشر حزمة OPF مفقود أو محدد بصورة غير مناسبة.</translation>
+        <translation>للكتاب ملف محتوى OPF مفقود أو محدد بصورة غير مناسبة.</translation>
     </message>
 </context>
 <context>
@@ -4926,7 +4926,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="169"/>
         <source>Back Matter</source>
-        <translation>مادة ماضية</translation>
+        <translation>المادة الخلفية</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="169"/>
@@ -4976,7 +4976,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="174"/>
         <source>Conclusion</source>
-        <translation>خاتمة</translation>
+        <translation>الخاتمة</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="174"/>
@@ -5036,22 +5036,22 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="180"/>
         <source>Epigraph</source>
-        <translation>مستهل</translation>
+        <translation>العبارة التذكارية</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="180"/>
         <source>A quotation that is pertinent but not integral to the text.</source>
-        <translation>اقتباس ذو صلة بالقصة لكنه ليس جزءا من النص.</translation>
+        <translation>اقتباس ذو صلة لكنه ليس جزءا مكوّنًا في النص.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="181"/>
         <source>Epilogue</source>
-        <translation>اختتام</translation>
+        <translation>الاختتام</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="181"/>
         <source>A concluding section that is typically written from a later point in time than the main story, although still part of the narrative.</source>
-        <translation>مقطع اختتامي في العادة مكتوب من نقطة زمنية لاحقة على زمن القصة الرئيسية، على أنها لا تزال جزءا من القصة.</translation>
+        <translation>مقطع ختامي في العادة مكتوب من نقطة زمنية لاحقة على زمن القصة الرئيسة، رغم أنها مع هذا جزء من السرد.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="182"/>
@@ -5076,7 +5076,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="184"/>
         <source>Foreword</source>
-        <translation>تقديم</translation>
+        <translation>التمهيد</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="184"/>
@@ -5086,7 +5086,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="185"/>
         <source>Front Matter</source>
-        <translation>مادة آتية</translation>
+        <translation>المادة الأمامية</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="185"/>
@@ -5241,7 +5241,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="200"/>
         <source>A major structural division of a piece of writing, typically encapsulating a set of related chapters.</source>
-        <translation>قسم تركيبي رئيس لمادة كتابية، يشتمل في المعتاد على مجموعة من الفصول المتعلقة ببعضها.</translation>
+        <translation>قسم تركيبي رئيس لمادة كتابية، يشتمل في المعتاد على زمرة من الفصول المتعلقة ببعضها.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="201"/>
@@ -5256,7 +5256,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="202"/>
         <source>Preface</source>
-        <translation>تقديم</translation>
+        <translation>التوطئة</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="202"/>
@@ -5271,7 +5271,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="203"/>
         <source>An introductory section that sets the background to a story, typically part of the narrative.</source>
-        <translation>مقطع مقدمة يعيّن الخلفية للقصة، عادة ما يكون جزءاً من القصص.</translation>
+        <translation>مقطع مقدمة يعيّن الخلفية للقصة، عادة ما يكون جزءاً من السرد.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="204"/>
@@ -7729,12 +7729,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="546"/>
         <source>Munda languages</source>
-        <translation type="unfinished"/>
+        <translation>اللغات الموندية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="547"/>
         <source>N&apos;Ko</source>
-        <translation type="unfinished"/>
+        <translation>الإنكو</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="548"/>
@@ -7749,27 +7749,27 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="550"/>
         <source>Nepal Bhasa/Newari</source>
-        <translation type="unfinished"/>
+        <translation>نيبال بهاسا\النيوارية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="551"/>
         <source>Nias</source>
-        <translation type="unfinished"/>
+        <translation>نياس</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="552"/>
         <source>Niger-Kordofanian languages</source>
-        <translation type="unfinished"/>
+        <translation>اللغات النايجر-كوردوفانية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="553"/>
         <source>Nilo-Saharan languages</source>
-        <translation type="unfinished"/>
+        <translation>لغات نيلية صحراوية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="554"/>
         <source>Niuean</source>
-        <translation type="unfinished"/>
+        <translation>النييوية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="555"/>
@@ -7779,12 +7779,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="556"/>
         <source>Nogai</source>
-        <translation type="unfinished"/>
+        <translation>نوغاي</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="557"/>
         <source>Norse- Old</source>
-        <translation type="unfinished"/>
+        <translation>النرويجية- قديمة</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="558"/>
@@ -7799,82 +7799,82 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="560"/>
         <source>Northern Sotho, Sepedi, Pedi</source>
-        <translation type="unfinished"/>
+        <translation>سوثو شمالية، سبدية، بديية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="561"/>
         <source>Nubian languages</source>
-        <translation type="unfinished"/>
+        <translation>لغات نوبية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="562"/>
         <source>Nyamwezi</source>
-        <translation type="unfinished"/>
+        <translation>النياموزية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="563"/>
         <source>Nyankole</source>
-        <translation type="unfinished"/>
+        <translation>نيانكولا</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="564"/>
         <source>Nyoro</source>
-        <translation type="unfinished"/>
+        <translation>النيوروية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="565"/>
         <source>Nzima</source>
-        <translation type="unfinished"/>
+        <translation>النزيما</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="566"/>
         <source>Occitan/Provencal- Old (to 1500)</source>
-        <translation type="unfinished"/>
+        <translation>القسطانية\البروفنسية- قديمة (إلى 1500)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="567"/>
         <source>Official/Imperial Aramaic (700-300 BCE)</source>
-        <translation type="unfinished"/>
+        <translation>الآرامية الرسمية\المَلَكية (‏700‏-‏300 ق.ح.ع)</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="568"/>
         <source>Osage</source>
-        <translation type="unfinished"/>
+        <translation>الأوسَيجية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="569"/>
         <source>Otomian languages</source>
-        <translation type="unfinished"/>
+        <translation>اللغات الأوتومية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="570"/>
         <source>Pahlavi</source>
-        <translation type="unfinished"/>
+        <translation>البهلوية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="571"/>
         <source>Palauan</source>
-        <translation type="unfinished"/>
+        <translation>البالاوية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="572"/>
         <source>Pangasinan</source>
-        <translation type="unfinished"/>
+        <translation>البانغاسينية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="573"/>
         <source>Papiamento</source>
-        <translation type="unfinished"/>
+        <translation>البابيامنتو</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="574"/>
         <source>Papuan languages</source>
-        <translation type="unfinished"/>
+        <translation>لغات البابوا</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="575"/>
         <source>Paraguayan Guaraní</source>
-        <translation type="unfinished"/>
+        <translation>الغوارانية الباراغوانية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="576"/>
@@ -7894,27 +7894,27 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="579"/>
         <source>Pohnpeian</source>
-        <translation type="unfinished"/>
+        <translation>البونبية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="580"/>
         <source>Prakrit languages</source>
-        <translation type="unfinished"/>
+        <translation>اللغات البراكريتية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="581"/>
         <source>Rajasthani</source>
-        <translation type="unfinished"/>
+        <translation>الراجاستانية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="582"/>
         <source>Rapanui</source>
-        <translation type="unfinished"/>
+        <translation>الرابانوية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="583"/>
         <source>Rarotongan, Cook Islands Maori</source>
-        <translation type="unfinished"/>
+        <translation>الراروتونغان، جزر كوك الماوري</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="584"/>
@@ -7929,17 +7929,17 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="586"/>
         <source>Romany</source>
-        <translation type="unfinished"/>
+        <translation>الرومَنية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="587"/>
         <source>Salishan languages</source>
-        <translation type="unfinished"/>
+        <translation>لغات ساليشان</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="588"/>
         <source>Samaritan Aramaic</source>
-        <translation type="unfinished"/>
+        <translation>الآرامية السامرية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="589"/>
@@ -7949,7 +7949,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="590"/>
         <source>Sandawe</source>
-        <translation type="unfinished"/>
+        <translation>السانداوية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="591"/>
@@ -7959,27 +7959,27 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="592"/>
         <source>Sasak</source>
-        <translation type="unfinished"/>
+        <translation>الساساكية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="593"/>
         <source>Scots</source>
-        <translation type="unfinished"/>
+        <translation>الاسكتلندية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="594"/>
         <source>Selkup</source>
-        <translation type="unfinished"/>
+        <translation>السيلكوبية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="595"/>
         <source>Semitic languages</source>
-        <translation type="unfinished"/>
+        <translation>اللغات السامية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="596"/>
         <source>Serer</source>
-        <translation type="unfinished"/>
+        <translation>السيريرية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="597"/>
@@ -7989,32 +7989,32 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="598"/>
         <source>Sicilian</source>
-        <translation type="unfinished"/>
+        <translation>الصقلية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="599"/>
         <source>Sidamo</source>
-        <translation type="unfinished"/>
+        <translation>السيداما</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="600"/>
         <source>Sign Languages</source>
-        <translation type="unfinished"/>
+        <translation>لغات الإشارة</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="601"/>
         <source>Siksika</source>
-        <translation type="unfinished"/>
+        <translation>السيكسيكا</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="602"/>
         <source>Sino-Tibetan languages</source>
-        <translation type="unfinished"/>
+        <translation>اللغات الصينية التبتية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="603"/>
         <source>Siouan languages</source>
-        <translation type="unfinished"/>
+        <translation>اللغات السيووية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="604"/>
@@ -8034,17 +8034,17 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="607"/>
         <source>Sogdian</source>
-        <translation type="unfinished"/>
+        <translation>الصغدية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="608"/>
         <source>Songhai languages</source>
-        <translation type="unfinished"/>
+        <translation>اللغات الصنغايية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="609"/>
         <source>Soninke</source>
-        <translation type="unfinished"/>
+        <translation>السوننكية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="610"/>
@@ -8059,7 +8059,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="612"/>
         <source>Southern Altai</source>
-        <translation type="unfinished"/>
+        <translation>ألتاي الجنوبية</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="613"/>
@@ -8310,12 +8310,12 @@ Use Preferences-&gt;Spellcheck Dictionaries to set the Spellcheck dictionary.</s
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="57"/>
         <source>Set the default language used by the Metadata Editor for new books.</source>
-        <translation>اضبط اللغة الافتراضية التي يستخدمها محرر البيانات الوصفية للكتب الجديدة.</translation>
+        <translation>اضبط اللغة الافتراضية التي يستخدمها محرر البيانات الفوقية للكتب الجديدة.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="60"/>
         <source>Default Language For Metadata:</source>
-        <translation>اللغة الافتراضية للبيانات الوصفية:</translation>
+        <translation>اللغة الافتراضية للبيانات الفوقية:</translation>
     </message>
 </context>
 <context>
@@ -8538,12 +8538,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="58"/>
         <source>&amp;File</source>
-        <translation>&amp;‍ملف</translation>
+        <translation>&amp;ملف</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="62"/>
         <source>A&amp;dd</source>
-        <translation>إ‍&amp;ضافة</translation>
+        <translation>أ&amp;ضف</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="73"/>
@@ -8558,12 +8558,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="101"/>
         <source>C&amp;hange Case</source>
-        <translation>تغيير &amp;حالة الحروف</translation>
+        <translation>غيّر &amp;حالة الحروف</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="126"/>
         <source>&amp;Insert</source>
-        <translation>إد&amp;‍راج</translation>
+        <translation>أد&amp;رج</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="130"/>
@@ -8583,7 +8583,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="223"/>
         <source>For&amp;mat</source>
-        <translation>تنسي&amp;‍ق</translation>
+        <translation>تنسي&amp;ق</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="227"/>
@@ -8593,7 +8593,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="268"/>
         <source>&amp;View</source>
-        <translation>م&amp;‍شاهدة</translation>
+        <translation>م&amp;عاينة</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="272"/>
@@ -8613,7 +8613,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="322"/>
         <source>&amp;Window</source>
-        <translation>ناف&amp;‍ذة</translation>
+        <translation>ناف&amp;ذة</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="334"/>
@@ -8646,174 +8646,174 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation>أدوات Epub&amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="407"/>
+        <location filename="../../Form_Files/main.ui" line="408"/>
         <source>&amp;Plugins</source>
         <translation>إ&amp;ضافات</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="413"/>
+        <location filename="../../Form_Files/main.ui" line="414"/>
         <source>Chec&amp;kpoints</source>
         <translation>نقاط تح&amp;قق</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="439"/>
+        <location filename="../../Form_Files/main.ui" line="440"/>
         <source>New</source>
         <translation>جديد</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="453"/>
+        <location filename="../../Form_Files/main.ui" line="454"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1607"/>
         <source>File</source>
         <translation>ملف</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="467"/>
+        <location filename="../../Form_Files/main.ui" line="468"/>
         <source>Add Existing</source>
         <translation>إضافة موجود</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="480"/>
+        <location filename="../../Form_Files/main.ui" line="481"/>
         <source>Checkpoints</source>
         <translation>نقاط التحقق</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="495"/>
+        <location filename="../../Form_Files/main.ui" line="496"/>
         <source>Index</source>
         <translation>الفهرس</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="511"/>
+        <location filename="../../Form_Files/main.ui" line="512"/>
         <source>Undo/Redo</source>
         <translation>تراجع/إعادة</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="525"/>
+        <location filename="../../Form_Files/main.ui" line="526"/>
         <location filename="../../MainUI/MainWindow.cpp" line="612"/>
         <source>Edit</source>
         <translation>تحرير</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="541"/>
+        <location filename="../../Form_Files/main.ui" line="542"/>
         <source>External Editor</source>
         <translation>محرر خارجي</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="554"/>
+        <location filename="../../Form_Files/main.ui" line="555"/>
         <source>Find</source>
         <translation>إيجاد</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="568"/>
+        <location filename="../../Form_Files/main.ui" line="569"/>
         <source>Insert</source>
         <translation>إضافة</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="585"/>
+        <location filename="../../Form_Files/main.ui" line="586"/>
         <source>Back</source>
         <translation>عودة</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="598"/>
+        <location filename="../../Form_Files/main.ui" line="599"/>
         <source>Donate</source>
         <translation>تبرع</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="610"/>
+        <location filename="../../Form_Files/main.ui" line="611"/>
         <source>Tools</source>
         <translation>ادوات</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="625"/>
+        <location filename="../../Form_Files/main.ui" line="626"/>
         <source>Plugins Set 1</source>
-        <translation>مجموعة الإضافات 1</translation>
+        <translation>زمرة الإضافات 1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="641"/>
+        <location filename="../../Form_Files/main.ui" line="642"/>
         <source>Plugins Set 2</source>
-        <translation>مجموعة الإضافات 2</translation>
+        <translation>زمرة الإضافات 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="657"/>
+        <location filename="../../Form_Files/main.ui" line="658"/>
         <source>Automation Lists</source>
         <translation>قوائم التشغيل التلقائي</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="671"/>
+        <location filename="../../Form_Files/main.ui" line="672"/>
         <source>Automation List 1</source>
         <translation>قائمة تشغيل تلقائي 1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="682"/>
+        <location filename="../../Form_Files/main.ui" line="683"/>
         <source>Automation List 2</source>
         <translation>قائمة تشغيل تلقائي 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="693"/>
+        <location filename="../../Form_Files/main.ui" line="694"/>
         <source>Automation List 3</source>
         <translation>قائمة تشغيل تلقائي 3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="701"/>
+        <location filename="../../Form_Files/main.ui" line="702"/>
         <source>Heading</source>
         <translation>الترويس</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="715"/>
+        <location filename="../../Form_Files/main.ui" line="716"/>
         <source>Set Heading Level of Selected Text</source>
         <translation>اضبط مستوى الترويس للنص المحدد</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="728"/>
+        <location filename="../../Form_Files/main.ui" line="729"/>
         <source>Format</source>
         <translation>الهيئة</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="745"/>
+        <location filename="../../Form_Files/main.ui" line="746"/>
         <source>Align</source>
         <translation>محاذاة</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="760"/>
+        <location filename="../../Form_Files/main.ui" line="761"/>
         <source>List</source>
         <translation>قائمة</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="773"/>
+        <location filename="../../Form_Files/main.ui" line="774"/>
         <source>Indent</source>
         <translation>البادئة</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="786"/>
+        <location filename="../../Form_Files/main.ui" line="787"/>
         <source>Change Case</source>
         <translation>تغيير حالة الحروف</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="800"/>
+        <location filename="../../Form_Files/main.ui" line="801"/>
         <source>Set Case of Selected Text</source>
         <translation>عيّن حالة الحروف للنص المحدد</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="810"/>
+        <location filename="../../Form_Files/main.ui" line="811"/>
         <source>Text Direction</source>
         <translation>اتجاه النص</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="824"/>
+        <location filename="../../Form_Files/main.ui" line="825"/>
         <source>Clip Bar</source>
         <translation>شريط المقاطع</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="865"/>
+        <location filename="../../Form_Files/main.ui" line="866"/>
         <source>Clip Bar2</source>
         <translation>شريط المقاطع2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="911"/>
+        <location filename="../../Form_Files/main.ui" line="912"/>
         <source>New Default</source>
         <translation>جديد مبدئي</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="914"/>
+        <location filename="../../Form_Files/main.ui" line="915"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new default book.&lt;/p&gt;</source>
@@ -8822,17 +8822,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;أنشيء كتابا مبدئيا جديدا.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="919"/>
+        <location filename="../../Form_Files/main.ui" line="920"/>
         <source>Ctrl+N</source>
         <translation>تحكم+ى</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="929"/>
+        <location filename="../../Form_Files/main.ui" line="930"/>
         <source>ePub&amp;2</source>
         <translation>ePub&amp;2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="932"/>
+        <location filename="../../Form_Files/main.ui" line="933"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New ePub2&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new ePub2 book.&lt;/p&gt;</source>
@@ -8841,12 +8841,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;أنشيء كتاب ePub2 جديد.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="944"/>
+        <location filename="../../Form_Files/main.ui" line="945"/>
         <source>ePub&amp;3</source>
         <translation>ePub&amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="947"/>
+        <location filename="../../Form_Files/main.ui" line="948"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New ePub3&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new ePub3 book.&lt;/p&gt;</source>
@@ -8855,12 +8855,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;أنشيء كتاب ePub3 جديد.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="959"/>
+        <location filename="../../Form_Files/main.ui" line="960"/>
         <source>&amp;Save</source>
         <translation>حف‍&amp;ظ</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="962"/>
+        <location filename="../../Form_Files/main.ui" line="963"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book.&lt;/p&gt;</source>
@@ -8869,17 +8869,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;احفظ الكتاب الحالي.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="967"/>
+        <location filename="../../Form_Files/main.ui" line="968"/>
         <source>Ctrl+S</source>
         <translation>تحكم+ح</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="972"/>
+        <location filename="../../Form_Files/main.ui" line="973"/>
         <source>Save &amp;As...</source>
         <translation>حفظ &amp;بإسم...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="975"/>
+        <location filename="../../Form_Files/main.ui" line="976"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save As&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book with a different filename.&lt;/p&gt;</source>
@@ -8888,27 +8888,27 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;احفظ الكتاب الحالي بإسم ملف مختلف.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="980"/>
+        <location filename="../../Form_Files/main.ui" line="981"/>
         <source>Ctrl+Shift+S</source>
         <translation>تحكم+تبديل+ح</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="985"/>
+        <location filename="../../Form_Files/main.ui" line="986"/>
         <source>Save A &amp;Copy...</source>
         <translation>حفظ &amp;نسخة...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="988"/>
+        <location filename="../../Form_Files/main.ui" line="989"/>
         <source>Save a copy of your book to another file name.</source>
         <translation>حفظ نسخة من كتابك بإسم ملف آخر.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="997"/>
+        <location filename="../../Form_Files/main.ui" line="998"/>
         <source>Cu&amp;t</source>
-        <translation>&amp;‍قص</translation>
+        <translation>&amp;قص</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1000"/>
+        <location filename="../../Form_Files/main.ui" line="1001"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Cut&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cuts the selected text from the document and puts it on the clipboard.&lt;/p&gt;</source>
@@ -8917,12 +8917,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;يقصّ النص المحدد من المستند ويضعه في الحافظة.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1011"/>
+        <location filename="../../Form_Files/main.ui" line="1012"/>
         <source>&amp;Paste</source>
         <translation>ل‍&amp;صق</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1014"/>
+        <location filename="../../Form_Files/main.ui" line="1015"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paste&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Pastes the content from the clipboard into the book.&lt;/p&gt;</source>
@@ -8931,27 +8931,27 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;يلصق المحتوى من الحافظة الى الكتاب.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1021"/>
+        <location filename="../../Form_Files/main.ui" line="1022"/>
         <source>&amp;Closing Tag</source>
         <translation>&amp;وسم إغلاق</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1024"/>
+        <location filename="../../Form_Files/main.ui" line="1025"/>
         <source>Insert a closing tag in Code View.</source>
         <translation>أدرج وسم إغلاق في معاينة الشفرة.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1027"/>
+        <location filename="../../Form_Files/main.ui" line="1028"/>
         <source>Ctrl+.</source>
         <translation>تحكم+.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1036"/>
+        <location filename="../../Form_Files/main.ui" line="1037"/>
         <source>&amp;Undo</source>
         <translation>ت‍&amp;راجع</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1039"/>
+        <location filename="../../Form_Files/main.ui" line="1040"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Undo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Reverts the changes of the previous operation.&lt;/p&gt;</source>
@@ -8960,17 +8960,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;يعكس تغييرات العملية السابقة.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1044"/>
+        <location filename="../../Form_Files/main.ui" line="1045"/>
         <source>Ctrl+Z</source>
         <translation>تحكم+ت</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1053"/>
+        <location filename="../../Form_Files/main.ui" line="1054"/>
         <source>&amp;Redo</source>
         <translation>إ‍&amp;عادة</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1056"/>
+        <location filename="../../Form_Files/main.ui" line="1057"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Redo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restores the changes reverted by the previous Undo action.&lt;/p&gt;</source>
@@ -8979,17 +8979,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;يستعيد التغييرات المعكوسة بإجراء التراجع السابق.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1061"/>
+        <location filename="../../Form_Files/main.ui" line="1062"/>
         <source>Ctrl+Y</source>
         <translation>تحكم+ك</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1070"/>
+        <location filename="../../Form_Files/main.ui" line="1071"/>
         <source>&amp;Copy</source>
-        <translation>&amp;‍نسخ</translation>
+        <translation>&amp;نسخ</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1073"/>
+        <location filename="../../Form_Files/main.ui" line="1074"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Copy&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Copies the selected text and puts it on the clipboard.&lt;/p&gt;</source>
@@ -8998,12 +8998,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;ينسخ النص المحدد ويضعه في الحافظة.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1087"/>
+        <location filename="../../Form_Files/main.ui" line="1088"/>
         <source>Align &amp;Left</source>
         <translation>محاذاة يس‍&amp;ارا</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1090"/>
+        <location filename="../../Form_Files/main.ui" line="1091"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Left&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the left.&lt;/p&gt;</source>
@@ -9012,12 +9012,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;حاذِ المقطع إلى اليسار.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1104"/>
+        <location filename="../../Form_Files/main.ui" line="1105"/>
         <source>Align &amp;Right</source>
         <translation>محاذاة ي‍&amp;م‍ينا</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1107"/>
+        <location filename="../../Form_Files/main.ui" line="1108"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Right&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the right.&lt;/p&gt;</source>
@@ -9026,12 +9026,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;حاذِ المقطع إلى اليمين.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1121"/>
+        <location filename="../../Form_Files/main.ui" line="1122"/>
         <source>&amp;Center</source>
         <translation>&amp;توسيط</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1124"/>
+        <location filename="../../Form_Files/main.ui" line="1125"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Center&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Center the paragraph.&lt;/p&gt;</source>
@@ -9040,17 +9040,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;وسّط المقطع.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1129"/>
+        <location filename="../../Form_Files/main.ui" line="1130"/>
         <source>Ctrl+E</source>
         <translation>تحكم+و</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1141"/>
+        <location filename="../../Form_Files/main.ui" line="1142"/>
         <source>&amp;Justify</source>
         <translation>&amp;ضبط المحاذاة</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1144"/>
+        <location filename="../../Form_Files/main.ui" line="1145"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Justify&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to both the left and right margins.&lt;/p&gt;</source>
@@ -9059,17 +9059,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;اضبط المقطع إلى كل من الحواشي اليسرى واليمنى.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1149"/>
+        <location filename="../../Form_Files/main.ui" line="1150"/>
         <source>Ctrl+J</source>
         <translation>تحكم+خ</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1161"/>
+        <location filename="../../Form_Files/main.ui" line="1162"/>
         <source>&amp;Bold</source>
         <translation>&amp;ثخين</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1164"/>
+        <location filename="../../Form_Files/main.ui" line="1165"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bold&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text bold.&lt;/p&gt;</source>
@@ -9078,17 +9078,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;اجعل النص المحدد غامقاً.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1169"/>
+        <location filename="../../Form_Files/main.ui" line="1170"/>
         <source>Ctrl+B</source>
         <translation>تحكم+ث</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1181"/>
+        <location filename="../../Form_Files/main.ui" line="1182"/>
         <source>&amp;Italic</source>
         <translation>&amp;مائل</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1184"/>
+        <location filename="../../Form_Files/main.ui" line="1185"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Italic&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text italic.&lt;/p&gt;</source>
@@ -9097,17 +9097,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;اجعل النص المحدد مائلاً.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1189"/>
+        <location filename="../../Form_Files/main.ui" line="1190"/>
         <source>Ctrl+I</source>
         <translation>تحكم+م</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1198"/>
+        <location filename="../../Form_Files/main.ui" line="1199"/>
         <source>&amp;Open...</source>
         <translation>&amp;فتح...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1201"/>
+        <location filename="../../Form_Files/main.ui" line="1202"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Open&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Open a book from disk.&lt;/p&gt;</source>
@@ -9116,17 +9116,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;افتح كتاباً من القرص.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1206"/>
+        <location filename="../../Form_Files/main.ui" line="1207"/>
         <source>Ctrl+O</source>
         <translation>تحكم+ف</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1218"/>
+        <location filename="../../Form_Files/main.ui" line="1219"/>
         <source>&amp;Underline</source>
         <translation>&amp;تحته خط</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1221"/>
+        <location filename="../../Form_Files/main.ui" line="1222"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Underline&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Underline the selected text.&lt;/p&gt;</source>
@@ -9135,42 +9135,42 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;ضع خطاً تحت النص المحدد.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1226"/>
+        <location filename="../../Form_Files/main.ui" line="1227"/>
         <source>Ctrl+U</source>
         <translation>تحكم+خ</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1238"/>
+        <location filename="../../Form_Files/main.ui" line="1239"/>
         <source>&amp;Quit</source>
         <translation>إن‍&amp;هاء</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1241"/>
+        <location filename="../../Form_Files/main.ui" line="1242"/>
         <source>Exit</source>
         <translation>خروج</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1244"/>
+        <location filename="../../Form_Files/main.ui" line="1245"/>
         <source>Ctrl+Q</source>
         <translation>تحكم+غ</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1256"/>
+        <location filename="../../Form_Files/main.ui" line="1257"/>
         <source>&amp;About...</source>
         <translation>&amp;حول...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1259"/>
+        <location filename="../../Form_Files/main.ui" line="1260"/>
         <source>Show information about Sigil.</source>
         <translation>أظهِر معلومات عن سيغل Sigil.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1264"/>
+        <location filename="../../Form_Files/main.ui" line="1265"/>
         <source>Add &amp;Cover...</source>
         <translation>أضِف &amp;غ‍لافًا...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1267"/>
+        <location filename="../../Form_Files/main.ui" line="1268"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Cover&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add a cover.&lt;/p&gt;</source>
@@ -9179,31 +9179,31 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;أضف غلافاً.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1278"/>
+        <location filename="../../Form_Files/main.ui" line="1279"/>
         <source>&amp;Metadata Editor...</source>
-        <translation>&amp;م‍حرر البيانات الوصفية...</translation>
+        <translation>&amp;م‍حرر البيانات الفوقية...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1281"/>
+        <location filename="../../Form_Files/main.ui" line="1282"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Metadata Editor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display information about your book including the author and title.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;محرر البيانات الوصفية&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;محرر البيانات الفوقية&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;حرر واعرض معلومات عن كتابك بضمنها المؤلف والعنوان.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1286"/>
+        <location filename="../../Form_Files/main.ui" line="1287"/>
         <source>F8</source>
         <translation>F8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1295"/>
+        <location filename="../../Form_Files/main.ui" line="1296"/>
         <source>&amp;Generate Table Of Contents...</source>
         <translation>‍&amp;ولّد جدول محتويات...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1298"/>
+        <location filename="../../Form_Files/main.ui" line="1299"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Generate Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Generate a new Table of Contents from headings in your book.&lt;/p&gt;</source>
@@ -9212,17 +9212,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;ولّد جدول محتويات جديد من الترويسات في كتابك.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1303"/>
+        <location filename="../../Form_Files/main.ui" line="1304"/>
         <source>Ctrl+T</source>
         <translation>تحكم+ج</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1312"/>
+        <location filename="../../Form_Files/main.ui" line="1313"/>
         <source>&amp;Edit Table Of Contents...</source>
         <translation>&amp;ت‍حرير جدول المحتويات...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1315"/>
+        <location filename="../../Form_Files/main.ui" line="1316"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Edit Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Directly edit the existing Table of Contents.&lt;/p&gt;</source>
@@ -9231,12 +9231,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;مباشرة عدّل جدول المحتويات الموجود.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1326"/>
+        <location filename="../../Form_Files/main.ui" line="1327"/>
         <source>&amp;Split At Cursor</source>
         <translation>تقسيم عند علامة ال‍&amp;فأرة</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1329"/>
+        <location filename="../../Form_Files/main.ui" line="1330"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Split At Cursor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Split the current file into two files using your cursor location as the dividing point.&lt;/p&gt;</source>
@@ -9245,17 +9245,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;تقسيم الملف الحالي إلى ملفين باستخدام موضع مؤشر الفأرة كنقطة تقسيم.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1334"/>
+        <location filename="../../Form_Files/main.ui" line="1335"/>
         <source>Ctrl+Return</source>
         <translation>تحكم+م‌إرجاع</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1343"/>
+        <location filename="../../Form_Files/main.ui" line="1344"/>
         <source>&amp;File...</source>
         <translation>&amp;ملف...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1346"/>
+        <location filename="../../Form_Files/main.ui" line="1347"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert File&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select image, video or audio files from your book to insert into the text.&lt;/p&gt;
@@ -9268,17 +9268,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;يمكنك إضافة ملفات إلى كتابك باستخدام القائمة ملف - إضافة - ملفات موجودة.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1353"/>
+        <location filename="../../Form_Files/main.ui" line="1354"/>
         <source>Ctrl+Shift+I</source>
         <translation>تحكم+تحويل+ر</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1362"/>
+        <location filename="../../Form_Files/main.ui" line="1363"/>
         <source>&amp;Special Character...</source>
         <translation>محرف &amp;خاص...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1365"/>
+        <location filename="../../Form_Files/main.ui" line="1366"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Special Character&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select a character to insert into your text.&lt;/p&gt;</source>
@@ -9287,12 +9287,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;حدد محرفاً لإدراجه في النص.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1376"/>
+        <location filename="../../Form_Files/main.ui" line="1377"/>
         <source>I&amp;D...</source>
         <translation>م‍&amp;عرِّف...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1379"/>
+        <location filename="../../Form_Files/main.ui" line="1380"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert ID&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with an ID name to use as a link target.&lt;/p&gt;</source>
@@ -9301,12 +9301,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;أدرج أو حرر مرساة بإسم معرّف لاستخدامها كوجهة رابط.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1390"/>
+        <location filename="../../Form_Files/main.ui" line="1391"/>
         <source>&amp;Link...</source>
         <translation>&amp;رابط...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1393"/>
+        <location filename="../../Form_Files/main.ui" line="1394"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Link&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with a hyperlink to a target.&lt;/p&gt;</source>
@@ -9315,12 +9315,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;أدرج أو حرر مرساة لها ارتباط تشعبي الى وجهة.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1407"/>
+        <location filename="../../Form_Files/main.ui" line="1408"/>
         <source>&amp;Numbered List</source>
         <translation>لائحة بأر&amp;قام</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1410"/>
+        <location filename="../../Form_Files/main.ui" line="1411"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Numbering&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a numbered list.&lt;/p&gt;</source>
@@ -9329,12 +9329,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;أنشيء لائحة مرقمة.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1424"/>
+        <location filename="../../Form_Files/main.ui" line="1425"/>
         <source>Bulle&amp;ted List</source>
         <translation>لائحة برم‍&amp;وز</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1427"/>
+        <location filename="../../Form_Files/main.ui" line="1428"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bullets&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a bulleted list.&lt;/p&gt;</source>
@@ -9343,17 +9343,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;أنشيء لائحة نقطية.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1432"/>
+        <location filename="../../Form_Files/main.ui" line="1433"/>
         <source>Ctrl+Shift+L</source>
         <translation>تحكم+تحويل+ق</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1444"/>
+        <location filename="../../Form_Files/main.ui" line="1445"/>
         <source>Stri&amp;kethrough</source>
         <translation>ش‍&amp;ط‍ب</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1447"/>
+        <location filename="../../Form_Files/main.ui" line="1448"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Strikethrough&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draw a line through the selected text.&lt;/p&gt;</source>
@@ -9362,12 +9362,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;ارسم خطاً عبر النص المحدد.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1461"/>
+        <location filename="../../Form_Files/main.ui" line="1462"/>
         <source>&amp;Subscript</source>
         <translation>نص &amp;سفلي</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1464"/>
+        <location filename="../../Form_Files/main.ui" line="1465"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Subscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and below the normal line.&lt;/p&gt;</source>
@@ -9376,12 +9376,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;اجعل النص المحدد أصغر قليلاً وأسفل السطر الإعتيادي.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1478"/>
+        <location filename="../../Form_Files/main.ui" line="1479"/>
         <source>Su&amp;perscript</source>
         <translation>نص &amp;علوي</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1481"/>
+        <location filename="../../Form_Files/main.ui" line="1482"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Superscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and above the normal line.&lt;/p&gt;</source>
@@ -9390,98 +9390,98 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;اجعل النص المحدد أصغر قليلاً وأعلى السطر الإعتيادي.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1492"/>
+        <location filename="../../Form_Files/main.ui" line="1493"/>
         <source>&amp;Print...</source>
         <translation>&amp;طباعة...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1495"/>
+        <location filename="../../Form_Files/main.ui" line="1496"/>
         <source>Print</source>
         <translation>طباعة</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1498"/>
+        <location filename="../../Form_Files/main.ui" line="1499"/>
         <source>Ctrl+P</source>
         <translation>تحكم+ط</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1507"/>
+        <location filename="../../Form_Files/main.ui" line="1508"/>
         <source>Print Pre&amp;view...</source>
         <translation>م‍&amp;عاينة الطباعة...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1510"/>
+        <location filename="../../Form_Files/main.ui" line="1511"/>
         <source>Print Preview</source>
         <translation>م‍عاينة الطباعة</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1515"/>
-        <location filename="../../Form_Files/main.ui" line="1518"/>
+        <location filename="../../Form_Files/main.ui" line="1516"/>
+        <location filename="../../Form_Files/main.ui" line="1519"/>
         <source>Close</source>
         <translation>اغلاق</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1521"/>
+        <location filename="../../Form_Files/main.ui" line="1522"/>
         <source>Ctrl+Shift+W</source>
         <translation>تحكم+تبديل+ص</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1526"/>
+        <location filename="../../Form_Files/main.ui" line="1527"/>
         <source>Restructure Epub to Sigil Norm</source>
         <translation>هيكلة الكتاب الى ضوابط سيغل</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1529"/>
+        <location filename="../../Form_Files/main.ui" line="1530"/>
         <source>Restructure Epub to Sigil Standard Form</source>
         <translation>هيكلة الكتاب الى الشكل القياسي لسيغل</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1534"/>
+        <location filename="../../Form_Files/main.ui" line="1535"/>
         <source>Rebase OPF Manifest IDs on Current Filenames</source>
-        <translation>أعِد اعتماد معرّفات ملف بيان OPF على أسماء الملفات الحالية</translation>
+        <translation>أعِد اعتماد معرّفات ملف المحتوى OPF على أسماء الملفات الحالية</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1537"/>
+        <location filename="../../Form_Files/main.ui" line="1538"/>
         <source>Updates each Manifest ID to reflect its current file name</source>
         <translation>يحدّث كل معرّف بيان ليعكس اسم ملفه الحالي</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1546"/>
+        <location filename="../../Form_Files/main.ui" line="1547"/>
         <source>Zoom &amp;In</source>
         <translation>ت‍&amp;ك‍بير</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1549"/>
+        <location filename="../../Form_Files/main.ui" line="1550"/>
         <source>Zoom In</source>
         <translation>تكبير</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1552"/>
+        <location filename="../../Form_Files/main.ui" line="1553"/>
         <source>Ctrl+=</source>
         <translation>تحكم+=</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1561"/>
+        <location filename="../../Form_Files/main.ui" line="1562"/>
         <source>Zoom &amp;Out</source>
         <translation>ت‍&amp;ص‍غير</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1564"/>
+        <location filename="../../Form_Files/main.ui" line="1565"/>
         <source>Zoom Out</source>
         <translation>تصغير</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1567"/>
+        <location filename="../../Form_Files/main.ui" line="1568"/>
         <source>Ctrl+-</source>
         <translation>تحكم+-</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1576"/>
+        <location filename="../../Form_Files/main.ui" line="1577"/>
         <source>&amp;Find &amp;&amp; Replace...</source>
         <translation>&amp;إيجاد &amp;&amp; استبدال...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1579"/>
+        <location filename="../../Form_Files/main.ui" line="1580"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find and replace text in the document.&lt;/p&gt;</source>
@@ -9490,17 +9490,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;إيجاد واستبدال النص في الوثيقة.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1584"/>
+        <location filename="../../Form_Files/main.ui" line="1585"/>
         <source>Ctrl+F</source>
         <translation>تحكم+ب</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1593"/>
+        <location filename="../../Form_Files/main.ui" line="1594"/>
         <source>Incre&amp;ase Indent</source>
         <translation>زيا&amp;دة البادئة</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1596"/>
+        <location filename="../../Form_Files/main.ui" line="1597"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Increase Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Increase the indent level of the paragraph.&lt;/p&gt;</source>
@@ -9509,17 +9509,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;أزد مستوى البادئة للمقطع.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1601"/>
+        <location filename="../../Form_Files/main.ui" line="1602"/>
         <source>Ctrl+Alt+M</source>
         <translation>تحكم+تحويل+ص</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1610"/>
+        <location filename="../../Form_Files/main.ui" line="1611"/>
         <source>&amp;Decrease Indent</source>
         <translation>إنقا&amp;ص البادئة</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1613"/>
+        <location filename="../../Form_Files/main.ui" line="1614"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Decrease Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Decrease the indent level of the paragraph.&lt;/p&gt;</source>
@@ -9528,18 +9528,18 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;أنقص مستوى البادئة للمقطع.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1618"/>
-        <location filename="../../Form_Files/main.ui" line="2058"/>
+        <location filename="../../Form_Files/main.ui" line="1619"/>
+        <location filename="../../Form_Files/main.ui" line="2059"/>
         <source>Ctrl+Shift+M</source>
         <translation>تحكم+تحويل+ص</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1627"/>
+        <location filename="../../Form_Files/main.ui" line="1628"/>
         <source>Te&amp;xt Direction LTR</source>
         <translation>إتجاه النص يسا&amp;ر إلى يمين</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1630"/>
+        <location filename="../../Form_Files/main.ui" line="1631"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Left-to-Right&lt;/b&gt;&lt;/p&gt;
 
@@ -9552,12 +9552,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1643"/>
+        <location filename="../../Form_Files/main.ui" line="1644"/>
         <source>T&amp;ext Direction RTL</source>
         <translation>إتجاه النص يمي‍&amp;ن إلى يسار</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1646"/>
+        <location filename="../../Form_Files/main.ui" line="1647"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Right-to-Left&lt;/b&gt;&lt;/p&gt;
 
@@ -9570,12 +9570,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1659"/>
+        <location filename="../../Form_Files/main.ui" line="1660"/>
         <source>Text Directi&amp;on Default</source>
         <translation>إتجاه النص م‍&amp;ب‍دئي</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1662"/>
+        <location filename="../../Form_Files/main.ui" line="1663"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Default&lt;/b&gt;&lt;/p&gt;
 
@@ -9588,22 +9588,22 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1671"/>
+        <location filename="../../Form_Files/main.ui" line="1672"/>
         <source>Remove &amp;Formatting</source>
         <translation>إزا&amp;ل‍ة التنسيق</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1674"/>
+        <location filename="../../Form_Files/main.ui" line="1675"/>
         <source>Ctrl+Space</source>
         <translation>تحكم+فراغ</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1683"/>
+        <location filename="../../Form_Files/main.ui" line="1684"/>
         <source>Remove Tag Pair</source>
         <translation>أزِل زوج الوسوم</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1686"/>
+        <location filename="../../Form_Files/main.ui" line="1687"/>
         <source>
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Remove Open and Close Tag Pair.&lt;/p&gt;
     </source>
@@ -9612,12 +9612,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1697"/>
+        <location filename="../../Form_Files/main.ui" line="1698"/>
         <source>&amp;Lowercase</source>
         <translation>حروف &amp;صغيرة</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1700"/>
+        <location filename="../../Form_Files/main.ui" line="1701"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Lowercase&lt;/b&gt;&lt;/p&gt;
 
@@ -9630,17 +9630,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1707"/>
+        <location filename="../../Form_Files/main.ui" line="1708"/>
         <source>Ctrl+Alt+L</source>
         <translation>تحكم+تحويل+غ</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1716"/>
+        <location filename="../../Form_Files/main.ui" line="1717"/>
         <source>&amp;Uppercase</source>
         <translation>حروف &amp;كبيرة</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1719"/>
+        <location filename="../../Form_Files/main.ui" line="1720"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Uppercase&lt;/b&gt;&lt;/p&gt;
 
@@ -9653,17 +9653,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1726"/>
+        <location filename="../../Form_Files/main.ui" line="1727"/>
         <source>Ctrl+Alt+U</source>
         <translation>تحكم+تحويل+ب</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1735"/>
+        <location filename="../../Form_Files/main.ui" line="1736"/>
         <source>&amp;Titlecase</source>
         <translation>حالة &amp;عنوان</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1738"/>
+        <location filename="../../Form_Files/main.ui" line="1739"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Titlecase&lt;/b&gt;&lt;/p&gt;
 
@@ -9676,12 +9676,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1751"/>
+        <location filename="../../Form_Files/main.ui" line="1752"/>
         <source>&amp;Capitalize</source>
         <translation>ال‍&amp;بدأ كبيرا</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1754"/>
+        <location filename="../../Form_Files/main.ui" line="1755"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Capitalize&lt;/b&gt;&lt;/p&gt;
 
@@ -9694,127 +9694,127 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1763"/>
+        <location filename="../../Form_Files/main.ui" line="1764"/>
         <source>Sigil Website...</source>
         <translation>موقع سيغل...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1768"/>
+        <location filename="../../Form_Files/main.ui" line="1769"/>
         <source>&amp;Next Tab</source>
         <translation>اللسان ال‍&amp;ت‍الي</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1771"/>
+        <location filename="../../Form_Files/main.ui" line="1772"/>
         <source>Ctrl+PgUp</source>
         <translation>تحكم+صفحة أعلى</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1776"/>
+        <location filename="../../Form_Files/main.ui" line="1777"/>
         <source>&amp;Previous Tab</source>
         <translation>اللسان السا&amp;ب‍ق</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1779"/>
+        <location filename="../../Form_Files/main.ui" line="1780"/>
         <source>Ctrl+PgDown</source>
         <translation>تحكم+صفحة أسفل</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1784"/>
+        <location filename="../../Form_Files/main.ui" line="1785"/>
         <source>&amp;Close Tab</source>
         <translation>&amp;غ‍لق اللسان</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1787"/>
+        <location filename="../../Form_Files/main.ui" line="1788"/>
         <source>Ctrl+W</source>
         <translation>تحكم+ص</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1792"/>
+        <location filename="../../Form_Files/main.ui" line="1793"/>
         <source>Split At &amp;Markers</source>
         <translation>تقسيم عند المؤ&amp;شرات</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1795"/>
+        <location filename="../../Form_Files/main.ui" line="1796"/>
         <source>Split At Sigil split file markers</source>
         <translation>تقسيم عند مؤشرات سيغل لتقسيم الملفات</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1798"/>
+        <location filename="../../Form_Files/main.ui" line="1799"/>
         <source>F6</source>
         <translation>F6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1803"/>
+        <location filename="../../Form_Files/main.ui" line="1804"/>
         <source>Split &amp;Marker</source>
         <translation>مؤ&amp;شر تقسيم</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1806"/>
+        <location filename="../../Form_Files/main.ui" line="1807"/>
         <source>Insert Sigil split file marker</source>
         <translation>إدراج علامة سيغل لتقسيم الملف</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1809"/>
+        <location filename="../../Form_Files/main.ui" line="1810"/>
         <source>Ctrl+Shift+Return</source>
         <translation>تحكم+تحويل+رجوع</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1814"/>
+        <location filename="../../Form_Files/main.ui" line="1815"/>
         <source>User &amp;Guide...</source>
         <translation>دليل &amp;المستخدم...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1817"/>
+        <location filename="../../Form_Files/main.ui" line="1818"/>
         <source>User Guide</source>
         <translation>دليل المستخدم</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1820"/>
+        <location filename="../../Form_Files/main.ui" line="1821"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1825"/>
+        <location filename="../../Form_Files/main.ui" line="1826"/>
         <source>&amp;Frequently Asked Questions...</source>
         <translation>أسئلة م&amp;تكررة...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1828"/>
+        <location filename="../../Form_Files/main.ui" line="1829"/>
         <source>Frequently Asked Questions</source>
         <translation>أسئلة متكررة</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1833"/>
+        <location filename="../../Form_Files/main.ui" line="1834"/>
         <source>&amp;Tutorials...</source>
         <translation>&amp;الدروس...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1836"/>
+        <location filename="../../Form_Files/main.ui" line="1837"/>
         <source>Tutorials</source>
         <translation>الدروس</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1841"/>
+        <location filename="../../Form_Files/main.ui" line="1842"/>
         <source>Well-Formed Check &amp;EPUB</source>
         <translation>فحص الكتاب لحس‍&amp;ن التنسيق</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1844"/>
+        <location filename="../../Form_Files/main.ui" line="1845"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Well-Formed Check EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum needed to be successfully parsed. This does not indicate compliance with the relevant epub standards.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;فحص الكتاب لحسن التنسيق&lt;/span&gt;&lt;/p&gt;&lt;p&gt;تحقق من أن مستندك قد بُني بالحد الأدنى من ما يلزم  ليُعالَج بنجاح. هذا لا يشير إلى التوافق مع معايير الكتب الالكترونية epub ذات العلاقة.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1847"/>
+        <location filename="../../Form_Files/main.ui" line="1848"/>
         <source>F7</source>
         <translation>F7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1852"/>
+        <location filename="../../Form_Files/main.ui" line="1853"/>
         <source>Validate Stylesheets With &amp;W3C</source>
         <translation>التحقق من ألواح ال‍&amp;ط‍رُز بـ W3C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1855"/>
+        <location filename="../../Form_Files/main.ui" line="1856"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate Stylesheets with W3C&lt;/b&gt;&lt;/p&gt;
 
@@ -9827,12 +9827,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1868"/>
+        <location filename="../../Form_Files/main.ui" line="1869"/>
         <source>&amp;Spellcheck...</source>
         <translation>تدقيق إ&amp;م‍لائي...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1871"/>
+        <location filename="../../Form_Files/main.ui" line="1872"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spellcheck&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find all misspelled words and allow you to add them to a dictionary or ignore them.&lt;/p&gt;</source>
@@ -9841,102 +9841,102 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;يجد كل الكلمات مخطوءة الإملاء ويتيح لك إضافتها إلى قاموس أو إهمالها.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1876"/>
+        <location filename="../../Form_Files/main.ui" line="1877"/>
         <source>Ctrl+Alt+Q</source>
         <translation>تحكم+تحويل+ل</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1884"/>
+        <location filename="../../Form_Files/main.ui" line="1885"/>
         <source>&amp;Highlight Misspelled Words</source>
         <translation>تميي‍&amp;ز الكلمات مخطوءة الإملاء</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1887"/>
+        <location filename="../../Form_Files/main.ui" line="1888"/>
         <source>Enable or disable highlighting of misspelled words in Code View.</source>
         <translation>مكّن أو عطّل تمييز الكلمات مخطوءة الإملاء في معاين الشفرة.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1892"/>
+        <location filename="../../Form_Files/main.ui" line="1893"/>
         <source>&amp;Next Misspelled Word</source>
         <translation>الكلمة مخطوءة الإملاء ال‍&amp;ت‍الية</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1895"/>
+        <location filename="../../Form_Files/main.ui" line="1896"/>
         <source>Find the next misspelled word in the book.</source>
         <translation>جد الكلمة مخطوءة الإملاء التالية في الكتاب.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1898"/>
+        <location filename="../../Form_Files/main.ui" line="1899"/>
         <source>F4</source>
         <translation>F4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1903"/>
+        <location filename="../../Form_Files/main.ui" line="1904"/>
         <source>&amp;Add Misspelled Word</source>
         <translation>إ&amp;ض‍افة كلمة مخطوءة الإملاء</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1906"/>
+        <location filename="../../Form_Files/main.ui" line="1907"/>
         <source>Add the current misspelled word under the caret to the default user dictionary.</source>
         <translation>أضف الكمة مخطوءة الإملاء الحالية تحت علامة الإقحام الى قاموس المستخدم المبدئي.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1911"/>
+        <location filename="../../Form_Files/main.ui" line="1912"/>
         <source>&amp;Ignore Misspelled Word</source>
         <translation>إ&amp;ه‍مال الكلمة مخطوءة الإملاء</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1914"/>
+        <location filename="../../Form_Files/main.ui" line="1915"/>
         <source>Ignore the current misspelled word under the caret until Sigil is restarted.</source>
         <translation>أهمل الكلمة مخطوءة الإملاء الحالية تحت علامة الإقحام لحين إعادة تشغيل سيغل.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1919"/>
+        <location filename="../../Form_Files/main.ui" line="1920"/>
         <source>&amp;Clear Ignored Words</source>
         <translation>إفرا&amp;غ الكلمات المتجاهلة</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1922"/>
+        <location filename="../../Form_Files/main.ui" line="1923"/>
         <source>Clear currently ignored words from Spellcheck without having to restart Sigil.</source>
         <translation>إفراغ الكلمات المتجاهَلة حالياً من التدقيق الإملائي دون الحاجة إلى إعادة تشغيل سيغل.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1927"/>
+        <location filename="../../Form_Files/main.ui" line="1928"/>
         <source>&amp;Index Editor...</source>
         <translation>&amp;م‍حرر الفهرس…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1935"/>
+        <location filename="../../Form_Files/main.ui" line="1936"/>
         <source>Ctrl+Alt+I</source>
         <translation>تحكم+تحويل+هـ</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1940"/>
+        <location filename="../../Form_Files/main.ui" line="1941"/>
         <source>&amp;Delete Unused Media Files...</source>
         <translation>ح‍&amp;ذف ملفات الوسائط غير المستعملة...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1945"/>
+        <location filename="../../Form_Files/main.ui" line="1946"/>
         <source>Delete &amp;Unused Stylesheet Selectors...</source>
-        <translation>احذف من‍&amp;‍تقيات ألواح الطرُز غير المستخدمة...</translation>
+        <translation>احذف من‍&amp;تقيات ألواح الطرُز غير المستخدمة...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1950"/>
+        <location filename="../../Form_Files/main.ui" line="1951"/>
         <source>&amp;Reports...</source>
         <translation>&amp;التقارير…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1953"/>
+        <location filename="../../Form_Files/main.ui" line="1954"/>
         <source>Ctrl+Shift+R</source>
         <translation>تحكم+تبديل+ق</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1962"/>
+        <location filename="../../Form_Files/main.ui" line="1963"/>
         <source>&amp;Donate...</source>
         <translation>&amp;التبرع…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1965"/>
+        <location filename="../../Form_Files/main.ui" line="1966"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Donate&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Donate to support Sigil.&lt;/p&gt;
@@ -9947,837 +9947,837 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1973"/>
+        <location filename="../../Form_Files/main.ui" line="1974"/>
         <source>Close &amp;Other Tabs</source>
         <translation>إغلاق الألسنة الأ&amp;خ‍رى</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1976"/>
+        <location filename="../../Form_Files/main.ui" line="1977"/>
         <source>Ctrl+Alt+W</source>
         <translation>تحكم+تحويل+ك</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1981"/>
+        <location filename="../../Form_Files/main.ui" line="1982"/>
         <source>Go To &amp;Line...</source>
         <translation>الذهاب الى الس‍&amp;ط‍ر...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1984"/>
+        <location filename="../../Form_Files/main.ui" line="1985"/>
         <source>Ctrl+/</source>
         <translation>تحكم+\</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1989"/>
+        <location filename="../../Form_Files/main.ui" line="1990"/>
         <source>Find &amp;Next</source>
         <translation>إيجاد الت‍&amp;الي</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1992"/>
+        <location filename="../../Form_Files/main.ui" line="1993"/>
         <source>Ctrl+G</source>
         <translation>تحكم+ت</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1997"/>
+        <location filename="../../Form_Files/main.ui" line="1998"/>
         <source>Find &amp;Previous</source>
         <translation>إيجاد الساب‍&amp;ق</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2000"/>
+        <location filename="../../Form_Files/main.ui" line="2001"/>
         <source>Ctrl+Shift+G</source>
         <translation>تحكم+تبديل+ت</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2005"/>
+        <location filename="../../Form_Files/main.ui" line="2006"/>
         <source>Replace</source>
         <translation>استبدال</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2008"/>
+        <location filename="../../Form_Files/main.ui" line="2009"/>
         <source>Ctrl+R</source>
         <translation>تحكم+ب</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2013"/>
+        <location filename="../../Form_Files/main.ui" line="2014"/>
         <source>&amp;Replace/Find Next</source>
         <translation>استبدال/إيجاد ال‍&amp;ت‍الي</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2016"/>
+        <location filename="../../Form_Files/main.ui" line="2017"/>
         <source>Ctrl+]</source>
         <translation>تحكم+]</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2021"/>
+        <location filename="../../Form_Files/main.ui" line="2022"/>
         <source>R&amp;eplace/Find Previous</source>
         <translation>استبدال/إيجاد السا&amp;ب‍ق</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2024"/>
+        <location filename="../../Form_Files/main.ui" line="2025"/>
         <source>Ctrl+[</source>
         <translation>تحكم+[</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2029"/>
+        <location filename="../../Form_Files/main.ui" line="2030"/>
         <source>Replace &amp;All</source>
         <translation>استبدال ال‍&amp;ك‍ل</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2032"/>
+        <location filename="../../Form_Files/main.ui" line="2033"/>
         <source>Ctrl+Alt+A</source>
         <translation>تحكم+تحويل+ك</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2037"/>
+        <location filename="../../Form_Files/main.ui" line="2038"/>
         <source>&amp;Count All</source>
         <translation>&amp;ع‍دّ الكل</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2040"/>
+        <location filename="../../Form_Files/main.ui" line="2041"/>
         <source>Ctrl+Alt+N</source>
         <translation>تحكم+تحويل+ع</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2045"/>
+        <location filename="../../Form_Files/main.ui" line="2046"/>
         <source>Dry Run Replace All</source>
         <translation>تشغيل اختباري لاستبدال الكل</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2050"/>
+        <location filename="../../Form_Files/main.ui" line="2051"/>
         <source>Filter Replacements</source>
         <translation>استبدالات المرشح</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2055"/>
+        <location filename="../../Form_Files/main.ui" line="2056"/>
         <source>Mar&amp;k Selected Text</source>
         <translation>تأ&amp;ش‍ير النص المحدد</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2063"/>
+        <location filename="../../Form_Files/main.ui" line="2064"/>
         <source>Find &amp;Next In File</source>
         <translation>&amp;ج‍د التالي في الملف</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2068"/>
+        <location filename="../../Form_Files/main.ui" line="2069"/>
         <source>&amp;Replace Next In File</source>
         <translation>ا&amp;س‍تبدل التالي في الملف</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2073"/>
+        <location filename="../../Form_Files/main.ui" line="2074"/>
         <source>Replace &amp;All In File</source>
         <translation>استبد&amp;ل الكل في الملف</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2078"/>
+        <location filename="../../Form_Files/main.ui" line="2079"/>
         <source>&amp;Count All In File</source>
         <translation>ا&amp;ح‍سب الكل في الملف</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2087"/>
+        <location filename="../../Form_Files/main.ui" line="2088"/>
         <source>&amp;Saved Searches...</source>
         <translation>عمليات البحث المح‍&amp;ف‍وظة...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2090"/>
+        <location filename="../../Form_Files/main.ui" line="2091"/>
         <source>Ctrl+Alt+F</source>
         <translation>تحكم+تحويل+ح</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2095"/>
+        <location filename="../../Form_Files/main.ui" line="2096"/>
         <source>&amp;Clip Editor...</source>
-        <translation>محرر المقاط‍&amp;‍ع...</translation>
+        <translation>محرر المقاط‍&amp;ع...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2098"/>
+        <location filename="../../Form_Files/main.ui" line="2099"/>
         <source>Open the Clip Editor.</source>
         <translation>افتح محرر المقاطع.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2101"/>
+        <location filename="../../Form_Files/main.ui" line="2102"/>
         <source>Ctrl+Alt+C</source>
         <translation>تحكم+تحويل+ح</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2106"/>
+        <location filename="../../Form_Files/main.ui" line="2107"/>
         <source>Clip &amp;1</source>
         <translation>المقطع &amp;1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2109"/>
+        <location filename="../../Form_Files/main.ui" line="2110"/>
         <source>Insert Clip 1</source>
         <translation>أدرج المقطع 1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2112"/>
+        <location filename="../../Form_Files/main.ui" line="2113"/>
         <source>Ctrl+Alt+1</source>
         <translation>تحكم+تحويل+1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2117"/>
+        <location filename="../../Form_Files/main.ui" line="2118"/>
         <source>Clip &amp;2</source>
         <translation>المقطع &amp;2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2120"/>
+        <location filename="../../Form_Files/main.ui" line="2121"/>
         <source>Insert Clip 2</source>
         <translation>أدرج المقطع 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2123"/>
+        <location filename="../../Form_Files/main.ui" line="2124"/>
         <source>Ctrl+Alt+2</source>
         <translation>تحكم+تحويل+2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2128"/>
+        <location filename="../../Form_Files/main.ui" line="2129"/>
         <source>Clip &amp;3</source>
         <translation>المقطع &amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2131"/>
+        <location filename="../../Form_Files/main.ui" line="2132"/>
         <source>Insert Clip 3</source>
         <translation>أدرج المقطع 3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2134"/>
+        <location filename="../../Form_Files/main.ui" line="2135"/>
         <source>Ctrl+Alt+3</source>
         <translation>تحكم+تحويل+3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2139"/>
+        <location filename="../../Form_Files/main.ui" line="2140"/>
         <source>Clip &amp;4</source>
         <translation>المقطع &amp;4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2142"/>
+        <location filename="../../Form_Files/main.ui" line="2143"/>
         <source>Insert Clip 4</source>
         <translation>أدرج المقطع 4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2145"/>
+        <location filename="../../Form_Files/main.ui" line="2146"/>
         <source>Ctrl+Alt+4</source>
         <translation>تحكم+تحويل+4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2150"/>
+        <location filename="../../Form_Files/main.ui" line="2151"/>
         <source>Clip &amp;5</source>
         <translation>المقطع &amp;5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2153"/>
+        <location filename="../../Form_Files/main.ui" line="2154"/>
         <source>Insert Clip 5</source>
         <translation>أدرج المقطع 5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2156"/>
+        <location filename="../../Form_Files/main.ui" line="2157"/>
         <source>Ctrl+Alt+5</source>
         <translation>تحكم+تحويل+5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2161"/>
+        <location filename="../../Form_Files/main.ui" line="2162"/>
         <source>Clip &amp;6</source>
         <translation>المقطع &amp;6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2164"/>
+        <location filename="../../Form_Files/main.ui" line="2165"/>
         <source>Insert Clip 6</source>
         <translation>أدرج المقطع 6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2167"/>
+        <location filename="../../Form_Files/main.ui" line="2168"/>
         <source>Ctrl+Alt+6</source>
         <translation>تحكم+تحويل+6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2172"/>
+        <location filename="../../Form_Files/main.ui" line="2173"/>
         <source>Clip &amp;7</source>
         <translation>المقطع &amp;7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2175"/>
+        <location filename="../../Form_Files/main.ui" line="2176"/>
         <source>Insert Clip 7</source>
         <translation>أدرج المقطع 7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2178"/>
+        <location filename="../../Form_Files/main.ui" line="2179"/>
         <source>Ctrl+Alt+7</source>
         <translation>تحكم+تحويل+7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2183"/>
+        <location filename="../../Form_Files/main.ui" line="2184"/>
         <source>Clip &amp;8</source>
         <translation>المقطع &amp;8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2186"/>
+        <location filename="../../Form_Files/main.ui" line="2187"/>
         <source>Insert Clip 8</source>
         <translation>أدرج المقطع 8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2189"/>
+        <location filename="../../Form_Files/main.ui" line="2190"/>
         <source>Ctrl+Alt+8</source>
         <translation>تحكم+تحويل+8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2194"/>
+        <location filename="../../Form_Files/main.ui" line="2195"/>
         <source>Clip &amp;9</source>
         <translation>المقطع &amp;9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2197"/>
+        <location filename="../../Form_Files/main.ui" line="2198"/>
         <source>Insert Clip 9</source>
         <translation>أدرج المقطع 9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2200"/>
+        <location filename="../../Form_Files/main.ui" line="2201"/>
         <source>Ctrl+Alt+9</source>
         <translation>تحكم+تحويل+9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2205"/>
+        <location filename="../../Form_Files/main.ui" line="2206"/>
         <source>Clip 1&amp;0</source>
-        <translation>المقطع 10</translation>
+        <translation>المقطع 1&amp;0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2208"/>
+        <location filename="../../Form_Files/main.ui" line="2209"/>
         <source>Insert Clip 10</source>
         <translation>أدرج المقطع 10</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2211"/>
+        <location filename="../../Form_Files/main.ui" line="2212"/>
         <source>Ctrl+Alt+0</source>
         <translation>تحكم+تحويل+0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2216"/>
+        <location filename="../../Form_Files/main.ui" line="2217"/>
         <source>Clip 11</source>
         <translation>المقطع 11</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2219"/>
+        <location filename="../../Form_Files/main.ui" line="2220"/>
         <source>Insert Clip 11</source>
         <translation>أدرج المقطع 11</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2224"/>
+        <location filename="../../Form_Files/main.ui" line="2225"/>
         <source>Clip 12</source>
         <translation>المقطع 12</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2227"/>
+        <location filename="../../Form_Files/main.ui" line="2228"/>
         <source>Insert Clip 12</source>
         <translation>أدرج المقطع 12</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2232"/>
+        <location filename="../../Form_Files/main.ui" line="2233"/>
         <source>Clip 13</source>
         <translation>المقطع 13</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2235"/>
+        <location filename="../../Form_Files/main.ui" line="2236"/>
         <source>Insert Clip 13</source>
         <translation>أدرج المقطع 13</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2240"/>
+        <location filename="../../Form_Files/main.ui" line="2241"/>
         <source>Clip 14</source>
         <translation>المقطع 14</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2243"/>
+        <location filename="../../Form_Files/main.ui" line="2244"/>
         <source>Insert Clip 14</source>
         <translation>أدرج المقطع 14</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2248"/>
+        <location filename="../../Form_Files/main.ui" line="2249"/>
         <source>Clip 15</source>
         <translation>المقطع 15</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2251"/>
+        <location filename="../../Form_Files/main.ui" line="2252"/>
         <source>Insert Clip 15</source>
         <translation>أدرج المقطع 15</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2256"/>
+        <location filename="../../Form_Files/main.ui" line="2257"/>
         <source>Clip 16</source>
         <translation>المقطع 16</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2259"/>
+        <location filename="../../Form_Files/main.ui" line="2260"/>
         <source>Insert Clip 16</source>
         <translation>أدرج المقطع 16</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2264"/>
+        <location filename="../../Form_Files/main.ui" line="2265"/>
         <source>Clip 17</source>
         <translation>المقطع 17</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2267"/>
+        <location filename="../../Form_Files/main.ui" line="2268"/>
         <source>Insert Clip 17</source>
         <translation>أدرج المقطع 17</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2272"/>
+        <location filename="../../Form_Files/main.ui" line="2273"/>
         <source>Clip 18</source>
         <translation>المقطع 18</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2275"/>
+        <location filename="../../Form_Files/main.ui" line="2276"/>
         <source>Insert Clip 18</source>
         <translation>أدرج المقطع 18</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2280"/>
+        <location filename="../../Form_Files/main.ui" line="2281"/>
         <source>Clip 19</source>
         <translation>المقطع 19</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2283"/>
+        <location filename="../../Form_Files/main.ui" line="2284"/>
         <source>Insert Clip 19</source>
         <translation>أدرج المقطع 19</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2288"/>
+        <location filename="../../Form_Files/main.ui" line="2289"/>
         <source>Clip 20</source>
         <translation>المقطع 20</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2291"/>
+        <location filename="../../Form_Files/main.ui" line="2292"/>
         <source>Insert Clip 20</source>
         <translation>أدرج المقطع 20</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2297"/>
+        <location filename="../../Form_Files/main.ui" line="2298"/>
         <source>Clip 21</source>
         <translation>المقطع 21</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2300"/>
+        <location filename="../../Form_Files/main.ui" line="2301"/>
         <source>Insert Clip 21</source>
         <translation>أدرج المقطع 21</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2305"/>
+        <location filename="../../Form_Files/main.ui" line="2306"/>
         <source>Clip 22</source>
         <translation>المقطع 22</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2308"/>
+        <location filename="../../Form_Files/main.ui" line="2309"/>
         <source>Insert Clip 22</source>
         <translation>أدرج المقطع 22</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2313"/>
+        <location filename="../../Form_Files/main.ui" line="2314"/>
         <source>Clip 23</source>
         <translation>المقطع 23</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2316"/>
+        <location filename="../../Form_Files/main.ui" line="2317"/>
         <source>Insert Clip 23</source>
         <translation>أدرج المقطع 23</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2321"/>
+        <location filename="../../Form_Files/main.ui" line="2322"/>
         <source>Clip 24</source>
         <translation>المقطع 24</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2324"/>
+        <location filename="../../Form_Files/main.ui" line="2325"/>
         <source>Insert Clip 24</source>
         <translation>أدرج المقطع 24</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2329"/>
+        <location filename="../../Form_Files/main.ui" line="2330"/>
         <source>Clip 25</source>
         <translation>المقطع 25</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2332"/>
+        <location filename="../../Form_Files/main.ui" line="2333"/>
         <source>Insert Clip 25</source>
         <translation>أدرج المقطع 25</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2337"/>
+        <location filename="../../Form_Files/main.ui" line="2338"/>
         <source>Clip 26</source>
         <translation>المقطع 26</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2340"/>
+        <location filename="../../Form_Files/main.ui" line="2341"/>
         <source>Insert Clip 26</source>
         <translation>أدرج المقطع 26</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2345"/>
+        <location filename="../../Form_Files/main.ui" line="2346"/>
         <source>Clip 27</source>
         <translation>المقطع 27</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2348"/>
+        <location filename="../../Form_Files/main.ui" line="2349"/>
         <source>Insert Clip 27</source>
         <translation>أدرج المقطع 27</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2353"/>
+        <location filename="../../Form_Files/main.ui" line="2354"/>
         <source>Clip 28</source>
         <translation>المقطع 28</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2356"/>
+        <location filename="../../Form_Files/main.ui" line="2357"/>
         <source>Insert Clip 28</source>
         <translation>أدرج المقطع 28</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2361"/>
+        <location filename="../../Form_Files/main.ui" line="2362"/>
         <source>Clip 29</source>
         <translation>المقطع 29</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2364"/>
+        <location filename="../../Form_Files/main.ui" line="2365"/>
         <source>Insert Clip 29</source>
         <translation>أدرج المقطع 29</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2369"/>
+        <location filename="../../Form_Files/main.ui" line="2370"/>
         <source>Clip 30</source>
         <translation>المقطع 30</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2372"/>
+        <location filename="../../Form_Files/main.ui" line="2373"/>
         <source>Insert Clip 30</source>
         <translation>أدرج المقطع 30</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2377"/>
+        <location filename="../../Form_Files/main.ui" line="2378"/>
         <source>Clip 31</source>
         <translation>المقطع 31</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2380"/>
+        <location filename="../../Form_Files/main.ui" line="2381"/>
         <source>Insert Clip 31</source>
         <translation>أدرج المقطع 31</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2385"/>
+        <location filename="../../Form_Files/main.ui" line="2386"/>
         <source>Clip 32</source>
         <translation>المقطع 32</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2388"/>
+        <location filename="../../Form_Files/main.ui" line="2389"/>
         <source>Insert Clip 32</source>
         <translation>أدرج المقطع 32</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2393"/>
+        <location filename="../../Form_Files/main.ui" line="2394"/>
         <source>Clip 33</source>
         <translation>المقطع 33</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2396"/>
+        <location filename="../../Form_Files/main.ui" line="2397"/>
         <source>Insert Clip 33</source>
         <translation>أدرج المقطع 33</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2401"/>
+        <location filename="../../Form_Files/main.ui" line="2402"/>
         <source>Clip 34</source>
         <translation>المقطع 34</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2404"/>
+        <location filename="../../Form_Files/main.ui" line="2405"/>
         <source>Insert Clip 34</source>
         <translation>أدرج المقطع 34</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2409"/>
+        <location filename="../../Form_Files/main.ui" line="2410"/>
         <source>Clip 35</source>
         <translation>المقطع 35</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2412"/>
+        <location filename="../../Form_Files/main.ui" line="2413"/>
         <source>Insert Clip 35</source>
         <translation>أدرج المقطع 35</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2417"/>
+        <location filename="../../Form_Files/main.ui" line="2418"/>
         <source>Clip 36</source>
         <translation>المقطع 36</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2420"/>
+        <location filename="../../Form_Files/main.ui" line="2421"/>
         <source>Insert Clip 36</source>
         <translation>أدرج المقطع 36</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2425"/>
+        <location filename="../../Form_Files/main.ui" line="2426"/>
         <source>Clip 37</source>
         <translation>المقطع 37</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2428"/>
+        <location filename="../../Form_Files/main.ui" line="2429"/>
         <source>Insert Clip 37</source>
         <translation>أدرج المقطع 37</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2433"/>
+        <location filename="../../Form_Files/main.ui" line="2434"/>
         <source>Clip 38</source>
         <translation>المقطع 38</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2436"/>
+        <location filename="../../Form_Files/main.ui" line="2437"/>
         <source>Insert Clip 38</source>
         <translation>أدرج المقطع 38</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2441"/>
+        <location filename="../../Form_Files/main.ui" line="2442"/>
         <source>Clip 39</source>
         <translation>المقطع 39</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2444"/>
+        <location filename="../../Form_Files/main.ui" line="2445"/>
         <source>Insert Clip 39</source>
         <translation>أدرج المقطع 39</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2449"/>
+        <location filename="../../Form_Files/main.ui" line="2450"/>
         <source>Clip 40</source>
         <translation>المقطع 40</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2452"/>
+        <location filename="../../Form_Files/main.ui" line="2453"/>
         <source>Insert Clip 40</source>
         <translation>أدرج المقطع 40</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2457"/>
+        <location filename="../../Form_Files/main.ui" line="2458"/>
         <source>Clip 41</source>
         <translation>المقطع 41</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2460"/>
+        <location filename="../../Form_Files/main.ui" line="2461"/>
         <source>Insert Clip 41</source>
         <translation>أدرج المقطع 41</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2465"/>
+        <location filename="../../Form_Files/main.ui" line="2466"/>
         <source>Clip 42</source>
         <translation>المقطع 42</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2468"/>
+        <location filename="../../Form_Files/main.ui" line="2469"/>
         <source>Insert Clip 42</source>
         <translation>أدرج المقطع 42</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2473"/>
+        <location filename="../../Form_Files/main.ui" line="2474"/>
         <source>Clip 43</source>
         <translation>المقطع 43</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2476"/>
+        <location filename="../../Form_Files/main.ui" line="2477"/>
         <source>Insert Clip 43</source>
         <translation>أدرج المقطع 43</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2481"/>
+        <location filename="../../Form_Files/main.ui" line="2482"/>
         <source>Clip 44</source>
         <translation>المقطع 44</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2484"/>
+        <location filename="../../Form_Files/main.ui" line="2485"/>
         <source>Insert Clip 44</source>
         <translation>أدرج المقطع 44</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2489"/>
+        <location filename="../../Form_Files/main.ui" line="2490"/>
         <source>Clip 45</source>
         <translation>المقطع 45</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2492"/>
+        <location filename="../../Form_Files/main.ui" line="2493"/>
         <source>Insert Clip 45</source>
         <translation>أدرج المقطع 45</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2497"/>
+        <location filename="../../Form_Files/main.ui" line="2498"/>
         <source>Clip 46</source>
         <translation>المقطع 46</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2500"/>
+        <location filename="../../Form_Files/main.ui" line="2501"/>
         <source>Insert Clip 46</source>
         <translation>أدرج المقطع 46</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2505"/>
+        <location filename="../../Form_Files/main.ui" line="2506"/>
         <source>Clip 47</source>
         <translation>المقطع 47</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2508"/>
+        <location filename="../../Form_Files/main.ui" line="2509"/>
         <source>Insert Clip 47</source>
         <translation>أدرج المقطع 47</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2513"/>
+        <location filename="../../Form_Files/main.ui" line="2514"/>
         <source>Clip 48</source>
         <translation>المقطع 48</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2516"/>
+        <location filename="../../Form_Files/main.ui" line="2517"/>
         <source>Insert Clip 48</source>
         <translation>أدرج المقطع 48</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2521"/>
+        <location filename="../../Form_Files/main.ui" line="2522"/>
         <source>Clip 49</source>
         <translation>المقطع 49</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2524"/>
+        <location filename="../../Form_Files/main.ui" line="2525"/>
         <source>Insert Clip 49</source>
         <translation>أدرج المقطع 49</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2529"/>
+        <location filename="../../Form_Files/main.ui" line="2530"/>
         <source>Clip 50</source>
         <translation>المقطع 50</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2532"/>
+        <location filename="../../Form_Files/main.ui" line="2533"/>
         <source>Insert Clip 50</source>
         <translation>أدرج المقطع 50</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2537"/>
+        <location filename="../../Form_Files/main.ui" line="2538"/>
         <source>Clip 51</source>
         <translation>المقطع 51</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2540"/>
+        <location filename="../../Form_Files/main.ui" line="2541"/>
         <source>Insert Clip 51</source>
         <translation>أدرج المقطع 51</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2545"/>
+        <location filename="../../Form_Files/main.ui" line="2546"/>
         <source>Clip 52</source>
         <translation>المقطع 52</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2548"/>
+        <location filename="../../Form_Files/main.ui" line="2549"/>
         <source>Insert Clip 52</source>
         <translation>أدرج المقطع 52</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2553"/>
+        <location filename="../../Form_Files/main.ui" line="2554"/>
         <source>Clip 53</source>
         <translation>المقطع 53</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2556"/>
+        <location filename="../../Form_Files/main.ui" line="2557"/>
         <source>Insert Clip 53</source>
         <translation>أدرج المقطع 53</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2561"/>
+        <location filename="../../Form_Files/main.ui" line="2562"/>
         <source>Clip 54</source>
         <translation>المقطع 54</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2564"/>
+        <location filename="../../Form_Files/main.ui" line="2565"/>
         <source>Insert Clip 54</source>
         <translation>أدرج المقطع 54</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2569"/>
+        <location filename="../../Form_Files/main.ui" line="2570"/>
         <source>Clip 55</source>
         <translation>المقطع 55</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2572"/>
+        <location filename="../../Form_Files/main.ui" line="2573"/>
         <source>Insert Clip 55</source>
         <translation>أدرج المقطع 55</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2577"/>
+        <location filename="../../Form_Files/main.ui" line="2578"/>
         <source>Clip 56</source>
         <translation>المقطع 56</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2580"/>
+        <location filename="../../Form_Files/main.ui" line="2581"/>
         <source>Insert Clip 56</source>
         <translation>أدرج المقطع 56</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2585"/>
+        <location filename="../../Form_Files/main.ui" line="2586"/>
         <source>Clip 57</source>
         <translation>المقطع 57</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2588"/>
+        <location filename="../../Form_Files/main.ui" line="2589"/>
         <source>Insert Clip 57</source>
         <translation>أدرج المقطع 57</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2593"/>
+        <location filename="../../Form_Files/main.ui" line="2594"/>
         <source>Clip 58</source>
         <translation>المقطع 58</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2596"/>
+        <location filename="../../Form_Files/main.ui" line="2597"/>
         <source>Insert Clip 58</source>
         <translation>أدرج المقطع 58</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2601"/>
+        <location filename="../../Form_Files/main.ui" line="2602"/>
         <source>Clip 59</source>
         <translation>المقطع 59</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2604"/>
+        <location filename="../../Form_Files/main.ui" line="2605"/>
         <source>Insert Clip 59</source>
         <translation>أدرج المقطع 59</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2609"/>
+        <location filename="../../Form_Files/main.ui" line="2610"/>
         <source>Clip 60</source>
         <translation>المقطع 60</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2612"/>
+        <location filename="../../Form_Files/main.ui" line="2613"/>
         <source>Insert Clip 60</source>
         <translation>أدرج المقطع 60</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2620"/>
+        <location filename="../../Form_Files/main.ui" line="2621"/>
         <source>&amp;Preferences...</source>
         <translation>التف‍&amp;ضيلات...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2623"/>
+        <location filename="../../Form_Files/main.ui" line="2624"/>
         <source>F5</source>
         <translation>F5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2628"/>
+        <location filename="../../Form_Files/main.ui" line="2629"/>
         <source>&amp;Zoom Reset</source>
         <translation>تص‍&amp;ف‍ير التكبير</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2631"/>
+        <location filename="../../Form_Files/main.ui" line="2632"/>
         <source>Zoom Reset</source>
         <translation>تصفير الحجم</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2634"/>
+        <location filename="../../Form_Files/main.ui" line="2635"/>
         <source>Ctrl+0</source>
         <translation>تجكم+0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2646"/>
+        <location filename="../../Form_Files/main.ui" line="2647"/>
         <source>Heading &amp;1</source>
         <translation>ترويس &amp;1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2649"/>
+        <location filename="../../Form_Files/main.ui" line="2650"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 1&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 1 heading.&lt;/p&gt;</source>
@@ -10786,17 +10786,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;تنسيق المقطع كترويس من المستوى 1.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2654"/>
+        <location filename="../../Form_Files/main.ui" line="2655"/>
         <source>Ctrl+1</source>
         <translation>تجكم+1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2666"/>
+        <location filename="../../Form_Files/main.ui" line="2667"/>
         <source>Heading &amp;2</source>
         <translation>ترويس &amp;2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2669"/>
+        <location filename="../../Form_Files/main.ui" line="2670"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 2&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 2 heading.&lt;/p&gt;</source>
@@ -10805,17 +10805,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;تنسيق المقطع كترويس من المستوى 2.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2674"/>
+        <location filename="../../Form_Files/main.ui" line="2675"/>
         <source>Ctrl+2</source>
         <translation>تجكم+2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2686"/>
+        <location filename="../../Form_Files/main.ui" line="2687"/>
         <source>Heading &amp;3</source>
         <translation>ترويس &amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2689"/>
+        <location filename="../../Form_Files/main.ui" line="2690"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 3&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 3 heading.&lt;/p&gt;</source>
@@ -10824,17 +10824,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;تنسيق المقطع كترويس من المستوى 3.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2694"/>
+        <location filename="../../Form_Files/main.ui" line="2695"/>
         <source>Ctrl+3</source>
         <translation>تجكم+3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2706"/>
+        <location filename="../../Form_Files/main.ui" line="2707"/>
         <source>Heading &amp;4</source>
         <translation>ترويس &amp;4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2709"/>
+        <location filename="../../Form_Files/main.ui" line="2710"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 4&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 4 heading.&lt;/p&gt;</source>
@@ -10843,17 +10843,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;تنسيق المقطع كترويس من المستوى 4.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2714"/>
+        <location filename="../../Form_Files/main.ui" line="2715"/>
         <source>Ctrl+4</source>
         <translation>تجكم+4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2726"/>
+        <location filename="../../Form_Files/main.ui" line="2727"/>
         <source>Heading &amp;5</source>
         <translation>ترويس &amp;5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2729"/>
+        <location filename="../../Form_Files/main.ui" line="2730"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 5&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 5 heading.&lt;/p&gt;</source>
@@ -10862,17 +10862,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;تنسيق المقطع كترويس من المستوى 5.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2734"/>
+        <location filename="../../Form_Files/main.ui" line="2735"/>
         <source>Ctrl+5</source>
         <translation>تجكم+5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2746"/>
+        <location filename="../../Form_Files/main.ui" line="2747"/>
         <source>Heading &amp;6</source>
         <translation>ترويس &amp;6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2749"/>
+        <location filename="../../Form_Files/main.ui" line="2750"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 6&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 6 heading.&lt;/p&gt;</source>
@@ -10881,17 +10881,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;تنسيق المقطع كترويس من المستوى 6.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2754"/>
+        <location filename="../../Form_Files/main.ui" line="2755"/>
         <source>Ctrl+6</source>
         <translation>تجكم+6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2766"/>
+        <location filename="../../Form_Files/main.ui" line="2767"/>
         <source>&amp;Normal</source>
         <translation>&amp;عادي</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2769"/>
+        <location filename="../../Form_Files/main.ui" line="2770"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paragraph&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a normal paragraph.&lt;/p&gt;</source>
@@ -10900,37 +10900,37 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;تنسيق المقطع كمقطع اعتيادي.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2774"/>
+        <location filename="../../Form_Files/main.ui" line="2775"/>
         <source>Ctrl+7</source>
         <translation>تجكم+7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2782"/>
+        <location filename="../../Form_Files/main.ui" line="2783"/>
         <source>&amp;Preserve Existing Attributes</source>
         <translation>الا&amp;ح‍‍تفاظ بالسمات الموجودة</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2785"/>
+        <location filename="../../Form_Files/main.ui" line="2786"/>
         <source>When applying this style, preserve any existing attributes on the tag</source>
         <translation>عند تطبيق هذا الطراز، حافظ على أية سِمات موجودة في الوسم</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2790"/>
+        <location filename="../../Form_Files/main.ui" line="2791"/>
         <source>Blank HTML File</source>
         <translation>ملف HTML فارغ</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2793"/>
+        <location filename="../../Form_Files/main.ui" line="2794"/>
         <source>Add a new blank HTML file to the book.</source>
         <translation>أضف ملف HTML فارغ الى الكتاب.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2802"/>
+        <location filename="../../Form_Files/main.ui" line="2803"/>
         <source>Existing Files...</source>
         <translation>ملفات موجودة...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2805"/>
+        <location filename="../../Form_Files/main.ui" line="2806"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Existing Files&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add files from your computer to the book.&lt;/p&gt;</source>
@@ -10939,137 +10939,137 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;أضف ملفات من حاسوبك إلى الكتاب.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2812"/>
+        <location filename="../../Form_Files/main.ui" line="2813"/>
         <source>Blank Stylesheet</source>
         <translation>لوح طراز فارغ</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2815"/>
+        <location filename="../../Form_Files/main.ui" line="2816"/>
         <source>Add a new blank stylesheet to the book.</source>
         <translation>أضف لوح طراز جديد فارغ الى الكتاب.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2820"/>
+        <location filename="../../Form_Files/main.ui" line="2821"/>
         <source>Blank Javascript</source>
         <translation>جافاسكربت فارغة</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2823"/>
+        <location filename="../../Form_Files/main.ui" line="2824"/>
         <source>Add a new blank javascript to the book.</source>
         <translation>أضف جافاسكربت فارغة جديدة إلى الكتاب.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2828"/>
+        <location filename="../../Form_Files/main.ui" line="2829"/>
         <source>Blank SVG Image</source>
         <translation>صورة SVG فارغة</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2831"/>
+        <location filename="../../Form_Files/main.ui" line="2832"/>
         <source>Add a new blank svg image file to the book.</source>
         <translation>أضف صورة SVG فارغة جديدة الى الكتاب.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2836"/>
+        <location filename="../../Form_Files/main.ui" line="2837"/>
         <source>Pre&amp;vious File</source>
         <translation>ال‍&amp;م‍لف السابق</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2839"/>
+        <location filename="../../Form_Files/main.ui" line="2840"/>
         <source>Open previous file of the same type.</source>
         <translation>افتح الملف السابق من نفس النوع.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2842"/>
+        <location filename="../../Form_Files/main.ui" line="2843"/>
         <source>Alt+PgUp</source>
         <translation>تبديل+صفحة أعلى</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2847"/>
+        <location filename="../../Form_Files/main.ui" line="2848"/>
         <source>Next &amp;File</source>
         <translation>الم‍&amp;ل‍ف التالي</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2850"/>
+        <location filename="../../Form_Files/main.ui" line="2851"/>
         <source>Open next file of the same type.</source>
         <translation>افتح الملف التالي من نفس النوع.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2853"/>
+        <location filename="../../Form_Files/main.ui" line="2854"/>
         <source>Alt+PgDown</source>
         <translation>تبديل+صفحة أسفل</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2858"/>
+        <location filename="../../Form_Files/main.ui" line="2859"/>
         <source>&amp;Add To Index Editor</source>
         <translation>أ&amp;ض‍ف الى محرر الفهرس</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2865"/>
+        <location filename="../../Form_Files/main.ui" line="2866"/>
         <source>Add the selected text to the Index Editor.</source>
         <translation>أضف النص المحدد الى محرر الفهرس.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2870"/>
+        <location filename="../../Form_Files/main.ui" line="2871"/>
         <source>&amp;Mark For Index</source>
         <translation>أشّ‍&amp;ر للفهرس</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2877"/>
+        <location filename="../../Form_Files/main.ui" line="2878"/>
         <source>Mark the selected text for inclusion in the Index.</source>
         <translation>أشّر النص المحدد لتضمينه في الفهرس.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2880"/>
+        <location filename="../../Form_Files/main.ui" line="2881"/>
         <source>Ctrl+Shift+X</source>
         <translation>تحكم+تبديل+ف</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2885"/>
+        <location filename="../../Form_Files/main.ui" line="2886"/>
         <source>&amp;Create Index</source>
         <translation>&amp;انشاء فهرس</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2892"/>
+        <location filename="../../Form_Files/main.ui" line="2893"/>
         <source>Generate a new Index HTML file.</source>
         <translation>أنشيء ملف فهرس HTML جديد.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2897"/>
+        <location filename="../../Form_Files/main.ui" line="2898"/>
         <source>&amp;Create HTML from Table Of Contents</source>
         <translation>أن&amp;شيء HTML من جدول محتويات</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2900"/>
+        <location filename="../../Form_Files/main.ui" line="2901"/>
         <source>Create a new HTML file using the current TOC.</source>
         <translation>أنشيء ملف HTML جديد باستخدام جدول المحتويات الحالي.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2909"/>
+        <location filename="../../Form_Files/main.ui" line="2910"/>
         <source>Book&amp;mark Location</source>
         <translation>مو&amp;ض‍ع العلامة</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2912"/>
+        <location filename="../../Form_Files/main.ui" line="2913"/>
         <source>Ctrl+Alt+B</source>
         <translation>تحكم+تحويل+ل</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2917"/>
+        <location filename="../../Form_Files/main.ui" line="2918"/>
         <source>&amp;Go To Link Or Style</source>
         <translation>الذهاب الى راب‍&amp;ط أو طراز</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2920"/>
+        <location filename="../../Form_Files/main.ui" line="2921"/>
         <source>F3</source>
         <translation>F3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2929"/>
+        <location filename="../../Form_Files/main.ui" line="2930"/>
         <source>&amp;Back</source>
         <translation>&amp;رجوع</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2932"/>
+        <location filename="../../Form_Files/main.ui" line="2933"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Back&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Go back to where you last went to a link or style, or bookmarked your location.&lt;/p&gt;
@@ -11080,207 +11080,212 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2938"/>
+        <location filename="../../Form_Files/main.ui" line="2939"/>
         <source>Ctrl+\</source>
         <translation>تحكم+\</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2943"/>
+        <location filename="../../Form_Files/main.ui" line="2944"/>
         <source>Edit/Paste From Clipboard &amp;History...</source>
         <translation>تحرير/لصق من تاري‍&amp;خ الحافظة...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2946"/>
+        <location filename="../../Form_Files/main.ui" line="2947"/>
         <source>Ctrl+Alt+V</source>
         <translation>تحكم+تحويل+ق</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2951"/>
+        <location filename="../../Form_Files/main.ui" line="2952"/>
         <source>&amp;Delete Line</source>
         <translation>ح‍&amp;ذف سطر</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2954"/>
+        <location filename="../../Form_Files/main.ui" line="2955"/>
         <source>Ctrl+D</source>
         <translation>تجكم+ذ</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2963"/>
+        <location filename="../../Form_Files/main.ui" line="2964"/>
         <source>Run Automate List 1</source>
         <translation>شغّل قائمة العمل التلقائي 1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2968"/>
+        <location filename="../../Form_Files/main.ui" line="2969"/>
         <source>Edit Automate List 1</source>
         <translation>حرر قائمة العمل التلقائي 1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2977"/>
+        <location filename="../../Form_Files/main.ui" line="2978"/>
         <source>Run Automate List 2</source>
         <translation>شغّل قائمة العمل التلقائي 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2982"/>
+        <location filename="../../Form_Files/main.ui" line="2983"/>
         <source>Edit Automate List 2</source>
         <translation>حرر قائمة العمل التلقائي 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2991"/>
+        <location filename="../../Form_Files/main.ui" line="2992"/>
         <source>Run Automate List 3</source>
         <translation>شغّل قائمة العمل التلقائي 3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2996"/>
+        <location filename="../../Form_Files/main.ui" line="2997"/>
         <source>Edit Automate List 3</source>
         <translation>حرر قائمة العمل التلقائي 3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3001"/>
+        <location filename="../../Form_Files/main.ui" line="3002"/>
         <source>Manage Plugins</source>
         <translation>إدارة الإضافات</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3010"/>
+        <location filename="../../Form_Files/main.ui" line="3011"/>
         <source>Run Plugin 1</source>
         <translation>تشغيل الإضافة 1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3019"/>
+        <location filename="../../Form_Files/main.ui" line="3020"/>
         <source>Run Plugin 2</source>
         <translation>تشغيل الإضافة 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3028"/>
+        <location filename="../../Form_Files/main.ui" line="3029"/>
         <source>Run Plugin 3</source>
         <translation>تشغيل الإضافة 3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3037"/>
+        <location filename="../../Form_Files/main.ui" line="3038"/>
         <source>Run Plugin 4</source>
         <translation>تشغيل الإضافة 4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3046"/>
+        <location filename="../../Form_Files/main.ui" line="3047"/>
         <source>Run Plugin 5</source>
         <translation>تشغيل الإضافة 5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3055"/>
+        <location filename="../../Form_Files/main.ui" line="3056"/>
         <source>Run Plugin 6</source>
         <translation>تشغيل الإضافة 6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3064"/>
+        <location filename="../../Form_Files/main.ui" line="3065"/>
         <source>Run Plugin 7</source>
         <translation>تشغيل الإضافة 7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3073"/>
+        <location filename="../../Form_Files/main.ui" line="3074"/>
         <source>Run Plugin 8</source>
         <translation>تشغيل الإضافة 8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3082"/>
+        <location filename="../../Form_Files/main.ui" line="3083"/>
         <source>Run Plugin 9</source>
         <translation>تشغيل الإضافة 9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3091"/>
+        <location filename="../../Form_Files/main.ui" line="3092"/>
         <source>Run Plugin 10</source>
         <translation>تشغيل الإضافة 10</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3100"/>
+        <location filename="../../Form_Files/main.ui" line="3101"/>
         <source>Launch External Xhtml Editor</source>
         <translation>ابدأ محرر Xhtml الخارجي</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3103"/>
+        <location filename="../../Form_Files/main.ui" line="3104"/>
         <source>F2</source>
         <translation>F2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3108"/>
+        <location filename="../../Form_Files/main.ui" line="3109"/>
         <source>Mend and &amp;Prettify All HTML Files</source>
         <translation>ترميم وت‍&amp;ج‍ميل كل ملفات HTML</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3113"/>
+        <location filename="../../Form_Files/main.ui" line="3114"/>
         <source>&amp;Mend All HTML Files</source>
         <translation>ت‍&amp;رميم كل ملفات HTML</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3118"/>
+        <location filename="../../Form_Files/main.ui" line="3119"/>
         <source>&amp;Update Manifest Properties</source>
-        <translation>تحدي‍&amp;‍ث خصائص ملف البيان</translation>
+        <translation>حدّ&amp;ث خصائص ملف البيان</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3123"/>
+        <location filename="../../Form_Files/main.ui" line="3124"/>
+        <source>Update OPF Manifest Media Types</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="3129"/>
         <source>Generate &amp;NCX/Guide for epub2 e-readers</source>
-        <translation>ت‍&amp;‍وليد ملف تنقل NCX/مرشد لقارئات epub2</translation>
+        <translation>&amp;ولّد ملف تنقل NCX/مرشد لقارئات epub2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3128"/>
+        <location filename="../../Form_Files/main.ui" line="3134"/>
         <source>Create a Custom Empty Epub</source>
         <translation>إنشاء كتاب مخصص فارغ</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3133"/>
+        <location filename="../../Form_Files/main.ui" line="3139"/>
         <source>Remove the NCX and Guide</source>
-        <translation>إ&amp;زالة التنقل NCX والمرشد</translation>
+        <translation>أزِل التنقل NCX والمرشد</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3142"/>
+        <location filename="../../Form_Files/main.ui" line="3148"/>
         <source>Create Checkpoint for Epub</source>
         <translation>إنشاء نقطة تحقق للكتاب</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3151"/>
+        <location filename="../../Form_Files/main.ui" line="3157"/>
         <source>Restore Epub from previous Checkpoint</source>
         <translation>استعد الكتاب الالكتروني من نقطة تحقق سابقة</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3160"/>
+        <location filename="../../Form_Files/main.ui" line="3166"/>
         <source>Compare Epub against Previous Checkpoint</source>
         <translation>قارن الكتاب الالكتروني مقابل نقطة تحقق سابقة</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3169"/>
+        <location filename="../../Form_Files/main.ui" line="3175"/>
         <source>Manage Checkpoint Repositories</source>
         <translation>إدارة مستودعات نقاط التحقق</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3174"/>
+        <location filename="../../Form_Files/main.ui" line="3180"/>
         <source>Edit Checkpoint Descriptions</source>
         <translation>حرر أوصاف نقطة التحقق</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3179"/>
+        <location filename="../../Form_Files/main.ui" line="3185"/>
         <source>Show Log of Checkpoints</source>
         <translation>أظهِر سجل نقاط التحقق</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3184"/>
+        <location filename="../../Form_Files/main.ui" line="3190"/>
         <source>Focus on CodeView</source>
         <translation>الاستحواذ لمعاينة الشفرة</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3189"/>
+        <location filename="../../Form_Files/main.ui" line="3195"/>
         <source>Focus on BookBrowser</source>
         <translation>الاستحواذ لمتصفح الكتب</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3194"/>
+        <location filename="../../Form_Files/main.ui" line="3200"/>
         <source>Focus on Preview</source>
         <translation>الاستحواذ للمعاينة</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3199"/>
+        <location filename="../../Form_Files/main.ui" line="3205"/>
         <source>Focus on Table of Contents</source>
         <translation>الاستحواذ لجدول المحتويات</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3204"/>
+        <location filename="../../Form_Files/main.ui" line="3210"/>
         <source>Focus on Clips Window</source>
         <translation>الاستحواذ لنافذة المقاطع</translation>
     </message>
@@ -11397,39 +11402,39 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../MainUI/MainWindow.cpp" line="774"/>
         <location filename="../../MainUI/MainWindow.cpp" line="787"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1571"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1876"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2111"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2276"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2781"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2877"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2931"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2941"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2965"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2979"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3085"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3101"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1882"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2117"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2282"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2802"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2898"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2952"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2962"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2986"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3000"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3106"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3119"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3132"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3137"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3149"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3159"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3164"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3328"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3335"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3351"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3410"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3442"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3641"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4781"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4822"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4828"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4834"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5054"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5074"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5122"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5386"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5592"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3122"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3127"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3140"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3153"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3158"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3170"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3180"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3185"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3349"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3356"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3372"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3431"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3463"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3662"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4802"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4843"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4849"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4855"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5075"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5095"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5143"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5407"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5613"/>
         <source>Sigil</source>
         <translation>سيغل</translation>
     </message>
@@ -11450,17 +11455,17 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="772"/>
         <location filename="../../MainUI/MainWindow.cpp" line="774"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5120"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5122"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5590"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5592"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5141"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5143"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5611"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5613"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] - epub%2 - %3</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="772"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5120"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5590"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5141"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5611"/>
         <source>Sigil [std]</source>
         <translation>سيغل [std]</translation>
     </message>
@@ -11594,7 +11599,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1263"/>
         <source>PageEdit XHtml Editor works only on Html/OPF Resources</source>
-        <translation>محرر الصفحات: يعمل محرر XHtml على موارد Html\OPF فقط</translation>
+        <translation>يعمل محرر XHtml في محرر الصفحات على موارد Html\OPF فقط</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1269"/>
@@ -11656,413 +11661,418 @@ This action cannot be reversed.</source>
         <translation>تحذير: </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1750"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1752"/>
         <source>Sigil is closing...</source>
         <translation>سيغل يغلق...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1810"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1816"/>
         <source>New file created.</source>
         <translation>أُنشئ ملف جديد.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1835"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1841"/>
         <source>Open File</source>
         <translation>فتح ملف</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1875"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1881"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
         <translation>لم يعد هذا الملف موجوداً. انقر على موافق لإزالته من القائمة.
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1953"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1959"/>
         <source>Save File</source>
         <translation>حفظ ملف</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2007"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2013"/>
         <source>Save a Copy</source>
         <translation>حفظ نسخة</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2046"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2052"/>
         <source>Epub layout discarded.</source>
         <translation>تُرك مخطط الكتاب.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2053"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2059"/>
         <source>New epub created.</source>
         <translation>أُنشئ كتاب جديد.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2088"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2094"/>
         <source>Go To Line</source>
         <translation>الذهاب الى السطر</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2088"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2094"/>
         <source>Line #</source>
         <translation>رقم السطر</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2111"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2117"/>
         <source>Image does not exist: </source>
         <translation>الصورة غير موجودة: </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2191"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2197"/>
         <source>or</source>
         <translation>أو</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2199"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2205"/>
         <source>No CSS styles named</source>
         <translation>لم تُسمَّ طُرُز ألواح CSS</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2199"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2205"/>
         <source>found, or stylesheet not linked.</source>
         <translation>موجود(ة)، أو لم يُربَط لوح طراز.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2272"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2278"/>
         <source>&lt;html&gt;&lt;p&gt;The href &lt;b&gt;%1&lt;/b&gt; found in &lt;b&gt;%2&lt;/b&gt; does not exist (and there may be more). Splitting or merging under these conditions can result in broken links.&lt;/p&gt;&lt;p&gt;Do you still wish to continue?&lt;/p&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;p&gt;سمة الرابط href &lt;b&gt;%1&lt;/b&gt; الموجودة في &lt;b&gt;%2&lt;/b&gt; غير موجودة (وقد يوجد المزيد). يمكن أن يؤدي التقسيم أو الدمج تحت هذه الظروف إلى روابط تالفة.&lt;/p&gt;&lt;p&gt;أما زلت ترغب في المواصلة؟&lt;/p&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2296"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2302"/>
         <source>Add Cover</source>
         <translation>أضف غلافاً</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2345"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2351"/>
         <source>An existing Cover file has been found.</source>
         <translation>عُثر على ملف غلاف موجود.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2408"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2414"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
         <translation>خطأ غير متوقع. يمكن استخدام ملفات الصور فقط للغلاف.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2427"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2433"/>
         <source>Cover added.</source>
         <translation>أضيف الغلاف.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2437"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2455"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2487"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2449"/>
+        <source>OPF Manifest Mimetypes Updated.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="2458"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2476"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2508"/>
         <source>Not Available for epub2.</source>
         <translation>غير متاح لـ epub2.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2445"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2466"/>
         <source>OPF Manifest Properties Updated.</source>
         <translation>حُدّثت خصائص ملف بيان OPF.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2477"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2498"/>
         <source>NCX and Guide removed.</source>
         <translation>أزيل التنقل NCX والمرشد.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2504"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2537"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2525"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2558"/>
         <source>NCX and Guide generation failed.</source>
         <translation>فشل توليد ملف التنقل NCX والمرشد.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2573"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2594"/>
         <source>NCX and Guide generated.</source>
         <translation>وُلّد ملف التنقل NCX والمرشد.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2670"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2691"/>
         <source>An existing Index file has been found.</source>
         <translation>عُثر على ملف فهرس موجود.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2762"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2783"/>
         <source>Styles deleted.</source>
         <translation>حُذفت الطُرُز.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2770"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2791"/>
         <source>Reports Being Generated.</source>
         <translation>يجري توليد التقارير.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2781"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2802"/>
         <source>Reports cancelled due to XML not well formed.</source>
         <translation>أُلغيت التقارير لأن XML ليس حسن التنسيق.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2877"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2898"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
         <translation>أُلغي حذف ملفات الوسائط غير المستعملة لأن XML ليس حسن التنسيق.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2925"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2946"/>
         <source>Unused media files deleted.</source>
         <translation>حُذفت ملفات الوسائط غير المستعملة.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2928"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2931"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2949"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2952"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation>لا توجد ملفات صور أو فيديو أو صوت غير مستعمَلة لحذفها.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2941"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2962"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation>أُلغي حذف الطُرُز غير المستعملة لأن XML ليس حسن التنسيق.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2963"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2965"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2984"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2986"/>
         <source>There are no unused stylesheet selectors to delete.</source>
         <translation>لا منتقيات ألواح طرُز غير مستخدمة لحذفها.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2979"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3000"/>
         <source>You cannot insert a file at this position.</source>
         <translation>لا يمكنك إدراج ملف في هذا الموضع.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2986"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3007"/>
         <source>Insert File</source>
         <translation>إدراج ملف</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3039"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3060"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>الملف &quot;%1&quot; غير موجود.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3085"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3106"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3127"/>
         <source>You cannot insert an id at this position.</source>
         <translation>لا يمكنك إدراج معرّف في هذا الموضع.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3101"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3122"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation>المعرِّف غير صحيح - يجب أن يبدأ بحرف، متبوعاً بحرف أو رقم أو _ أو : أو - أو .</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3119"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3137"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3140"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3158"/>
         <source>You cannot insert a link at this position.</source>
         <translation>لا يمكنك إدراج رابط في هذا الموضع.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3132"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3153"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>الرابط غير صحيح - لا يمكن أن يحتوي &apos;&lt;&apos; أو &apos;&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3149"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3170"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation>لا يمكنك أن تؤشر فهرسا في هذا الموضع أو بدون تحديد نص.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3159"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3180"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>المُدخَل غير صحيح -لا يمكن أن يحوي &apos;&lt;&apos;  أو &apos;&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3164"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3185"/>
         <source>You cannot mark an index at this position.</source>
         <translation>لا يمكنك أن تؤشر فهرسا في هذا الموضع.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3246"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3258"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3277"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3267"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3279"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3298"/>
         <source>Select the destination to paste into first.</source>
         <translation>أولاً حدد الوجهة التي ستلصق فيها.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3266"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3287"/>
         <source>Pasted clip entry %1.</source>
         <translation>لُصق مُدخَل مقطع %1.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3328"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3349"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>حُدّد مورد واحد وما من مورد سابق للدمج فيه.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3336"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3357"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>أأنت متأكد أنك تريد دمج الملفات المحددة؟
 لا يمكن التراجع عن عن هذا الإجراء.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3351"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3372"/>
         <source>Merge cancelled: XHTML files involved in merge are not well formed.</source>
         <translation>أُلغي الدمج: ملفات XHTML المعنية بالدمج ليست حسنة التنسيق.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3410"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3431"/>
         <source>Cannot merge file %1</source>
         <translation>يتعذّر دمج الملف %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3424"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3445"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>انتهى الدمج. قد تحتاج الى إعادة توليد أو تعديل جدول المحتويات.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3442"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3463"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation>أُلغي ربط ألواح الطُرُز: %1، ليس XML حسن التنسيق.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3572"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3593"/>
         <source>Word updated.</source>
         <translation>حُدّثت الكلمة.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3641"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3662"/>
         <source>Link Javascripts cancelled: %1, XML not well formed.</source>
         <translation>أُلغي ربط جافاسكربت: %1، ملف XML غير منسق بصورة جيدة.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3751"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3772"/>
         <source>File(s) deleted.</source>
         <translation>حُذف الملف(ات).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3762"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3783"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>أُلغي تحرير جدول المحتويات.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3767"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3788"/>
         <source>Table Of Contents edited.</source>
         <translation>عُدّل جدول المحتويات.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3785"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3806"/>
         <source>Generate TOC cancelled.</source>
         <translation>ألغي توليد جدول المحتويات.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3810"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3831"/>
         <source>Table Of Contents generated.</source>
         <translation>وُلّد جدول المحتويات.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3812"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3833"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>لا تغييرات ضرورية على جدول المحتويات.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3886"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3907"/>
         <source>An existing HTML Table of Contents file has been found.</source>
         <translation>عُثر على ملف جدول محتويات HTML موجود.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3970"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3991"/>
         <source>Text selection marked.</source>
         <translation>أُشِّر تحديد النص.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3972"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3990"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3993"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4011"/>
         <source>Text selection unmarked.</source>
         <translation>أُزيل تأشير تحديد النص.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4039"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4060"/>
         <source>Metadata Editor cancelled.</source>
-        <translation>أُلغي محرر البيانات الوصفية.</translation>
+        <translation>أُلغي محرر البيانات الفوقية.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4042"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4063"/>
         <source>Metadata edited.</source>
-        <translation>حُرّرت البيانات الوصفية.</translation>
+        <translation>حُرّرت البيانات الفوقية.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4150"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4171"/>
         <source>RunPlugin</source>
         <translation>تشغيل الإضافة</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4176"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4197"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>لا يحوي هذا الكتاب أية ألواح طُرُز CSS للتحقق منها.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4207"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4228"/>
         <source>This EPUB does not contain any CSS stylesheets to reformat.</source>
         <translation>لا يحوي هذا الكتاب أية ألواح طُرُز CSS لإعادة تنسيقها.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4693"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4714"/>
         <source>Line: %1, Col: %2</source>
         <translation>سطر: %1, عمود: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4781"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4802"/>
         <source>File cannot be split at this position.</source>
         <translation>يتعذر تقسيم الملف عند هذا الموضع.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4804"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4825"/>
         <source>Split completed.</source>
         <translation>اكتمل التقسيم.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4822"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4843"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>لا يمكن التقسيم طالما يوجد على الأقل ملف واحد ليس HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4828"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4849"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>يتعذر التقسيم: XML لـ %1 ليس حسن التنسيق</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4834"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4855"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>لا يمكن التقسيم طالما أنّ ملفا واحدا على الأقل قد لا يكون HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4867"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4888"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>انتهى التقسيم. قد تحتاج الى تحديث جدول المحتويات.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4869"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4890"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>لم يعثر على مؤشرات تقسيم ملف. استخدم إدراج-&gt;مؤشر تقسيم.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5055"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5076"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>جرى تعديل على المستند.
 أتريد حفظ التغييرات؟</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5076"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5097"/>
         <source>Should Sigil overwrite this file?</source>
         <translation>أينبغي على سيغل الكتابة على هذا الملف؟</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5262"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5283"/>
         <source>No importer for file type: %1</source>
         <translation>لم يعثر على مستورد لنوع الملف: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5269"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5290"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -12075,44 +12085,44 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
 جرّب ضبط تفضيل تنظيف المصدر إلى ترميم شفرة مصدر XHTML عند الفتح وأعد تحميل الملف.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5274"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5295"/>
         <source>Loading file...</source>
         <translation>يحمّل الملف...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5288"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5309"/>
         <source>File loaded.</source>
         <translation>حُمّل الملف.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5314"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5335"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>مُنشيء هذا الملف قد شفّره بـ DRM. لا يمكن لسيغل فتح هكذا ملفات.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5322"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5343"/>
         <source>Cannot load EPUB: %1</source>
         <translation>يتعذّر تحميل الكتاب: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5327"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5348"/>
         <source>Cannot load file %1: %2</source>
         <translation>لا يمكن تحميل الملف %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5354"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5375"/>
         <source>Saving EPUB...</source>
         <translation>يحفظ الكتاب...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5363"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5384"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>لا يمكن لسيغل فتح ملفات من نوع &quot;%1&quot;.
 لطفاً اختر نسقًا مختلفًا.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5387"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5408"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to mend on Save.
 
 Do you want to automatically mend the files before saving? Or cancel the Save?</source>
@@ -12121,94 +12131,94 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 أتريد ترميم الملفات تلقائيا قبل الحفظ؟ أم تريد إلغاء الحفظ؟</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5392"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5413"/>
         <source>Saving EPUB... cancelled</source>
         <translation>حفظ الكتاب... أُلغي</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5418"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5439"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>حُفظ الكتاب لكن ليس كل ملفات HTML حسنة التنسيق.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5420"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5441"/>
         <source>EPUB saved.</source>
         <translation>حُفظ الكتاب.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5426"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5447"/>
         <source>Cannot save file %1: %2</source>
         <translation>لا يمكن حفظ الملف %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5559"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5580"/>
         <source>EPUB files (*.epub)</source>
         <translation>ملفات EPUB (‎*.epub‏)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5560"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5561"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5562"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5581"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5582"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5583"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>ملفات HTML انترنت (‎*.htm *.html *.xhtml‏)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5563"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5584"/>
         <source>Text files (*.txt)</source>
         <translation>ملفات نص (‎*.txt‏)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5564"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5585"/>
         <source>All files (*.*)</source>
         <translation>كل الملفات (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5572"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5593"/>
         <source>EPUB file (*.epub)</source>
         <translation>ملف EPUB (‎*.epub‏)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5670"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5691"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>الإبقاء على سِمات الترويس الموجود هو الآن:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5671"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5692"/>
         <source>ON</source>
         <translation>مشتغل</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5671"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5692"/>
         <source>OFF</source>
         <translation>معطّل</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5696"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5717"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6659"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6682"/>
         <source>Focus changed to CodeView window.</source>
         <translation>تغير الاستحواذ إلى نافذة معاينة الشفرة.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6668"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6691"/>
         <source>Focus changed to BookBrowser window.</source>
         <translation>تغير الاستحواذ إلى نافذة متصفح الكتب.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6677"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6700"/>
         <source>Focus changed to Preview window.</source>
         <translation>تغير الاستحواذ إلى نافذة المعاينة.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6686"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6709"/>
         <source>Focus changed to Table Of Contents window.</source>
         <translation>تغير الاستحواذ إلى نافذة جدول المحتويات.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6695"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6718"/>
         <source>Focus changed to Clips window.</source>
         <translation>تغير الاستحواذ إلى نافذة المقاطع.</translation>
     </message>
@@ -12337,7 +12347,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="115"/>
         <source>Use for a person or organization who draws the two-dimensional figures, manipulates the three dimensional objects and/or also programs the computer to move objects and images for the purpose of animated film processing. Animation cameras, stands, celluloid screens, transparencies and inks are some of the tools of the animator.</source>
-        <translation>استخدمه للشخص أو المنظمة التي ترسم أشكالا ثنائية الأبعاد و\أو تتعامل الكائنات ثلاثية الأبعاد و\أو أيضا يبرمج الحاسوب لتحريك الكائنات والصور لغرض معالجة أفلام الرسوم المتحركة. آلات تصوير الرسوم المتحركة والمساند وشاشات السيلولويد والمواد الشفافة والأحبار هي بعض من أدوات الراسم.</translation>
+        <translation>استخدمه للشخص أو المنظمة التي ترسم الأشكال ثنائية الأبعاد، تعالج الكائنات ثلاثية الأبعاد و\أو أيضا تبرمج الحاسوب لتحريك الكائنات والصور لغرض معالجة أفلام الرسوم المتحركة. آلات تصوير الرسوم المتحركة والمساند وشاشات السيلولويد والمواد الشفافة والأحبار هي بعض من أدوات الراسم.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="116"/>
@@ -12347,7 +12357,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="116"/>
         <source>Use for a person who writes manuscript annotations on a printed item.</source>
-        <translation>استخدمه للشخص الذي يكتب حواشي يدوية على قطعة مطيوعة.</translation>
+        <translation>استخدمه للشخص الذي يكتب حواشي يدوية على بند مطبوع.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="117"/>
@@ -12402,7 +12412,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="122"/>
         <source>Art copyist</source>
-        <translation>الناسخ</translation>
+        <translation>ناسخ الفن</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="122"/>
@@ -12457,7 +12467,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="127"/>
         <source>Use for a person or organization associated with or found in an item or collection, which cannot be determined to be that of a Former owner [fmo] or other designated relator indicative of provenance.</source>
-        <translation>استخدمه للشخص أو المنظمة المقرونة بـ أو الموجودة في قطعة أو تجميعة، والتي لا يمكن تحديدها على أنها لمالك سابق [] أو ذي علاقة سابق معيَّن بما يشير إلى المَنشأ.</translation>
+        <translation>استخدمه للشخص أو المنظمة المقرونة بـ أو الموجودة في بندٍ أو تجميعةٍ ما، والتي لا يمكن تحديدها على أنها تلك التي تشير إلى مالك سابق [fmo] أو ناسبٍ معيَّن يدلّ على المَنشأ.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="128"/>
@@ -12547,7 +12557,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="136"/>
         <source>A person whose manuscript signature appears on an item.</source>
-        <translation>شخص يظهر توقيعه اليدوي على مادة ما.</translation>
+        <translation>شخص يظهر توقيعه اليدوي على بندٍ ما.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="137"/>
@@ -12807,7 +12817,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="162"/>
         <source>Use for the party who applies to the courts for redress, usually in an equity proceeding.</source>
-        <translation>استخدمه للطرف الذي يتقدم إلى المحاكم طلبًا للإنصاف ويكون ذلك في المعتاد في إجراء للعدالة.</translation>
+        <translation>استخدمه للطرف الذي يتقدم إلى المحاكم طلبًا للتعويض ويكون ذلك في المعتاد في إجراء للعدالة.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="163"/>
@@ -12857,7 +12867,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="167"/>
         <source>Use for a person or organization responsible for the original idea on which a work is based, this includes the scientific author of an audio-visual item and the conceptor of an advertisement.</source>
-        <translation>استخدمه للشخص أو المنظمة المسؤولة عن الفكرة الأصلية التي استند إليها العمل، وهذا يشمل المؤلف العلمي لمادة سمعية بصرية وصاحب فكرة الإعلان.</translation>
+        <translation>استخدمه للشخص أو المنظمة المسؤولة عن الفكرة الأصلية التي استند إليها العمل، وهذا يشمل المؤلف العلمي لبند سمعي بصري وصاحب فكرة الإعلان.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="168"/>
@@ -12997,7 +13007,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="181"/>
         <source>Use for a person or organization to whom copy and legal rights have been granted or transferred for the intellectual content of a work. The copyright holder, although not necessarily the creator of the work, usually has the exclusive right to benefit financially from the sale and use of the work to which the associated copyright protection applies.</source>
-        <translation>استخدمه للشخص أو المنظمة مُنحت أو نُقل إليها حقوق النسخ والحقوق القانونية للمحتوى الفكري لعمل ما. للحائز على حقوق النشر، رغم أنه ليس بالضرورة مُنشئ العمل، الحق الحصري للإنتفاع ماليًا من بيع واستخدام العمل الذي تنطبق عليه حماية حقوق النشر المعنية.</translation>
+        <translation>استخدمه للشخص أو المنظمة التي مُنحت أو نُقلت إليها حقوق النسخ والحقوق القانونية للمحتوى الفكري لعمل ما. يمتلك الحائز على حقوق النشر، رغم أنه ليس بالضرورة مُنشئ العمل، الحق الحصري للإنتفاع ماليًا من بيع واستخدام العمل الذي تنطبق عليه حماية حقوق النشر المعنية.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="182"/>
@@ -13257,7 +13267,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="207"/>
         <source>Use for a person or organization who is the donor of a book, manuscript, etc., to its present owner. Donors to previous owners are designated as Former owner [fmo] or Inscriber [ins].</source>
-        <translation>استخدمه للشخص أو المنظمة التي تتبرع بكتاب أو مخطوطة أو غيرهما إلى مالكها الحالي. المتبرعون إلى المالكين السابقين يشار اليهم بالمالك السابق [fmo] أو المُهدي [ins].</translation>
+        <translation>استخدمه للشخص أو المنظمة التي تكون المتبرع بكتاب أو مخطوطة أو غيرهما إلى مالكها الحالي. المتبرعون إلى المالكين السابقين يشار اليهم بالمالك السابق [fmo] أو المُهدي [ins].</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="208"/>
@@ -13422,12 +13432,12 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="224"/>
         <source>Film editor</source>
-        <translation type="unfinished"/>
+        <translation>محرر الفيلم</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="224"/>
         <source>Use for a person or organization who is an editor of a motion picture film. This term is used regardless of the medium upon which the motion picture is produced or manufactured (e.g., acetate film, video tape). </source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة التي تكون محرراً لفيلم صور متحركة. يُستخدم هذا المصطلح بغض النظر عن الوسيطة التي أُنتجت أو صُنّعت عليها الصور المتحركة (مثلاً فيلم خَلّات ’أسيتات‘ أو شريط فيديو). </translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="225"/>
@@ -13442,42 +13452,42 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="226"/>
         <source>Filmmaker</source>
-        <translation type="unfinished"/>
+        <translation>صانع الفيلم</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="226"/>
         <source>A person, family or organization responsible for creating an independent or personal film. A filmmaker is individually responsible for the conception and execution of all aspects of the film.</source>
-        <translation type="unfinished"/>
+        <translation>الشخص أو العائلة أو المنظمة المسؤولة عن إنشاء فيلم شخصي مستقل. صانع الفيلم مسؤول فرديًا عن تصور وتنفيذ كل جوانب الفيلم.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="227"/>
         <source>First party</source>
-        <translation type="unfinished"/>
+        <translation>الطرف الأول</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="227"/>
         <source>Use for a person or organization who is identified as the only party or the party of the first part. In the case of transfer of right, this is the assignor, transferor, licensor, grantor, etc. Multiple parties can be named jointly as the first party.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة التي تُحدَّد على أنها الطرف الوحيد أو طرف الجزء الأول. في حالة نقل المِلكية، فهذا هو المتنازل أو محوّل المِلكية أو المرخِّص أو الواهب وما شابههم. يمكن تسمية أطراف متعددة تشاركيًا طرفًا أول.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="228"/>
         <source>Forger</source>
-        <translation type="unfinished"/>
+        <translation>المزوِّر</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="228"/>
         <source>Use for a person or organization who makes or imitates something of value or importance, especially with the intent to defraud. </source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة التي تصنع أو تقلّد شيئًا ذا قيمة أو أهمية، بالخصوص بنية الغش. </translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="229"/>
         <source>Former owner</source>
-        <translation type="unfinished"/>
+        <translation>المالك السابق</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="229"/>
         <source>Use for a person or organization who owned an item at any time in the past. Includes those to whom the material was once presented. A person or organization giving the item to the present owner is designated as Donor [dnr].</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة التي ملكت بنداً ما في أي وقت في الماضي. هذا يتضمن أولئك الذين أُهديت لهم المادة يومًا ما. الشخص أو المنظمة المُعطية البند للمالك الحالي تُدعى المتبرع [dnr].</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="230"/>
@@ -13492,12 +13502,12 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="231"/>
         <source>Geographic information specialist</source>
-        <translation type="unfinished"/>
+        <translation>متخصص المعلومات الجغرافية</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="231"/>
         <source>Use for a person responsible for geographic information system (GIS) development and integration with global positioning system data.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص المسؤول عن تطوير نظام المعلومات الجغرافية (GIS) ودمجه مع بيانات نظام المواقع العالمي.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="232"/>
@@ -13592,22 +13602,22 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="241"/>
         <source>Inventor</source>
-        <translation type="unfinished"/>
+        <translation>المخترع</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="241"/>
         <source>Use for a person or organization who first produces a particular useful item, or develops a new process for obtaining a known item or result.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة التي تُنتج بنداً مفيداً معيَّنًا لأول مرة أو تطور عملية جديدة للحصول على بند أو نتيجة معروفة.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="242"/>
         <source>Issuing body</source>
-        <translation type="unfinished"/>
+        <translation>الجهة المُصدِرة</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="242"/>
         <source>A person, family or organization issuing a work, such as an official organ of the body.</source>
-        <translation type="unfinished"/>
+        <translation>الشخص أو العائلة أو المنظمة المُصدِرة لعملٍ ما، كالعضو الرسمي في الجهة.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="243"/>
@@ -13622,12 +13632,12 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="244"/>
         <source>Jurisdiction governed</source>
-        <translation type="unfinished"/>
+        <translation>سلطة قضاء محكومة</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="244"/>
         <source>A jurisdiction governed by a law, regulation, etc., that was enacted by another jurisdiction.</source>
-        <translation type="unfinished"/>
+        <translation>سلطة قضائية محكومة بقانون أو تنظيم أو غيرها، والمسنونة بسلطة قضئية أخرى .</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="245"/>
@@ -13642,42 +13652,42 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="246"/>
         <source>Laboratory director</source>
-        <translation type="unfinished"/>
+        <translation>مدير المختبر</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="246"/>
         <source>Use for a person or organization that manages or supervises work done in a controlled setting or environment. </source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة التي تدير أو تشرف على عمل يجري في وضع أو بيئة مسيطَر عليها. </translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="247"/>
         <source>Landscape architect</source>
-        <translation type="unfinished"/>
+        <translation>معمار المناظر الطبيعية</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="247"/>
         <source>Use for a person or organization whose work involves coordinating the arrangement of existing and proposed land features and structures.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة التي يتضمن عملها ترتيب سمات وتراكيب قائمة أو مقترحة للأرض.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="248"/>
         <source>Lead</source>
-        <translation type="unfinished"/>
+        <translation>الزعيم</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="248"/>
         <source>Use to indicate that a person or organization takes primary responsibility for a particular activity or endeavor. Use with another relator term or code to show the greater importance this person or organization has regarding that particular role. If more than one relator is assigned to a heading, use the Lead relator only if it applies to all the relators.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه لتشير إلى أنّ شخصًا أو منظمةً تتحمل المسؤولية الرئيسة عن.نشاط أو جهد معيَّن. استخدمه مع مصطلح أو شفرة لناسبٍ آخر لتُظهِر الأهمية الأكبر لهذا الشخص أو المنظمة فيما يتعلق بذلك الدور المحدد. إذا عُزي أكثر من ناسبٍ إلى ترويسٍ ما فاستخدم ناسب ’الزعيم‘ Lead فقط إذا كان ينطبق على كل الناسبين.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="249"/>
         <source>Lender</source>
-        <translation type="unfinished"/>
+        <translation>المُعير</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="249"/>
         <source>Use for a person or organization permitting the temporary use of a book, manuscript, etc., such as for photocopying or microfilming.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة التي تسمح بالاستخدام المؤقت لكتاب أو مخطوطة وغيرهما، مثلما في التصوير الضوئي أو تصوير الرقاقات الدقيقة ’مايكروفيلم‘.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="250"/>
@@ -13692,7 +13702,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="251"/>
         <source>Libelant-appellant</source>
-        <translation>مستأنِف الطعن</translation>
+        <translation>الطاعن-المستأنِف</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="251"/>
@@ -13702,12 +13712,12 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="252"/>
         <source>Libelant-appellee</source>
-        <translation type="unfinished"/>
+        <translation>الطاعن-المستأنَف ضده</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="252"/>
         <source>Use for a libelant against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للطاعن الذي تؤخَذ ضده الشكوى من محكمة كنسية أو أميرالية إلى أخرى لعكس الحكم.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="253"/>
@@ -13722,122 +13732,122 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="254"/>
         <source>Libelee-appellant</source>
-        <translation type="unfinished"/>
+        <translation>المطعون فيه-المستأنِف</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="254"/>
         <source>Use for a libelee who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للمطعون فيه الذي يأخذ الشكوى من محكمة كنسية أو أميرالية إلى أخرى لعكس الحكم.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="255"/>
         <source>Libelee-appellee</source>
-        <translation type="unfinished"/>
+        <translation>المطعون فيه-المستأنَف ضده</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="255"/>
         <source>Use for a libelee against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للمطعون فيه الذي تؤخَذ ضده الشكوى من محكمة كنسية أو أميرالية إلى أخرى لعكس الحكم.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="256"/>
         <source>Librettist</source>
-        <translation type="unfinished"/>
+        <translation>واضع كلمات الأوبرا</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="256"/>
         <source>Use for a person or organization who is a writer of the text of an opera, oratorio, etc.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة التي هي كاتب نص أوبرا أو موشح ديني وما شابه.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="257"/>
         <source>Licensee</source>
-        <translation type="unfinished"/>
+        <translation>المرخَّص</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="257"/>
         <source>Use for a person or organization who is an original recipient of the right to print or publish.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة التي هي المستلم الأصلي لحق الطباعة أو النشر.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="258"/>
         <source>Licensor</source>
-        <translation type="unfinished"/>
+        <translation>المرخِّص</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="258"/>
         <source>Use for person or organization who is a signer of the license, imprimatur, etc. </source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة التي هي الموقِّع لرخصة أو تصريح الطبع وما شابه. </translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="259"/>
         <source>Lighting designer</source>
-        <translation type="unfinished"/>
+        <translation>مصمم الإنارة</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="259"/>
         <source>Use for a person or organization who designs the lighting scheme for a theatrical presentation, entertainment, motion picture, etc.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة التي تصمم الإنارة لعَرض مسرحي أو ترفيهٍ أو فيلم وغير ذلك.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="260"/>
         <source>Lithographer</source>
-        <translation type="unfinished"/>
+        <translation>المخطِّط الحجَري</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="260"/>
         <source>Use for a person or organization who prepares the stone or plate for lithographic printing, including a graphic artist creating a design directly on the surface from which printing will be done.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المؤسسة التي تهيء الحجَر أو الصفيحة للطباعة الحجَرية، ويتضمن الفنان الرسومي المُنشِئ للتصميم مباشرة على السطح الذي ستُعمل منه الطباعة.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="261"/>
         <source>Lyricist</source>
-        <translation type="unfinished"/>
+        <translation>الشاعر الغنائي</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="261"/>
         <source>Use for a person or organization who is the a writer of the text of a song.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة التي هي الكاتب لنص أغنية.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="262"/>
         <source>Manufacture place</source>
-        <translation type="unfinished"/>
+        <translation>مكان التصنيع</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="262"/>
         <source>The place of manufacture (e.g., printing, duplicating, casting, etc.) of a resource in a published form.</source>
-        <translation type="unfinished"/>
+        <translation>مكان تصنيع (مثلا طباعة أو نسخ أو صبّ وغيرها) لموردٍ ما في هيئة منشورة.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="263"/>
         <source>Manufacturer</source>
-        <translation type="unfinished"/>
+        <translation>المصنِّع</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="263"/>
         <source>Use for a person or organization that makes an artifactual work (an object made or modified by one or more persons). Examples of artifactual works include vases, cannons or pieces of furniture.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة التي تصنع عملاً صُنعيًّا (شيء يصنعه أو يعدّله شخص أو أكثر). من الأمثلة على .الأعمال الصُنعية الأواني أو المَدافع أو قطع الأثاث.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="264"/>
         <source>Marbler</source>
-        <translation type="unfinished"/>
+        <translation>المزيِّن</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="264"/>
         <source>The entity responsible for marbling paper, cloth, leather, etc. used in construction of a resource.</source>
-        <translation type="unfinished"/>
+        <translation>الكيان المسؤول تزيين الورق أو النسيج أو الجلد وغيرها مما يُستخدم في تركيب مصدرٍ ما.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="265"/>
         <source>Markup editor</source>
-        <translation type="unfinished"/>
+        <translation>محرر الترميز التأشيري</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="265"/>
         <source>Use for a person or organization performing the coding of SGML, HTML, or XML markup of metadata, text, etc.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة التي تنجز ترميز تأشير البيانات الفوقية أو النص أو غيرها للغة الترميز القياسي العام SGML أو لغة توصيف\تأشير النص الفائق HTML أو لغة التوصيف القابلة للتوسعة XML.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="266"/>
@@ -13852,12 +13862,12 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="267"/>
         <source>Metadata contact</source>
-        <translation type="unfinished"/>
+        <translation>متراسل البيانات الفوقية</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="267"/>
         <source>Use for a person or organization primarily responsible for compiling and maintaining the original description of a metadata set (e.g., geospatial metadata set).</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة المسؤول أوليًّا عن تركيب وصيانة الوصف الأصلي لزمرة بيانات فوقية (مثلا، مجموعة البيانات الفوقية الموقعية الجغرافية).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="268"/>
@@ -13912,22 +13922,22 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="273"/>
         <source>Musical director</source>
-        <translation type="unfinished"/>
+        <translation>المخرج الموسيقي</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="273"/>
         <source>Use for a person responsible for basic music decisions about a production, including coordinating the work of the composer, the sound editor, and sound mixers, selecting musicians, and organizing and/or conducting sound for rehearsals and performances.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص المسؤول عن القرارات الموسيقية الأساسية التي تخص الإنتاج، وبضمنها تنسيق عمل المولِّف ومحرر الصوت ومازجات الصوت واختيار الموسيقيين وتنظيم و\أو تولّي الصوت للتمارين و فعاليات الأداء.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="274"/>
         <source>Musician</source>
-        <translation type="unfinished"/>
+        <translation>الموسيقي</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="274"/>
         <source>Use for a person or organization who performs music or contributes to the musical content of a work when it is not possible or desirable to identify the function more precisely.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة التي تُنجز الموسيقى أو تساهم في المحتوى الموسيقي لعملٍ ما عندما لا يكون ممكنًا أو مرغوبًا تحديد الوظيفة بصورة أدق.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="275"/>
@@ -13942,12 +13952,12 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="276"/>
         <source>Onscreen presenter</source>
-        <translation type="unfinished"/>
+        <translation>المقدِّم على الشاشة</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="276"/>
         <source>A performer contributing to an expression of a work by appearing on screen in nonfiction moving image materials or introductions to fiction moving image materials to provide contextual or background information. Use when another term (e.g., Narrator, Host) is either not applicable or not desired.</source>
-        <translation type="unfinished"/>
+        <translation>المؤدّي الذي يسهم في التعبير عن عملٍ ما بالظهور على الشاشة في مواد صورية متحركة غير قصصية أو مقدّمات إلى مواد صورية متحركة قصصية لتوفير خلفية أومعلومات سياقية. استخدمه عندما يكون مصطلح آخر (مثلا الراوي أو المستضيف) إمّا غير قابل للإنطباق أو غير مرغوب.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="277"/>
@@ -13962,22 +13972,22 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="278"/>
         <source>Organizer of meeting</source>
-        <translation type="unfinished"/>
+        <translation>منظِّم الاجتماع</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="278"/>
         <source>Use for a person or organization responsible for organizing a meeting for which an item is the report or proceedings.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة المسؤولة عن تنظيم اجتماعٍ الذي يكون بنده هو تقرير أو مَحاضر.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="279"/>
         <source>Originator</source>
-        <translation type="unfinished"/>
+        <translation>المُنشئ</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="279"/>
         <source>Use for a person or organization performing the work, i.e., the name of a person or organization associated with the intellectual content of the work. This category does not include the publisher or personal affiliation, or sponsor except where it is also the corporate author.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة المؤدية للعمل، أي اسم الشخص أو المنظمة المرتبطة بالمحتوى الفكري للعمل. هذا الصنف لا يشمل اناشر أو الانتساب الشخصي، أو الراعي إلّا عندما يكون هو أيضًا مؤلف الشركة.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="280"/>
@@ -13987,7 +13997,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="280"/>
         <source>Use for relator codes from other lists which have no equivalent in the MARC list or for terms which have not been assigned a code.</source>
-        <translation>استخدمه لترميزات المعنيين من قوائم أخرى والتي ليس لها مكافئ في قائمة MARC أو للمصطلحات التي لم يعيَّن لها ترميز.</translation>
+        <translation>استخدمه لترميزات الناسبين من قوائم أخرى والتي ليس لها مكافئ في قائمة MARC أو للمصطلحات التي لم يعيَّن لها ترميز.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="281"/>
@@ -13997,27 +14007,27 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="281"/>
         <source>Use for a person or organization that currently owns an item or collection.</source>
-        <translation>استخدمه للشخص أو المنظمة التي تمتلك حاليًا بنداً أو تجميعة.</translation>
+        <translation>استخدمه للشخص أو المنظمة التي تمتلك حاليًا بنداً أو تجميعةً.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="282"/>
         <source>Panelist</source>
-        <translation type="unfinished"/>
+        <translation>عضو مناقش</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="282"/>
         <source> performer contributing to a resource by participating in a program (often broadcast) where topics are discussed, usually with participation of experts in fields related to the discussion.</source>
-        <translation type="unfinished"/>
+        <translation> مؤدي يساهم في مورد ما بالمشاركة في برنامج (غالبا بث) حيث تناقَش المواضيع، وفي المعتاد بمشاركة خبراء في حقول متعلقة بالنقاش.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="283"/>
         <source>Papermaker</source>
-        <translation type="unfinished"/>
+        <translation>صانع الورق</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="283"/>
         <source>Use for a person or organization responsible for the production of paper, usually from wood, cloth, or other fibrous material.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة المسؤولة عن إنتاج الورق، في المعتاد من الخشب أو النسيج أو مواد ليفية أخرى.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="284"/>
@@ -14042,12 +14052,12 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="286"/>
         <source>Patron</source>
-        <translation type="unfinished"/>
+        <translation>المتكفل</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="286"/>
         <source>Use for a person or organization responsible for commissioning a work. Usually a patron uses his or her means or influence to support the work of artists, writers, etc. This includes those who commission and pay for individual works.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة المسؤولة عن الإنتداب لعمل ما. في المعتاد أن يستخدم المتكفل وسائل نفوذه أو نفوذها لدعم عمل الفنانين والكُتّاب وغيرهم. هذا يشمل أولئك الذين ينتدبون ويدفعون للأعمال الفردية.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="287"/>
@@ -14072,17 +14082,17 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="289"/>
         <source>Photographer</source>
-        <translation type="unfinished"/>
+        <translation>المصوِّر</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="289"/>
         <source>Use for a person or organization responsible for taking photographs, whether they are used in their original form or as reproductions.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة المسؤولة عن التقاط الصور الضوئية، سواء استُخدمت بهيئتها الأصلية أو كنُسَخ.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="290"/>
         <source>Plaintiff</source>
-        <translation>المشتكي</translation>
+        <translation>المتشكّي</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="290"/>
@@ -14092,52 +14102,52 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="291"/>
         <source>Plaintiff-appellant</source>
-        <translation type="unfinished"/>
+        <translation>المتشكّي-المستأنِف</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="291"/>
         <source>Use for a plaintiff who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للمتشكّيي الذي يأخذ الاستئناف من محكمة أو سلطة قضائية إلى أخرى لعكس الحكم، وعادة ما يكون ذلك في إجراء للعدالة.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="292"/>
         <source>Plaintiff-appellee</source>
-        <translation type="unfinished"/>
+        <translation>المتشكّي-المستأنَف ضده</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="292"/>
         <source>Use for a plaintiff against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للمتشكّي الذي تؤخَذ ضده الشكوى من محكمة او سلطة قضائية إلى أخرى لعكس الحكم، وعادة ما يكون ذلك في إجراء للعدالة.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="293"/>
         <source>Platemaker</source>
-        <translation type="unfinished"/>
+        <translation>صانع الصفائح</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="293"/>
         <source>Use for a person or organization responsible for the production of plates, usually for the production of printed images and/or text.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة المسؤولة عن إنتاج الألواح، في المعتاد لإنتاج صور أو نصوص مطبوعة.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="294"/>
         <source>Praeses</source>
-        <translation type="unfinished"/>
+        <translation>المحكِّم</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="294"/>
         <source>A person who is the faculty moderator of an academic disputation, normally proposing a thesis and participating in the ensuing disputation.</source>
-        <translation type="unfinished"/>
+        <translation>الشخص الذي يكون حَكمًا عن كُلّية في مناظرة أكاديمية تطرح في الغالب أطروحة، ويشترك في المناظرة الناجمة.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="295"/>
         <source>Presenter</source>
-        <translation type="unfinished"/>
+        <translation>المقدِّم</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="295"/>
         <source>A person or organization mentioned in an &apos;X presents&apos; credit for moving image materials and who is associated with production, finance, or distribution in some way. A vanity credit; in early years, normally the head of a studio.</source>
-        <translation type="unfinished"/>
+        <translation>الشخص أو المنظمة المذكورة في نسبة العمل في ’س تقدم‘ للمواد الصورية المتحركة والذي يرتبط بالإنتاج أو التمويل أو التوزيع بطريقة ما. هذا ذِكر ضئيل؛ في السنين الأولى، كان يعني رئيس صالة التصوير.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="296"/>
@@ -14152,32 +14162,32 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="297"/>
         <source>Printer of plates</source>
-        <translation type="unfinished"/>
+        <translation>طابع الألواح</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="297"/>
         <source>Use for a person or organization who prints illustrations from plates. </source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة التي تطبع الرسوم التوضيحية من الألواح. </translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="298"/>
         <source>Printmaker</source>
-        <translation type="unfinished"/>
+        <translation>الطبّاع</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="298"/>
         <source>Use for a person or organization who makes a relief, intaglio, or planographic printing surface.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة التي تصنع سطوح الطباعة البارزة أو الغائرة أو المقطعية.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="299"/>
         <source>Process contact</source>
-        <translation type="unfinished"/>
+        <translation>متراسل العملية</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="299"/>
         <source>Use for a person or organization primarily responsible for performing or initiating a process, such as is done with the collection of metadata sets.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة المسؤولة رئيسيًا عن أداء أو المبادرة في عمليةٍ ما، كما معمول في تجميعة زُمَر البيانات الفوقية.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="300"/>
@@ -14192,72 +14202,72 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="301"/>
         <source>Production company</source>
-        <translation type="unfinished"/>
+        <translation>شركة الإنتاج</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="301"/>
         <source>An organization that is responsible for financial, technical, and organizational management of a production for stage, screen, audio recording, television, webcast, etc.</source>
-        <translation type="unfinished"/>
+        <translation>المنظمة المسؤولة عن الإدارة المالية والفنية والتنظيمية لإنتاج للمسرح، الشاشة، التسجيل الصوتي، التلفاز، البث الشبكي وغيرها.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="302"/>
         <source>Production designer</source>
-        <translation type="unfinished"/>
+        <translation>مصمم الإنتاج</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="302"/>
         <source>A person or organization responsible for designing the overall visual appearance of a moving image production.</source>
-        <translation type="unfinished"/>
+        <translation>الشخص أو المنظمة المسؤولة عن تصميم مجمَل المظهر المرئي لإنتاج صور متحركة.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="303"/>
         <source>Production manager</source>
-        <translation type="unfinished"/>
+        <translation>مدير الإنتاج</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="303"/>
         <source>Use for a person responsible for all technical and business matters in a production.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص المسؤول عن كل النواحي الفنية والتجارية في إنتجٍ ما.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="304"/>
         <source>Production personnel</source>
-        <translation type="unfinished"/>
+        <translation>أفراد الإنتاج</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="304"/>
         <source>Use for a person or organization associated with the production (props, lighting, special effects, etc.) of a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة المرتبطة بإنتاج (التكميلات، الإنارة، المؤثّرات الخاصة، وغيرها) تقديم أو ترفيه موسيقي أو تمثيلي.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="305"/>
         <source>Production place</source>
-        <translation type="unfinished"/>
+        <translation>مكان الإنتاج</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="305"/>
         <source>The place of production (e.g., inscription, fabrication, construction, etc.) of a resource in an unpublished form.</source>
-        <translation type="unfinished"/>
+        <translation>مكان الإنتاج (مثلا النقش والتصنيع والإنشاء وغيرها) لموردٍ ما بهيئة غير منشورة.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="306"/>
         <source>Programmer</source>
-        <translation type="unfinished"/>
+        <translation>المبرمِج</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="306"/>
         <source>Use for a person or organization responsible for the creation and/or maintenance of computer program design documents, source code, and machine-executable digital files and supporting documentation.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة المسؤولة عن إنشاء و\أو صيانة برنامج حاسوب ووثائق التصميم والشفرة المصدرية والملفات الرقمية التي تنفذها الماكنة والتوثيقات الداعمة.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="307"/>
         <source>Project director</source>
-        <translation type="unfinished"/>
+        <translation>موجّه المشروع</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="307"/>
         <source>Use for a person or organization with primary responsibility for all essential aspects of a project, or that manages a very large project that demands senior level responsibility, or that has overall responsibility for managing projects, or provides overall direction to a project manager.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة ذات المسؤولية الرئيسة لكل النواحي الأساسية لمشروعٍ ما؛ أو التي تدير مشروعًا كبيراً جداً يتطلب مسؤولية عالية المستوى؛ أو التي لها إجمالية لإدارة مشاريع؛ أو التي تعطي توجيهًا عامًّا لمدير مشروع.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="308"/>
@@ -14272,12 +14282,12 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="309"/>
         <source>Provider</source>
-        <translation>المزود</translation>
+        <translation>المزوِّد</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="309"/>
         <source>A person or organization who produces, publishes, manufactures, or distributes a resource if specific codes are not desired (e.g. [mfr], [pbl].)</source>
-        <translation type="unfinished"/>
+        <translation>الشخص أو المنظمة التي تُنتج أو تنشر أو تصنّع أو توزّع مورداً ما إذا لم تكن تشفيرات معيَّنة مرغوبة (مثلاً [mfr] أو [pbl].)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="310"/>
@@ -14302,22 +14312,22 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="312"/>
         <source>Publishing director</source>
-        <translation type="unfinished"/>
+        <translation>موجّه النشر</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="312"/>
         <source>Use for a person or organization who presides over the elaboration of a collective work to ensure its coherence or continuity. This includes editors-in-chief, literary editors, editors of series, etc.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة التي تترأس تجهيز عمل جماعي لضمان تماسكه واستمراره. هذا يتضمن رؤوساء التحرير والمحررين الأدبيين ومحرري السلاسل وغيرهم.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="313"/>
         <source>Puppeteer</source>
-        <translation type="unfinished"/>
+        <translation>محرّك الدُّمى</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="313"/>
         <source>Use for a person or organization who manipulates, controls, or directs puppets or marionettes in a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة التي تحاكي أو تتحكم أو توجه الدُّمى أو العرائس في تقديم أو ترفيه موسيقي أو تمثيلي.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="314"/>
@@ -14327,7 +14337,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="314"/>
         <source>A director responsible for the general management and supervision of a radio program.</source>
-        <translation>المخرج المسؤول عن الإدارة والإشراف العام لعمل إذاعي.</translation>
+        <translation>المخرج المسؤول عن الإدارة والإشراف العام لبرنامج إذاعي.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="315"/>
@@ -14508,62 +14518,62 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="333"/>
         <source>Rubricator</source>
-        <translation type="unfinished"/>
+        <translation>الموشّي</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="333"/>
         <source>Use for a person or organization responsible for parts of a work, often headings or opening parts of a manuscript, that appear in a distinctive color, usually red.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة المسؤولة عن أجزاء من عمل ما، في الغالب عناوين مخطوطة أو أجزائها الإفتتاحية، والتي تظهر بلون مميز يكون في المعتاد أحمر.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="334"/>
         <source>Scenarist</source>
-        <translation type="unfinished"/>
+        <translation>كاتب الحوار</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="334"/>
         <source>Use for a person or organization who is the author of a motion picture screenplay.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة التي هي المؤلف للنص السينمائي لفيلم.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="335"/>
         <source>Scientific advisor</source>
-        <translation type="unfinished"/>
+        <translation>المشير العلمي</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="335"/>
         <source>Use for a person or organization who brings scientific, pedagogical, or historical competence to the conception and realization on a work, particularly in the case of audio-visual items.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة التي تُضفي جدارة علمية أو تعليمية أو تأريخية على مفهوم وصياغة عملٍ ما، وبالخصوص في حالة البنود السمعية البصرية.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="336"/>
         <source>Scribe</source>
-        <translation type="unfinished"/>
+        <translation>النَّسّاخ</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="336"/>
         <source>Use for a person who is an amanuensis and for a writer of manuscripts proper. For a person who makes pen-facsimiles, use Facsimilist [fac].</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص الذي هو الناقل أو الكاتب للمخطوطات بالتحديد. فيما يخص الشخص الذي يصنع  نُسخًا طبق الأصل، استخدم الناسخ طبق الأصل [fac].</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="337"/>
         <source>Sculptor</source>
-        <translation type="unfinished"/>
+        <translation>النحات</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="337"/>
         <source>Use for a person or organization who models or carves figures that are three-dimensional representations.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة التي تصوغ أو تنحت أشكالاً تكون تمثيلات ثلاثية الأبعاد.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="338"/>
         <source>Second party</source>
-        <translation type="unfinished"/>
+        <translation>الطرف الثاني</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="338"/>
         <source>Use for a person or organization who is identified as the party of the second part. In the case of transfer of right, this is the assignee, transferee, licensee, grantee, etc. Multiple parties can be named jointly as the second party.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة التي تُحدَّد على أنها طرف الجزء الثاني. في حالة نقل المِلكية، فهذا هو المتنازَل له أو المحوَّل إليه المِلكية أو المرخَّص له أو الموهوب له وما شابههم. يمكن تسمية أطراف متعددة تشاركيًا طرفًا ثانيًا.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="339"/>
@@ -14628,132 +14638,132 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="345"/>
         <source>Sound designer</source>
-        <translation type="unfinished"/>
+        <translation>مصمم الصوت</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="345"/>
         <source>Use for a person who produces and reproduces the sound score (both live and recorded), the installation of microphones, the setting of sound levels, and the coordination of sources of sound for a production.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة التي تُنتج وتعيد إنتاج التوليف الموسيقي (الحيّ والمسجّل كلاهما) وتنصيبات لاقطات الصوت وإعداد مستويات الصوت وتنسيق مصادر الصوت لإنتاجٍ ما.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="346"/>
         <source>Speaker</source>
-        <translation type="unfinished"/>
+        <translation>المتحدث</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="346"/>
         <source>Use for a person who participates in a program (often broadcast) and makes a formalized contribution or presentation generally prepared in advance.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص الذي يشارك في برنامج (غالبًا ما يكون بثًا) ويعمل مشاركة مَصوغة أو تقديما مهيأً سلفًا على وجه العموم.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="347"/>
         <source>Sponsor</source>
-        <translation type="unfinished"/>
+        <translation>الراعي</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="347"/>
         <source>Use for a person or organization that issued a contract or under the auspices of which a work has been written, printed, published, etc.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة التي أصدرت عقداً أو التي كُتب أو طُبع أو نُشر عمل تحت رعايتها.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="348"/>
         <source>Stage director</source>
-        <translation type="unfinished"/>
+        <translation>مخرِج المسرح</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="348"/>
         <source>A person or organization contributing to a stage resource through the overall management and supervision of a performance.</source>
-        <translation type="unfinished"/>
+        <translation>الشخص أو المنظمة المساهمة في موردٍ مسرحي من خلال الإدارة والإشراف العامّين لأداءٍ ما.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="349"/>
         <source>Stage manager</source>
-        <translation type="unfinished"/>
+        <translation>مدير المسرح</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="349"/>
         <source>Use for a person who is in charge of everything that occurs on a performance stage, and who acts as chief of all crews and assistant to a director during rehearsals.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص الذي يتولى كل شيء يحصل في مسرح أداءٍ ما، والذي يعمل عمل رئيس لكل فرق العمل ومساعداً للموجّه خلال التدريبات.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="350"/>
         <source>Standards body</source>
-        <translation type="unfinished"/>
+        <translation>هيأة المعايير</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="350"/>
         <source>Use for an organization responsible for the development or enforcement of a standard.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للمنظمة المسؤولة عن تطوير وتعزيز معيارٍ ما.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="351"/>
         <source>Stereotyper</source>
-        <translation type="unfinished"/>
+        <translation>المصفِّح</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="351"/>
         <source>Use for a person or organization who creates a new plate for printing by molding or copying another printing surface.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة التي تُنشئ صفيحة جديدة بقولبة أو نسخ سطح صفيحة أخرى.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="352"/>
         <source>Storyteller</source>
-        <translation type="unfinished"/>
+        <translation>القاصّ</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="352"/>
         <source>Use for a person relaying a story with creative and/or theatrical interpretation.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص الناقل لقصةٍ ما مع تفسير إبداعي و\أو مسرحي.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="353"/>
         <source>Supporting host</source>
-        <translation type="unfinished"/>
+        <translation>المستضيف الداعم</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="353"/>
         <source>Use for a person or organization that supports (by allocating facilities, staff, or other resources) a project, program, meeting, event, data objects, material culture objects, or other entities capable of support. </source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة التي تدعم (بتخصيص مرافق أو فرق موظفين أو موارد أخرى) مشروعًا أو برنامجًا أو اجتماعًا أو حدثًا أو مواد بيانات أو أشياء حضارية مادية أو كيانات أخرى قابلة للدعم. </translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="354"/>
         <source>Surveyor</source>
-        <translation type="unfinished"/>
+        <translation>المسّاح</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="354"/>
         <source>Use for a person or organization who does measurements of tracts of land, etc. to determine location, forms, and boundaries.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص أو المنظمة التي تقوم بالقياسات لأصقاع من الأرض وغيرها لتحديد الموضع والتشكّلات والحدود.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="355"/>
         <source>Teacher</source>
-        <translation type="unfinished"/>
+        <translation>المعلِّم</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="355"/>
         <source>Use for a person who, in the context of a resource, gives instruction in an intellectual subject or demonstrates while teaching physical skills. </source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص الذي، في سياق موردٍ ما، يعطي تعليمًا في موضوع فكري أو يوضح أثناء تعليم مهارات جسدية. </translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="356"/>
         <source>Technical director</source>
-        <translation type="unfinished"/>
+        <translation>المخرج التقني</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="356"/>
         <source>Use for a person who is ultimately in charge of scenery, props, lights and sound for a production.</source>
-        <translation type="unfinished"/>
+        <translation>استخدمه للشخص الذي يكون في المحصِّلة مكلَّفًا بالمشاهد والتكميلات والأضواء والصوت لإنتاجٍ ما.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="357"/>
         <source>Television director</source>
-        <translation type="unfinished"/>
+        <translation>المخرج التلفازي</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="357"/>
         <source>A director responsible for the general management and supervision of a television program.</source>
-        <translation type="unfinished"/>
+        <translation>المخرج المسؤول عن الإدارة والإشراف العام لبرنامج تلفازي.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="358"/>
@@ -14803,17 +14813,17 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="362"/>
         <source>Use for a person or organization who designed the type face used in a particular item. </source>
-        <translation>استخدمه للشخص أو المنظمة التي صممت ضرب حروف الطباعة المستخدمة في بند ما. </translation>
+        <translation>استخدمه للشخص أو المنظمة التي صممت ضرب حروف الطباعة المستخدمة في بندٍ ما. </translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="363"/>
         <source>Typographer</source>
-        <translation>الطبّاع</translation>
+        <translation>المنضِّد</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="363"/>
         <source>Use for a person or organization primarily responsible for choice and arrangement of type used in an item. If the typographer is also responsible for other aspects of the graphic design of a book (e.g., Book designer [bkd]), codes for both functions may be needed.</source>
-        <translation>استخدمه للشخص أو المنظمة المسؤولة بصورة رئيسة عن اختيار وترتيب نوع الحروف المستخدمة في بندٍ ما. إذا كان الطبّاع مسؤولاً أيضا عن نواحي أخرى من التصميم التخطيطي للكتاب (مثلا كمصمم كتاب [bkd]) فقد تكون ترميزات كلا الوظيفتين مطلوبًا.</translation>
+        <translation>استخدمه للشخص أو المنظمة المسؤولة بصورة رئيسة عن اختيار وترتيب ضرْب الحروف المستخدمة في بندٍ ما. إذا كان المنضِّد مسؤولاً أيضا عن نواحي أخرى من التصميم التخطيطي للكتاب (مثلا كمصمم كتاب [bkd]) فقد تكون ترميزات كلا الوظيفتين مطلوبة.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="364"/>
@@ -14951,22 +14961,22 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="20"/>
         <source>MetaData Editor</source>
-        <translation>محرر البيانات الوصفية</translation>
+        <translation>محرر البيانات الفوقية</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="55"/>
         <source>Add a new metadata element.</source>
-        <translation>أضف عنصر بيانات وصفية جديد.</translation>
+        <translation>أضف عنصر بيانات فوقية جديد.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="58"/>
         <source>Add Metadata</source>
-        <translation>أضف بيانات وصفية</translation>
+        <translation>أضف بيانات فوقية</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="68"/>
         <source>Add a new property or attribute to an existing metadata element.</source>
-        <translation>إضافة خاصية أو سمة جديدة الى عنصر بيانات وصفية موجود.</translation>
+        <translation>إضافة خاصية أو سمة جديدة الى عنصر بيانات فوقية موجود.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="71"/>
@@ -14976,7 +14986,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="81"/>
         <source>Remove a metadata element or property.</source>
-        <translation>إزالة عنصر بيانات وصفية أو خاصية.</translation>
+        <translation>إزالة عنصر أو خاصية بيانات فوقية.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="84"/>
@@ -14986,7 +14996,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="106"/>
         <source>Move selected metadata element or property up.</source>
-        <translation>انقل عنصر أو خاصية البيانات الوصفية المحددة للأعلى.</translation>
+        <translation>انقل عنصر أو خاصية البيانات الفوقية المحددة للأعلى.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="109"/>
@@ -14997,12 +15007,12 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="119"/>
         <source>Move selected metadata element or property down.</source>
-        <translation>انقل عنصر أو خاصية البيانات الوصفية المحددة للأسفل.</translation>
+        <translation>انقل عنصر أو خاصية البيانات الفوقية المحددة للأسفل.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="178"/>
         <source>Use OK to commit your metadata changes to the epub, otherwise use Cancel.</source>
-        <translation>استخدم حسنًا لإعهاد تغييرات البيانات الوصفية إلى الكتاب، وإلا استخدم الإلغاء.</translation>
+        <translation>استخدم حسنًا لإعهاد تغييرات البيانات الفوقية إلى الكتاب، وإلا استخدم الإلغاء.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="87"/>
@@ -15120,7 +15130,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="721"/>
         <source>[Custom metadata property/attribute]</source>
-        <translation>[خاصية/سِمَة بيانات وصفية مخصصة]</translation>
+        <translation>[خاصية/سِمَة بيانات فوقية مخصصة]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="780"/>
@@ -15400,17 +15410,17 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="908"/>
         <source>An empty metadata element you can modify.</source>
-        <translation>عنصر بيانات وصفية فارغ يمكنك تعديله.</translation>
+        <translation>عنصر بيانات فوقية فارغ يمكنك تعديله.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="909"/>
         <source>Meta Element (primary)</source>
-        <translation>عنصر وصفي (رئيسي)</translation>
+        <translation>عنصر فوقي (رئيسي)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="909"/>
         <source>An empty primary metadata element you can modify.</source>
-        <translation>عنصر بيانات وصفية أوّليّ فارغ يمكنك تعديله.</translation>
+        <translation>عنصر بيانات فوقية أوّليّ فارغ يمكنك تعديله.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="935"/>
@@ -15433,7 +15443,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="936"/>
         <source>Optional, language specifying attribute.  Uses same codes as Language. Not for use with Language, Date, or Identifier metadata elements.</source>
-        <translation>اختياري، سِمة محدِّدة للغة. تستخدم نفس شفرات اللغة. ليست للإستخدام مع عناصر اللغة أو التاريخ أو المعرِّف في البيانات الوصفية.</translation>
+        <translation>اختياري، سِمة محدِّدة للغة. تستخدم نفس شفرات اللغة. ليست للإستخدام مع عناصر اللغة أو التاريخ أو المعرِّف في البيانات الفوقية.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="937"/>
@@ -15443,7 +15453,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="937"/>
         <source>Optional text direction attribute for this metadata item. right-to-left (rtl). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
-        <translation>سمة اختيارية لاتجاه النص لعنصر البيانات المرافقة هذا. يمين-الى-يسار right-to-left (rtl). ليست للاستخدام مع عناصر dc:language أو dc:date أو dc:identifier في البيانات الوصفية.</translation>
+        <translation>سمة اختيارية لاتجاه النص لبند البيانات الفوقية هذا. يمين-الى-يسار right-to-left (rtl). ليست للاستخدام مع عناصر اللغة dc:language أو التأريخ dc:date أو المعرِّف dc:identifier في البيانات الفوقية.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="938"/>
@@ -15453,7 +15463,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="938"/>
         <source>Optional text direction attribute for this metadata item. left-to-right (ltr). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
-        <translation>سمة اختيارية لاتجاه النص لعنصر البيانات المرافقة هذا. يسار-الى-يمين left-to-right (ltr). ليست للاستخدام مع عناصر dc:language أو dc:date أو dc:identifier في البيانات الوصفية.</translation>
+        <translation>سمة اختيارية لاتجاه النص لبند البيانات الفوقية هذا. يسار-الى-يمين left-to-right (ltr). ليست للاستخدام مع عناصر اللغة dc:language أو التأريخ dc:date أو المعرِّف dc:identifier في البيانات الفوقية.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="939"/>
@@ -15563,7 +15573,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="949"/>
         <source>Indicates the numeric position in which to display the current property relative to identical metadata properties (e.g., to indicate the order in which to render multiple titles or multiple authors).</source>
-        <translation>يشير إلى الموضع الرقمي الذي ستُعرَض به الخاصية الحالية نسبةً إلى الخصائص الممُطابِقة من البيانات الوصفية (مثلاً للإشارة إلى الترتيب الذي ستُصيَّر به عناوين متعددة أو مؤلفين متعددين).</translation>
+        <translation>يشير إلى الموضع الرقمي الذي ستُعرَض به الخاصية الحالية نسبةً إلى الخصائص الممُطابِقة من البيانات الفوقية (مثلاً للإشارة إلى الترتيب الذي ستُصيَّر به عناوين متعددة أو مؤلفين متعددين).</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="950"/>
@@ -15595,7 +15605,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="952"/>
         <source>Indicates the form or nature of an identifier. When the identifier-type value is drawn from a code list or other formal enumeration, the scheme attribute should be used to identify its source.</source>
-        <translation>اختياري، سمة محدِّدة للغة. استخدم نفس الشفرة كما في اللغة. ليس للاستخدام مع عناصر اللغة أو التاريخ أو المعرِّف في البيانات المرافقة.</translation>
+        <translation>اختياري، سمة محدِّدة للغة. استخدم نفس الشفرة كما في اللغة. ليس للاستخدام مع عناصر اللغة أو التاريخ أو المعرِّف في البيانات الفوقية.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="953"/>
@@ -15607,18 +15617,18 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
         <location filename="../../Dialogs/MetaEditor.cpp" line="953"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1107"/>
         <source>Describes the nature of work performed by a creator or contributor (e.g., that the person is the author or editor of a work).  Typically used with the marc:relators scheme for a controlled vocabulary.</source>
-        <translation>يصِف طبيعة العمل الذي يؤديه المُنشيء أو الموزِّع (مثلا، أن الشخص هو مؤلف أو محرر العمل). عادة يُستخدَم مع خطة marc:relators لمفردات مطوَّعة.</translation>
+        <translation>يصِف طبيعة العمل الذي يؤديه المُنشيء أو الموزِّع (مثلا، أن الشخص هو مؤلف أو محرر العمل). عادة يُستخدَم مع مخطط ’الناسبين‘ marc:relators لمفردات مطوَّعة.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="954"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1108"/>
         <source>Scheme</source>
-        <translation>المخطط</translation>
+        <translation>المخطَّط</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="954"/>
         <source>This attribute is typically added to Identifier, Source, Creator, or Contributors to indicate the controlled vocabulary system employed. (e.g. marc:relators to specify valid values for the role property.</source>
-        <translation>هذه السمة تضاف عادة إلى المعرِّف أو المصدر أو المُنشيء أو المساهمين لتشير إلى نظام المفردات المطوَّع الموظَّف هنا. (مثلا  marc:relators لتعيين قيم صالحة لخاصية الدور.</translation>
+        <translation>هذه السمة تضاف عادة إلى المعرِّف أو المصدر أو المُنشيء أو المساهمين لتشير إلى نظام المفردات المطوَّع الموظَّف هنا. (مثلا ’الناسبين‘ marc:relators) لتعيين قيم صالحة لخاصية الدور.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="955"/>
@@ -15633,7 +15643,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="956"/>
         <source>An empty metadata property or attribute you can modify.</source>
-        <translation>خاصية بيانات وصفية فارغة يمكنك تعديلها.</translation>
+        <translation>خاصية بيانات فوقية فارغة يمكنك تعديلها.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="984"/>
@@ -15643,7 +15653,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="984"/>
         <source>Optional text direction attribute for this metadata item.</source>
-        <translation>سِمة اتجاه نص اختيارية لهذا العنصر من البيانات الوصفية.</translation>
+        <translation>سِمة اتجاه نص اختيارية لهذا البند من البيانات الفوقية.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="985"/>
@@ -15886,7 +15896,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1105"/>
         <source>Optional, language specifying attribute.  Uses same codes as dc:language. Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
-        <translation>اختياري، سِمة محدِّدة للغة. تستخدم نفس شفرات dc:language. ليست للإستخدام مع عناصر البيانات الوصفية dc:language أو dc:date أو dc:identifier.</translation>
+        <translation>اختياري، سِمة محدِّدة للغة. تستخدم نفس شفرات dc:language. ليست للإستخدام مع عناصر البيانات الفوقية dc:language أو dc:date أو dc:identifier.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1108"/>
@@ -15916,7 +15926,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1111"/>
         <source>An empty metadata attribute you can modify.</source>
-        <translation>سِمَة بيانات وصفية فارغة يمكنك تعديلها.</translation>
+        <translation>سِمَة بيانات فوقية فارغة يمكنك تعديلها.</translation>
     </message>
 </context>
 <context>
@@ -16147,7 +16157,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="69"/>
         <source>quantifier does not follow a repeatable item</source>
-        <translation>المقيِّس لا يتبع عنصراً مكرراً</translation>
+        <translation>المقيِّس لا يتبع بنداً مكرراً</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="72"/>
@@ -16247,7 +16257,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="97"/>
         <source>digit expected after (?+ or (?-<byte value="x0"/></source>
-        <translation type="unfinished"/>
+        <translation>يُتوقع رقم بعد ‎(‎‎?+‎ أو ‎(‎?‎-‎&lt;byte value=&quot;x0&quot;/&gt;</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="100"/>
@@ -17178,7 +17188,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="257"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="970"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="980"/>
         <source>Sigil has created a new one for you.</source>
         <translation>أنشأ سيغل واحداً جديداً لك.</translation>
     </message>
@@ -17242,49 +17252,44 @@ Line: %1 Column %2 - %3</source>
 السطر: %1 العمود %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="812"/>
-        <source>The OPF uses an unrecognized media type &quot;%1&quot; for file &quot;%2&quot;</source>
-        <translation>ملف المحتوى OPF يستخدم نوع وسائط لا يمكن التعرف عليه &quot;%1&quot; للملف &quot;%2&quot;</translation>
-    </message>
-    <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="813"/>
-        <source>A temporary media type of &quot;%1&quot; has been assigned. You should edit your OPF file to fix this problem.</source>
-        <translation>عُيّن نوع وسائط مؤقت &quot;%1&quot;. ينبغي أن تحرر ملف المحتوى OPF لمعالجة هذه المشكلة.</translation>
-    </message>
-    <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="827"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="837"/>
         <source>The OPF has an illegal Manifest entry for a file inside the META-INF folder for file &quot;%1&quot;</source>
-        <translation>في ملف المحتوى OPF مُدخَل بيان Manifest غير قانوني لملف داخل مجلد معلومات البيانات الوصفية META-INF للملف &quot;‎%1&quot;</translation>
+        <translation>في ملف المحتوى OPF مُدخَل بيان Manifest غير قانوني لملف داخل مجلد معلومات البيانات الفوقية META-INF للملف &quot;‎%1&quot;</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="828"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="838"/>
         <source>You should edit your OPF file to remove this entry.</source>
         <translation>ينبغي أن تحرر ملف المحتوى OPF لتزيل هذا المُدخَل.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="847"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="857"/>
         <source>The OPF manifest contains duplicate ids for: %1</source>
         <translation>بيان ملف المحتوى OPD يحوي معرِّفات مكررة لـ: ‎%1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="848"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="858"/>
         <source>A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.</source>
         <translation>عُيّن معرِّف مؤقت لتحميل هذا الكتاب. ينبغي أن تعدّل ملف OPF لإزالة النسخة المكررة.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="942"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="952"/>
         <source>The OPF file did not identify the NCX file correctly.</source>
         <translation>ملف المحتوى OPF لم يتعرف على ملف التنقل NCX على نحو سليم.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="943"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="953"/>
         <source>Sigil has used the following file as the NCX:</source>
         <translation>سيغل استخدم الملف التالي كتنقّل NCX:</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="969"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="979"/>
         <source>The OPF file does not contain an NCX file.</source>
         <translation>ملف المحتوى لا يحوي ملف تنقّل NCX.</translation>
+    </message>
+    <message>
+        <location filename="../../Importers/Importer.cpp" line="47"/>
+        <source>The OPF contains missing or unrecognized media types.  Temporary media types have been generated. You should edit your OPF to fix these.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="784"/>
@@ -17483,7 +17488,7 @@ valid for all selected files.
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="14"/>
         <source>Replacements (Select Desired Replacements)</source>
-        <translation type="unfinished"/>
+        <translation>الاستبدالات (حدد الاستبدالات المرغوبة)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="37"/>
@@ -17519,13 +17524,15 @@ valid for all selected files.
         <location filename="../../Form_Files/ReplacementChooser.ui" line="108"/>
         <source>Select desired replacements in the table.
        Warning: Once replacements are applied, no &quot;undo&quot; is possible.</source>
-        <translation type="unfinished"/>
+        <translation>حدد الاستبدالات المرغوبة في الجدول.
+       تحذير: حالما تطبّق الاستبدالات فلن يكون &quot;التراجع&quot; ممكنًا.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="136"/>
         <source>Apply the selected replacements listed in the table.
          Warning: Once applied, no &quot;undo&quot; is possible.</source>
-        <translation type="unfinished"/>
+        <translation>طبّق الاستبدالات المحددة المدرجة في الجدول.
+         تحذير: حالما تطبّق الاستبدالات فلن يكون &quot;التراجع&quot; ممكنَا.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="140"/>
@@ -17620,7 +17627,7 @@ then if not found look for the second entry in the list, etc.</source>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="108"/>
         <source>Alt+F</source>
-        <translation type="unfinished"/>
+        <translation>تبديل+F</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="118"/>
@@ -17708,7 +17715,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="305"/>
         <source>You must select an item immediately under a group to move it into the group.</source>
-        <translation>يجب أن تحدد عنصراً أسفل المجموعة مباشرة لتنقله الى المجموعة.</translation>
+        <translation>يجب أن تحدد بنداً أسفل المجموعة مباشرة لتنقله الى المجموعة.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="338"/>
@@ -18460,7 +18467,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="144"/>
         <source>acute accent</source>
-        <translation>نبرة حادة</translation>
+        <translation>نبر الحِدّة</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="145"/>
@@ -19185,7 +19192,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="295"/>
         <source>integral</source>
-        <translation>تتميمي</translation>
+        <translation>جزء مكوِّن</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="296"/>
@@ -19295,12 +19302,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="317"/>
         <source>circled plus</source>
-        <translation>الموجب محاطا بدائرة</translation>
+        <translation>الموجب المحوَّط</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="318"/>
         <source>circled times</source>
-        <translation>مرات الإحاطة</translation>
+        <translation>المرات المحوَّطة</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="319"/>
@@ -19365,7 +19372,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="331"/>
         <source>superset of</source>
-        <translation>مجموعة رئيسة من</translation>
+        <translation>مجموعة رئيسة لـ</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="332"/>
@@ -19375,7 +19382,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="333"/>
         <source>superset of or equal to</source>
-        <translation>مجموعة رئيسة من أو مساوٍ لـ</translation>
+        <translation>مجموعة رئيسة أو مساوٍية لـ</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="334"/>
@@ -19921,13 +19928,13 @@ Use if you edit any HTML files while Spellcheck is open.</source>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="59"/>
         <source>s</source>
         <comment>ShowAllWords</comment>
-        <translation type="unfinished"/>
+        <translation>ظ</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="60"/>
         <source>a</source>
         <comment>Locale-AwareSort</comment>
-        <translation type="unfinished"/>
+        <translation>س</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="61"/>
@@ -20407,7 +20414,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="122"/>
         <source>acute accent</source>
-        <translation>نبرة حادة</translation>
+        <translation>نبر الحِدّة</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="123"/>
@@ -20477,7 +20484,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="136"/>
         <source>Latin capital letter A with circumflex</source>
-        <translation>الحرف اللاتيني A كبير مع الشكلة المنحنية</translation>
+        <translation>الحرف اللاتيني A كبير مع المكتنفة</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="137"/>
@@ -20517,7 +20524,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="144"/>
         <source>Latin capital letter E with circumflex</source>
-        <translation>الحرف اللاتيني E كبير مع الشكلة المنحنية</translation>
+        <translation>الحرف اللاتيني E كبير مع المكتنفة</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="145"/>
@@ -20537,7 +20544,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="148"/>
         <source>Latin capital letter I with circumflex</source>
-        <translation>الحرف اللاتيني I كبير مع الشكلة المنحنية</translation>
+        <translation>الحرف اللاتيني I كبير مع المكتنفة</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="149"/>
@@ -20567,7 +20574,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="154"/>
         <source>Latin capital letter O with circumflex</source>
-        <translation>الحرف اللاتيني O كبير مع الشكلة المنحنية</translation>
+        <translation>الحرف اللاتيني O كبير مع المكتنفة</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="155"/>
@@ -20602,7 +20609,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="161"/>
         <source>Latin capital letter U with circumflex</source>
-        <translation>الحرف اللاتيني U كبير مع الشكلة المنحنية</translation>
+        <translation>الحرف اللاتيني U كبير مع المكتنفة</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="162"/>
@@ -20637,7 +20644,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="168"/>
         <source>Latin small letter a with circumflex</source>
-        <translation>الحرف اللاتيني a صغير مع الشكلة المنحنية</translation>
+        <translation>الحرف اللاتيني a صغير مع المكتنفة</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="169"/>
@@ -20677,7 +20684,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="176"/>
         <source>Latin small letter e with circumflex</source>
-        <translation>الحرف اللاتيني e صغير مع الشكلة المنحنية</translation>
+        <translation>الحرف اللاتيني e صغير مع المكتنفة</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="177"/>
@@ -20697,7 +20704,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="180"/>
         <source>Latin small letter i with circumflex</source>
-        <translation>الحرف اللاتيني i صغير مع الشكلة المنحنية</translation>
+        <translation>الحرف اللاتيني i صغير مع المكتنفة</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="181"/>
@@ -20727,7 +20734,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="186"/>
         <source>Latin small letter o with circumflex</source>
-        <translation>الحرف اللاتيني o صغير مع الشكلة المنحنية</translation>
+        <translation>الحرف اللاتيني o صغير مع المكتنفة</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="187"/>
@@ -20762,7 +20769,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="193"/>
         <source>Latin small letter u with circumflex</source>
-        <translation>الحرف اللاتيني u صغير مع الشكلة المنحنية</translation>
+        <translation>الحرف اللاتيني u صغير مع المكتنفة</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="194"/>
@@ -21402,7 +21409,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="321"/>
         <source>integral</source>
-        <translation>تتميمي</translation>
+        <translation>جزء مكوِّن</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="322"/>
@@ -21452,7 +21459,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="331"/>
         <source>superset of</source>
-        <translation>مجموعة رئيسة من</translation>
+        <translation>مجموعة رئيسة لـ</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="332"/>
@@ -21467,7 +21474,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="334"/>
         <source>superset of or equal to</source>
-        <translation>مجموعة رئيسة من أو مساوٍ لـ</translation>
+        <translation>مجموعة رئيسة أو مساوٍية لـ</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="335"/>
