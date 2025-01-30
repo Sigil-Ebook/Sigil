@@ -68,7 +68,7 @@ MainApplication::MainApplication(int &argc, char **argv)
 // Connect system color scheme change signal to reporting mechanism
 // Note: This mechanism is very very unreliable on Linux (across many distributions and desktops)
 // So fall back to the QApplication:Palette change event instead for all of Linux for now
-#if QT_VERSION >= QT_VERSION_CHECK(6,5,0)
+#if QT_VERSION >= QT_VERSION_CHECK(6,5,0) && (defined(Q_OS_WIN32) || defined(Q_OS_MAC))
     DBG qDebug() << "initial styleHints colorScheme: " << styleHints()->colorScheme();
     if (styleHints()->colorScheme() == Qt::ColorScheme::Unknown) {
         m_isDark = qApp->palette().color(QPalette::Active,QPalette::WindowText).lightness() > 128;
@@ -128,7 +128,7 @@ void MainApplication::systemColorChanged()
     DBG qDebug() << "reached systemColorChanged with m_isDark: " << m_isDark;
     DBG qDebug() << "    and current palette test isdark: " << isdark;
     
-#if QT_VERSION < QT_VERSION_CHECK(6,5,0)
+#if QT_VERSION < QT_VERSION_CHECK(6,5,0) || (!defined(Q_OS_WIN32) && !defined(Q_OS_MAC))
     // in reality we really should not care if light or dark, just that theme changed
     // but this is where we are at now
     if (isdark != m_isDark) {
