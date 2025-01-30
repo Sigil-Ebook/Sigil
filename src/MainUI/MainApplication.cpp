@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2024 Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2024      Doug Massay
+**  Copyright (C) 2019-2025 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2024-2025 Doug Massay
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Grant Drake
 **  Copyright (C) 2012      Dave Heiland
@@ -55,6 +55,7 @@ MainApplication::MainApplication(int &argc, char **argv)
         
     // Keep track on our own of dark or light
     m_isDark = qApp->palette().color(QPalette::Active,QPalette::WindowText).lightness() > 128;
+    DBG qDebug() << "initial state based on palette itself with our test is_dark: " << m_isDark;
     
     // Set up PaletteChangeTimer to absorb multiple QEvents
     // We need this for older < Qt 6.5 and as a backup mechanism for Linux
@@ -99,7 +100,7 @@ bool MainApplication::event(QEvent *pEvent)
     }
     if (pEvent->type() == QEvent::ApplicationPaletteChange) {
         // can be generated multiple times
-        DBG qDebug() << "Application Palette Changed";
+        DBG qDebug() << "Application Palette Changed Event";
 
 #if QT_VERSION < QT_VERSION_CHECK(6,5,0) ||  (!defined(Q_OS_WIN32) && !defined(Q_OS_MAC))
 	// Use this approach as a backup for Linux currently
@@ -124,7 +125,8 @@ void MainApplication::systemColorChanged()
     m_PaletteChangeTimer->stop();
     bool theme_changed = false;
     bool isdark = qApp->palette().color(QPalette::Active,QPalette::WindowText).lightness() > 128;
-    DBG qDebug() << "reached systemColorChanged";
+    DBG qDebug() << "reached systemColorChanged with m_isDark: " << m_isDark;
+    DBG qDebug() << "    and current palette test isdark: " << isdark;
     
 #if QT_VERSION < QT_VERSION_CHECK(6,5,0)
     // in reality we really should not care if light or dark, just that theme changed
