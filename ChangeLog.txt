@@ -1,5 +1,6 @@
-pre-2.4.2
+Sigil-2.4.2
    Bug Fixes
+     - ensure CodeView code highlighting colors coincide with dark/light themes on certain Linux DEs
      - fix sigil-gumbo gumboc to work with Python 3.13+ - ie. work around backwards incompatible changes in ctypes
      - fix Replacement Chooser table to allow for multiple line row heights in Before and After fields (regression)
      - prevent too many warnings when no media types provided in OPF by generating the warning collectively
