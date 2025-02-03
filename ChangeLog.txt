@@ -1,7 +1,8 @@
 pre-2.4.5
    Bug Fixes
      - allow SVG resources to be selectable alongside Image resources and context menu to work in BookBrowser
-
+     - because Linux has multiple light and dark themes (but different)
+         always send out our internal theme change signal when palette changes
 
 Sigil-2.4.2
    Bug Fixes
