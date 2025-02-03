@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -423,13 +423,26 @@ QList <Resource *> BookBrowser::AllHTMLResources()
 
 QList <Resource *> BookBrowser::AllImageResources()
 {
+#if 1
+    // should this include svg resources
+    QList <Resource *> resources;
+    resources =  m_OPFModel->GetResourceListInFolder(Resource::ImageResourceType);
+    resources.append(m_OPFModel->GetResourceListInFolder(Resource::SVGResourceType));
+    return resources;
+#else
     return m_OPFModel->GetResourceListInFolder(Resource::ImageResourceType);
+#endif
 }
 
 QList <Resource *> BookBrowser::AllMediaResources()
 {
     QList <Resource *> resources;
     resources = m_OPFModel->GetResourceListInFolder(Resource::ImageResourceType);
+#if 1
+    // is this needed
+    resources.append(m_OPFModel->GetResourceListInFolder(Resource::SVGResourceType));
+#endif
+    resources.append(m_OPFModel->GetResourceListInFolder(Resource::VideoResourceType));
     resources.append(m_OPFModel->GetResourceListInFolder(Resource::VideoResourceType));
     resources.append(m_OPFModel->GetResourceListInFolder(Resource::AudioResourceType));
     return resources;
@@ -563,6 +576,14 @@ QList <Resource *> BookBrowser::ValidSelectedResources()
     return sorted_resources;
 }
 
+// handle the case that an svg resource is also for images
+bool BookBrowser::IsCongruent(Resource::ResourceType selected_type, Resource::ResourceType candidate_type)
+{
+    if (selected_type == candidate_type) return true;
+    if ((selected_type == Resource::SVGResourceType) && (candidate_type == Resource::ImageResourceType)) return true; 
+    if ((selected_type == Resource::ImageResourceType) && (candidate_type == Resource::SVGResourceType)) return true; 
+    return false;;
+}
 
 int BookBrowser::ValidSelectedItemCount()
 {
@@ -590,10 +611,10 @@ int BookBrowser::ValidSelectedItemCount()
             return -1;
         }
 
-        // Check that multiple selection only contains items of the same type
+        // Check that multiple selections only contains items of congruent types
         if (index == list[0]) {
             resource_type = resource->Type();
-        } else if (resource_type != resource->Type()) {
+        } else if (!IsCongruent(resource_type, resource->Type())) {
             return -1;
         }
     }
@@ -1658,8 +1679,10 @@ Resource *BookBrowser::ResourceToSelectAfterRemove(QList<Resource *> selected_re
 void BookBrowser::SetCoverImage()
 {
     QList <Resource *> resources = ValidSelectedResources();
+    // can not have multiple cover images
+    if (resources.size() > 1) return;
     int scrollY = m_TreeView->verticalScrollBar()->value();
-
+    
     ImageResource *image_resource = qobject_cast<ImageResource *>(GetCurrentResource());
     if (image_resource == NULL) {
         emit ShowStatusMessageRequest(tr("Unable to set file as cover image."));

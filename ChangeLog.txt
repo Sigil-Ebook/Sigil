@@ -1,3 +1,8 @@
+pre-2.4.5
+   Bug Fixes
+     - allow SVG resources to be selectable alongside Image resources and context menu to work in BookBrowser
+
+
 Sigil-2.4.2
    Bug Fixes
      - ensure CodeView code highlighting colors coincide with dark/light themes on certain Linux DEs
