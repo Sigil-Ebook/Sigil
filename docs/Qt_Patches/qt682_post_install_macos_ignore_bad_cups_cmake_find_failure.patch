@@ -1,0 +1,11 @@
+--- lib/cmake/Qt6PrintSupport/Qt6PrintSupportDependencies.cmake.orig	2025-02-03 14:45:46
++++ lib/cmake/Qt6PrintSupport/Qt6PrintSupportDependencies.cmake	2025-02-03 14:46:26
+@@ -29,7 +29,7 @@
+ 
+ 
+ # note: _third_party_deps example: "ICU\\;FALSE\\;1.0\\;i18n uc data;ZLIB\\;FALSE\\;\\;"
+-set(__qt_PrintSupport_third_party_deps "Cups\;FALSE\;\;\;")
++set(__qt_PrintSupport_third_party_deps "Cups\;TRUE\;\;\;")
+ set(__qt_PrintSupport_third_party_package_Cups_provided_targets "Cups::Cups")
+ 
+ _qt_internal_find_third_party_dependencies("PrintSupport" __qt_PrintSupport_third_party_deps)

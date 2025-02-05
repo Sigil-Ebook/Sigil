@@ -1,10 +1,10 @@
-# Building_Qt6.7.x_From_Source_on_MacOSX
+# Building_Qt6.8.2_From_Source_on_MacOSX
 
-On Ventura you need XCode 14.3.1
+On Ventura you need XCode 14.3.1 or later
 
 # *** IMPORTANT ***
 # We do highly recommend you use the same Qt versions as official Sigil builds on Mac OS X.
-# which is now Qt 6.7.x
+# which is now Qt 6.8.2
 
 # These instructions will lead you through building from source
 # set the deployment target (this is minimum needed)
@@ -18,7 +18,7 @@ export MYQTSRC=`pwd`
 # Build Prerequisites
 # -------------------
 
-1. Make sure you have installed Python 3.11.3 or later and then use pip3 install html5lib as these
+1. Make sure you have installed Python 3.13.1 or later and then use pip3 install html5lib as these
 are needed by QtWebEngine
 
 2. Make sure you have installed the ninja build tool into /usr/local (or use MacPorts).
@@ -29,20 +29,20 @@ are needed by QtWebEngine
 #      ninja build tool
 # Note: older versions of these prerequisites may work but have not been tested
 
-# Download cmake 3.29.5 or later from https://cmake.org/download
-tar -zxvf support/cmake-3.29.5.tar.gz
-cd cmake-3.29.5
+# Download cmake 3.31.5 or later from https://cmake.org/download
+tar -zxvf support/cmake-3.31.5.tar.gz
+cd cmake-3.31.5
 ./bootstrap --prefix=/usr/local -- -DCMAKE_BUILD_TYPE:STRING=Release
 make -j4
 sudo make install
 cd ..
 
 
-# Download libpng 1.6.43 or later from png's sourceforge site: http://www.libpng.org/pub/png/libpng.html
-export LDFLAGS="-Wl,-macosx_version_min,11.0"
-export CFLAGS="-mmacosx-version-min=11.0 -Werror=partial-availability"
-tar -zxvf support/libpng-1.6.43.tar.gz
-cd libpng-1.6.43
+# Download libpng 1.6.46 or later from png's sourceforge site: http://www.libpng.org/pub/png/libpng.html
+export LDFLAGS="-Wl,-macos_version_min,11.0"
+export CFLAGS="-mmacos-version-min=11.0 -Werror=partial-availability"
+tar -jxvf support/libpng-1.6.46.tar.xz
+cd libpng-1.6.46
 ./configure --enable-static=yes --enable-shared=no --prefix=/opt/support
 make -j4
 sudo make install
@@ -51,6 +51,7 @@ unset LDFLAGS
 cd ..
 
 
+# optional:  requires automake
 # if the "nasm" network assembler tool is not installed, you may
 # want to install it before building libjpegturbo to speed up the jpeg
 # library performance
@@ -66,23 +67,23 @@ sudo make install
 cd ..  
 
 
-# libjpeg-turbo 3.0.3 or later from libjpeg-turbo.org
+# libjpeg-turbo 3.1.0 or later from libjpeg-turbo.org
 # https://github.com/libjpeg-turbo/libjpeg-turbo
-tar -zxvf support/libjpeg-turbo-3.0.3.tar.gz
+tar -zxvf support/libjpeg-turbo-3.1.0.tar.gz
 mkdir buildjt3
 cd buildjt3
 cmake -G"Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/opt/support -DENABLE_SHARED=0 -DCMAKE_OSX_DEPLOYMENT_TARGET=11.0 \
-  -DCMAKE_C_FLAGS_RELEASE="-O3 -mmacosx-version-min=11.0 -Werror=partial-availability" -DWITH_JPEG8=1 ../libjpeg-turbo-3.0.3/
+  -DWITH_JPEG8=1 -DCMAKE_C_FLAGS_RELEASE="-O3 -mmacosx-version-min=11.0 -Werror=partial-availability" ../libjpeg-turbo-3.1.0/
 make -j4
 sudo make install
 cd ..
 
 
-# Download openssl-3.0.14.tar.gz or later into sources from https://www.openssl.org/source
+# Download openssl-3.0.15.tar.gz or later into sources from https://www.openssl.org/source
 export MACOSX_DEPLOYMENT_TARGET=11.0
-export LDFLAGS="-Wl,-macosx_version_min,11.0"
-tar -zxvf support/openssl-3.0.14.tar.gz
-cd openssl-3.0.14
+export LDFLAGS="-Wl,-macos_version_min,11.0"
+tar -zxvf support/openssl-3.0.15.tar.gz
+cd openssl-3.0.15
 ./config no-shared --prefix=/opt/support
 make -j4
 sudo make install
@@ -108,20 +109,19 @@ cd ../../
 
 # Add a static version of the ICU libs needed QStringConverter classes to work properly
 export MACOSX_DEPLOYMENT_TARGET=11.0
-tar -zxvf support/icu-release-75-1.tar.gz
-cd icu-release-75-1
-cd icu4c
+tar -zxvf support/icu4c-76_1-src.tgz
+cd icu
 cd source
 chmod u+x runConfigureICU
 ./runConfigureICU MacOSX --prefix=/opt/support --enable-shared=no --enable-static=yes --with-data-packaging=static
-gnumake -j
+gnumake -j4
 sudo gnumake install
-cd ../../../
+cd ../../
 
-# Building Qt6.7.2 from source
+# Building Qt6.8.2 from source
 # -----------------------------
 
-# download qt-everywhere-src-6.7.2.tar.xz directly from Qt
+# download qt-everywhere-src-6.8.2.tar.xz directly from Qt
 # from:  https://download.qt.io/archive/qt/
 # for: PySide - https://download.qt.io/official_releases/QtForPython/
 
@@ -130,7 +130,7 @@ cd ../../../
 # ---------------------------------------------
 # git clone https://code.qt.io/qt/qt5.git qt6
 # cd qt6
-# git switch 6.7.2
+# git switch 6.8.2
 # perl init-repository --branch
 
 # without '--branch' specified, init-repository pulls a fixed set of shas
@@ -140,12 +140,12 @@ cd ../../../
 
 export MACOSX_DEPLOYMENT_TARGET=11.0
 export MYDEST=/Users/kbhend/ndevpython/libraries/Frameworks
-export PATH=${MYDEST}/Python.framework/Versions/3.11/bin:${PATH}
+export PATH=${MYDEST}/Python.framework/Versions/3.13/bin:${PATH}
 
-# tar -jxf qt-everywhere-src-6.7.2.tar.xz
-# cd qt-everywhere-src-6.7.2
+tar -jxf qt-everywhere-src-6.8.2.tar.xz
+cd qt-everywhere-src-6.8.2
 # or if direct checkout from github use
-cd qt6
+# cd qt6
 
 # Apply an obvious fix for insertParagraph execcommand and h6 (see w3c spec)
 # See https://bugreports.qt.io/browse/QTBUG-79778
@@ -168,26 +168,26 @@ patch -p0 < ../sources/qt672_fix_missing_macos_menubar.patch
 # Create a destination directory to house your complete Qt binary in your home directory
 # to be similar to how stock Qt does it
 cd ~/
-mkdir Qt672
+mkdir Qt682
 
 # Now return and create a shadow build inside a new directory to keep your Qt sources clean
 cd ${MYQTSRC}
-mkdir buildqt672
-cd buildqt672
+mkdir buildqt682
+cd buildqt682
 
 
 # Remember to include the -webengine-proprietary-codecs configure switch
 # and add -feature-optimize_full to use -O3 (note _full not -full)
 
-../qt-everywhere-src-6.7.2/configure --prefix=/Users/${USER}/Qt672 -webengine-proprietary-codecs -feature-optimize_full -icu -- -DCMAKE_OSX_DEPLOYMENT_TARGET="11.0" -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=/opt/support 
+../qt-everywhere-src-6.8.2/configure --prefix=/Users/${USER}/Qt682 -webengine-proprietary-codecs -feature-optimize_full -icu -- -DCMAKE_OSX_DEPLOYMENT_TARGET="11.0" -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=/opt/support 
 
 # note the build itself can take a couple of hours depending on memory available, disk and cpus used
 cmake --build . --parallel
 cmake --install .
 
 # Now apply the final patch to the post installed cmake file
-cd /Users/${USER}/Qt672
-patch -p0 < ~/Desktop/qt672_post_install_macos_ignore_bad_cups_cmake_find_failure.patch
+cd /Users/${USER}/Qt682
+patch -p0 < ~/Desktop/qt682_post_install_macos_ignore_bad_cups_cmake_find_failure.patch
 
-# After the install phase completes your newly built Qt should exist in ~/Qt672 ready to be used
+# After the install phase completes your newly built Qt should exist in ~/Qt682 ready to be used
 # to build Sigil and PageEdit

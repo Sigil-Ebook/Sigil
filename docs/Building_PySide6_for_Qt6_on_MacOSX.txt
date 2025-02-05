@@ -1,24 +1,24 @@
 # ***** IF USING QT6 *****
 
-# Download pyside-setup-everywhere-src-6.7.2.tar.xz from 
+# Download pyside-setup-everywhere-src-6.8.2.tar.xz from 
 # https://download.qt.io/official_releases/QtForPython/
 
 # or
 
 # git clone https://github.com/qtproject/pyside-pyside-setup.git
 # cd pyside-pyside-setup
-# git checkout 6.7.2
+# git checkout 6.8.2
 
-# To update from 6.7 to a specific target version (say 6.7 to 6.7.2)
+# To update from 6.8 to a specific target version (say 6.8 to 6.8.2)
 # edit sources/pyside6/.cmake.conf to set version info
 # and edit sources/shiboken6/.cmake.conf to do the same
 
 export MACOSX_DEPLOYMENT_TARGET=11.0
 
 export MYDEST=/Users/${USER}/ndevpython/libraries/Frameworks
-export MYQTHOME=~/Qt672
+export MYQTHOME=~/Qt682
 export PATH=${PATH}:${MYQTHOME}/bin
-export PATH=${MYDEST}/Python.framework/Versions/3.11/bin:${PATH}
+export PATH=${MYDEST}/Python.framework/Versions/3.13/bin:${PATH}
 
 which qmake
 which python3
@@ -26,31 +26,44 @@ which python3
 # Prerequisites
 
 # Your may need to have the packaging module installed on your python3
+# and instll setuptools module
 # pip3 install --upgrade packaging
-
-# As well as a recent version of setuptools 
-# (some newer versions have broken compatibility)
-# pip3 install setuptools==59.8.0
-
-# note for PySide 6.7.X you will need the latest version of setuptools
+# pip3 install --upgrade setuptools
 
 # You will need libclang (although macOS has this lib pre-installed, it can *not* 
 # be found by Qt's cmake.  Qt has pre-build binaries ready to be used for each platform.
-# I recommend storing it someplace *outside* the normal path such as /opt to help 
-# prevent future any name clash issues.
-# Download  libclang-release_140-based-macos-universal.7z from:
+# I recommend storing it someplace *outside* the normal path such as in /opt to help 
+# prevent future name clash issues.
+# Download  libclang-release_19.1.6-based-macos-universal.7z from:
 #       https://download.qt.io/development_releases/prebuilt/libclang/
 # cd /opt
-# and unpack libclang-release_140-based-macos-universal.7z in /opt to create /opt/libclang
+# and unpack libclang-release_19.1.6-based-macos-universal.7z in /opt to create /opt/libclang
 
 # Tell the pyside6 build where to find it
 export CLANG_INSTALL_DIR=/opt/libclang
 
 # You should now be ready to build pyside6
 
-tar -jxf pyside-setup-everywhere-src-6.7.2.tar.xz
-cd pyside-setup-everywhere-src-6.7.2
+tar -jxf pyside-setup-everywhere-src-6.8.2.tar.xz
+cd pyside-setup-everywhere-src-6.8.2
 # or cd pyside-pyside-setup if checked out from git
 
-python3 setup.py install --parallel=6 --build-tests
+python3 setup.py install --parallel=6
+
+# Fix dangling rpaths produced by PySide6 inside Python site-packages
+
+cd /Users/kbhend/ndevpython/libraries/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/PySide6
+
+otool -l ./lupdate | grep LC_RPATH -A2
+install_name_tool -delete_rpath /Users/kbhend/Qt682/lib ./lupdate
+
+otool -l ./lrelease | grep LC_RPATH -A2
+install_name_tool -delete_rpath /Users/kbhend/Qt682/lib ./lrelease
+
+otool -l ./Qt/libexec/rcc | grep LC_RPATH -A2
+install_name_tool -delete_rpath /Users/kbhend/Qt682/lib ./Qt/libexec/rcc
+
+otool -l ./Qt/libexec/uic | grep LC_RPATH -A2
+install_name_tool -delete_rpath /Users/kbhend/Qt682/lib ./Qt/libexec/uic
+
 

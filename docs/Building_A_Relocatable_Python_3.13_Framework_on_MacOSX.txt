@@ -1,6 +1,6 @@
 # *** IMPORTANT ***
 
-# Build Prerequisite requirements for Python 3.11.9 on macOS 11.0 and later users:
+# Build Prerequisite requirements for Python 3.13.1 on macOS 11.0 and later users:
 #
 #     First make sure you are using the latest XCode for your version of Mac OSX
 #     Then make sure you have the command line tools (CLT) installed (via xcode-select --install)
@@ -26,11 +26,11 @@ cd ndevpython
 # /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
 
 # First build the main prerequisites
-# Download openssl-3.0.14.tar.gz or later into sources from https://www.openssl.org/source
+# Download openssl-3.0.15.tar.gz or later into sources from https://www.openssl.org/source
 export MACOSX_DEPLOYMENT_TARGET=11.0
-export LDFLAGS="-Wl,-macosx_version_min,11.0"
-tar -zxvf support/openssl-3.0.14.tar.gz
-cd openssl-3.0.14
+export LDFLAGS="-Wl,-macos_version_min,11.0"
+tar -zxvf support/openssl-3.0.15.tar.gz
+cd openssl-3.0.15
 ./config no-shared --prefix=/usr/local
 make -j4
 sudo make install
@@ -41,8 +41,8 @@ cd ..
 # Download xz-5.2.3.tar.gz or later into sources from https://tukaani.org/xz/  (via sourceforge)
 
 export MACOSX_DEPLOYMENT_TARGET=11.0
-export LDFLAGS="-Wl,-macosx_version_min,11.0"
-export CFLAGS="-mmacosx-version-min=11.0 -Werror=partial-availability"
+export LDFLAGS="-Wl,-macos_version_min,11.0"
+export CFLAGS="-mmacos-version-min=11.0 -Werror=partial-availability"
 
 tar -zxvf support/xz-5.2.3.tar.gz
 cd xz-5.2.3
@@ -58,8 +58,8 @@ cd ..
 # https://sqlite.org/2021/sqlite-autoconf-3450300.tar.gz"
 
 export MACOSX_DEPLOYMENT_TARGET=11.0
-export LDFLAGS="-Wl,-macosx_version_min,11.0"
-export CFLAGS="-mmacosx-version-min=11.0 -Werror=partial-availability -Os -DSQLITE_ENABLE_FTS5 \
+export LDFLAGS="-Wl,-macos_version_min,11.0"
+export CFLAGS="-mmacos-version-min=11.0 -Werror=partial-availability -Os -DSQLITE_ENABLE_FTS5 \
             -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_JSON1 \
             -DSQLITE_ENABLE_RTREE -DSQLITE_TCL=0 "
 tar -zxvf support/sqlite-autoconf-3450300.tar.gz
@@ -98,13 +98,13 @@ cd ../../
 # combined build of tcl and tk and build it right "in place" for the future 
 # Python.framework to install around
 
-# Download tcl8.6.14-src.tar.gz into sources from ftp://ftp.tcl.tk/pub/tcl//tcl8_6/tcl8.6.14-src.tar.gz
-# Download tk8.6.14-src.tar.gz into sources from ftp://ftp.tcl.tk/pub/tcl//tcl8_6/tk8.6.14-src.tar.gz
+# Download tcl8.6.15-src.tar.gz into sources from sourceforge
+# Download tk8.6.15-src.tar.gz into sources from sourceforge
 
 mkdir tcltk
 cd tcltk
-tar -zxvf ../support/tcl8.6.14-src.tar.gz
-tar -zxvf ../support/tk8.6.14-src.tar.gz
+tar -zxvf ../support/tcl8.6.15-src.tar.gz
+tar -zxvf ../support/tk8.6.15-src.tar.gz
 
 For this version - no backport patches are needed.
 
@@ -112,57 +112,59 @@ For this version - no backport patches are needed.
 # Note: TCL_LIBRARY and TK_LIBRARY and libdir are appended to DESTDIR to get actual paths
 
 export MACOSX_DEPLOYMENT_TARGET=11.0
-export CFLAGS="-arch x86_64 -mmacosx-version-min=11.0"
-cd tcl8.6.14/unix
-./configure --enable-shared --enable-threads --libdir=/Frameworks/Python.framework/Versions/3.11/lib
-make TCL_LIBRARY=/Frameworks/Python.framework/Versions/3.11/lib/tcl8.6 DESTDIR=${MYLIBS}
-make install TCL_LIBRARY=/Frameworks/Python.framework/Versions/3.11/lib/tcl8.6 DESTDIR=${MYLIBS}
+export CFLAGS="-arch arm64 -mmacos-version-min=11.0"
+cd tcl8.6.15/unix
+./configure --enable-shared --enable-threads --libdir=/Frameworks/Python.framework/Versions/3.13/lib
+make TCL_LIBRARY=/Frameworks/Python.framework/Versions/3.13/lib/tcl8.6 DESTDIR=${MYLIBS}
+make install TCL_LIBRARY=/Frameworks/Python.framework/Versions/3.13/lib/tcl8.6 DESTDIR=${MYLIBS}
 cd ../../
-cd tk8.6.14/unix
-./configure --libdir=/Frameworks/Python.framework/Versions/3.11/lib --enable-aqua --enable-shared --enable-threads
+cd tk8.6.15/unix
+./configure --libdir=/Frameworks/Python.framework/Versions/3.13/lib --enable-aqua --enable-shared --enable-threads
 
-make TCL_LIBRARY=/Frameworks/Python.framework/Versions/3.11/lib/tcl8.6 \
-     TK_LIBRARY=/Frameworks/Python.framework/Versions/3.11/lib/tk8.6 \
+make TCL_LIBRARY=/Frameworks/Python.framework/Versions/3.13/lib/tcl8.6 \
+     TK_LIBRARY=/Frameworks/Python.framework/Versions/3.13/lib/tk8.6 \
      DESTDIR=${MYLIBS}
 
-make install TCL_LIBRARY=/Frameworks/Python.framework/Versions/3.11/lib/tcl8.6 \
-     TK_LIBRARY=/Frameworks/Python.framework/Versions/3.11/lib/tk8.6 \
+make install TCL_LIBRARY=/Frameworks/Python.framework/Versions/3.13/lib/tcl8.6 \
+     TK_LIBRARY=/Frameworks/Python.framework/Versions/3.13/lib/tk8.6 \
      DESTDIR=${MYLIBS}
+
+unset CFLAGS
 
 # As a last step fixup the dylib official names to properly reflect their new home
 
-cd ${MYDEST}/Python.framework/Versions/3.11/lib
+cd ${MYDEST}/Python.framework/Versions/3.13/lib
 chmod u+w libtk8.6.dylib
 chmod u+w libtcl8.6.dylib
-install_name_tool -id ${MYDEST}/Python.framework/Versions/3.11/lib/libtcl8.6.dylib ./libtcl8.6.dylib
-install_name_tool -id ${MYDEST}/Python.framework/Versions/3.11/lib/libtk8.6.dylib ./libtk8.6.dylib
+install_name_tool -id ${MYDEST}/Python.framework/Versions/3.13/lib/libtcl8.6.dylib ./libtcl8.6.dylib
+install_name_tool -id ${MYDEST}/Python.framework/Versions/3.13/lib/libtk8.6.dylib ./libtk8.6.dylib
 
 
-# Building Python 3.11.9 to be fully relocatable for macOS 11.0 and later
+# Building Python 3.13.1 to be fully relocatable for macOS 11.0 and later
 
-# Before building remember to rename any /Applications/Python 3.11.app to save it and 
+# Before building remember to rename any /Applications/Python 3.13.app to save it and 
 # replace it afterwards as the damn python installation from source always overwrites
 # it no matter the configure prefix used
 
-# Download Python-3.11.9.tgz into support from www.python.org
+# Download Python-3.13.1.tgz into support from www.python.org
 
 cd ${MYDEST}
 cd ../../
 
 export MACOSX_DEPLOYMENT_TARGET=11.0
 
-# now build Python 3.11.9 as a framework
+# now build Python 3.13.1 as a framework
 # no need to worry about what symbols exist in what version of 
 # macOS any longer, since Python 3.9.1 and later use and test for weak symbols
 
-tar -jxvf support/Python-3.11.9.tar.xz
-cd Python-3.11.9
+tar -zxvf support/Python-3.13.1.tgz
+cd Python-3.13.1
 
-export LDFLAGS="-Wl,-macosx_version_min,11.0" 
-export CFLAGS="-mmacosx-version-min=11.0" 
+export LDFLAGS="-Wl,-macos_version_min,11.0" 
+export CFLAGS="-mmacos-version-min=11.0" 
 ./configure --prefix=${MYDEST} --enable-framework=${MYDEST} --with-ensurepip \
     TCLTK_CFLAGS="-I${MYLIBS}/usr/local/include" \
-    TCLTK_LIBS="-L${MYDEST}/Python.framework/Versions/3.11/lib -ltcl8.6 -ltk8.6"
+    TCLTK_LIBS="-L${MYDEST}/Python.framework/Versions/3.13/lib -ltcl8.6 -ltk8.6"
 
 make -j4
 make frameworkinstall
@@ -179,11 +181,11 @@ make frameworkinstall
 # independent files to a new lib folder placed in Python.app/Contents/
 # so that they can always be found as follows:
 
-cd ${MYDEST}/Python.framework/Versions/3.11/Resources/Python.app/Contents
+cd ${MYDEST}/Python.framework/Versions/3.13/Resources/Python.app/Contents
 mkdir lib
 cd lib
-mv ${MYDEST}/Python.framework/Versions/3.11/lib/tcl8.6 ./
-mv ${MYDEST}/Python.framework/Versions/3.11/lib/tk8.6 ./
+cp -R ${MYDEST}/Python.framework/Versions/3.13/lib/tcl8.6 ./
+cp -R ${MYDEST}/Python.framework/Versions/3.13/lib/tk8.6 ./
 
 cd ${MYDEST}
 cd ../../
@@ -191,7 +193,7 @@ cd ../../
 # next update path in order to use the newly built/installed Python.framework's
 # and then use pip3 to install all other required python packages to its site-packages
 
-export PATH=${MYDEST}/Python.framework/Versions/3.11/bin:${PATH}
+export PATH=${MYDEST}/Python.framework/Versions/3.13/bin:${PATH}
 which pip3
 
 pip3 install six
@@ -223,7 +225,7 @@ pip3 install dulwich
  
 # Make the framework's main dylib relocatable using rpath
 
-cd ${MYDEST}/Python.framework/Versions/3.11/
+cd ${MYDEST}/Python.framework/Versions/3.13/
 chmod u+w Python
 otool -D ./Python
 install_name_tool -id @rpath/Python ./Python
@@ -232,39 +234,45 @@ install_name_tool -id @rpath/Python ./Python
 # framework in a relative way and add the proper rpath to find the Python (renamed dylib)
 
 cd bin
-install_name_tool -change ${MYDEST}/Python.framework/Versions/3.11/Python @rpath/Python python3.11
-install_name_tool -add_rpath @executable_path/../ ./python3.11
+install_name_tool -change ${MYDEST}/Python.framework/Versions/3.13/Python @rpath/Python python3.13
+install_name_tool -add_rpath @executable_path/../ ./python3.13
 
 
 # so that python3 can find the Qt Frameworks and proper plugins for PyQt5
 
-install_name_tool -add_rpath @executable_path/../../../../ ./python3.11
+install_name_tool -add_rpath @executable_path/../../../../ ./python3.13
 
 # now do the same for the Python.app stored inside the Python.framework Resources 
 # This app is needed to allow gui use by python for plugins
 
-cd ${MYDEST}/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS
-install_name_tool -change ${MYDEST}/Python.framework/Versions/3.11/Python @rpath/Python ./Python
+cd ${MYDEST}/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS
+install_name_tool -change ${MYDEST}/Python.framework/Versions/3.13/Python @rpath/Python ./Python
 install_name_tool -add_rpath @executable_path/../../../../ ./Python
 
 # And finally we need to change the name id on the libtk and libtcl to be rpath based
 # and fix the _tkinter*.so to have an rpath with a @loader_path back up to the lib dir 
 # where they live
 
-cd ${MYDEST}/Python.framework/Versions/3.11/lib
+cd ${MYDEST}/Python.framework/Versions/3.13/lib
 otool -D libtk8.6.dylib
 otool -D libtcl8.6.dylib
 install_name_tool -id @rpath/libtcl8.6.dylib ./libtcl8.6.dylib
 install_name_tool -id @rpath/libtk8.6.dylib ./libtk8.6.dylib
-cd ${MYDEST}/Python.framework/Versions/3.11/lib/python3.11/lib-dynload
-install_name_tool -add_rpath @loader_path/../.. _tkinter.cpython-311-darwin.so
-install_name_tool -change ${MYDEST}/Python.framework/Versions/3.11/lib/libtcl8.6.dylib @rpath/libtcl8.6.dylib _tkinter.cpython-311-darwin.so
-install_name_tool -change ${MYDEST}/Python.framework/Versions/3.11/lib/libtk8.6.dylib @rpath/libtk8.6.dylib _tkinter.cpython-311-darwin.so
+cd ${MYDEST}/Python.framework/Versions/3.13/lib/python3.13/lib-dynload
+install_name_tool -add_rpath @loader_path/../.. _tkinter.cpython-313-darwin.so
+install_name_tool -change ${MYDEST}/Python.framework/Versions/3.13/lib/libtcl8.6.dylib @rpath/libtcl8.6.dylib _tkinter.cpython-313-darwin.so
+install_name_tool -change ${MYDEST}/Python.framework/Versions/3.13/lib/libtk8.6.dylib @rpath/libtk8.6.dylib _tkinter.cpython-313-darwin.so
+
+# There is one final nit that needs to be addressed as Pillow installs a libjpeg binary with a dangling rpth that needs to be removed
+cd ${MYDEST}/Python.framework/Versions/3.13/lib/python3.13/site-packages/
+cd PIL/.dylibs
+otool -l ./libjpeg.62.4.0.dylib | grep LC_RPATH -A2
+install_name_tool -delete_rpath /Users/runner/work/Pillow/Pillow/build/deps/darwin/lib ./libjpeg.62.4.0.dylib
 
 
 # We should now have a fully relocatable Python.framework
 
 
-# We will now use this just-built Python3.11 interpreter to install PySide6 for Qt 6.X
+# We will now use this just-built Python3.13 interpreter to install PySide6 for Qt 6.X
 
 See Building_PySide6_for_Qt6_on_MacOSX.txt
