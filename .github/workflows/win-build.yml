@@ -29,10 +29,10 @@ on:
 
 env:
   BUILD_TYPE: Release
-  DOWNLOADQT: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/Qt6.7.3ci_x64_VS2022.7z
-  QT: Qt6.7.3
+  DOWNLOADQT: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/Qt6.8.2ci_x64_VS2022.7z
+  QT: Qt6.8.2
   INNO: C:\Program Files (x86)\Inno Setup 6
-  PYTHON: \hostedtoolcache\windows\Python\3.11.9\x64
+  PYTHON: \hostedtoolcache\windows\Python\3.13.2\x64
 
 jobs:
   build:
@@ -42,10 +42,10 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Set up Python 3.11.9
+    - name: Set up Python 3.13.2
       uses: actions/setup-python@v5
       with:
-        python-version: 3.11.9
+        python-version: 3.13.2
 
     - name: Cache Custom Qt
       uses: actions/cache@v4
@@ -66,19 +66,19 @@ jobs:
       run: |
         set PATH=C:\%PYTHON%;C:\%PYTHON%\Scripts;%PATH%
         python -m pip install --upgrade pip
-        pip install six==1.16.0
+        pip install six==1.17.0
         pip install html5lib==1.1
-        pip install regex==2024.5.15
+        pip install regex==2024.11.6
         pip install css-parser==1.0.10
         pip install cssselect==1.2.0
-        pip install urllib3==2.2.2
-        pip install certifi==2024.6.2
-        pip install dulwich==0.22.1
+        pip install urllib3==2.3.0
+        pip install certifi==2025.1.31
+        pip install dulwich==0.22.7
         pip install chardet==5.2.0
-        pip install pillow==10.3.0
-        pip install lxml==5.2.2
-        pip install shiboken6@https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/shiboken6-6.7.3-6.7.3-cp311-cp311-win_amd64.whl
-        pip install PySide6@https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/PySide6-6.7.3-6.7.3-cp311-cp311-win_amd64.whl
+        pip install pillow==11.1.0
+        pip install lxml==5.3.0
+        pip install shiboken6@https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/shiboken6-6.8.2.1-6.8.2-cp313-cp313-win_amd64.whl
+        pip install PySide6@https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/PySide6-6.8.2.1-6.8.2-cp313-cp313-win_amd64.whl
 
     - name: Create Build Environment
       shell: cmd
