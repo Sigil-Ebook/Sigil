@@ -19,7 +19,7 @@ set (WINQTURL "https://github.com/dougmassay/win-qtwebkit-5.212/releases/downloa
 # Check https://github.com/dougmassay/win-qtwebkit-5.212/releases/ to
 # see what versions are available. Defaults to 6.7.3.
 if(NOT DEFINED QTVER)
-    set(QTVER 6.7.3)
+    set(QTVER 6.8.2)
 endif()
 
 # Default to using newe findPython3 on Windows and Linux
