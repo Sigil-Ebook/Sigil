@@ -1,4 +1,4 @@
-########################################################
+###A#####################################################
 #  
 #  This is a CMake configuration file.
 #  To use it you need CMake which can be 
@@ -27,7 +27,7 @@ if ( NOT DEFINED TRY_NEWER_FINDPYTHON3 )
     if ( NOT APPLE )
         set ( TRY_NEWER_FINDPYTHON3 1 )
     else()
-        set ( TRY_NEWER_FINDPYTHON3 0 )
+        set ( TRY_NEWER_FINDPYTHON3 1 )
     endif()
 endif()
 
@@ -144,6 +144,9 @@ message(STATUS "CMake version in use: ${CMAKE_VERSION}")
 if (${USE_NEWER_FINDPYTHON3})
     message(STATUS "Using newer findpython3 cmake module")
     if ( APPLE )
+        # cmake's FindPython3 does *not* find frameworks based on precendence in PATH
+        # so set some pretty specific hints using our own FindPython3MacFramework.cmake first
+        find_package(Python3MacFramework 3.9 QUIET)
         find_package(Python3 3.9 COMPONENTS Interpreter Development)
     endif()
     if ( WIN32 )
@@ -181,8 +184,11 @@ if (${USE_NEWER_FINDPYTHON3})
 else()
     message(STATUS "Using older findpython cmake module")
     if ( APPLE )
-        find_package(PythonInterp 3.11)
-        find_package (PythonLibs 3.11)
+        find_package(PythonMacFramework 3.9 QUIET)
+        if (NOT PythonMacFramework_FOUND)
+            find_package(PythonInterp 3.9)
+            find_package(PythonLibs 3.9)
+        endif()
     endif()
     if ( WIN32 )
         find_package(PythonInterp 3.9)
@@ -201,3 +207,4 @@ add_subdirectory( internal/gumbo )
 
 add_subdirectory( 3rdparty/ )
 add_subdirectory( src/ )
+
