@@ -79,6 +79,7 @@ jobs:
         -G "Ninja" \
         -DCMAKE_PREFIX_PATH="{$QT_ROOT_DIR}/lib/cmake" \
         -DCMAKE_BUILD_TYPE=$BUILD_TYPE \
+        -DTRY_NEWER_FINDPYTHON3=1 \
         -DUSE_SYSTEM_LIBS=1 \
         -DSYSTEM_LIBS_REQUIRED=0
         ninja -j$(getconf _NPROCESSORS_ONLN)

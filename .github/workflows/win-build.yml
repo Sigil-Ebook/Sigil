@@ -98,8 +98,9 @@ jobs:
         call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
         cmake %GITHUB_WORKSPACE% ^
         -G "Ninja" ^
+        -DTRY_NEWER_FINDPYTHON3=1 ^
+        -DPython3_EXECUTABLE="C:\%PYTHON%\python.exe" ^
         -DCMAKE_BUILD_TYPE=%BUILD_TYPE% ^
-        -DPYTHON_EXECUTABLE="C:\%PYTHON%\python.exe" ^
         -DQt6_DIR="${{runner.workspace}}\$QT\lib\cmake\Qt6"
         ninja -j2
 
