@@ -11,7 +11,7 @@ The requirements for building Sigil on newer Linux systems Arch Linux, Debian 12
 To build Sigil on newer Linux systems, you need to get/do the following things:
 
 1. [A Linux build-toolchain](#gcc) with a C++17 capable compiler (gcc 7.x.x or higher recommended)
-2. [CMake](#cmake) (3.16 or higher)
+2. [CMake](#cmake) (3.18 or higher)
 3. [Qt6.4or higher](#qt6) (with QtWebEngine)
 4. [3rd-party dependencies](#thirdparty) (an optional step)
 5. [Python 3.9](#python)
@@ -55,7 +55,7 @@ To get Sigil's Qt6 requirements on Arch, `sudo pacman -S` the following packages
 + qt6-svg
 + qt6-webengine
 + qt6-tools
-+ qt6-5compat
++ qt6-5compat (not needed starting with Sigil 2.3.0)
 
 The following command can be copied and pasted for convenience on Arch-based systems:
 
