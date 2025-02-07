@@ -1,7 +1,9 @@
 # <center>Building Sigil on Linux</center>
-## <center>Systems like Ubuntu 20.04 (and its derivatives) or newer</center>
+## <center>Systems like Ubuntu 22.04 (and its derivatives) or older</center>
 
 Starting with Sigil 2.0.2, Sigil defaults to building with Qt6. If your distro provides recent enough versions of Qt6 modules, It is recommended to [build Sigil that way](./Building_on_Linux.md). If not, the latest versions of Sigil will still be able to be built with Qt5 for a little while (but not indefinitely).
+
+Starting with version 2.3.0, Sigil only supports being built with Qt6. This means that **Sigil 2.2.1 marks the very last version of Sigil that can be built with Qt5**.
 
 
 ## General Overview
