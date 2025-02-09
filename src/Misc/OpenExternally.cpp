@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2019-2025 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2019      Doug Massay
 **  Copyright (C) 2012      Daniel Pavel <daniel.pavel@gmail.com>
 **
@@ -280,6 +280,23 @@ const QString OpenExternally::prettyApplicationName(const QString &applicationpa
 {
     return QFileInfo(applicationpath).completeBaseName();
 }
+
+void  OpenExternally::clearEditorListForResourceType(const Resource::ResourceType type)
+{
+    if (!mayOpen(type)) {
+        return;
+    }
+
+    const QString editorsKey = QString("editors_") + RESOURCE_TYPE_NAME(type);
+    SettingsStore settings;
+    settings.beginGroup(SETTINGS_GROUP);
+    QStringList EmptyList = QStringList();
+    QStringList editors = settings.value(editorsKey, EmptyList).toStringList();
+    editors.clear();
+    settings.setValue(editorsKey, editors);
+    return;
+}
+
 
 const QString OpenExternally::selectEditorForResourceType(const Resource::ResourceType type, QWidget *parent)
 {

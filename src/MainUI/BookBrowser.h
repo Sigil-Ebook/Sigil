@@ -297,7 +297,8 @@ private slots:
     void SaveAsFile(Resource *resource);
     void SaveAsFiles();
 
-    void OpenWith();
+    void OpenWithOtherApp();
+    void OpenWithClear();
 
     void OpenWithEditor(int) const;
 
@@ -548,13 +549,14 @@ private:
     QAction *m_ValidateWithW3C;
 
     QMenu *m_OpenWithContextMenu;
-    QAction *m_OpenWith;
+    QAction *m_OpenWithOtherApp;
+    QAction *m_OpenWithClear;
     QAction *m_OpenWithEditor0;
     QAction *m_OpenWithEditor1;
     QAction *m_OpenWithEditor2;
     QAction *m_OpenWithEditor3;
     QAction *m_OpenWithEditor4;
-
+    
     QSignalMapper *m_openWithMapper;
 
     /**
