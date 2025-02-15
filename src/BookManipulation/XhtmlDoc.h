@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks Stratford, ON, Canada 
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2025 Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -34,7 +34,7 @@ class QString;
 class QXmlStreamReader;
 class TagLister;
 
-const QList<GumboTag> GIMAGE_TAGS = QList<GumboTag>() << GUMBO_TAG_IMG << GUMBO_TAG_IMAGE;
+const QList<GumboTag> GIMAGE_TAGS = QList<GumboTag>() << GUMBO_TAG_IMG << GUMBO_TAG_IMAGE << GUMBO_TAG_MATH;
 const QList<GumboTag> GVIDEO_TAGS = QList<GumboTag>() << GUMBO_TAG_VIDEO;
 const QList<GumboTag> GAUDIO_TAGS = QList<GumboTag>() << GUMBO_TAG_AUDIO;
 

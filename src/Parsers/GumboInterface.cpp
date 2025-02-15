@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2024  Kevin B. Hendricks, Stratford Ontario
+**  Copyright (C) 2015-2025  Kevin B. Hendricks, Stratford Ontario
 **
 **  This file is part of Sigil.
 **
@@ -103,6 +103,8 @@ static const std::string aHREF = std::string("href");
 static const std::string aPOSTER = std::string("poster");
 static const std::string aDATA = std::string("data");
 static const std::string aSRCSET = std::string("srcset");
+static const std::string aALTIMG = std::string("altimg"); // possible attribute on math tag
+
 QHash<QString,QString> EmptyHash = QHash<QString,QString>();
 
 // These need to match the GumboAttributeNamespaceEnum sequence
@@ -1182,7 +1184,7 @@ std::string GumboInterface::build_attributes(GumboAttribute * at, bool no_entiti
 
     if (run_src_updates && (local_name == aHREF || local_name == aSRC || 
                             local_name == aPOSTER || local_name == aDATA ||
-                            local_name == aSRCSET )) {
+                            local_name == aSRCSET || local_name == aALTIMG)) {
         attvalue = update_attribute_value(attvalue);
     }
 

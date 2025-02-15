@@ -680,11 +680,17 @@ QStringList XhtmlDoc::GetAllMediaPathsFromMediaChildren(const QString & source, 
     QList<GumboNode*> nodes = gi.get_all_nodes_with_tags(tags);
     for (int i = 0; i < nodes.count(); ++i) {
         GumboNode* node = nodes.at(i);
+        // each element node will only hold one of the following attributes
         GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "src");
         if (!attr) {
             // search for xlink:href using gumbo attribute namespace
             attr = gumbo_get_attribute(&node->v.element.attributes, "href");
             if (attr && attr->attr_namespace != GUMBO_ATTR_NAMESPACE_XLINK) attr = NULL;
+        }
+        if (!attr) {
+            // search for altimg attribute from math tag
+            attr = gumbo_get_attribute(&node->v.element.attributes, "altimg");
+            if (attr && node->v.element.tag != GUMBO_TAG_MATH) attr = NULL;
         }
         if (attr) {
             QString relative_path = QString::fromUtf8(attr->value);
