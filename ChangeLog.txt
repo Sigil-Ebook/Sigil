@@ -4,6 +4,7 @@ pre-2.X.X
      - because Linux has multiple light and dark themes (but different)
          always send out our internal theme change signal when palette changes
      - detect urls in altimg attributes in math tags and properly update them is changed
+     - disable workaround for FR open interfering in MainWindow restorestate as no longer needed
 
    New Features
      - upgrade MacOS and Windows release and ci builds to use Qt 6.8.2

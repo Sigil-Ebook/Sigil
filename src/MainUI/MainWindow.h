@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2015-2022 Doug Massay
 **  Copyright (C) 2012-2015 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
@@ -1076,7 +1076,7 @@ private:
 
     QString m_mathjaxfolder;
 
-    bool m_FRVisible;
+    // bool m_FRVisible;
 
     bool m_UsingAutomate;
     QStringList m_AutomateLog;

@@ -1730,8 +1730,10 @@ void MainWindow::closeEvent(QCloseEvent *event)
 
     DBG qDebug() << "in close event before maybe save";
 
+#if 0
     bool find_was_open = m_FindReplace->isVisible();
-    
+#endif
+
     // this should be done first to save all geometry
     // extra saves should not be an issue if the window close is abandoned
     WriteSettings();
@@ -1781,10 +1783,13 @@ void MainWindow::closeEvent(QCloseEvent *event)
     } else {
         event->ignore();
         SetupPreviewTimer();
-        // WriteSettings closes F&R if open so repoen if needed
+
+#if 0
+        // WriteSettings closes F&R if open so reopen if needed
         if (find_was_open) {
             QTimer::singleShot(10, this, SLOT(Find()));
         }
+#endif
         m_IsClosing = false;
     }
 }
@@ -4936,8 +4941,10 @@ void MainWindow::ReadSettings()
     // So read in now but delay restore until the first time the widget is made active
     m_LastState = settings.value("toolbars",QByteArray()).toByteArray();
 
+#if 0
     // Work around saved state restore bug with Find and Replace
     m_FRVisible = settings.value("frvisible", false).toBool();
+#endif
 
     QByteArray lastWindowSize = settings.value("geometry", QByteArray()).toByteArray();
     if (!lastWindowSize.isEmpty()) restoreGeometry(lastWindowSize);
@@ -5036,12 +5043,14 @@ void MainWindow::WriteSettings()
     settings.setValue("maximized", isMaximized());
     settings.setValue("fullscreen",isFullScreen());
 
+#if 0
     // work around Find Replace saved state restore bug on macOS
     settings.setValue("frvisible",m_FindReplace->isVisible());
     if (m_FindReplace->isVisible()) {
         // can not use just hide() and FR keeps its own internal state
         m_FindReplace->HideFindReplace();
     }
+#endif
 
     DBG DebugCurrentWidgetSizes();
 
@@ -5823,7 +5832,6 @@ void MainWindow::ExtendUI()
         }
     }
 
-    m_FindReplace->ShowHide();
     // We want a nice frame around the tab manager
     QFrame *frame = new QFrame(this);
     QLayout *layout = new QVBoxLayout(frame);
@@ -6211,10 +6219,12 @@ void MainWindow::changeEvent(QEvent *e)
 
             if (m_FirstTime) {
                 if (!m_LastState.isEmpty()) restoreState(m_LastState);
-                
+
+#if 0
                 if (m_FRVisible) {
                      QTimer::singleShot(30, this, SLOT(Find()));
                 }
+#endif
 
                 DWINGEO {
                     QScreen * srn = qApp->primaryScreen();
