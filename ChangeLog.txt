@@ -11,6 +11,7 @@ pre-2.X.X
      - upgrade MacOS and Windows release and ci builds to embed Python 3.13.2
      - move all platforms to use cmake FindPython3 to simplify our cmake files and remove leftovers
      - add ability to easily clear an Open With editor list, without need to edit ini files
+     - added new Search Menu option that will hide the Find and Replace Window if open
 
 
 Sigil-2.4.2

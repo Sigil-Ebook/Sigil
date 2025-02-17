@@ -4398,6 +4398,7 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionCasingTitlecase ->setEnabled(true);
     ui.actionCasingCapitalize ->setEnabled(true);
     ui.actionFind->setEnabled(true);
+    ui.actionHideFind->setEnabled(true);
     ui.actionFindNext->setEnabled(true);
     ui.actionFindPrevious->setEnabled(true);
     ui.actionReplaceCurrent->setEnabled(true);
@@ -4485,6 +4486,7 @@ void MainWindow::SetStateActionsRawView()
     ui.actionCasingTitlecase ->setEnabled(true);
     ui.actionCasingCapitalize ->setEnabled(true);
     ui.actionFind->setEnabled(true);
+    ui.actionHideFind->setEnabled(true);
     ui.actionFindNext->setEnabled(true);
     ui.actionFindPrevious->setEnabled(true);
     ui.actionReplaceCurrent->setEnabled(true);
@@ -4555,6 +4557,7 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionCasingTitlecase ->setEnabled(false);
     ui.actionCasingCapitalize ->setEnabled(false);
     ui.actionFind->setEnabled(false);
+    ui.actionHideFind->setEnabled(false);
     ui.actionFindNext->setEnabled(false);
     ui.actionFindPrevious->setEnabled(false);
     ui.actionReplaceCurrent->setEnabled(false);
@@ -5985,6 +5988,7 @@ void MainWindow::ExtendUI()
 #endif
     //Search
     sm->registerAction(this, ui.actionFind, "MainWindow.Find");
+    sm->registerAction(this, ui.actionHideFind, "MainWindow.HideFind");
     sm->registerAction(this, ui.actionFindNext, "MainWindow.FindNext");
     sm->registerAction(this, ui.actionFindPrevious, "MainWindow.FindPrevious");
     sm->registerAction(this, ui.actionReplaceCurrent, "MainWindow.ReplaceCurrent");
@@ -6321,6 +6325,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionPreferences,     SIGNAL(triggered()), this, SLOT(PreferencesDialog()));
     // Search
     connect(ui.actionFind,              SIGNAL(triggered()), this, SLOT(Find()));
+    connect(ui.actionHideFind,          SIGNAL(triggered()), m_FindReplace, SLOT(HideFindReplace()));
     connect(ui.actionFindNext,          SIGNAL(triggered()), m_FindReplace, SLOT(DoFindNext()));
     connect(ui.actionFindPrevious,      SIGNAL(triggered()), m_FindReplace, SLOT(DoFindPrevious()));
     connect(ui.actionReplaceNext,       SIGNAL(triggered()), m_FindReplace, SLOT(DoReplaceNext()));
