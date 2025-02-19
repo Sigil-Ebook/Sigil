@@ -362,6 +362,7 @@ QString MetaEditor::SetNewOPFMetadata(QString& data)
             QStringList parts = rc.split(_US);
             QString elem = ECode(parts.at(0));
             QString value = parts.at(1);
+            if (elem == "dc:identifier-custom") elem = "dc:identifier";
             if (elem == "dc:language") value = LCode(value);
             nlist.append(elem + _US + value + _RS);
         }
