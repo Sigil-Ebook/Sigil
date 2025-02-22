@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2024 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2016-2025 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2016-2022 Doug Massay
 **
 **  This file is part of Sigil.
@@ -24,6 +24,8 @@
 #include <QString>
 #include <QList>
 #include <QVariant>
+
+#include <QDebug>
 
 #include "Misc/Utility.h"
 #include "EmbedPython/PythonRoutines.h"
@@ -437,4 +439,84 @@ QString PythonRoutines::RebaseManifestIDsInPython(const QString& opfdata)
     }
     newopfdata = res.toString();
     return newopfdata;
+}
+
+
+PyObjectPtr PythonRoutines::SetupInitialFunctionSearchEnvInPython(const QString& metaxml,
+                                                                  const QString& function_name)
+{
+    int rv = 0;
+    QString traceback;
+
+    QString module = "functionsearch";
+    QList<QVariant> args;
+    args.append(QVariant(metaxml));
+    args.append(QVariant(function_name));
+    EmbeddedPython* epp = EmbeddedPython::instance();
+    QVariant res = epp->runInPython(module, QString("getFunctionSearchEnv"), args, &rv, traceback, true);
+    if (rv) {
+        fprintf(stderr, "getFunctionSearchEnv error %d traceback %s\n",rv, traceback.toStdString().c_str());
+    }
+    PyObjectPtr FSO = PyObjectPtr(res);
+    args.clear();
+    return FSO;
+}
+
+
+QString PythonRoutines::DoFunctionSearchTextReplacementsInPython(PyObjectPtr FSO,
+                                                                 const QString& pattern,
+                                                                 const QString& bookpath, const QString& text)
+{
+    int rv = 0;
+    QString traceback;
+    QList<QVariant> args;
+    args.append(QVariant(pattern));
+    args.append(QVariant(bookpath));
+    args.append(QVariant(text));
+    EmbeddedPython* epp = EmbeddedPython::instance();
+    QVariant res = epp->callPyObjMethod(FSO, QString("do_text_replacements"), args, &rv, traceback);
+    if (rv) {
+        fprintf(stderr, "do_text_replacements error %d traceback %s\n",rv, traceback.toStdString().c_str());
+    }
+    args.clear();
+    return res.toString();
+}
+
+
+int PythonRoutines::GetCurrentReplacementCountInPython(PyObjectPtr FSO)
+{
+    int rv = 0;
+    QString traceback;
+    QList<QVariant> args;
+    EmbeddedPython* epp = EmbeddedPython::instance();
+    QVariant res = epp->callPyObjMethod(FSO, QString("get_current_replacement_count"), args, &rv, traceback);
+    if (rv) {
+        fprintf(stderr, "get_current_replacement_count error %d traceback %s\n",rv, traceback.toStdString().c_str());
+    }
+    return res.toInt();
+}
+
+
+QString PythonRoutines::GetSingleReplacementByFunction(PyObjectPtr FSO,
+                                                       const QString& text,
+                                                       const QList<std::pair<int,int> > capture_groups)
+{
+    int rv = 0;
+    QString traceback;
+    QList<QVariant> args;
+    EmbeddedPython* epp = EmbeddedPython::instance();
+    args.append(QVariant(text));
+    QList<QVariant> groups;
+    for (int i=0; i < capture_groups.size(); i++) {
+        std::pair<int, int> pi = capture_groups.at(i);
+        QVariant v = QVariant::fromValue(pi);
+        groups.append(v);
+    }
+    args.append(QVariant(groups));
+
+    QVariant res = epp->callPyObjMethod(FSO, QString("get_single_replacement_by_function"), args, &rv, traceback);
+    if (rv) {
+        fprintf(stderr, "get_single_replacement_by_function error %d traceback %s\n",rv, traceback.toStdString().c_str());
+    }
+    return res.toString();
 }

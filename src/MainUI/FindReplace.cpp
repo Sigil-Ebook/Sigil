@@ -1,6 +1,6 @@
 /***************************************************************************
 **
-**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2011-2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
@@ -1199,16 +1199,46 @@ int FindReplace::CountInFiles()
                search_files);
 }
 
+
 int FindReplace::ReplaceInAllFiles()
 {
     m_MainWindow->GetCurrentContentTab()->SaveTabContent();
     QList<Resource *>search_files = GetFilesToSearch(true);
     if (search_files.isEmpty()) return 0;
 
-    int count = SearchOperations::ReplaceInAllFIles(
+    int count = 0;
+
+    QString functionname;
+    QString replacer = GetReplace().trimmed();
+
+    if (replacer.startsWith("\\F<") & replacer.endsWith(">")) {
+        functionname = replacer.mid(3, -1);
+        functionname.chop(1);
+    }
+
+    if (functionname.isEmpty()) {
+        count = SearchOperations::ReplaceInAllFIles(
                     GetSearchRegex(),
                     GetReplace(),
                     search_files);
+    } else {
+        // clean up flags that do not exist in python re
+        QString pattern = GetSearchRegex();
+        if (pattern.contains("(*UCP)")) {
+            int i = pattern.indexOf("(*UCP)");
+            pattern.remove(i,6);
+        }
+        if (pattern.contains("(?U)")) {
+            int i = pattern.indexOf("(?U)");
+            pattern.remove(i,4);
+        }
+        QString metadataxml = m_MainWindow->GetOPFMetadataXML();
+        count = SearchOperations::FunctionReplaceInAllFiles(
+                    pattern,
+                    functionname,
+                    metadataxml,
+                    search_files);
+    }
     return count;
 }
 

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -20,6 +20,7 @@
 **
 *************************************************************************/
 
+#include "EmbedPython/PyObjectPtr.h"
 #include <signal.h>
 
 #include <QtCore/QtCore>
@@ -35,6 +36,7 @@
 #include "ResourceObjects/HTMLResource.h"
 #include "ResourceObjects/TextResource.h"
 #include "ViewEditors/Searchable.h"
+#include "EmbedPython/PythonRoutines.h"
 #include "sigil_constants.h"
 
 int SearchOperations::CountInFiles(const QString &search_regex,
@@ -226,4 +228,39 @@ std::tuple<QString, int> SearchOperations::PerformHTMLSpellCheckReplace(const QS
 void SearchOperations::Accumulate(int &first, const int &second)
 {
     first += second;
+}
+
+
+int SearchOperations::FunctionReplaceInAllFiles(const QString &search_regex,
+                                                const QString &function_name,
+                                                const QString &metadata_xml,
+                                                QList<Resource *> resources)
+{
+    QProgressDialog progress(QObject::tr("Replacing search term..."), 0, 0, resources.count(), Utility::GetMainWindow());
+    progress.setMinimumDuration(PROGRESS_BAR_MINIMUM_DURATION);
+    int progress_value = 0;
+    progress.setValue(progress_value);
+    PythonRoutines pr;
+    PyObjectPtr fsp = pr.SetupInitialFunctionSearchEnvInPython(metadata_xml, function_name);
+
+    foreach(Resource * resource, resources) {
+       progress.setValue(progress_value++);
+        qApp->processEvents();
+        QString bookpath = resource->GetRelativePath();
+        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
+        TextResource *text_resource = qobject_cast<TextResource *>(resource);
+        if (html_resource) {
+            QWriteLocker locker(&html_resource->GetLock());
+            QString text = html_resource->GetText();
+            QString new_text = pr.DoFunctionSearchTextReplacementsInPython(fsp, search_regex, bookpath, text);
+            html_resource->SetText(new_text);
+        } else if (text_resource) {
+            QWriteLocker locker(&text_resource->GetLock());
+            QString text = text_resource->GetText();
+            QString new_text = pr.DoFunctionSearchTextReplacementsInPython(fsp, search_regex, bookpath, text);
+            text_resource->SetText(new_text);
+        }
+    }
+    int count = pr.GetCurrentReplacementCountInPython(fsp);
+    return count;
 }

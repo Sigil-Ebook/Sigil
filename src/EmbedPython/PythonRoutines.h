@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2024 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2016-2025 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2016-2022 Doug Massay
 **
 **  This file is part of Sigil.
@@ -28,8 +28,9 @@
 #include <QStringList>
 #include <QVariant>
 #include <QMetaType>
-
 #include "EmbedPython/DiffRec.h"
+
+class PyObjectPtr;
 
 struct MetadataPieces {
     QString data;
@@ -100,6 +101,22 @@ public:
     QString RebaseManifestIDsInPython(const QString& opfdata);
 
 
+
+
+    PyObjectPtr SetupInitialFunctionSearchEnvInPython(const QString& metaxml,
+                                                      const QString& function_name);
+
+    QString DoFunctionSearchTextReplacementsInPython(PyObjectPtr FSO,
+                                                     const QString& pattern,
+                                                     const QString& bookpath,
+                                                     const QString& text);
+
+    int GetCurrentReplacementCountInPython(PyObjectPtr FSO);
+
+    QString GetSingleReplacementByFunction(PyObjectPtr FSO,
+                                           const QString& text,
+                                           const QList<std::pair<int,int>>capture_groups);
+    
 private:
 
     ///////////////////////////////

@@ -172,6 +172,9 @@ public:
     QList <Resource *> GetOPFResource();
     QList <Resource *> GetNCXResource();
 
+    /* returns the OPF metadata tag and all its children as xml */
+    QString GetOPFMetadataXML();
+
     /**
      * Select resources in the Book Browser
      *
