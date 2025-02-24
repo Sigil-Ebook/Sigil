@@ -508,13 +508,13 @@ QString SearchEditorModel::BuildControlsToolTip(const QString & controls)
             tooltip_controls.append("NX - " + tr("Target: NCX File") + "\n");
         }
         if (controls.contains("SV")) {
-            tooltip_controls.append("NX - " + tr("Target: Selected SVG Files") + "\n");
+            tooltip_controls.append("SV - " + tr("Target: Selected SVG Files") + "\n");
         }
         if (controls.contains("SJ")) {
-            tooltip_controls.append("NX - " + tr("Target: Selected Javascript Files") + "\n");
+            tooltip_controls.append("SJ - " + tr("Target: Selected Javascript Files") + "\n");
         }
         if (controls.contains("SX")) {
-            tooltip_controls.append("NX - " + tr("Target: Selected Misc XML Files") + "\n");
+            tooltip_controls.append("SX - " + tr("Target: Selected Misc XML Files") + "\n");
         }
         if (controls.contains("DA")) {
             tooltip_controls.append("DA - " + tr("Option: DotAll") + "\n");
@@ -529,7 +529,7 @@ QString SearchEditorModel::BuildControlsToolTip(const QString & controls)
             tooltip_controls.append("WR - " + tr("Option: Wrap") + "\n");
         }
         if (controls.contains("TO")) {
-            tooltip_controls.append("WR - " + tr("Option: Text Only") + "\n");
+            tooltip_controls.append("TO - " + tr("Option: Text Only") + "\n");
         }
     }
     return tooltip_controls;
