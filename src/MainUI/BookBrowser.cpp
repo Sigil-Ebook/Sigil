@@ -1734,29 +1734,15 @@ void BookBrowser::GetInfo()
     }
 
     Resource * resource = resources.first();
-    if (resource->Type() != Resource::HTMLResourceType) {
-        return;
-    }
-
-    HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
-    if (!html_resource) return;
 
     QString bookpath = resource->GetRelativePath();
     QString folder_path = resource->GetFolder();
     if (folder_path == ".") folder_path = tr("(root folder)");
-    QString primary_lang = html_resource->GetLanguageAttribute();
-    // fallback to the primary language specified in the OPF metadata
-    if (primary_lang.isEmpty()) {
-      primary_lang = m_Book->GetOPF()->GetPrimaryBookLanguage();
-    }
     
     QString fullfilepath = resource->GetFullPath();
     QString version = resource->GetEpubVersion();
     double ffsize = QFile(fullfilepath).size() / 1024.0;
     QString fsize = QLocale().toString(ffsize, 'f', 2);
-    QString source = html_resource->GetText();
-
-    int word_count = HTMLSpellCheckML::GetAllWords(source, primary_lang).size();
     
     QStringList mdlst;
     mdlst << "# "+ bookpath + "\n";
@@ -1770,82 +1756,118 @@ void BookBrowser::GetInfo()
     mdlst << tr("Media Type");
     mdlst << "- " + resource->GetMediaType() + "\n";
 
-    mdlst << tr("Epub Version");
-    mdlst << "- " + version + " \n";
-
-    mdlst << tr("Primary Language");
-    if (!primary_lang.isEmpty()) {
-        mdlst << "- " + primary_lang +  "\n";
-    } else {
-        mdlst << QString(" \n");
-    }
-
     mdlst << tr("File Size(kb)");
     mdlst << "- " + fsize + "\n";
 
-    mdlst << tr("WellFormed");
-    if (html_resource->FileIsWellFormed()) {
-        mdlst << "- " + tr("Yes") + "\n";
-    } else {
-        mdlst << "- " + tr("No") + "\n";
-    }
+    mdlst << tr("Epub Version");
+    mdlst << "- " + version + " \n";
 
-    mdlst << tr("Word Count");
-    mdlst << "- " + QString::number(word_count) + "\n";
-    
-    mdlst << tr("Linked Stylesheets");
-    mdlst << BuildListMD(XhtmlDoc::GetLinkedStylesheets(source)) + "\n";
+    if (resource->Type() == Resource::HTMLResourceType) {
+        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
+        if (html_resource) {
 
-    mdlst << tr("Linked Javascripts");
-    mdlst << BuildListMD(XhtmlDoc::GetLinkedJavascripts(source)) + "\n";
+            QString source = html_resource->GetText();
 
-    mdlst << tr("Linked Images");
-    mdlst << BuildListMD(XhtmlDoc::GetAllMediaPathsFromMediaChildren(source, GIMAGE_TAGS)) + "\n";
-
-    mdlst << tr("Linked Audio");
-    mdlst << BuildListMD(XhtmlDoc::GetAllMediaPathsFromMediaChildren(source, GAUDIO_TAGS)) + "\n";
-
-    mdlst << tr("Linked Video");
-    mdlst << BuildListMD( XhtmlDoc::GetAllMediaPathsFromMediaChildren(source, GVIDEO_TAGS)) + "\n";
-
-    // semantics
-    HTMLResource * nav_resource = nullptr;
-    if (version.startsWith('3')) {
-        nav_resource = m_Book->GetConstOPF()->GetNavResource();
-    }
-    QStringList full_semantic_info;
-    QStringList semantics;
-    if (version.startsWith("3")) {
-        NavProcessor navproc(nav_resource);
-        full_semantic_info = navproc.GetAllLandmarkInfoByBookPath();
-    } else {
-        full_semantic_info = m_Book->GetOPF()->GetAllGuideInfoByBookPath();
-    }
-    foreach(QString rec, full_semantic_info) {
-        QStringList parts = rec.split(QChar(30), Qt::KeepEmptyParts);
-        qDebug() << parts.at(0) << parts.at(1) << parts.at(2) << parts.at(3);
-        if (parts.at(0) == bookpath) {
-            if (parts.at(1).isEmpty()) {
-                semantics << parts.at(2) + ": " + parts.at(3);
-            } else {
-                semantics << parts.at(2) + ": " + parts.at(3) + " id=\"" + parts.at(1) + "\"";
+            QString primary_lang = html_resource->GetLanguageAttribute();
+            // fallback to the primary language specified in the OPF metadata
+            if (primary_lang.isEmpty()) {
+                primary_lang = m_Book->GetOPF()->GetPrimaryBookLanguage();
             }
+
+            int word_count = HTMLSpellCheckML::GetAllWords(source, primary_lang).size();
+
+            mdlst << tr("Word Count");
+            mdlst << "- " + QString::number(word_count) + "\n";
+    
+            mdlst << tr("Primary Language");
+            if (!primary_lang.isEmpty()) {
+                mdlst << "- " + primary_lang +  "\n";
+            } else {
+                mdlst << QString(" \n");
+            }
+
+            mdlst << tr("WellFormed");
+            if (html_resource->FileIsWellFormed()) {
+                mdlst << "- " + tr("Yes") + "\n";
+            } else {
+                mdlst << "- " + tr("No") + "\n";
+            }
+
+            mdlst << tr("Linked Stylesheets");
+            mdlst << BuildListMD(XhtmlDoc::GetLinkedStylesheets(source)) + "\n";
+
+            mdlst << tr("Linked Javascripts");
+            mdlst << BuildListMD(XhtmlDoc::GetLinkedJavascripts(source)) + "\n";
+
+            mdlst << tr("Linked Images");
+            mdlst << BuildListMD(XhtmlDoc::GetAllMediaPathsFromMediaChildren(source, GIMAGE_TAGS)) + "\n";
+
+            mdlst << tr("Linked Audio");
+            mdlst << BuildListMD(XhtmlDoc::GetAllMediaPathsFromMediaChildren(source, GAUDIO_TAGS)) + "\n";
+
+            mdlst << tr("Linked Video");
+            mdlst << BuildListMD( XhtmlDoc::GetAllMediaPathsFromMediaChildren(source, GVIDEO_TAGS)) + "\n";
+
+            // semantics
+            HTMLResource * nav_resource = nullptr;
+            if (version.startsWith('3')) {
+                nav_resource = m_Book->GetConstOPF()->GetNavResource();
+            }
+            QStringList full_semantic_info;
+            QStringList semantics;
+            if (version.startsWith("3")) {
+                NavProcessor navproc(nav_resource);
+                full_semantic_info = navproc.GetAllLandmarkInfoByBookPath();
+            } else {
+                full_semantic_info = m_Book->GetOPF()->GetAllGuideInfoByBookPath();
+            }
+            foreach(QString rec, full_semantic_info) {
+                QStringList parts = rec.split(QChar(30), Qt::KeepEmptyParts);
+                qDebug() << parts.at(0) << parts.at(1) << parts.at(2) << parts.at(3);
+                if (parts.at(0) == bookpath) {
+                    if (parts.at(1).isEmpty()) {
+                        semantics << parts.at(2) + ": " + parts.at(3);
+                    } else {
+                        semantics << parts.at(2) + ": " + parts.at(3) + " id=\"" + parts.at(1) + "\"";
+                    }
+                }
+            }
+            mdlst <<  tr("Semantics OPF Guide or Nav Landmarks");
+            mdlst << BuildListMD(semantics) + "\n";
+
+            // manifest properties
+            QStringList properties;
+            if (version.startsWith('3')) {
+                properties = html_resource->GetManifestProperties();
+                if (html_resource == nav_resource) properties << "nav";
+            }
+            mdlst <<  tr("Manifest Properties");
+            mdlst << BuildListMD(properties) + "\n";
+
+            mdlst << tr("Defined Ids");
+            mdlst << BuildListMD(XhtmlDoc::GetAllDescendantIDs(source)) + "\n";
         }
     }
-    mdlst <<  tr("Semantics OPF Guide or Nav Landmarks");
-    mdlst << BuildListMD(semantics) + "\n";
+    if (resource->Type() == Resource::FontResourceType) {
+        FontResource *font_resource = qobject_cast<FontResource *>(resource);
+        if (font_resource) {
+            mdlst << tr("Description");
+            mdlst << "- " + font_resource->GetDescription() + "\n";
 
-    // manifest properties
-    QStringList properties;
-    if (version.startsWith('3')) {
-        properties = html_resource->GetManifestProperties();
-        if (html_resource == nav_resource) properties << "nav";
+            mdlst << tr("Obfuscation Algorithm");
+            QString obfuscate = font_resource->GetObfuscationAlgorithm();
+            if (obfuscate.isEmpty()) obfuscate = tr("None");
+            mdlst << "- " + obfuscate + "\n";
+        }
     }
-    mdlst <<  tr("Manifest Properties");
-    mdlst << BuildListMD(properties) + "\n";
-
-    mdlst << tr("Defined Ids");
-    mdlst << BuildListMD(XhtmlDoc::GetAllDescendantIDs(source)) + "\n";
+    if (resource->Type() == Resource::ImageResourceType) {
+        ImageResource *image_resource = qobject_cast<ImageResource *>(resource);
+        if (image_resource) {
+            mdlst << tr("Description");
+            mdlst << "- " + image_resource->GetDescription() + "\n";
+        }
+    }
+        
 
     QString mdsrc = mdlst.join("\n");
 
@@ -2192,25 +2214,30 @@ bool BookBrowser::SuccessfullySetupContextMenu(const QPoint &point)
 
         if (resource->Type() == Resource::FontResourceType) {
             SetupFontObfuscationMenu();
+            m_ContextMenu->addAction(m_GetInfo);
         }
 
         if (resource->Type() == Resource::OPFResourceType) {
             m_ContextMenu->addAction(m_Rename);
             m_ContextMenu->addAction(m_Move);
+            m_ContextMenu->addAction(m_GetInfo);
         }
 
         if (resource->Type() == Resource::NCXResourceType) {
             m_ContextMenu->addAction(m_RenumberTOC);
             m_ContextMenu->addAction(m_Rename);
             m_ContextMenu->addAction(m_Move);
+            m_ContextMenu->addAction(m_GetInfo);
         }
 
         if (resource->Type() == Resource::CSSResourceType) {
             m_ContextMenu->addAction(m_ValidateWithW3C);
+            m_ContextMenu->addAction(m_GetInfo);
         }
 
         if (resource->Type() == Resource::ImageResourceType) {
             SetupImageSemanticContextMenu(resource);
+            m_ContextMenu->addAction(m_GetInfo);
         }
 
         m_ContextMenu->addSeparator();

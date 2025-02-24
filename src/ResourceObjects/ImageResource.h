@@ -42,6 +42,7 @@ public:
     ImageResource(const QString &mainfolder, const QString &fullfilepath,
                   QObject *parent = NULL);
 
+    QString GetDescription() const;
     // inherited
     virtual ResourceType Type() const;
 
