@@ -148,8 +148,8 @@ void ReplacementChooser::CreateTable()
             QList<SPCRE::MatchInfo> match_info = spcre->getEveryMatchInfo(text);
 
             // loop through matches to build up before and after snippets for table
-            // and build table in reverse offset order
-            for (int i = match_info.count() - 1; i >=  0; i--) {
+            // in forward order but apply them in reverse order
+            for (int i = 0; i <  match_info.count(); i++) {
                 QString match_segment = Utility::Substring(match_info.at(i).offset.first,
                                                            match_info.at(i).offset.second, 
                                                            text);
@@ -269,7 +269,7 @@ void ReplacementChooser::ApplyReplacements()
     // order of replacements is crucial
     // replacements must be made in reverse offset order (bottom to top) of file
     int rows = m_ItemModel->rowCount();
-    for (int i=0; i < rows; i++) {
+    for (int i=rows-1; i>=0; i--) {
         bool checked = m_ItemModel->item(i,0)->checkState() == Qt::Checked;
         if (checked) {
             QString bookpath = m_ItemModel->item(i, 1)->text();
