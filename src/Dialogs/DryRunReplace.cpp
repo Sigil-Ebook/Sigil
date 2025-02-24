@@ -157,8 +157,8 @@ void DryRunReplace::CreateTable()
             QList<SPCRE::MatchInfo> match_info = spcre->getEveryMatchInfo(text);
 
             // loop through matches to build up before and after snippets for table
-            // and build table in forward order (but if ever applied it must be in reverse order)
-            for (int i = 0; i < match_info.count(); i++) {
+            // and build table in backwards order in case ever hand applied
+            for (int i = match_info.count()-1; i >= 0; i--) {
                 QString match_segment = Utility::Substring(match_info.at(i).offset.first,
                                                            match_info.at(i).offset.second, 
                                                            text);
