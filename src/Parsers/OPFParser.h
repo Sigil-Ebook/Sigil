@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2025 Kevin B. Hendricks, John Schember
+**  Copyright (C) 2015-2024 Kevin B. Hendricks, John Schember
 **
 **  This file is part of Sigil.
 **
@@ -184,7 +184,6 @@ struct OPFParser
     OPFParser(): m_idpos(QHash<QString,int>()), m_hrefpos(QHash<QString,int>()) {};
     void parse(const QString & source);
 
-    QString get_metadata_xml() const;
     QString convert_to_xml() const;
 };
 

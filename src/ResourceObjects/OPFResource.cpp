@@ -622,16 +622,6 @@ QList<MetaEntry> OPFResource::GetDCMetadata() const
 }
 
 
-QString OPFResource::GetMetadataXML() const
-{
-    QReadLocker locker(&GetLock());
-    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
-    OPFParser p;
-    p.parse(source);
-    return p.get_metadata_xml();
-}
-
-
 QStringList OPFResource::GetDCMetadataValues(QString text) const
 {
     QStringList metavalues;

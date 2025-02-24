@@ -48,11 +48,6 @@ public:
                                  const QString &replacement,
                                  QList<Resource *> resources);
 
-    static int FunctionReplaceInAllFiles(const QString &search_regex,
-                                         const QString &function_name,
-                                         const QString &metadata_xml,
-                                         QList<Resource *> resources);
-
 private:
 
     static int CountInFile(const QString &search_regex,
@@ -89,7 +84,6 @@ private:
             const QString &replacement);
 
     static void Accumulate(int &first, const int &second);
-
 };
 
 #endif // SEARCHOPERATIONS_H

@@ -78,6 +78,5 @@ private:
     static int m_pyobjmetaid;
     static PyThreadState *m_threadstate;
     static int m_listintmetaid;
-    static int m_stdpairintintmetaid;
 };
 #endif // EMBEDDEDPYTHON_H

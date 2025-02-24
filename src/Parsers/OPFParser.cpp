@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2021-2025 Kevin B. Hendricks
+**  Copyright (C) 2021-2024 Kevin B. Hendricks
 **
 **  This file is part of Sigil.
 **
@@ -498,18 +498,6 @@ void OPFParser::parse(const QString& source)
             continue;
         }
     }
-}
-
-
-QString OPFParser::get_metadata_xml() const
-{
-    QStringList mdxml;
-    mdxml << m_metans.convert_to_xml();
-    foreach (MetaEntry me, m_metadata) {
-        mdxml << me.convert_to_xml();
-    }
-    mdxml << "  </metadata>\n";
-    return mdxml.join("");
 }
 
 

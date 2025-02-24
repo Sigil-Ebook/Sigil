@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2021-2025  Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2021-2024  Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2011  John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -19,15 +19,13 @@
 **  along with Sigil.  If not, see <http://www.gnu.org/licenses/>.
 **
 *************************************************************************/
-#include "EmbedPython/PyObjectPtr.h"
-#include "EmbedPython/PythonRoutines.h"
+
 #include <QString>
 // #include <QDebug>
 
 #include "PCRE2/SPCRE.h"
 #include "PCRE2/PCREReplaceTextBuilder.h"
 #include "Misc/Utility.h"
-#include "Misc/SearchUtils.h"
 #include "sigil_constants.h"
 
 #define PCRE_NO_JIT 1
@@ -265,23 +263,8 @@ SPCRE::MatchInfo SPCRE::getLastMatchInfo(const QString &text)
 
 bool SPCRE::replaceText(const QString &text, const QList<std::pair<int, int>> &capture_groups_offsets, const QString &replacement_pattern, QString &out)
 {
-    QString functionname;
-    QString rname = replacement_pattern.trimmed();
-    if (rname.startsWith("\\F<") && rname.endsWith(">")) {
-        rname = rname.mid(3,-1);
-        rname.chop(1);
-        functionname = rname;
-    }
-    if (functionname.isEmpty() ) {
-        PCREReplaceTextBuilder builder;
-        return builder.BuildReplacementText(*this, text, capture_groups_offsets, replacement_pattern, out);
-    }
-    if (!isValid()) return false;
-    QList<std::pair<int, int> > fixed_groups = SearchUtils::ConvertCaptureGroupstoUTF32(text, capture_groups_offsets);
-    PythonRoutines pr;
-    PyObjectPtr fsp = pr.SetupInitialFunctionSearchEnvInPython(QString(""),functionname);
-    out = pr.GetSingleReplacementByFunction(fsp, text, fixed_groups);
-    return true;
+    PCREReplaceTextBuilder builder;
+    return builder.BuildReplacementText(*this, text, capture_groups_offsets, replacement_pattern, out);
 }
 
 SPCRE::MatchInfo SPCRE::generateMatchInfo(PCRE2_SIZE* ovector, int capture_pattern_count)

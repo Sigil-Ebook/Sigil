@@ -333,8 +333,6 @@ set( MISC_FILES
     Misc/URLSchemeHandler.h
     Misc/Utility.cpp
     Misc/Utility.h
-    Misc/SearchUtils.cpp
-    Misc/SearchUtils.h
     Misc/SleepFunctions.h
     Misc/FindReplaceQLineEdit.cpp
     Misc/FindReplaceQLineEdit.h

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2025  Kevin Hendricks
+**  Copyright (C) 2015-2024  Kevin Hendricks
 **  Copyright (C) 2015       John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -26,7 +26,6 @@
 #include <QList>
 #include <QStringList>
 #include <QVariant>
-#include <QVariantList>
 #include <QMetaType>
 #include <QStandardPaths>
 #include <QDir>
@@ -61,7 +60,6 @@
  * QMetaType::UChar           37    unsigned char
  * QMetaType::Float           38    float
  * QMetaType::QVariant        41    QVariant
- * QMetaType::QVariantPair    58    QVariantPair (std:pair<>)
  * QMetaType::QVariantList     9    QVariantList
  * QMetaType::QStringList     11    QStringList
  * QMetaType::QVariantMap      8    QVariantMap
@@ -173,8 +171,6 @@ QMutex EmbeddedPython::m_mutex;
 EmbeddedPython* EmbeddedPython::m_instance = 0;
 int EmbeddedPython::m_pyobjmetaid = 0;
 int EmbeddedPython::m_listintmetaid = 0;
-int EmbeddedPython::m_stdpairintintmetaid = 0;
-
 PyThreadState * EmbeddedPython::m_threadstate = NULL;
 
 EmbeddedPython* EmbeddedPython::instance()
@@ -283,7 +279,6 @@ EmbeddedPython::EmbeddedPython()
     m_threadstate = PyEval_SaveThread();
     m_pyobjmetaid = qMetaTypeId<PyObjectPtr>();
     m_listintmetaid = qMetaTypeId<QList<int> >();
-    m_stdpairintintmetaid = qMetaTypeId<std::pair<int, int> >();
 }
 
 
@@ -295,7 +290,6 @@ EmbeddedPython::~EmbeddedPython()
     }
     m_pyobjmetaid = 0;
     m_listintmetaid = 0;
-    m_stdpairintintmetaid = 0;
     PyEval_RestoreThread(m_threadstate);
     Py_Finalize();
 }
@@ -614,17 +608,6 @@ PyObject* EmbeddedPython::QVariantToPyObject(const QVariant &v)
                }
             }
             break;
-#if 0
-         // this does not seem to be well documented or implemented by Qt
-         case QMetaType::QVariantPair:
-            {
-              QVariantPair pi = v.value<QVariantPair>();
-              value = PyTuple_New(2);
-              PyTuple_SetItem(value, 0, QVariantToPyObject(pi.first));
-              PyTuple_SetItem(value, 1, QVariantToPyObject(pi.second));
-            }
-            break;
-#endif
          case QMetaType::QVariantList:
             {
               QVariantList vlist = v.toList();
@@ -639,25 +622,21 @@ PyObject* EmbeddedPython::QVariantToPyObject(const QVariant &v)
         default:
           {
             if (v.typeId() >= QMetaType::User && (v.userType() ==  m_pyobjmetaid)) {
-                PyObjectPtr op = v.value<PyObjectPtr>();
-                value = op.object();
-                // Need to increment object count otherwise will go away when Py_XDECREF used on pyargs
-                Py_XINCREF(value);
+              PyObjectPtr op = v.value<PyObjectPtr>();
+              value = op.object();
+              // Need to increment object count otherwise will go away when Py_XDECREF used on pyargs
+              Py_XINCREF(value);
 
             } else if (v.typeId() >= QMetaType::User && (v.userType() ==  m_listintmetaid)) {
-                QList<int> alist = v.value<QList<int> >();
-                value = PyList_New(alist.size());
-                int pos = 0;
-                foreach(int i, alist) {
-                    PyList_SetItem(value, pos, Py_BuildValue("i", i));
-                    pos++;
-                }
-            } else if (v.typeId() >= QMetaType::User && (v.userType() ==  m_stdpairintintmetaid)) {
-                std::pair<int,int> pi = v.value<std::pair<int,int> >();
-                value = PyTuple_New(2);
-                PyTuple_SetItem(value, 0, Py_BuildValue("i", pi.first));
-                PyTuple_SetItem(value, 1, Py_BuildValue("i", pi.second));
+              QList<int> alist = v.value<QList<int> >();
+              value = PyList_New(alist.size());
+              int pos = 0;
+              foreach(int i, alist) {
+                  PyList_SetItem(value, pos, Py_BuildValue("i", i));
+                  pos++;
+              }
             } else {
+
               // Ensure we don't have any holes.
               value = Py_BuildValue("u", "");
             }

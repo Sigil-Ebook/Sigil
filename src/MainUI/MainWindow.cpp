@@ -1411,12 +1411,6 @@ QList <Resource *> MainWindow::GetAllCSSResources()
 }
 
 
-QString MainWindow::GetOPFMetadataXML()
-{
-    return m_Book->GetOPF()->GetMetadataXML();
-}
-
-
 QList <Resource *> MainWindow::GetOPFResource()
 {
     QList<Resource *> resources;
