@@ -79,6 +79,38 @@
          </widget>
         </item>
         <item>
+         <widget class="QToolButton" name="function">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="toolTip">
+           <string>Python Function Replace</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border: 0px;</string>
+          </property>
+          <property name="text">
+           <string>f</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../Resource_Files/main/main.qrc">
+            <normaloff>:/main/function.svg</normaloff>:/main/function.svg</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+          <property name="arrowType">
+           <enum>Qt::ArrowType::NoArrow</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
          <spacer name="verticalSpacer">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
