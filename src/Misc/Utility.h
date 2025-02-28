@@ -192,6 +192,8 @@ public:
 
     static QWidget *GetMainWindow();
 
+    static QString GetMainWindowMetadata();
+
     static QString getSpellingSafeText(const QString &raw_text);
 
     static bool has_non_ascii_chars(const QString &str);

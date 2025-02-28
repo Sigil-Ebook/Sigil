@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2016-2024 Doug Massay
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -72,6 +72,7 @@
 #include "sigil_exception.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/SleepFunctions.h"
+#include "MainUI/MainWindow.h"
 #include "MainUI/MainApplication.h"
 #include "Parsers/QuickParser.h"
 
@@ -766,6 +767,16 @@ QWidget *Utility::GetMainWindow()
     }
 
     return parent_window;
+}
+
+
+QString Utility::GetMainWindowMetadata()
+{
+    MainWindow* mw = qobject_cast<MainWindow*>(GetMainWindow()); 
+    if (mw) {
+        return mw->GetOPFMetadataXML();
+    }
+    return QString("<metadata></metadata");
 }
 
 

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford ON
+**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford ON
 **  Copyright (C) 2013      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -126,6 +126,9 @@ public:
 
     // returns first (primary) dc:title value found
     QString GetPrimaryBookTitle() const;
+
+    // returns the metadata tag and all its contents as an xml fragment
+    QString GetMetadataXML() const;
 
     /**
      * Returns the book's Dublin Core metadata.
