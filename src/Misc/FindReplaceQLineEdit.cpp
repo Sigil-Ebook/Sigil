@@ -69,6 +69,18 @@ void FindReplaceQLineEdit::contextMenuEvent(QContextMenuEvent *event)
 
     topAction = clearHistoryAction;
 
+    QAction *functionReplaceAction = new QAction(tr("Python Function Replace") + "...", menu);
+    connect(functionReplaceAction, SIGNAL(triggered()), m_FindReplace, SLOT(DoPythonFunction()));
+
+    if (topAction) {
+        menu->insertAction(topAction, functionReplaceAction);
+        menu->insertSeparator(topAction);
+    } else {
+        menu->addAction(functionReplaceAction);
+    }
+
+    topAction = clearHistoryAction;
+    
     if (m_tokeniseEnabled) {
         QAction *tokeniseAction = new QAction(tr("Tokenise Selection"), menu);
         connect(tokeniseAction, SIGNAL(triggered()), m_FindReplace, SLOT(TokeniseSelection()));

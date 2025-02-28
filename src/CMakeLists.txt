@@ -219,6 +219,8 @@ set( DIALOG_FILES
     Dialogs/ViewFont.h
     Dialogs/Inspector.cpp
     Dialogs/Inspector.h
+    Dialogs/PythonFunctionEditor.cpp
+    Dialogs/PythonFunctionEditor.h
     )
 
 set( WIDGET_FILES
@@ -239,7 +241,11 @@ set( WIDGET_FILES
     Widgets/TVLineNumberArea.cpp
     Widgets/TVLineNumberArea.h
     Widgets/CaretStyle.cpp
-    Widgets/CaretStyle.h
+    Widgets/CaretStyle.h 
+    Widgets/SELineNumberArea.cpp
+    Widgets/SELineNumberArea.h
+    Widgets/SourceEditor.cpp
+    Widgets/SourceEditor.h
     )
 
 set( EXPORTER_FILES
@@ -333,6 +339,8 @@ set( MISC_FILES
     Misc/URLSchemeHandler.h
     Misc/Utility.cpp
     Misc/Utility.h
+    Misc/SearchUtils.cpp
+    Misc/SearchUtils.h
     Misc/SleepFunctions.h
     Misc/FindReplaceQLineEdit.cpp
     Misc/FindReplaceQLineEdit.h
@@ -344,6 +352,8 @@ set( MISC_FILES
     Misc/XHTMLHighlighter2.h
     Misc/CSSHighlighter.cpp
     Misc/CSSHighlighter.h
+    Misc/PythonHighlighter.cpp
+    Misc/PythonHighlighter.h
     Misc/HTMLEncodingResolver.cpp
     Misc/HTMLEncodingResolver.h
     Misc/HTMLSpellCheck.cpp

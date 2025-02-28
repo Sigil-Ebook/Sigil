@@ -1,6 +1,6 @@
 /***************************************************************************
 **
-**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2011-2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
@@ -34,15 +34,20 @@
 #include <QMessageBox>
 #include <QCompleter>
 #include <QRegularExpression>
+#include <QVariant>
+#include <QMap>
 #include <QDebug>
 
+#include "EmbedPython/PythonRoutines.h"
 #include "Dialogs/DryRunReplace.h"
 #include "Dialogs/ReplacementChooser.h"
+#include "Dialogs/PythonFunctionEditor.h"
 #include "Tabs/TextTab.h"
 #include "Tabs/FlowTab.h"
 #include "MainUI/FindReplace.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
+#include "Misc/SearchUtils.h"
 #include "Misc/FindReplaceQLineEdit.h"
 #include "PCRE2/PCREErrors.h"
 #include "ResourceObjects/Resource.h"
@@ -474,7 +479,6 @@ void FindReplace::FindAnyTextInTags(QString text)
     ReadSettings();
     // RestoreFRFocusIfNeeded(had_focus, true);
 }
-
 
 bool FindReplace::DoFindNext()
 {
@@ -1199,16 +1203,44 @@ int FindReplace::CountInFiles()
                search_files);
 }
 
+
 int FindReplace::ReplaceInAllFiles()
 {
     m_MainWindow->GetCurrentContentTab()->SaveTabContent();
     QList<Resource *>search_files = GetFilesToSearch(true);
     if (search_files.isEmpty()) return 0;
 
-    int count = SearchOperations::ReplaceInAllFIles(
+    int count = 0;
+
+    QString functionname;
+    QString replacer = GetReplace().trimmed();
+
+    if (replacer.startsWith("\\F<") & replacer.endsWith(">")) {
+        functionname = replacer.mid(3, -1);
+        functionname.chop(1);
+    }
+
+    if (functionname.isEmpty()) {
+        count = SearchOperations::ReplaceInAllFIles(
                     GetSearchRegex(),
                     GetReplace(),
                     search_files);
+    } else {
+        // clean up flags that do not exist in python re
+        QString pattern = GetSearchRegex();
+        if (pattern.contains("(*UCP)")) {
+            int i = pattern.indexOf("(*UCP)");
+            pattern.remove(i,6);
+        }
+        if (pattern.contains("(?U)")) {
+            int i = pattern.indexOf("(?U)");
+            pattern.remove(i,4);
+        }
+        count = SearchOperations::FunctionReplaceInAllFiles(
+                    pattern,
+                    functionname,
+                    search_files);
+    }
     return count;
 }
 
@@ -2269,6 +2301,28 @@ void FindReplace::ValidateRegex()
     ui.revalid->setText("");
 }
 
+void FindReplace::SetReplace(const QString& text)
+{
+    UpdatePreviousReplaceStrings(text);
+}
+
+void FindReplace::DoPythonFunction()
+{
+    QTimer::singleShot(0, this, SLOT(ManagePythonFunction()));
+}
+
+void FindReplace::ManagePythonFunction()
+{
+    QString fullfilepath = Utility::DefinePrefsDir() + "/replace_functions.json";
+    if (!QFile::exists(fullfilepath)) {
+        PythonRoutines pr;
+        pr.CreateUserJsonFileInPython();
+    }
+    QMap<QString, QVariant> funcmap = SearchUtils::ReadFuncDictfromJSONFile(fullfilepath);
+    PythonFunctionEditor pfe(funcmap, this);
+    connect(&pfe, SIGNAL(UseFunctionRequest(const QString&)), this, SLOT(SetReplace(const QString&)));
+    pfe.exec();
+}
 
 void FindReplace::ConnectSignalsToSlots()
 {
@@ -2282,7 +2336,7 @@ void FindReplace::ConnectSignalsToSlots()
     connect(ui.cbReplace->lineEdit(), SIGNAL(returnPressed()), this, SLOT(Replace()));
     connect(ui.replaceAll, SIGNAL(clicked()), this, SLOT(ReplaceAllClicked()));
     connect(ui.close, SIGNAL(clicked()), this, SLOT(HideFindReplace()));
-    // connect(ui.advancedShowHide, SIGNAL(clicked()), this, SLOT(AdvancedOptionsClicked()));
+    connect(ui.function, SIGNAL(clicked()), this, SLOT(ManagePythonFunction()));
     connect(ui.cbFind, SIGNAL(ClipboardSaveRequest()), this, SIGNAL(ClipboardSaveRequest()));
     connect(ui.cbFind, SIGNAL(ClipboardRestoreRequest()), this, SIGNAL(ClipboardRestoreRequest()));
     connect(ui.cbReplace, SIGNAL(ClipboardSaveRequest()), this, SIGNAL(ClipboardSaveRequest()));

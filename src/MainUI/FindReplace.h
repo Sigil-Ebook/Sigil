@@ -118,6 +118,7 @@ public slots:
     void CountAllSearch();
     void ReplaceAllSearch();
     void DoRestart();
+    void SetReplace(const QString& text);
 
     // Shows a message in the main window.
     void ShowMessage(const QString &message);
@@ -145,6 +146,8 @@ public slots:
 
     void CountsReportCount(SearchEditorModel::searchEntry* entry, int& count);
 
+    void DoPythonFunction();
+    
 signals:
 
     void OpenSearchEditorRequest(SearchEditorModel::searchEntry *search_entry = NULL);
@@ -166,6 +169,7 @@ protected:
 
 private slots:
 
+    void ManagePythonFunction();
     bool IsMarkedText();
 
     void FindClicked();

@@ -18,6 +18,8 @@
 **  along with Sigil.  If not, see <http://www.gnu.org/licenses/>.
 **
 *************************************************************************/
+#include "EmbedPython/PyObjectPtr.h"
+#include "EmbedPython/PythonRoutines.h"
 
 #include <QKeySequence>
 #include <QMessageBox>
@@ -126,6 +128,21 @@ void ReplacementChooser::CreateTable()
     QList<Resource*> resources = m_FindReplace->GetAllResourcesToSearch();
     QString search_regex = m_FindReplace->GetSearchRegex();
     QString replace_text = m_FindReplace->GetReplace();
+
+    // handle possible python function replacements
+    QString functionname;
+    QString rname = replace_text.trimmed();
+    if (rname.startsWith("\\F<") && rname.endsWith(">")) {
+	rname = rname.mid(3,-1);
+        rname.chop(1);
+        functionname = rname;
+    }
+    PyObjectPtr fsp = nullptr;
+    if (!functionname.isEmpty()) {
+        PythonRoutines pr;
+        fsp = pr.SetupInitialFunctionSearchEnvInPython(functionname);
+    }
+    SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
     
     m_current_count = 0;
     foreach(Resource* resource, resources ) {
@@ -142,9 +159,6 @@ void ReplacementChooser::CreateTable()
             text = text_resource->GetText();
         } 
         if (!text.isEmpty()) {
-
-            // search the text using the search_regex and get all matches
-            SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
             QList<SPCRE::MatchInfo> match_info = spcre->getEveryMatchInfo(text);
 
             // loop through matches to build up before and after snippets for table
@@ -154,9 +168,14 @@ void ReplacementChooser::CreateTable()
                                                            match_info.at(i).offset.second, 
                                                            text);
                 QString new_text;
-                bool can_replace = spcre->replaceText(match_segment, match_info.at(i).capture_groups_offsets, 
+                bool can_replace;
+                if (functionname.isEmpty()) {
+                    can_replace = spcre->replaceText(match_segment, match_info.at(i).capture_groups_offsets, 
                                                       replace_text, new_text);
-
+                } else {
+                    can_replace = spcre->functionReplaceText(match_segment, match_info.at(i).capture_groups_offsets,
+                                                             fsp, new_text);
+                }
                 // set pre and post context strings
                 QString prior_context  = GetPriorContext(match_info.at(i).offset.first, text, m_context_amt);
                 QString post_context = GetPostContext(match_info.at(i).offset.second, text, m_context_amt);
