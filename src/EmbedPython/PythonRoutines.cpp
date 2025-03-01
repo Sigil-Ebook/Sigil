@@ -445,6 +445,7 @@ QString PythonRoutines::RebaseManifestIDsInPython(const QString& opfdata)
 PyObjectPtr PythonRoutines::SetupInitialFunctionSearchEnvInPython(const QString& function_name)
 {
     int rv = 0;
+    PyObjectPtr FSO;
     QString traceback;
     QString jsonpath = Utility::DefinePrefsDir() + "/replace_functions.json";
     QString metaxml = Utility::GetMainWindowMetadata();
@@ -457,8 +458,9 @@ PyObjectPtr PythonRoutines::SetupInitialFunctionSearchEnvInPython(const QString&
     QVariant res = epp->runInPython(module, QString("getFunctionSearchEnv"), args, &rv, traceback, true);
     if (rv) {
         fprintf(stderr, "getFunctionSearchEnv error %d traceback %s\n",rv, traceback.toStdString().c_str());
+	return FSO;
     }
-    PyObjectPtr FSO = PyObjectPtr(res);
+    FSO = PyObjectPtr(res);
     args.clear();
     return FSO;
 }
@@ -468,6 +470,10 @@ QString PythonRoutines::DoFunctionSearchTextReplacementsInPython(PyObjectPtr FSO
                                                                  const QString& pattern,
                                                                  const QString& bookpath, const QString& text)
 {
+    if (FSO.isNull()) {
+       fprintf(stderr, "do_text_replacements error - null Search Environment\n");
+       return text;
+    }
     int rv = 0;
     QString traceback;
     QList<QVariant> args;
@@ -486,6 +492,10 @@ QString PythonRoutines::DoFunctionSearchTextReplacementsInPython(PyObjectPtr FSO
 
 int PythonRoutines::GetCurrentReplacementCountInPython(PyObjectPtr FSO)
 {
+    if (FSO.isNull()) {
+       fprintf(stderr, "get_current_replacement_count error - null Search Environment\n");
+       return 0;
+    }
     int rv = 0;
     QString traceback;
     QList<QVariant> args;
@@ -502,6 +512,10 @@ QString PythonRoutines::GetSingleReplacementByFunction(PyObjectPtr FSO,
                                                        const QString& text,
                                                        const QList<std::pair<int,int> > capture_groups)
 {
+    if (FSO.isNull()) {
+        fprintf(stderr, "get_single_replacement_by_function error - null Search Environment\n");
+        return text;
+    }
     int rv = 0;
     QString traceback;
     QList<QVariant> args;
