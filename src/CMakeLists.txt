@@ -246,6 +246,8 @@ set( WIDGET_FILES
     Widgets/SELineNumberArea.h
     Widgets/SourceEditor.cpp
     Widgets/SourceEditor.h
+    Widgets/AlertBox.cpp
+    Widgets/AlertBox.h
     )
 
 set( EXPORTER_FILES

@@ -75,6 +75,7 @@
 #include "MainUI/MainWindow.h"
 #include "MainUI/MainApplication.h"
 #include "Parsers/QuickParser.h"
+#include "Widgets/AlertBox.h"
 
 static const QString URL_SAFE = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_.-/~";
 
@@ -90,24 +91,6 @@ static const QString DARK_STYLE =
 #define BUFF_SIZE 8192
 
 static QStringDecoder *cp437 = nullptr;
-
-// Subclass QMessageBox for our StdWarningDialog to make any Details Resizable
-// Unfortunately, under Qt6 this will not work no matter what you try,  if you
-// manually resize it Qt will just force it back after any change.
-// Keep the subclass in case we want to create our own QMessageBox at ssome point
-// but forget about the resize
-class SigilMessageBox: public QMessageBox
-{
-    public:
-        SigilMessageBox(QWidget* parent) : QMessageBox(parent) 
-        {
-        }
-    private:
-
-        virtual void resizeEvent(QResizeEvent * e) {
-            QMessageBox::resizeEvent(e);
-        }
-};
 
 #include "Misc/Utility.h"
 
@@ -710,6 +693,7 @@ void Utility::DisplayExceptionErrorDialog(const QString &error_info)
 
 void Utility::DisplayStdErrorDialog(const QString &error_message, const QString &detailed_text, QWidget* parent)
 {
+#if 0
     QMessageBox message_box(parent);
     message_box.setWindowModality(Qt::ApplicationModal);
     message_box.setIcon(QMessageBox::Critical);
@@ -722,12 +706,28 @@ void Utility::DisplayStdErrorDialog(const QString &error_message, const QString 
 
     message_box.setStandardButtons(QMessageBox::Close);
     message_box.exec();
+#else
+    // Use our own resizeable AlertBox
+    AlertBox albox(parent);
+    albox.setWindowModality(Qt::ApplicationModal);
+    albox.setIcon(AlertBox::Critical);
+    albox.setWindowTitle("Sigil");
+    albox.setText(error_message);
+
+    if (!detailed_text.isEmpty()) {
+        albox.setDetailedText(detailed_text);
+    }
+
+    albox.setStandardButtons(QDialogButtonBox::Close);
+    albox.exec();
+#endif
 }
 
 
 void Utility::DisplayStdWarningDialog(const QString &warning_message, const QString &detailed_text, QWidget * parent)
 {
-    SigilMessageBox message_box(parent);
+#if 0
+    QMessageBox message_box(parent);
     message_box.setWindowModality(Qt::ApplicationModal);
     message_box.setIcon(QMessageBox::Warning);
     message_box.setWindowTitle("Sigil");
@@ -739,6 +739,21 @@ void Utility::DisplayStdWarningDialog(const QString &warning_message, const QStr
     }
     message_box.setStandardButtons(QMessageBox::Ok);
     message_box.exec();
+#else
+    // Use our own resizeable AlertBox
+    AlertBox albox(parent);
+    albox.setWindowModality(Qt::ApplicationModal);
+    albox.setIcon(AlertBox::Warning);
+    albox.setWindowTitle("Sigil");
+    albox.setText(warning_message);
+    albox.setTextFormat(Qt::RichText);
+
+    if (!detailed_text.isEmpty()) {
+        albox.setDetailedText(detailed_text);
+    }
+    albox.setStandardButtons(QDialogButtonBox::Ok);
+    albox.exec();
+#endif
 }
 
 // Returns a value for the environment variable name passed;
