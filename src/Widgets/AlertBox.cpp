@@ -20,7 +20,7 @@
 #include <QClipboard>
 #include <QAbstractButton>
 #include <QAnyStringView>
-#include <QPointer.h>
+#include <QPointer>
 #include <QContextMenuEvent>
 #include <QStyle>
 #include <QStyleOptionButton>
