@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2015-2022 Doug Massay
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -36,6 +36,7 @@
 #define INDEX_V6_SETTINGS_FILE    "sigil_index_v6.ini"
 #define SEARCHES_V6_SETTINGS_FILE "sigil_searches_v6.ini"
 #define SIGIL_V6_SETTINGS_FILE    "sigil_v6.ini"
+#define SIGIL_FUNCTION_REPLACE_JSON_FILE "replace_functions.json"
 
 #include <QStringList>
 

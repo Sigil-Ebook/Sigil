@@ -41,6 +41,7 @@
 #include "Misc/SearchUtils.h"
 #include "MainUI/MainApplication.h"
 #include "Dialogs/PythonFunctionEditor.h"
+#include "sigil_constants.h"
 
 static const QString SETTINGS_GROUP = "python_editor";
 
@@ -95,7 +96,7 @@ PythonFunctionEditor::PythonFunctionEditor(QMap<QString,QVariant>& func, QWidget
 
 PythonFunctionEditor::~PythonFunctionEditor()
 {
-    QString fullfilepath = Utility::DefinePrefsDir() + "/replace_functions.json";
+    QString fullfilepath = Utility::DefinePrefsDir() + "/" + SIGIL_FUNCTION_REPLACE_JSON_FILE;
     SearchUtils::WriteFuncDicttoJSONFile(fullfilepath, m_funcmap);
     WriteSettings();
 }
@@ -154,7 +155,7 @@ void PythonFunctionEditor::useFunction()
         emit UseFunctionRequest(fn);
     }
     // now close which will write everything to json
-    // QString fullfilepath = Utility::DefinePrefsDir() + "/replace_functions.json";
+    // QString fullfilepath = Utility::DefinePrefsDir() + "/" + SIGIL_FUNCTION_REPLACE_JSON_FILE;
     // SearchUtils::WriteFuncDicttoJSONFile(fullfilepath, m_funcmap);
     close();
 }

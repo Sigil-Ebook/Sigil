@@ -26,7 +26,7 @@
 #include <QVariant>
 
 #include <QDebug>
-
+#include "sigil_constants.h"
 #include "Misc/Utility.h"
 #include "EmbedPython/PythonRoutines.h"
 
@@ -447,7 +447,7 @@ PyObjectPtr PythonRoutines::SetupInitialFunctionSearchEnvInPython(const QString&
     int rv = 0;
     PyObjectPtr FSO;
     QString traceback;
-    QString jsonpath = Utility::DefinePrefsDir() + "/replace_functions.json";
+    QString jsonpath = Utility::DefinePrefsDir() + "/" + SIGIL_FUNCTION_REPLACE_JSON_FILE;
     QString metaxml = Utility::GetMainWindowMetadata();
     QString module = "functionsearch";
     QList<QVariant> args;
@@ -541,7 +541,7 @@ bool PythonRoutines::CreateUserJsonFileInPython()
 {
     int rv = 0;
     QString traceback;
-    QString jsonpath = Utility::DefinePrefsDir() + "/replace_functions.json";
+    QString jsonpath = Utility::DefinePrefsDir() + "/" + SIGIL_FUNCTION_REPLACE_JSON_FILE;
     QString module = "functionsearch";
     QList<QVariant> args;
     args.append(QVariant(jsonpath));

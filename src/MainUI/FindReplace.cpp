@@ -52,6 +52,7 @@
 #include "PCRE2/PCREErrors.h"
 #include "ResourceObjects/Resource.h"
 #include "ResourceObjects/TextResource.h"
+#include "sigil_constants.h"
 
 #define DBG if(0)
 
@@ -2315,7 +2316,7 @@ void FindReplace::DoPythonFunction()
 
 void FindReplace::ManagePythonFunction()
 {
-    QString fullfilepath = Utility::DefinePrefsDir() + "/replace_functions.json";
+    QString fullfilepath = Utility::DefinePrefsDir() + "/" + SIGIL_FUNCTION_REPLACE_JSON_FILE;
     if (!QFile::exists(fullfilepath)) {
         PythonRoutines pr;
         pr.CreateUserJsonFileInPython();
