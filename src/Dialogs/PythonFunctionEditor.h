@@ -41,7 +41,7 @@ class PythonFunctionEditor : public QDialog
 
 public:
 
-    PythonFunctionEditor(QMap<QString, QVariant>& func, QWidget *parent);
+  PythonFunctionEditor(QMap<QString, QVariant>& func, const QString& functionName, QWidget *parent);
     ~PythonFunctionEditor();
 
     QSize sizeHint();
@@ -74,6 +74,7 @@ private:
     QPushButton*  m_butnew;
     QPushButton*  m_butdel;
     QPushButton*  m_butuse;
+    QString       m_initialFunctionName;
     QVBoxLayout*  m_layout;
     SourceEditor::HighlighterType m_hightype;
     bool          m_safe_to_save = true;

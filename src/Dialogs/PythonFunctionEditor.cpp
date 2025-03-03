@@ -47,10 +47,11 @@ static const QString SETTINGS_GROUP = "python_editor";
 
 static const QString EMPTY_REPLACE_FUNCTION = "def replace(match, number, file_name, metadata, data):\n\tif match:\n\t\treturn match.group(0)";
 
-PythonFunctionEditor::PythonFunctionEditor(QMap<QString,QVariant>& func, QWidget *parent)
+PythonFunctionEditor::PythonFunctionEditor(QMap<QString,QVariant>& func, const QString& functionName, QWidget *parent)
     : QDialog(parent),
       m_funcmap(func),
       m_editor(new SourceEditor(this)),
+      m_initialFunctionName(functionName),
       m_layout(new QVBoxLayout(this))
 {
     // setAttribute(Qt::WA_DeleteOnClose,true);
@@ -63,7 +64,6 @@ PythonFunctionEditor::PythonFunctionEditor(QMap<QString,QVariant>& func, QWidget
     m_cb = new QComboBox(this);
     m_cb->setEditable(false);
     m_cb->addItems(m_funcmap.keys());
-    
     m_butnew = new QPushButton(tr("New"));
     m_butnew->setMaximumWidth(120);   
     m_butdel = new QPushButton(tr("Delete"));
@@ -88,6 +88,11 @@ PythonFunctionEditor::PythonFunctionEditor(QMap<QString,QVariant>& func, QWidget
     m_editor->setTabStopDistance(QFontMetricsF(m_editor->font()).horizontalAdvance(' ') * 4);
     setWindowTitle(tr("Python Function Replace"));
     ReadSettings();
+    m_cb->blockSignals(true);
+    if (!m_initialFunctionName.isEmpty() && m_funcmap.contains(m_initialFunctionName)) {
+        m_cb->setCurrentText(m_initialFunctionName);
+    }
+    m_cb->blockSignals(false);
     LoadEditor();
     m_hightype = SourceEditor::Highlight_PYTHON;
     m_editor->DoHighlightDocument(m_hightype);
@@ -198,8 +203,6 @@ void PythonFunctionEditor::ReloadEditor()
 
 void PythonFunctionEditor::LoadEditor()
 {
-    // int blockno = 0;
-    // int lineno = 1;
     QString fn = m_cb->currentText();
     QString data = m_funcmap[fn].toString();
     m_editor->setPlainText(data);

@@ -2321,8 +2321,16 @@ void FindReplace::ManagePythonFunction()
         PythonRoutines pr;
         pr.CreateUserJsonFileInPython();
     }
+    QString functionName = ui.cbReplace->currentText().trimmed();
+    if (functionName.startsWith("\\F<") && functionName.endsWith(">")) {
+        functionName = functionName.mid(3, -1);
+        functionName.chop(1);
+    } else {
+        functionName = "";
+    }
+    
     QMap<QString, QVariant> funcmap = SearchUtils::ReadFuncDictfromJSONFile(fullfilepath);
-    PythonFunctionEditor pfe(funcmap, this);
+    PythonFunctionEditor pfe(funcmap, functionName, this);
     connect(&pfe, SIGNAL(UseFunctionRequest(const QString&)), this, SLOT(SetReplace(const QString&)));
     pfe.exec();
 }
