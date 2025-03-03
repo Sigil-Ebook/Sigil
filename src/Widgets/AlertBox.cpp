@@ -123,9 +123,15 @@ public:
         opt.text = getlabel(false);
         sz = fm.size(Qt::TextShowMnemonic, opt.text);
         ret = ret.expandedTo(style()->sizeFromContents(QStyle::CT_PushButton, &opt, sz, this));
+#ifdef Q_OS_MAC
+        // macOS needs a bit more room or the button border is lost
+        return QSize(ret.width()+5, ret.height()+5);
+#else
         return ret;
+#endif
     }
 };
+
 
 Qt::TextFormat AlertBox::textFormat() const
 {
@@ -283,7 +289,7 @@ void AlertBox::setupLayout()
     grid->setContentsMargins(0, 0, 0, 0);
     grid->setVerticalSpacing(8);
     grid->setHorizontalSpacing(0);
-    grid->setContentsMargins(24, 15, 24, 20);
+    setContentsMargins(24, 15, 24, 20);
     grid->setRowMinimumHeight(2, 6);
 #else
     grid->addWidget(m_buttonBox, grid->rowCount(), 0, 1, grid->columnCount());

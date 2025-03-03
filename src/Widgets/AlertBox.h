@@ -54,8 +54,9 @@ public:
     void setStandardButtons(QDialogButtonBox::StandardButtons buttons);
     QDialogButtonBox::StandardButtons standardButtons() const;
     QDialogButtonBox::StandardButton standardButton(QAbstractButton *button) const;
-    QDialogButtonBox::StandardButton standardButtonForRole(QDialogButtonBox::ButtonRole role);
     QAbstractButton *button(QDialogButtonBox::StandardButton which) const;
+
+    static QDialogButtonBox::StandardButton standardButtonForRole(QDialogButtonBox::ButtonRole role);
 
     QPushButton *defaultButton() const;
     void setDefaultButton(QPushButton *button);
