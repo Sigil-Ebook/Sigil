@@ -148,15 +148,15 @@ void PythonFunctionEditor::deleteFunction()
 
 void PythonFunctionEditor::useFunction()
 {
-    // qDebug() << "in useFunction";
-    // write everything to json just in case
-    QString fullfilepath = Utility::DefinePrefsDir() + "/replace_functions.json";
-    SearchUtils::WriteFuncDicttoJSONFile(fullfilepath, m_funcmap);
     QString fn = m_cb->currentText();
     if (!fn.isEmpty()) {
         fn = "\\F<" + fn + ">";
         emit UseFunctionRequest(fn);
     }
+    // now close which will write everything to json
+    // QString fullfilepath = Utility::DefinePrefsDir() + "/replace_functions.json";
+    // SearchUtils::WriteFuncDicttoJSONFile(fullfilepath, m_funcmap);
+    close();
 }
 
 void PythonFunctionEditor::loadFunctionToEdit(const QString& fn)
