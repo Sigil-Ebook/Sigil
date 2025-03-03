@@ -204,6 +204,7 @@ void PythonFunctionEditor::LoadEditor()
     int lineno = 1;
     QString fn = m_cb->currentText();
     QString data = m_funcmap[fn].toString();
+    m_blockmap.clear();
     QStringList recs = data.split("\n");
     foreach(QString rec, recs) {
         m_editor->insertPlainText(rec + "\n");
