@@ -1,4 +1,4 @@
-pre-2.X.X
+pre-2.5.0
    Bug Fixes
      - allow SVG resources to be selectable alongside Image resources and context menu to work in BookBrowser
      - because Linux has multiple light and dark themes (but different)
@@ -16,6 +16,7 @@ pre-2.X.X
      - added new Search Menu option that will hide the Find and Replace Window if open
      - extend GetInfo to all BookBrowser file types
      - Add PythonFunctionEditor and support Python Function Replace in Sigil (experimental)
+     - Add resizeable Alert Boxes to better see Python error messages
      
 
 
