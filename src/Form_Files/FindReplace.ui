@@ -55,7 +55,7 @@
            <string>Hide Find and Replace</string>
           </property>
           <property name="styleSheet">
-           <string notr="true">border: 0px;</string>
+           <string notr="true"/>
           </property>
           <property name="text">
            <string>...</string>
@@ -90,7 +90,7 @@
            <string>Python Function Replace</string>
           </property>
           <property name="styleSheet">
-           <string notr="true">border: 0px;</string>
+           <string notr="true"/>
           </property>
           <property name="text">
            <string>f</string>

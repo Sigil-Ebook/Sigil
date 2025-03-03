@@ -2274,6 +2274,8 @@ void FindReplace::ExtendUI()
     ui.tbRegexOptions->setArrowType(Qt::NoArrow);
     ui.tbRegexOptions->setToolButtonStyle(Qt::ToolButtonTextOnly);
     ui.tbRegexOptions->setStyleSheet("QToolButton::menu-indicator { image: none; }");
+    ui.close->setStyleSheet("QToolButton { border: 0px;}");
+    ui.function->setStyleSheet("QToolButton { border: 0px;}");
 }
 
 
