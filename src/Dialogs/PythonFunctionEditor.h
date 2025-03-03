@@ -67,7 +67,6 @@ private:
     void connectSignalsToSlots();
 
     QMap<QString, QVariant>& m_funcmap;
-    QStringList   m_blockmap;
     QString       m_filepath;
     QLabel*       m_lbl;
     QComboBox*    m_cb;

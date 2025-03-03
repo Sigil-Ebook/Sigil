@@ -58,6 +58,7 @@ static const QChar _PAD               = QChar(0x2007); // "use a 'figure space' 
 SourceEditor::SourceEditor(QWidget *parent)
     :
     QPlainTextEdit(parent),
+    m_LastBlockCount(0),
     m_LineNumberArea(new SELineNumberArea(this)),
     m_Highlighter(nullptr)
 {
@@ -83,29 +84,19 @@ bool SourceEditor::event(QEvent* e)
     return QPlainTextEdit::event(e);
 }
 
-void SourceEditor::setBlockMap(const QStringList& blockmap)
-{
-    m_blockmap = blockmap;
-    UpdateLineNumberAreaMargin();
-}
-
 int SourceEditor::CalculateLineNumberAreaWidth()
 {
-    int max_width = 0;
-    foreach(const QString& aval, m_blockmap) {
-        if (aval.length() > max_width) {
-            max_width = aval.length();
-        }
-    }
-    if (max_width == 0) {
-        return 0;
-    }
+    int current_block_count = blockCount();
+    // QTextDocument::setPlainText sets the current block count
+    // to 1 before updating it (for no damn good reason), but
+    // we need it to *not* be 1, ever.
+    int last_line_number = current_block_count != 1 ? current_block_count : m_LastBlockCount;
+    m_LastBlockCount = last_line_number;
     int num_digits = 1;
-    int max_value = std::max(1, blockCount());
     // We count the number of digits
     // for the line number of the last line
-    while (max_value >= 10) {
-        max_value /= 10;
+    while (last_line_number >= 10) {
+        last_line_number /= 10;
         num_digits++;
     }
     return LINE_NUMBER_MARGIN * 2 + fontMetrics().horizontalAdvance(QChar('0')) * num_digits;
@@ -145,28 +136,24 @@ void SourceEditor::LineNumberAreaPaintEvent(QPaintEvent *event)
     painter.fillRect(event->rect(), m_codeViewAppearance.line_number_background_color);
     // painter.fillRect(event->rect(), Qt::lightGray);
     QTextBlock block = firstVisibleBlock();
-    int blockNumber  = block.blockNumber();
-
-    int top = blockBoundingGeometry(block).translated(contentOffset()).top();
-    int bottom = top + blockBoundingRect(block).height();
-    int height = fontMetrics().height();
-
+    int blockNumber  = block.blockNumber() + 1;
     // We loop through all the visible and
     // unobscured blocks and paint line numbers for each
-    while (block.isValid() && (top <= event->rect().bottom())) {
-        if (block.isVisible() && (bottom >= event->rect().top())) {
-            QString numlbl = "";
-            if (blockNumber < m_blockmap.count()) {
-                numlbl = m_blockmap.at(blockNumber);
-            }
-            // Draw the number in the line number area.
-            painter.setPen(m_codeViewAppearance.line_number_foreground_color);
-            // painter.setPen(Qt::black);
-            painter.drawText(0, top, m_LineNumberArea->width(), height, Qt::AlignRight, numlbl);
-        }
+    while (block.isValid()) {
+        int topY = (int) blockBoundingGeometry(block).translated(contentOffset()).top();
+        if (!block.isVisible() || (topY >= event->rect().bottom())) {
+	    break;
+	}
+        // Draw the number in the line number area.
+        painter.setPen(m_codeViewAppearance.line_number_foreground_color);
+	QString number_to_paint = QString::number(blockNumber);
+        painter.drawText(- LINE_NUMBER_MARGIN,
+			 topY,
+			 m_LineNumberArea->width(),
+			 fontMetrics().height(),
+			 Qt::AlignRight,
+			 number_to_paint);
         block = block.next();
-        top = bottom;
-        bottom = top + blockBoundingRect(block).height();
         blockNumber++;
     }
 }

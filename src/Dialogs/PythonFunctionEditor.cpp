@@ -165,7 +165,6 @@ void PythonFunctionEditor::loadFunctionToEdit(const QString& fn)
     m_safe_to_save = false;    
     // qDebug() << "in loadFunctionToEdit " << fn;    
     if (!fn.isEmpty()) {
-        m_editor->clear();
         LoadEditor();
     } else {
         m_editor->clear();
@@ -199,21 +198,11 @@ void PythonFunctionEditor::ReloadEditor()
 
 void PythonFunctionEditor::LoadEditor()
 {
-    // qDebug() << "in LoadEditor";
-    int blockno = 0;
-    int lineno = 1;
+    // int blockno = 0;
+    // int lineno = 1;
     QString fn = m_cb->currentText();
     QString data = m_funcmap[fn].toString();
-    m_blockmap.clear();
-    QStringList recs = data.split("\n");
-    foreach(QString rec, recs) {
-        m_editor->insertPlainText(rec + "\n");
-        m_blockmap << QString::number(lineno);
-        blockno++;
-        lineno++;
-    }
-    m_editor->setBlockMap(m_blockmap);
-
+    m_editor->setPlainText(data);
     // set cursor to the top and start scroll there
     QTextCursor tc = m_editor->textCursor();
     tc.movePosition(QTextCursor::Start, QTextCursor::MoveAnchor,1);

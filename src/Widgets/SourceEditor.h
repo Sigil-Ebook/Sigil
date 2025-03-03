@@ -96,8 +96,6 @@ public:
 
     QString GetSelectedText();
 
-    void setBlockMap(const QStringList& blockmap);
-
 public slots:
     void Refresh(HighlighterType hightype);
 
@@ -141,6 +139,7 @@ private:
     void ConnectSignalsToSlots();
 
     SettingsStore::CodeViewAppearance m_codeViewAppearance;
+    int m_LastBlockCount;
     SELineNumberArea *m_LineNumberArea;
     QStringList  m_blockmap;
     QScrollBar* m_verticalScrollBar;
