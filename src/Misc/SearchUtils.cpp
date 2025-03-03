@@ -37,7 +37,7 @@ QList<std::pair<int,int> > SearchUtils::UTF16to32_PositionTable(const QString& t
     for (int i = 0; i < text.size(); i++) {
          QChar c = text.at(i);
          if (c.isLowSurrogate()) {
-         std:pair<int, int> si;
+             std::pair<int, int> si;
              count += 1;
              si.first = pos;
              si.second = count;
