@@ -53,7 +53,7 @@ When PCRE2 is built with Unicode support, the escape sequences \p{..},
 The Unicode properties that can be tested are a subset of those that Perl
 supports. Currently they are limited to the general category properties such as
 Lu for an upper case letter or Nd for a decimal number, the derived properties
-Any and LC (synonym L&), the Unicode script names such as Arabic or Han,
+Any and Lc (synonym L&), the Unicode script names such as Arabic or Han,
 Bidi_Class, Bidi_Control, and a few binary properties.
 </P>
 <P>
@@ -157,6 +157,40 @@ Recognition of these non-ASCII characters as case-equivalent to their ASCII
 counterparts can be disabled by setting the PCRE2_EXTRA_CASELESS_RESTRICT
 option. When this is set, all characters in a case equivalence must either be
 ASCII or non-ASCII; there can be no mixing.
+<pre>
+    Without PCRE2_EXTRA_CASELESS_RESTRICT:
+      'k' = 'K' = U+212A (Kelvin sign)
+      's' = 'S' = U+017F (long S)
+    With PCRE2_EXTRA_CASELESS_RESTRICT:
+      'k' = 'K'
+      U+212A (Kelvin sign)  only case-equivalent to itself
+      's' = 'S'
+      U+017F (long S)       only case-equivalent to itself
+</PRE>
+</P>
+<P>
+One language family, Turkish and Azeri, has its own case-insensitivity rules,
+which can be selected by setting PCRE2_EXTRA_TURKISH_CASING. This alters the
+behaviour of the 'i', 'I', U+0130 (capital I with dot above), and U+0131
+(small dotless i) characters.
+<pre>
+    Without PCRE2_EXTRA_TURKISH_CASING:
+      'i' = 'I'
+      U+0130 (capital I with dot above)  only case-equivalent to itself
+      U+0131 (small dotless i)           only case-equivalent to itself
+    With PCRE2_EXTRA_TURKISH_CASING:
+      'i' = U+0130 (capital I with dot above)
+      U+0131 (small dotless i) = 'I'
+</PRE>
+</P>
+<P>
+It is not allowed to specify both PCRE2_EXTRA_CASELESS_RESTRICT and
+PCRE2_EXTRA_TURKISH_CASING together.
+</P>
+<P>
+From release 10.45 the Unicode letter properties Lu (upper case), Ll (lower
+case), and Lt (title case) are all treated as Lc (cased letter) when caseless
+matching is set by the PCRE2_CASELESS option or (?i) within the pattern.
 <a name="scriptruns"></a></P>
 <br><b>
 SCRIPT RUNS
@@ -513,9 +547,9 @@ Cambridge, England.
 REVISION
 </b><br>
 <P>
-Last updated: 12 October 2023
+Last updated: 27 November 2024
 <br>
-Copyright &copy; 1997-2023 University of Cambridge.
+Copyright &copy; 1997-2024 University of Cambridge.
 <br>
 <p>
 Return to the <a href="index.html">PCRE2 index page</a>.

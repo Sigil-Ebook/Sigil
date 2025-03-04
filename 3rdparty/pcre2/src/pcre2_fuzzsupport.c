@@ -42,7 +42,8 @@ below that output them. */
 
 #define ALLOWED_COMPILE_OPTIONS \
   (PCRE2_ANCHORED|PCRE2_ALLOW_EMPTY_CLASS|PCRE2_ALT_BSUX|PCRE2_ALT_CIRCUMFLEX| \
-   PCRE2_ALT_VERBNAMES|PCRE2_AUTO_CALLOUT|PCRE2_CASELESS|PCRE2_DOLLAR_ENDONLY| \
+   PCRE2_ALT_EXTENDED_CLASS|PCRE2_ALT_VERBNAMES|PCRE2_AUTO_CALLOUT| \
+   PCRE2_CASELESS|PCRE2_DOLLAR_ENDONLY| \
    PCRE2_DOTALL|PCRE2_DUPNAMES|PCRE2_ENDANCHORED|PCRE2_EXTENDED| \
    PCRE2_EXTENDED_MORE|PCRE2_FIRSTLINE| \
    PCRE2_MATCH_UNSET_BACKREF|PCRE2_MULTILINE|PCRE2_NEVER_BACKSLASH_C| \
@@ -67,9 +68,10 @@ fprintf(stream, "Compile options %s%.8x =",
   (compile_options == PCRE2_NEVER_BACKSLASH_C)? "(base) " : "",
   compile_options);
 
-fprintf(stream, "%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s\n",
+fprintf(stream, "%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s\n",
   ((compile_options & PCRE2_ALT_BSUX) != 0)? " alt_bsux" : "",
   ((compile_options & PCRE2_ALT_CIRCUMFLEX) != 0)? " alt_circumflex" : "",
+  ((compile_options & PCRE2_ALT_EXTENDED_CLASS) != 0)? "alt_extended_class" : "",
   ((compile_options & PCRE2_ALT_VERBNAMES) != 0)? " alt_verbnames" : "",
   ((compile_options & PCRE2_ALLOW_EMPTY_CLASS) != 0)? " allow_empty_class" : "",
   ((compile_options & PCRE2_ANCHORED) != 0)? " anchored" : "",
@@ -169,8 +171,8 @@ for (int index = 0; index < count; index++)
 
 static void describe_failure(
   const char *task,
-  const unsigned char *data,
-  size_t size,
+  const PCRE2_UCHAR *data,
+  PCRE2_SIZE size,
   uint32_t compile_options,
   uint32_t match_options,
   int errorcode,
@@ -257,7 +259,7 @@ getrlimit(RLIMIT_STACK, &rlim);
 rlim.rlim_cur = STACK_SIZE_MB * 1024 * 1024;
 if (rlim.rlim_cur > rlim.rlim_max)
   {
-  fprintf(stderr, "Hard stack size limit is too small (needed 8MiB)!\n");
+  fprintf(stderr, "Hard stack size limit is too small\n");
   _exit(1);
   }
 rc = setrlimit(RLIMIT_STACK, &rlim);
@@ -328,8 +330,8 @@ if (size > 3)
       continue;
     i++;  /* Points to '{' */
 
-    /* Loop for two values a quantifier. Offset i points to brace or comma at the
-    start of the loop.*/
+    /* Loop for two values in a quantifier. Offset i points to brace or comma
+    at the start of the loop. */
 
     for (int ii = 0; ii < 2; ii++)
       {
@@ -337,7 +339,7 @@ if (size > 3)
 
       if (i >= size - 1) goto END_QSCAN;  /* Can happen for , */
 
-      /* Ignore leading spaces */
+      /* Ignore leading spaces. */
 
       while (wdata[i+1] == ' ' || wdata[i+1] == '\t')
         {
@@ -345,7 +347,16 @@ if (size > 3)
         if (i >= size - 1) goto END_QSCAN;
         }
 
-      /* Scan for a number ending in brace or comma in the first iteration,
+      /* Ignore non-significant leading zeros. */
+
+      while (wdata[i+1] == '0' && i+2 < size && wdata[i+2] >= '0' &&
+             wdata[i+2] <= '9')
+        {
+        i++;
+        if (i >= size - 1) goto END_QSCAN;
+        }
+
+      /* Scan for a number ending in brace, or comma in the first iteration,
       optionally preceded by space. */
 
       for (j = i + 1; j < size && j < i + 7; j++)
@@ -358,18 +369,19 @@ if (size > 3)
           if (wdata[j] != '}' && wdata[j] != ',') goto OUTERLOOP;
           }
         if (wdata[j] == '}' || (ii == 0 && wdata[j] == ',')) break;
+
         if (wdata[j] < '0' || wdata[j] > '9')
           {
           j--;               /* Ensure this character is checked next. The */
           goto OUTERLOOP;    /* string might be (e.g.) "){9){234}" */
           }
-        q = q * 10 + wdata[j] - '0';
+        q = q * 10 + (wdata[j] - '0');
         }
 
       if (j >= size) goto END_QSCAN;  /* End of data */
 
-      /* Hit ',' or '}' or read 6 digits. Six digits is a number > 65536 which is
-      the maximum quantifier. Leave such numbers alone. */
+      /* Hit ',' or '}' or read 6 digits. Six digits is a number > 65536 which
+      is the maximum quantifier. Leave such numbers alone. */
 
       if (j >= i + 7 || q > 65535) goto OUTERLOOP;
 
@@ -700,8 +712,8 @@ with the interpreter. */
 if (match_data != NULL) pcre2_match_data_free(match_data);
 #ifdef SUPPORT_JIT
 if (match_data_jit != NULL) pcre2_match_data_free(match_data_jit);
-free(newwdata);
 #endif
+free(newwdata);
 if (match_context != NULL) pcre2_match_context_free(match_context);
 if (compile_context != NULL) pcre2_compile_context_free(compile_context);
 return 0;

@@ -1,5 +1,5 @@
 # This set of tests checks local-specific features, using the "fr_FR" locale. 
-# It is not Perl-compatible. When run via RunTest, the locale is edited to
+# It is almost Perl-compatible. When run via RunTest, the locale is edited to
 # be whichever of "fr_FR", "french", or "fr" is found to exist. There is
 # different version of this file called wintestinput3 for use on Windows,
 # where the locale is called "french" and the tests are run using
@@ -8,35 +8,31 @@
 #forbid_utf
 
 /^[\w]+/
-    *** Failers
+\= Expect no match
     École
 
 /^[\w]+/locale=french
-    École
-
-/^[\w]+/
-    *** Failers
     École
 
 /^[\W]+/
     École
 
 /^[\W]+/locale=french
-    *** Failers
+\= Expect no match
     École
 
 /[\b]/
     \b
-    *** Failers
+\= Expect no match
     a
 
 /[\b]/locale=french
     \b
-    *** Failers
+\= Expect no match
     a
 
 /^\w+/
-    *** Failers
+\= Expect no match
     École
 
 /^\w+/locale=french
@@ -46,12 +42,12 @@
     École
 
 /(.+)\b(.+)/locale=french
-    *** Failers
+\= Expect no match
     École
 
 /École/i
     École
-    *** Failers
+\= Expect no match
     école
 
 /École/i,locale=french
@@ -72,8 +68,21 @@
 
 /^[\xc8-\xc9]/
     École
-    *** Failers 
+\= Expect no match 
     école
+
+/\xb5/i
+    µ
+\= Expect no match
+    \x9c
+
+/ÿ/i
+    \xff
+\= Expect no match
+    y
+
+/(.)\1/i
+    \xfe\xde
 
 /\W+/
     >>>\xaa<<<
@@ -101,4 +110,4 @@
     
 /[[:alpha:]][[:lower:]][[:upper:]]/IB
 
-# End of testinput3 
+# End of wintestinput3 

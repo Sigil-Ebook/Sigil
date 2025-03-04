@@ -286,6 +286,7 @@ static struct regression_test_case regression_test_cases[] = {
 	{ CMU, A, 0, 0, "(a|b)?\?d((?:e)?)", "ABABdx" },
 	{ MU, A, 0, 0, "(a|b)?\?d((?:e)?)", "abcde" },
 	{ MU, A, 0, 0, "((?:ab)?\?g|b(?:g(nn|d)?\?)?)?\?(?:n)?m", "abgnbgnnbgdnmm" },
+	{ M, A, 0, 0, "(?:a?|a)b", "ba" },
 
 	/* Greedy and non-greedy + operators */
 	{ MU, A, 0, 0, "(aa)+aa", "aaaaaaa" },
@@ -360,6 +361,7 @@ static struct regression_test_case regression_test_cases[] = {
 	{ MU, A, 0, 0, "(?P<size>\\d+)m|M", "4M" },
 	{ M, PCRE2_NEWLINE_CRLF, 0, 0, "\\n?.+#", "\n,\n,#" },
 	{ 0, A, 0, 0, "<(\\w+)[\\s\\w]+id>", "<br><div id>" },
+	{ MU, A, 0, 0, "([a-z]{0,3}c;)+", "ccccc;c;cc;ccc;cccccccccccccccc;" },
 
 	/* Bracket repeats with limit. */
 	{ MU, A, 0, 0, "(?:(ab){2}){5}M", "abababababababababababM" },
@@ -426,6 +428,7 @@ static struct regression_test_case regression_test_cases[] = {
 	{ MUP, 0, 0, 0 | F_NOMATCH, "[^[:print:]\\x{f6f6}]", "\xef\x9b\xb6" },
 	{ MUP, 0, 0, 0, "[[:xdigit:]\\x{6500}]#", "\xe6\x94\x80#" },
 	{ MUP, 0, 0, 0 | F_PROPERTY, "[\\pC\\PC]#", "A#" },
+	{ MUP, 0, 0, 0 | F_PROPERTY, "[\\x80-\\xff\\x{800}\\x{802}\\x{804}\\p{Cc}]", "\xdf\xbf\xe0\xa0\x80" },
 
 	/* Possible empty brackets. */
 	{ MU, A, 0, 0, "(?:|ab||bc|a)+d", "abcxabcabd" },
@@ -472,10 +475,17 @@ static struct regression_test_case regression_test_cases[] = {
 	{ MU, A, 0, 0, "\\R+", "ab\r\n\r" },
 	{ MU, A, 0, 0, "\\R*", "ab\r\n\r" },
 	{ MU, A, 0, 0, "\\R*", "\r\n\r" },
+	{ M, A, 0, 0, "\\R+\x85", "\r\n\n\r#\r\x85\n" },
 	{ MU, A, 0, 0, "\\R{2,4}", "\r\nab\r\r" },
 	{ MU, A, 0, 0, "\\R{2,4}", "\r\nab\n\n\n\r\r\r" },
 	{ MU, A, 0, 0, "\\R{2,}", "\r\nab\n\n\n\r\r\r" },
 	{ MU, A, 0, 0, "\\R{0,3}", "\r\n\r\n\r\n\r\n\r\n" },
+	{ MU, A, 0, 0, "\\R{2,4}\n", "\r\n\nab\r\r\nab\r\r\n\n" },
+	{ MU, A, 0, 0, "\\R{2,4}\n", "\r\n\nab\n\n\n\r\r\n" },
+	{ MU, A, 0, 0, "\\R{3,}\n", "\r\n\r\n\nab\n\n\n\r\r\n\n" },
+	{ MU, A, 0, 0, "\\R{0,3}\n", "\r\n\r\n\r\n\n" },
+	{ MU, A, 0, 0, "\\R{0,3}\n", "\r\n\r\n\r\n\r" },
+	{ MU, A, 0, 0, "(\\R{0,3}\n;)+", "\r\n\r\n\r\n\r\n\n;\n;\n\n;\n\n\n;\n\n\n\n\n;" },
 	{ MU, A, 0, 0 | F_NOMATCH, "\\R+\\R\\R", "\r\n\r\n" },
 	{ MU, A, 0, 0, "\\R+\\R\\R", "\r\r\r" },
 	{ MU, A, 0, 0, "\\R*\\R\\R", "\n\r" },
@@ -601,6 +611,7 @@ static struct regression_test_case regression_test_cases[] = {
 	{ CMU | PCRE2_DUPNAMES, A, 0, 0, "(?:(?<A>AA)|(?<A>BB))\\k<A>{1,3}M", "aaaaaaaabbbbaabbbbm" },
 	{ CMU | PCRE2_DUPNAMES, A, 0, 0, "(?:(?<A>AA)|(?<A>BB))\\k<A>{0,3}?M", "aaaaaabbbbbbaabbbbbbbbbbm" },
 	{ CMU | PCRE2_DUPNAMES, A, 0, 0, "(?:(?<A>AA)|(?<A>BB))\\k<A>{2,3}?", "aaaabbbbaaaabbbbbbbbbb" },
+	{ MU | PCRE2_DUPNAMES, A, 0, 0, "^(?P<NAME>..)(?P<NAME>..)\\k<NAME>{2,4}", "AaAAAaAaAaaA" },
 	{ MU | PCRE2_MATCH_UNSET_BACKREF, A, 0, 0, "(a)|\\1+c", "xxc" },
 	{ MU | PCRE2_MATCH_UNSET_BACKREF, A, 0, 0, "\\1+?()", "" },
 
@@ -811,6 +822,8 @@ static struct regression_test_case regression_test_cases[] = {
 	{ MU, A, PCRE2_PARTIAL_SOFT, 0, "abc|(?<=xxa)bc", "xxab" },
 	{ MU, A, PCRE2_PARTIAL_SOFT, 0, "a\\B", "a" },
 	{ MU, A, PCRE2_PARTIAL_HARD, 0, "a\\b", "a" },
+	{ M | PCRE2_DUPNAMES, A, PCRE2_PARTIAL_HARD, 0, "^(?P<NAME>..)(?P<NAME>..)\\k<NAME>{2,4}", "AaAAAaAaAaA" },
+	{ M | PCRE2_DUPNAMES, A, PCRE2_PARTIAL_HARD, 0, "^(?P<NAME>..)(?P<NAME>..)\\k<NAME>{2,4}", "AaAAAaAaAaa" },
 
 	/* (*MARK) verb. */
 	{ MU, A, 0, 0, "a(*MARK:aa)a", "ababaa" },

@@ -241,7 +241,7 @@ to hold them as 32-bit code units. */
 enum { PR_OK, PR_SKIP, PR_ABEND };
 
 /* The macro PRINTABLE determines whether to print an output character as-is or
-as a hex value when showing compiled patterns. is We use it in cases when the
+as a hex value when showing compiled patterns. We use it in cases when the
 locale has not been explicitly changed, so as to get consistent output from
 systems that differ in their output from isprint() even in the "C" locale. */
 
@@ -468,6 +468,7 @@ enum { MOD_CTC,    /* Applies to a compile context */
        MOD_NL,     /* Is a newline value */
        MOD_NN,     /* Is a number or a name; more than one may occur */
        MOD_OPT,    /* Is an option bit */
+       MOD_OPTMZ,  /* Is an optimization directive */
        MOD_SIZ,    /* Is a PCRE2_SIZE value */
        MOD_STR };  /* Is a string */
 
@@ -532,6 +533,7 @@ so many of them that they are split into two fields. */
 #define CTL2_NULL_SUBJECT                0x00002000u
 #define CTL2_NULL_REPLACEMENT            0x00004000u
 #define CTL2_FRAMESIZE                   0x00008000u
+#define CTL2_SUBSTITUTE_CASE_CALLOUT     0x00010000u
 
 #define CTL2_HEAPFRAMES_SIZE             0x20000000u  /* Informational */
 #define CTL2_NL_SET                      0x40000000u  /* Informational */
@@ -561,6 +563,7 @@ different things in the two cases. */
                     CTL2_SUBSTITUTE_UNKNOWN_UNSET|\
                     CTL2_SUBSTITUTE_UNSET_EMPTY|\
                     CTL2_ALLVECTOR|\
+                    CTL2_SUBSTITUTE_CASE_CALLOUT|\
                     CTL2_HEAPFRAMES_SIZE)
 
 /* Structures for holding modifier information for patterns and subject strings
@@ -573,9 +576,9 @@ typedef struct patctl {       /* Structure for pattern modifiers. */
   uint32_t  control;          /* Must be in same position as datctl */
   uint32_t  control2;         /* Must be in same position as datctl */
   uint32_t  jitstack;         /* Must be in same position as datctl */
-   uint8_t  replacement[REPLACE_MODSIZE];  /* So must this */
-  uint32_t  substitute_skip;  /* Must be in same position as patctl */
-  uint32_t  substitute_stop;  /* Must be in same position as patctl */
+   uint8_t  replacement[REPLACE_MODSIZE];            /* So must this */
+  uint32_t  substitute_skip;  /* Must be in same position as datctl */
+  uint32_t  substitute_stop;  /* Must be in same position as datctl */
   uint32_t  jit;
   uint32_t  stackguard_test;
   uint32_t  tables_id;
@@ -595,7 +598,7 @@ typedef struct datctl {       /* Structure for data line modifiers. */
   uint32_t  control;          /* Must be in same position as patctl */
   uint32_t  control2;         /* Must be in same position as patctl */
   uint32_t  jitstack;         /* Must be in same position as patctl */
-   uint8_t  replacement[REPLACE_MODSIZE];  /* So must this */
+   uint8_t  replacement[REPLACE_MODSIZE];            /* So must this */
   uint32_t  substitute_skip;  /* Must be in same position as patctl */
   uint32_t  substitute_stop;  /* Must be in same position as patctl */
   uint32_t  startend[2];
@@ -651,6 +654,7 @@ static modstruct modlist[] = {
   { "allvector",                   MOD_PND,  MOD_CTL, CTL2_ALLVECTOR,             PO(control2) },
   { "alt_bsux",                    MOD_PAT,  MOD_OPT, PCRE2_ALT_BSUX,             PO(options) },
   { "alt_circumflex",              MOD_PAT,  MOD_OPT, PCRE2_ALT_CIRCUMFLEX,       PO(options) },
+  { "alt_extended_class",          MOD_PAT,  MOD_OPT, PCRE2_ALT_EXTENDED_CLASS,   PO(options) },
   { "alt_verbnames",               MOD_PAT,  MOD_OPT, PCRE2_ALT_VERBNAMES,        PO(options) },
   { "altglobal",                   MOD_PND,  MOD_CTL, CTL_ALTGLOBAL,              PO(control) },
   { "anchored",                    MOD_PD,   MOD_OPT, PCRE2_ANCHORED,             PD(options) },
@@ -661,6 +665,8 @@ static modstruct modlist[] = {
   { "ascii_digit",                 MOD_CTC,  MOD_OPT, PCRE2_EXTRA_ASCII_DIGIT,    CO(extra_options) },
   { "ascii_posix",                 MOD_CTC,  MOD_OPT, PCRE2_EXTRA_ASCII_POSIX,    CO(extra_options) },
   { "auto_callout",                MOD_PAT,  MOD_OPT, PCRE2_AUTO_CALLOUT,         PO(options) },
+  { "auto_possess",                MOD_CTC,  MOD_OPTMZ, PCRE2_AUTO_POSSESS,       0 },
+  { "auto_possess_off",            MOD_CTC,  MOD_OPTMZ, PCRE2_AUTO_POSSESS_OFF,   0 },
   { "bad_escape_is_literal",       MOD_CTC,  MOD_OPT, PCRE2_EXTRA_BAD_ESCAPE_IS_LITERAL, CO(extra_options) },
   { "bincode",                     MOD_PAT,  MOD_CTL, CTL_BINCODE,                PO(control) },
   { "bsr",                         MOD_CTC,  MOD_BSR, 0,                          CO(bsr_convention) },
@@ -688,6 +694,8 @@ static modstruct modlist[] = {
   { "disable_recurseloop_check",   MOD_DAT,  MOD_OPT, PCRE2_DISABLE_RECURSELOOP_CHECK, DO(options) },
   { "dollar_endonly",              MOD_PAT,  MOD_OPT, PCRE2_DOLLAR_ENDONLY,       PO(options) },
   { "dotall",                      MOD_PATP, MOD_OPT, PCRE2_DOTALL,               PO(options) },
+  { "dotstar_anchor",              MOD_CTC,  MOD_OPTMZ, PCRE2_DOTSTAR_ANCHOR,     0 },
+  { "dotstar_anchor_off",          MOD_CTC,  MOD_OPTMZ, PCRE2_DOTSTAR_ANCHOR_OFF, 0 },
   { "dupnames",                    MOD_PATP, MOD_OPT, PCRE2_DUPNAMES,             PO(options) },
   { "endanchored",                 MOD_PD,   MOD_OPT, PCRE2_ENDANCHORED,          PD(options) },
   { "escaped_cr_is_lf",            MOD_CTC,  MOD_OPT, PCRE2_EXTRA_ESCAPED_CR_IS_LF, CO(extra_options) },
@@ -705,14 +713,14 @@ static modstruct modlist[] = {
   { "global",                      MOD_PNDP, MOD_CTL, CTL_GLOBAL,                 PO(control) },
   { "heap_limit",                  MOD_CTM,  MOD_INT, 0,                          MO(heap_limit) },
   { "heapframes_size",             MOD_PND,  MOD_CTL, CTL2_HEAPFRAMES_SIZE,       PO(control2) },
-  { "hex",                         MOD_PAT,  MOD_CTL, CTL_HEXPAT,                 PO(control) },
+  { "hex",                         MOD_PATP, MOD_CTL, CTL_HEXPAT,                 PO(control) },
   { "info",                        MOD_PAT,  MOD_CTL, CTL_INFO,                   PO(control) },
   { "jit",                         MOD_PAT,  MOD_IND, 7,                          PO(jit) },
   { "jitfast",                     MOD_PAT,  MOD_CTL, CTL_JITFAST,                PO(control) },
   { "jitstack",                    MOD_PNDP, MOD_INT, 0,                          PO(jitstack) },
   { "jitverify",                   MOD_PAT,  MOD_CTL, CTL_JITVERIFY,              PO(control) },
   { "literal",                     MOD_PAT,  MOD_OPT, PCRE2_LITERAL,              PO(options) },
-  { "locale",                      MOD_PAT,  MOD_STR, LOCALESIZE,                 PO(locale) },
+  { "locale",                      MOD_PATP, MOD_STR, LOCALESIZE,                 PO(locale) },
   { "mark",                        MOD_PNDP, MOD_CTL, CTL_MARK,                   PO(control) },
   { "match_invalid_utf",           MOD_PAT,  MOD_OPT, PCRE2_MATCH_INVALID_UTF,    PO(options) },
   { "match_limit",                 MOD_CTM,  MOD_INT, 0,                          MO(match_limit) },
@@ -725,11 +733,13 @@ static modstruct modlist[] = {
   { "memory",                      MOD_PD,   MOD_CTL, CTL_MEMORY,                 PD(control) },
   { "multiline",                   MOD_PATP, MOD_OPT, PCRE2_MULTILINE,            PO(options) },
   { "never_backslash_c",           MOD_PAT,  MOD_OPT, PCRE2_NEVER_BACKSLASH_C,    PO(options) },
+  { "never_callout",               MOD_CTC,  MOD_OPT, PCRE2_EXTRA_NEVER_CALLOUT,  CO(extra_options) },
   { "never_ucp",                   MOD_PAT,  MOD_OPT, PCRE2_NEVER_UCP,            PO(options) },
   { "never_utf",                   MOD_PAT,  MOD_OPT, PCRE2_NEVER_UTF,            PO(options) },
   { "newline",                     MOD_CTC,  MOD_NL,  0,                          CO(newline_convention) },
   { "no_auto_capture",             MOD_PAT,  MOD_OPT, PCRE2_NO_AUTO_CAPTURE,      PO(options) },
   { "no_auto_possess",             MOD_PATP, MOD_OPT, PCRE2_NO_AUTO_POSSESS,      PO(options) },
+  { "no_bs0",                      MOD_CTC,  MOD_OPT, PCRE2_EXTRA_NO_BS0,         CO(extra_options) },
   { "no_dotstar_anchor",           MOD_PAT,  MOD_OPT, PCRE2_NO_DOTSTAR_ANCHOR,    PO(options) },
   { "no_jit",                      MOD_DATP, MOD_OPT, PCRE2_NO_JIT,               DO(options) },
   { "no_start_optimize",           MOD_PATP, MOD_OPT, PCRE2_NO_START_OPTIMIZE,    PO(options) },
@@ -744,6 +754,8 @@ static modstruct modlist[] = {
   { "null_subject",                MOD_DAT,  MOD_CTL, CTL2_NULL_SUBJECT,          DO(control2) },
   { "offset",                      MOD_DAT,  MOD_INT, 0,                          DO(offset) },
   { "offset_limit",                MOD_CTM,  MOD_SIZ, 0,                          MO(offset_limit)},
+  { "optimization_full",           MOD_CTC,  MOD_OPTMZ, PCRE2_OPTIMIZATION_FULL,  0 },
+  { "optimization_none",           MOD_CTC,  MOD_OPTMZ, PCRE2_OPTIMIZATION_NONE,  0 },
   { "ovector",                     MOD_DAT,  MOD_INT, 0,                          DO(oveccount) },
   { "parens_nest_limit",           MOD_CTC,  MOD_INT, 0,                          CO(parens_nest_limit) },
   { "partial_hard",                MOD_DAT,  MOD_OPT, PCRE2_PARTIAL_HARD,         DO(options) },
@@ -756,14 +768,18 @@ static modstruct modlist[] = {
   { "push",                        MOD_PAT,  MOD_CTL, CTL_PUSH,                   PO(control) },
   { "pushcopy",                    MOD_PAT,  MOD_CTL, CTL_PUSHCOPY,               PO(control) },
   { "pushtablescopy",              MOD_PAT,  MOD_CTL, CTL_PUSHTABLESCOPY,         PO(control) },
+  { "python_octal",                MOD_CTC,  MOD_OPT, PCRE2_EXTRA_PYTHON_OCTAL,   CO(extra_options) },
   { "recursion_limit",             MOD_CTM,  MOD_INT, 0,                          MO(depth_limit) },  /* Obsolete synonym */
   { "regerror_buffsize",           MOD_PAT,  MOD_INT, 0,                          PO(regerror_buffsize) },
   { "replace",                     MOD_PND,  MOD_STR, REPLACE_MODSIZE,            PO(replacement) },
   { "stackguard",                  MOD_PAT,  MOD_INT, 0,                          PO(stackguard_test) },
+  { "start_optimize",              MOD_CTC,  MOD_OPTMZ, PCRE2_START_OPTIMIZE,     0 },
+  { "start_optimize_off",          MOD_CTC,  MOD_OPTMZ, PCRE2_START_OPTIMIZE_OFF, 0 },
   { "startchar",                   MOD_PND,  MOD_CTL, CTL_STARTCHAR,              PO(control) },
   { "startoffset",                 MOD_DAT,  MOD_INT, 0,                          DO(offset) },
   { "subject_literal",             MOD_PATP, MOD_CTL, CTL2_SUBJECT_LITERAL,       PO(control2) },
   { "substitute_callout",          MOD_PND,  MOD_CTL, CTL2_SUBSTITUTE_CALLOUT,    PO(control2) },
+  { "substitute_case_callout",     MOD_PND,  MOD_CTL, CTL2_SUBSTITUTE_CASE_CALLOUT, PO(control2) },
   { "substitute_extended",         MOD_PND,  MOD_CTL, CTL2_SUBSTITUTE_EXTENDED,   PO(control2) },
   { "substitute_literal",          MOD_PND,  MOD_CTL, CTL2_SUBSTITUTE_LITERAL,    PO(control2) },
   { "substitute_matched",          MOD_PND,  MOD_CTL, CTL2_SUBSTITUTE_MATCHED,    PO(control2) },
@@ -774,6 +790,7 @@ static modstruct modlist[] = {
   { "substitute_unknown_unset",    MOD_PND,  MOD_CTL, CTL2_SUBSTITUTE_UNKNOWN_UNSET, PO(control2) },
   { "substitute_unset_empty",      MOD_PND,  MOD_CTL, CTL2_SUBSTITUTE_UNSET_EMPTY, PO(control2) },
   { "tables",                      MOD_PAT,  MOD_INT, 0,                          PO(tables_id) },
+  { "turkish_casing",              MOD_CTC,  MOD_OPT, PCRE2_EXTRA_TURKISH_CASING, CO(extra_options) },
   { "ucp",                         MOD_PATP, MOD_OPT, PCRE2_UCP,                  PO(options) },
   { "ungreedy",                    MOD_PAT,  MOD_OPT, PCRE2_UNGREEDY,             PO(options) },
   { "use_length",                  MOD_PAT,  MOD_CTL, CTL_USE_LENGTH,             PO(control) },
@@ -920,7 +937,8 @@ enum { CONF_BSR,
        CONF_FIX,
        CONF_FIZ,
        CONF_INT,
-       CONF_NL
+       CONF_NL,
+       CONF_JU
 };
 
 static coptstruct coptlist[] = {
@@ -929,6 +947,7 @@ static coptstruct coptlist[] = {
   { "ebcdic",      CONF_FIX, SUPPORT_EBCDIC },
   { "ebcdic-nl",   CONF_FIZ, EBCDIC_NL },
   { "jit",         CONF_INT, PCRE2_CONFIG_JIT },
+  { "jitusable",   CONF_JU,  0 },
   { "linksize",    CONF_INT, PCRE2_CONFIG_LINKSIZE },
   { "newline",     CONF_NL,  PCRE2_CONFIG_NEWLINE },
   { "pcre2-16",    CONF_FIX, SUPPORT_16 },
@@ -944,6 +963,13 @@ static coptstruct coptlist[] = {
 #undef SUPPORT_32
 #undef SUPPORT_EBCDIC
 
+/* Types for the parser, to be used in process_data() */
+
+enum force_encoding {
+  FORCE_NONE,         /* No preference, follow utf modifier */
+  FORCE_RAW,          /* Encode as a code point or error if too wide */
+  FORCE_UTF           /* Encode as a character or error if too wide */
+};
 
 /* ----------------------- Static variables ------------------------ */
 
@@ -1480,6 +1506,22 @@ are supported. */
     pcre2_set_substitute_callout_32(G(a,32), \
       (int (*)(pcre2_substitute_callout_block_32 *, void *))b,c)
 
+#define PCRE2_SET_SUBSTITUTE_CASE_CALLOUT(a,b,c) \
+  if (test_mode == PCRE8_MODE) \
+    pcre2_set_substitute_case_callout_8(G(a,8),G(b,8),c); \
+  else if (test_mode == PCRE16_MODE) \
+    pcre2_set_substitute_case_callout_16(G(a,16),G(b,16),c); \
+  else \
+    pcre2_set_substitute_case_callout_32(G(a,32),G(b,32),c)
+
+#define PCRE2_SET_SUBSTITUTE_CASE_CALLOUT_NULL(a) \
+  if (test_mode == PCRE8_MODE) \
+    pcre2_set_substitute_case_callout_8(G(a,8),NULL,NULL); \
+  else if (test_mode == PCRE16_MODE) \
+    pcre2_set_substitute_case_callout_16(G(a,16),NULL,NULL); \
+  else \
+    pcre2_set_substitute_case_callout_32(G(a,32),NULL,NULL)
+
 #define PCRE2_SUBSTITUTE(a,b,c,d,e,f,g,h,i,j,k,l) \
   if (test_mode == PCRE8_MODE) \
     a = pcre2_substitute_8(G(b,8),(PCRE2_SPTR8)c,d,e,f,G(g,8),h, \
@@ -1981,6 +2023,18 @@ the three different cases. */
     G(pcre2_set_substitute_callout_,BITTWO)(G(a,BITTWO), \
       (int (*)(G(pcre2_substitute_callout_block_,BITTWO) *, void *))b,c)
 
+#define PCRE2_SET_SUBSTITUTE_CASE_CALLOUT(a,b,c) \
+  if (test_mode == G(G(PCRE,BITONE),_MODE)) \
+    G(pcre2_set_substitute_case_callout_,BITONE)(G(a,BITONE),G(b,BITONE),c); \
+  else \
+    G(pcre2_set_substitute_case_callout_,BITTWO)(G(a,BITTWO),G(b,BITTWO),c)
+
+#define PCRE2_SET_SUBSTITUTE_CASE_CALLOUT_NULL(a) \
+  if (test_mode == G(G(PCRE,BITONE),_MODE)) \
+    G(pcre2_set_substitute_case_callout_,BITONE)(G(a,BITONE),NULL,NULL); \
+  else \
+    G(pcre2_set_substitute_case_callout_,BITTWO)(G(a,BITTWO),NULL,NULL)
+
 #define PCRE2_SUBSTITUTE(a,b,c,d,e,f,g,h,i,j,k,l) \
   if (test_mode == G(G(PCRE,BITONE),_MODE)) \
     a = G(pcre2_substitute_,BITONE)(G(b,BITONE),(G(PCRE2_SPTR,BITONE))c,d,e,f, \
@@ -2189,6 +2243,10 @@ the three different cases. */
 #define PCRE2_SET_SUBSTITUTE_CALLOUT(a,b,c) \
   pcre2_set_substitute_callout_8(G(a,8), \
     (int (*)(pcre2_substitute_callout_block_8 *, void *))b,c)
+#define PCRE2_SET_SUBSTITUTE_CASE_CALLOUT(a,b,c) \
+  pcre2_set_substitute_case_callout_8(G(a,8),G(b,8),c)
+#define PCRE2_SET_SUBSTITUTE_CASE_CALLOUT_NULL(a) \
+  pcre2_set_substitute_case_callout_8(G(a,8),NULL,NULL)
 #define PCRE2_SUBSTITUTE(a,b,c,d,e,f,g,h,i,j,k,l) \
   a = pcre2_substitute_8(G(b,8),(PCRE2_SPTR8)c,d,e,f,G(g,8),h, \
     (PCRE2_SPTR8)i,j,(PCRE2_UCHAR8 *)k,l)
@@ -2298,6 +2356,10 @@ the three different cases. */
 #define PCRE2_SET_SUBSTITUTE_CALLOUT(a,b,c) \
   pcre2_set_substitute_callout_16(G(a,16), \
     (int (*)(pcre2_substitute_callout_block_16 *, void *))b,c)
+#define PCRE2_SET_SUBSTITUTE_CASE_CALLOUT(a,b,c) \
+  pcre2_set_substitute_case_callout_16(G(a,16),G(b,16),c)
+#define PCRE2_SET_SUBSTITUTE_CASE_CALLOUT_NULL(a) \
+  pcre2_set_substitute_case_callout_16(G(a,16),NULL,NULL)
 #define PCRE2_SUBSTITUTE(a,b,c,d,e,f,g,h,i,j,k,l) \
   a = pcre2_substitute_16(G(b,16),(PCRE2_SPTR16)c,d,e,f,G(g,16),h, \
     (PCRE2_SPTR16)i,j,(PCRE2_UCHAR16 *)k,l)
@@ -2407,6 +2469,10 @@ the three different cases. */
 #define PCRE2_SET_SUBSTITUTE_CALLOUT(a,b,c) \
   pcre2_set_substitute_callout_32(G(a,32), \
     (int (*)(pcre2_substitute_callout_block_32 *, void *))b,c)
+#define PCRE2_SET_SUBSTITUTE_CASE_CALLOUT(a,b,c) \
+  pcre2_set_substitute_case_callout_32(G(a,32),G(b,32),c)
+#define PCRE2_SET_SUBSTITUTE_CASE_CALLOUT_NULL(a) \
+  pcre2_set_substitute_case_callout_32(G(a,32),NULL,NULL)
 #define PCRE2_SUBSTITUTE(a,b,c,d,e,f,g,h,i,j,k,l) \
   a = pcre2_substitute_32(G(b,32),(PCRE2_SPTR32)c,d,e,f,G(g,32),h, \
     (PCRE2_SPTR32)i,j,(PCRE2_UCHAR32 *)k,l)
@@ -3587,7 +3653,7 @@ for (;;)
     }
   }
 
-/* Control never gets here */
+PCRE2_UNREACHABLE(); /* Control never reaches here */
 }
 
 
@@ -3641,7 +3707,7 @@ while (top > bot)
   {
   int mid = (bot + top)/2;
   unsigned int mlen = strlen(modlist[mid].name);
-  int c = strncmp((char *)p, modlist[mid].name, (len < mlen)? len : mlen);
+  int c = strncmp((const char *)p, modlist[mid].name, (len < mlen)? len : mlen);
   if (c == 0)
     {
     if (len == mlen) return mid;
@@ -3692,7 +3758,7 @@ if (restrict_for_perl_test) switch(m->which)
   break;
 
   default:
-  fprintf(outfile, "** '%s' is not allowed in a Perl-compatible test\n",
+  fprintf(outfile, "** \"%s\" is not allowed in a Perl-compatible test\n",
     m->name);
   return NULL;
   }
@@ -3733,7 +3799,7 @@ switch (m->which)
 if (field == NULL)
   {
   if (c == 0)
-    fprintf(outfile, "** '%s' is not valid here\n", m->name);
+    fprintf(outfile, "** \"%s\" is not valid here\n", m->name);
   else
     fprintf(outfile, "** /%c is not valid here\n", c);
   return NULL;
@@ -3822,11 +3888,13 @@ for (;;)
 
     if (!first)
       {
-      fprintf(outfile, "** Unrecognized modifier '%.*s'\n", (int)(ep-p), p);
+      fprintf(outfile, "** Unrecognized modifier \"%.*s\"\n", (int)(ep-p), p);
       if (ep - p == 1)
         fprintf(outfile, "** Single-character modifiers must come first\n");
       return FALSE;
       }
+
+    first = FALSE;
 
     for (cc = *p; cc != ',' && cc != '\n' && cc != 0; cc = *(++p))
       {
@@ -3835,8 +3903,8 @@ for (;;)
 
       if (i >= C1MODLISTCOUNT)
         {
-        fprintf(outfile, "** Unrecognized modifier '%c' in '%.*s'\n",
-          *p, (int)(ep-mp), mp);
+        fprintf(outfile, "** Unrecognized modifier '%c' in modifier string "
+          "\"%.*s\"\n", *p, (int)(ep-mp), mp);
         return FALSE;
         }
 
@@ -3847,12 +3915,12 @@ for (;;)
 
       else
         {
-        index = scan_modifiers((uint8_t *)(c1modlist[i].fullname),
+        index = scan_modifiers((const uint8_t *)(c1modlist[i].fullname),
           strlen(c1modlist[i].fullname));
         if (index < 0)
           {
           fprintf(outfile, "** Internal error: single-character equivalent "
-            "modifier '%s' not found\n", c1modlist[i].fullname);
+            "modifier \"%s\" not found\n", c1modlist[i].fullname);
           return FALSE;
           }
         c1modlist[i].index = index;     /* Cache for next time */
@@ -3880,17 +3948,17 @@ for (;;)
   when needed. */
 
   m = modlist + index;      /* Save typing */
-  if (m->type != MOD_CTL && m->type != MOD_OPT &&
+  if (m->type != MOD_CTL && m->type != MOD_OPT && m->type != MOD_OPTMZ &&
       (m->type != MOD_IND || *pp == '='))
     {
     if (*pp++ != '=')
       {
-      fprintf(outfile, "** '=' expected after '%s'\n", m->name);
+      fprintf(outfile, "** '=' expected after \"%s\"\n", m->name);
       return FALSE;
       }
     if (off)
       {
-      fprintf(outfile, "** '-' is not valid for '%s'\n", m->name);
+      fprintf(outfile, "** '-' is not valid for \"%s\"\n", m->name);
       return FALSE;
       }
     }
@@ -3919,6 +3987,21 @@ for (;;)
     case MOD_OPT:
     if (off) *((uint32_t *)field) &= ~m->value;
       else *((uint32_t *)field) |= m->value;
+    break;
+
+    case MOD_OPTMZ:
+#ifdef SUPPORT_PCRE2_8
+    if (test_mode == PCRE8_MODE)
+      pcre2_set_optimize_8((pcre2_compile_context_8*)field, m->value);
+#endif
+#ifdef SUPPORT_PCRE2_16
+    if (test_mode == PCRE16_MODE)
+      pcre2_set_optimize_16((pcre2_compile_context_16*)field, m->value);
+#endif
+#ifdef SUPPORT_PCRE2_32
+    if (test_mode == PCRE32_MODE)
+      pcre2_set_optimize_32((pcre2_compile_context_32*)field, m->value);
+#endif
     break;
 
     case MOD_BSR:
@@ -4060,7 +4143,7 @@ for (;;)
           field = (char *)field + sizeof(int32_t);
         if (ct <= 0)
           {
-          fprintf(outfile, "** Too many numeric '%s' modifiers\n", m->name);
+          fprintf(outfile, "** Too many numeric \"%s\" modifiers\n", m->name);
           return FALSE;
           }
         }
@@ -4078,13 +4161,13 @@ for (;;)
         {
         if (len > MAX_NAME_SIZE)
           {
-          fprintf(outfile, "** Group name in '%s' is too long\n", m->name);
+          fprintf(outfile, "** Group name in \"%s\" is too long\n", m->name);
           return FALSE;
           }
         while (*nn != 0) nn += strlen(nn) + 1;
         if (nn + len + 2 - (char *)field > LENCPYGET)
           {
-          fprintf(outfile, "** Too many characters in named '%s' modifiers\n",
+          fprintf(outfile, "** Too many characters in named \"%s\" modifiers\n",
             m->name);
           return FALSE;
           }
@@ -4099,7 +4182,7 @@ for (;;)
     case MOD_STR:
     if (len + 1 > m->value)
       {
-      fprintf(outfile, "** Overlong value for '%s' (max %d code units)\n",
+      fprintf(outfile, "** Overlong value for \"%s\" (max %d code units)\n",
         m->name, m->value - 1);
       return FALSE;
       }
@@ -4111,12 +4194,11 @@ for (;;)
 
   if (*pp != ',' && *pp != '\n' && *pp != ' ' && *pp != 0)
     {
-    fprintf(outfile, "** Comma expected after modifier item '%s'\n", m->name);
+    fprintf(outfile, "** Comma expected after modifier item \"%s\"\n", m->name);
     return FALSE;
     }
 
   p = pp;
-  first = FALSE;
 
   if (ctx == CTX_POPPAT &&
      (pctl->options != 0 ||
@@ -4124,7 +4206,7 @@ for (;;)
       pctl->locale[0] != 0 ||
       (pctl->control & NOTPOP_CONTROLS) != 0))
     {
-    fprintf(outfile, "** '%s' is not valid here\n", m->name);
+    fprintf(outfile, "** \"%s\" is not valid here\n", m->name);
     return FALSE;
     }
   }
@@ -4132,7 +4214,7 @@ for (;;)
 return TRUE;
 
 INVALID_VALUE:
-fprintf(outfile, "** Invalid value in '%.*s'\n", (int)(ep-p), p);
+fprintf(outfile, "** Invalid value in \"%.*s\"\n", (int)(ep-p), p);
 return FALSE;
 }
 
@@ -4212,7 +4294,7 @@ Returns:      nothing
 static void
 show_controls(uint32_t controls, uint32_t controls2, const char *before)
 {
-fprintf(outfile, "%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s",
+fprintf(outfile, "%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s",
   before,
   ((controls & CTL_AFTERTEXT) != 0)? " aftertext" : "",
   ((controls & CTL_ALLAFTERTEXT) != 0)? " allaftertext" : "",
@@ -4253,6 +4335,7 @@ fprintf(outfile, "%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s
   ((controls & CTL_PUSHTABLESCOPY) != 0)? " pushtablescopy" : "",
   ((controls & CTL_STARTCHAR) != 0)? " startchar" : "",
   ((controls2 & CTL2_SUBSTITUTE_CALLOUT) != 0)? " substitute_callout" : "",
+  ((controls2 & CTL2_SUBSTITUTE_CASE_CALLOUT) != 0)? " substitute_case_callout" : "",
   ((controls2 & CTL2_SUBSTITUTE_EXTENDED) != 0)? " substitute_extended" : "",
   ((controls2 & CTL2_SUBSTITUTE_LITERAL) != 0)? " substitute_literal" : "",
   ((controls2 & CTL2_SUBSTITUTE_MATCHED) != 0)? " substitute_matched" : "",
@@ -4285,10 +4368,11 @@ static void
 show_compile_options(uint32_t options, const char *before, const char *after)
 {
 if (options == 0) fprintf(outfile, "%s <none>%s", before, after);
-else fprintf(outfile, "%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s",
+else fprintf(outfile, "%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s",
   before,
   ((options & PCRE2_ALT_BSUX) != 0)? " alt_bsux" : "",
   ((options & PCRE2_ALT_CIRCUMFLEX) != 0)? " alt_circumflex" : "",
+  ((options & PCRE2_ALT_EXTENDED_CLASS) != 0)? " alt_extended_class" : "",
   ((options & PCRE2_ALT_VERBNAMES) != 0)? " alt_verbnames" : "",
   ((options & PCRE2_ALLOW_EMPTY_CLASS) != 0)? " allow_empty_class" : "",
   ((options & PCRE2_ANCHORED) != 0)? " anchored" : "",
@@ -4340,8 +4424,9 @@ show_compile_extra_options(uint32_t options, const char *before,
   const char *after)
 {
 if (options == 0) fprintf(outfile, "%s <none>%s", before, after);
-else fprintf(outfile, "%s%s%s%s%s%s%s%s%s%s%s%s%s%s",
+else fprintf(outfile, "%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s",
   before,
+  ((options & PCRE2_EXTRA_ALLOW_LOOKAROUND_BSK) != 0) ? " allow_lookaround_bsk" : "",
   ((options & PCRE2_EXTRA_ALLOW_SURROGATE_ESCAPES) != 0)? " allow_surrogate_escapes" : "",
   ((options & PCRE2_EXTRA_ALT_BSUX) != 0)? " alt_bsux" : "",
   ((options & PCRE2_EXTRA_ASCII_BSD) != 0)? " ascii_bsd" : "",
@@ -4354,9 +4439,40 @@ else fprintf(outfile, "%s%s%s%s%s%s%s%s%s%s%s%s%s%s",
   ((options & PCRE2_EXTRA_ESCAPED_CR_IS_LF) != 0)? " escaped_cr_is_lf" : "",
   ((options & PCRE2_EXTRA_MATCH_WORD) != 0)? " match_word" : "",
   ((options & PCRE2_EXTRA_MATCH_LINE) != 0)? " match_line" : "",
+  ((options & PCRE2_EXTRA_NEVER_CALLOUT) != 0)? " never_callout" : "",
+  ((options & PCRE2_EXTRA_NO_BS0) != 0)? " no_bs0" : "",
+  ((options & PCRE2_EXTRA_PYTHON_OCTAL) != 0)? " python_octal" : "",
+  ((options & PCRE2_EXTRA_TURKISH_CASING) != 0)? " turkish_casing" : "",
   after);
 }
 
+
+/*************************************************
+*           Show optimization flags              *
+*************************************************/
+
+/*
+Arguments:
+  flags       an options word
+  before      text to print before
+  after       text to print after
+
+Returns:      nothing
+*/
+
+static void
+show_optimize_flags(uint32_t flags, const char *before, const char *after)
+{
+if (flags == 0) fprintf(outfile, "%s<none>%s", before, after);
+else fprintf(outfile, "%s%s%s%s%s%s%s",
+  before,
+  ((flags & PCRE2_OPTIM_AUTO_POSSESS) != 0) ? "auto_possess" : "",
+  ((flags & PCRE2_OPTIM_AUTO_POSSESS) != 0 && (flags >> 1) != 0) ? "," : "",
+  ((flags & PCRE2_OPTIM_DOTSTAR_ANCHOR) != 0) ? "dotstar_anchor" : "",
+  ((flags & PCRE2_OPTIM_DOTSTAR_ANCHOR) != 0 && (flags >> 2) != 0) ? "," : "",
+  ((flags & PCRE2_OPTIM_START_OPTIMIZE) != 0) ? "start_optimize" : "",
+  after);
+}
 
 
 #ifdef SUPPORT_PCRE2_8
@@ -4397,7 +4513,7 @@ static void
 show_memory_info(void)
 {
 uint32_t name_count, name_entry_size;
-PCRE2_SIZE size, cblock_size;
+PCRE2_SIZE size, cblock_size, data_size;
 
 /* One of the test_mode values will always be true, but to stop a compiler
 warning we must initialize cblock_size. */
@@ -4417,18 +4533,19 @@ if (test_mode == PCRE32_MODE) cblock_size = sizeof(pcre2_real_code_32);
 (void)pattern_info(PCRE2_INFO_NAMECOUNT, &name_count, FALSE);
 (void)pattern_info(PCRE2_INFO_NAMEENTRYSIZE, &name_entry_size, FALSE);
 
-/* The uint32_t variables are cast before multiplying to stop code analyzers
-grumbling about potential overflow. */
+/* The uint32_t variables are cast before multiplying to avoid potential
+ integer overflow. */
+data_size = (PCRE2_SIZE)name_count * (PCRE2_SIZE)name_entry_size * (PCRE2_SIZE)code_unit_size;
 
-fprintf(outfile, "Memory allocation - compiled block : %" SIZ_FORM "\n", size);
-fprintf(outfile, "Memory allocation - code portion   : %" SIZ_FORM "\n", size -
-  (PCRE2_SIZE)name_count * (PCRE2_SIZE)name_entry_size * (PCRE2_SIZE)code_unit_size -
-  cblock_size);
+fprintf(outfile, "Memory allocation - code size : %" SIZ_FORM "\n", size -
+  cblock_size - data_size);
+if (data_size != 0)
+  fprintf(outfile, "Memory allocation - data size : %" SIZ_FORM "\n", data_size);
 
 if (pat_patctl.jit != 0)
   {
   (void)pattern_info(PCRE2_INFO_JITSIZE, &size, FALSE);
-  fprintf(outfile, "Memory allocation - JIT code       : %" SIZ_FORM "\n", size);
+  fprintf(outfile, "Memory allocation - JIT code  : %" SIZ_FORM "\n", size);
   }
 }
 
@@ -4732,7 +4849,7 @@ if ((pat_patctl.control & CTL_INFO) != 0)
         ((((PCRE2_SPTR8)nametable)[0]) << 8) | ((PCRE2_SPTR8)nametable)[1]));
 #endif
 
-      nametable = (void*)((PCRE2_SPTR8)nametable + nameentrysize * code_unit_size);
+      nametable = (void *)((PCRE2_UCHAR8 *)nametable + nameentrysize * code_unit_size);
       }
     }
 
@@ -4772,6 +4889,9 @@ if ((pat_patctl.control & CTL_INFO) != 0)
 
   if (extra_options != 0)
     show_compile_extra_options(extra_options, "Extra options:", "\n");
+
+  if (FLD(compiled_code, optimization_flags) != PCRE2_OPTIMIZATION_ALL)
+    show_optimize_flags(FLD(compiled_code, optimization_flags), "Optimizations: ", "\n");
 
   if (jchanged) fprintf(outfile, "Duplicate name status changes\n");
 
@@ -4835,24 +4955,24 @@ if ((pat_patctl.control & CTL_INFO) != 0)
     {
     int i;
     int c = 24;
-    fprintf(outfile, "Starting code units: ");
+    fprintf(outfile, "Starting code units:");
     for (i = 0; i < 256; i++)
       {
       if ((start_bits[i/8] & (1u << (i&7))) != 0)
         {
         if (c > 75)
           {
-          fprintf(outfile, "\n  ");
+          fprintf(outfile, "\n ");
           c = 2;
           }
         if (PRINTOK(i) && i != ' ')
           {
-          fprintf(outfile, "%c ", i);
+          fprintf(outfile, " %c", i);
           c += 2;
           }
         else
           {
-          fprintf(outfile, "\\x%02x ", i);
+          fprintf(outfile, " \\x%02x", i);
           c += 5;
           }
         }
@@ -4875,7 +4995,7 @@ if ((pat_patctl.control & CTL_INFO) != 0)
       }
     }
 
-  if ((FLD(compiled_code, overall_options) & PCRE2_NO_START_OPTIMIZE) == 0)
+  if ((FLD(compiled_code, optimization_flags) & PCRE2_OPTIM_START_OPTIMIZE) != 0)
     fprintf(outfile, "Subject length lower bound = %d\n", minlength);
 
   if (pat_patctl.jit != 0 && (pat_patctl.control & CTL_JITVERIFY) != 0)
@@ -4970,7 +5090,7 @@ if (endf == filename)
 *fptr = fopen((const char *)filename, mode);
 if (*fptr == NULL)
   {
-  fprintf(outfile, "** Failed to open '%s': %s\n", filename, strerror(errno));
+  fprintf(outfile, "** Failed to open \"%s\": %s\n", filename, strerror(errno));
   return PR_ABEND;
   }
 
@@ -5067,14 +5187,14 @@ switch(cmd)
     {
     while (isspace(*argptr)) argptr++;
     if (*argptr == 0) break;
-    for (i = 1; i < sizeof(newlines)/sizeof(char *); i++)
+    for (uint16_t j = 1; j < sizeof(newlines)/sizeof(char *); j++)
       {
-      size_t nlen = strlen(newlines[i]);
-      if (strncmpic(argptr, (const uint8_t *)newlines[i], nlen) == 0 &&
+      size_t nlen = strlen(newlines[j]);
+      if (strncmpic(argptr, (const uint8_t *)newlines[j], nlen) == 0 &&
           isspace(argptr[nlen]))
         {
-        if (i == NEWLINE_DEFAULT) return PR_OK;  /* Default is valid */
-        if (first_listed_newline == 0) first_listed_newline = i;
+        if (j == NEWLINE_DEFAULT) return PR_OK;  /* Default is valid */
+        if (first_listed_newline == 0) first_listed_newline = j;
         }
       }
     while (*argptr != 0 && !isspace(*argptr)) argptr++;
@@ -5552,7 +5672,7 @@ if (pat_patctl.locale[0] != 0)
     }
   if (setlocale(LC_CTYPE, (const char *)pat_patctl.locale) == NULL)
     {
-    fprintf(outfile, "** Failed to set locale '%s'\n", pat_patctl.locale);
+    fprintf(outfile, "** Failed to set locale \"%s\"\n", pat_patctl.locale);
     return PR_SKIP;
     }
   if (strcmp((const char *)pat_patctl.locale, (const char *)locale_name) != 0)
@@ -5560,7 +5680,7 @@ if (pat_patctl.locale[0] != 0)
     strcpy((char *)locale_name, (char *)pat_patctl.locale);
     if (locale_tables != NULL)
       {
-      PCRE2_MAKETABLES_FREE(general_context, (void *)locale_tables);
+      PCRE2_MAKETABLES_FREE(general_context, (const void *)locale_tables);
       }
     PCRE2_MAKETABLES(locale_tables, general_context);
     }
@@ -6375,6 +6495,227 @@ return yield;
 
 
 /*************************************************
+*        Substitute case callout function        *
+*************************************************/
+
+/* Function to implement our test-only custom case mappings.
+To ease implementation, we only work in the ASCII range (so that we don't need
+to read & write UTF sequences).
+However, we aim to implement case mappings which fairly well represent the range
+of interesting behaviours that exist for Unicode codepoints. */
+
+static BOOL
+case_transform(int to_case, int num_in, int *num_read, int *num_write,
+  uint32_t *c1, uint32_t *c2)
+{
+/* Let's have one character which aborts the substitution. */
+if (*c1 == '!') return FALSE;
+
+/* Default behaviour is to read one character, and write back that same one
+character (treating all characters as "uncased"). */
+*num_read = *num_write = 1;
+
+/* Add a normal case pair 'a' (l) <-> 'B' (t,u). Standard ASCII letter
+behaviour, but with switched letters for testing. */
+if (*c1 == 'a' && to_case != PCRE2_SUBSTITUTE_CASE_LOWER)
+  *c1 = 'B';
+else if (*c1 == 'B' && to_case == PCRE2_SUBSTITUTE_CASE_LOWER)
+  *c1 = 'a';
+
+/* Add a titlecased triplet 'd' (l) <-> 'D' (t) <-> 'Z' (u). Example: the
+'dz'/'Dz'/'DZ' ligature character ("Latin Small Letter DZ" <-> "Latin Capital
+Letter D with Small Letter Z" <-> "Latin Capital Letter DZ"). */
+else if (*c1 == 'd' && to_case != PCRE2_SUBSTITUTE_CASE_LOWER)
+  *c1 = (to_case == PCRE2_SUBSTITUTE_CASE_TITLE_FIRST)? 'D' : 'Z';
+else if (*c1 == 'D' && to_case != PCRE2_SUBSTITUTE_CASE_TITLE_FIRST)
+  *c1 = (to_case == PCRE2_SUBSTITUTE_CASE_LOWER)? 'd' : 'Z';
+else if (*c1 == 'Z' && to_case != PCRE2_SUBSTITUTE_CASE_UPPER)
+  *c1 = (to_case == PCRE2_SUBSTITUTE_CASE_LOWER)? 'd' : 'D';
+
+/* Expands when uppercased. Example: Esszet 'f' <-> 'SS'. */
+else if (*c1 == 'f' && to_case != PCRE2_SUBSTITUTE_CASE_LOWER)
+  {
+  *c1 = 'S';
+  *c2 = 'S';
+  *num_write = 2;
+  }
+else if (*c1 == 's' && to_case != PCRE2_SUBSTITUTE_CASE_LOWER)
+  *c1 = 'S';
+else if (*c1 == 'S' && to_case == PCRE2_SUBSTITUTE_CASE_LOWER)
+  *c1 = 's';
+
+/* Expanding and contracting characters, 'o' <-> 'OO'. You can get this purely
+due to UTF-8 encoding length, for example uppercase Omega (3 bytes in UTF-8)
+lowercases to 2 bytes in UTF-8. */
+else if (num_in == 2 && *c1 == 'O' && *c2 == 'O' &&
+         to_case == PCRE2_SUBSTITUTE_CASE_LOWER)
+  {
+  *c1 = 'o';
+  *num_read = 2;
+  }
+else if (*c1 == 'o' && to_case != PCRE2_SUBSTITUTE_CASE_LOWER)
+  {
+  *c1 = 'O';
+  *c2 = 'O';
+  *num_write = 2;
+  }
+else if (num_in == 2 && *c1 == 'p' && *c2 == 'p' &&
+         to_case != PCRE2_SUBSTITUTE_CASE_LOWER)
+  {
+  *c1 = 'P';
+  *num_read = 2;
+  }
+else if (*c1 == 'P' && to_case == PCRE2_SUBSTITUTE_CASE_LOWER)
+  {
+  *c1 = 'p';
+  *c2 = 'p';
+  *num_write = 2;
+  }
+
+/* Use 'l' -> 'Mn' or 'MN' as an expanding ligature, like 'fi' -> 'Fi' ->
+'FI'. */
+else if (*c1 == 'l' && to_case != PCRE2_SUBSTITUTE_CASE_LOWER)
+  {
+  *c1 = 'M';
+  *c2 = (to_case == PCRE2_SUBSTITUTE_CASE_TITLE_FIRST)? 'n' : 'N';
+  *num_write = 2;
+  }
+else if (*c1 == 'M' && to_case == PCRE2_SUBSTITUTE_CASE_LOWER)
+  *c1 = 'm';
+else if (*c1 == 'm' && to_case != PCRE2_SUBSTITUTE_CASE_LOWER)
+  *c1 = 'M';
+else if (*c1 == 'N' && to_case == PCRE2_SUBSTITUTE_CASE_LOWER)
+  *c1 = 'n';
+else if (*c1 == 'n' && to_case != PCRE2_SUBSTITUTE_CASE_LOWER)
+  *c1 = 'N';
+
+/* An example of a context-dependent mapping, the Greek Sigma. It lowercases
+depending on the following character. Use 'c'/'k' -> 'K'. */
+else if ((*c1 == 'c' || *c1 == 'k') && to_case != PCRE2_SUBSTITUTE_CASE_LOWER)
+  *c1 = 'K';
+else if (*c1 == 'K' && to_case == PCRE2_SUBSTITUTE_CASE_LOWER)
+  *c1 = (num_in == 1 || *c2 == ' ')? 'c' : 'k';
+
+/* An example of a context-dependent multi mapping, the Dutch IJ. When those
+letters appear together, they titlecase 'ij' (l) <-> 'IJ' (t) <-> 'IJ' (u).
+Namely, English titlecasing of 'ijnssel' would be 'Ijnssel' (just uppercase the
+first letter), but the Dutch rule is 'IJnssel'. */
+else if (num_in == 2 && (*c1 == 'i' || *c1 == 'I') &&
+         (*c2 == 'j' || *c2 == 'J') &&
+         to_case == PCRE2_SUBSTITUTE_CASE_TITLE_FIRST)
+  {
+  *c1 = 'I';
+  *c2 = 'J';
+  *num_read = 2;
+  *num_write = 2;
+  }
+else if (*c1 == 'i' && to_case != PCRE2_SUBSTITUTE_CASE_LOWER)
+  *c1 = 'I';
+else if (*c1 == 'I' && to_case == PCRE2_SUBSTITUTE_CASE_LOWER)
+  *c1 = 'i';
+else if (*c1 == 'j' && to_case != PCRE2_SUBSTITUTE_CASE_LOWER)
+  *c1 = 'J';
+else if (*c1 == 'J' && to_case == PCRE2_SUBSTITUTE_CASE_LOWER)
+  *c1 = 'j';
+
+return TRUE;
+}
+
+/* Called from pcre2_substitute() when the substitute_case_callout
+modifier is set. The substitute callout block is not identical for all code unit
+widths, so we have to duplicate the function for each supported width.
+
+Arguments:
+  input          the input character
+  input_len      the length of the input
+  output         the output buffer
+  output_cap     the output buffer capacity
+  to_case        the case conversion type
+  data_ptr       callout data (unused)
+
+Returns:         the number of code units of the output
+*/
+
+#define substitute_case_callout_function(BITS) \
+static PCRE2_SIZE \
+G(substitute_case_callout_function,BITS)( \
+  G(PCRE2_SPTR,BITS) input, PCRE2_SIZE input_len, \
+  G(PCRE2_UCHAR,BITS) *output, PCRE2_SIZE output_cap, \
+  int to_case, void *data_ptr) \
+{ \
+G(PCRE2_UCHAR,BITS) buf[16]; \
+G(PCRE2_SPTR,BITS) input_copy; \
+PCRE2_SIZE written = 0; \
+\
+(void)data_ptr;   /* Not used */ \
+\
+if (input_len > sizeof(buf)/sizeof(*buf)) \
+  { \
+  G(PCRE2_UCHAR,BITS) *input_buf = malloc( \
+      input_len * sizeof(G(PCRE2_UCHAR,BITS))); \
+  if (input_buf == NULL) return ~(PCRE2_SIZE)0; \
+  memcpy(input_buf, input, input_len * sizeof(G(PCRE2_UCHAR,BITS))); \
+  input_copy = input_buf; \
+  } \
+else \
+  { \
+  memcpy(buf, input, input_len * sizeof(G(PCRE2_UCHAR,BITS))); \
+  input_copy = buf; \
+  } \
+\
+for (PCRE2_SIZE i = 0; i < input_len; ) \
+  { \
+  int num_in = i + 1 < input_len ? 2 : 1; \
+  uint32_t c1 = input_copy[i]; \
+  uint32_t c2 = i + 1 < input_len ? input_copy[i + 1] : 0; \
+  int num_read; \
+  int num_write; \
+  \
+  if (!case_transform(to_case, num_in, &num_read, &num_write, &c1, &c2)) \
+    { \
+    written = ~(PCRE2_SIZE)0; \
+    goto END; \
+    } \
+  \
+  i += num_read; \
+  if (to_case == PCRE2_SUBSTITUTE_CASE_TITLE_FIRST) \
+    to_case = PCRE2_SUBSTITUTE_CASE_LOWER; \
+  \
+  if (written + num_write > output_cap) \
+    { \
+    written += num_write; \
+    } \
+  else \
+    { \
+    if (num_write > 0) output[written++] = c1; \
+    if (num_write > 1) output[written++] = c2; \
+    } \
+  } \
+\
+END: \
+if (input_copy != buf) free((G(PCRE2_UCHAR,BITS) *)input_copy); \
+\
+/* Let's be maximally cruel. The case callout is allowed to leave the output
+buffer in any state at all if it overflows, so let's use random garbage. */ \
+if (written > output_cap) \
+  memset(output, time(NULL) & 1 ? 0xcd : 0xdc, \
+         output_cap * sizeof(G(PCRE2_UCHAR,BITS))); \
+\
+return written; \
+}
+
+#if defined SUPPORT_PCRE2_8
+substitute_case_callout_function(8)
+#endif
+#if defined SUPPORT_PCRE2_16
+substitute_case_callout_function(16)
+#endif
+#if defined SUPPORT_PCRE2_32
+substitute_case_callout_function(32)
+#endif
+
+
+/*************************************************
 *              Callout function                  *
 *************************************************/
 
@@ -6675,13 +7016,13 @@ for (;;)
 
   PCRE2_SUBSTRING_NUMBER_FROM_NAME(groupnumber, compiled_code, pbuffer);
   if (groupnumber < 0 && groupnumber != PCRE2_ERROR_NOUNIQUESUBSTRING)
-    fprintf(outfile, "Number not found for group '%s'\n", nptr);
+    fprintf(outfile, "Number not found for group \"%s\"\n", nptr);
 
   length = sizeof(copybuffer)/code_unit_size;
   PCRE2_SUBSTRING_COPY_BYNAME(rc, match_data, pbuffer, copybuffer, &length);
   if (rc < 0)
     {
-    fprintf(outfile, "Copy substring '%s' failed (%d): ", nptr, rc);
+    fprintf(outfile, "Copy substring \"%s\" failed (%d): ", nptr, rc);
     if (!print_error_message(rc, "", "\n")) return FALSE;
     }
   else
@@ -6689,7 +7030,7 @@ for (;;)
     PCRE2_SUBSTRING_LENGTH_BYNAME(rc, match_data, pbuffer, &length2);
     if (rc < 0)
       {
-      fprintf(outfile, "Get substring '%s' length failed (%d): ", nptr, rc);
+      fprintf(outfile, "Get substring \"%s\" length failed (%d): ", nptr, rc);
       if (!print_error_message(rc, "", "\n")) return FALSE;
       }
     else if (length2 != length)
@@ -6756,12 +7097,12 @@ for (;;)
 
   PCRE2_SUBSTRING_NUMBER_FROM_NAME(groupnumber, compiled_code, pbuffer);
   if (groupnumber < 0 && groupnumber != PCRE2_ERROR_NOUNIQUESUBSTRING)
-    fprintf(outfile, "Number not found for group '%s'\n", nptr);
+    fprintf(outfile, "Number not found for group \"%s\"\n", nptr);
 
   PCRE2_SUBSTRING_GET_BYNAME(rc, match_data, pbuffer, &gotbuffer, &length);
   if (rc < 0)
     {
-    fprintf(outfile, "Get substring '%s' failed (%d): ", nptr, rc);
+    fprintf(outfile, "Get substring \"%s\" failed (%d): ", nptr, rc);
     if (!print_error_message(rc, "", "\n")) return FALSE;
     }
   else
@@ -6919,7 +7260,11 @@ len = strlen((const char *)buffer);
 while (len > 0 && isspace(buffer[len-1])) len--;
 buffer[len] = 0;
 p = buffer;
-while (isspace(*p)) p++;
+while (isspace(*p))
+  {
+  p++;
+  len--;
+  }
 
 /* Check that the data is well-formed UTF-8 if we're in UTF mode. To create
 invalid input to pcre2_match(), you must use \x?? or \x{} sequences. */
@@ -6976,8 +7321,9 @@ in 16- and 32-bit modes, it can be forced to UTF-8 by the utf8_input modifier.
 
 while ((c = *p++) != 0)
   {
-  int32_t i = 0;
+  int i = 0;
   size_t replen;
+  enum force_encoding encoding = FORCE_NONE;
 
   /* ] may mark the end of a replicated sequence */
 
@@ -6999,6 +7345,7 @@ while ((c = *p++) != 0)
       fprintf(outfile, "** Repeat count too large\n");
       return PR_OK;
       }
+    i = (int)li;
 
     p = (uint8_t *)endptr;
     if (*p++ != '}')
@@ -7007,7 +7354,6 @@ while ((c = *p++) != 0)
       return PR_OK;
       }
 
-    i = (int32_t)li;
     if (i-- <= 0)
       {
       fprintf(outfile, "** Zero or negative repeat not allowed\n");
@@ -7085,8 +7431,10 @@ while ((c = *p++) != 0)
     case '0': case '1': case '2': case '3':
     case '4': case '5': case '6': case '7':
     c -= '0';
-    while (i++ < 2 && isdigit(*p) && *p != '8' && *p != '9')
-      c = c * 8 + *p++ - '0';
+    while (i++ < 2 && isdigit(*p) && *p < '8')
+      c = c * 8 + (*p++ - '0');
+
+    encoding = (utf && c > 255)? FORCE_UTF : FORCE_RAW;
     break;
 
     case 'o':
@@ -7094,63 +7442,90 @@ while ((c = *p++) != 0)
       {
       uint8_t *pt = p;
       c = 0;
-      for (pt++; isdigit(*pt) && *pt != '8' && *pt != '9'; pt++)
+      for (pt++; isdigit(*pt) && *pt < '8'; ++i, pt++)
         {
-        if (++i == 12)
-          fprintf(outfile, "** Too many octal digits in \\o{...} item; "
-                           "using only the first twelve.\n");
-        else c = c * 8 + *pt - '0';
+        if (c >= 0x20000000u)
+          {
+          fprintf(outfile, "** \\o{ escape too large\n");
+          return PR_OK;
+          }
+        else c = c * 8 + (*pt - '0');
         }
-      if (*pt == '}') p = pt + 1;
-        else fprintf(outfile, "** Missing } after \\o{ (assumed)\n");
+      if (i == 0 || *pt != '}')
+        {
+        fprintf(outfile, "** Malformed \\o{ escape\n");
+        return PR_OK;
+        }
+      else p = pt + 1;
       }
     break;
 
     case 'x':
+    c = 0;
     if (*p == '{')
       {
       uint8_t *pt = p;
-      c = 0;
 
       /* We used to have "while (isxdigit(*(++pt)))" here, but it fails
       when isxdigit() is a macro that refers to its argument more than
       once. This is banned by the C Standard, but apparently happens in at
-      least one MacOS environment. */
+      least one macOS environment. */
 
       for (pt++; isxdigit(*pt); pt++)
         {
         if (++i == 9)
+          {
           fprintf(outfile, "** Too many hex digits in \\x{...} item; "
                            "using only the first eight.\n");
-        else c = c * 16 + tolower(*pt) - ((isdigit(*pt))? '0' : 'a' - 10);
+          while (isxdigit(*pt)) pt++;
+          break;
+          }
+        else c = c * 16 + (tolower(*pt) - (isdigit(*pt)? '0' : 'a' - 10));
         }
-      if (*pt == '}')
+      if (i == 0 || *pt != '}')
         {
-        p = pt + 1;
+        fprintf(outfile, "** Malformed \\x{ escape\n");
+        return PR_OK;
+        }
+      else p = pt + 1;
+      }
+    else
+      {
+      /* \x without {} always defines just one byte in 8-bit mode. This
+      allows UTF-8 characters to be constructed byte by byte, and also allows
+      invalid UTF-8 sequences to be made. Just copy the byte in UTF-8 mode.
+      Otherwise, pass it down as data. */
+
+      while (i++ < 2 && isxdigit(*p))
+        {
+        c = c * 16 + (tolower(*p) - (isdigit(*p)? '0' : 'a' - 10));
+        p++;
+        }
+#if defined SUPPORT_PCRE2_8
+      if (utf && (test_mode == PCRE8_MODE)) encoding = FORCE_RAW;
+#endif
+      }
+    break;
+
+    case 'N':
+    if (memcmp(p, "{U+", 3) == 0 && isxdigit(p[3]))
+      {
+      char *endptr;
+      unsigned long uli;
+
+      p += 3;
+      errno = 0;
+      uli = strtoul((const char *)p, &endptr, 16);
+      if (errno == 0 && *endptr == '}' && uli <= UINT32_MAX)
+        {
+        c = (uint32_t)uli;
+        p = (uint8_t *)endptr + 1;
+        encoding = FORCE_UTF;
         break;
         }
-      /* Not correct form for \x{...}; fall through */
       }
-
-    /* \x without {} always defines just one byte in 8-bit mode. This
-    allows UTF-8 characters to be constructed byte by byte, and also allows
-    invalid UTF-8 sequences to be made. Just copy the byte in UTF-8 mode.
-    Otherwise, pass it down as data. */
-
-    c = 0;
-    while (i++ < 2 && isxdigit(*p))
-      {
-      c = c * 16 + tolower(*p) - ((isdigit(*p))? '0' : 'a' - 10);
-      p++;
-      }
-#if defined SUPPORT_PCRE2_8
-    if (utf && (test_mode == PCRE8_MODE))
-      {
-      *q8++ = c;
-      continue;
-      }
-#endif
-    break;
+    fprintf(outfile, "** Malformed \\N{U+ escape\n");
+    return PR_OK;
 
     case 0:     /* \ followed by EOF allows for an empty line */
     p--;
@@ -7177,24 +7552,13 @@ while ((c = *p++) != 0)
     }
 
   /* We now have a character value in c that may be greater than 255.
-  In 8-bit mode we convert to UTF-8 if we are in UTF mode. Values greater
-  than 127 in UTF mode must have come from \x{...} or octal constructs
-  because values from \x.. get this far only in non-UTF mode. */
+  Depending of how we got it, the encoding enum could be set to tell
+  us how to encode it, otherwise follow the utf modifier. */
 
 #ifdef SUPPORT_PCRE2_8
   if (test_mode == PCRE8_MODE)
     {
-    if (utf)
-      {
-      if (c > 0x7fffffff)
-        {
-        fprintf(outfile, "** Character \\x{%x} is greater than 0x7fffffff "
-          "and so cannot be converted to UTF-8\n", c);
-        return PR_OK;
-        }
-      q8 += ord2utf8(c, q8);
-      }
-    else
+    if (encoding == FORCE_RAW || !(utf || encoding == FORCE_UTF))
       {
       if (c > 0xffu)
         {
@@ -7205,29 +7569,29 @@ while ((c = *p++) != 0)
         }
       *q8++ = (uint8_t)c;
       }
+    else
+      {
+      if (c > 0x7fffffff)
+        {
+        fprintf(outfile, "** Character \\N{U+%x} is greater than 0x7fffffff "
+                         "and therefore cannot be encoded as UTF-8\n", c);
+        return PR_OK;
+        }
+      else if (encoding == FORCE_UTF && c > MAX_UTF_CODE_POINT)
+        fprintf(outfile, "** Warning: character \\N{U+%x} is greater than "
+                         "0x%x and should not be encoded as UTF-8\n",
+                         c, MAX_UTF_CODE_POINT);
+      q8 += ord2utf8(c, q8);
+      }
     }
 #endif
 #ifdef SUPPORT_PCRE2_16
   if (test_mode == PCRE16_MODE)
     {
-    if (utf)
-      {
-      if (c > 0x10ffffu)
-        {
-        fprintf(outfile, "** Failed: character \\x{%x} is greater than "
-          "0x10ffff and so cannot be converted to UTF-16\n", c);
-        return PR_OK;
-        }
-      else if (c >= 0x10000u)
-        {
-        c-= 0x10000u;
-        *q16++ = 0xD800 | (c >> 10);
-        *q16++ = 0xDC00 | (c & 0x3ff);
-        }
-      else
-        *q16++ = c;
-      }
-    else
+    /* Unlike the 8-bit code, there are no forced raw suggestions for the
+    16-bit mode, so assume raw unless utf is preferred */
+
+    if (!(encoding == FORCE_UTF || utf))
       {
       if (c > 0xffffu)
         {
@@ -7236,14 +7600,40 @@ while ((c = *p++) != 0)
         fprintf(outfile, "** Truncation will probably give the wrong "
           "result.\n");
         }
-
       *q16++ = (uint16_t)c;
+      }
+    else
+      {
+      if (c > MAX_UTF_CODE_POINT)
+        {
+        fprintf(outfile, "** Failed: character \\N{U+%x} is greater than "
+                         "0x%x and therefore cannot be encoded as UTF-16\n",
+                c, MAX_UTF_CODE_POINT);
+        return PR_OK;
+        }
+      else if (c >= 0x10000u)
+        {
+        c -= 0x10000u;
+        *q16++ = 0xD800 | (c >> 10);
+        *q16++ = 0xDC00 | (c & 0x3ff);
+        }
+      else
+        {
+        if (encoding == FORCE_UTF && 0xe000u > c && c >= 0xd800u)
+          fprintf(outfile, "** Warning: character \\N{U+%x} is a surrogate "
+                           "and should not be encoded as UTF-16\n", c);
+        *q16++ = c;
+        }
       }
     }
 #endif
 #ifdef SUPPORT_PCRE2_32
   if (test_mode == PCRE32_MODE)
     {
+    if (encoding == FORCE_UTF && c > MAX_UTF_CODE_POINT)
+      fprintf(outfile, "** Warning: character \\N{U+%x} is greater than "
+                       "0x%x and should not be encoded as UTF-32\n",
+                       c, MAX_UTF_CODE_POINT);
     *q32++ = c;
     }
 #endif
@@ -7279,12 +7669,19 @@ for (k = 0; k < sizeof(exclusive_dat_controls)/sizeof(uint32_t); k++)
     }
   }
 
-if (pat_patctl.replacement[0] != 0)
+if (dat_datctl.replacement[0] != 0)
   {
   if ((dat_datctl.control2 & CTL2_SUBSTITUTE_CALLOUT) != 0 &&
       (dat_datctl.control & CTL_NULLCONTEXT) != 0)
     {
     fprintf(outfile, "** Replacement callouts are not supported with null_context.\n");
+    return PR_OK;
+    }
+
+  if ((dat_datctl.control2 & CTL2_SUBSTITUTE_CASE_CALLOUT) != 0 &&
+      (dat_datctl.control & CTL_NULLCONTEXT) != 0)
+    {
+    fprintf(outfile, "** Replacement case callouts are not supported with null_context.\n");
     return PR_OK;
     }
 
@@ -7630,7 +8027,7 @@ if (dat_datctl.replacement[0] != 0)
   if (*pr == '[')
     {
     PCRE2_SIZE n = 0;
-    while ((c = *(++pr)) >= CHAR_0 && c <= CHAR_9) n = n * 10 + c - CHAR_0;
+    while ((c = *(++pr)) >= CHAR_0 && c <= CHAR_9) n = n * 10 + (c - CHAR_0);
     if (*pr++ != ']')
       {
       fprintf(outfile, "Bad buffer size in replacement string\n");
@@ -7713,6 +8110,15 @@ if (dat_datctl.replacement[0] != 0)
   else
     {
     PCRE2_SET_SUBSTITUTE_CALLOUT(dat_context, NULL, NULL);  /* No callout */
+    }
+
+  if ((dat_datctl.control2 & CTL2_SUBSTITUTE_CASE_CALLOUT) != 0)
+    {
+    PCRE2_SET_SUBSTITUTE_CASE_CALLOUT(dat_context, substitute_case_callout_function, NULL);
+    }
+  else
+    {
+    PCRE2_SET_SUBSTITUTE_CASE_CALLOUT_NULL(dat_context);  /* No callout */
     }
 
   /* There is a special option to set the replacement to NULL in order to test
@@ -7835,6 +8241,7 @@ for (gmatched = 0;; gmatched++)
   if ((dat_datctl.control & (CTL_FINDLIMITS|CTL_FINDLIMITS_NOHEAP)) != 0)
     {
     capcount = 0;  /* This stops compiler warnings */
+    (void)capcount;
 
     if ((dat_datctl.control & CTL_FINDLIMITS_NOHEAP) == 0 &&
         (FLD(compiled_code, executable_jit) == NULL ||
@@ -7915,13 +8322,20 @@ for (gmatched = 0;; gmatched++)
   /* The result of the match is now in capcount. First handle a successful
   match. If pp was forced to be NULL (to test NULL handling) it will have been
   treated as an empty string if the length was zero. So re-create that for
-  outputting. */
+  outputting. Don't just point to "" because that leads to a "loss of const"
+  warning. */
 
   if (capcount >= 0)
     {
-    int i;
-
-    if (pp == NULL) pp = (uint8_t *)"";
+    if (pp == NULL)
+      {
+#ifdef SUPPORT_VALGRIND
+      /* Mark the start of dbuffer addressable again. */
+      VALGRIND_MAKE_MEM_UNDEFINED(dbuffer, 1);
+#endif
+      pp = dbuffer;
+      pp[0] = 0;
+      }
 
     if (capcount > (int)oveccount)   /* Check for lunatic return value */
       {
@@ -7946,11 +8360,11 @@ for (gmatched = 0;; gmatched++)
         fprintf(outfile,
           "** PCRE2 error: flag not set after copy_matched_subject\n");
 
-      if (CASTFLD(void *, match_data, subject) == pp)
+      if (CASTFLD(const void *, match_data, subject) == pp)
         fprintf(outfile,
           "** PCRE2 error: copy_matched_subject has not copied\n");
 
-      if (memcmp(CASTFLD(void *, match_data, subject), pp, ulen) != 0)
+      if (memcmp(CASTFLD(const void *, match_data, subject), pp, ulen) != 0)
         fprintf(outfile,
           "** PCRE2 error: copy_matched_subject mismatch\n");
       }
@@ -7997,7 +8411,7 @@ for (gmatched = 0;; gmatched++)
     /* Output the captured substrings. Note that, for the matched string,
     the use of \K in an assertion can make the start later than the end. */
 
-    for (i = 0; i < 2*capcount; i += 2)
+    for (int i = 0; i < 2*capcount; i += 2)
       {
       PCRE2_SIZE lleft, lmiddle, lright;
       PCRE2_SIZE start = ovector[i];
@@ -8128,7 +8542,7 @@ for (gmatched = 0;; gmatched++)
          TESTFLD(match_data, mark, !=, NULL))
       {
       fprintf(outfile, "MK: ");
-      PCHARSV(CASTFLD(void *, match_data, mark), -1, -1, utf, outfile);
+      PCHARSV(CASTFLD(const void *, match_data, mark), -1, -1, utf, outfile);
       fprintf(outfile, "\n");
       }
 
@@ -8160,7 +8574,7 @@ for (gmatched = 0;; gmatched++)
          TESTFLD(match_data, mark, !=, NULL))
       {
       fprintf(outfile, ", mark=");
-      PCHARS(rubriclength, CASTFLD(void *, match_data, mark), -1, -1, utf,
+      PCHARS(rubriclength, CASTFLD(const void *, match_data, mark), -1, -1, utf,
         outfile);
       rubriclength += 7;
       }
@@ -8176,9 +8590,8 @@ for (gmatched = 0;; gmatched++)
 
     if (backlength != 0)
       {
-      int i;
-      for (i = 0; i < rubriclength; i++) fprintf(outfile, " ");
-      for (i = 0; i < backlength; i++) fprintf(outfile, "<");
+      for (int i = 0; i < rubriclength; i++) fprintf(outfile, " ");
+      for (int i = 0; i < backlength; i++) fprintf(outfile, "<");
       fprintf(outfile, "\n");
       }
 
@@ -8259,7 +8672,7 @@ for (gmatched = 0;; gmatched++)
              TESTFLD(match_data, mark, !=, NULL))
           {
           fprintf(outfile, ", mark = ");
-          PCHARSV(CASTFLD(void *, match_data, mark), -1, -1, utf, outfile);
+          PCHARSV(CASTFLD(const void *, match_data, mark), -1, -1, utf, outfile);
           }
         if ((pat_patctl.control & CTL_JITVERIFY) != 0 && jit_was_used)
           fprintf(outfile, " (JIT)");
@@ -8506,6 +8919,7 @@ printf("     bsr            \\R type [ANYCRLF, ANY]\n");
 printf("     ebcdic         compiled for EBCDIC character code [0,1]\n");
 printf("     ebcdic-nl      NL code if compiled for EBCDIC\n");
 printf("     jit            just-in-time compiler supported [0, 1]\n");
+printf("     jitusable      test JIT usability [0, 1, 2, 3]\n");
 printf("     linksize       internal link size [2, 3, 4]\n");
 printf("     newline        newline type [CR, LF, CRLF, ANYCRLF, ANY, NUL]\n");
 printf("     pcre2-8        8 bit library support enabled [0, 1]\n");
@@ -8563,7 +8977,7 @@ if (arg != NULL && arg[0] != CHAR_MINUS)
 
   if (i >= COPTLISTCOUNT)
     {
-    fprintf(stderr, "** Unknown -C option '%s'\n", arg);
+    fprintf(stderr, "** Unknown -C option \"%s\"\n", arg);
     return 0;
     }
 
@@ -8592,6 +9006,19 @@ if (arg != NULL && arg[0] != CHAR_MINUS)
     case CONF_NL:
     (void)PCRE2_CONFIG(coptlist[i].value, &optval);
     print_newline_config(optval, TRUE);
+    break;
+
+    case CONF_JU:
+    SET(compiled_code, NULL);
+    PCRE2_JIT_COMPILE(yield, compiled_code, PCRE2_JIT_TEST_ALLOC);
+    switch(yield)
+      {
+      case 0: break;
+      case PCRE2_ERROR_NOMEMORY: yield = 1; break;
+      case PCRE2_ERROR_JIT_UNSUPPORTED: yield = 2; break;
+      default: yield = 3; break;
+      }
+    printf("%d\n", yield);
     break;
     }
 
@@ -8663,9 +9090,30 @@ else printf("  No Unicode support\n");
 (void)PCRE2_CONFIG(PCRE2_CONFIG_JIT, &optval);
 if (optval != 0)
   {
-  printf("  Just-in-time compiler support: ");
+  printf("  Just-in-time compiler support\n");
+  printf("    Architecture: ");
   print_jit_target(stdout);
   printf("\n");
+
+  printf("    Can allocate executable memory: ");
+  SET(compiled_code, NULL);
+  PCRE2_JIT_COMPILE(yield, compiled_code, PCRE2_JIT_TEST_ALLOC);
+  switch(yield)
+    {
+    case 0:
+    printf("Yes\n");
+    break;
+
+    case PCRE2_ERROR_NOMEMORY:
+    printf("No (so cannot work)\n");
+    break;
+
+    default:
+    printf("\n** Unexpected return %d from "
+      "pcre2_jit_compile(NULL, PCRE2_JIT_TEST_ALLOC)\n", yield);
+    printf("** Should not occur\n");
+    break;
+    }
   }
 else
   {
@@ -8918,7 +9366,7 @@ for (i = 0; i < MODLISTCOUNT; i++)
     is_pattern = FALSE;
     break;
 
-    default: printf("** Unknown type for modifier '%s'\n", m->name);
+    default: printf("** Unknown type for modifier \"%s\"\n", m->name);
     /* Fall through */
     case MOD_PD:        /* Pattern or subject */
     case MOD_PDP:       /* As PD, OK for Perl-compatible test */
@@ -9313,7 +9761,7 @@ while (argc > 1 && argv[op][0] == '-' && argv[op][1] != 0)
 
   else
     {
-    fprintf(stderr, "** Unknown or malformed option '%s'\n", arg);
+    fprintf(stderr, "** Unknown or malformed option \"%s\"\n", arg);
     usage();
     yield = 1;
     goto EXIT;
@@ -9371,7 +9819,7 @@ least 128 code units, because it is used for retrieving error messages. */
     errcode = strtol(arg_error, &endptr, 10);
     if (*endptr != 0 && *endptr != CHAR_COMMA)
       {
-      fprintf(stderr, "** '%s' is not a valid error number list\n", arg_error);
+      fprintf(stderr, "** \"%s\" is not a valid error number list\n", arg_error);
       yield = 1;
       goto EXIT;
       }
@@ -9402,7 +9850,8 @@ least 128 code units, because it is used for retrieving error messages. */
     if (*endptr == 0) goto EXIT;
     arg_error = endptr + 1;
     }
-  /* Control never reaches here */
+
+  PCRE2_UNREACHABLE(); /* Control never reaches here */
   }  /* End of -error handling */
 
 /* Initialize things that cannot be done until we know which test mode we are
@@ -9495,7 +9944,7 @@ if (argc > 1 && strcmp(argv[op], "-") != 0)
   infile = fopen(argv[op], INPUT_MODE);
   if (infile == NULL)
     {
-    printf("** Failed to open '%s': %s\n", argv[op], strerror(errno));
+    printf("** Failed to open \"%s\": %s\n", argv[op], strerror(errno));
     yield = 1;
     goto EXIT;
     }
@@ -9510,7 +9959,7 @@ if (argc > 2)
   outfile = fopen(argv[op+1], OUTPUT_MODE);
   if (outfile == NULL)
     {
-    printf("** Failed to open '%s': %s\n", argv[op+1], strerror(errno));
+    printf("** Failed to open \"%s\": %s\n", argv[op+1], strerror(errno));
     yield = 1;
     goto EXIT;
     }
@@ -9651,7 +10100,7 @@ free(dbuffer);
 free(pbuffer8);
 free(dfa_workspace);
 free(tables3);
-PCRE2_MAKETABLES_FREE(general_context, (void *)locale_tables);
+PCRE2_MAKETABLES_FREE(general_context, (const void *)locale_tables);
 PCRE2_MATCH_DATA_FREE(match_data);
 SUB1(pcre2_code_free, compiled_code);
 

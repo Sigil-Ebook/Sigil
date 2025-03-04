@@ -1,4 +1,4 @@
-.TH PCRE2_SET_SUBSTITUTE_CALLOUT 3 "12 November 2018" "PCRE2 10.33"
+.TH PCRE2_SET_SUBSTITUTE_CALLOUT 3 "04 October 2024" "PCRE2 10.45"
 .SH NAME
 PCRE2 - Perl-compatible regular expressions (revised API)
 .SH SYNOPSIS
@@ -8,7 +8,7 @@ PCRE2 - Perl-compatible regular expressions (revised API)
 .PP
 .nf
 .B int pcre2_set_substitute_callout(pcre2_match_context *\fImcontext\fP,
-.B "  int (*\fIcallout_function\fP)(pcre2_substitute_callout_block *),"
+.B "  int (*\fIcallout_function\fP)(pcre2_substitute_callout_block *, void *),"
 .B "  void *\fIcallout_data\fP);"
 .fi
 .

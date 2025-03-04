@@ -64,7 +64,7 @@ platforms:
 If --enable-jit is set on an unsupported platform, compilation fails.
 </P>
 <P>
-A client program can tell if JIT support is available by calling
+A client program can tell if JIT support has been compiled by calling
 <b>pcre2_config()</b> with the PCRE2_CONFIG_JIT option. The result is one if
 PCRE2 was built with JIT support, and zero otherwise. However, having the JIT
 code available does not guarantee that it will be used for any particular
@@ -72,9 +72,17 @@ match. One reason for this is that there are a number of options and pattern
 items that are
 <a href="#unsupported">not supported by JIT</a>
 (see below). Another reason is that in some environments JIT is unable to get
-memory in which to build its compiled code. The only guarantee from
+executable memory in which to build its compiled code. The only guarantee from
 <b>pcre2_config()</b> is that if it returns zero, JIT will definitely <i>not</i>
 be used.
+</P>
+<P>
+As of release 10.45 there is a more informative way to test for JIT support. If
+<b>pcre2_compile_jit()</b> is called with the single option PCRE2_JIT_TEST_ALLOC
+it returns zero if JIT is available and has a working allocator. Otherwise it
+returns PCRE2_ERROR_NOMEMORY if JIT is available but cannot allocate executable
+memory, or PCRE2_ERROR_JIT_UNSUPPORTED if JIT support is not compiled. The
+code argument is ignored, so it can be a NULL value.
 </P>
 <P>
 A simple program does not need to check availability in order to use JIT when
@@ -126,7 +134,8 @@ option bits. For example, you can call it once with PCRE2_JIT_COMPLETE and
 PCRE2_JIT_COMPLETE and PCRE2_JIT_PARTIAL_HARD. This time it will ignore
 PCRE2_JIT_COMPLETE and just compile code for partial matching. If
 <b>pcre2_jit_compile()</b> is called with no option bits set, it immediately
-returns zero. This is an alternative way of testing whether JIT is available.
+returns zero. This is an alternative way of testing whether JIT support has
+been compiled.
 </P>
 <P>
 At present, it is not possible to free JIT compiled code except when the entire
@@ -487,7 +496,7 @@ Cambridge, England.
 </P>
 <br><a name="SEC14" href="#TOC1">REVISION</a><br>
 <P>
-Last updated: 21 February 2024
+Last updated: 22 August 2024
 <br>
 Copyright &copy; 1997-2024 University of Cambridge.
 <br>

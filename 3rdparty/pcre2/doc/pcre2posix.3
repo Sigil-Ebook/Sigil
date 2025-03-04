@@ -1,4 +1,4 @@
-.TH PCRE2POSIX 3 "19 January 2024" "PCRE2 10.43"
+.TH PCRE2POSIX 3 "27 November 2024" "PCRE2 10.45"
 .SH NAME
 PCRE2 - Perl-compatible regular expressions (revised API)
 .SH "SYNOPSIS"
@@ -143,7 +143,7 @@ REG_UTF. Note that REG_NOSPEC is not part of the POSIX standard.
 .sp
 When a pattern that is compiled with this flag is passed to
 \fBpcre2_regexec()\fP for matching, the \fInmatch\fP and \fIpmatch\fP arguments
-are ignored, and no captured strings are returned. Versions of the PCRE library
+are ignored, and no captured strings are returned. Versions of the PCRE2 library
 prior to 10.22 used to set the PCRE2_NO_AUTO_CAPTURE compile option, but this
 no longer happens because it disables the use of backreferences.
 .sp
@@ -343,6 +343,6 @@ Cambridge, England.
 .rs
 .sp
 .nf
-Last updated: 19 January 2024
+Last updated: 27 November 2024
 Copyright (c) 1997-2024 University of Cambridge.
 .fi

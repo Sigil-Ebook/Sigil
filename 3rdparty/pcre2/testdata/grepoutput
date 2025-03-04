@@ -10,7 +10,7 @@ RC=0
 7:PATTERN at the start of a line.
 8:In the middle of a line, PATTERN appears.
 10:This pattern is in lower case.
-623:Check up on PATTERN near the end.
+642:Check up on PATTERN near the end.
 RC=0
 ---------------------------- Test 4 ------------------------------
 4
@@ -19,7 +19,7 @@ RC=0
 ./testdata/grepinput:7:PATTERN at the start of a line.
 ./testdata/grepinput:8:In the middle of a line, PATTERN appears.
 ./testdata/grepinput:10:This pattern is in lower case.
-./testdata/grepinput:623:Check up on PATTERN near the end.
+./testdata/grepinput:642:Check up on PATTERN near the end.
 ./testdata/grepinputx:3:Here is the pattern again.
 ./testdata/grepinputx:5:Pattern
 ./testdata/grepinputx:42:This line contains pattern not on a line by itself.
@@ -28,7 +28,7 @@ RC=0
 7:PATTERN at the start of a line.
 8:In the middle of a line, PATTERN appears.
 10:This pattern is in lower case.
-623:Check up on PATTERN near the end.
+642:Check up on PATTERN near the end.
 3:Here is the pattern again.
 5:Pattern
 42:This line contains pattern not on a line by itself.
@@ -45,7 +45,7 @@ RC=0
 ---------------------------- Test 10 -----------------------------
 RC=1
 ---------------------------- Test 11 -----------------------------
-1:This is a second file of input for the pcregrep tests.
+1:This is a second file of input for the pcre2grep tests.
 2:
 4:
 5:Pattern
@@ -324,12 +324,12 @@ RC=0
 ./testdata/grepinput-9-
 ./testdata/grepinput:10:This pattern is in lower case.
 --
-./testdata/grepinput-620-PUT NEW DATA ABOVE THIS LINE.
-./testdata/grepinput-621-=============================
-./testdata/grepinput-622-
-./testdata/grepinput:623:Check up on PATTERN near the end.
+./testdata/grepinput-639-PUT NEW DATA ABOVE THIS LINE.
+./testdata/grepinput-640-=============================
+./testdata/grepinput-641-
+./testdata/grepinput:642:Check up on PATTERN near the end.
 --
-./testdata/grepinputx-1-This is a second file of input for the pcregrep tests.
+./testdata/grepinputx-1-This is a second file of input for the pcre2grep tests.
 ./testdata/grepinputx-2-
 ./testdata/grepinputx:3:Here is the pattern again.
 ./testdata/grepinputx-4-
@@ -349,8 +349,8 @@ RC=0
 ./testdata/grepinput-12-Here follows a whole lot of stuff that makes the file over 24KiB long.
 ./testdata/grepinput-13-
 --
-./testdata/grepinput:623:Check up on PATTERN near the end.
-./testdata/grepinput-624-This is the last line of this file.
+./testdata/grepinput:642:Check up on PATTERN near the end.
+./testdata/grepinput-643-This is the last line of this file.
 --
 ./testdata/grepinputx:3:Here is the pattern again.
 ./testdata/grepinputx-4-
@@ -436,8 +436,11 @@ RC=0
 RC=0
 ---------------------------- Test 46 ------------------------------
 pcre2grep: Error in 1st command-line regex at offset 8: unmatched closing parenthesis
+RC=2
 pcre2grep: Error in 2nd command-line regex at offset 9: missing closing parenthesis
+RC=2
 pcre2grep: Error in 3rd command-line regex at offset 9: missing terminating ] for character class
+RC=2
 pcre2grep: Error in 4th command-line regex at offset 9: missing terminating ] for character class
 RC=2
 ---------------------------- Test 47 ------------------------------
@@ -464,6 +467,7 @@ The word is cat in this line
 The caterpillar sat on the mat
 The snowcat is not an animal
 A buried feline in the syndicate
+trailing spaces 
 RC=0
 ---------------------------- Test 52 ------------------------------
 fox [1;31mjumps[0m
@@ -492,7 +496,10 @@ RC=0
 ./testdata/grepinput:456
 ./testdata/grepinput3:0
 ./testdata/grepinput8:0
+./testdata/grepinputBad8:0
+./testdata/grepinputBad8_Trail:0
 ./testdata/grepinputM:0
+./testdata/grepinputUN:0
 ./testdata/grepinputv:1
 ./testdata/grepinputx:0
 RC=0
@@ -554,7 +561,7 @@ RC=0
 pear
 RC=0
 ---------------------------- Test 69 -----------------------------
-1:This is a second file of input for the pcregrep tests.
+1:This is a second file of input for the pcre2grep tests.
 2:
 4:
 5:Pattern
@@ -721,6 +728,8 @@ RC=0
 ---------------------------- Test 96 -----------------------------
 ./testdata/grepinput3
 ./testdata/grepinput8
+./testdata/grepinputBad8
+./testdata/grepinputBad8_Trail
 ./testdata/grepinputx
 RC=0
 ---------------------------- Test 97 -----------------------------
@@ -832,7 +841,10 @@ RC=0
 testdata/grepinput:469
 testdata/grepinput3:0
 testdata/grepinput8:0
+testdata/grepinputBad8:0
+testdata/grepinputBad8_Trail:0
 testdata/grepinputM:2
+testdata/grepinputUN:0
 testdata/grepinputv:3
 testdata/grepinputx:6
 TOTAL:480
@@ -851,7 +863,10 @@ RC=0
 469
 0
 0
+0
+0
 2
+0
 3
 6
 480
@@ -859,6 +874,9 @@ RC=0
 ---------------------------- Test 118 -----------------------------
 testdata/grepinput3
 testdata/grepinput8
+testdata/grepinputBad8
+testdata/grepinputBad8_Trail
+testdata/grepinputUN
 RC=0
 ---------------------------- Test 119 -----------------------------
 123
@@ -871,6 +889,10 @@ xyz
 ---
 RC=0
 ---------------------------- Test 120 ------------------------------
+./testdata/grepinput:the binary zero.:zerothe.
+./testdata/grepinput:a binary zero:zeroa
+./testdata/grepinput:the binary zero.:zerothe.
+RC=0
 ./testdata/grepinput:the binary zero.:zerothe.
 ./testdata/grepinput:a binary zero:zeroa
 ./testdata/grepinput:the binary zero.:zerothe.
@@ -1169,6 +1191,7 @@ The word is cat in this line
 The caterpillar sat on the mat
 The snowcat is not an animal
 A buried feline in the syndicate
+trailing spaces 
 RC=0
 ---------------------------- Test 146 -----------------------------
 (standard input):A123B
@@ -1225,13 +1248,14 @@ Usage: pcre2grep [-AaBCcDdEeFfHhIilLMmNnOoPqrstuUVvwxZ] [long options] [pattern]
 Type "pcre2grep --help" for more information and the long options.
 RC=2
 ---------------------------- Test 150 -----------------------------
-pcre2grep: Failed to set locale badlocale (obtained from LC_CTYPE)
+pcre2grep: Failed to set locale locale.bad (obtained from LC_CTYPE)
 RC=2
 ---------------------------- Test 151 -----------------------------
 [1;31mThe[0m quick brown
 [1;31mThe wo[0mrd is cat in [1;31mthis[0m line
 [1;31mThe[0m caterpillar sat on the mat
 [1;31mThe[0m snowcat is not an animal
+RC=0
 ---------------------------- Test 152 -----------------------------
 24:four
 25-five
@@ -1252,4 +1276,57 @@ RC=0
 35-fifteen
 36-sixteen
 37-seventeen
+RC=0
+---------------------------- Test 154 -----------------------------
+RC=1
+---------------------------- Test 155 -----------------------------
+RC=1
+---------------------------- Test 156 -----------------------------
+The quick brown
+fox jumps
+over the lazy dog.
+This time it jumps and jumps and jumps.
+This line contains \E and (regex) *meta* [characters].
+The word is cat in this line
+The caterpillar sat on the mat
+The snowcat is not an animal
+A buried feline in the syndicate
+trailing spaces 
+RC=0
+---------------------------- Test 157 -----------------------------
+RC=0
+---------------------------- Test 158 -----------------------------
+trailing spaces 
+RC=0
+---------------------------- Test 159 -----------------------------
+trailing spaces 
+RC=0
+---------------------------- Test 160 -----------------------------
+622-bnm
+623-asd
+624-qwe
+625:ert
+626-tyu
+627-uio
+628-ggg
+629-asd
+630-dfg
+631-ghj
+632:jkl
+633-abx
+634-def
+635-ghi
+RC=0
+621-cvb
+622-bnm
+623-asd
+624-qwe
+625:ert
+626-tyu
+627-uio
+628-ggg
+629-asd
+630:dfg
+631-ghj
+632-jkl
 RC=0

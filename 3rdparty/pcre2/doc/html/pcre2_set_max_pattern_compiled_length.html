@@ -27,9 +27,9 @@ DESCRIPTION
 </b><br>
 <P>
 This function sets, in a compile context, the maximum size (in bytes) for the
-memory needed to hold the compiled version of a pattern that is compiled with
-this context. The result is always zero. If a pattern that is passed to
-<b>pcre2_compile()</b> with this context needs more memory, an error is
+memory needed to hold the compiled version of a pattern that is using this
+context. The result is always zero. If a pattern that is passed to
+<b>pcre2_compile()</b> referencing this context needs more memory, an error is
 generated. The default is the largest number that a PCRE2_SIZE variable can
 hold, which is effectively unlimited.
 </P>

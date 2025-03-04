@@ -10,12 +10,13 @@ AM_CPPFLAGS="-I$(srcdir)/src"
 ## Specify the documentation files that are distributed.
 
 dist_doc_DATA = \
-  AUTHORS \
+  AUTHORS.md \
   COPYING \
   ChangeLog \
-  LICENCE \
+  LICENCE.md \
   NEWS \
   README \
+  SECURITY.md \
   doc/pcre2.txt \
   doc/pcre2-config.txt \
   doc/pcre2grep.txt \
@@ -86,11 +87,13 @@ dist_html_DATA = \
   doc/html/pcre2_set_max_pattern_length.html \
   doc/html/pcre2_set_max_varlookbehind.html \
   doc/html/pcre2_set_offset_limit.html \
+  doc/html/pcre2_set_optimize.html \
   doc/html/pcre2_set_newline.html \
   doc/html/pcre2_set_parens_nest_limit.html \
   doc/html/pcre2_set_recursion_limit.html \
   doc/html/pcre2_set_recursion_memory_management.html \
   doc/html/pcre2_set_substitute_callout.html \
+  doc/html/pcre2_set_substitute_case_callout.html \
   doc/html/pcre2_substitute.html \
   doc/html/pcre2_substring_copy_byname.html \
   doc/html/pcre2_substring_copy_bynumber.html \
@@ -185,11 +188,13 @@ dist_man_MANS = \
   doc/pcre2_set_max_pattern_length.3 \
   doc/pcre2_set_max_varlookbehind.3 \
   doc/pcre2_set_offset_limit.3 \
+  doc/pcre2_set_optimize.3 \
   doc/pcre2_set_newline.3 \
   doc/pcre2_set_parens_nest_limit.3 \
   doc/pcre2_set_recursion_limit.3 \
   doc/pcre2_set_recursion_memory_management.3 \
   doc/pcre2_set_substitute_callout.3 \
+  doc/pcre2_set_substitute_case_callout.3 \
   doc/pcre2_substitute.3 \
   doc/pcre2_substring_copy_byname.3 \
   doc/pcre2_substring_copy_bynumber.3 \
@@ -272,6 +277,14 @@ EXTRA_DIST += \
   NON-AUTOTOOLS-BUILD \
   HACKING
 
+# These are support files for building with Bazel or Zig
+
+EXTRA_DIST += \
+  BUILD.bazel \
+  MODULE.bazel \
+  WORKSPACE.bazel \
+  build.zig
+
 # These are support files for building under VMS
 
 EXTRA_DIST += \
@@ -279,16 +292,6 @@ EXTRA_DIST += \
   vms/openvms_readme.txt \
   vms/pcre2.h_patch \
   vms/stdint.h
-
-# These files are used in the preparation of a release
-
-EXTRA_DIST += \
-  PrepareRelease \
-  CheckMan \
-  CleanTxt \
-  Detrail \
-  132html \
-  doc/index.html.src
 
 # These files are usable versions of pcre2.h and config.h that are distributed
 # for the benefit of people who are building PCRE2 manually, without the
@@ -374,6 +377,8 @@ COMMON_SOURCES = \
   src/pcre2_auto_possess.c \
   src/pcre2_chkdint.c \
   src/pcre2_compile.c \
+  src/pcre2_compile.h \
+  src/pcre2_compile_class.c \
   src/pcre2_config.c \
   src/pcre2_context.c \
   src/pcre2_convert.c \
@@ -383,6 +388,7 @@ COMMON_SOURCES = \
   src/pcre2_find_bracket.c \
   src/pcre2_internal.h \
   src/pcre2_intmodedep.h \
+  src/pcre2_jit_char_inc.h \
   src/pcre2_jit_compile.c \
   src/pcre2_jit_neon_inc.h \
   src/pcre2_jit_simd_inc.h \
@@ -401,6 +407,7 @@ COMMON_SOURCES = \
   src/pcre2_tables.c \
   src/pcre2_ucd.c \
   src/pcre2_ucp.h \
+  src/pcre2_util.h \
   src/pcre2_valid_utf.c \
   src/pcre2_xclass.c
 
@@ -460,39 +467,39 @@ CLEANFILES += src/pcre2_chartables.c
 # when pcre2_jit_compile.c is processed, so they must be distributed.
 
 EXTRA_DIST += \
-  src/sljit/sljitConfig.h \
-  src/sljit/sljitConfigCPU.h \
-  src/sljit/sljitConfigInternal.h \
-  src/sljit/sljitLir.c \
-  src/sljit/sljitLir.h \
-  src/sljit/sljitNativeARM_32.c \
-  src/sljit/sljitNativeARM_64.c \
-  src/sljit/sljitNativeARM_T2_32.c \
-  src/sljit/sljitNativeLOONGARCH_64.c \
-  src/sljit/sljitNativeMIPS_32.c \
-  src/sljit/sljitNativeMIPS_64.c \
-  src/sljit/sljitNativeMIPS_common.c \
-  src/sljit/sljitNativePPC_32.c \
-  src/sljit/sljitNativePPC_64.c \
-  src/sljit/sljitNativePPC_common.c \
-  src/sljit/sljitNativeRISCV_32.c \
-  src/sljit/sljitNativeRISCV_64.c \
-  src/sljit/sljitNativeRISCV_common.c \
-  src/sljit/sljitNativeS390X.c \
-  src/sljit/sljitNativeX86_32.c \
-  src/sljit/sljitNativeX86_64.c \
-  src/sljit/sljitNativeX86_common.c \
-  src/sljit/sljitSerialize.c \
-  src/sljit/sljitUtils.c \
-  src/sljit/allocator_src/sljitExecAllocatorApple.c \
-  src/sljit/allocator_src/sljitExecAllocatorCore.c \
-  src/sljit/allocator_src/sljitExecAllocatorFreeBSD.c \
-  src/sljit/allocator_src/sljitExecAllocatorPosix.c \
-  src/sljit/allocator_src/sljitExecAllocatorWindows.c \
-  src/sljit/allocator_src/sljitProtExecAllocatorNetBSD.c \
-  src/sljit/allocator_src/sljitProtExecAllocatorPosix.c \
-  src/sljit/allocator_src/sljitWXExecAllocatorPosix.c \
-  src/sljit/allocator_src/sljitWXExecAllocatorWindows.c
+  deps/sljit/sljit_src/sljitConfig.h \
+  deps/sljit/sljit_src/sljitConfigCPU.h \
+  deps/sljit/sljit_src/sljitConfigInternal.h \
+  deps/sljit/sljit_src/sljitLir.c \
+  deps/sljit/sljit_src/sljitLir.h \
+  deps/sljit/sljit_src/sljitNativeARM_32.c \
+  deps/sljit/sljit_src/sljitNativeARM_64.c \
+  deps/sljit/sljit_src/sljitNativeARM_T2_32.c \
+  deps/sljit/sljit_src/sljitNativeLOONGARCH_64.c \
+  deps/sljit/sljit_src/sljitNativeMIPS_32.c \
+  deps/sljit/sljit_src/sljitNativeMIPS_64.c \
+  deps/sljit/sljit_src/sljitNativeMIPS_common.c \
+  deps/sljit/sljit_src/sljitNativePPC_32.c \
+  deps/sljit/sljit_src/sljitNativePPC_64.c \
+  deps/sljit/sljit_src/sljitNativePPC_common.c \
+  deps/sljit/sljit_src/sljitNativeRISCV_32.c \
+  deps/sljit/sljit_src/sljitNativeRISCV_64.c \
+  deps/sljit/sljit_src/sljitNativeRISCV_common.c \
+  deps/sljit/sljit_src/sljitNativeS390X.c \
+  deps/sljit/sljit_src/sljitNativeX86_32.c \
+  deps/sljit/sljit_src/sljitNativeX86_64.c \
+  deps/sljit/sljit_src/sljitNativeX86_common.c \
+  deps/sljit/sljit_src/sljitSerialize.c \
+  deps/sljit/sljit_src/sljitUtils.c \
+  deps/sljit/sljit_src/allocator_src/sljitExecAllocatorApple.c \
+  deps/sljit/sljit_src/allocator_src/sljitExecAllocatorCore.c \
+  deps/sljit/sljit_src/allocator_src/sljitExecAllocatorFreeBSD.c \
+  deps/sljit/sljit_src/allocator_src/sljitExecAllocatorPosix.c \
+  deps/sljit/sljit_src/allocator_src/sljitExecAllocatorWindows.c \
+  deps/sljit/sljit_src/allocator_src/sljitProtExecAllocatorNetBSD.c \
+  deps/sljit/sljit_src/allocator_src/sljitProtExecAllocatorPosix.c \
+  deps/sljit/sljit_src/allocator_src/sljitWXExecAllocatorPosix.c \
+  deps/sljit/sljit_src/allocator_src/sljitWXExecAllocatorWindows.c
 
 # Some of the JIT sources are also in separate files that are #included.
 
@@ -710,9 +717,12 @@ EXTRA_DIST += \
   testdata/grepinput \
   testdata/grepinput3 \
   testdata/grepinput8 \
+  testdata/grepinputBad8 \
+  testdata/grepinputBad8_Trail \
   testdata/grepinputC.bz2 \
   testdata/grepinputC.gz \
   testdata/grepinputM \
+  testdata/grepinputUN \
   testdata/grepinputv \
   testdata/grepinputx \
   testdata/greplist \
@@ -755,6 +765,7 @@ EXTRA_DIST += \
   testdata/testinput24 \
   testdata/testinput25 \
   testdata/testinput26 \
+  testdata/testinput27 \
   testdata/testinputEBC \
   testdata/testinputheap \
   testdata/testoutput1 \
@@ -799,6 +810,7 @@ EXTRA_DIST += \
   testdata/testoutput24 \
   testdata/testoutput25 \
   testdata/testoutput26 \
+  testdata/testoutput27 \
   testdata/testoutputEBC \
   testdata/testoutputheap-16 \
   testdata/testoutputheap-32 \
@@ -819,7 +831,7 @@ CLEANFILES += \
         test3outputB \
         testtry \
         teststdout \
-	teststderr \
+        teststderr \
         teststderrgrep \
         testtemp1grep \
         testtemp2grep \
@@ -957,7 +969,6 @@ endif # WITH_GCOV
 EXTRA_DIST += \
   cmake/COPYING-CMAKE-SCRIPTS \
   cmake/FindEditline.cmake \
-  cmake/FindPackageHandleStandardArgs.cmake \
   cmake/FindReadline.cmake \
   cmake/pcre2-config-version.cmake.in \
   cmake/pcre2-config.cmake.in \

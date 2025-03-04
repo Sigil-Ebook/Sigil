@@ -75,6 +75,12 @@
 
 # ---------------------------------------------------------------------
 
+# Use no_start_optimize because the first code unit is different in 8-bit from
+# the wider modes.
+/\65535/IB,utf,no_start_optimize
+
+/\65536/IB,utf,no_start_optimize
+
 /\x{110000}/IB,utf
 
 /\o{4200000}/IB,utf
@@ -332,6 +338,8 @@
     \x61\xe2\x80\xa9\x62
 
 /[[:a\x{100}b:]]/utf
+
+/[\p{InvalidOrBadProperty}]/
 
 /a[^]b/utf,allow_empty_class,match_unset_backref
     a\x{1234}b
@@ -854,7 +862,13 @@
 
 /[\P{Any}]/B
 
+/[^\P{Any}\P{Any}]/B
+
 /[\P{Any}\E]/B
+
+/\p{Any}#\P{Any}![\p{Any}]:[\P{Any}]@[\p{Any}a-z]%[\P{Any}c]/B,utf
+
+/[\P{Any}\P{Any}\P{Any}]![\p{Any}\p{Any}\p{Any}]:[^\P{Any}\P{Any}]@[^\p{Any}\p{Any}]%[^\p{Any}\P{Any}]/B,utf
 
 /(\P{Yi}+\277)/
 
@@ -944,38 +958,6 @@
 \= Expect no match
     \x{2028}
     \x{200d}
-
-# These are here because Perl has problems with the negative versions of the
-# properties and has changed how it behaves for caseless matching.
-
-/\p{^Lu}/i,utf
-    1234
-\= Expect no match
-    ABC
-
-/\P{Lu}/i,utf
-    1234
-\= Expect no match
-    ABC
-
-/\p{Ll}/i,utf
-    a
-    Az
-\= Expect no match
-    ABC
-
-/\p{Lu}/i,utf
-    A
-    a\x{10a0}B
-\= Expect no match
-    a
-    \x{1d00}
-
-/\p{Lu}/i,utf
-    A
-    aZ
-\= Expect no match
-    abc
 
 /[\x{c0}\x{391}]/i,utf
     \x{c0}
@@ -1735,8 +1717,8 @@
 
 /[^\D\P{Nd}]/utf
     a9b
-    \x{1d7cf}
 \= Expect no match
+    \x{1d7cf}
     \x{10000}
 
 # Hex uses pattern length, not zero-terminated. This tests for overrunning
@@ -2304,7 +2286,282 @@
 \= Expect no match          
     \x{212a}\x{212a}
 
+/[sk](?r:[sk])[sk]/Bi,utf
+    SKS
+    sks
+    \x{212a}S\x{17f}
+    \x{17f}K\x{212a}
+\= Expect no match
+    s\x{212a}s
+    K\x{17f}K
+
+/(.) \1/i,utf,caseless_restrict
+    s S
+    k K
+\= Expect no match
+    s \x{17f}
+    k \x{212a}
+
+/(.) (?r:\1)/i,utf
+    s S
+    k K
+\= Expect no match
+    s \x{17f}
+    k \x{212a}
+
+/(.) \1/i,utf
+    s S
+    k K
+    s \x{17f}
+    k \x{212a}
+
+/(?:(?<A>ss)|(?<A>kk)) \k<A>/i,utf,dupnames,caseless_restrict
+    sS Ss
+    kK Kk
+\= Expect no match
+    sS \x{17f}s
+    kK \x{212a}k
+
+/(?:(?<A>ss)|(?<A>kk)) \k<A>/i,utf,dupnames
+    sS Ss
+    kK Kk
+    sS \x{17f}s
+    kK \x{212a}k
+
+/(?:(?<A>s)|(?<A>k)) \k<A>{3,}!/i,utf,dupnames,caseless_restrict
+    s SsSs!
+    k KkKk!
+\= Expect no match
+    s \x{17f}sSs\x{17f}!
+    k \x{212a}kKk\x{212a}!
+
+/(?:(?<A>s)|(?<A>k)) \k<A>{3,}!/i,utf,dupnames
+    s SsSs!
+    k KkKk!
+    s \x{17f}sSs\x{17f}!
+    k \x{212a}kKk\x{212a}!
+
 # End caseless restrict tests
+
+# TESTS for PCRE2_EXTRA_TURKISH_CASING - again, tests with and without.
+
+/i/i,utf
+    i
+    I
+\= Expect no match
+    \x{0130}
+    \x{0131}
+
+/i/i,utf,turkish_casing
+    i
+    \x{0130}
+\= Expect no match
+    I
+    \x{0131}
+
+/I/i,utf
+    i
+    I
+\= Expect no match
+    \x{0130}
+    \x{0131}
+
+/I/i,utf,turkish_casing
+    I
+    \x{0131}
+\= Expect no match
+    i
+    \x{0130}
+
+/\x{0130}/i,utf
+    \x{0130}
+\= Expect no match
+    i
+    I
+    \x{0131}
+
+/\x{0130}/i,utf,turkish_casing
+    i
+    \x{0130}
+\= Expect no match
+    I
+    \x{0131}
+
+/\x{0131}/i,utf
+    \x{0131}
+\= Expect no match
+    i
+    I
+    \x{0130}
+
+/\x{0131}/i,utf,turkish_casing
+    I
+    \x{0131}
+\= Expect no match
+    i
+    \x{0130}
+
+/[i]/i,utf
+    i
+    I
+\= Expect no match
+    \x{0130}
+    \x{0131}
+
+/[i]/i,utf,turkish_casing
+    i
+    \x{0130}
+\= Expect no match
+    I
+    \x{0131}
+
+/[^i]/i,utf
+    \x{0130}
+    \x{0131}
+\= Expect no match
+    i
+    I
+
+/[^i]/i,utf,turkish_casing
+    I
+    \x{0131}
+\= Expect no match
+    i
+    \x{0130}
+
+/[\x{0130}]/i,utf
+    \x{0130}
+\= Expect no match
+    i
+    I
+    \x{0131}
+
+/[\x{0130}]/i,utf,turkish_casing
+    i
+    \x{0130}
+\= Expect no match
+    I
+    \x{0131}
+
+/[\x{0120}-\x{0130}]/i,utf
+    \x{0130}
+\= Expect no match
+    i
+    I
+    \x{0131}
+
+/[\x{0120}-\x{0130}]/i,utf,turkish_casing
+    i
+    \x{0130}
+\= Expect no match
+    I
+    \x{0131}
+
+/[zi]/i,utf
+    i
+    I
+\= Expect no match
+    \x{0130}
+    \x{0131}
+
+/[zi]/i,utf,turkish_casing
+    i
+    \x{0130}
+\= Expect no match
+    I
+    \x{0131}
+
+/[z\x{0130}]/i,utf
+    \x{0130}
+\= Expect no match
+    i
+    I
+    \x{0131}
+
+/[z\x{0130}]/i,utf,turkish_casing
+    i
+    \x{0130}
+\= Expect no match
+    I
+    \x{0131}
+
+/[iI]/i,utf
+    i
+    I
+\= Expect no match
+    \x{0130}
+    \x{0131}
+
+/[iI]/i,utf,turkish_casing
+    i
+    I
+    \x{0130}
+    \x{0131}
+
+/[i\x{0130}]/i,utf
+    i
+    I
+    \x{0130}
+\= Expect no match
+    \x{0131}
+
+/[i\x{0130}]/i,utf,turkish_casing
+    i
+    \x{0130}
+\= Expect no match
+    I
+    \x{0131}
+
+/(.) \1/i,utf
+    i I
+\= Expect no match
+    i \x{0130}
+    \x{0131} I
+
+/(*TURKISH_CASING)(.) \1/i,utf
+    i \x{0130}
+    \x{0131} I
+\= Expect no match
+    i I
+
+/(.) \1/i,utf,turkish_casing
+    i \x{0130}
+    \x{0131} I
+\= Expect no match
+    i I
+
+/i/i,utf,caseless_restrict,turkish_casing
+
+/i/i,turkish_casing
+
+/i/i,utf,caseless_restrict
+    i
+
+/i/i,ucp,caseless_restrict
+    i
+
+/b(?r:[\x{00FF}-\x{FFEE}])/i,utf,turkish_casing
+    b\x{0130}
+    b\x{0131}
+\= Expect no match
+    bi
+    bI
+    bk
+
+/[\x60-\x7f]/i,ucp
+    i
+    I
+
+/[\x60-\xc0]/i,ucp
+    i
+    I
+
+/[\x80-\xc0]/i,ucp
+\= Expect no match
+    i
+    I
+
+# End Turkish casing tests
 
 # TESTS for PCRE2_EXTRA_ASCII_xxx - again, tests with and without.
 
@@ -2530,5 +2787,817 @@
 
 /(?<!(|l ))/utf
     (?<!(|l ))
+
+/\p{  Aሴ}/utf
+
+/\p{BC: Aሴ}/utf
+
+/\p{BC: A=}/utf
+
+/abc/utf,substitute_extended,replace=>\777<
+    abc
+
+/a(?<namED_1>b)c/utf,substitute_extended
+    abc\=replace=>${namED_1}<
+
+/a(?<namedverylongbutperfectlylegalsoyoushouldnthaveaproblem_1>b)c/utf,substitute_extended
+    abc\=replace=>${namedverylongbutperfectlylegalsoyoushouldnthaveaproblem_1}<
+
+/a(?<nämed>b)c/utf,substitute_extended
+    abc\=replace=>${nämed}<
+
+/a(?<nämedverylongbutperfectlylegalsoyoushouldnthaveaproblem_٢>b)c/utf,substitute_extended
+    abc\=replace=>${nämedverylongbutperfectlylegalsoyoushouldnthaveaproblem_٢}<
+
+# python_octal
+
+/\400/utf
+    \o{400}
+
+/\400/utf,python_octal
+
+/abc/utf,substitute_extended
+    abc\=replace=\400
+
+/abc/utf,substitute_extended,python_octal
+    abc\=replace=\400
+
+# Character range merging tests
+
+/[\x{1200}\s\x{1202}\d\x{1201}]+/B,utf,ucp
+    \x{11ff}\x{1200}\x{1201}\x{1202}\x{1203}
+
+/[\x{2000}-\x{2500}\x{2100}-\x{2600}\d\x{1800}-\x{1fff}]+/B,utf,ucp
+    \x{17ff}\x{1800}\x{2600}\x{2601}
+
+/[\x{10008}\x{10003}\x{10006}\x{10004}\x{10007}]+/B,utf
+    \x{10002}\x{10005}\x{10003}\x{10004}\x{10006}\x{10007}\x{10008}\x{10009}
+
+/[\x{100}-\x{400}]+/Bi,utf
+    qS\x{ff}\x{100}\x{a7c5}\x{401}
+    \x{2c63}\x{2c64}\x{2c65}\x{2c66}\x{2c67}
+    \x{a7af}\x{a7b0}\x{a7b1}\x{a7b2}\x{a7b3}
+
+/[\x{100}-\x{400}\p{Ll}\x{500}-\x{700}\p{OldHungarian}\x{701}\p{bidiLRI}]/B,utf
+
+/[\pC\x{100}-\x{200}\h\pN]/B,utf
+
+/[\pC\x{100}-\x{200}\v\pN]/B,utf
+
+/[\pC\x{100}-\x{200}\H\pN]/B,utf
+
+/[\pC\x{100}-\x{200}\V\pN]/B,utf
+
+/[\x{16e49}-\x{16e4f}\x{20000}\x{16e40}-\x{16e48}\pN]/Bi,utf
+
+/[\x80-\x{4000}\x90\x{400}-\x{f000}\xa0\x{4000}-\x{10ffff}]++/B,utf
+    \x{7f}\x{80}\x{100}\x{10fffe}\x{10ffff}\x00
+
+/[\x80-\x{4000}\x90\x{400}-\x{f000}\xa0\pN\x{4000}-\x{10ffff}]++/B,utf
+    \x{7f}\x{80}\x{100}090\x{10fffe}\x{10ffff}\x00
+
+/[\x00-\x{4000}\x{2000}-\x{10ffff}]++/B,utf
+    abcd
+
+/[abc\p{Any}]{5,7}/B,utf
+    xyz
+
+/[^\p{Any}\x34\p{Any}]*cat/B,utf
+    cat
+
+/[\pN\xf0-\x{10ffff}]{5,8}/B,utf
+    ab0123456cd
+
+/[\x00-\x{398}\x{39a}-\x{10ffff}]*#(?i)[\x00-\x{398}\x{39a}-\x{10ffff}]*?#/B,utf
+    abcd#efg#
+
+# Freeing memory on error test
+/[\x{100}-\x{400}][\x{100}-\x{300}][\x{100}-\x{200}]\8/i,utf
+
+# Character list tests
+
+/[\x{100}-\x{7fff}\x{d7b0}\x{d7b1}\x{d7b3}\x{d7b4}\x{d7b6}\x{d7b7}\x{d7b9}\x{d7ba}]{12}/B,utf
+  \x{8000}\x{d7af}\x{d7b2}\x{d7b5}\x{d7b8}\x{d7bb}\x{100}\x{800}\x{7000}\x{7fff}\x{d7b0}\x{d7b1}\x{d7b3}\x{d7b4}\x{d7b6}\x{d7b7}\x{d7b9}\x{d7ba}\x{100}
+
+/([\x{6535}\x{6536}\x{6538}\x{6539}\x{653b}\x{653c}\x{653e}\x{653f}\x{6541}\x{6542}\x{8000}-\x{ffff}]#)+/B,utf
+  \x{6534}#\x{6537}#\x{653a}#\x{653d}#\x{6540}#\x{6543}#\x{7fff}#\x{6535}#\x{6536}#\x{6538}#\x{6539}#\x{653b}#\x{653c}#\x{653e}#\x{653f}#\x{6541}#\x{6542}#\x{8000}#\x{c246}#\x{ffff}
+
+/[[:xdigit:]\x{400}-\x{600}]+/utf,ucp
+  !a0\x{400}\x{600}9\x{3ff}
+
+/[^[:xdigit:]\x{400}-\x{600}]+/utf,ucp
+  \x{400}(\x{3ff}\x{601})\x{600}
+
+/[[:xdigit:]\x{400}-\x{600}\x{700}]+/utf,ucp
+  !A0\x{700}9\x{601}
+
+/[^[:xdigit:]\x{400}-\x{600}\x{700}]+/utf,ucp
+  \x{600}(\x{6ff}\x{701}\x{3ff}\x{601})\x{700}
+
+/[[:xdigit:]\x{400}-\x{600}\x{700}-\x{800}\x{900}]+/utf,ucp
+  !f0\x{800}\x{600}9\x{601}
+
+/[^[:xdigit:]\x{400}-\x{600}\x{700}-\x{800}\x{900}]+/utf,ucp
+  \x{700}[\x{3ff}\x{601}\x{6ff}\x{801}\x{8ff}\x{901}]\x{900}
+
+/[[:xdigit:]\x{400}-\x{410}\x{500}\x{600}-\x{610}\x{700}\x{800}-\x{810}]+/utf,ucp
+  !F0\x{400}\x{410}\x{500}\x{600}\x{610}\x{700}\x{800}\x{810}9\x{7ff}
+
+/[^[:xdigit:]\x{400}-\x{410}\x{500}\x{600}-\x{610}\x{700}\x{800}-\x{810}]+/utf,ucp
+  \x{800}<\x{3ff}\x{411}\x{4ff}\x{501}\x{5ff}\x{611}\x{6ff}\x{701}\x{7ff}\x{811}>\x{810}
+
+# --------------
+
+# EXTENDED CHARACTER CLASSES (UTS#18)
+
+/[\p{Lu}[\p{Nd}]]/B,alt_extended_class
+    0
+    C
+\= Expect no match
+    [
+    a
+
+/[[\pL][\p{Nd}]]/B,alt_extended_class
+    0
+    a
+\= Expect no match
+    [
+    ]
+
+/[[\p{Lu}]||[\p{Nd}]]/B,alt_extended_class
+    A
+    1
+\= Expect no match
+    a
+
+/[[^\pL][\p{Nd}]]/B,alt_extended_class
+    0
+    .
+\= Expect no match
+    A
+
+/[^[\pL][\p{Nd}]]/B,alt_extended_class
+    .
+\= Expect no match
+    A
+    0
+
+/[^[\pL]&&[\p{Nd}]]/B,alt_extended_class
+    A
+    0
+
+/[[\p{Lu}\p{Ll}]||[\p{Nd}\p{Ll}]]/B,alt_extended_class
+    A
+    1
+    c
+\= Expect no match
+    _
+
+/[[\p{Lu}\p{Ll}]&&[\p{Nd}\p{Ll}]]/B,alt_extended_class
+    c
+\= Expect no match
+    A
+    1
+    _
+
+/[[\p{Lu}\p{Ll}]--[\p{Nd}\p{Ll}]]/B,alt_extended_class
+    A
+\= Expect no match
+    1
+    c
+    _
+
+/[[\p{Lu}\p{Ll}]~~[\p{Nd}\p{Ll}]]/B,alt_extended_class
+    A
+    1
+\= Expect no match
+    c
+    _
+
+/[\pL[]]]/B,alt_extended_class
+    A
+    ]
+\= Expect no match
+    [
+
+/[\pL[^]]]/B,alt_extended_class
+    A
+    [
+    0
+\= Expect no match
+    ]
+
+/[\pL[]]/B,alt_extended_class,allow_empty_class
+    A
+\= Expect no match
+    ]
+    [
+
+/[\pL[^]]/B,alt_extended_class,allow_empty_class
+    A
+    0
+    [
+    ]
+
+/[\dAC-E[:space:]\p{Lu}&&[^z]]/B,alt_extended_class
+    0
+    A
+    C
+    D
+    E
+    \t
+\= Expect no match
+    a
+    ;
+
+/[z||[^\dAC-E[:space:]\p{Lu}]]/B,alt_extended_class
+    z
+    ;
+\= Expect no match
+    0
+    A
+    C
+    D
+    E
+    B
+    F
+    \t
+
+/[\p{Lu}\p{Nd}||cd]/B,alt_extended_class
+    A
+    0
+    c
+\= Expect no match
+    e
+
+/[[\p{Lu}]\p{Nd}||[c]d]/B,alt_extended_class
+    A
+    0
+    c
+\= Expect no match
+    e
+
+/[\p{Lu}[\p{Nd}]||c[d]]/B,alt_extended_class
+    A
+    0
+    c
+\= Expect no match
+    e
+
+/[\p{Lu}-]/B,alt_extended_class
+    A
+    -
+\= Expect no match
+    a
+
+/[-\p{Lu}]/B,alt_extended_class
+    A
+    -
+\= Expect no match
+    a
+
+/[\pL-]/B,alt_extended_class
+    A
+    -
+\= Expect no match
+    0
+
+/[-\pL]/B,alt_extended_class
+    A
+    -
+\= Expect no match
+    0
+
+/[\p{Lu}-]/B
+    A
+    -
+\= Expect no match
+    a
+
+/[-\p{Lu}]/B
+    A
+    -
+\= Expect no match
+    a
+
+/[\pL-]/B
+    A
+    -
+\= Expect no match
+    0
+
+/[-\pL]/B
+    A
+    -
+\= Expect no match
+    0
+
+/[\p{Lu}-z]/B,alt_extended_class
+
+/[z-\p{Lu}]/B,alt_extended_class
+
+/[\pL-z]/B,alt_extended_class
+
+/[z-\pL]/B,alt_extended_class
+
+/[\p{Lu}-&&-\pL]/B,alt_extended_class
+    -
+    A
+\= Expect no match
+    a
+
+/[-\p{Lu}&&\pL-]/B,alt_extended_class
+    -
+    A
+\= Expect no match
+    a
+
+/[[\p{Lu}]-&&-[\pL]]/B,alt_extended_class
+    -
+    A
+\= Expect no match
+    a
+
+/[-[\p{Lu}]&&[\pL]-]/B,alt_extended_class
+    -
+    A
+\= Expect no match
+    a
+
+/(?xx:[  ^  5[  ^  \p{Nd}]  ])/B,alt_extended_class
+    4
+\= Expect no match
+    a
+    ;
+    5
+
+/(?xx:[  ^  \p{Nd}[  ^  5]  ])/B,alt_extended_class
+\= Expect no match
+    a
+    ;
+    4
+    5
+
+/(?xx:[  ^  \p{Nd}[  ^  \p{Nd}]  ])/B,alt_extended_class
+\= Expect no match
+    a
+    ;
+    4
+    5
+
+/[  ^  \p{Ll}[  ^  \p{Nd}]  ]/B,alt_extended_class
+    \x20
+    ^
+    a
+    0
+\= Expect no match
+    A
+    ;
+
+/[a-c--\p{Nd}]+/B,alt_extended_class
+    ac
+    a
+\= Expect no match
+    0
+
+/[a-c--\p{Nd}]{2,3}/B,alt_extended_class
+    ac
+    cac
+\= Expect no match
+    a
+    00
+
+/x[a-c--\p{Nd}]+y/B,alt_extended_class
+    xacy
+    xaay
+    xay
+\= Expect no match
+    zacy
+    xacz
+    xy
+    x0y
+
+/[\pL--\pL--\pL]/B,alt_extended_class
+\= Expect no match
+    A
+    1
+
+/[[\pL--\pL]--\pL]/B,alt_extended_class
+\= Expect no match
+    A
+    1
+
+/[\pL--[\pL--\pL]]/B,alt_extended_class
+    A
+\= Expect no match
+    1
+
+/[\pL--^\p{Nd}]/B,alt_extended_class
+    A
+\= Expect no match
+    1
+    ^
+
+/([a-z--[\pL&&n]])\1/B,alt_extended_class
+    aa
+    zz
+\= Expect no match
+    az
+    nn
+
+/(x[a-z--[\pL&&n]]y)\1/B,alt_extended_class
+    xayxay
+    xzyxzy
+\= Expect no match
+    xnyxny
+
+/(?:_\1|([a-z--[\pL&&n]])){2}/B,alt_extended_class
+    a_a
+    z_z
+\= Expect no match
+    a_z
+    n_n
+
+/(?:_\1|([a-z--[\pL&&n]]))+/B,alt_extended_class
+    a_a
+    z_z
+    a_partial
+\= Expect no match
+    n_n
+
+/[\p{Nd}||[\pL--\p{Lu}]]/B,alt_extended_class
+    a
+    0
+\= Expect no match
+    C
+
+/[\P{Nd}||2]/B,alt_extended_class
+    _
+    Z
+    2
+\= Expect no match
+    1
+    3
+
+/[^[\P{Nd}]]/B,alt_extended_class
+    1
+    2
+\= Expect no match
+    _
+    z
+
+# caseless tests
+
+/[\p{Lu}~~\p{Ll}]/B,alt_extended_class
+    a
+    A
+\= Expect no match
+    _
+    1
+
+/[[\p{Lu}1]~~\p{Ll}]/iB,alt_extended_class
+    1
+\= Expect no match
+    a
+    A
+    _
+
+/[[\p{Lu}1]&&[\p{Ll}1]]/B,alt_extended_class
+    1
+\= Expect no match
+    a
+    A
+    _
+    2
+
+/[[\p{Lu}1]&&[\p{Ll}1]]/iB,alt_extended_class
+    a
+    A
+    1
+\= Expect no match
+    _
+    2
+    \
+
+/[\p{Thai}&&\p{Nd}]/B,utf,alt_extended_class
+    \x{0e51}
+\= Expect no match
+    0
+    a
+    \x{0e01}
+
+/[\p{Thai}||\p{Nd}]/B,utf,alt_extended_class
+    \x{0e51}
+    \x{0e01}
+    0
+\= Expect no match
+    a
+
+/[\p{Thai}~~\p{Nd}]/B,utf,alt_extended_class
+    \x{0e01}
+    0
+\= Expect no match
+    \x{0e51}
+    a
+
+/[[\p{Thai}&&\p{Nd}]~~[^a]]/B,utf,alt_extended_class
+    \x{0e01}
+    b
+    0
+\= Expect no match
+    a
+    \x{0e51}
+
+/^[\p{Thai}&&\p{Nd}]?$/B,utf,alt_extended_class
+    \x{0e51}
+    \
+\= Expect no match
+    a
+
+/^[\p{Thai}&&\p{Nd}]??$/B,utf,alt_extended_class
+    \x{0e51}
+    \
+\= Expect no match
+    a
+
+/^[\p{Thai}&&\p{Nd}]?+$/B,utf,alt_extended_class
+    \x{0e51}
+    \
+\= Expect no match
+    a
+
+/^[\p{Thai}&&\p{Nd}]{3}$/B,utf,alt_extended_class
+    \x{0e51}\x{0e51}\x{0e51}
+\= Expect no match
+    \x{0e51}
+    \
+    a
+
+/^[\p{Thai}&&\p{Nd}]{3,}$/B,utf,alt_extended_class
+    \x{0e51}\x{0e51}\x{0e51}\x{0e51}
+    \x{0e51}\x{0e51}\x{0e51}
+\= Expect no match
+    \x{0e51}
+    \
+    a
+
+/^[\p{Thai}&&\p{Nd}]{3,}?$/B,utf,alt_extended_class
+    \x{0e51}\x{0e51}\x{0e51}\x{0e51}
+    \x{0e51}\x{0e51}\x{0e51}
+\= Expect no match
+    \x{0e51}
+    \
+    a
+
+/^[\p{Thai}&&\p{Nd}]{3,}+$/B,utf,alt_extended_class
+    \x{0e51}\x{0e51}\x{0e51}\x{0e51}
+    \x{0e51}\x{0e51}\x{0e51}
+\= Expect no match
+    \x{0e51}
+    \
+    a
+
+/^[\p{Thai}&&\p{Nd}]{,3}$/B,utf,alt_extended_class
+    \
+    \x{0e51}
+    \x{0e51}\x{0e51}\x{0e51}
+\= Expect no match
+    \x{0e51}\x{0e51}\x{0e51}\x{0e51}
+    a
+
+/^[\p{Thai}&&\p{Nd}]{,3}?$/B,utf,alt_extended_class
+    \
+    \x{0e51}
+    \x{0e51}\x{0e51}\x{0e51}
+\= Expect no match
+    \x{0e51}\x{0e51}\x{0e51}\x{0e51}
+    a
+
+/^[\p{Thai}&&\p{Nd}]{,3}+$/B,utf,alt_extended_class
+    \
+    \x{0e51}
+    \x{0e51}\x{0e51}\x{0e51}
+\= Expect no match
+    \x{0e51}\x{0e51}\x{0e51}\x{0e51}
+    a
+
+/^[\p{Thai}&&\p{Nd}]+\x{0e51}$/B,utf,alt_extended_class
+    \x{0e51}\x{0e51}
+    \x{0e51}\x{0e51}\x{0e51}
+\= Expect no match
+    \x{0e51}
+    \
+    a
+
+/^[\p{Thai}&&\p{Nd}]+?\x{0e51}$/B,utf,alt_extended_class
+    \x{0e51}\x{0e51}
+    \x{0e51}\x{0e51}\x{0e51}
+\= Expect no match
+    \x{0e51}
+    \
+    a
+
+/^[\p{Thai}&&\p{Nd}]++\x{0e51}$/B,utf,alt_extended_class
+\= Expect no match
+    \x{0e51}
+    \x{0e51}\x{0e51}
+    \x{0e51}\x{0e51}\x{0e51}
+    \
+    a
+
+/^[\p{Thai}&&\p{Nd}]*\x{0e51}$/B,utf,alt_extended_class
+    \x{0e51}
+    \x{0e51}\x{0e51}
+    \x{0e51}\x{0e51}\x{0e51}
+\= Expect no match
+    \
+    a
+
+/^[\p{Thai}&&\p{Nd}]*?\x{0e51}$/B,utf,alt_extended_class
+    \x{0e51}
+    \x{0e51}\x{0e51}
+    \x{0e51}\x{0e51}\x{0e51}
+\= Expect no match
+    \
+    a
+
+/^[\p{Thai}&&\p{Nd}]*+\x{0e51}$/B,utf,alt_extended_class
+\= Expect no match
+    \x{0e51}
+    \x{0e51}\x{0e51}
+    \x{0e51}\x{0e51}\x{0e51}
+    \
+    a
+
+/[^[^\p{Thai}]]/B,utf,alt_extended_class
+    \x{0e51}
+\= Expect no match
+    a
+
+/[^[^\p{L}]]/B,utf,alt_extended_class
+    \x{0e01}
+    a
+\= Expect no match
+    0
+
+/[\pL&&[^\x00-\xFF]]/B,utf,alt_extended_class
+    \x{21e}
+\= Expect no match
+    a
+
+/[\pL&&\x{100}-\x{1000}]{3,6}+/utf,alt_extended_class
+    \x{145}\x{18b}A\x{145}\x{18b}\x{1C2}\x{21a}\x{257}\x{2ae}\x{0145}\x{18b}
+    \x{145}A\x{145}\x{18b}\x{1C2}B
+
+/[\pL&&\x{100}-\x{1000}]{3,6}\x{2A3}/utf,alt_extended_class
+    \x{145}\x{18b}\x{2a3}A\x{145}\x{18b}\x{1c2}\x{21a}\x{257}\x{2ae}\x{2a3}
+    \x{145}\x{2a3}A\x{145}\x{18b}\x{1c2}\x{2a3}
+    \x{2a3}A\x{145}\x{18b}\x{1c2}\x{2a3}\x{2a3}
+    \x{0145}\x{18b}\x{2a3}A\x{145}\x{18b}\x{1c2}\x{21a}\x{257}\x{2ae}\x{145}\x{2a3}
+
+/[\pL&&\x{100}-\x{1000}]{3,6}?\x{2A3}/utf,alt_extended_class
+    \x{145}\x{18b}\x{2a3}A\x{145}\x{18b}\x{1c2}\x{21a}\x{257}\x{2ae}\x{2a3}
+    \x{145}\x{2a3}A\x{145}\x{18b}\x{1c2}\x{2a3}
+    \x{2a3}A\x{145}\x{18b}\x{1c2}\x{2a3}\x{2a3}
+    \x{0145}\x{18b}\x{2a3}A\x{145}\x{18b}\x{1c2}\x{21a}\x{257}\x{2ae}\x{145}\x{2a3}
+
+/[\P{scx=Beng}\P{scx=Deva}\pM--[\x{2000}-\x{3000}]]+/utf,alt_extended_class
+    \x{964}\x{2000}\x{3000}A\x{951}\x{1fff}\x{3001}\x{965}
+
+/[\p{Thai}~~[^]]/B,utf,alt_extended_class,allow_empty_class
+    \x{0d01}
+    a
+\= Expect no match
+    \x{0e01}
+
+/[[]~~[^]]/B,utf,alt_extended_class,allow_empty_class
+    \x{0d01}
+    a
+
+/[[^]~~[]]/B,utf,alt_extended_class,allow_empty_class
+    \x{0d01}
+    a
+
+/[[^]~~[^]]/B,utf,alt_extended_class,allow_empty_class
+\= Expect no match
+    \x{0d01}
+    a
+
+/[[^]||\pL]/B,utf,alt_extended_class,allow_empty_class
+    0
+    a
+
+/[\pL||[^]]/B,utf,alt_extended_class,allow_empty_class
+    0
+    a
+
+/[\pL~~[^]]/B,utf,alt_extended_class,allow_empty_class
+    0
+\= Expect no match
+    a
+
+/[[^]~~\pL]/B,utf,alt_extended_class,allow_empty_class
+    0
+\= Expect no match
+    a
+
+/([\p{Lu}&&\p{sc=Hung}]+?\x{10c81})+#/utf,alt_extended_class
+    \x{10c80}\x{10cb2}\x{10c81}\x{10c85}\x{10cb0}\x{10cf2}\x{10c81}#\x{10c80}\x{10cb2}\x{10c81}\x{10c85}\x{10cb0}\x{10c81}##
+
+/[[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]
+&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]&&[\pN--[\pC||\x{9F5}]]]/utf,alt_extended_class
+
+# --------------
+
+/^([\h\x{9000}\x{9002}\x{9004}][\v\x{9000}\x{9002}\x{9004}\x{9006}\x{9008}][\h\v\x{9000}],){4}$/B,utf
+  \x09\x0a\x0d,\x{1680}\x{2028}\x{1680},\x{180e}\x{2029}\x{180e},\x{9000}\x{9000}\x{9000},
+
+/[z-\p{Lu}]/
+
+/[z-\pL]/
+
+/[\p{Lu}-z]/
+
+/[\pL-z]/
+
+/[a\x{e1}]/iB
+    a
+    A
+    \x{e1}
+
+/[a\x{e1}]/iB,utf
+    a
+    A
+    \x{e1}
+    \x{c1}
+
+/[a\x{e1}]/iB,ucp
+    a
+    A
+    \x{e1}
+    \x{c1}
+
+/[a\x{e1}]/iB,ucp,utf
+    a
+    A
+    \x{e1}
+    \x{c1}
 
 # End of testinput5

@@ -9,23 +9,32 @@ dnl The PCRE2_PRERELEASE feature is for identifying release candidates. It might
 dnl be defined as -RC2, for example. For real releases, it should be empty.
 
 m4_define(pcre2_major, [10])
-m4_define(pcre2_minor, [44])
+m4_define(pcre2_minor, [45])
 m4_define(pcre2_prerelease, [])
-m4_define(pcre2_date, [2024-06-07])
+m4_define(pcre2_date, [2025-02-05])
 
 # Libtool shared library interface versions (current:revision:age)
-m4_define(libpcre2_8_version,     [13:0:13])
-m4_define(libpcre2_16_version,    [13:0:13])
-m4_define(libpcre2_32_version,    [13:0:13])
-m4_define(libpcre2_posix_version, [3:5:0])
+m4_define(libpcre2_8_version,     [14:0:14])
+m4_define(libpcre2_16_version,    [14:0:14])
+m4_define(libpcre2_32_version,    [14:0:14])
+m4_define(libpcre2_posix_version, [3:6:0])
 
 # NOTE: The CMakeLists.txt file searches for the above variables in the first
 # 50 lines of this file. Please update that if the variables above are moved.
 
-AC_PREREQ([2.62])
+AC_PREREQ([2.60])
 AC_INIT([PCRE2],pcre2_major.pcre2_minor[]pcre2_prerelease,[],[pcre2])
 AC_CONFIG_SRCDIR([src/pcre2.h.in])
-AM_INIT_AUTOMAKE([dist-bzip2 dist-zip])
+AM_INIT_AUTOMAKE([dist-bzip2 dist-zip foreign])
+ifelse(pcre2_prerelease, [-DEV],
+  [dnl For development builds, ./configure is not checked in to Git, so we are
+   dnl happy to have it regenerated as needed.
+   AM_MAINTAINER_MODE([enable])],
+  [dnl For a release build (or RC), the ./configure script we ship in the
+   dnl tarball (and check in to the Git tag) should not be regenerated
+   dnl implicitly. This is important if users want to check out a release tag
+   dnl using Git.
+   AM_MAINTAINER_MODE])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 AC_CONFIG_HEADERS(src/config.h)
 
@@ -73,6 +82,40 @@ AC_SYS_LARGEFILE
 
 PCRE2_VISIBILITY
 
+# Check for Clang __attribute__((uninitialized)) feature
+
+AC_MSG_CHECKING([for __attribute__((uninitialized))])
+AC_LANG_PUSH([C])
+tmp_CFLAGS=$CFLAGS
+if test $WORKING_WERROR -eq 1; then
+  CFLAGS="$CFLAGS -Werror"
+fi
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM(,
+                   [[char buf[128] __attribute__((uninitialized));(void)buf]])],
+                   [pcre2_cc_cv_attribute_uninitialized=yes],
+                   [pcre2_cc_cv_attribute_uninitialized=no])
+AC_MSG_RESULT([$pcre2_cc_cv_attribute_uninitialized])
+if test "$pcre2_cc_cv_attribute_uninitialized" = yes; then
+  AC_DEFINE([HAVE_ATTRIBUTE_UNINITIALIZED], 1, [Define this if your compiler
+             supports __attribute__((uninitialized))])
+fi
+CFLAGS=$tmp_CFLAGS
+AC_LANG_POP([C])
+
+# Check for the assume() builtin
+
+AC_MSG_CHECKING([for __assume()])
+AC_LANG_PUSH([C])
+AC_LINK_IFELSE([AC_LANG_PROGRAM([[]], [[__assume(1)]])],
+  [pcre2_cc_cv_builtin_assume=yes],
+  [pcre2_cc_cv_builtin_assume=no])
+AC_MSG_RESULT([$pcre2_cc_cv_builtin_assume])
+if test "$pcre2_cc_cv_builtin_assume" = yes; then
+  AC_DEFINE([HAVE_BUILTIN_ASSUME], 1,
+    [Define this if your compiler provides __assume()])
+fi
+AC_LANG_POP([C])
+
 # Check for the mul_overflow() builtin
 
 AC_MSG_CHECKING([for __builtin_mul_overflow()])
@@ -95,22 +138,18 @@ if test "$pcre2_cc_cv_builtin_mul_overflow" = yes; then
 fi
 AC_LANG_POP([C])
 
-# Check for Clang __attribute__((uninitialized)) feature
+# Check for the unreachable() builtin
 
-AC_MSG_CHECKING([for __attribute__((uninitialized))])
+AC_MSG_CHECKING([for __builtin_unreachable()])
 AC_LANG_PUSH([C])
-tmp_CFLAGS=$CFLAGS
-CFLAGS="$CFLAGS -Werror"
-AC_COMPILE_IFELSE([AC_LANG_PROGRAM(,
-                   [[char buf[128] __attribute__((uninitialized));(void)buf]])],
-                   [pcre2_cc_cv_attribute_uninitialized=yes],
-                   [pcre2_cc_cv_attribute_uninitialized=no])
-AC_MSG_RESULT([$pcre2_cc_cv_attribute_uninitialized])
-if test "$pcre2_cc_cv_attribute_uninitialized" = yes; then
-  AC_DEFINE([HAVE_ATTRIBUTE_UNINITIALIZED], 1, [Define this if your compiler
-             supports __attribute__((uninitialized))])
+AC_LINK_IFELSE([AC_LANG_PROGRAM([[int r;]], [[if (r) __builtin_unreachable()]])],
+  [pcre2_cc_cv_builtin_unreachable=yes],
+  [pcre2_cc_cv_builtin_unreachable=no])
+AC_MSG_RESULT([$pcre2_cc_cv_builtin_unreachable])
+if test "$pcre2_cc_cv_builtin_unreachable" = yes; then
+  AC_DEFINE([HAVE_BUILTIN_UNREACHABLE], 1,
+    [Define this if your compiler provides __builtin_unreachable()])
 fi
-CFLAGS=$tmp_CFLAGS
 AC_LANG_POP([C])
 
 # Versioning
@@ -191,7 +230,7 @@ if test "$enable_jit" = "auto"; then
   CPPFLAGS=-I$srcdir
   AC_COMPILE_IFELSE([AC_LANG_SOURCE([[
   #define SLJIT_CONFIG_AUTO 1
-  #include "src/sljit/sljitConfigCPU.h"
+  #include "deps/sljit/sljit_src/sljitConfigCPU.h"
   #if (defined SLJIT_CONFIG_UNSUPPORTED && SLJIT_CONFIG_UNSUPPORTED)
   #error unsupported
   #endif]])], enable_jit=yes, enable_jit=no)
@@ -285,7 +324,7 @@ AC_ARG_ENABLE(never-backslash-C,
 # Handle --enable-ebcdic
 AC_ARG_ENABLE(ebcdic,
               AS_HELP_STRING([--enable-ebcdic],
-                             [assume EBCDIC coding rather than ASCII; incompatible with --enable-utf; use only in (uncommon) EBCDIC environments; it implies --enable-rebuild-chartables]),
+                             [assume EBCDIC coding rather than ASCII; incompatible with --enable-unicode; use only in (uncommon) EBCDIC environments; it implies --enable-rebuild-chartables]),
               , enable_ebcdic=no)
 
 # Handle --enable-ebcdic-nl25
@@ -521,7 +560,7 @@ HAVE_BCOPY is defined. If your system has neither bcopy() nor memmove(), make
 sure both macros are undefined; an emulation function will then be used. */])
 
 # Checks for header files.
-AC_CHECK_HEADERS(limits.h sys/types.h sys/stat.h dirent.h)
+AC_CHECK_HEADERS(assert.h limits.h sys/types.h sys/stat.h dirent.h)
 AC_CHECK_HEADERS([windows.h], [HAVE_WINDOWS_H=1])
 AC_CHECK_HEADERS([sys/wait.h], [HAVE_SYS_WAIT_H=1])
 
@@ -529,7 +568,6 @@ AC_CHECK_HEADERS([sys/wait.h], [HAVE_SYS_WAIT_H=1])
 AM_CONDITIONAL(WITH_PCRE2_8, test "x$enable_pcre2_8" = "xyes")
 AM_CONDITIONAL(WITH_PCRE2_16, test "x$enable_pcre2_16" = "xyes")
 AM_CONDITIONAL(WITH_PCRE2_32, test "x$enable_pcre2_32" = "xyes")
-AM_CONDITIONAL(WITH_DEBUG, test "x$enable_debug" = "xyes")
 AM_CONDITIONAL(WITH_REBUILD_CHARTABLES, test "x$enable_rebuild_chartables" = "xyes")
 AM_CONDITIONAL(WITH_JIT, test "x$enable_jit" = "xyes")
 AM_CONDITIONAL(WITH_UNICODE, test "x$enable_unicode" = "xyes")

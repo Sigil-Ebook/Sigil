@@ -1,4 +1,4 @@
-.TH PCRE2MATCHING 3 "19 January 2024" "PCRE2 10.43"
+.TH PCRE2MATCHING 3 "30 August 2024" "PCRE2 10.45"
 .SH NAME
 PCRE2 - Perl-compatible regular expressions (revised API)
 .SH "PCRE2 MATCHING ALGORITHMS"
@@ -7,7 +7,7 @@ PCRE2 - Perl-compatible regular expressions (revised API)
 This document describes the two different algorithms that are available in
 PCRE2 for matching a compiled regular expression against a given subject
 string. The "standard" algorithm is the one provided by the \fBpcre2_match()\fP
-function. This works in the same as Perl's matching function, and provide a
+function. This works in the same as Perl's matching function, and provides a
 Perl-compatible matching operation. The just-in-time (JIT) optimization that is
 described in the
 .\" HREF
@@ -22,7 +22,7 @@ these are described below.
 .P
 When there is only one possible way in which a given subject string can match a
 pattern, the two algorithms give the same answer. A difference arises, however,
-when there are multiple possibilities. For example, if the pattern
+when there are multiple possibilities. For example, if the anchored pattern
 .sp
   ^<.*>
 .sp
@@ -96,9 +96,9 @@ the output vector in decreasing order of length. There is an option to stop the
 algorithm after the first match (which is necessarily the shortest) is found.
 .P
 Note that the size of vector needed to contain all the results depends on the
-number of simultaneous matches, not on the number of parentheses in the
-pattern. Using \fBpcre2_match_data_create_from_pattern()\fP to create the match
-data block is therefore not advisable when doing DFA matching.
+number of simultaneous matches, not on the number of capturing parentheses in
+the pattern. Using \fBpcre2_match_data_create_from_pattern()\fP to create the
+match data block is therefore not advisable when doing DFA matching.
 .P
 Note also that all the matches that are found start at the same point in the
 subject. If the pattern
@@ -141,30 +141,34 @@ straightforward to keep track of captured substrings for the different matching
 possibilities, and PCRE2's implementation of this algorithm does not attempt to
 do this. This means that no captured substrings are available.
 .P
-3. Because no substrings are captured, backreferences within the pattern are
-not supported.
+3. Because no substrings are captured, a number of related features are not
+available:
+.sp
+(a) Backreferences;
+.sp
+(b) Conditional expressions that use a backreference as the condition or test
+for a specific group recursion;
+.sp
+(c) Script runs;
+.sp
+(d) Scan substring assertions.
 .P
-4. For the same reason, conditional expressions that use a backreference as the
-condition or test for a specific group recursion are not supported.
-.P
-5. Again for the same reason, script runs are not supported.
-.P
-6. Because many paths through the tree may be active, the \eK escape sequence,
+4. Because many paths through the tree may be active, the \eK escape sequence,
 which resets the start of the match when encountered (but may be on some paths
 and not on others), is not supported.
 .P
-7. Callouts are supported, but the value of the \fIcapture_top\fP field is
+5. Callouts are supported, but the value of the \fIcapture_top\fP field is
 always 1, and the value of the \fIcapture_last\fP field is always 0.
 .P
-8. The \eC escape sequence, which (in the standard algorithm) always matches a
-single code unit, even in a UTF mode, is not supported in these modes, because
+6. The \eC escape sequence, which (in the standard algorithm) always matches a
+single code unit, even in a UTF mode, is not supported in UTF modes because
 the alternative algorithm moves through the subject string one character (not
 code unit) at a time, for all active paths through the tree.
 .P
-9. Except for (*FAIL), the backtracking control verbs such as (*PRUNE) are not
+7. Except for (*FAIL), the backtracking control verbs such as (*PRUNE) are not
 supported. (*FAIL) is supported, and behaves like a failing negative assertion.
 .P
-10. The PCRE2_MATCH_INVALID_UTF option for \fBpcre2_compile()\fP is not
+8. The PCRE2_MATCH_INVALID_UTF option for \fBpcre2_compile()\fP is not
 supported by \fBpcre2_dfa_match()\fP.
 .
 .
@@ -194,13 +198,15 @@ The alternative algorithm suffers from a number of disadvantages:
 because it has to search for all possible matches, but is also because it is
 less susceptible to optimization.
 .P
-2. Capturing parentheses, backreferences, script runs, and matching within
-invalid UTF string are not supported.
+2. Capturing parentheses and other features such as backreferences that rely on
+them are not supported.
 .P
-3. Although atomic groups are supported, their use does not provide the
+3. Matching within invalid UTF strings is not supported.
+.P
+4. Although atomic groups are supported, their use does not provide the
 performance advantage that it does for the standard algorithm.
 .P
-4. JIT optimization is not supported.
+5. JIT optimization is not supported.
 .
 .
 .SH AUTHOR
@@ -217,6 +223,6 @@ Cambridge, England.
 .rs
 .sp
 .nf
-Last updated: 19 January 2024
+Last updated: 30 August 2024
 Copyright (c) 1997-2024 University of Cambridge.
 .fi

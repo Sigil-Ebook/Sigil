@@ -831,6 +831,19 @@
 
 /x++/IB
 
+# For comparison with the following test, which disables auto-possessification
+# In this regex, x+ should be converted to x++
+/x+y/B,auto_possess
+
+# In this regex, x+ should not be converted to x++
+/x+y/B,auto_possess_off
+
+# Also in this regex, x+ should not be converted to x++
+/x+y/B,optimization_none
+
+# In this one too, x+ should not be converted to x++
+/x+y/B,no_auto_possess
+
 /x{1,3}+/B,no_auto_possess
 
 /x{1,3}+/Bi,no_auto_possess
@@ -838,6 +851,8 @@
 /[^x]{1,3}+/B,no_auto_possess
 
 /[^x]{1,3}+/Bi,no_auto_possess
+
+/x{1,3}+/IB,auto_possess_off
 
 /(x)*+/IB
 
@@ -915,6 +930,12 @@
 /\N{,}/
 
 /\N{25,ab}/
+
+/[\N]/
+
+/[\N{4}]/
+
+/[\N{name}]/
 
 /a{1,3}b/ungreedy
     ab
@@ -2401,6 +2422,9 @@
 \= Expect no match
     cat
 
+/cat[]/B,allow_empty_class
+    cat\=ph
+
 /(\3)(\1)(a)/allow_empty_class,match_unset_backref,dupnames
     cat
 
@@ -2448,7 +2472,6 @@
     ab
 
 /a[]*+b/allow_empty_class,match_unset_backref,dupnames
-\= Expect no match
     ab
 
 /a[^]b/allow_empty_class,match_unset_backref,dupnames
@@ -2861,6 +2884,13 @@
 \= Expect no match
     b"11111
     a"11111
+
+/(?:a(?<digit>[0-5])|b(?<digit>[4-7]))c(?(<digit>)d|e)/B,dupnames
+    a4cd
+    b4cd
+\= Expect no match
+    a6cd
+    a6ce
 
 /^(?|(a)(b)(c)(?<D>d)|(?<D>e)) (?('D')X|Y)/IBx,dupnames
     abcdX
@@ -3945,6 +3975,12 @@
     no reduction
     Alfred Winifred
 
+/[[:<:]]+red/B
+    little red riding hood
+    red is a colour
+\= Expect no match
+    Alfred
+
 /[a[:<:]] should give error/
 
 /(?=ab\K)/aftertext,allow_lookaround_bsk
@@ -3975,6 +4011,10 @@
 /\o{whatever}/
 
 /\xthing/
+
+/^A\xZ/
+
+/^A\x/
 
 /\x{}/
 
@@ -4049,9 +4089,15 @@
 
 /(?(VERSION=10.101)yes|no)/
 
+# We should see the starting code unit, required code unit, and minimum length set for this regex:
 /abcd/I
 
+# None of the following three should have the starting code unit, required code unit, and minimum length set:
 /abcd/I,no_start_optimize
+
+/abcd/I,start_optimize_off
+
+/abcd/I,optimization_none
 
 /(|ab)*?d/I
    abd
@@ -4176,7 +4222,41 @@
 /(*:pear)apple|(*:orange)lemon|(*:strawberry)blackberry/g,replace=[23]${*MARK}
     apple lemon blackberry
 
+/"(*:fruit" 00 "juice)apple"/hex,g,replace=${*MARK}
+    apple lemon blackberry
+
 /abc/
+    123abc123\=replace=XYZ
+    123abc123\=replace=[10]XYZ
+\= Expect error
+    123abc123\=replace=[9]XYZ
+    123abc123\=substitute_overflow_length,replace=[9]XYZ
+    123abc123\=substitute_overflow_length,replace=[6]XYZ
+    123abc123\=substitute_overflow_length,replace=[1]XYZ
+    123abc123\=substitute_overflow_length,replace=[0]XYZ
+
+/abc/
+    123abc123\=replace=XY
+    123abc123\=replace=[9]XY
+    123abc123\=replace=[9]XY,substitute_literal
+\= Expect error
+    123abc123\=replace=[8]XY,substitute_overflow_length
+    123abc123\=replace=[8]XY,substitute_overflow_length,substitute_literal
+    123abc123\=replace=[6]XY,substitute_overflow_length
+    123abc123\=replace=[6]XY,substitute_overflow_length,substitute_literal
+    123abc123\=replace=[5]XY,substitute_overflow_length
+    123abc123\=replace=[5]XY,substitute_overflow_length,substitute_literal
+    123abc123\=replace=[4]XY,substitute_overflow_length
+    123abc123\=replace=[4]XY,substitute_overflow_length,substitute_literal
+    123abc123\=replace=[3]XY,substitute_overflow_length
+    123abc123\=replace=[3]XY,substitute_overflow_length,substitute_literal
+    123abc123\=replace=[2]XY,substitute_overflow_length
+    123abc123\=replace=[2]XY,substitute_overflow_length,substitute_literal
+
+/abc/substitute_literal
+    123abc123\=replace=XYZ
+    123abc123\=replace=[10]XYZ
+\= Expect error
     123abc123\=replace=[9]XYZ
     123abc123\=substitute_overflow_length,replace=[9]XYZ
     123abc123\=substitute_overflow_length,replace=[6]XYZ
@@ -4189,6 +4269,75 @@
     123abc123\=substitute_overflow_length,replace=[6]x$1z
     123abc123\=substitute_overflow_length,replace=[1]x$1z
     123abc123\=substitute_overflow_length,replace=[0]x$1z
+
+/a(b)c/substitute_extended
+    ZabcZ\=replace=>\1<
+    ZabcZ\=replace=>\2<
+    ZabcZ\=replace=>\8<
+    ZabcZ\=replace=>${1}<
+    ZabcZ\=replace=>${ 1 }<
+    ZabcZ\=replace=>${2}<
+    ZabcZ\=replace=>${8}<
+    ZabcZ\=replace=>$<1><
+    ZabcZ\=replace=>$< 1 ><
+    ZabcZ\=replace=>$<2><
+    ZabcZ\=replace=>$<8><
+    ZabcZ\=replace=>\g<-1><
+    ZabcZ\=replace=>\g<0><
+    ZabcZ\=replace=>\g<1><
+    ZabcZ\=replace=>\g< 1 ><
+    ZabcZ\=replace=>\g<2><
+    ZabcZ\=replace=>\g<8><
+
+/(*:pear)apple/substitute_extended
+    ZappleZ\=replace=>${*MARK}<
+    ZappleZ\=replace=>$<*MARK><
+    ZappleZ\=replace=>\g<*MARK><
+
+/a(?<named>b)c/substitute_extended
+    ZabcZ\=replace=>${named}<
+    ZabcZ\=replace=>${noexist}<
+    ZabcZ\=replace=>${}<
+    ZabcZ\=replace=>${ }<
+    ZabcZ\=replace=>${ named }<
+    ZabcZ\=replace=>$<named><
+    ZabcZ\=replace=>$<noexist><
+    ZabcZ\=replace=>$<><
+    ZabcZ\=replace=>$< ><
+    ZabcZ\=replace=>$< named ><
+    ZabcZ\=replace=>\g<named><
+    ZabcZ\=replace=>\g<noexist><
+    ZabcZ\=replace=>\g<><
+    ZabcZ\=replace=>\g< ><
+    ZabcZ\=replace=>\g< named ><
+
+/a(b)c/substitute_extended
+    ZabcZ\=replace=>${1:+ yes : no }
+    ZabcZ\=replace=>${1:+ \o{100} : \o{100} }
+    ZabcZ\=replace=>${1:+ \o{Z} : no }
+    ZabcZ\=replace=>${1:+ yes : \o{Z} }
+    ZabcZ\=replace=>${1:+ \g<1> : no }
+    ZabcZ\=replace=>${1:+ yes : \g<1> }
+    ZabcZ\=replace=>${1:+ \g<1 : no }
+    ZabcZ\=replace=>${1:+ yes : \g<1 }
+    ZabcZ\=replace=>${1:+ $<1> : no }
+    ZabcZ\=replace=>${1:+ yes : $<1> }
+    ZabcZ\=replace=>${1:+ $<1 : no }
+    ZabcZ\=replace=>${1:+ yes : $<1 }
+
+/a(b)c/substitute_extended
+    ZabcZ\=replace=>${
+    ZabcZ\=replace=>${1
+    ZabcZ\=replace=>${1Z
+    ZabcZ\=replace=>${1;
+    ZabcZ\=replace=>$<
+    ZabcZ\=replace=>$<1
+    ZabcZ\=replace=>$<1Z
+    ZabcZ\=replace=>$<1;
+    ZabcZ\=replace=>\g<
+    ZabcZ\=replace=>\g<1
+    ZabcZ\=replace=>\g<1Z
+    ZabcZ\=replace=>\g<1;
 
 "((?=(?(?=(?(?=(?(?=()))))))))"
     a
@@ -4216,6 +4365,19 @@
 /^abc/info
 
 /^abc/info,no_dotstar_anchor
+
+/^abc/info,dotstar_anchor_off
+
+# For comparison with the following tests, which disable automatic dotstar anchoring
+/.*abc/BI
+
+/.*abc/BI,dotstar_anchor_off
+
+/.*abc/BI,start_optimize_off
+
+/.*abc/BI,optimization_none
+
+/.*abc/BI,no_dotstar_anchor
 
 /.*\d/info,auto_callout
 \= Expect no match
@@ -4589,7 +4751,7 @@ B)x/alt_verbnames,mark
 
 /abcd/null_context
     abcd\=null_context
-\= Expect error - not allowed together
+\= Expect not allowed together
     abcd\=null_context,find_limits
     abcd\=allusedtext,startchar
 
@@ -4604,6 +4766,9 @@ B)x/alt_verbnames,mark
 
 /a(bc)(DE)/replace=a\u$1\U$1\E$1\l$2\L$2\Eab\Uab\LYZ\EDone,substitute_extended
     abcDE
+
+/(Hello)|wORLD/g,replace=>${1:+\l\U$0:\u\L$0}<,substitute_extended
+    Hello between wORLD
 
 /abcd/replace=xy\kz,substitute_extended
     abcd
@@ -4660,6 +4825,42 @@ B)x/alt_verbnames,mark
 
 /abcd/g
     >abcd1234abcd5678<\=replace=wxyz,substitute_matched
+
+/abc/substitute_extended,replace=>\045<
+    abc
+
+/abc/substitute_extended,replace=>\45<
+    abc
+
+/abc/substitute_extended,replace=>\o{45}<
+    abc
+
+/abc/substitute_extended,replace=>\845<
+    abc
+
+/a(b)(c)/substitute_extended,replace=>\1<
+    abc
+
+/a(b)(c)/substitute_extended,replace=>\2<
+    abc
+
+/a(b)(c)/substitute_extended,replace=>\3<
+    abc
+
+/a(?<namED_1>b)c/substitute_extended
+    abc\=replace=>${namED_1}<
+
+/a(?<namedverylongbutperfectlylegalsoyoushouldnthaveaproblem_1>b)c/substitute_extended
+    abc\=replace=>${namedverylongbutperfectlylegalsoyoushouldnthaveaproblem_1}<
+
+/abc/substitute_extended
+    abc\=replace=\a\b\e\f\n\r\t\v\\
+
+/a(b)c/
+    LabcR\=replace=>$&<
+    LabcR\=replace=>$`<
+    LabcR\=replace=>$'<
+    LabcR\=replace=>$_<
 
 /^(o(\1{72}{\"{\\{00000059079}\d*){74}}){19}/I
 
@@ -5119,6 +5320,14 @@ a)"xI
 
 /(*LIMIT_HEAP=0)xxx/I
 
+/(*LIMIT_HEAP=123/use_length
+
+/(*LIMIT_MATCH=/use_length
+
+/(*CRLF)(*LIMIT_DEPTH=/use_length
+
+/(*CRLF)(*LIMIT_RECURSION=1)(*BOGUS/use_length
+
 /\d{0,3}(*:abc)(?C1)xxx/callout_info
 
 # ----------------------------------------------------------------------
@@ -5402,6 +5611,28 @@ a)"xI
     snowcat
     syndicate
 
+# Confirm that the pcre2_set_optimize API does not have any undesired effect on literal patterns
+/(cat)|dog/I,literal,auto_possess_off
+    (cat)|dog
+\= Expect no match
+    the cat sat
+
+/(cat)|dog/I,literal,dotstar_anchor_off
+    (cat)|dog
+\= Expect no match
+    the cat sat
+
+/(cat)|dog/I,literal,optimization_none
+    (cat)|dog
+\= Expect no match
+    the cat sat
+
+# These should result in errors, since it is not permitted to use the
+# PCRE2_NO_AUTO_POSSESS and PCRE2_NO_DOTSTAR_ANCHOR options on a literal pattern
+/(cat)|dog/literal,no_auto_possess
+
+/(cat)|dog/literal,no_dotstar_anchor
+
 /a whole line/match_line,multiline
     Rhubarb \na whole line\n custard
 \= Expect no match
@@ -5573,6 +5804,54 @@ a)"xI
     abcdefabcpqr
     12abc34xyz\=substitute_skip=1
     12abc34xyz\=substitute_stop=1
+
+/a(b)c/substitute_overflow_length,substitute_callout,replace=[1]12
+    abc\=substitute_skip=1
+    abc
+
+/a(b)c/substitute_overflow_length,substitute_callout,replace=[2]12
+    abc\=substitute_skip=1
+    abc
+
+/a(b)c/substitute_overflow_length,substitute_callout,replace=[3]12
+    abc\=substitute_skip=1
+    abc
+
+/a(b)c/substitute_overflow_length,substitute_callout,replace=[4]12
+    abc\=substitute_skip=1
+    abc
+
+/a(b)c/substitute_overflow_length,substitute_callout,replace=[2]1234
+    abc\=substitute_skip=1
+    abc
+
+/a(b)c/substitute_overflow_length,substitute_callout,replace=[3]1234
+    abc\=substitute_skip=1
+    abc
+
+/a(b)c/substitute_overflow_length,substitute_callout,replace=[4]1234
+    abc\=substitute_skip=1
+    abc
+
+/a(b)c/substitute_overflow_length,substitute_callout,replace=[5]1234
+    abc\=substitute_skip=1
+    abc
+
+/a(b)c/substitute_callout,replace=[1]12
+    abc\=substitute_skip=1
+    abc
+
+/a(b)c/substitute_callout,replace=[2]12
+    abc\=substitute_skip=1
+    abc
+
+/a(b)c/substitute_callout,replace=[3]12
+    abc\=substitute_skip=1
+    abc
+
+/a(b)c/substitute_callout,replace=[4]12
+    abc\=substitute_skip=1
+    abc
 
 /abc\rdef/
     abc\ndef
@@ -5865,6 +6144,17 @@ a)"xI
     XABCY
     XabcY\=replace=  
 
+/abc/replace=\U$0,substitute_extended,substitute_case_callout
+    XabcY
+\= Expect not supported
+    XabcY\=null_context
+
+/a/substitute_extended,substitute_case_callout
+    XaY\=replace=\U$0
+    XaY\=replace=\L$0
+    XaY\=replace=\u\L$0
+    XaY\=replace=\l\U$0
+
 # Expect non-fixed-length error
 
 "(?<=X(?(DEFINE)(.*))(?1))."
@@ -6050,9 +6340,8 @@ a)"xI
     \x0a
     abc\x0adef
 
-# This test is currently broken in the interpreter
-# /|a(?0)/endanchored
-#    aaaa
+/|a(?0)/endanchored
+    aaaa
 
 /A +/extended
 
@@ -6110,5 +6399,1373 @@ a)"xI
 
 /[^\S\W]{6}/
     .abc def..
+
+/(*MARK:a/y_)/debug
+
+//i,sr
+
+# The behaviour of these tests is different from Perl because PCRE2 doesn't
+# recognize \Q or \E within a quantifier, so these examples are not treated
+# as quantifiers. Subsequent processing of the string removes the escapes.
+
+/a{\Q1\E,2}/
+    xa{1,2}x
+\= Expect no match     
+    xaax
+    
+/a{\E1,2}/
+    xa{1,2}x
+\= Expect no match     
+    xaax
+    
+# --------------
+
+/(?<=|b?)./B
+
+/(?=|b?)./B
+
+/(?>|b?)./B
+
+/(?<=xy|a.b?|cd)/B
+
+# Tests for scan substring, a non Perl feature of PCRE2
+
+# Parse errors first
+
+/(*scs:/
+
+/(*scan_substring:(/
+
+/(*scs:('name'/
+
+/(*scs:(1)a|b)/
+
+/(*scs:(0)a)/
+
+/(*scan_substring:(1)a|b)/
+
+/(*scs:(<name>)a|b)/
+
+/(*scan_substring:(<name>)a|b)/
+
+/()(*scs:(1)+a)/
+
+/()(*scs:(1,1,1,1,1,1,1,1,2))/
+
+/()()(*scs:(1,2,1,2,1,2,2,'XYZ'))/
+
+# Tests for iterating scan_substring
+
+/(a)(*scs:(1)b)*c/B
+
+/(a)(*scs:(1)b)*?c/B
+
+/(a)(*scs:(1)b)*+c/B
+
+/(a)(*scs:(1)b)+c/B
+
+/(a)(*scs:(1)b)+?c/B
+
+/(a)(*scs:(1)b)++c/B
+
+/(a)(*scs:(1)b)?c/B
+
+/(a)(*scs:(1)b)??c/B
+
+/(a)(*scs:(1)b)?+c/B
+
+/(a)(*scs:(1)b){3}c/B
+
+/(a)(*scs:(1)b){3,5}?c/B
+
+/(a)(*scs:(1)b){3,}+c/B
+
+/(\w++)=(?(*scs:(1)(abc))pqr|xyz)(\w++)/
+
+# Tests for scan_substring
+
+/([a-z]++)(*scs:(1)(stx)|(ne))(.)/B
+    ##string##next!##
+    __aastxaa:__
+    __abababab:__
+
+/(?<XX>[a-z]++)##(*scan_substring:('XX').*(..)$)\2/B
+    ##abcd##abcd##cd##
+    ##abcd##abcd##abcd##
+
+/([a-z])([a-z]++)(#+)(*scs:(2)(ab.))/
+    xab##
+    yabc###
+    zababc####
+
+/(?:(?<YYY>[a-z]++)|(?<YYY>[0-9]++)|$)(*scan_substring:('YYY')((?<START>.).*\k<START>$))/dupnames
+    $$abacd$$112345$$abca$$
+    $$abcdeaf$$1234567819$$123456781$$
+
+/([a-zA-Z]+)(*scs:(1).*?(?<ABC>[A-Z]+)(*scan_substring:('ABC').*(.)\3))#+/
+    ##abABCtuTUVXz##abCDEFGxyCDEEFGhi##
+    ##abAABCtuTUVXXz!!abCDEFGxyCDEFGGhi##
+
+/([a-zA-Z]+)(*scs:(1)(xy|ab(*ACCEPT)cd))/B
+    ##cdefgh##cdeabxy##
+
+/(?<AA>[a-zA-Z]+)(*scs:('AA')(ab(*ACCEPT)cd|xy))/B
+    ##cdefgh##cdeabxy##
+
+/([a-z]++)##(*scs:(1)(abc))?!/
+    ##xyz##abc##!
+    ##xyz##!
+    ##xyz##
+
+/([a-z]++)##(*scs:(1)(abc))??(?(2)!|:)/
+    ##abc##abc##!
+    ##abc##xyz##:
+    ##abc###
+
+/([a-z]++)##(*scs:(1)(abc)|xyz){8}(?(2)!|:)/
+    ##abc##abc##!
+    ##abc##xyz##:
+    ##nnn##!
+    ##nnn##:
+
+/[A-Z]{3}([A-Z]++)#(*scs:(1)(?<=BC)XY)#/
+    ABCXY##AKCXY##
+  
+/()(\w++)=(*scs:(2)(?=abc))(\w++)/
+    xabcx=pqr.
+      
+/(\d++)(*scs:(1)\d+\z)(\w+)/
+    X123XYZ
+
+/(\d++)(*scs:(1)\d+\Z)(\w+)/
+    X123XYZ
+
+/(\d++)(*scs:(1)\d+$)(\w+)/
+    X123XYZ
+
+/([a-z]{2})[a-z](*scs:(1)(.*?))\2$/
+    abcab
+    abcabc
+
+/^(([a-z]([a-z]*+))(*scs:(2).(?=(?1)|$)\3)|#){5}/
+    abcdefg#hijk#!
+    abcdefg#hijk#lmnopqr#
+
+/(*scs:(1)a)(a)|x/
+    a
+    x
+
+/(*scs:(<GOOD_NAME>)a)(?<GOOD_NAME>a)(?<GOOD_NAME>b)(?<GOOD_NAME>c)(?<GOOD_NAME>d)|x/dupnames
+    abcd
+    x
+
+/(*scs:(1)a)?(a)/
+    b
+    a
+
+/(*scs:(1)a)??(a)/
+    b
+    a
+
+# Custom backtrack, goes back n - 1 characters in the input (n=8)
+/x(?|(*scs:(1)(?<=(.)))|()){8}/
+    abcdefghx
+
+/(a)(b)(*scs:(2)(*scs:(1)a(*PRUNE)x)).+|(.+)/
+    abcdef
+
+/(a)(b)(*scs:(2)(*scs:(1)a(*PRUNE:markstr)x)).+|(.+)/mark
+    abcdef
+
+/(a)(b)(*scs:(2)(*scs:(1)a(*PRUNE:markstr))).+|(.+)/mark
+    abcdef
+
+/(a)(b)(*scs:(2)(*scs:(1)a(*COMMIT)x)).+|(.+)/
+    abcdef
+
+/(a)(b)(*scs:(2)(*scs:(1)a(*COMMIT:markstr)x)).+|(.+)/mark
+    abcdef
+
+/(a)(b)(*scs:(2)(*scs:(1)a(*COMMIT:markstr))).+|(.+)/mark
+    abcdef
+
+/(abc)(def)(*scs:(1)(*scs:(2)de(*SKIP)x)).+|(.+)/
+    abcdefghi
+
+/(abc)(def)(*scs:(2)(*scs:(1)(*SKIP)x)).+|(.+)/
+    abcdefghi
+
+/(?<=(abc))(def)(*scs:(2)(*scs:(1)(*SKIP)x)).+|(ef.+)/
+    abcdefghi
+
+/(abc)(def)(*scs:(2)(?:(*scs:(1)abc(*SKIP:notfound)x|abcd|(abc)))).+/
+    abcdefghi
+
+/(abc)(def)(*MARK:markstr)(*scs:(2)(?:(*scs:(1)abc(*SKIP:markstr)x))).+|(.+)/
+    abcdefghi
+
+/^([a-z]++)(?:((?6))|((?7))|((?8))|(#))(?(DEFINE)((*scs:(1)abc(*PRUNE)d))((*scs:(1)abc(*COMMIT)e))((*scs:(1)abc(*SKIP)f)))/
+    abcd#
+    abce#
+    abcf#
+    abc#
+
+/\b(\w++)(*scs:(1)^)/
+    sausages and mash
+\= Expect no match
+    !sausages and mash
+
+/(\b\w{3,}+\b)(*scs:(1)\W*+(?:((.)\W*+(?2)\W*+\3|)|((.)\W*+(?4)\W*+\5|\W*+.\W*+))\W*+$)/ig
+    ipsum lorem revel level able was I ere I saw Elba
+
+/(?:(?'A'a)|(?<A>b))(*scs:('A')b)c/dupnames
+    abc
+
+# Relative reference
+/(xyz)(abc)(*scs:(-1)abc)(*scs:(-2)\1)/
+    >xyzabc<
+
+/^([a-z]++)#(*scs:(1)a|ab|abc|abcd|abcde|abcdef|(abcdefg))\2/
+    abcdefg#abcdefg
+
+/^([a-z]++)(*scs:(1)(a+)(*THEN)b|(a+)(*THEN)c|(aa))/
+    aaaax
+
+/^([a-z]++)(*scs:(1)((a+)(*THEN)b)|(a+)(*THEN)c|(aa))/
+    aaaax
+
+/^([a-z]++)(*scs:(1)((a+)(*THEN)b))?/
+    aaaax
+
+/^([a-z]++)(*scs:(1)(abc|(a+)(*THEN)b))?/
+    aaaax
+
+/^(?:(.){20,30}#|([a-z]++)(*scs:(1)(a+)(*THEN)b){20,30}#|(.){20,30}!)/
+    aaaaaaaaaaaaaaaaaaaaaaaaab!
+
+# List of captures
+
+/(?:(abc)|(?<PP>def)|ghi)(*scs:(1,'PP').(.))/B
+    abc
+    def
+    ghi
+
+/(?:(?<MM>abc)|(?<MM>def)|(ghi)|(?'NN'jkl)|mno)(*scs:('MM',3,<NN>).(.))/B,dupnames
+    abc
+    def
+    ghi
+    jkl
+    mno
+
+/f(?:(*scs:(+1,+2)(?<=(.)))|()){16}/
+    1234567890abcdef
+    1ffffffffffffff
+
+/(?<AA>a)(*scan_substring:(1,'AA',1,<AA>)a)b/B
+    ab
+    ac
+
+/()()()(?<=ab(*scs:(1,2,3))cd)xyz/
+    abcdxyz
+
+/()()()(?<=ab(*ACCEPT)(*scs:(1,2,3))cd|efg)xyz/
+    abxyz
+    efgxyz
+
+# Tests for pcre2_set_optimize()
+
+/abc/I,optimization_none
+
+/abc/I,optimization_none,auto_possess
+
+/abc/I,optimization_none,dotstar_anchor,auto_possess
+
+/abc/I,optimization_none,start_optimize
+
+/abc/I,dotstar_anchor_off,optimization_full
+
+# If pcre2_set_optimize() is used to turn on some optimization, but at the same time,
+# the compile options word turns it off... the compile options word "wins":
+
+/abc/I,no_auto_possess,auto_possess
+
+/abc/I,no_dotstar_anchor,dotstar_anchor
+
+/abc/I,no_start_optimize,start_optimize
+
+# --------------
+
+# larger than GROUP_MAX, smaller than INT_MAX
+/a\800000b/
+
+# coming up on INT_MAX... (used to succeed with \8 being literal 8)
+/a\800000000b/
+
+# over INT_MAX (used to succeed with \8 being literal 8)
+/a\8000000000b/
+
+# --------------
+
+# no_bs0
+
+/a\0b\x00c\00d/
+    a\x{00}b\x{00}c\x{00}d
+
+/a\0b/no_bs0
+
+/b\x00c\00d/no_bs0
+    b\x{00}c\x{00}d
+
+/abc/substitute_extended
+    abc\=replace=a\0b\x00c\00d
+
+/abc/substitute_extended,no_bs0
+    abc\=replace=a\0b
+    abc\=replace=b\x00c\00d
+
+# python_octal
+
+/\0-\00-\01-\012-\0123-\123-\1234/
+    \x00-\x00-\x01-\o{12}-\o{12}3-\o{123}-\o{123}4
+
+/\1/
+
+/\12/
+    \o{12}
+
+/abc/substitute_extended
+    abc\=replace=\0-\00-\01-\012-\0123-\123-\1234
+    abc\=replace=\1
+    abc\=replace=\12
+
+/\0-\00-\01-\012-\0123-\123-\1234/python_octal
+    \x00-\x00-\x01-\o{12}-\o{12}3-\o{123}-\o{123}4
+
+/\1/python_octal
+
+/\12/python_octal
+
+/abc/substitute_extended,python_octal
+    abc\=replace=\0-\00-\01-\012-\0123-\123-\1234
+    abc\=replace=\1
+    abc\=replace=\12
+
+# --------------
+
+/a(?C)b/
+    abc
+    abc\=callout_none
+
+/a(?C)b/never_callout
+
+# --------------
+
+# EXTENDED CHARACTER CLASSES (UTS#18)
+
+/[a[]/
+    [
+
+/[a[]/alt_extended_class
+
+/[a[B]/alt_extended_class
+
+/[a[B]]C/B,alt_extended_class
+    aC
+    BC
+\= Expect no match
+    [C
+
+/[[A][B]]/B,alt_extended_class
+    A
+    B
+\= Expect no match
+    [
+    ]
+
+/[[A]||[B]]/B,alt_extended_class
+    A
+    B
+\= Expect no match
+    C
+
+/[[^A][B]]/B,alt_extended_class
+    B
+    C
+\= Expect no match
+    A
+
+/[^[A][B]]/B,alt_extended_class
+    C
+\= Expect no match
+    A
+    B
+
+/[^[A]&&[B]]/B,alt_extended_class
+    A
+    B
+    C
+
+/[[AC]||[BC]]/B,alt_extended_class
+    A
+    B
+    C
+\= Expect no match
+    D
+
+/[[AC]&&[BC]]/B,alt_extended_class
+    C
+\= Expect no match
+    A
+    B
+    D
+
+/[[AC]--[BC]]/B,alt_extended_class
+    A
+\= Expect no match
+    B
+    C
+    D
+
+/[[AC]~~[BC]]/B,alt_extended_class
+    A
+    B
+\= Expect no match
+    C
+    D
+
+/[A[]]]/B,alt_extended_class
+    A
+    ]
+\= Expect no match
+    [
+
+/[A[^]]]/B,alt_extended_class
+    A
+    [
+    C
+\= Expect no match
+    ]
+
+/[A[]]/B,alt_extended_class,allow_empty_class
+    A
+\= Expect no match
+    ]
+    [
+
+/[A[^]]/B,alt_extended_class,allow_empty_class
+    A
+    C
+    [
+    ]
+
+/[A-C--B]/B,alt_extended_class
+    A
+    C
+\= Expect no match
+    B
+
+/[^A-C--B]/B,alt_extended_class
+    B
+\= Expect no match
+    A
+    C
+
+/[[\d\D]--b]/B,alt_extended_class
+    a
+    c
+\= Expect no match
+    b
+
+/[\dAC-E[:space:]&&[^z]]/B,alt_extended_class
+    0
+    A
+    C
+    D
+    E
+    \t
+\= Expect no match
+    B
+    F
+    ;
+
+/[z||[^\dAC-E[:space:]]]/B,alt_extended_class
+    z
+    B
+    F
+    ;
+\= Expect no match
+    0
+    A
+    C
+    D
+    E
+    \t
+
+/[ab||cd]/B,alt_extended_class
+    a
+    c
+\= Expect no match
+    e
+
+/[[a]b||[c]d]/B,alt_extended_class
+    a
+    c
+\= Expect no match
+    e
+
+/[a[b]||c[d]]/B,alt_extended_class
+    a
+    c
+\= Expect no match
+    e
+
+/[-&&-]/B,alt_extended_class
+    -
+\= Expect no match
+    a
+
+/[a-&&-a]/B,alt_extended_class
+    -
+    a
+\= Expect no match
+    b
+
+/[-a&&a-]/B,alt_extended_class
+    -
+    a
+\= Expect no match
+    b
+
+/[[a]-&&-[a]]/B,alt_extended_class
+    -
+    a
+\= Expect no match
+    b
+
+/[-[a]&&[a]-]/B,alt_extended_class
+    -
+    a
+\= Expect no match
+    b
+
+/(?xx:[  ^  a[  ^  b]  ])/B,alt_extended_class
+    b
+\= Expect no match
+    A
+    a
+    c
+
+/[  ^  a[  ^  b]  ]/B,alt_extended_class
+    \x20
+    ^
+    a
+    b
+\= Expect no match
+    c
+
+/[a-c--b]+/B,alt_extended_class
+    ac
+    a
+\= Expect no match
+    b
+
+/[a-c--b]{2,3}/B,alt_extended_class
+    ac
+    cac
+\= Expect no match
+    a
+    bb
+
+/x[a-c--b]+y/B,alt_extended_class
+    xacy
+    xaay
+    xay
+\= Expect no match
+    zacy
+    xacz
+    xy
+    xby
+
+/[A--B--C--D]/B,alt_extended_class
+    A
+\= Expect no match
+    B
+
+/[A--A--A]/B,alt_extended_class
+\= Expect no match
+    A
+    B
+
+/[[A--A]--A]/B,alt_extended_class
+\= Expect no match
+    A
+    B
+
+/[A--[A--A]]/B,alt_extended_class
+    A
+\= Expect no match
+    B
+
+/[A--^B]/B,alt_extended_class
+    A
+\= Expect no match
+    B
+    ^
+    z
+
+/([a-z--n])\1/B,alt_extended_class
+    aa
+    zz
+\= Expect no match
+    az
+    nn
+
+/(x[a-z--n]y)\1/B,alt_extended_class
+    xayxay
+    xzyxzy
+\= Expect no match
+    xnyxny
+
+/(?:_\1|([a-z--n])){2}/B,alt_extended_class
+    a_a
+    z_z
+\= Expect no match
+    a_z
+    n_n
+
+/(?:_\1|([a-z--n]))+/B,alt_extended_class
+    a_a
+    z_z
+    a_partial
+\= Expect no match
+    n_n
+
+/[\d-[z]]/B,alt_extended_class
+    1
+    -
+    z
+
+/[\d-||z]/B,alt_extended_class
+    1
+    -
+    z
+
+/[z[\d-]]/B,alt_extended_class
+    1
+    -
+    z
+
+/[1-[z]]/B,alt_extended_class
+    1
+    -
+    z
+
+/[1-||z]/B,alt_extended_class
+    1
+    -
+    z
+
+/[z[1-]]/B,alt_extended_class
+    1
+    -
+    z
+
+/[a--/alt_extended_class
+
+/[a--a/alt_extended_class
+
+/[a--[a/alt_extended_class
+
+/[a--[a]/alt_extended_class
+
+/[a--[a]--/alt_extended_class
+
+/[a--]/alt_extended_class
+
+/[--a]/alt_extended_class
+
+/[^--a]/alt_extended_class
+
+/[--]/alt_extended_class
+
+/[a---b]/alt_extended_class
+
+/[a----b]/alt_extended_class
+
+/[a&&&b]/alt_extended_class
+
+/[a|||b]/alt_extended_class
+
+/[a~~~b]/alt_extended_class
+
+/[a~~~~b]/alt_extended_class
+
+/[a~~/alt_extended_class
+
+/[a~~~/alt_extended_class
+
+/[a~~~~/alt_extended_class
+
+/[a||b&&c]/alt_extended_class
+
+/[a||b~~c]/alt_extended_class
+
+/[a~~b&&c]/alt_extended_class
+
+/[a--b~~c]/alt_extended_class
+
+/[a--b&&c]/alt_extended_class
+
+/[a||b--c]/alt_extended_class
+
+/[a||[b--c]]/alt_extended_class
+    a
+    b
+\= Expect no match
+    c
+
+/[\d-z]/B,alt_extended_class
+
+/[z-\d]/B,alt_extended_class
+
+/[abc -- b]+/B,alt_extended_class
+    acacbac
+
+/[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a&&a]]]]]]]]]]]]]]]/alt_extended_class
+    a
+\= Expect no match
+    b
+
+/[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[z]&&a]]]]]]]]]]]]]]]/alt_extended_class
+
+/[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a[b]&&a[a&&a[z]]]]]]]]]]]]]]]]/alt_extended_class
+
+/[z&/alt_extended_class
+
+/[[^]~~[^]]/B,alt_extended_class,allow_empty_class
+\= Expect no match
+    a
+
+/[^[[^]~~[^]]]/B,alt_extended_class,allow_empty_class
+    a
+
+# --------------
+
+# EXTENDED CHARACTER CLASSES (Perl)
+
+# allow-empty-class does nothing inside (?[...])
+/(?[ []] ])/B,allow_empty_class
+    ]
+
+# bad-escape-is-literal does nothing inside (?[...])
+/[ \j ]/
+
+/[ /\
+
+/(?[ \j ])/
+
+/(?[ /\
+
+/[ \j ]/bad_escape_is_literal
+    j
+\= Expect no match
+    k
+
+/[ /\bad_escape_is_literal
+
+/(?[ \j ])/bad_escape_is_literal
+
+/(?[ /\bad_escape_is_literal
+
+/(?[ [\j] ])/bad_escape_is_literal
+
+/(?[ (\j) ])/bad_escape_is_literal
+
+# We can't test error cases in testinput1
+
+/(?[])/
+
+/(?[/
+
+/(?[]/
+
+/(?[\n/
+
+/(?[\n]/
+
+/(?[\n]z)/
+
+/(?[\n] )/
+
+/(?[(/
+
+/(?[( /
+
+/(?[(\n/
+
+/(?[ \n + () ])/
+
+/(?[1])/
+
+/(?[a])/
+
+/(?[a-c])/
+
+/(?[(])/
+
+/(?[(\n])/
+
+/(?[\n)])/
+
+/(?[^\n])/
+
+/(?[ \n \t ])/
+
+/(?[ \d \t ])/
+
+/(?[ [\n] \t ])/
+
+/(?[ (\n) \t ])/
+
+/(?[ [:alpha:] \t ])/
+
+/(?[ \n + \t \d ])/
+
+/(?[ !\n \t ])/
+
+/(?[ \n [:alpha:] ])/
+
+/(?[ \n [\d] ])/
+
+/(?[ \n (\t) ])/
+
+/(?[ \n !\t ])/
+
+/(?[ \n \t ])/
+
+/(?[:graph:])/
+
+/(?[\Qn\E])/
+
+# maximum depth tests
+
+/(?[\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n&\n))))))))))))))])/
+    \n
+\= Expect no match
+    a
+    b
+
+/(?[\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+([\n]&\n))))))))))))))])/
+
+/(?[\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n&[\n]))))))))))))))])/
+
+/(?[\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+(\n+[a]&\n+((\n)&\n))))))))))))))])/
+
+# --------------
+
+/[[:digit:]   -Z]/xx
+
+/[\d   -Z]/xx
+
+/[[:digit:]\E-H]/
+
+/[[:digit:]\Q\E-H]+/
+
+/[z-[:space:]]/
+
+/[z-\d]/
+
+/[[:space:]-z]/
+
+/[\d-z]/
+
+/[\d-\w]/
+
+/[\Q/
+
+/[\Q/\
+
+/[\Q\E/
+
+/[\Q\n/
+
+/[\Q\n]/
+
+/[\Q\n/\
+
+/[\Q\n\]/
+
+/[\Q\n\E/
+
+/[\Q\n\E]/
+    \\
+    n
+\= Expect no match
+    \n
+    Q
+
+/[z\Q/
+
+/[z\Q/\
+
+/[z\Q\E/
+
+/[/\
+
+/[\n/
+
+/[\E/
+
+/[\^z]/B
+
+/[ \^]/B
+
+/[\\z]/B
+
+/[0-z]/B
+
+/[0\-z]/B
+
+/[]z]/B
+
+/[ \]]/B
+
+/[ --]/B
+
+/[A-\]]/B
+
+/[A-\\]/B
+
+/[\A]/
+
+/[\Z]/
+
+/[\z]/
+
+/[\G]/
+
+/[\K]/
+
+/[\g<1>]/
+    <
+    g
+\= Expect no match
+    \\
+
+/[\k<1>]/
+    <
+    k
+\= Expect no match
+    \\
+
+/[\u{ 1z}]/alt_bsux,extra_alt_bsux
+    u
+    {
+    }
+    \x20
+    1
+\= Expect no match
+    \\
+
+/[a\x{e1}]/iB
+    a
+    A
+    \x{e1}
+
+# --------------
+
+# Attempt at full coverage of the substitution buffer-management code - not
+# just covering each line in each macro, but covering each instantiation of each
+# line in those macros.
+
+#
+# CHECKMEMCPY tests
+#
+# Four conditions for CHECKMEMCPY:
+#   no overflow;
+#   first overflow (with/without substitute_overflow_length);
+#   overflow after previous overflow
+# Additionally some CHECKMEMCPYs have a substitute_replacement_only branch.
+#
+
+# pre-start-offset fragment
+# no "overflow after previous overflow" condition
+/a/
+    XYaZ\=offset=2,replace=foo
+    XYaZ\=offset=2,replace=[1]foo
+    XYaZ\=offset=2,substitute_overflow_length,replace=[1]foo
+    XYaZ\=offset=2,substitute_replacement_only,replace=foo
+
+# pre-match fragment
+/a/
+    XYaZ\=replace=foo
+    XYaZ\=replace=[1]foo
+    XYaZ\=substitute_overflow_length,replace=[1]foo
+    XXYaZ\=offset=2,substitute_overflow_length,replace=[1]foo
+    XYaZ\=substitute_replacement_only,replace=foo
+
+# empty match bumpalong
+/(?<=abc)(|DEF)/g
+    abcDEFabcZ\=replace=+
+    abcDEFabcZ\=replace=[5]+
+    abcDEFabcZ\=substitute_overflow_length,replace=[5]+
+    abcDEFabcZ\=replace=[9]+
+    abcDEFabcZ\=substitute_overflow_length,replace=[9]+
+    abcDEFabcZ\=substitute_overflow_length,replace=[1]+
+    abcDEFabcZ\=substitute_replacement_only,replace=+
+
+# literal replacement
+/a/
+    XYaZ\=substitute_literal,replace=$0
+    XYaZ\=substitute_literal,replace=[3]$0
+    XYaZ\=substitute_literal,substitute_overflow_length,replace=[3]$0
+    XYaZ\=substitute_literal,substitute_overflow_length,replace=[1]$0
+
+# a MARK
+/(*:pear)apple/
+    XappleY\=replace=${*MARK}
+    XappleY\=replace=[3]${*MARK}
+    XappleY\=substitute_overflow_length,replace=[3]${*MARK}
+    XXappleY\=substitute_overflow_length,replace=[1]${*MARK}
+
+# a subject fragment
+/a(bb)c/
+    XabbcY\=replace=$1
+    XabbcY\=replace=[2]$1
+    XabbcY\=substitute_overflow_length,replace=[2]$1
+    XXabbcY\=substitute_overflow_length,replace=[1]$1
+
+# a zero-length subject fragment
+/a()c/
+    XacY\=replace=$1
+    XacY\=replace=[2]$1
+    XacY\=substitute_overflow_length,replace=[2]$1
+
+# a data character via an escape
+/abc/substitute_extended
+    XabcY\=replace=\x{48}
+    XabcY\=replace=[1]\x{48}
+    XabcY\=substitute_overflow_length,replace=[1]\x{48}
+    XXabcY\=substitute_overflow_length,replace=[1]\x{48}
+
+# a replacement literal character
+/abc/
+    XabcY\=replace=Z
+    XabcY\=replace=[1]Z
+    XabcY\=substitute_overflow_length,replace=[1]Z
+    XXabcY\=substitute_overflow_length,replace=[1]Z
+
+# a cancelled substitution
+# no "overflow after previous overflow" condition
+/abc/substitute_skip=1
+    XabcY\=replace=Z
+    XabcY\=replace=[3]Z
+    XabcY\=substitute_overflow_length,replace=[3]Z
+    XabcY\=substitute_replacement_only,replace=Z
+
+# the rest of the subject
+/abc/
+    XabcYY\=replace=Z
+    XabcYY\=replace=[3]Z
+    XabcYY\=substitute_overflow_length,replace=[3]Z
+    XabcYY\=substitute_overflow_length,replace=[1]Z
+    XabcYY\=substitute_replacement_only,replace=Z
+
+# the trailing NULL
+/abc/
+    XabcY\=replace=Z
+    XabcY\=replace=[3]Z
+    XabcY\=substitute_overflow_length,replace=[3]Z
+    XabcY\=substitute_overflow_length,replace=[1]Z
+
+#
+# CHECKCASECPY tests
+#
+# The same four conditions for CHECKCASECPY as for CHECKMEMCPY:
+#   no overflow;
+#   first overflow (with/without substitute_overflow_length);
+#   overflow after previous overflow
+# Also the condition where CHECKCASECPY isn't called due to a custom callout
+#
+
+# a MARK
+/(*:pear)apple/substitute_extended
+    XappleY\=replace=\U${*MARK}
+    XappleY\=replace=[3]\U${*MARK}
+    XappleY\=substitute_overflow_length,replace=[3]\U${*MARK}
+    XXappleY\=substitute_overflow_length,replace=[1]\U${*MARK}
+    XappleY\=substitute_case_callout,replace=\U${*MARK}
+
+# a subject fragment
+/a(bb)c/substitute_extended
+    XabbcY\=replace=\U$1
+    XabbcY\=replace=[2]\U$1
+    XabbcY\=substitute_overflow_length,replace=[2]\U$1
+    XXabbcY\=substitute_overflow_length,replace=[1]\U$1
+    XabbcY\=substitute_case_callout,replace=\U$1
+
+# a zero-length subject fragment
+/a()c/substitute_extended
+    XacY\=replace=\U$1
+    XacY\=replace=[2]\U$1
+    XacY\=substitute_overflow_length,replace=[2]\U$1
+
+# a data character via an escape
+/abc/substitute_extended
+    XabcY\=replace=\U\x{48}
+    XabcY\=replace=[1]\U\x{48}
+    XabcY\=substitute_overflow_length,replace=[1]\U\x{48}
+    XXabcY\=substitute_overflow_length,replace=[1]\U\x{48}
+    XabcY\=substitute_case_callout,replace=\U\x{48}
+
+# a replacement literal character
+/abc/substitute_extended
+    XabcY\=replace=\UZ
+    XabcY\=replace=[1]\UZ
+    XabcY\=substitute_overflow_length,replace=[1]\UZ
+    XXabcY\=substitute_overflow_length,replace=[1]\UZ
+    XabcY\=substitute_case_callout,replace=\UZ
+
+#
+# DELAYEDFORCECASE tests
+#
+# Some different triggering conditions for DELAYEDFORCECASE:
+#   no overflow;
+#   first overflow (with/without substitute_overflow_length);
+#   if there was a previous overflow, then the case callout can't be invoked
+# Also, the CASEERROR branch.
+# Also, the branch for where chars_outstanding is zero, both with and without
+#   a previous overflow.
+#
+
+# on set casing mode
+/abc/substitute_extended,substitute_case_callout
+    XabcY\=replace=\Uf\Lq
+    XabcY\=replace=[2]\Uf\Lq
+    XabcY\=substitute_overflow_length,replace=[2]\Uf\Lq
+    XabcY\=substitute_overflow_length,replace=[1]\Uf\Lq
+    XabcY\=replace=\U!\Lq
+    XabcY\=replace=\U\Lq
+    XXabcY\=substitute_overflow_length,replace=[1]\U\Lq
+
+# trailing fragment
+/abc/substitute_extended,substitute_case_callout
+    XabcY\=replace=f
+    XabcY\=replace=\Uf
+    XabcY\=replace=[2]\Uf
+    XabcY\=substitute_overflow_length,replace=[2]\Uf
+    XabcY\=substitute_overflow_length,replace=[1]\Uf
+    XabcY\=replace=\U!
+    XabcY\=replace=\U
+    XXabcY\=substitute_overflow_length,replace=[1]\U
+
+#
+# do_case_copy tests
+#
+
+/aa/i,substitute_extended
+    XaaY\=replace=\Uaa\uaa\LAA\lAA\U\lAA\L\uaa\u\LaaA\l\UAAa
+    XaaY\=replace=[1]\uaa
+    XaaY\=replace=[2]\uaa
+    XaaY\=replace=[3]\uaa
+    XaaY\=replace=[4]\uaa
+    XaaY\=replace=[5]\uaa
+    XaaY\=replace=[1]\u$0
+    XaaY\=replace=[2]\u$0
+    XaaY\=replace=[3]\u$0
+    XaaY\=replace=[4]\u$0
+    XaaY\=replace=[5]\u$0
+    XaaY\=replace=[1]\lAA
+    XaaY\=replace=[2]\lAA
+    XaaY\=replace=[3]\lAA
+    XaaY\=replace=[4]\lAA
+    XaaY\=replace=[5]\lAA
+    XAAY\=replace=[1]\l$0
+    XAAY\=replace=[2]\l$0
+    XAAY\=replace=[3]\l$0
+    XAAY\=replace=[4]\l$0
+    XAAY\=replace=[5]\l$0
+    XaaY\=replace=[1]\l\UAa
+    XaaY\=replace=[2]\l\UAa
+    XaaY\=replace=[3]\l\UAa
+    XaaY\=replace=[4]\l\UAa
+    XaaY\=replace=[5]\l\UAa
+    XAaY\=replace=[1]\l\U$0
+    XAaY\=replace=[2]\l\U$0
+    XAaY\=replace=[3]\l\U$0
+    XAaY\=replace=[4]\l\U$0
+    XAaY\=replace=[5]\l\U$0
+    XaaY\=replace=[1]\u\LaA
+    XaaY\=replace=[2]\u\LaA
+    XaaY\=replace=[3]\u\LaA
+    XaaY\=replace=[4]\u\LaA
+    XaaY\=replace=[5]\u\LaA
+    XaAY\=replace=[1]\u\L$0
+    XaAY\=replace=[2]\u\L$0
+    XaAY\=replace=[3]\u\L$0
+    XaAY\=replace=[4]\u\L$0
+    XaAY\=replace=[5]\u\L$0
+
+/aa/i,substitute_extended,substitute_overflow_length
+    XaaY\=replace=[1]\uaa
+    XaaY\=replace=[2]\uaa
+    XaaY\=replace=[3]\uaa
+    XaaY\=replace=[4]\uaa
+    XaaY\=replace=[5]\uaa
+    XaaY\=replace=[1]\u$0
+    XaaY\=replace=[2]\u$0
+    XaaY\=replace=[3]\u$0
+    XaaY\=replace=[4]\u$0
+    XaaY\=replace=[5]\u$0
+    XaaY\=replace=[1]\lAA
+    XaaY\=replace=[2]\lAA
+    XaaY\=replace=[3]\lAA
+    XaaY\=replace=[4]\lAA
+    XaaY\=replace=[5]\lAA
+    XAAY\=replace=[1]\l$0
+    XAAY\=replace=[2]\l$0
+    XAAY\=replace=[3]\l$0
+    XAAY\=replace=[4]\l$0
+    XAAY\=replace=[5]\l$0
+    XaaY\=replace=[1]\l\UAa
+    XaaY\=replace=[2]\l\UAa
+    XaaY\=replace=[3]\l\UAa
+    XaaY\=replace=[4]\l\UAa
+    XaaY\=replace=[5]\l\UAa
+    XAaY\=replace=[1]\l\U$0
+    XAaY\=replace=[2]\l\U$0
+    XAaY\=replace=[3]\l\U$0
+    XAaY\=replace=[4]\l\U$0
+    XAaY\=replace=[5]\l\U$0
+    XaaY\=replace=[1]\u\LaA
+    XaaY\=replace=[2]\u\LaA
+    XaaY\=replace=[3]\u\LaA
+    XaaY\=replace=[4]\u\LaA
+    XaaY\=replace=[5]\u\LaA
+    XaAY\=replace=[1]\u\L$0
+    XaAY\=replace=[2]\u\L$0
+    XaAY\=replace=[3]\u\L$0
+    XaAY\=replace=[4]\u\L$0
+    XaAY\=replace=[5]\u\L$0
+
+/aa/i,substitute_extended,substitute_case_callout
+    XaaY\=replace=\Uaa\uaa\LBB\lBB\U\lBB\L\uaa\u\LaaB\l\UBBa
+    XaaY\=replace=[1]\uaa
+    XaaY\=replace=[2]\uaa
+    XaaY\=replace=[3]\uaa
+    XaaY\=replace=[4]\uaa
+    XaaY\=replace=[5]\uaa
+    XaaY\=replace=[1]\u$0
+    XaaY\=replace=[2]\u$0
+    XaaY\=replace=[3]\u$0
+    XaaY\=replace=[4]\u$0
+    XaaY\=replace=[5]\u$0
+    XaaY\=replace=[1]\lBB
+    XaaY\=replace=[2]\lBB
+    XaaY\=replace=[3]\lBB
+    XaaY\=replace=[4]\lBB
+    XaaY\=replace=[5]\lBB
+    XBBY\=replace=[1]\l$0
+    XBBY\=replace=[2]\l$0
+    XBBY\=replace=[3]\l$0
+    XBBY\=replace=[4]\l$0
+    XBBY\=replace=[5]\l$0
+    XaaY\=replace=[1]\l\UBa
+    XaaY\=replace=[2]\l\UBa
+    XaaY\=replace=[3]\l\UBa
+    XaaY\=replace=[4]\l\UBa
+    XaaY\=replace=[5]\l\UBa
+    XBaY\=replace=[1]\l\U$0
+    XBaY\=replace=[2]\l\U$0
+    XBaY\=replace=[3]\l\U$0
+    XBaY\=replace=[4]\l\U$0
+    XBaY\=replace=[5]\l\U$0
+    XaaY\=replace=[1]\u\LaB
+    XaaY\=replace=[2]\u\LaB
+    XaaY\=replace=[3]\u\LaB
+    XaaY\=replace=[4]\u\LaB
+    XaaY\=replace=[5]\u\LaB
+    XaBY\=replace=[1]\u\L$0
+    XaBY\=replace=[2]\u\L$0
+    XaBY\=replace=[3]\u\L$0
+    XaBY\=replace=[4]\u\L$0
+    XaBY\=replace=[5]\u\L$0
+
+/aa/i,substitute_extended,substitute_case_callout,substitute_overflow_length
+    XaaY\=replace=[1]\uaa
+    XaaY\=replace=[2]\uaa
+    XaaY\=replace=[3]\uaa
+    XaaY\=replace=[4]\uaa
+    XaaY\=replace=[5]\uaa
+    XaaY\=replace=[1]\u$0
+    XaaY\=replace=[2]\u$0
+    XaaY\=replace=[3]\u$0
+    XaaY\=replace=[4]\u$0
+    XaaY\=replace=[5]\u$0
+    XaaY\=replace=[1]\lBB
+    XaaY\=replace=[2]\lBB
+    XaaY\=replace=[3]\lBB
+    XaaY\=replace=[4]\lBB
+    XaaY\=replace=[5]\lBB
+    XBBY\=replace=[1]\l$0
+    XBBY\=replace=[2]\l$0
+    XBBY\=replace=[3]\l$0
+    XBBY\=replace=[4]\l$0
+    XBBY\=replace=[5]\l$0
+    XaaY\=replace=[1]\l\UBa
+    XaaY\=replace=[2]\l\UBa
+    XaaY\=replace=[3]\l\UBa
+    XaaY\=replace=[4]\l\UBa
+    XaaY\=replace=[5]\l\UBa
+    XBaY\=replace=[1]\l\U$0
+    XBaY\=replace=[2]\l\U$0
+    XBaY\=replace=[3]\l\U$0
+    XBaY\=replace=[4]\l\U$0
+    XBaY\=replace=[5]\l\U$0
+    XaaY\=replace=[1]\u\LaB
+    XaaY\=replace=[2]\u\LaB
+    XaaY\=replace=[3]\u\LaB
+    XaaY\=replace=[4]\u\LaB
+    XaaY\=replace=[5]\u\LaB
+    XaBY\=replace=[1]\u\L$0
+    XaBY\=replace=[2]\u\L$0
+    XaBY\=replace=[3]\u\L$0
+    XaBY\=replace=[4]\u\L$0
+    XaBY\=replace=[5]\u\L$0
+
+/aa/substitute_extended,substitute_case_callout
+    XaaY\=replace=\l\U!a
+    XaaY\=replace=\l\Ua!
+    XaaY\=replace=\ufa
+    XaaY\=replace=[3]\ufa
+    XaaY\=replace=\l\Uaoo
+    XaaY\=replace=[4]\l\Uaoo
+    XaaY\=replace=\l\UPa
+    XaaY\=replace=[3]\l\UPa
+    XaaY\=replace=[4]\l\UPa
+    XaaY\=replace=\l\UPo
+    XaaY\=replace=[3]\l\UPo
+    XaaY\=replace=[4]\l\UPo
+    XaaY\=replace=\l\UPpp
+    XaaY\=replace=[4]\l\UPpp
+    XaaY\=replace=[5]\l\UPpp
+
+#
+# special test-callback case transformation tests
+#
+
+/aa/substitute_extended,substitute_case_callout
+    XaaY\=replace=\l!
+    XaaY\=replace=\ua\lB
+    XaaY\=replace=\LdDZ\UdDZ\ud\uD\uZ
+    XaaY\=replace=\uf\Uf\Lf\Us\Ls\uS\lS
+    XaaY\=replace=\LOO\LOQ\UOO\uo\lo
+    XaaY\=replace=\upq\upp\lpp\Upp\Lpp\lP\uP
+    XaaY\=replace=\ll\ul\Ul\LMmNn\UMmNn
+    XaaY\=replace=\Uac\Uaca\Uak\Uaka\Lck\LBK\LBKB\LBK \UK
+    Xaay\=replace=\u\Lqj\u\Lij\u\LIj\u\LiJ\u\LIJ\u\Liq\u\Lij\Uij\UiIjJ\LiIjJ
+    Xaay\=replace=\Uaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
+# --------------
 
 # End of testinput2

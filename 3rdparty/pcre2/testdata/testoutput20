@@ -38,7 +38,7 @@ Named capture groups:
   n   1
   n   2
 Options: dupnames
-Starting code units: b f 
+Starting code units: b f
 Subject length lower bound = 6
     foofoo
  0: foofoo

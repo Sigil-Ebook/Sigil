@@ -14,37 +14,41 @@ please consult the man page, in case the conversion went wrong.
 <br>
 <ul>
 <li><a name="TOC1" href="#SEC1">PCRE2 REGULAR EXPRESSION DETAILS</a>
-<li><a name="TOC2" href="#SEC2">SPECIAL START-OF-PATTERN ITEMS</a>
-<li><a name="TOC3" href="#SEC3">EBCDIC CHARACTER CODES</a>
+<li><a name="TOC2" href="#SEC2">EBCDIC CHARACTER CODES</a>
+<li><a name="TOC3" href="#SEC3">SPECIAL START-OF-PATTERN ITEMS</a>
 <li><a name="TOC4" href="#SEC4">CHARACTERS AND METACHARACTERS</a>
 <li><a name="TOC5" href="#SEC5">BACKSLASH</a>
 <li><a name="TOC6" href="#SEC6">CIRCUMFLEX AND DOLLAR</a>
 <li><a name="TOC7" href="#SEC7">FULL STOP (PERIOD, DOT) AND \N</a>
 <li><a name="TOC8" href="#SEC8">MATCHING A SINGLE CODE UNIT</a>
 <li><a name="TOC9" href="#SEC9">SQUARE BRACKETS AND CHARACTER CLASSES</a>
-<li><a name="TOC10" href="#SEC10">POSIX CHARACTER CLASSES</a>
-<li><a name="TOC11" href="#SEC11">COMPATIBILITY FEATURE FOR WORD BOUNDARIES</a>
-<li><a name="TOC12" href="#SEC12">VERTICAL BAR</a>
-<li><a name="TOC13" href="#SEC13">INTERNAL OPTION SETTING</a>
-<li><a name="TOC14" href="#SEC14">GROUPS</a>
-<li><a name="TOC15" href="#SEC15">DUPLICATE GROUP NUMBERS</a>
-<li><a name="TOC16" href="#SEC16">NAMED CAPTURE GROUPS</a>
-<li><a name="TOC17" href="#SEC17">REPETITION</a>
-<li><a name="TOC18" href="#SEC18">ATOMIC GROUPING AND POSSESSIVE QUANTIFIERS</a>
-<li><a name="TOC19" href="#SEC19">BACKREFERENCES</a>
-<li><a name="TOC20" href="#SEC20">ASSERTIONS</a>
-<li><a name="TOC21" href="#SEC21">NON-ATOMIC ASSERTIONS</a>
-<li><a name="TOC22" href="#SEC22">SCRIPT RUNS</a>
-<li><a name="TOC23" href="#SEC23">CONDITIONAL GROUPS</a>
-<li><a name="TOC24" href="#SEC24">COMMENTS</a>
-<li><a name="TOC25" href="#SEC25">RECURSIVE PATTERNS</a>
-<li><a name="TOC26" href="#SEC26">GROUPS AS SUBROUTINES</a>
-<li><a name="TOC27" href="#SEC27">ONIGURUMA SUBROUTINE SYNTAX</a>
-<li><a name="TOC28" href="#SEC28">CALLOUTS</a>
-<li><a name="TOC29" href="#SEC29">BACKTRACKING CONTROL</a>
-<li><a name="TOC30" href="#SEC30">SEE ALSO</a>
-<li><a name="TOC31" href="#SEC31">AUTHOR</a>
-<li><a name="TOC32" href="#SEC32">REVISION</a>
+<li><a name="TOC10" href="#SEC10">PERL EXTENDED CHARACTER CLASSES</a>
+<li><a name="TOC11" href="#SEC11">UTS#18 EXTENDED CHARACTER CLASSES</a>
+<li><a name="TOC12" href="#SEC12">POSIX CHARACTER CLASSES</a>
+<li><a name="TOC13" href="#SEC13">COMPATIBILITY FEATURE FOR WORD BOUNDARIES</a>
+<li><a name="TOC14" href="#SEC14">VERTICAL BAR</a>
+<li><a name="TOC15" href="#SEC15">INTERNAL OPTION SETTING</a>
+<li><a name="TOC16" href="#SEC16">GROUPS</a>
+<li><a name="TOC17" href="#SEC17">DUPLICATE GROUP NUMBERS</a>
+<li><a name="TOC18" href="#SEC18">NAMED CAPTURE GROUPS</a>
+<li><a name="TOC19" href="#SEC19">REPETITION</a>
+<li><a name="TOC20" href="#SEC20">ATOMIC GROUPING AND POSSESSIVE QUANTIFIERS</a>
+<li><a name="TOC21" href="#SEC21">BACKREFERENCES</a>
+<li><a name="TOC22" href="#SEC22">ASSERTIONS</a>
+<li><a name="TOC23" href="#SEC23">NON-ATOMIC ASSERTIONS</a>
+<li><a name="TOC24" href="#SEC24">SCAN SUBSTRING ASSERTIONS</a>
+<li><a name="TOC25" href="#SEC25">SCRIPT RUNS</a>
+<li><a name="TOC26" href="#SEC26">CONDITIONAL GROUPS</a>
+<li><a name="TOC27" href="#SEC27">COMMENTS</a>
+<li><a name="TOC28" href="#SEC28">RECURSIVE PATTERNS</a>
+<li><a name="TOC29" href="#SEC29">GROUPS AS SUBROUTINES</a>
+<li><a name="TOC30" href="#SEC30">ONIGURUMA SUBROUTINE SYNTAX</a>
+<li><a name="TOC31" href="#SEC31">CALLOUTS</a>
+<li><a name="TOC32" href="#SEC32">BACKTRACKING CONTROL</a>
+<li><a name="TOC33" href="#SEC33">EBCDIC ENVIRONMENTS</a>
+<li><a name="TOC34" href="#SEC34">SEE ALSO</a>
+<li><a name="TOC35" href="#SEC35">AUTHOR</a>
+<li><a name="TOC36" href="#SEC36">REVISION</a>
 </ul>
 <br><a name="SEC1" href="#TOC1">PCRE2 REGULAR EXPRESSION DETAILS</a><br>
 <P>
@@ -52,9 +56,11 @@ The syntax and semantics of the regular expressions that are supported by PCRE2
 are described in detail below. There is a quick-reference syntax summary in the
 <a href="pcre2syntax.html"><b>pcre2syntax</b></a>
 page. PCRE2 tries to match Perl syntax and semantics as closely as it can.
-PCRE2 also supports some alternative regular expression syntax (which does not
-conflict with the Perl syntax) in order to provide some compatibility with
-regular expressions in Python, .NET, and Oniguruma.
+PCRE2 also supports some alternative regular expression syntax that does not
+conflict with the Perl syntax in order to provide some compatibility with
+regular expressions in Python, .NET, and Oniguruma. There are in addition some
+options that enable alternative syntax and semantics that are not the same as
+in Perl.
 </P>
 <P>
 Perl's regular expressions are described in its own documentation, and regular
@@ -74,7 +80,19 @@ function, are discussed in the
 <a href="pcre2matching.html"><b>pcre2matching</b></a>
 page.
 </P>
-<br><a name="SEC2" href="#TOC1">SPECIAL START-OF-PATTERN ITEMS</a><br>
+<br><a name="SEC2" href="#TOC1">EBCDIC CHARACTER CODES</a><br>
+<P>
+Most computers use ASCII or Unicode for encoding characters, and PCRE2 assumes
+this by default. However, it can be compiled to run in an environment that uses
+the EBCDIC code, which is the case for some IBM mainframe operating systems. In
+the sections below, character code values are ASCII or Unicode; in an EBCDIC
+environment these characters may have different code values, and there are no
+code points greater than 255. Differences in behaviour when PCRE2 is running in
+an EBCDIC environment are described in the section
+<a href="#ebcdicenvironments">"EBCDIC environments"</a>
+below, which you can ignore unless you really are in an EBCDIC environment.
+</P>
+<br><a name="SEC3" href="#TOC1">SPECIAL START-OF-PATTERN ITEMS</a><br>
 <P>
 A number of options that can be passed to <b>pcre2_compile()</b> can also be set
 by special items at the start of a pattern. These are not Perl-compatible, but
@@ -141,7 +159,8 @@ Disabling auto-possessification
 </b><br>
 <P>
 If a pattern starts with (*NO_AUTO_POSSESS), it has the same effect as setting
-the PCRE2_NO_AUTO_POSSESS option. This stops PCRE2 from making quantifiers
+the PCRE2_NO_AUTO_POSSESS option, or calling <b>pcre2_set_optimize()</b> with
+a PCRE2_AUTO_POSSESS_OFF directive. This stops PCRE2 from making quantifiers
 possessive when what follows cannot match the repeated item. For example, by
 default a+b is treated as a++b. For more details, see the
 <a href="pcre2api.html"><b>pcre2api</b></a>
@@ -152,8 +171,9 @@ Disabling start-up optimizations
 </b><br>
 <P>
 If a pattern starts with (*NO_START_OPT), it has the same effect as setting the
-PCRE2_NO_START_OPTIMIZE option. This disables several optimizations for quickly
-reaching "no match" results. For more details, see the
+PCRE2_NO_START_OPTIMIZE option, or calling <b>pcre2_set_optimize()</b> with
+a PCRE2_START_OPTIMIZE_OFF directive. This disables several optimizations for
+quickly reaching "no match" results. For more details, see the
 <a href="pcre2api.html"><b>pcre2api</b></a>
 documentation.
 </P>
@@ -162,7 +182,8 @@ Disabling automatic anchoring
 </b><br>
 <P>
 If a pattern starts with (*NO_DOTSTAR_ANCHOR), it has the same effect as
-setting the PCRE2_NO_DOTSTAR_ANCHOR option. This disables optimizations that
+setting the PCRE2_NO_DOTSTAR_ANCHOR option, or calling <b>pcre2_set_optimize()</b>
+with a PCRE2_DOTSTAR_ANCHOR_OFF directive. This disables optimizations that
 apply to patterns whose top-level branches all start with .* (match any number
 of arbitrary characters). For more details, see the
 <a href="pcre2api.html"><b>pcre2api</b></a>
@@ -275,14 +296,6 @@ at compile time. This effect can also be achieved by starting a pattern with
 (*BSR_ANYCRLF). For completeness, (*BSR_UNICODE) is also recognized,
 corresponding to PCRE2_BSR_UNICODE.
 </P>
-<br><a name="SEC3" href="#TOC1">EBCDIC CHARACTER CODES</a><br>
-<P>
-PCRE2 can be compiled to run in an environment that uses EBCDIC as its
-character code instead of ASCII or Unicode (typically a mainframe system). In
-the sections below, character code values are ASCII or Unicode; in an EBCDIC
-environment these characters may have different code values, and there are no
-code points greater than 255.
-</P>
 <br><a name="SEC4" href="#TOC1">CHARACTERS AND METACHARACTERS</a><br>
 <P>
 A regular expression is a pattern that is matched against a subject string from
@@ -298,7 +311,10 @@ ASCII characters, K and S, that, in addition to their lower case ASCII
 equivalents, are case-equivalent with Unicode U+212A (Kelvin sign) and U+017F
 (long S) respectively when either PCRE2_UTF or PCRE2_UCP is set, unless the
 PCRE2_EXTRA_CASELESS_RESTRICT option is in force (either passed to
-<b>pcre2_compile()</b> or set by (?r) within the pattern).
+<b>pcre2_compile()</b> or set by (*CASELESS_RESTRICT) or (?r) within the
+pattern). If the PCRE2_EXTRA_TURKISH_CASING option is in force (either passed
+to <b>pcre2_compile()</b> or set by (*TURKISH_CASING) within the pattern), then
+the 'i' letters are matched according to Turkish and Azeri languages.
 </P>
 <P>
 The power of regular expressions comes from the ability to include wild cards,
@@ -346,7 +362,7 @@ a character class the only metacharacters are:
 </pre>
 If a pattern is compiled with the PCRE2_EXTENDED option, most white space in
 the pattern, other than in a character class, within a \Q...\E sequence, or
-between a # outside a character class and the next newline, inclusive, are
+between a # outside a character class and the next newline, inclusive, is
 ignored. An escaping backslash can be used to include a white space or a #
 character as part of the pattern. If the PCRE2_EXTENDED_MORE option is set, the
 same applies, but in addition unescaped space and horizontal tab characters are
@@ -404,6 +420,14 @@ by \E later in the pattern, the literal interpretation continues to the end of
 the pattern (that is, \E is assumed at the end). If the isolated \Q is inside
 a character class, this causes an error, because the character class is then
 not terminated by a closing square bracket.
+</P>
+<P>
+Another difference from Perl is that any appearance of \Q or \E inside what
+might otherwise be a quantifier causes PCRE2 not to recognize the sequence as a
+quantifier. Perl recognizes a quantifier if (redundantly) either of the numbers
+is inside \Q...\E, but not if the separating comma is. When not recognized as
+a quantifier a sequence such as {\Q1\E,2} is treated as the literal string
+"{1,2}".
 <a name="digitsafterbackslash"></a></P>
 <br><b>
 Non-printing characters
@@ -424,17 +448,28 @@ environment, these escapes are as follows:
   \r          carriage return (hex 0D) (but see below)
   \t          tab (hex 09)
   \0dd        character with octal code 0dd
-  \ddd        character with octal code ddd, or backreference
+  \ddd        character with octal code ddd, or back reference
   \o{ddd..}   character with octal code ddd..
   \xhh        character with hex code hh
   \x{hhh..}   character with hex code hhh..
   \N{U+hhh..} character with Unicode hex code point hhh..
 </pre>
-By default, after \x that is not followed by {, from zero to two hexadecimal
-digits are read (letters can be in upper or lower case). Any number of
-hexadecimal digits may appear between \x{ and }. If a character other than a
-hexadecimal digit appears between \x{ and }, or if there is no terminating },
-an error occurs.
+A description of how back references work is given
+<a href="#backreferences">later,</a>
+following the discussion of
+<a href="#group">parenthesized groups.</a>
+</P>
+<P>
+By default, after \x that is not followed by {, one or two hexadecimal
+digits are read (letters can be in upper or lower case). If the character that
+follows \x is neither { nor a hexadecimal digit, an error occurs. This is
+different from Perl's default behaviour, which generates a NUL character, but
+is in line with the behaviour of Perl's 'strict' mode in re.
+</P>
+<P>
+Any number of hexadecimal digits may appear between \x{ and }. If a character
+other than a hexadecimal digit appears between \x{ and }, or if there is no
+terminating }, an error occurs.
 </P>
 <P>
 Characters whose code points are less than 256 can be defined by either of the
@@ -481,69 +516,54 @@ the code unit following \c has a code point less than 32 or greater than 126,
 a compile-time error occurs.
 </P>
 <P>
-When PCRE2 is compiled in EBCDIC mode, \N{U+hhh..} is not supported. \a, \e,
-\f, \n, \r, and \t generate the appropriate EBCDIC code values. The \c
-escape is processed as specified for Perl in the <b>perlebcdic</b> document. The
-only characters that are allowed after \c are A-Z, a-z, or one of @, [, \, ],
-^, _, or ?. Any other character provokes a compile-time error. The sequence
-\c@ encodes character code 0; after \c the letters (in either case) encode
-characters 1-26 (hex 01 to hex 1A); [, \, ], ^, and _ encode characters 27-31
-(hex 1B to hex 1F), and \c? becomes either 255 (hex FF) or 95 (hex 5F).
+For differences in the way some escapes behave in EBCDIC environments,
+see section
+<a href="#ebcdicenvironments">"EBCDIC environments"</a>
+below.
 </P>
-<P>
-Thus, apart from \c?, these escapes generate the same character code values as
-they do in an ASCII environment, though the meanings of the values mostly
-differ. For example, \cG always generates code value 7, which is BEL in ASCII
-but DEL in EBCDIC.
-</P>
-<P>
-The sequence \c? generates DEL (127, hex 7F) in an ASCII environment, but
-because 127 is not a control character in EBCDIC, Perl makes it generate the
-APC character. Unfortunately, there are several variants of EBCDIC. In most of
-them the APC character has the value 255 (hex FF), but in the one Perl calls
-POSIX-BC its value is 95 (hex 5F). If certain other characters have POSIX-BC
-values, PCRE2 makes \c? generate 95; otherwise it generates 255.
-</P>
-<P>
-After \0 up to two further octal digits are read. If there are fewer than two
-digits, just those that are present are used. Thus the sequence \0\x\015
-specifies two binary zeros followed by a CR character (code value 13). Make
-sure you supply two digits after the initial zero if the pattern character that
-follows is itself an octal digit.
-</P>
+<br><b>
+Octal escapes and back references
+</b><br>
 <P>
 The escape \o must be followed by a sequence of octal digits, enclosed in
-braces. An error occurs if this is not the case. This escape is a recent
-addition to Perl; it provides way of specifying character code points as octal
-numbers greater than 0777, and it also allows octal numbers and backreferences
-to be unambiguously specified.
+braces. An error occurs if this is not the case. This escape provides a way of
+specifying character code points as octal numbers greater than 0777, and it
+also allows octal numbers and backreferences to be unambiguously distinguished.
+</P>
+<P>
+If braces are not used, after \0 up to two further octal digits are read.
+However, if the PCRE2_EXTRA_NO_BS0 option is set, at least one more octal digit
+must follow \0 (use \00 to generate a NUL character). Make sure you supply
+two digits after the initial zero if the pattern character that follows is
+itself an octal digit.
+</P>
+<P>
+Inside a character class, when a backslash is followed by any octal digit, up
+to three octal digits are read to generate a code point. Any subsequent digits
+stand for themselves. The sequences \8 and \9 are treated as the literal
+characters "8" and "9".
+</P>
+<P>
+Outside a character class, Perl's handling of a backslash followed by a digit
+other than 0 is complicated by ambiguity, and Perl has changed over time,
+causing PCRE2 also to change. From PCRE2 release 10.45 there is an option
+called PCRE2_EXTRA_PYTHON_OCTAL that causes PCRE2 to use Python's unambiguous
+rules. The next two subsections describe the two sets of rules.
 </P>
 <P>
 For greater clarity and unambiguity, it is best to avoid following \ by a
 digit greater than zero. Instead, use \o{...} or \x{...} to specify numerical
-character code points, and \g{...} to specify backreferences. The following
-paragraphs describe the old, ambiguous syntax.
+character code points, and \g{...} to specify backreferences.
 </P>
+<br><b>
+Perl rules for non-class backslash 1-9
+</b><br>
 <P>
-The handling of a backslash followed by a digit other than 0 is complicated,
-and Perl has changed over time, causing PCRE2 also to change.
-</P>
-<P>
-Outside a character class, PCRE2 reads the digit and any following digits as a
-decimal number. If the number is less than 10, begins with the digit 8 or 9, or
-if there are at least that many previous capture groups in the expression, the
-entire sequence is taken as a <i>backreference</i>. A description of how this
-works is given
-<a href="#backreferences">later,</a>
-following the discussion of
-<a href="#group">parenthesized groups.</a>
-Otherwise, up to three octal digits are read to form a character code.
-</P>
-<P>
-Inside a character class, PCRE2 handles \8 and \9 as the literal characters
-"8" and "9", and otherwise reads up to three octal digits following the
-backslash, using them to generate a data character. Any subsequent digits stand
-for themselves. For example, outside a character class:
+All the digits that follow the backslash are read as a decimal number. If the
+number is less than 10, begins with the digit 8 or 9, or if there are at least
+that many previous capture groups in the expression, the entire sequence is
+taken as a back reference. Otherwise, up to three octal digits are read to form
+a character code. For example:
 <pre>
   \040   is another way of writing an ASCII space
   \40    is the same, provided there are fewer than 40 previous capture groups
@@ -558,6 +578,19 @@ for themselves. For example, outside a character class:
 Note that octal values of 100 or greater that are specified using this syntax
 must not be introduced by a leading zero, because no more than three octal
 digits are ever read.
+</P>
+<br><b>
+Python rules for non_class backslash 1-9
+</b><br>
+<P>
+If there are at least three octal digits after the backslash, exactly three are
+read as an octal code point number, but the value must be no greater than
+\377, even in modes where higher code point values are supported. Any
+subsequent digits stand for themselves. If there are fewer than three octal
+digits, the sequence is taken as a decimal back reference. Thus, for example,
+\12 is always a back reference, independent of how many captures there are in
+the pattern. An error is generated for a reference to a non-existent capturing
+group.
 </P>
 <br><b>
 Constraints on character values
@@ -805,7 +838,7 @@ When PCRE2 is built with Unicode support (the default), three additional escape
 sequences that match characters with specific properties are available. They
 can be used in any mode, though in 8-bit and 16-bit non-UTF modes these
 sequences are of course limited to testing characters whose code points are
-less than U+0100 and U+10000, respectively. In 32-bit non-UTF mode, code points
+less than U+0100 or U+10000, respectively. In 32-bit non-UTF mode, code points
 greater than 0x10ffff (the Unicode limit) may be encountered. These are all
 treated as being in the Unknown script and with an unassigned type.
 </P>
@@ -823,12 +856,33 @@ The extra escape sequences that provide property support are:
   \P{<i>xx</i>}   a character without the <i>xx</i> property
   \X       a Unicode extended grapheme cluster
 </pre>
-The property names represented by <i>xx</i> above are not case-sensitive, and in
-accordance with Unicode's "loose matching" rules, spaces, hyphens, and
-underscores are ignored. There is support for Unicode script names, Unicode
-general category properties, "Any", which matches any character (including
-newline), Bidi_Class, a number of binary (yes/no) properties, and some special
-PCRE2 properties (described
+For compatibility with Perl, negation can be specified by including a
+circumflex between the opening brace and the property. For example, \p{^Lu} is
+the same as \P{Lu}.
+</P>
+<P>
+In accordance with Unicode's "loose matching" rules, ASCII white space
+characters, hyphens, and underscores are ignored in the properties represented
+by <i>xx</i> above. As well as the space character, ASCII white space can be
+tab, linefeed, vertical tab, formfeed, or carriage return.
+</P>
+<P>
+Some properties are specified as a name only; others as a name and a value,
+separated by a colon or an equals sign. The names and values consist of ASCII
+letters and digits (with one Perl-specific exception, see below). They are not
+case sensitive. Note, however, that the escapes themselves, \p and \P,
+<i>are</i> case sensitive. There are abbreviations for many names. The following
+examples are all equivalent:
+<pre>
+  \p{bidiclass=al}
+  \p{BC=al}
+  \p{ Bidi_Class : AL }
+  \p{ Bi-di class = Al }
+  \P{ ^ Bi-di class = Al }
+</pre>
+There is support for Unicode script names, Unicode general category properties,
+"Any", which matches any character (including newline), Bidi_Class, a number of
+binary (yes/no) properties, and some special PCRE2 properties (described
 <a href="#extraprops">below).</a>
 Certain other Perl properties such as "InMusicalSymbols" are not supported by
 PCRE2. Note that \P{Any} does not match any characters, so always causes a
@@ -844,10 +898,11 @@ Extensions") with which it is commonly used. Using the Adlam script as an
 example, \p{sc:Adlam} matches characters whose basic script is Adlam, whereas
 \p{scx:Adlam} matches, in addition, characters that have Adlam in their
 extensions list. The full names "script" and "script extensions" for the
-property types are recognized, and a equals sign is an alternative to the
-colon. If a script name is given without a property type, for example,
-\p{Adlam}, it is treated as \p{scx:Adlam}. Perl changed to this
-interpretation at release 5.26 and PCRE2 changed at release 10.40.
+property types are recognized and, as for all property specifications, an
+equals sign is an alternative to the colon. If a script name is given without a
+property type, for example, \p{Adlam}, it is treated as \p{scx:Adlam}. Perl
+changed to this interpretation at release 5.26 and PCRE2 changed at release
+10.40.
 </P>
 <P>
 Unassigned characters (and in non-UTF 32-bit mode, characters with code points
@@ -865,15 +920,10 @@ The general category property for \p and \P
 </b><br>
 <P>
 Each character has exactly one Unicode general category property, specified by
-a two-letter abbreviation. For compatibility with Perl, negation can be
-specified by including a circumflex between the opening brace and the property
-name. For example, \p{^Lu} is the same as \P{Lu}.
-</P>
-<P>
-If only one letter is specified with \p or \P, it includes all the general
-category properties that start with that letter. In this case, in the absence
-of negation, the curly brackets in the escape sequence are optional; these two
-examples have the same effect:
+a two-letter abbreviation. If only one letter is specified with \p or \P, it
+includes all the general category properties that start with that letter. In
+this case, in the absence of negation, the curly brackets in the escape
+sequence are optional; these two examples have the same effect:
 <pre>
   \p{L}
   \pL
@@ -888,6 +938,7 @@ The following general category property codes are supported:
   Cs    Surrogate
 
   L     Letter
+  Lc    Cased letter
   Ll    Lower case letter
   Lm    Modifier letter
   Lo    Other letter
@@ -924,9 +975,13 @@ The following general category property codes are supported:
   Zp    Paragraph separator
   Zs    Space separator
 </pre>
-The special property LC, which has the synonym L&, is also supported: it
-matches a character that has the Lu, Ll, or Lt property, in other words, a
-letter that is not classified as a modifier or "other".
+Perl originally used the name L& for the Lc property. This is still supported
+by Perl, but discouraged. PCRE2 also still supports it. This property matches
+any character that has the Lu, Ll, or Lt property, in other words, any letter
+that is not classified as a modifier or "other". From release 10.45 of PCRE2
+the properties Lu, Ll, and Lt are all treated as Lc when case-independent
+matching is set by the PCRE2_CASELESS option or (?i) within the pattern. The
+other properties are not affected by caseless matching.
 </P>
 <P>
 The Cs (Surrogate) property applies only to characters whose code points are in
@@ -947,11 +1002,6 @@ properties with "Is".
 No character that is in the Unicode table has the Cn (unassigned) property.
 Instead, this property is assumed for any code point that is not in the
 Unicode table.
-</P>
-<P>
-Specifying caseless matching does not affect these escape sequences. For
-example, \p{Lu} always matches only upper case letters. This is different from
-the behaviour of current versions of Perl.
 </P>
 <br><b>
 Binary (yes/no) properties for \p and \P
@@ -997,10 +1047,11 @@ The recognized classes are:
   RLI         right-to-left isolate
   RLO         right-to-left override
   S           segment separator
-  WS          which space
+  WS          white space
 </pre>
-An equals sign may be used instead of a colon. The class names are
-case-insensitive; only the short names listed above are recognized.
+As in all property specifications, an equals sign may be used instead of a
+colon and the class names are case-insensitive. Only the short names listed
+above are recognized; PCRE2 does not at present support any long alternatives.
 </P>
 <br><b>
 Extended grapheme clusters
@@ -1073,11 +1124,11 @@ explicitly. These properties are:
 </pre>
 Xan matches characters that have either the L (letter) or the N (number)
 property. Xps matches the characters tab, linefeed, vertical tab, form feed, or
-carriage return, and any other character that has the Z (separator) property.
-Xsp is the same as Xps; in PCRE1 it used to exclude vertical tab, for Perl
-compatibility, but Perl changed. Xwd matches the same characters as Xan, plus
-those that match Mn (non-spacing mark) or Pc (connector punctuation, which
-includes underscore).
+carriage return, and any other character that has the Z (separator) property
+(this includes the space character). Xsp is the same as Xps; in PCRE1 it used
+to exclude vertical tab, for Perl compatibility, but Perl changed. Xwd matches
+the same characters as Xan, plus those that match Mn (non-spacing mark) or Pc
+(connector punctuation, which includes underscore).
 </P>
 <P>
 There is another non-standard property, Xuc, which matches any character that
@@ -1389,13 +1440,12 @@ is actually required as a member of the class, ensure it is not the first
 character, or escape it with a backslash.
 </P>
 <P>
-For example, the character class [aeiou] matches any lower case vowel, while
-[^aeiou] matches any character that is not a lower case vowel. Note that a
-circumflex is just a convenient notation for specifying the characters that
-are in the class by enumerating those that are not. A class that starts with a
-circumflex is not an assertion; it still consumes a character from the subject
-string, and therefore it fails if the current pointer is at the end of the
-string.
+For example, the character class [aeiou] matches any lower case English vowel,
+whereas [^aeiou] matches all other characters. Note that a circumflex is just a
+convenient notation for specifying the characters that are in the class by
+enumerating those that are not. A class that starts with a circumflex is not an
+assertion; it still consumes a character from the subject string, and therefore
+it fails to match if the current pointer is at the end of the string.
 </P>
 <P>
 Characters in a class may be specified by their code points using \o, \x, or
@@ -1405,7 +1455,10 @@ a caseless [aeiou] matches "A" as well as "a", and a caseless [^aeiou] does not
 match "A", whereas a caseful version would. Note that there are two ASCII
 characters, K and S, that, in addition to their lower case ASCII equivalents,
 are case-equivalent with Unicode U+212A (Kelvin sign) and U+017F (long S)
-respectively when either PCRE2_UTF or PCRE2_UCP is set.
+respectively when either PCRE2_UTF or PCRE2_UCP is set. If you do not want
+these ASCII/non-ASCII case equivalences, you can suppress them by setting
+PCRE2_EXTRA_CASELESS_RESTRICT, either as an option in a compile context, or by
+including (*CASELESS_RESTRICT) or (?r) within a pattern.
 </P>
 <P>
 Characters that might indicate line breaks are never treated in any special way
@@ -1437,6 +1490,12 @@ or immediately after a range. For example, [b-d-z] matches letters in the range
 b to d, a hyphen character, or z.
 </P>
 <P>
+There is some special treatment for alphabetic ranges in EBCDIC environments;
+see the section
+<a href="#ebcdicenvironments">"EBCDIC environments"</a>
+below.
+</P>
+<P>
 Perl treats a hyphen as a literal if it appears before or after a POSIX class
 (see below) or before or after a character type escape such as \d or \H.
 However, unless the hyphen is the last character in the class, Perl outputs a
@@ -1448,9 +1507,9 @@ It is not possible to have the literal character "]" as the end character of a
 range. A pattern such as [W-]46] is interpreted as a class of two characters
 ("W" and "-") followed by a literal string "46]", so it would match "W46]" or
 "-46]". However, if the "]" is escaped with a backslash it is interpreted as
-the end of range, so [W-\]46] is interpreted as a class containing a range
-followed by two other characters. The octal or hexadecimal representation of
-"]" can also be used to end a range.
+the end of a range, so [W-\]46] is interpreted as a class containing a range
+and two other characters. The octal or hexadecimal representation of "]" can
+also be used to end a range.
 </P>
 <P>
 Ranges normally include all code points between the start and end characters,
@@ -1461,15 +1520,6 @@ whose code points lie between 0xd800 and 0xdfff inclusive) may not be specified
 explicitly by default (the PCRE2_EXTRA_ALLOW_SURROGATE_ESCAPES option disables
 this check). However, ranges such as [\x{d7ff}-\x{e000}], which include the
 surrogates, are always permitted.
-</P>
-<P>
-There is a special case in EBCDIC environments for ranges whose end points are
-both specified as literal letters in the same case. For compatibility with
-Perl, EBCDIC code points within the range that are not letters are omitted. For
-example, [h-k] matches only four characters, even though the codes for h and k
-are 0x88 and 0x92, a range of 11 code points. However, if the range is
-specified numerically, for example, [\x88-\x92] or [h-\x92], all code points
-are included.
 </P>
 <P>
 If a range that includes letters is used when caseless matching is set, it
@@ -1487,18 +1537,132 @@ whereas [\w] includes underscore. A positive character class should be read as
 something AND NOT ...".
 </P>
 <P>
-The only metacharacters that are recognized in character classes are backslash,
-hyphen (only where it can be interpreted as specifying a range), circumflex
-(only at the start), opening square bracket (only when it can be interpreted as
-introducing a POSIX class name, or for a special compatibility feature - see
-the next two sections), and the terminating closing square bracket. However,
-escaping other non-alphanumeric characters does no harm.
+The metacharacters that are recognized in character classes are backslash,
+hyphen (when it can be interpreted as specifying a range), circumflex
+(only at the start), and the terminating closing square bracket. An opening
+square bracket is also special when it can be interpreted as introducing a
+POSIX class (see
+<a href="#posixclasses">"Posix character classes"</a>
+below), or a special compatibility feature (see
+<a href="#wordboundcompat">"Compatibility feature for word boundaries"</a>
+below. Escaping any non-alphanumeric character in a class turns it into a
+literal, whether or not it would otherwise be a metacharacter.
 </P>
-<br><a name="SEC10" href="#TOC1">POSIX CHARACTER CLASSES</a><br>
+<br><a name="SEC10" href="#TOC1">PERL EXTENDED CHARACTER CLASSES</a><br>
+<P>
+From release 10.45 PCRE2 supports Perl's (?[...]) extended character class
+syntax. This can be used to perform set operations such as intersection on
+character classes.
+</P>
+<P>
+The syntax permitted within (?[...]) is quite different to ordinary character
+classes. Inside the extended class, there is an expression syntax consisting of
+"atoms", operators, and ordinary parentheses "()" used for grouping. Such
+classes always have the Perl /xx modifier (PCRE2 option PCRE2_EXTENDED_MORE)
+turned on within them. This means that literal space and tab characters are
+ignored everywhere in the class.
+</P>
+<P>
+The allowed atoms are individual characters specified by escape sequences such
+as \n or \x{123}, character types such as \d, POSIX classes such as
+[:alpha:], and nested ordinary (non-extended) character classes. For example,
+in (?[\d & [...]]) the nested class [...] follows the usual rules for ordinary
+character classes, in which parentheses are not metacharacters, and character
+literals and ranges are permitted.
+</P>
+<P>
+Character literals and ranges may not appear outside a nested ordinary
+character class because they are not atoms in the extended syntax. The extended
+syntax does not introduce any additional escape sequences, so (?[\y]) is an
+unknown escape, as it would be in [\y].
+</P>
+<P>
+In the extended syntax, ^ does not negate a class (except within an
+ordinary class nested inside an extended class); it is instead a binary
+operator.
+</P>
+<P>
+The binary operators are "&" (intersection), "|" or "+" (union), "-"
+(subtraction) and "^" (symmetric difference). These are left-associative and
+"&" has higher (tighter) precedence, while the others have equal lower
+precedence. The one prefix unary operator is "!" (complement), with highest
+precedence.
+</P>
+<br><a name="SEC11" href="#TOC1">UTS#18 EXTENDED CHARACTER CLASSES</a><br>
+<P>
+The PCRE2_ALT_EXTENDED_CLASS option enables an alternative to Perl's (?[...])
+syntax, allowing instead extended class behaviour inside ordinary [...]
+character classes. This altered syntax for [...] classes is loosely described
+by the Unicode standard UTS#18. The PCRE2_ALT_EXTENDED_CLASS option does not
+prevent use of (?[...]) classes; it just changes the meaning of all
+[...] classes that are not nested inside a Perl (?[...]) class.
+</P>
+<P>
+Firstly, in ordinary Perl [...] syntax, an expression such as "[a[]" is a
+character class with two literal characters "a" and "[", but in UTS#18 extended
+classes the "[" character becomes an additional metacharacter within classes,
+denoting the start of a nested class, so a literal "[" must be escaped as "\[".
+</P>
+<P>
+Secondly, within the UTS#18 extended syntax, there are operators "||", "&&",
+"--" and "~~" which denote character class union, intersection, subtraction,
+and symmetric difference respectively. In standard Perl syntax, these would
+simply be needlessly-repeated literals (except for "--" which could be the
+start or end of a range). In UTS#18 extended classes these operators can be used
+in constructs such as [\p{L}--[QW]] for "Unicode letters, other than Q and W".
+A literal "-" at the start or end of a range must be escaped, so while "[--1]"
+in Perl syntax is the range from hyphen to "1", it must be escaped as "[\--1]"
+in UTS#18 extended classes.
+</P>
+<P>
+Unlike Perl's (?[...]) extended classes, the PCRE2_EXTENDED_MORE option to
+ignore space and tab characters is not automatically enabled for UTS#18
+extended classes, but it is honoured if set.
+</P>
+<P>
+Extended UTS#18 classes can be nested, and nested classes are themselves
+extended classes (unlike Perl, where nested classes must be simple classes).
+For example, [\p{L}&&[\p{Thai}||\p{Greek}]] matches any letter that is in
+the Thai or Greek scripts. Note that this means that no special grouping
+characters (such as the parentheses used in Perl's (?[...]) class syntax) are
+needed.
+</P>
+<P>
+Individual class items (literal characters, literal ranges, properties such as
+\d or \p{...}, and nested classes) can be combined by juxtaposition or by an
+operator. Juxtaposition is the implicit union operator, and binds more tightly
+than any explicit operator. Thus a sequence of literals and/or ranges behaves
+as if it is enclosed in square brackets. For example, [A-Z0-9&&[^E8]] is the
+same as [[A-Z0-9]&&[^E8]], which matches any upper case alphanumeric character
+except "E" or "8".
+</P>
+<P>
+Precedence between the explicit operators is not defined, so mixing operators
+is a syntax error. For example, [A&&B--C] is an error, but [A&&[B--C]] is
+valid.
+</P>
+<P>
+This is an emerging syntax which is being adopted gradually across the regex
+ecosystem: for example JavaScript adopted the "/v" flag in ECMAScript 2024;
+Python's "re" module reserves the syntax for future use with a FutureWarning
+for unescaped use of "[" as a literal within character classes. Due to UTS#18
+providing insufficient guidance, engines interpret the syntax differently.
+Rust's "regex" crate and Python's "regex" PyPi module both implement UTS#18
+extended classes, but with slight incompatibilities ([A||B&&C] is parsed as
+[A||[B&&C]] in Python's "regex" but as [[A||B]&&C] in Rust's "regex").
+</P>
+<P>
+PCRE2's syntax adds syntax restrictions similar to ECMASCript's /v flag, so
+that all the UTS#18 extended classes accepted as valid by PCRE2 have the
+property that they are interpreted either with the same behaviour, or as
+invalid, by all other major engines. Please file an issue if you are aware of
+cross-engine differences in behaviour between PCRE2 and another major engine.
+<a name="posixclasses"></a></P>
+<br><a name="SEC12" href="#TOC1">POSIX CHARACTER CLASSES</a><br>
 <P>
 Perl supports the POSIX notation for character classes. This uses names
 enclosed by [: and :] within the enclosing square brackets. PCRE2 also supports
-this notation. For example,
+this notation, in both ordinary and extended classes. For example,
 <pre>
   [01[:alpha:]%]
 </pre>
@@ -1584,7 +1748,7 @@ property.
 [:xdigit:]
 In addition to the ASCII hexadecimal digits, this also matches the "fullwidth"
 versions of those characters, whose Unicode code points start at U+FF10. This
-is a change that was made in PCRE release 10.43 for Perl compatibility.
+is a change that was made in PCRE2 release 10.43 for Perl compatibility.
 </P>
 <P>
 The other POSIX classes are unchanged by PCRE2_UCP, and match only characters
@@ -1597,8 +1761,8 @@ just [:digit:] and [:xdigit:]. Within a pattern, this can be set and unset by
 (?aT) and (?-aT). The PCRE2_EXTRA_ASCII_POSIX option disables UCP processing
 for all POSIX classes, including [:digit:] and [:xdigit:]. Within a pattern,
 (?aP) and (?-aP) set and unset both these options for consistency.
-</P>
-<br><a name="SEC11" href="#TOC1">COMPATIBILITY FEATURE FOR WORD BOUNDARIES</a><br>
+<a name="wordboundcompat"></a></P>
+<br><a name="SEC13" href="#TOC1">COMPATIBILITY FEATURE FOR WORD BOUNDARIES</a><br>
 <P>
 In the POSIX.2 compliant library that was included in 4.4BSD Unix, the ugly
 syntax [[:&#60;:]] and [[:&#62;:]] is used for matching "start of word" and "end of
@@ -1619,7 +1783,7 @@ used above in order to give exactly the POSIX behaviour. Note also that the
 PCRE2_UCP option changes the meaning of \w (and therefore \b) by default, so
 it also affects these POSIX sequences.
 </P>
-<br><a name="SEC12" href="#TOC1">VERTICAL BAR</a><br>
+<br><a name="SEC14" href="#TOC1">VERTICAL BAR</a><br>
 <P>
 Vertical bar characters are used to separate alternative patterns. For example,
 the pattern
@@ -1634,7 +1798,7 @@ that succeeds is used. If the alternatives are within a group
 "succeeds" means matching the rest of the main pattern as well as the
 alternative in the group.
 <a name="internaloptions"></a></P>
-<br><a name="SEC13" href="#TOC1">INTERNAL OPTION SETTING</a><br>
+<br><a name="SEC15" href="#TOC1">INTERNAL OPTION SETTING</a><br>
 <P>
 The settings of several options can be changed within a pattern by a sequence
 of letters enclosed between "(?" and ")". The following are Perl-compatible,
@@ -1732,7 +1896,7 @@ PCRE2_UTF and PCRE2_UCP options, respectively. However, the application can set
 the PCRE2_NEVER_UTF or PCRE2_NEVER_UCP options, which lock out the use of the
 (*UTF) and (*UCP) sequences.
 <a name="group"></a></P>
-<br><a name="SEC14" href="#TOC1">GROUPS</a><br>
+<br><a name="SEC16" href="#TOC1">GROUPS</a><br>
 <P>
 Groups are delimited by parentheses (round brackets), which can be nested.
 Turning part of a pattern into a group does two things:
@@ -1788,7 +1952,7 @@ from left to right, and options are not reset until the end of the group is
 reached, an option setting in one branch does affect subsequent branches, so
 the above patterns match "SUNDAY" as well as "Saturday".
 <a name="dupgroupnumber"></a></P>
-<br><a name="SEC15" href="#TOC1">DUPLICATE GROUP NUMBERS</a><br>
+<br><a name="SEC17" href="#TOC1">DUPLICATE GROUP NUMBERS</a><br>
 <P>
 Perl 5.10 introduced a feature whereby each alternative in a group uses the
 same numbers for its capturing parentheses. Such a group starts with (?| and is
@@ -1834,7 +1998,7 @@ true if any group with that number has matched.
 An alternative approach to using this "branch reset" feature is to use
 duplicate named groups, as described in the next section.
 </P>
-<br><a name="SEC16" href="#TOC1">NAMED CAPTURE GROUPS</a><br>
+<br><a name="SEC18" href="#TOC1">NAMED CAPTURE GROUPS</a><br>
 <P>
 Identifying capture groups by number is simple, but it can be very hard to keep
 track of the numbers in complicated patterns. Furthermore, if an expression is
@@ -1954,7 +2118,7 @@ capture groups, see the
 <a href="pcre2api.html"><b>pcre2api</b></a>
 documentation.
 </P>
-<br><a name="SEC17" href="#TOC1">REPETITION</a><br>
+<br><a name="SEC19" href="#TOC1">REPETITION</a><br>
 <P>
 Repetition is specified by quantifiers, which may follow any one of these
 items:
@@ -2118,8 +2282,9 @@ one succeeds. Consider this pattern:
   (?&#62;.*?a)b
 </pre>
 It matches "ab" in the subject "aab". The use of the backtracking control verbs
-(*PRUNE) and (*SKIP) also disable this optimization, and there is an option,
-PCRE2_NO_DOTSTAR_ANCHOR, to do so explicitly.
+(*PRUNE) and (*SKIP) also disable this optimization. To do so explicitly,
+either pass the compile option PCRE2_NO_DOTSTAR_ANCHOR, or call
+<b>pcre2_set_optimize()</b> with a PCRE2_DOTSTAR_ANCHOR_OFF directive.
 </P>
 <P>
 When a capture group is repeated, the value captured is the substring that
@@ -2135,7 +2300,7 @@ captured values may have been set in previous iterations. For example, after
 </pre>
 matches "aba" the value of the second captured substring is "b".
 <a name="atomicgroup"></a></P>
-<br><a name="SEC18" href="#TOC1">ATOMIC GROUPING AND POSSESSIVE QUANTIFIERS</a><br>
+<br><a name="SEC20" href="#TOC1">ATOMIC GROUPING AND POSSESSIVE QUANTIFIERS</a><br>
 <P>
 With both maximizing ("greedy") and minimizing ("ungreedy" or "lazy")
 repetition, failure of what follows normally causes the repeated item to be
@@ -2216,8 +2381,9 @@ package, and PCRE1 copied it from there. It found its way into Perl at release
 PCRE2 has an optimization that automatically "possessifies" certain simple
 pattern constructs. For example, the sequence A+B is treated as A++B because
 there is no point in backtracking into a sequence of A's when B must follow.
-This feature can be disabled by the PCRE2_NO_AUTOPOSSESS option, or starting
-the pattern with (*NO_AUTO_POSSESS).
+This feature can be disabled by the PCRE2_NO_AUTO_POSSESS option, by calling
+<b>pcre2_set_optimize()</b> with a PCRE2_AUTO_POSSESS_OFF directive, or by
+starting the pattern with (*NO_AUTO_POSSESS).
 </P>
 <P>
 When a pattern contains an unlimited repeat inside a group that can itself be
@@ -2245,7 +2411,7 @@ an atomic group, like this:
 </pre>
 sequences of non-digits cannot be broken, and failure happens quickly.
 <a name="backreferences"></a></P>
-<br><a name="SEC19" href="#TOC1">BACKREFERENCES</a><br>
+<br><a name="SEC21" href="#TOC1">BACKREFERENCES</a><br>
 <P>
 Outside a character class, a backslash followed by a digit greater than 0 (and
 possibly further digits) is a backreference to a capture group earlier (that
@@ -2383,21 +2549,30 @@ cause the group that they reference to be treated as an
 This restriction no longer applies, and backtracking into such groups can occur
 as normal.
 <a name="bigassertions"></a></P>
-<br><a name="SEC20" href="#TOC1">ASSERTIONS</a><br>
+<br><a name="SEC22" href="#TOC1">ASSERTIONS</a><br>
 <P>
-An assertion is a test on the characters following or preceding the current
-matching point that does not consume any characters. The simple assertions
-coded as \b, \B, \A, \G, \Z, \z, ^ and $ are described
+An assertion is a test that does not consume any characters. The test must
+succeed for the match to continue. The simple assertions coded as \b, \B,
+\A, \G, \Z, \z, ^ and $ are described
 <a href="#smallassertions">above.</a>
 </P>
 <P>
-More complicated assertions are coded as parenthesized groups. There are two
-kinds: those that look ahead of the current position in the subject string, and
-those that look behind it, and in each case an assertion may be positive (must
-match for the assertion to be true) or negative (must not match for the
-assertion to be true). An assertion group is matched in the normal way,
-and if it is true, matching continues after it, but with the matching position
+More complicated assertions are coded as parenthesized groups. If matching such
+a group succeeds, matching continues after it, but with the matching position
 in the subject string reset to what it was before the assertion was processed.
+</P>
+<P>
+A special kind of assertion, called a "scan substring" assertion, matches a
+subpattern against a previously captured substring. This is described in the
+section entitled
+<a href="#scansubstringassertions">"Scan substring assertions"</a>
+below. It is a PCRE2 extension, not compatible with Perl.
+</P>
+<P>
+The other goup-based assertions are of two kinds: those that look ahead of the
+current position in the subject string, and those that look behind it, and in
+each case an assertion may be positive (must match for the assertion to be
+true) or negative (must not match for the assertion to be true).
 </P>
 <P>
 The Perl-compatible lookaround assertions are atomic. If an assertion is true,
@@ -2624,7 +2799,7 @@ preceded by "foo", while
 is another pattern that matches "foo" preceded by three digits and any three
 characters that are not "999".
 <a name="nonatomicassertions"></a></P>
-<br><a name="SEC21" href="#TOC1">NON-ATOMIC ASSERTIONS</a><br>
+<br><a name="SEC23" href="#TOC1">NON-ATOMIC ASSERTIONS</a><br>
 <P>
 Traditional lookaround assertions are atomic. That is, if an assertion is true,
 but there is a subsequent matching failure, there is no backtracking into the
@@ -2683,8 +2858,67 @@ contain any control verbs such as (*ACCEPT). (This may change in future). Note
 that assertions that appear as conditions for
 <a href="#conditions">conditional groups</a>
 (see below) must be atomic.
+<a name="scansubstringassertions"></a></P>
+<br><a name="SEC24" href="#TOC1">SCAN SUBSTRING ASSERTIONS</a><br>
+<P>
+A special kind of assertion, not compatible with Perl, makes it possible to
+check the contents of a captured substring by matching it with a subpattern.
+Because this involves capturing, this feature is not supported by
+<b>pcre2_dfa_match()</b>.
 </P>
-<br><a name="SEC22" href="#TOC1">SCRIPT RUNS</a><br>
+<P>
+A scan substring assertion starts with the sequence (*scan_substring: or
+(*scs: which is followed by a list of substring numbers (absolute or relative)
+and/or substring names enclosed in single quotes or angle brackets, all within
+parentheses. The rest of the item is the subpattern that is applied to the
+substring, as shown in these examples:
+<pre>
+  (*scan_substring:(1)...)
+  (*scs:(-2)...)
+  (*scs:('AB')...)
+  (*scs:(1,'AB',-2)...)
+</pre>
+The list of groups is checked in the order they are given, and it is the
+contents of the first one that is found to be set that are scanned. When
+PCRE2_DUPNAMES is set and there are ambiguous group names, all groups with the
+same name are checked in numerical order. A scan substring assertion fails if
+none of the groups it references have been set.
+</P>
+<P>
+The pattern match on the substring is always anchored, that is, it must match
+from the start of the substring. There is no "bumpalong" if it does not match
+at the start. The end of the subject is temporarily reset to be the end of the
+substring, so \Z, \z, and $ will match there. However, the start of the
+subject is <i>not</i> reset. This means that ^ matches only if the substring is
+actually at the start of the main subject, but it also means that lookbehind
+assertions into what precedes the substring are possible.
+</P>
+<P>
+Here is a very simple example: find a word that contains the rare (in English)
+sequence of letters "rh" not at the start:
+<pre>
+  \b(\w++)(*scs:(1).+rh)
+</pre>
+The first group captures a word which is then scanned by the second group.
+This example does not actually need this heavyweight feature; the same match
+can be achieved with:
+<pre>
+  \b\w+?rh\w*\b
+</pre>
+When things are more complicated, however, scanning a captured substring can be
+a useful way to describe the required match. For exmple, there is a rather
+complicated pattern in the PCRE2 test data that checks an entire subject string
+for a palindrome, that is, the sequence of letters is the same in both
+directions. Suppose you want to search for individual words of two or more
+characters such as "level" that are palindromes:
+<pre>
+  (\b\w{2,}+\b)(*scs:(1)...palindrome-matching-pattern...)
+</pre>
+Within a substring scanning subpattern, references to other groups work as
+normal. Capturing groups may appear, and will retain their values during
+ongoing matching if the assertion succeeds.
+</P>
+<br><a name="SEC25" href="#TOC1">SCRIPT RUNS</a><br>
 <P>
 In concept, a script run is a sequence of characters that are all from the same
 Unicode script such as Latin or Greek. However, because some scripts are
@@ -2746,7 +2980,7 @@ parentheses.
 should not be used within a script run group, because it causes an immediate
 exit from the group, bypassing the script run checking.
 <a name="conditions"></a></P>
-<br><a name="SEC23" href="#TOC1">CONDITIONAL GROUPS</a><br>
+<br><a name="SEC26" href="#TOC1">CONDITIONAL GROUPS</a><br>
 <P>
 It is possible to cause the matching process to obey a pattern fragment
 conditionally or to choose between two alternative fragments, depending on
@@ -2947,13 +3181,13 @@ positive and negative assertions, because matching always continues after the
 assertion, whether it succeeds or fails. (Compare non-conditional assertions,
 for which captures are retained only for positive assertions that succeed.)
 <a name="comments"></a></P>
-<br><a name="SEC24" href="#TOC1">COMMENTS</a><br>
+<br><a name="SEC27" href="#TOC1">COMMENTS</a><br>
 <P>
 There are two ways of including comments in patterns that are processed by
 PCRE2. In both cases, the start of the comment must not be in a character
 class, nor in the middle of any other sequence of related characters such as
-(?: or a group name or number. The characters that make up a comment play
-no part in the pattern matching.
+(?: or a group name or number or a Unicode property name. The characters that
+make up a comment play no part in the pattern matching.
 </P>
 <P>
 The sequence (?# marks the start of a comment that continues up to the next
@@ -2977,7 +3211,7 @@ a newline in the pattern. The sequence \n is still literal at this stage, so
 it does not terminate the comment. Only an actual character with the code value
 0x0a (the default newline) does so.
 <a name="recursion"></a></P>
-<br><a name="SEC25" href="#TOC1">RECURSIVE PATTERNS</a><br>
+<br><a name="SEC28" href="#TOC1">RECURSIVE PATTERNS</a><br>
 <P>
 Consider the problem of matching a string in parentheses, allowing for
 unlimited nested parentheses. Without the use of recursion, the best that can
@@ -3165,7 +3399,7 @@ alternative matches "a" and then recurses. In the recursion, \1 does now match
 "b" and so the whole match succeeds. This match used to fail in Perl, but in
 later versions (I tried 5.024) it now works.
 <a name="groupsassubroutines"></a></P>
-<br><a name="SEC26" href="#TOC1">GROUPS AS SUBROUTINES</a><br>
+<br><a name="SEC29" href="#TOC1">GROUPS AS SUBROUTINES</a><br>
 <P>
 If the syntax for a recursive group call (either by number or by name) is used
 outside the parentheses to which it refers, it operates a bit like a subroutine
@@ -3213,7 +3447,7 @@ in groups when called as subroutines is described in the section entitled
 <a href="#btsub">"Backtracking verbs in subroutines"</a>
 below.
 <a name="onigurumasubroutines"></a></P>
-<br><a name="SEC27" href="#TOC1">ONIGURUMA SUBROUTINE SYNTAX</a><br>
+<br><a name="SEC30" href="#TOC1">ONIGURUMA SUBROUTINE SYNTAX</a><br>
 <P>
 For compatibility with Oniguruma, the non-Perl syntax \g followed by a name or
 a number enclosed either in angle brackets or single quotes, is an alternative
@@ -3231,7 +3465,7 @@ plus or a minus sign it is taken as a relative reference. For example:
 Note that \g{...} (Perl syntax) and \g&#60;...&#62; (Oniguruma syntax) are <i>not</i>
 synonymous. The former is a backreference; the latter is a subroutine call.
 </P>
-<br><a name="SEC28" href="#TOC1">CALLOUTS</a><br>
+<br><a name="SEC31" href="#TOC1">CALLOUTS</a><br>
 <P>
 Perl has a feature whereby using the sequence (?{...}) causes arbitrary Perl
 code to be obeyed in the middle of matching a regular expression. This makes it
@@ -3244,7 +3478,9 @@ code. The feature is called "callout". The caller of PCRE2 provides an external
 function by putting its entry point in a match context using the function
 <b>pcre2_set_callout()</b>, and then passing that context to <b>pcre2_match()</b>
 or <b>pcre2_dfa_match()</b>. If no match context is passed, or if the callout
-entry point is set to NULL, callouts are disabled.
+entry point is set to NULL, callout points will be passed over silently during
+matching. To disallow callouts in the pattern syntax, you may use the
+PCRE2_EXTRA_NEVER_CALLOUT option.
 </P>
 <P>
 Within a regular expression, (?C&#60;arg&#62;) indicates a point at which the external
@@ -3307,7 +3543,7 @@ example:
 </pre>
 The doubling is removed before the string is passed to the callout function.
 <a name="backtrackcontrol"></a></P>
-<br><a name="SEC29" href="#TOC1">BACKTRACKING CONTROL</a><br>
+<br><a name="SEC32" href="#TOC1">BACKTRACKING CONTROL</a><br>
 <P>
 There are a number of special "Backtracking Control Verbs" (to use Perl's
 terminology) that modify the behaviour of backtracking during matching. They
@@ -3347,8 +3583,8 @@ not there. Any number of these verbs may occur in a pattern. Except for
 <P>
 Since these verbs are specifically related to backtracking, most of them can be
 used only when the pattern is to be matched using the traditional matching
-function, because that uses a backtracking algorithm. With the exception of
-(*FAIL), which behaves like a failing negative assertion, the backtracking
+function or JIT, because they use backtracking algorithms. With the exception
+of (*FAIL), which behaves like a failing negative assertion, the backtracking
 control verbs cause an error if encountered by the DFA matching function.
 </P>
 <P>
@@ -3369,7 +3605,8 @@ minimum length of matching subject, or that a particular character must be
 present. When one of these optimizations bypasses the running of a match, any
 included backtracking verbs will not, of course, be processed. You can suppress
 the start-of-match optimizations by setting the PCRE2_NO_START_OPTIMIZE option
-when calling <b>pcre2_compile()</b>, or by starting the pattern with
+when calling <b>pcre2_compile()</b>, by calling <b>pcre2_set_optimize()</b> with a
+PCRE2_START_OPTIMIZE_OFF directive, or by starting the pattern with
 (*NO_START_OPT). There is more discussion of this option in the section
 entitled
 <a href="pcre2api.html#compiling">"Compiling a pattern"</a>
@@ -3502,7 +3739,8 @@ attempts starting at "P" and then with an empty string do not get as far as the
 </P>
 <P>
 If you are interested in (*MARK) values after failed matches, you should
-probably set the PCRE2_NO_START_OPTIMIZE option
+probably either set the PCRE2_NO_START_OPTIMIZE option or call
+<b>pcre2_set_optimize()</b> with a PCRE2_START_OPTIMIZE_OFF directive
 <a href="#nooptimize">(see above)</a>
 to ensure that the match is always attempted.
 </P>
@@ -3514,9 +3752,9 @@ The following verbs do nothing when they are encountered. Matching continues
 with what follows, but if there is a subsequent match failure, causing a
 backtrack to the verb, a failure is forced. That is, backtracking cannot pass
 to the left of the verb. However, when one of these verbs appears inside an
-atomic group or in a lookaround assertion that is true, its effect is confined
-to that group, because once the group has been matched, there is never any
-backtracking into it. Backtracking from beyond an assertion or an atomic group
+atomic group or in an atomic lookaround assertion that is true, its effect is
+confined to that group, because once the group has been matched, there is never
+any backtracking into it. Backtracking from beyond an atomic assertion or group
 ignores the entire group, and seeks a preceding backtracking point.
 </P>
 <P>
@@ -3782,9 +4020,11 @@ into the assertion. Note in particular that a (*MARK) name that is set in an
 assertion is not "seen" by an instance of (*SKIP:NAME) later in the pattern.
 </P>
 <P>
-PCRE2 now supports non-atomic positive assertions, as described in the section
-entitled
+PCRE2 now supports non-atomic positive assertions and also "scan substring"
+assertions, as described in the sections entitled
 <a href="#nonatomicassertions">"Non-atomic assertions"</a>
+and
+<a href="#scansubstringassertions">"Scan substring assertions"</a>
 above. These assertions must be standalone (not used as conditions). They are
 not Perl-compatible. For these assertions, a later backtrack does jump back
 into the assertion, and therefore verbs such as (*COMMIT) can be triggered by
@@ -3793,7 +4033,8 @@ backtracks from later in the pattern.
 <P>
 The effect of (*THEN) is not allowed to escape beyond an assertion. If there
 are no more branches to try, (*THEN) causes a positive assertion to be false,
-and a negative assertion to be true.
+and a negative assertion to be true. This behaviour differs from Perl when the
+assertion has only one branch.
 </P>
 <P>
 The other backtracking verbs are not treated specially if they appear in a
@@ -3829,13 +4070,57 @@ then a backtrack at the outer level.
 enclosing group that has alternatives (its normal behaviour). However, if there
 is no such group within the subroutine's group, the subroutine match fails and
 there is a backtrack at the outer level.
+<a name="ebcdicenvironments"></a></P>
+<br><a name="SEC33" href="#TOC1">EBCDIC ENVIRONMENTS</a><br>
+<P>
+Differences in the way PCRE behaves when it is running in an EBCDIC environment
+are covered in this section.
 </P>
-<br><a name="SEC30" href="#TOC1">SEE ALSO</a><br>
+<br><b>
+Escape sequences
+</b><br>
+<P>
+When PCRE2 is compiled in EBCDIC mode, \N{U+hhh..} is not supported. \a, \e,
+\f, \n, \r, and \t generate the appropriate EBCDIC code values. The \c
+escape is processed as specified for Perl in the <b>perlebcdic</b> document. The
+only characters that are allowed after \c are A-Z, a-z, or one of @, [, \, ],
+^, _, or ?. Any other character provokes a compile-time error. The sequence
+\c@ encodes character code 0; after \c the letters (in either case) encode
+characters 1-26 (hex 01 to hex 1A); [, \, ], ^, and _ encode characters 27-31
+(hex 1B to hex 1F), and \c? becomes either 255 (hex FF) or 95 (hex 5F).
+</P>
+<P>
+Thus, apart from \c?, these escapes generate the same character code values as
+they do in an ASCII or Unicode environment, though the meanings of the values
+mostly differ. For example, \cG always generates code value 7, which is BEL in
+ASCII but DEL in EBCDIC.
+</P>
+<P>
+The sequence \c? generates DEL (127, hex 7F) in an ASCII environment, but
+because 127 is not a control character in EBCDIC, Perl makes it generate the
+APC character. Unfortunately, there are several variants of EBCDIC. In most of
+them the APC character has the value 255 (hex FF), but in the one Perl calls
+POSIX-BC its value is 95 (hex 5F). If certain other characters have POSIX-BC
+values, PCRE2 makes \c? generate 95; otherwise it generates 255.
+</P>
+<br><b>
+Character classes
+</b><br>
+<P>
+In character classes there is a special case in EBCDIC environments for ranges
+whose end points are both specified as literal letters in the same case. For
+compatibility with Perl, EBCDIC code points within the range that are not
+letters are omitted. For example, [h-k] matches only four characters, even
+though the EBCDIC codes for h and k are 0x88 and 0x92, a range of 11 code
+points. However, if the range is specified numerically, for example,
+[\x88-\x92] or [h-\x92], all code points are included.
+</P>
+<br><a name="SEC34" href="#TOC1">SEE ALSO</a><br>
 <P>
 <b>pcre2api</b>(3), <b>pcre2callout</b>(3), <b>pcre2matching</b>(3),
 <b>pcre2syntax</b>(3), <b>pcre2</b>(3).
 </P>
-<br><a name="SEC31" href="#TOC1">AUTHOR</a><br>
+<br><a name="SEC35" href="#TOC1">AUTHOR</a><br>
 <P>
 Philip Hazel
 <br>
@@ -3844,9 +4129,9 @@ Retired from University Computing Service
 Cambridge, England.
 <br>
 </P>
-<br><a name="SEC32" href="#TOC1">REVISION</a><br>
+<br><a name="SEC36" href="#TOC1">REVISION</a><br>
 <P>
-Last updated: 04 June 2024
+Last updated: 27 November 2024
 <br>
 Copyright &copy; 1997-2024 University of Cambridge.
 <br>

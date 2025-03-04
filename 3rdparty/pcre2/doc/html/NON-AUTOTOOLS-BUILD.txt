@@ -105,6 +105,7 @@ example.
        pcre2_chkdint.c
        pcre2_chartables.c
        pcre2_compile.c
+       pcre2_compile_class.c
        pcre2_config.c
        pcre2_context.c
        pcre2_convert.c
@@ -138,7 +139,7 @@ example.
      Note that you must compile pcre2_jit_compile.c, even if you have not
      defined SUPPORT_JIT in src/config.h, because when JIT support is not
      configured, dummy functions are compiled. When JIT support IS configured,
-     pcre2_jit_compile.c #includes other files from the sljit subdirectory,
+     pcre2_jit_compile.c #includes other files from the sljit dependency,
      all of whose names begin with "sljit". It also #includes
      src/pcre2_jit_match.c and src/pcre2_jit_misc.c, so you should not compile
      those yourself.
@@ -301,56 +302,66 @@ Borland, Msys, MinGW, NMake, and Unix. If possible, use short paths with no
 spaces in the names for your CMake installation and your PCRE2 source and build
 directories.
 
-The following instructions were contributed by a PCRE1 user, but they should
-also work for PCRE2. If they are not followed exactly, errors may occur. In the
-event that errors do occur, it is recommended that you delete the CMake cache
-before attempting to repeat the CMake build process. In the CMake GUI, the
-cache can be deleted by selecting "File > Delete Cache".
+If you are using CMake and encounter errors, deleting the CMake cache and
+restarting from a fresh build may fix the error. In the CMake GUI, the cache can
+be deleted by selecting "File > Delete Cache"; or the folder "CMakeCache" can
+be deleted.
 
-1.  Install the latest CMake version available from http://www.cmake.org/, and
-    ensure that cmake\bin is on your path.
+1. Install the latest CMake version available from http://www.cmake.org/, and
+   ensure that cmake\bin is on your path.
 
-2.  Unzip (retaining folder structure) the PCRE2 source tree into a source
-    directory such as C:\pcre2. You should ensure your local date and time
-    is not earlier than the file dates in your source dir if the release is
-    very new.
+2. Unzip (retaining folder structure) the PCRE2 source tree into a source
+   directory such as C:\pcre2. You should ensure your local date and time
+   is not earlier than the file dates in your source dir if the release is
+   very new.
 
-3.  Create a new, empty build directory, preferably a subdirectory of the
-    source dir. For example, C:\pcre2\pcre2-xx\build.
+3. Create a new, empty build directory, preferably a subdirectory of the
+   source dir. For example, C:\pcre2\pcre2-xx\build.
 
-4.  Run cmake-gui from the Shell environment of your build tool, for example,
-    Msys for Msys/MinGW or Visual Studio Command Prompt for VC/VC++. Do not try
-    to start Cmake from the Windows Start menu, as this can lead to errors.
+4. Run CMake.
 
-5.  Enter C:\pcre2\pcre2-xx and C:\pcre2\pcre2-xx\build for the source and
-    build directories, respectively.
+   - Using the CLI, simply run `cmake ..` inside the `build/` directory. You can
+     use the `ccmake` ncurses GUI to select and configure PCRE2 features.
 
-6.  Hit the "Configure" button.
+   - Using the CMake GUI:
 
-7.  Select the particular IDE / build tool that you are using (Visual
-    Studio, MSYS makefiles, MinGW makefiles, etc.)
+     a) Run cmake-gui from the Shell environment of your build tool, for
+        example, Msys for Msys/MinGW or Visual Studio Command Prompt for
+        VC/VC++.
 
-8.  The GUI will then list several configuration options. This is where
-    you can disable Unicode support or select other PCRE2 optional features.
+     b) Enter C:\pcre2\pcre2-xx and C:\pcre2\pcre2-xx\build for the source and
+        build directories, respectively.
 
-9.  Hit "Configure" again. The adjacent "Generate" button should now be
-    active.
+     c) Press the "Configure" button.
 
-10. Hit "Generate".
+     d) Select the particular IDE / build tool that you are using (Visual
+        Studio, MSYS makefiles, MinGW makefiles, etc.)
 
-11. The build directory should now contain a usable build system, be it a
-    solution file for Visual Studio, makefiles for MinGW, etc. Exit from
-    cmake-gui and use the generated build system with your compiler or IDE.
-    E.g., for MinGW you can run "make", or for Visual Studio, open the PCRE2
-    solution, select the desired configuration (Debug, or Release, etc.) and
-    build the ALL_BUILD project.
+     e) The GUI will then list several configuration options. This is where
+        you can disable Unicode support or select other PCRE2 optional features.
 
-12. If during configuration with cmake-gui you've elected to build the test
-    programs, you can execute them by building the test project. E.g., for
-    MinGW: "make test"; for Visual Studio build the RUN_TESTS project. The
-    most recent build configuration is targeted by the tests. A summary of
-    test results is presented. Complete test output is subsequently
-    available for review in Testing\Temporary under your build dir.
+     f) Press "Configure" again. The adjacent "Generate" button should now be
+        active.
+
+     g) Press "Generate".
+
+5. The build directory should now contain a usable build system, be it a
+   solution file for Visual Studio, makefiles for MinGW, etc. Exit from
+   cmake-gui and use the generated build system with your compiler or IDE.
+   E.g., for MinGW you can run "make", or for Visual Studio, open the PCRE2
+   solution, select the desired configuration (Debug, or Release, etc.) and
+   build the ALL_BUILD project.
+
+   Regardless of build system used, `cmake --build .` will build it.
+
+6. If during configuration with cmake-gui you've elected to build the test
+   programs, you can execute them by building the test project. E.g., for
+   MinGW: "make test"; for Visual Studio build the RUN_TESTS project. The
+   most recent build configuration is targeted by the tests. A summary of
+   test results is presented. Complete test output is subsequently
+   available for review in Testing\Temporary under your build dir.
+
+   Regardless of build system used, `ctest` will run the tests.
 
 
 BUILDING PCRE2 ON WINDOWS WITH VISUAL STUDIO
@@ -425,6 +436,7 @@ OpenVMS. They are in the "vms" directory in the distribution tarball. Please
 read the file called vms/openvms_readme.txt. The pcre2test and pcre2grep
 programs contain some VMS-specific code.
 
-===========================
-Last Updated: 16 April 2024
-===========================
+==============================
+Last updated: 26 December 2024
+==============================
+

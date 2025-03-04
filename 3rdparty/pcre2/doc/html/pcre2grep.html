@@ -391,9 +391,10 @@ Read patterns from the file, one per line. As is the case with patterns on the
 command line, no delimiters should be used. What constitutes a newline when
 reading the file is the operating system's default interpretation of \n. The
 <b>--newline</b> option has no effect on this option. Trailing white space is
-removed from each line, and blank lines are ignored. An empty file contains no
+removed from each line, and blank lines are ignored unless the
+<b>--posix-pattern-file</b> option is also provided. An empty file contains no
 patterns and therefore matches nothing. Patterns read from a file in this way
-may contain binary zeros, which are treated as ordinary data characters.
+may contain binary zeros, which are treated as ordinary character literals.
 <br>
 <br>
 If this option is given more than once, all the specified files are read. A
@@ -723,9 +724,9 @@ text.
 <br>
 <br>
 $&#60;digits&#62; or ${&#60;digits&#62;} is replaced by the captured substring of the given
-decimal number; zero substitutes the whole match. If the number is greater than
-the number of capturing substrings, or if the capture is unset, the replacement
-is empty.
+decimal number; $& (or the legacy $0) substitutes the whole match. If the
+number is greater than the number of capturing substrings, or if the capture
+is unset, the replacement is empty.
 <br>
 <br>
 $a is replaced by bell; $b by backspace; $e by escape; $f by form feed; $n by
@@ -806,6 +807,15 @@ as was the case in earlier releases. Note that there are now more fine-grained
 option settings within patterns that affect individual classes. For example,
 when in UCP mode, the sequence (?aP) restricts [:word:] to ASCII letters, while
 allowing \w to match Unicode letters and digits.
+</P>
+<P>
+<b>--posix-pattern-file</b>
+When patterns are provided with the <b>-f</b> option, do not trim trailing
+spaces or ignore empty lines in a similar way than other grep tools. To keep
+the behaviour consistent with older versions, if the pattern read was
+terminated with CRLF (as character literals) then both characters won't be
+included as part of it, so if you really need to have pattern ending in '\r',
+use a escape sequence or provide it by a different method.
 </P>
 <P>
 <b>-q</b>, <b>--quiet</b>
@@ -993,7 +1003,7 @@ scripts or echoing specific strings during matching by making use of PCRE2's
 callout facility. However, this support can be completely or partially disabled
 when <b>pcre2grep</b> is built. You can find out whether your binary has support
 for callouts by running it with the <b>--help</b> option. If callout support is
-completely disabled, all callouts in patterns are ignored by <b>pcre2grep</b>.
+completely disabled, callouts in patterns are forbidden by <b>pcre2grep</b>.
 If the facility is partially disabled, calling external programs is not
 supported, and callouts that request it are ignored.
 </P>
@@ -1015,9 +1025,9 @@ available, provided that callouts were not completely disabled when
 zero-terminated string, which means it should not contain any internal binary
 zeros. It is written to the output, having first been passed through the same
 escape processing as text from the <b>--output</b> (<b>-O</b>) option (see
-above). However, $0 cannot be used to insert a matched substring because the
-match is still in progress. Instead, the single character '0' is inserted. Any
-syntax errors in the string (for example, a dollar not followed by another
+above). However, $0 or $& cannot be used to insert a matched substring because
+the match is still in progress. Instead, the single character '0' is inserted.
+Any syntax errors in the string (for example, a dollar not followed by another
 character) causes the callout to be ignored. No terminator is added to the
 output string, so if you want a newline, you must include it explicitly using
 the escape $n. For example:
@@ -1047,9 +1057,9 @@ arguments:
 </pre>
 Any substring (including the executable name) may contain escape sequences
 started by a dollar character. These are the same as for the <b>--output</b>
-(<b>-O</b>) option documented above, except that $0 cannot insert the matched
-string because the match is still in progress. Instead, the character '0'
-is inserted. If you need a literal dollar or pipe character in any
+(<b>-O</b>) option documented above, except that $0 or $& cannot insert the
+matched string because the match is still in progress. Instead, the character
+'0' is inserted. If you need a literal dollar or pipe character in any
 substring, use $$ or $| respectively. Here is an example:
 <pre>
   echo -e "abcde\n12345" | pcre2grep \
@@ -1116,7 +1126,7 @@ Cambridge, England.
 </P>
 <br><a name="SEC16" href="#TOC1">REVISION</a><br>
 <P>
-Last updated: 22 December 2023
+Last updated: 04 February 2025
 <br>
 Copyright &copy; 1997-2023 University of Cambridge.
 <br>

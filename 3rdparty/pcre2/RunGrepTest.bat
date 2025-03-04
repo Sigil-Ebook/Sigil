@@ -19,8 +19,9 @@ set GREP_COLOR=
 :: Remember the current (build) directory and set the program to be tested.
 
 set builddir="%CD%"
-set pcre2grep=%builddir%\pcre2grep.exe
-set pcre2test=%builddir%\pcre2test.exe
+
+if [%pcre2grep%]==[] set pcre2grep=%builddir%\pcre2grep.exe
+if [%pcre2test%]==[] set pcre2test=%builddir%\pcre2test.exe
 
 if NOT exist %pcre2grep% (
   echo ** %pcre2grep% does not exist.
@@ -81,10 +82,15 @@ if NOT "%nl%" == "LF" if NOT "%nl%" == "ANY" if NOT "%nl%" == "ANYCRLF" (
 )
 
 :: Create a simple printf via cscript/JScript (an actual printf may translate
-:: LF to CRLF, which this one does not).
+:: LF to CRLF, which this one does not).  We only support the barebones we need:
+:: \r, \n, \0, and %s (but only once).
 
-echo WScript.StdOut.Write(WScript.Arguments(0).replace(/\\r/g, "\r").replace(/\\n/g, "\n")) >printf.js
+echo WScript.StdOut.Write(WScript.Arguments(0).replace(/\\r/g, "\r").replace(/\\n/g, "\n").replace(/\\0/g, "\x00").replace(/%%s/g, function() { return WScript.Arguments(1) })) >printf.js
 set printf=cscript //nologo printf.js
+
+:: Create a simple 'tr' via cscript/JScript.
+echo WScript.StdOut.Write(WScript.StdIn.ReadAll().replace(/\x00/g, "@")) >trnull.js
+set trnull=cscript //nologo trnull.js
 
 :: ------ Normal tests ------
 
@@ -232,7 +238,7 @@ echo ---------------------------- Test 35 ----------------------------->>testtry
 echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test 36 ----------------------------->>testtrygrep
-(pushd %srcdir% & %pcre2grep% -L -r --include=grepinput --exclude "grepinput$" --exclude=grepinput8 --exclude-dir="^\." "fox" ./testdata | sort & popd) >>testtrygrep
+(pushd %srcdir% & %pcre2grep% -L -r --include="grepinput[^C]" --exclude "grepinput$" --exclude="grepinput(Bad)?8" --exclude=grepinputM --exclude=grepinputUN --exclude-dir="^\." "fox" ./testdata | sort & popd) >>testtrygrep
 echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test 37 ----------------------------->>testtrygrep
@@ -274,7 +280,13 @@ echo ---------------------------- Test 45 ------------------------------>>testtr
 echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test 46 ------------------------------>>testtrygrep
+(pushd %srcdir% & %pcre2grep% -e "unopened)" -e abc ./testdata/grepinput & popd) >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
 (pushd %srcdir% & %pcre2grep% -eabc -e "(unclosed" ./testdata/grepinput & popd) >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+(pushd %srcdir% & %pcre2grep% -eabc -e xyz -e "[unclosed" ./testdata/grepinput & popd) >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+(pushd %srcdir% & %pcre2grep% --regex=123 -eabc -e xyz -e "[unclosed" ./testdata/grepinput & popd) >>testtrygrep 2>&1
 echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test 47 ------------------------------>>testtrygrep
@@ -320,11 +332,11 @@ echo ---------------------------- Test 55 ----------------------------->>testtry
 echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test 56 ----------------------------->>testtrygrep
-(pushd %srcdir% & %pcre2grep% -c lazy ./testdata/grepinput* & popd) >>testtrygrep
+(pushd %srcdir% & %pcre2grep% -c --exclude=grepinputC lazy ./testdata/grepinput* & popd) >>testtrygrep
 echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test 57 ----------------------------->>testtrygrep
-(pushd %srcdir% & %pcre2grep% -c -l lazy ./testdata/grepinput* & popd) >>testtrygrep
+(pushd %srcdir% & %pcre2grep% -c -l --exclude=grepinputC lazy ./testdata/grepinput* & popd) >>testtrygrep
 echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test 58 ----------------------------->>testtrygrep
@@ -377,6 +389,12 @@ echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test 70 ----------------------------->>testtrygrep
 (pushd %srcdir% & %pcre2grep% --color=always -M "triple:\t.*\n\n" ./testdata/grepinput3 & popd) >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+(pushd %srcdir% & %pcre2grep% --color=always -M -n "triple:\t.*\n\n" ./testdata/grepinput3 & popd) >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+(pushd %srcdir% & %pcre2grep% -M "triple:\t.*\n\n" ./testdata/grepinput3 & popd) >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+(pushd %srcdir% & %pcre2grep% -M -n "triple:\t.*\n\n" ./testdata/grepinput3 & popd) >>testtrygrep
 echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test 71 ----------------------------->>testtrygrep
@@ -481,25 +499,28 @@ echo ---------------------------- Test 95 ----------------------------->>testtry
 echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test 96 ----------------------------->>testtrygrep
-(pushd %srcdir% & %pcre2grep% -L -r --include-dir=testdata --exclude "^^(?^!grepinput)" "fox" ./test* | sort & popd) >>testtrygrep
+(pushd %srcdir% & %pcre2grep% -L -r --include-dir=testdata --exclude "^^(?^!grepinput)" --exclude=grepinput[MCU] "fox" ./test* | sort & popd) >>testtrygrep
 echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test 97 ----------------------------->>testtrygrep
 echo grepinput$>testtemp1grep
 echo grepinput8>>testtemp1grep
-(pushd %srcdir% & %pcre2grep% -L -r --include=grepinput --exclude-from %builddir%\testtemp1grep --exclude-dir="^\." "fox" ./testdata | sort & popd) >>testtrygrep
+echo grepinputBad8>>testtemp1grep
+(pushd %srcdir% & %pcre2grep% -L -r --include=grepinput --exclude=grepinput[MCU] --exclude-from %builddir%\testtemp1grep --exclude-dir="^\." "fox" ./testdata | sort & popd) >>testtrygrep
 echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test 98 ----------------------------->>testtrygrep
 echo grepinput$>testtemp1grep
 echo grepinput8>>testtemp1grep
-(pushd %srcdir% & %pcre2grep% -L -r --exclude=grepinput3 --include=grepinput --exclude-from %builddir%\testtemp1grep --exclude-dir="^\." "fox" ./testdata | sort & popd) >>testtrygrep
+echo grepinputBad8>>testtemp1grep
+(pushd %srcdir% & %pcre2grep% -L -r --exclude=grepinput3 --exclude=grepinput[MCU] --include=grepinput --exclude-from %builddir%\testtemp1grep --exclude-dir="^\." "fox" ./testdata | sort & popd) >>testtrygrep
 echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test 99 ----------------------------->>testtrygrep
 echo grepinput$>testtemp1grep
 echo grepinput8>testtemp2grep
-(pushd %srcdir% & %pcre2grep% -L -r --include grepinput --exclude-from %builddir%\testtemp1grep --exclude-from=%builddir%\testtemp2grep --exclude-dir="^\." "fox" ./testdata | sort & popd) >>testtrygrep
+echo grepinputBad8>>testtemp1grep
+(pushd %srcdir% & %pcre2grep% -L -r --include grepinput --exclude=grepinput[MCU] --exclude-from %builddir%\testtemp1grep --exclude-from=%builddir%\testtemp2grep --exclude-dir="^\." "fox" ./testdata | sort & popd) >>testtrygrep
 echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test 100 ------------------------------>>testtrygrep
@@ -533,7 +554,7 @@ echo RC=^%ERRORLEVEL%>>testtrygrep
 echo ---------------------------- Test 107 ----------------------------->>testtrygrep
 echo a>testtemp1grep
 echo aaaaa>>testtemp1grep
-(pushd %srcdir% & %pcre2grep%  --line-offsets "(?<=\Ka)" %builddir%\testtemp1grep & popd) >>testtrygrep 2>&1
+(pushd %srcdir% & %pcre2grep%  --line-offsets --allow-lookaround-bsk "(?<=\Ka)" %builddir%\testtemp1grep & popd) >>testtrygrep 2>&1
 echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test 108 ------------------------------>>testtrygrep
@@ -541,7 +562,7 @@ echo ---------------------------- Test 108 ------------------------------>>testt
 echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test 109 ----------------------------->>testtrygrep
-(pushd %srcdir% & %pcre2grep% -cq lazy ./testdata/grepinput* & popd) >>testtrygrep
+(pushd %srcdir% & %pcre2grep% -cq --exclude=grepinputC lazy ./testdata/grepinput* & popd) >>testtrygrep
 echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test 110 ----------------------------->>testtrygrep
@@ -557,27 +578,27 @@ echo ---------------------------- Test 112 ----------------------------->>testtr
 echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test 113 ----------------------------->>testtrygrep
-(pushd %srcdir% & %pcre2grep% --total-count "the" testdata/grepinput* & popd) >>testtrygrep
+(pushd %srcdir% & %pcre2grep% --total-count --exclude=grepinputC "the" testdata/grepinput* & popd) >>testtrygrep
 echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test 114 ----------------------------->>testtrygrep
-(pushd %srcdir% & %pcre2grep% -tc "the" testdata/grepinput* & popd) >>testtrygrep
+(pushd %srcdir% & %pcre2grep% -tc --exclude=grepinputC "the" testdata/grepinput* & popd) >>testtrygrep
 echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test 115 ----------------------------->>testtrygrep
-(pushd %srcdir% & %pcre2grep% -tlc "the" testdata/grepinput* & popd) >>testtrygrep
+(pushd %srcdir% & %pcre2grep% -tlc --exclude=grepinputC "the" testdata/grepinput* & popd) >>testtrygrep
 echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test 116 ----------------------------->>testtrygrep
-(pushd %srcdir% & %pcre2grep% -th "the" testdata/grepinput* & popd) >>testtrygrep
+(pushd %srcdir% & %pcre2grep% --exclude=grepinput[MCU] -th "the" testdata/grepinput* & popd) >>testtrygrep
 echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test 117 ----------------------------->>testtrygrep
-(pushd %srcdir% & %pcre2grep% -tch "the" testdata/grepinput* & popd) >>testtrygrep
+(pushd %srcdir% & %pcre2grep% -tch --exclude=grepinputC "the" testdata/grepinput* & popd) >>testtrygrep
 echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test 118 ----------------------------->>testtrygrep
-(pushd %srcdir% & %pcre2grep% -tL "the" testdata/grepinput* & popd) >>testtrygrep
+(pushd %srcdir% & %pcre2grep% -tL --exclude=grepinputC "the" testdata/grepinput* & popd) >>testtrygrep
 echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test 119 ----------------------------->>testtrygrep
@@ -587,6 +608,266 @@ echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test 120 ------------------------------>>testtrygrep
 (pushd %srcdir% & %pcre2grep% -HO "$0:$2$1$3" "(\w+) binary (\w+)(\.)?" ./testdata/grepinput & popd) >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+(pushd %srcdir% & %pcre2grep% -HO "$&:$2$1$3" "(\w+) binary (\w+)(\.)?" ./testdata/grepinput & popd) >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+(pushd %srcdir% & %pcre2grep% -m 1 -O "$0:$a$b$e$f$r$t$v" "(\w+) binary (\w+)(\.)?" ./testdata/grepinput & popd) >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+(pushd %srcdir% & %pcre2grep% -HO "${X}" "(\w+) binary (\w+)(\.)?" ./testdata/grepinput & popd) >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+(pushd %srcdir% & %pcre2grep% -HO "XX$" "(\w+) binary (\w+)(\.)?" ./testdata/grepinput & popd) >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+(pushd %srcdir% & %pcre2grep% -O "$x{12345678}" "(\w+) binary (\w+)(\.)?" ./testdata/grepinput & popd) >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+(pushd %srcdir% & %pcre2grep% -O "$x{123Z" "(\w+) binary (\w+)(\.)?" ./testdata/grepinput & popd) >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+(pushd %srcdir% & %pcre2grep% --output "$x{1234}" "(\w+) binary (\w+)(\.)?" ./testdata/grepinput & popd) >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 121 ----------------------------->>testtrygrep
+(pushd %srcdir% & %pcre2grep% -F "\E and (regex)" testdata/grepinputv & popd) >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 122 ----------------------------->>testtrygrep
+(pushd %srcdir% & %pcre2grep% -w "cat|dog" testdata/grepinputv & popd) >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 123 ----------------------------->>testtrygrep
+(pushd %srcdir% & %pcre2grep% -w "dog|cat" testdata/grepinputv & popd) >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 124 ----------------------------->>testtrygrep
+(pushd %srcdir% & %pcre2grep% -Mn --colour=always "start[\s]+end" testdata/grepinputM & popd) >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+(pushd %srcdir% & %pcre2grep% -Mn --colour=always -A2 "start[\s]+end" testdata/grepinputM & popd) >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+(pushd %srcdir% & %pcre2grep% -Mn "start[\s]+end" testdata/grepinputM & popd) >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+(pushd %srcdir% & %pcre2grep% -Mn -A2 "start[\s]+end" testdata/grepinputM & popd) >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 125 ----------------------------->>testtrygrep
+%printf% "abcd\n" >testNinputgrep
+%pcre2grep% --colour=always --allow-lookaround-bsk "(?<=\K.)" testNinputgrep >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+%pcre2grep% --colour=always --allow-lookaround-bsk "(?=.\K)" testNinputgrep >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+%pcre2grep% --colour=always --allow-lookaround-bsk "(?<=\K[ac])" testNinputgrep >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+%pcre2grep% --colour=always --allow-lookaround-bsk "(?=[ac]\K)" testNinputgrep >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+set GREP_COLORS=ms=1;20
+%pcre2grep% --colour=always --allow-lookaround-bsk "(?=[ac]\K)" testNinputgrep >>testtrygrep
+set GREP_COLORS=
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 126 ----------------------------->>testtrygrep
+%printf% "Next line pattern has binary zero\nABC\0XYZ\n" >testtemp1grep
+%printf% "ABC\0XYZ\nABCDEF\nDEFABC\n" >testtemp2grep
+%pcre2grep% -a -f testtemp1grep testtemp2grep >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+%printf% "Next line pattern is erroneous.\n^abc)(xy" >testtemp1grep
+%pcre2grep% -a -f testtemp1grep testtemp2grep >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 127 ----------------------------->>testtrygrep
+(pushd %srcdir% & %pcre2grep% -o --om-capture=0 "pattern()()()()" testdata/grepinput & popd) >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 128 ----------------------------->>testtrygrep
+(pushd %srcdir% & %pcre2grep% -m1M -o1 --om-capture=0 "pattern()()()()" testdata/grepinput & popd) >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 129 ----------------------------->>testtrygrep
+(pushd %srcdir% & %pcre2grep% -m 2 "fox" testdata/grepinput & popd) >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 130 ----------------------------->>testtrygrep
+(pushd %srcdir% & %pcre2grep% -o -m2 "fox" testdata/grepinput & popd) >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 131 ----------------------------->>testtrygrep
+(pushd %srcdir% & %pcre2grep% -oc -m2 "fox" testdata/grepinput & popd) >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 132 ----------------------------->>testtrygrep
+:: The Unix tests use fd3 here, but Windows only has StdIn/StdOut/StdErr (which, at the kernel
+:: level, are not even numbered). Use a subshell instead.
+(pushd %srcdir% & (%pcre2grep% -m1 -A3 "^match" & echo ---& head -1) <testdata/grepinput & popd) >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 133 ----------------------------->>testtrygrep
+:: The Unix tests use fd3 here, but Windows only has StdIn/StdOut/StdErr (which, at the kernel
+:: level, are not even numbered). Use a subshell instead.
+(pushd %srcdir% & (%pcre2grep% -m1 -A3 "^match" & echo ---& %pcre2grep% -m1 -A3 "^match") <testdata/grepinput & popd) >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 134 ----------------------------->>testtrygrep
+(pushd %srcdir% & %pcre2grep% --max-count=1 -nH -O "=$x{41}$x423$o{103}$o1045=" "fox" - & popd) <%srcdir%\testdata\grepinputv >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 135 ----------------------------->>testtrygrep
+(pushd %srcdir% & %pcre2grep% -HZ "word" ./testdata/grepinputv & popd) | %trnull% >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+(pushd %srcdir% & %pcre2grep% -lZ "word" ./testdata/grepinputv ./testdata/grepinputv & popd) | %trnull% >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+(pushd %srcdir% & %pcre2grep% -A 1 -B 1 -HZ "word" ./testdata/grepinputv & popd) | %trnull% >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+(pushd %srcdir% & %pcre2grep% -MHZn "start[\s]+end" testdata/grepinputM & popd) >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 136 ----------------------------->>testtrygrep
+(pushd %srcdir% & %pcre2grep% -m1MK -o1 --om-capture=0 "pattern()()()()" testdata/grepinput & popd) >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+(pushd %srcdir% & %pcre2grep% --max-count=1MK -o1 --om-capture=0 "pattern()()()()" testdata/grepinput & popd) >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 137 ----------------------------->>testtrygrep
+%printf% "Last line\nhas no newline" >testtemp1grep
+%pcre2grep% -A1 Last testtemp1grep >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 138 ----------------------------->>testtrygrep
+%printf% "AbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\nAbC\n" >testtemp1grep
+%pcre2grep% --no-jit --heap-limit=0 b testtemp1grep >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 139 ----------------------------->>testtrygrep
+(pushd %srcdir% & %pcre2grep% --line-buffered "fox" testdata/grepinputv & popd) >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 140 ----------------------------->>testtrygrep
+(pushd %srcdir% & %pcre2grep% --buffer-size=10 -A1 "brown" testdata/grepinputv & popd) >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 141 ----------------------------->>testtrygrep
+%printf% "%%s\testdata\grepinputv\n-\n" "%srcdir%" >testtemp1grep
+%printf% "This is a line from stdin." >testtemp2grep
+%pcre2grep% --file-list testtemp1grep "line from stdin" <testtemp2grep >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 142 ----------------------------->>testtrygrep
+%printf% "/does/not/exist\n" >testtemp1grep
+%printf% "This is a line from stdin." >testtemp2grep
+%pcre2grep% --file-list testtemp1grep "line from stdin" >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 143 ----------------------------->>testtrygrep
+%printf% "fox|cat" >testtemp1grep
+%pcre2grep% -f - %srcdir%\testdata\grepinputv <testtemp1grep >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 144 ----------------------------->>testtrygrep
+%pcre2grep% -f /non/exist %srcdir%\testdata\grepinputv >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 145 ----------------------------->>testtrygrep
+%printf% "*meta*\rdog." >testtemp1grep
+%pcre2grep% -Ncr -F -f testtemp1grep %srcdir%\testdata\grepinputv >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 146 ----------------------------->>testtrygrep
+%printf% "A123B" >testtemp1grep
+%pcre2grep% -H -e "123|fox" - <testtemp1grep >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+%pcre2grep% -h -e "123|fox" - %srcdir%\testdata\grepinputv <testtemp1grep >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+%pcre2grep% - %srcdir%\testdata\grepinputv <testtemp1grep >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 147 ----------------------------->>testtrygrep
+%pcre2grep% -e "123|fox" -- -nonfile >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 148 ----------------------------->>testtrygrep
+%pcre2grep% --nonexist >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+%pcre2grep% -n-n-bad >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+%pcre2grep% --context >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+%pcre2grep% --only-matching --output=xx >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+%pcre2grep% --colour=badvalue >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+%pcre2grep% --newline=badvalue >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+%pcre2grep% -d badvalue >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+%pcre2grep% -D badvalue >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+%pcre2grep% --buffer-size=0 >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+%pcre2grep% --exclude "(badpat" abc /dev/null >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+%pcre2grep% --exclude-from /non/exist abc /dev/null >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+%pcre2grep% --include-from /non/exist abc /dev/null >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+%pcre2grep% --file-list=/non/exist abc /dev/null >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 149 ----------------------------->>testtrygrep
+(pushd %srcdir% & %pcre2grep% --binary-files=binary "dog" ./testdata/grepbinary & popd) >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+(pushd %srcdir% & %pcre2grep% --binary-files=wrong "dog" ./testdata/grepbinary & popd) >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 150 ----------------------------->>testtrygrep
+:: The Unix version of this tests checks for whether locales are supported. On Windows,
+:: we assume they always are.
+set LC_ALL=
+set LC_CTYPE=locale.bad
+(pushd %srcdir% & %pcre2grep% abc /dev/null & popd) >>testtrygrep 2>&1
+echo RC=^%ERRORLEVEL%>>testtrygrep
+set LC_CTYPE=
+
+echo ---------------------------- Test 151 ----------------------------->>testtrygrep
+(pushd %srcdir% & %pcre2grep% --colour=always -e this -e The -e "The wo" testdata/grepinputv & popd) >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 152 ----------------------------->>testtrygrep
+(pushd %srcdir% & %pcre2grep% -nA3 --group-separator="++" "four" ./testdata/grepinputx & popd) >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 153 ----------------------------->>testtrygrep
+(pushd %srcdir% & %pcre2grep% -nA3 --no-group-separator "four" ./testdata/grepinputx & popd) >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 154 ----------------------------->>testtrygrep
+echo. >nul 2>testtemp1grep
+(pushd %srcdir% & %pcre2grep% -f %builddir%\testtemp1grep ./testdata/grepinputv & popd) >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 155 ----------------------------->>testtrygrep
+echo. >testtemp1grep
+(pushd %srcdir% & %pcre2grep% -f %builddir%\testtemp1grep ./testdata/grepinputv & popd) >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 156 ----------------------------->>testtrygrep
+%printf% "\n" >testtemp1grep
+(pushd %srcdir% & %pcre2grep% --posix-pattern-file --file %builddir%\testtemp1grep ./testdata/grepinputv & popd) >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 157 ----------------------------->>testtrygrep
+%printf% "spaces \n" >testtemp1grep
+(pushd %srcdir% & %pcre2grep% -o --posix-pattern-file --file=%builddir%\testtemp1grep ./testdata/grepinputv >%builddir%\testtemp2grep && %pcre2grep% -q "s " %builddir%\testtemp2grep & popd) >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 158 ----------------------------->>testtrygrep
+%printf% "spaces.\n" >testtemp1grep
+(pushd %srcdir% & %pcre2grep% -f %builddir%\testtemp1grep ./testdata/grepinputv & popd) >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 159 ----------------------------->>testtrygrep
+%printf% "spaces.\r\n" >testtemp1grep
+(pushd %srcdir% & %pcre2grep% --posix-pattern-file -f%builddir%\testtemp1grep ./testdata/grepinputv & popd) >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test 160 ----------------------------->>testtrygrep
+(pushd %srcdir% & %pcre2grep% -nC3 "^(ert|jkl)" ./testdata/grepinput & popd) >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+(pushd %srcdir% & %pcre2grep% -n -B4 -A2 "^(ert|dfg)" ./testdata/grepinput & popd) >>testtrygrep
 echo RC=^%ERRORLEVEL%>>testtrygrep
 
 :: Now compare the results.
@@ -602,15 +883,43 @@ if %utf8% neq 0 (
 
   echo ---------------------------- Test U1 ------------------------------>testtrygrep
   (pushd %srcdir% & %pcre2grep% -n -u --newline=any "^X" ./testdata/grepinput8 & popd) >>testtrygrep
-  echo RC=^%ERRORLEVEL%>>testtrygrep
+  echo RC=^!ERRORLEVEL!>>testtrygrep
 
   echo ---------------------------- Test U2 ------------------------------>>testtrygrep
   (pushd %srcdir% & %pcre2grep% -n -u -C 3 --newline=any "Match" ./testdata/grepinput8 & popd) >>testtrygrep
-  echo RC=^%ERRORLEVEL%>>testtrygrep
+  echo RC=^!ERRORLEVEL!>>testtrygrep
 
   echo ---------------------------- Test U3 ------------------------------>>testtrygrep
-  (pushd %srcdir% & %pcre2grep% --line-offsets -u --newline=any "(?<=\K\x{17f})" ./testdata/grepinput8 & popd) >>testtrygrep
-  echo RC=^%ERRORLEVEL%>>testtrygrep
+  (pushd %srcdir% & %pcre2grep% --line-offsets -u --newline=any --allow-lookaround-bsk "(?<=\K\x{17f})" ./testdata/grepinput8 & popd) >>testtrygrep
+  echo RC=^!ERRORLEVEL!>>testtrygrep
+
+  echo ---------------------------- Test U4 ------------------------------>>testtrygrep
+  (pushd %srcdir% & %pcre2grep% -u -o "...." ./testdata/grepinputBad8 & popd) >>testtrygrep 2>&1
+  echo RC=^!ERRORLEVEL!>>testtrygrep
+
+  echo ---------------------------- Test U5 ------------------------------>>testtrygrep
+  (pushd %srcdir% & %pcre2grep% -U -o "...." ./testdata/grepinputBad8 & popd) >>testtrygrep
+  echo RC=^!ERRORLEVEL!>>testtrygrep
+
+  echo ---------------------------- Test U6 ----------------------------->>testtrygrep
+  (pushd %srcdir% & %pcre2grep% -u -m1 -O "=$x{1d3}$o{744}=" "fox" & popd) <%srcdir%\testdata\grepinputv >>testtrygrep 2>&1
+  echo RC=^!ERRORLEVEL!>>testtrygrep
+
+  echo ---------------------------- Test U7 ------------------------------>>testtrygrep
+  (pushd %srcdir% & %pcre2grep% -ui --colour=always "k+|\babc\b" ./testdata/grepinput8 & popd) >>testtrygrep
+  echo RC=^!ERRORLEVEL!>>testtrygrep
+
+  echo ---------------------------- Test U8 ------------------------------>>testtrygrep
+  (pushd %srcdir% & %pcre2grep% -UiEP --colour=always "k+|\babc\b" ./testdata/grepinput8 & popd) >>testtrygrep
+  echo RC=^!ERRORLEVEL!>>testtrygrep
+
+  echo ---------------------------- Test U9 ------------------------------>>testtrygrep
+  (pushd %srcdir% & %pcre2grep% -u --colour=always "A\d" ./testdata/grepinput8 & popd) >>testtrygrep
+  echo RC=^!ERRORLEVEL!>>testtrygrep
+
+  echo ---------------------------- Test U10 ------------------------------>>testtrygrep
+  (pushd %srcdir% & %pcre2grep% -u --posix-digit --colour=always "A\d" ./testdata/grepinput8 & popd) >>testtrygrep
+  echo RC=^!ERRORLEVEL!>>testtrygrep
 
   %cf% %srcdir%\testdata\grepoutput8 testtrygrep %cfout%
   if ERRORLEVEL 1 exit /b 1
@@ -631,58 +940,159 @@ echo Testing pcre2grep newline settings
 
 echo ---------------------------- Test N1 ------------------------------>testtrygrep
 %pcre2grep% -n -N CR "^(abc|def|ghi|jkl)" testNinputgrep >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+%pcre2grep% -B1 -n -N CR "^def" testNinputgrep >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test N2 ------------------------------>>testtrygrep
 %pcre2grep% -n --newline=crlf "^(abc|def|ghi|jkl)" testNinputgrep >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+%pcre2grep% -B1 -n -N CRLF "^ghi" testNinputgrep >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test N3 ------------------------------>>testtrygrep
 for /f %%a in ('%printf% "def\rjkl"') do set pattern=%%a
 %pcre2grep% -n --newline=cr -F "!pattern!" testNinputgrep >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test N4 ------------------------------>>testtrygrep
-%pcre2grep% -n --newline=crlf -F -f %srcdir%/testdata/greppatN4 testNinputgrep >>testtrygrep
+%pcre2grep% -n --newline=crlf -F -f %srcdir%\testdata\greppatN4 testNinputgrep >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test N5 ------------------------------>>testtrygrep
 %pcre2grep% -n --newline=any "^(abc|def|ghi|jkl)" testNinputgrep >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+%pcre2grep% -B1 -n --newline=any "^def" testNinputgrep >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test N6 ------------------------------>>testtrygrep
 %pcre2grep% -n --newline=anycrlf "^(abc|def|ghi|jkl)" testNinputgrep >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+%pcre2grep% -B1 -n --newline=anycrlf "^jkl" testNinputgrep >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test N7 ------------------------------>>testtrygrep
+%printf% "xyz\0abc\0def" >testNinputgrep
+%pcre2grep% -na --newline=nul "^(abc|def)" testNinputgrep | %trnull% >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+%pcre2grep% -B1 -na --newline=nul "^(abc|def)" testNinputgrep | %trnull% >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+echo ---------------------------- Test N8 ------------------------------>>testtrygrep
+%pcre2grep% -na --newline=anycrlf "^a" %srcdir%\testdata\grepinputBad8_Trail >>testtrygrep
+echo RC=^%ERRORLEVEL%>>testtrygrep
+
+%printf% "\n" >>testtrygrep
 
 %cf% %srcdir%\testdata\grepoutputN testtrygrep %cfout%
 if ERRORLEVEL 1 exit /b 1
 
-:: If pcre2grep supports script callouts, run some tests on them.
+
+:: These newline tests need UTF support.
+
+if %utf8% neq 0 (
+  echo Testing pcre2grep newline settings with UTF-8 features
+
+  echo ---------------------------- Test UN1 ------------------------------>testtrygrep
+  %pcre2grep% -nau --newline=anycrlf "^(abc|def)" %srcdir%\testdata\grepinputUN >>testtrygrep
+  echo RC=^!ERRORLEVEL!>>testtrygrep
+
+  echo ---------------------------- Test UN2 ------------------------------>testtrygrep
+  %pcre2grep% -nauU --newline=anycrlf "^a" %srcdir%\testdata\grepinputBad8_Trail >>testtrygrep
+  echo RC=^!ERRORLEVEL!>>testtrygrep
+
+  %printf% "\n" >>testtrygrep
+
+  %cf% %srcdir%\testdata\grepoutputUN testtrygrep %cfout%
+  if ERRORLEVEL 1 exit /b 1
+
+) else (
+  echo Skipping pcre2grep newline UTF-8 tests: no UTF-8 support in PCRE2 library
+)
+
+
+:: If pcre2grep supports script callouts, run some tests on them. It is possible
+:: to restrict these callouts to the non-fork case, either for security, or for
+:: environments that do not support fork(). This is handled by comparing to a
+:: different output.
 
 %pcre2grep% --help | %pcre2grep% -q "callout scripts in patterns are supported"
 if %ERRORLEVEL% equ 0 (
   echo Testing pcre2grep script callouts
-  %pcre2grep% "(T)(..(.))(?C'cmd|/c echo|Arg1: [$1] [$2] [$3]|Arg2: ^$|${1}^$| ($4) ($14) ($0)')()" %srcdir%/testdata/grepinputv >testtrygrep
-  %pcre2grep% "(T)(..(.))()()()()()()()(..)(?C'cmd|/c echo|Arg1: [$11] [${11}]')" %srcdir%/testdata/grepinputv >>testtrygrep
-  %pcre2grep% "(T)(?C'|$0:$1$n')" %srcdir%/testdata/grepinputv >>testtrygrep
-  %pcre2grep% "(T)(?C'|$1$n')(*F)" %srcdir%/testdata/grepinputv >>testtrygrep
-  %pcre2grep% --help | %pcre2grep% -q "Non-script callout scripts in patterns are supported"
-  if %ERRORLEVEL% equ 0 (
+
+  echo --- Test 1 --->testtrygrep
+  %pcre2grep% "(T)(..(.))(?C'cmd|/c echo|Arg1: [$1] [$2] [$3]|Arg2: ^$|${1}^$| ($4) ($14) ($0)')()" %srcdir%\testdata\grepinputv >>testtrygrep
+  echo RC=^!ERRORLEVEL!>>testtrygrep
+  echo --- Test 2 --->>testtrygrep
+  %pcre2grep% "(T)(..(.))()()()()()()()(..)(?C'cmd|/c echo|Arg1: [$11] [${11}]')" %srcdir%\testdata\grepinputv >>testtrygrep
+  echo RC=^!ERRORLEVEL!>>testtrygrep
+  echo --- Test 3 --->>testtrygrep
+  %pcre2grep% "(T)(?C'|$0:$1$n')" %srcdir%\testdata\grepinputv >>testtrygrep
+  echo RC=^!ERRORLEVEL!>>testtrygrep
+  echo --- Test 4 --->>testtrygrep
+  %pcre2grep% "(T)(?C'cscript|//nologo|printf.js|%%s\r\n|$0:$1$n')" %srcdir%\testdata\grepinputv >>testtrygrep
+  echo RC=^!ERRORLEVEL!>>testtrygrep
+  echo --- Test 5 --->>testtrygrep
+  %pcre2grep% "(T)(?C'|$1$n')(*F)" %srcdir%\testdata\grepinputv >>testtrygrep
+  echo RC=^!ERRORLEVEL!>>testtrygrep
+  echo --- Test 6 --->>testtrygrep
+  %pcre2grep% -m1 "(T)(?C'|$0:$1:$x{41}$o{101}$n')" %srcdir%\testdata\grepinputv >>testtrygrep
+  echo RC=^!ERRORLEVEL!>>testtrygrep
+
+  %pcre2grep% --help | %pcre2grep% -q "Non-fork callout scripts in patterns are supported"
+  if ^!ERRORLEVEL! equ 0 (
+    set nonfork=1
     %cf% %srcdir%\testdata\grepoutputCN testtrygrep %cfout%
   ) else (
+    set nonfork=0
     %cf% %srcdir%\testdata\grepoutputC testtrygrep %cfout%
   )
   if ERRORLEVEL 1 exit /b 1
+
+  @REM These callout tests need UTF support.
+
+  if %utf8% neq 0 (
+    echo Testing pcre2grep script callout with UTF-8 features
+
+    echo --- Test 1 --->testtrygrep
+    %pcre2grep% -u "(T)(?C'|$0:$x{a6}$n')" %srcdir%\testdata\grepinputv >>testtrygrep
+    echo RC=^!ERRORLEVEL!>>testtrygrep
+    echo --- Test 2 --->>testtrygrep
+    %pcre2grep% -u "(T)(?C'cscript|//nologo|printf.js|%%s\r\n|$0:$x{a6}$n')" %srcdir%\testdata\grepinputv >>testtrygrep
+    echo RC=^!ERRORLEVEL!>>testtrygrep
+
+    if ^!nonfork! equ 1 (
+      %cf% %srcdir%\testdata\grepoutputCNU testtrygrep %cfout%
+    ) else (
+      %cf% %srcdir%\testdata\grepoutputCU testtrygrep %cfout%
+    )
+    if ERRORLEVEL 1 exit /b 1
+
+  ) else (
+    echo Skipping pcre2grep script callout UTF-8 tests: no UTF-8 support in PCRE2 library
+  )
+
 ) else (
   echo Script callouts are not supported
 )
+
 
 :: Finally, some tests to exercise code that is not tested above, just to be
 :: sure that it runs OK. Doing this improves the coverage statistics. The output
 :: is not checked.
 
 echo Testing miscellaneous pcre2grep arguments (unchecked)
-%printf% "" >testtrygrep
+echo. >nul 2>testtrygrep
 call :checkspecial "-xxxxx" 2 || exit /b 1
 call :checkspecial "--help" 0 || exit /b 1
 call :checkspecial "--line-buffered --colour=auto abc nul" 1 || exit /b 1
+call :checkspecial "--line-buffered --color abc nul" 1 || exit /b 1
+call :checkspecial "-dskip abc ." 1 || exit /b 1
+call :checkspecial "-Dread -Dskip abc nul" 1 || exit /b 1
+
 
 :: Clean up local working files
-del testcf printf.js testNinputgrep teststderrgrep testtrygrep testtemp1grep testtemp2grep
+del testcf printf.js trnull.js testNinputgrep teststderrgrep testtrygrep testtemp1grep testtemp2grep
 
 exit /b 0
 

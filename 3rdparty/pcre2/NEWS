@@ -1,6 +1,92 @@
 News about PCRE2 releases
 -------------------------
 
+Version 10.45 05-February-2025
+------------------------------
+
+This is a comparatively large release, incorporating new features, some
+bugfixes, and a few changes with slight backwards compatibility implications.
+Please see the ChangeLog and Git log for further details.
+
+Only changes to behaviour, changes to the API, and major changes to the pattern
+syntax are described here.
+
+This release is the first to be available as a (signed) Git tag, or
+alternatively as a (signed) tarball of the Git tag.
+
+This is also the first release to be made by the new maintainers of PCRE2, and
+we would like to thank Philip Hazel, creator and maintainer of PCRE and PCRE2.
+
+* (Git change) The sljit project has been split out into a separate Git
+  repository. Git users must now run `git submodule init; git submodule update`
+  after a Git checkout.
+
+* (Behaviour change) Update Unicode support to UCD 16.
+
+* (Match behaviour change) Case-insensitive matching of Unicode properties
+  Ll, Lt, and Lu has been changed to match Perl. Previously, /\p{Ll}/i would
+  match only lower-case characters (even though case-insensitive matching was
+  specified). This also affects case-insensitive matching of POSIX classes such
+  as [:lower:].
+
+* (Minor match behaviour change) Case-insensitive matching of backreferences now
+  respects the PCRE2_EXTRA_CASELESS_RESTRICT option.
+
+* (Minor pattern syntax change) Parsing of the \x escape is stricter, and is
+  no longer parsed as an escape for the NUL character if not followed by '{' or
+  a hexadecimal digit. Use \x00 instead.
+
+* (Major new feature) Add a new feature called scan substring. This is a new
+  type of assertion which matches the content of a capturing block to a
+  sub-pattern.
+
+  Example: to find a word that contains the rare (in English) sequence of
+  letters "rh" not at the start:
+
+      \b(\w++)(*scan_substring:(1).+rh)
+
+  The first group captures a word which is then scanned by the
+  (*scan_substring:(1) ... ) assertion, which tests whether the pattern ".+rh"
+  matches the capture group "(1)".
+
+* (Major new feature) Add support for UTS#18 compatible character classes,
+  using the new option PCRE2_ALT_EXTENDED_CLASS. This adds '[' as a
+  metacharacter within character classes and the operators '&&', '--' and '~~',
+  allowing subtractions and intersections of character classes to be easily
+  expressed.
+
+  Example: to match Thai or Greek letters (but not letters or other characters
+  in those scripts), use [\p{L}&&[\p{Thai}||\p{Greek}]].
+
+* (Major new feature) Add support for Perl-style extended character classes,
+  using the syntax (?[...]). This also allows expressing subtractions and
+  intersections of character classes, but using a different syntax to UTS#18.
+
+  Example: to match Thai or Greek letters (but not letters or other characters
+  in those scripts), use (?[\p{L} & (\p{Thai} + \p{Greek})]).
+
+* (Minor feature) Significant improvements to the character class match engine.
+  Compiled character classes are now more compact, and have faster matching
+  for large or complex character sets, using binary search through the set.
+
+* JIT compilation now fails with the new error code PCRE2_ERROR_JIT_UNSUPPORTED
+  for patterns which use features not supported by the JIT compiler.
+
+* (Minor feature) New options PCRE2_EXTRA_NO_BS0 (disallow \0 as an escape for
+  the NUL character); PCRE2_EXTRA_PYTHON_OCTAL (use Python disambiguation rules
+  for deciding whether \12 is a backreference or an octal escape);
+  PCRE2_EXTRA_NEVER_CALLOUT (disable callout syntax entirely);
+  PCRE2_EXTRA_TURKISH_CASING (use Turkish rules for case-insensitive matching).
+
+* (Minor feature) Add new API function pcre2_set_optimize() for controlling
+  which optimizations are enabled.
+
+* (Minor new features) A variety of extensions have been made to
+  pcre2_substitute() and its syntax for replacement strings. These now support:
+  \123 octal escapes; titlecasing \u\L; \1 backreferences; \g<1> and $<NAME>
+  backreferences; $& $` $' and $_; new function
+  pcre2_set_substitute_case_callout() to allow locale-aware case transformation.
+
 
 Version 10.44 07-June-2024
 --------------------------
@@ -13,7 +99,7 @@ increased to 128. Some auxiliary files for building under VMS are added.
 Version 10.43 16-February-2024
 ------------------------------
 
-There are quite a lot of changes in this release (see ChangeLog and git log for
+There are quite a lot of changes in this release (see ChangeLog and Git log for
 a list). Those that are not bugfixes or code tidies are:
 
 * The JIT code no longer supports ARMv5 architecture.
@@ -52,7 +138,7 @@ a list). Those that are not bugfixes or code tidies are:
   matches the "fullwidth" versions of hex digits. PCRE2_EXTRA_ASCII_DIGIT can
   be used to keep it ASCII only.
 
-* Make PCRE2_UCP the default in UTF mode in pcre2grep and add -no_ucp,
+* Make PCRE2_UCP the default in UTF mode in pcre2grep and add --no-ucp,
   --case-restrict and --posix-digit.
 
 * Add --group-separator and --no-group-separator to pcre2grep.

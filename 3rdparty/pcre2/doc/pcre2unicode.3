@@ -1,6 +1,6 @@
-.TH PCRE2UNICODE 3 "04 February 2023" "PCRE2 10.43"
+.TH PCRE2UNICODE 3 "27 November 2024" "PCRE2 10.45"
 .SH NAME
-PCRE - Perl-compatible regular expressions (revised API)
+PCRE2 - Perl-compatible regular expressions (revised API)
 .SH "UNICODE AND UTF SUPPORT"
 .rs
 .sp
@@ -43,7 +43,7 @@ When PCRE2 is built with Unicode support, the escape sequences \ep{..},
 The Unicode properties that can be tested are a subset of those that Perl
 supports. Currently they are limited to the general category properties such as
 Lu for an upper case letter or Nd for a decimal number, the derived properties
-Any and LC (synonym L&), the Unicode script names such as Arabic or Han,
+Any and Lc (synonym L&), the Unicode script names such as Arabic or Han,
 Bidi_Class, Bidi_Control, and a few binary properties.
 .P
 The full lists are given in the
@@ -147,6 +147,35 @@ Recognition of these non-ASCII characters as case-equivalent to their ASCII
 counterparts can be disabled by setting the PCRE2_EXTRA_CASELESS_RESTRICT
 option. When this is set, all characters in a case equivalence must either be
 ASCII or non-ASCII; there can be no mixing.
+.sp
+    Without PCRE2_EXTRA_CASELESS_RESTRICT:
+      'k' = 'K' = U+212A (Kelvin sign)
+      's' = 'S' = U+017F (long S)
+    With PCRE2_EXTRA_CASELESS_RESTRICT:
+      'k' = 'K'
+      U+212A (Kelvin sign)  only case-equivalent to itself
+      's' = 'S'
+      U+017F (long S)       only case-equivalent to itself
+.P
+One language family, Turkish and Azeri, has its own case-insensitivity rules,
+which can be selected by setting PCRE2_EXTRA_TURKISH_CASING. This alters the
+behaviour of the 'i', 'I', U+0130 (capital I with dot above), and U+0131
+(small dotless i) characters.
+.sp
+    Without PCRE2_EXTRA_TURKISH_CASING:
+      'i' = 'I'
+      U+0130 (capital I with dot above)  only case-equivalent to itself
+      U+0131 (small dotless i)           only case-equivalent to itself
+    With PCRE2_EXTRA_TURKISH_CASING:
+      'i' = U+0130 (capital I with dot above)
+      U+0131 (small dotless i) = 'I'
+.P
+It is not allowed to specify both PCRE2_EXTRA_CASELESS_RESTRICT and
+PCRE2_EXTRA_TURKISH_CASING together.
+.P
+From release 10.45 the Unicode letter properties Lu (upper case), Ll (lower
+case), and Lt (title case) are all treated as Lc (cased letter) when caseless
+matching is set by the PCRE2_CASELESS option or (?i) within the pattern.
 .
 .
 .\" HTML <a name="scriptruns"></a>
@@ -480,6 +509,6 @@ Cambridge, England.
 .rs
 .sp
 .nf
-Last updated: 12 October 2023
-Copyright (c) 1997-2023 University of Cambridge.
+Last updated: 27 November 2024
+Copyright (c) 1997-2024 University of Cambridge.
 .fi

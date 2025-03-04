@@ -1,31 +1,53 @@
 #! /bin/sh
 
-# Script for testing regular expressions with perl to check that PCRE2 handles
-# them the same. For testing with different versions of Perl, if the first
-# argument is -perl then the second is taken as the Perl command to use, and
-# both are then removed. If the next argument is "-w", Perl is called with
-# "-w", which turns on its warning mode.
+# This is a script for testing regular expressions with Perl to check that
+# it handles them the same way as PCRE2. For testing with different versions of
+# Perl, if the first argument is -perl, the second is taken as the Perl command
+# to use, and both are then removed. If the next argument is "-w", Perl is
+# called with "-w", which turns on its warning mode.
 #
 # The Perl code has to have "use utf8" and "require Encode" at the start when
-# running UTF-8 tests, but *not* for non-utf8 tests. (The "require" would
+# running UTF-8 tests, but *not* for non-utf8 tests. The "require" would
 # actually be OK for non-utf8-tests, but is not always installed, so this way
-# the script will always run for these tests.)
+# the script will always run for these tests.
 #
 # The desired effect is achieved by making this a shell script that passes the
-# Perl script to Perl through a pipe. If the next argument is "-utf8", a
-# suitable prefix is set up.
+# a script to Perl through a pipe. See comments below about the data for the
+# Perl script. If the next argument of this script is "-utf8", a suitable
+# prefix for the Perl script is set up.
 #
-# The remaining arguments, if any, are passed to Perl. They are an input file
-# and an output file. If there is one argument, the output is written to
-# STDOUT. If Perl receives no arguments, it opens /dev/tty as input, and writes
-# output to STDOUT. (I haven't found a way of getting it to use STDIN, because
-# of the contorted piping input.)
+# A similar process is used to indicate the desire to set a specific locale
+# tables per pattern in a similar way to pcre2test through a locale modifier,
+# by using the -locale argument. This can be optionally combined with the
+# previous arguments; for example, to process an UTF-8 test file in Turkish,
+# add the locale=tr_TR.utf8 modifier to the pattern and -locale to perltest,
+# or invoke something like (the specific names of the locale might vary):
+#
+#   ./perltest.sh -utf8 -locale=tr_TR.utf8 some-file
+#
+# If the -locale argument has no setting, a suitable default locale is used
+# when possible and reported at startup, it can be always overriden using the
+# locale modifier for each pattern.
+#
+# The remaining arguments of this script, if any, are passed to Perl. They are
+# an input file and an output file. If there is one argument, the output is
+# written to STDOUT. If Perl receives no arguments, it opens /dev/tty as input,
+# and writes output to STDOUT. (I haven't found a way of getting it to use
+# STDIN, because of the contorted piping input.)
+
+
+# Handle the shell script arguments.
 
 perl=perl
-perlarg=''
-prefix=''
+perlarg=""
+prefix=""
+spc=""
 
-if [ $# -gt 1 -a "$1" = "-perl" ] ; then
+if [ $# -gt 0 -a "$1" = "-perl" ] ; then
+  if [ $# -lt 2 ] ; then
+    echo "perltest.sh: Missing perl command after -perl"
+    exit 1
+  fi
   shift
   perl=$1
   shift
@@ -33,12 +55,42 @@ fi
 
 if [ $# -gt 0 -a "$1" = "-w" ] ; then
   perlarg="-w"
+  spc=" "
   shift
 fi
 
 if [ $# -gt 0 -a "$1" = "-utf8" ] ; then
-  prefix="use utf8; require Encode;"
+  default_locale="C.utf8"
+  prefix="\
+  use utf8;\
+  require Encode;"
+  perlarg="$perlarg$spc-CSD"
   shift
+fi
+
+if [ $# -gt 0 ] ; then
+  case "$1" in
+  -locale=*)
+    default_locale=${1#-locale=}
+    ;;
+  -locale)
+    default_locale=${default_locale:-C}
+    ;;
+  *)
+    skip=1
+  esac
+  if [ -z "$skip" ] ; then
+    prefix="\
+    use POSIX qw(locale_h);\
+    use locale qw(:ctype);\
+    \
+    \$default_locale = setlocale(LC_CTYPE, \"$default_locale\");\
+    if (!defined(\$default_locale))\
+      { die \"perltest: Failed to set locale \\\"$default_locale\\\"\\\n\"; }\
+    print \"Locale: \$default_locale\\\n\";\
+    $prefix"
+    shift
+  fi
 fi
 
 
@@ -50,7 +102,9 @@ fi
 #   aftertext          interpreted as "print $' afterwards"
 #   afteralltext       ignored
 #   dupnames           ignored (Perl always allows)
+#   hex                preprocess pattern with embedded octets
 #   jitstack           ignored
+#   locale             use a specific locale tables
 #   mark               show mark information
 #   no_auto_possess    ignored
 #   no_start_optimize  insert (??{""}) at pattern start (disables optimizing)
@@ -86,10 +140,11 @@ fi
 
 (echo "$prefix" ; cat <<'PERLEND'
 
-# The alpha assertions currently give warnings even when -w is not specified.
+# Avoid warnings for some of the experimental features that are being used.
 
 no warnings "experimental::alpha_assertions";
 no warnings "experimental::script_run";
+no warnings "experimental::vlb";
 
 # Function for turning a string into a string of printing chars.
 
@@ -109,7 +164,7 @@ else
   {
   foreach $c (split(//, $_[0]))
     {
-    if (ord $c >= 32 && ord $c < 127) { $t .= $c; }
+    if ($c =~ /^[[:print:]]$/) { $t .= $c; }
       else { $t .= sprintf("\\x%02x", ord $c); }
     }
   }
@@ -143,7 +198,7 @@ if (@ARGV > 1)
   }
 else { $outfile = "STDOUT"; }
 
-printf($outfile "Perl $^V\n\n");
+printf($outfile "Perl $^V\n");
 
 $extra_modifiers = "";
 $default_show_mark = 0;
@@ -153,6 +208,12 @@ $default_show_mark = 0;
 NEXT_RE:
 for (;;)
   {
+  if (defined $locale && defined $default_locale)
+    {
+    setlocale(LC_CTYPE, $default_locale);
+    undef $locale;
+    }
+
   printf "  re> " if $interact;
   last if ! ($_ = <$infile>);
   printf $outfile "$_" if ! $interact;
@@ -208,9 +269,9 @@ for (;;)
 
   # Split the pattern from the modifiers and adjust them as necessary.
 
-  $pattern =~ /^\s*((.).*\2)(.*)$/s;
-  $pat = $1;
-  $del = $2;
+  $pattern =~ /^\s*(.)(.*)\1(.*)$/s;
+  $del = $1;
+  $pat = $2;
   $mod = "$3,$extra_modifiers";
   $mod =~ s/^,\s*//;
 
@@ -226,10 +287,6 @@ for (;;)
 
   $mod =~ s/allaftertext,?//;
 
-  # Detect utf
-
-  $utf8 = $mod =~ s/utf,?//;
-
   # Remove "dupnames".
 
   $mod =~ s/dupnames,?//;
@@ -237,6 +294,19 @@ for (;;)
   # Remove "jitstack".
 
   $mod =~ s/jitstack=\d+,?//;
+
+  # The "locale" modifier indicates which locale to use
+  if ($mod =~ /locale=([^,]+),?/)
+    {
+    die "perltest: missing -locale cmdline flag" unless defined &setlocale;
+    $locale = setlocale(LC_CTYPE, $1);
+    if (!defined $locale)
+      {
+      print "** Failed to set locale '$1'\n";
+      next NEXT_RE;
+      }
+    }
+  $mod =~ s/locale=[^,]*,?//;                # Remove it; "locale=" Ignored
 
   # The "mark" modifier requests checking of MARK data */
 
@@ -246,9 +316,42 @@ for (;;)
 
   $mod =~ s/ucp,?/u/;
 
+  # Detect utf
+
+  $utf8 = $mod =~ s/utf,?//;
+
   # Remove "no_auto_possess".
 
   $mod =~ s/no_auto_possess,?//;
+
+  # The "hex" modifier instructs us to preprocess a pattern with embedded
+  # octets formatted as two digit hexadecimals
+
+  if ($mod =~ s/hex,?//)
+    {
+    my $t = "";
+
+    # find either 2 digit hex octets, optionally surrounded by spaces, to
+    # add as code points or quoted strings that will be copied verbatim
+
+    while ($pat =~ /\s*(?:(\p{ahex}{2})|(['"])([^\2]+?)\2)\s*/g)
+      {
+      if (defined $1)
+        {
+        no utf8;
+        $t .= chr(hex($1));
+        use if $utf8, "utf8";
+        }
+      else
+        {
+        $t .= $3;
+        }
+      }
+    no utf8;
+    utf8::decode($t) if $utf8;
+    use if $utf8, "utf8";
+    $pat = $t;
+    }
 
   # Use no_start_optimize (disable PCRE2 start-up optimization) to disable Perl
   # optimization by inserting (??{""}) at the start of the pattern. We may
@@ -256,12 +359,12 @@ for (;;)
 
   $mod =~ s/-no_start_optimize,?//;
 
-  if ($mod =~ s/no_start_optimize,?//) { $pat =~ s/$del/$del(??{""})/; }
+  if ($mod =~ s/no_start_optimize,?//) { $pat = '(??{""})' . $pat; }
 
   # Add back retained modifiers and check that the pattern is valid.
 
   $mod =~ s/,//g;
-  $pattern = "$pat$mod";
+  $pattern = "$del$pat$del$mod";
 
   eval "\$_ =~ ${pattern}";
   if ($@)
@@ -313,7 +416,13 @@ for (;;)
       }
     else
       {
-      $x = eval "\"$_\"";   # To get escapes processed
+      s/(?<!\\)\\$//;     # Remove pcre2test specific trailing backslash
+      $x = eval "\"$_\""; # To get escapes processed
+      if ($interact && $@)
+        {
+        print STDERR "$@";
+        redo;
+        }
       }
 
     # Empty array for holding results, ensure $REGERROR and $REGMARK are
@@ -347,7 +456,7 @@ for (;;)
 
     if ($@)
       {
-      printf $outfile "Error: $@\n";
+      printf $outfile "Error: $@";
       next NEXT_RE;
       }
     elsif (scalar(@subs) == 0)

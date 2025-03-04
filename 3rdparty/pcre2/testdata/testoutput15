@@ -21,7 +21,7 @@ Failed: error -63: heap limit exceeded
 
 /(a+)*zz/I
 Capture group count = 1
-Starting code units: a z 
+Starting code units: a z
 Last code unit = 'z'
 Subject length lower bound = 2
   aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaazzbbbbbb\=find_limits_noheap
@@ -111,10 +111,10 @@ Minimum depth limit = 10
  3: ee
 
 /(*LIMIT_MATCH=12bc)abc/
-Failed: error 160 at offset 17: (*VERB) not recognized or malformed
+Failed: error 160 at offset 16: (*VERB) not recognized or malformed
 
 /(*LIMIT_MATCH=4294967290)abc/
-Failed: error 160 at offset 24: (*VERB) not recognized or malformed
+Failed: error 160 at offset 23: (*VERB) not recognized or malformed
 
 /(*LIMIT_DEPTH=4294967280)abc/I
 Capture group count = 0
@@ -139,7 +139,7 @@ Failed: error -53: matching depth limit exceeded
 /(*LIMIT_MATCH=3000)(a+)*zz/I
 Capture group count = 1
 Match limit = 3000
-Starting code units: a z 
+Starting code units: a z
 Last code unit = 'z'
 Subject length lower bound = 2
 \= Expect limit exceeded
@@ -152,7 +152,7 @@ Failed: error -47: match limit exceeded
 /(*LIMIT_MATCH=60000)(*LIMIT_MATCH=3000)(a+)*zz/I
 Capture group count = 1
 Match limit = 3000
-Starting code units: a z 
+Starting code units: a z
 Last code unit = 'z'
 Subject length lower bound = 2
 \= Expect limit exceeded
@@ -162,7 +162,7 @@ Failed: error -47: match limit exceeded
 /(*LIMIT_MATCH=60000)(a+)*zz/I
 Capture group count = 1
 Match limit = 60000
-Starting code units: a z 
+Starting code units: a z
 Last code unit = 'z'
 Subject length lower bound = 2
 \= Expect no match
@@ -175,7 +175,7 @@ Failed: error -47: match limit exceeded
 /(*LIMIT_DEPTH=10)(a+)*zz/I
 Capture group count = 1
 Depth limit = 10
-Starting code units: a z 
+Starting code units: a z
 Last code unit = 'z'
 Subject length lower bound = 2
 \= Expect limit exceeded
@@ -188,7 +188,7 @@ Failed: error -53: matching depth limit exceeded
 /(*LIMIT_DEPTH=10)(*LIMIT_DEPTH=1000)(a+)*zz/I
 Capture group count = 1
 Depth limit = 1000
-Starting code units: a z 
+Starting code units: a z
 Last code unit = 'z'
 Subject length lower bound = 2
 \= Expect no match
@@ -198,7 +198,7 @@ No match
 /(*LIMIT_DEPTH=1000)(a+)*zz/I
 Capture group count = 1
 Depth limit = 1000
-Starting code units: a z 
+Starting code units: a z
 Last code unit = 'z'
 Subject length lower bound = 2
 \= Expect no match
@@ -453,7 +453,7 @@ Failed: error -52: nested recursion at the same subject position
 /[^\xff]((?1))/BI
 ------------------------------------------------------------------
         Bra
-        [^\x{ff}]
+        [^\x{ff}] (not)
         CBra 1
         Recurse
         Ket
@@ -477,8 +477,9 @@ Failed: error -52: nested recursion at the same subject position
 ------------------------------------------------------------------
 Capture group count = 0
 Options: no_auto_possess
-Starting code units: 0 1 2 3 4 5 6 7 8 9 A B C D E F G H I J K L M N O P 
-  Q R S T U V W X Y Z _ a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Optimizations: dotstar_anchor,start_optimize
+Starting code units: 0 1 2 3 4 5 6 7 8 9 A B C D E F G H I J K L M N O P
+  Q R S T U V W X Y Z _ a b c d e f g h i j k l m n o p q r s t u v w x y z
 Subject length lower bound = 1
     abc\=callout_fail=1
 --->abc
@@ -501,8 +502,9 @@ No match
 Capture group count = 0
 Compile options: <none>
 Overall options: no_auto_possess
-Starting code units: 0 1 2 3 4 5 6 7 8 9 A B C D E F G H I J K L M N O P 
-  Q R S T U V W X Y Z _ a b c d e f g h i j k l m n o p q r s t u v w x y z 
+Optimizations: dotstar_anchor,start_optimize
+Starting code units: 0 1 2 3 4 5 6 7 8 9 A B C D E F G H I J K L M N O P
+  Q R S T U V W X Y Z _ a b c d e f g h i j k l m n o p q r s t u v w x y z
 Subject length lower bound = 1
     abc\=callout_fail=1
 --->abc

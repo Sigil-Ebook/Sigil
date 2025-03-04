@@ -1,4 +1,4 @@
-.TH PCRE2_SET_MAX_PATTERN_COMPILED_LENGTH 3 "24 April 2024" "PCRE2 10.44"
+.TH PCRE2_SET_MAX_PATTERN_COMPILED_LENGTH 3 "09 June 2024" "PCRE2 10.45"
 .SH NAME
 PCRE2 - Perl-compatible regular expressions (revised API)
 .SH SYNOPSIS
@@ -15,9 +15,9 @@ PCRE2 - Perl-compatible regular expressions (revised API)
 .rs
 .sp
 This function sets, in a compile context, the maximum size (in bytes) for the
-memory needed to hold the compiled version of a pattern that is compiled with
-this context. The result is always zero. If a pattern that is passed to
-\fBpcre2_compile()\fP with this context needs more memory, an error is
+memory needed to hold the compiled version of a pattern that is using this
+context. The result is always zero. If a pattern that is passed to
+\fBpcre2_compile()\fP referencing this context needs more memory, an error is
 generated. The default is the largest number that a PCRE2_SIZE variable can
 hold, which is effectively unlimited.
 .P

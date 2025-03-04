@@ -1076,13 +1076,6 @@
 \= Expect no match
       \x{660}\x{661}\x{662}ABC
   
-/\p{Lu}/i,utf
-    A
-    a\x{10a0}B
-\= Expect no match
-    a
-    \x{1d00}
-
 /\p{^Lu}/i,utf
     1234
 \= Expect no match
@@ -1156,30 +1149,6 @@
     a
     A
     
-/\p{Lu}/utf
-    A
-    aZ
-\= Expect no match
-    abc
-
-/\p{Lu}/i,utf
-    A
-    aZ
-\= Expect no match
-    abc
-
-/\p{Ll}/utf
-    a
-    Az
-\= Expect no match
-    ABC
-
-/\p{Ll}/i,utf
-    a
-    Az
-\= Expect no match
-    ABC
-
 /^\x{c0}$/i,utf
     \x{c0}
     \x{e0}
@@ -1666,7 +1635,7 @@
     !\x{c0}++\x{c1}\x{c2}
     !\x{c0}+++++
 
-# Without PCRE_UCP, non-ASCII always fail, even if < 256  
+# Without PCRE2_UCP, non-ASCII always fail, even if < 256  
 
 /\b...\B/utf
     abc_
@@ -1676,7 +1645,7 @@
     !\x{c0}++\x{c1}\x{c2}
     !\x{c0}+++++
 
-# With PCRE_UCP, non-UTF8 chars that are < 256 still check properties  
+# With PCRE2_UCP, non-UTF8 chars that are < 256 still check properties  
 
 /\b...\B/ucp
     abc_
@@ -2328,6 +2297,163 @@
 
 # End caseless restrict tests
 
+# TESTS for PCRE2_EXTRA_TURKISH_CASING - again, tests with and without.
+
+/i/i,utf
+    i
+    I
+\= Expect no match
+    \x{0130}
+    \x{0131}
+
+/i/i,utf,turkish_casing
+    i
+    \x{0130}
+\= Expect no match
+    I
+    \x{0131}
+
+/I/i,utf
+    i
+    I
+\= Expect no match
+    \x{0130}
+    \x{0131}
+
+/I/i,utf,turkish_casing
+    I
+    \x{0131}
+\= Expect no match
+    i
+    \x{0130}
+
+/\x{0130}/i,utf
+    \x{0130}
+\= Expect no match
+    i
+    I
+    \x{0131}
+
+/\x{0130}/i,utf,turkish_casing
+    i
+    \x{0130}
+\= Expect no match
+    I
+    \x{0131}
+
+/\x{0131}/i,utf
+    \x{0131}
+\= Expect no match
+    i
+    I
+    \x{0130}
+
+/\x{0131}/i,utf,turkish_casing
+    I
+    \x{0131}
+\= Expect no match
+    i
+    \x{0130}
+
+/[i]/i,utf
+    i
+    I
+\= Expect no match
+    \x{0130}
+    \x{0131}
+
+/[i]/i,utf,turkish_casing
+    i
+    \x{0130}
+\= Expect no match
+    I
+    \x{0131}
+
+/[\x{0130}]/i,utf
+    \x{0130}
+\= Expect no match
+    i
+    I
+    \x{0131}
+
+/[\x{0130}]/i,utf,turkish_casing
+    i
+    \x{0130}
+\= Expect no match
+    I
+    \x{0131}
+
+/[\x{0120}-\x{0130}]/i,utf
+    \x{0130}
+\= Expect no match
+    i
+    I
+    \x{0131}
+
+/[\x{0120}-\x{0130}]/i,utf,turkish_casing
+    i
+    \x{0130}
+\= Expect no match
+    I
+    \x{0131}
+
+/[zi]/i,utf
+    i
+    I
+\= Expect no match
+    \x{0130}
+    \x{0131}
+
+/[zi]/i,utf,turkish_casing
+    i
+    \x{0130}
+\= Expect no match
+    I
+    \x{0131}
+
+/[z\x{0130}]/i,utf
+    \x{0130}
+\= Expect no match
+    i
+    I
+    \x{0131}
+
+/[z\x{0130}]/i,utf,turkish_casing
+    i
+    \x{0130}
+\= Expect no match
+    I
+    \x{0131}
+
+/[iI]/i,utf
+    i
+    I
+\= Expect no match
+    \x{0130}
+    \x{0131}
+
+/[iI]/i,utf,turkish_casing
+    i
+    I
+    \x{0130}
+    \x{0131}
+
+/[i\x{0130}]/i,utf
+    i
+    I
+    \x{0130}
+\= Expect no match
+    \x{0131}
+
+/[i\x{0130}]/i,utf,turkish_casing
+    i
+    \x{0130}
+\= Expect no match
+    I
+    \x{0131}
+
+# End Turkish casing tests
+
 # TESTS for PCRE2_EXTRA_ASCII_xxx - again, tests with and without.
 
 # DIGITS
@@ -2530,5 +2656,90 @@
 
 /caf\B.+?\B/utf,ucp
     --cafe\x{300}_au\x{203f}lait!
+
+# -------------------------------------------------------------------------- 
+# Case-independent matching property tests added after changing PCRE2 to be
+# compatible with Perl. All three cases (upper, lower, title) conflate.
+
+/\p{Lu}\p{Ll}\P{Lu}\P{Ll}/utf
+    >AbbD<
+    >Abb\x{01c5}<
+\= Expect no match     
+    >aBBd<
+    >aB!!< 
+
+/\p{Lu}\p{Ll}\P{Lu}\P{Ll}/i,utf
+    >aB!!< 
+\= Expect no match     
+    >AbbD<
+    >aBBd<
+    >Abb\x{01c5}<
+
+/[.\p{Lu}][.\p{Ll}][.\P{Lu}][.\P{Ll}]/i,utf
+    >aB!!< 
+\= Expect no match     
+    >AbbD<
+    >aBBd<
+    >Abb\x{01c5}<
+
+# --------------
+
+# EXTENDED CHARACTER CLASSES
+
+/[\p{Ll}[\p{Nd}]]C/alt_extended_class
+    aC
+    1C
+\= Expect no match
+    [C
+
+/[[\p{Ll}][\p{Nd}]]/alt_extended_class
+    a
+    1
+\= Expect no match
+    [
+    ]
+
+/[[\p{Ll}]||[\p{Nd}]]/alt_extended_class
+    a
+    1
+\= Expect no match
+    C
+
+/[[^\p{Ll}][\p{Nd}]]/alt_extended_class
+    1
+    A
+\= Expect no match
+    a
+
+/[^[\p{Ll}][\p{Nd}]]/alt_extended_class
+    A
+\= Expect no match
+    a
+    1
+
+/[^[\p{Ll}]&&[\p{Nd}]]/alt_extended_class
+    a
+    1
+    A
+
+/(?[[\p{Ll}]+[\p{Nd}]])/
+    a
+    1
+\= Expect no match
+    [
+    ]
+
+# --------------
+
+# EXTENDED CHARACTER CLASSES (Perl)
+
+/(?[[\p{Ll}Z]&[\p{Lu}a]])/
+    a
+    Z
+\= Expect no match
+    A
+    z
+
+# -------------------------------------------------------------------------- 
 
 # End of testinput7

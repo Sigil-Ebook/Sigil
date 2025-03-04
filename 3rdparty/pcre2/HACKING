@@ -21,41 +21,27 @@ form, and were quite restricted in what they could do by comparison with Perl.
 The interesting part about the algorithm was that the amount of space required
 to hold the compiled form of an expression was known in advance. The code to
 apply an expression did not operate by backtracking, as the original Henry
-Spencer code and current PCRE2 and Perl code does, but instead checked all
-possibilities simultaneously by keeping a list of current states and checking
-all of them as it advanced through the subject string. In the terminology of
-Jeffrey Friedl's book, it was a "DFA algorithm", though it was not a
-traditional Finite State Machine (FSM). When the pattern was all used up, all
-remaining states were possible matches, and the one matching the longest subset
-of the subject string was chosen. This did not necessarily maximize the
-individual wild portions of the pattern, as is expected in Unix and Perl-style
-regular expressions.
+Spencer code and the current PCRE2 pcre2_match() function and Perl code do, but
+instead checked all possibilities simultaneously by keeping a list of current
+states and checking all of them as it advanced through the subject string. In
+the terminology of Jeffrey Friedl's book, it was a "DFA algorithm", though it
+was not a traditional Finite State Machine (FSM). When the pattern was all used
+up, all remaining states were possible matches, and the one matching the
+longest subset of the subject string was chosen. This did not necessarily
+maximize the individual wild portions of the pattern, as is expected in Unix
+and Perl-style regular expressions.
 
 
 Historical note 2
 -----------------
 
-By contrast, the code originally written by Henry Spencer (which was
-subsequently heavily modified for Perl) compiles the expression twice: once in
-a dummy mode in order to find out how much store will be needed, and then for
-real. (The Perl version may or may not still do this; I'm talking about the
-original library.) The execution function operates by backtracking and
-maximizing (or, optionally, minimizing, in Perl) the amount of the subject that
-matches individual wild portions of the pattern. This is an "NFA algorithm" in
-Friedl's terminology.
-
-
-OK, here's the real stuff
--------------------------
-
-For the set of functions that formed the original PCRE1 library in 1997 (which
-are unrelated to those mentioned above), I tried at first to invent an
-algorithm that used an amount of store bounded by a multiple of the number of
-characters in the pattern, to save on compiling time. However, because of the
-greater complexity in Perl regular expressions, I couldn't do this, even though
-the then current Perl 5.004 patterns were much simpler than those supported
-nowadays. In any case, a first pass through the pattern is helpful for other
-reasons.
+The code originally written by Henry Spencer (which was subsequently heavily
+modified for Perl) compiles the expression twice: once in a dummy mode in order
+to find out how much store will be needed, and then for real. (The Perl version
+may or may not still do this; I'm talking about the original library.) The
+execution function operates by backtracking and maximizing (or, optionally,
+minimizing, in Perl) the amount of the subject that matches individual wild
+portions of the pattern. This is an "NFA algorithm" in Friedl's terminology.
 
 
 Support for 16-bit and 32-bit data strings
@@ -98,8 +84,8 @@ were also present in the 7.0 release).
 A side effect of this work was that the previous limit of 200 on the nesting
 depth of parentheses was removed. However, there was a downside: compiling ran
 more slowly than before (30% or more, depending on the pattern) because it now
-did a full analysis of the pattern. My hope was that this would not be a big
-issue, and in the event, nobody has commented on it.
+did a full analysis of the pattern twice. My hope was that this would not be a
+big issue, and in the event, nobody has commented on it.
 
 At release 8.34, a limit on the nesting depth of parentheses was re-introduced
 (default 250, settable at build time) so as to put a limit on the amount of
@@ -119,7 +105,7 @@ memory.) The use of duplicate group numbers (the (?| facility) also caused
 issues.
 
 To get around these problems I adopted a new approach by adding a third pass
-over the pattern (really a "pre-pass"), which did nothing other than identify
+over the pattern (really a "pre-pass"), which does nothing other than identify
 all the named subpatterns and their corresponding group numbers. This means
 that the actual compile (both the memory-computing dummy run and the real
 compile) has full knowledge of group names and numbers throughout. Several
@@ -154,17 +140,21 @@ assumption is made that there will be a callout for each pattern code unit
 at the end. A default parsed pattern vector is defined on the system stack, to
 minimize memory handling, but if this is not big enough, heap memory is used.
 
-As before, the actual compiling function is run twice, the first time to
-determine the amount of memory needed for the final compiled pattern. It
-now processes the parsed pattern vector, not the pattern itself, although some
-of the parsed items refer to strings in the pattern - for example, group
-names. As escapes and comments have already been processed, the code is a bit
-simpler than before.
+If there are any lookbehinds in the pattern, the parsed pattern is scanned in
+order to work out their lengths. Then the actual compiling function is run
+twice, the first time to determine the amount of memory needed for the final
+compiled pattern. The compiling function processes the parsed pattern vector,
+not the pattern itself, although some of the parsed items refer to strings in
+the pattern - for example, group names.
 
-Most errors can be diagnosed during the parsing scan. For those that cannot
-(for example, "lookbehind assertion is not fixed length"), the parsed code
-contains offsets into the pattern so that the actual compiling code can
-report where errors are.
+Some post-processing of the compiled pattern takes place. If there are any
+recursion or subroutine calls, there is a scan to convert them into offsets.
+Then there are other scans to apply certain optimizations, some of which can be
+disabled by setting appropriate options.
+
+Most errors can be diagnosed during the parsing scan. For those that cannot,
+the parsed code contains offsets into the pattern so that the actual compiling
+code can report where the errors are.
 
 
 The elements of the parsed pattern vector
@@ -209,6 +199,11 @@ META_RANGE_ESCAPED    hyphen in class range with at least one escape
 META_RANGE_LITERAL    hyphen in class range defined literally
 META_SKIP             (*SKIP) - no argument (see below for with argument)
 META_THEN             (*THEN) - no argument (see below for with argument)
+META_ECLASS_AND       && (or &) in an extended character class
+META_ECLASS_OR        || (or |, +) in an extended character class
+META_ECLASS_SUB       -- (or -) in an extended character class
+META_ECLASS_XOR       ~~ (or ^) in an extended character class
+META_ECLASS_NOT       ! in an extended character class
 
 The two RANGE values occur only in character classes. They are positioned
 between two literals that define the start and end of the range. In an EBCDIC
@@ -240,11 +235,11 @@ occurrence is useful). On 64-bit systems this avoids using more than two parsed
 pattern elements for items such as \3. The offset is used when an error occurs
 because the reference is to a non-existent group.
 
-META_ESCAPE has an ESC_xxx value as its data. For ESC_P and ESC_p, the next
-element contains the 16-bit type and data property values, packed together.
-ESC_g and ESC_k are used only for named references - numerical ones are turned
-into META_RECURSE or META_BACKREF as appropriate. ESC_g and ESC_k are followed
-by a length and an offset into the pattern to specify the name.
+META_ESCAPE is used for escapes such as \d that match a character. It has an
+ESC_xxx value as its data. For ESC_P and ESC_p, the next element contains the
+16-bit type and data property values, packed together. Escape sequences such as
+\g and \k are turned into other items like META_RECURSE or META_BACKREF and
+their ESC_xxx values never occur with META_ESCAPE.
 
 The following have one data item that follows in the next vector element:
 
@@ -268,15 +263,17 @@ META_COND_NAME        (?(<name>) or (?('name') or (?(name)
 META_COND_RNAME       (?(R&name)
 META_COND_RNUMBER     (?(Rdigits)
 META_RECURSE_BYNAME   (?&name)
-META_BACKREF_BYNAME   \k'name'
+META_BACKREF_BYNAME   \k'name' or \k<name> or \k{name} or \g{name}
+META_SCS_NAME         (*scs:(<name>)...)
 
 META_COND_RNUMBER is used for names that start with R and continue with digits,
 because this is an ambiguous case. It could be a back reference to a group with
 that name, or it could be a recursion test on a numbered group.
 
-This one is followed by an offset, for use in error messages, then a number:
+These are followed by an offset, for use in error messages, then a number:
 
 META_COND_NUMBER       (?([+-]digits)
+META_SCS_NUMBER        (*scs:(digits)...)
 
 The following is followed just by an offset, for use in error messages:
 
@@ -286,7 +283,7 @@ The following are at first also followed just by an offset for use in error
 messages. After the lengths of the branches of a lookbehind group have been
 checked the error offset is no longer needed. The lower 16 bits of the main
 word are now set to the maximum length of the first branch of the lookbehind
-group, and the second word is set to the mimimum matching length for a
+group, and the second word is set to the minimum matching length for a
 variable-length lookbehind group, or to LOOKBEHIND_MAX for a group whose
 branches are all of fixed length. These values are used when generating
 OP_REVERSE or OP_VREVERSE for the first branch. The miminum value is also used
@@ -336,16 +333,28 @@ will use most of the time. If PCRE2 is compiled with just-in-time (JIT)
 support, and studying a compiled pattern with JIT is successful, the JIT code
 is run instead of the normal pcre2_match() code, but the result is the same.
 
+The interpreter used to implement backtracking by means of recursive function
+calls, but this gave rise to regular complaints when patterns with large search
+trees ran out of stack. There was for a while a fudge that used the heap
+instead, but this was inefficient and slow. In 2017 I re-wrote pcre2_match() as
+a single, non-recursive function that implements backtracking via a vector of
+"frames" on the heap, each frame representing a backtracking point. As well as
+standard information such as the position in the pattern and position in the
+subject, each frame has a number of unassigned variables that can be used
+locally to preserve values at a backtracking point. C macros are used
+extensively to implement all of this.
+
 
 Supplementary matching function
 -------------------------------
 
-There is also a supplementary matching function called pcre2_dfa_match(). This
+There is a supplementary matching function called pcre2_dfa_match() that
 implements a DFA matching algorithm that searches simultaneously for all
 possible matches that start at one point in the subject string. (Going back to
 my roots: see Historical Note 1 above.) This function intreprets the same
 compiled pattern data as pcre2_match(); however, not all the facilities are
-available, and those that are do not always work in quite the same way. See the
+available, and those that are do not always work in quite the same way. In
+particular, capturing parentheses and backreferences are not supported. See the
 user documentation for details.
 
 The algorithm that is used for pcre2_dfa_match() is not a traditional FSM,
@@ -361,8 +370,10 @@ Changeable options
 The /i, /m, or /s options (PCRE2_CASELESS, PCRE2_MULTILINE, PCRE2_DOTALL) and
 some others may be changed in the middle of patterns by items such as (?i).
 Their processing is handled entirely at compile time by generating different
-opcodes for the different settings. The runtime functions do not need to keep
-track of an option's state.
+opcodes for the different settings. Some options are copied into the opcode's
+data, for opcodes such as OP_REFI which depends on the (?r)
+(PCRE2_EXTRA_CASELESS_RESTRICT) option. The runtime functions do not need to
+keep track of an option's state.
 
 PCRE2_DUPNAMES, PCRE2_EXTENDED, PCRE2_EXTENDED_MORE, and PCRE2_NO_AUTO_CAPTURE
 are tracked and processed during the parsing pre-pass. The others are handled
@@ -383,10 +394,10 @@ within the compiled pattern. LINK_SIZE always specifies a number of bytes. The
 default value for LINK_SIZE is 2, except for the 32-bit library, where it can
 only be 4. The 8-bit library can be compiled to use 3-byte or 4-byte values,
 and the 16-bit library can be compiled to use 4-byte values, though this
-impairs performance. Specifying a LINK_SIZE larger than 2 for these libraries is
-necessary only when patterns whose compiled length is greater than 65535 code
-units are going to be processed. When a LINK_SIZE value uses more than one code
-unit, the most significant unit is first.
+impairs performance. Specifying a LINK_SIZE larger than 2 for these libraries
+is necessary only when patterns whose compiled length is greater than 65535
+code units are going to be processed. When a LINK_SIZE value uses more than one
+code unit, the most significant unit is first.
 
 In this description, we assume the "normal" compilation options. Data values
 that are counts (e.g. quantifiers) are always two bytes long in 8-bit mode
@@ -396,7 +407,7 @@ that are counts (e.g. quantifiers) are always two bytes long in 8-bit mode
 Opcodes with no following data
 ------------------------------
 
-These items are all just one unit long:
+These items are all just one code unit long:
 
   OP_END                 end of pattern
   OP_ANY                 match any one character other than newline
@@ -594,9 +605,13 @@ do.
 
 For classes containing characters with values greater than 255 or that contain
 \p or \P, OP_XCLASS is used. It optionally uses a bit map if any acceptable
-code points are less than 256, followed by a list of pairs (for a range) and/or
-single characters and/or properties. In caseless mode, all equivalent
-characters are explicitly listed.
+code points are less than 256. After the bit map, the properties of the
+character class are listed, if they are present. The items in the list
+follows the declaration order of the pattern string. The property list
+is followed by single characters and/or character ranges, if they are
+present. The characters/ranges are sorted in ascending order, and at
+least one non-matching character must be present between any two of
+them. In caseless mode, all equivalent characters are explicitly listed.
 
 OP_XCLASS is followed by a LINK_SIZE value containing the total length of the
 opcode and its data. This is followed by a code unit containing flag bits:
@@ -618,6 +633,42 @@ When XCL_NOT is set, the bit map, if present, contains bits for characters that
 are allowed (exactly as for OP_NCLASS), but the list of items that follow it
 specifies characters and properties that are not allowed.
 
+The meaning of the bitmap indicated by XCL_MAP is that, if one is present, then
+it fully describes which code points < 256 match the class (without needing to
+invert the check according to XCL_NOT); the other items in the OP_XCLASS need
+not be consulted. However, if a bitmap is not present, then code points < 256
+may still match, so the other items in the OP_XCLASS must be consulted.
+
+For classes containing logical expressions, such as "[\p{Greek} && \p{Lu}]" for
+"uppercase Greek letters", OP_ECLASS is used. The expression is encoded as a a
+stack-based series of operands and operators, in Reverse Polish Notation. Like
+an OP_XCLASS, the OP_ECLASS is first followed by a LINK_SIZE value containing
+the total length of the opcode and its data. That is followed by a code unit
+containing flags: currently just ECL_MAP indicating that a bit map is present.
+There follows the bit map, if ECL_MAP is set. Finally, there is a sequence of
+items that are either an operand or operator. Each item starts with a single
+code unit containing its type:
+
+  ECL_AND       AND; no additional data
+  ECL_OR        OR; no additional data
+  ECL_XOR       XOR; no additional data
+  ECL_NOT       NOT; no additional data
+  ECL_XCLASS    The additional data which follows ECL_XCLASS is the same as for
+                an OP_XCLASS, except that this data is preceded by ECL_XCLASS
+                rather than OP_XCLASS.
+                Because the OP_ECLASS has its own bitmap (if required), an
+                ECL_XCLASS should not contain a bitmap.
+
+Additionally, there are two intermediate values used during compilation, but
+these are folded away during generation of the opcode, and so never appear
+inside an OP_ECLASS at match time. They are:
+
+  ECL_ANY       match all characters; no additional data
+  ECL_NONE      match no characters; no additional data
+
+The meaning of the bitmap indicated by ECL_MAP is the same as XCL_MAP.
+If the bitmap is present, all codepoints < 256 are checked against the bitmap.
+
 
 Back references
 ---------------
@@ -630,6 +681,9 @@ generates OP_DNREF or OP_DNREFI. These are followed by two counts: the index
 (not the byte offset) in the group name table of the first entry for the
 required name, followed by the number of groups with the same name. The
 matching code can then search for the first one that is set.
+
+OP_REFI and OP_DNREFI are further followed by an item containing any
+case-insensitivity flags.
 
 
 Repeating character classes and back references
@@ -750,6 +804,16 @@ In ASCII or UTF-32 mode, the character counts in OP_REVERSE and OP_VREVERSE are
 also the number of code units, but in UTF-8/16 mode each character may occupy
 more than one code unit.
 
+The "scan substring" assertion compiles as OP_ASSERT_SCS. This opcode is
+followed by a list of arguments. Each argument is either an OP_CREF or
+OP_DNCREF byte code sequence. The details of these sequences are described
+in the next section.
+
+For example (*scs:(1,'NAME')...PATTERN...) is translated to:
+[OP_ASSERT_SCS] [OP_CREF] [OP_CREF] ...PATTERN... [OP_KET]
+
+If 'NAME' is a duplicated name, the second [OP_CREF] is [OP_DNCREF] instead.
+
 
 Conditional subpatterns
 -----------------------
@@ -849,5 +913,12 @@ The last opcode that is defined in pcre2_internal.h is OP_TABLE_LENGTH. This is
 not a real opcode, but is used to check at compile time that tables indexed by
 opcode are the correct length, in order to catch updating errors.
 
+
+See also
+--------
+
+The file maint/README contains additional information.
+
+
 Philip Hazel
-November 2023
+August 2024

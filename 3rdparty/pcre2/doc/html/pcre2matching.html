@@ -27,7 +27,7 @@ please consult the man page, in case the conversion went wrong.
 This document describes the two different algorithms that are available in
 PCRE2 for matching a compiled regular expression against a given subject
 string. The "standard" algorithm is the one provided by the <b>pcre2_match()</b>
-function. This works in the same as Perl's matching function, and provide a
+function. This works in the same as Perl's matching function, and provides a
 Perl-compatible matching operation. The just-in-time (JIT) optimization that is
 described in the
 <a href="pcre2jit.html"><b>pcre2jit</b></a>
@@ -42,7 +42,7 @@ these are described below.
 <P>
 When there is only one possible way in which a given subject string can match a
 pattern, the two algorithms give the same answer. A difference arises, however,
-when there are multiple possibilities. For example, if the pattern
+when there are multiple possibilities. For example, if the anchored pattern
 <pre>
   ^&#60;.*&#62;
 </pre>
@@ -115,9 +115,9 @@ algorithm after the first match (which is necessarily the shortest) is found.
 </P>
 <P>
 Note that the size of vector needed to contain all the results depends on the
-number of simultaneous matches, not on the number of parentheses in the
-pattern. Using <b>pcre2_match_data_create_from_pattern()</b> to create the match
-data block is therefore not advisable when doing DFA matching.
+number of simultaneous matches, not on the number of capturing parentheses in
+the pattern. Using <b>pcre2_match_data_create_from_pattern()</b> to create the
+match data block is therefore not advisable when doing DFA matching.
 </P>
 <P>
 Note also that all the matches that are found start at the same point in the
@@ -166,37 +166,43 @@ possibilities, and PCRE2's implementation of this algorithm does not attempt to
 do this. This means that no captured substrings are available.
 </P>
 <P>
-3. Because no substrings are captured, backreferences within the pattern are
-not supported.
+3. Because no substrings are captured, a number of related features are not
+available:
+<br>
+<br>
+(a) Backreferences;
+<br>
+<br>
+(b) Conditional expressions that use a backreference as the condition or test
+for a specific group recursion;
+<br>
+<br>
+(c) Script runs;
+<br>
+<br>
+(d) Scan substring assertions.
 </P>
 <P>
-4. For the same reason, conditional expressions that use a backreference as the
-condition or test for a specific group recursion are not supported.
-</P>
-<P>
-5. Again for the same reason, script runs are not supported.
-</P>
-<P>
-6. Because many paths through the tree may be active, the \K escape sequence,
+4. Because many paths through the tree may be active, the \K escape sequence,
 which resets the start of the match when encountered (but may be on some paths
 and not on others), is not supported.
 </P>
 <P>
-7. Callouts are supported, but the value of the <i>capture_top</i> field is
+5. Callouts are supported, but the value of the <i>capture_top</i> field is
 always 1, and the value of the <i>capture_last</i> field is always 0.
 </P>
 <P>
-8. The \C escape sequence, which (in the standard algorithm) always matches a
-single code unit, even in a UTF mode, is not supported in these modes, because
+6. The \C escape sequence, which (in the standard algorithm) always matches a
+single code unit, even in a UTF mode, is not supported in UTF modes because
 the alternative algorithm moves through the subject string one character (not
 code unit) at a time, for all active paths through the tree.
 </P>
 <P>
-9. Except for (*FAIL), the backtracking control verbs such as (*PRUNE) are not
+7. Except for (*FAIL), the backtracking control verbs such as (*PRUNE) are not
 supported. (*FAIL) is supported, and behaves like a failing negative assertion.
 </P>
 <P>
-10. The PCRE2_MATCH_INVALID_UTF option for <b>pcre2_compile()</b> is not
+8. The PCRE2_MATCH_INVALID_UTF option for <b>pcre2_compile()</b> is not
 supported by <b>pcre2_dfa_match()</b>.
 </P>
 <br><a name="SEC5" href="#TOC1">ADVANTAGES OF THE ALTERNATIVE ALGORITHM</a><br>
@@ -223,15 +229,18 @@ because it has to search for all possible matches, but is also because it is
 less susceptible to optimization.
 </P>
 <P>
-2. Capturing parentheses, backreferences, script runs, and matching within
-invalid UTF string are not supported.
+2. Capturing parentheses and other features such as backreferences that rely on
+them are not supported.
 </P>
 <P>
-3. Although atomic groups are supported, their use does not provide the
+3. Matching within invalid UTF strings is not supported.
+</P>
+<P>
+4. Although atomic groups are supported, their use does not provide the
 performance advantage that it does for the standard algorithm.
 </P>
 <P>
-4. JIT optimization is not supported.
+5. JIT optimization is not supported.
 </P>
 <br><a name="SEC7" href="#TOC1">AUTHOR</a><br>
 <P>
@@ -244,7 +253,7 @@ Cambridge, England.
 </P>
 <br><a name="SEC8" href="#TOC1">REVISION</a><br>
 <P>
-Last updated: 19 January 2024
+Last updated: 30 August 2024
 <br>
 Copyright &copy; 1997-2024 University of Cambridge.
 <br>

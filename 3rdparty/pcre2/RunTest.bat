@@ -13,7 +13,7 @@
 @rem line. Added argument validation and added error reporting.
 @rem
 @rem Sheri Pierce added logic to skip feature dependent tests
-@rem tests 4 5 7 10 12 14 19 and 22 require Unicode support
+@rem tests 4 5 7 10 12 14 19 22 25 and 26 require Unicode support
 @rem 8 requires Unicode and link size 2
 @rem 16 requires absence of jit support
 @rem 17 requires presence of jit support
@@ -27,7 +27,7 @@
 @rem Tidied and updated for new tests 21, 22, 23 by PH, October 2015.
 @rem PH added missing "set type" for test 22, April 2016.
 @rem PH added copy command for new testbtables file, November 2020
-@rem PH caused it to show comparison output when comparison faile, July 2023
+@rem PH caused it to show comparison output when comparison failed, July 2023
 @rem PH updated unknown error number in test
 
 
@@ -39,7 +39,7 @@ if exist ..\testdata\ set srcdir=..)
 if [%srcdir%]==[] (
 if exist ..\..\testdata\ set srcdir=..\..)
 if NOT exist %srcdir%\testdata\ (
-Error: echo distribution testdata folder not found!
+echo Error: distribution testdata folder not found!
 call :conferror
 exit /b 1
 goto :eof
@@ -82,7 +82,7 @@ if not exist testout16 md testout16
 if not exist testoutjit16 md testoutjit16
 )
 
-if %support16% EQU 1 (
+if %support32% EQU 1 (
 if not exist testout32 md testout32
 if not exist testoutjit32 md testoutjit32
 )
@@ -110,20 +110,24 @@ set do20=no
 set do21=no
 set do22=no
 set do23=no
+set do24=no
+set do25=no
+set do26=no
+set do27=no
 set all=yes
 
 for %%a in (%*) do (
   set valid=no
-  for %%v in (1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23) do if %%v == %%a set valid=yes
+  for %%v in (1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27) do if %%v == %%a set valid=yes
   if "!valid!" == "yes" (
     set do%%a=yes
     set all=no
-) else (
+  ) else (
     echo Invalid test number - %%a!
-        echo Usage %0 [ test_number ] ...
-        echo Where test_number is one or more optional test numbers 1 through 23, default is all tests.
-        exit /b 1
-)
+    echo Usage %0 [ test_number ] ...
+    echo Where test_number is one or more optional test numbers 1 through 27, default is all tests.
+    exit /b 1
+  )
 )
 set failed="no"
 
@@ -137,9 +141,9 @@ if "%all%" == "yes" (
   set do7=yes
   set do8=yes
   set do9=yes
-  set do10=no
+  set do10=yes
   set do11=yes
-  set do12=no
+  set do12=yes
   set do13=yes
   set do14=yes
   set do15=yes
@@ -151,6 +155,10 @@ if "%all%" == "yes" (
   set do21=yes
   set do22=yes
   set do23=yes
+  set do24=yes
+  set do25=yes
+  set do26=yes
+  set do27=yes
 )
 
 @echo RunTest.bat's pcre2test output is written to newly created subfolders
@@ -202,6 +210,10 @@ if "%do20%" == "yes" call :do20
 if "%do21%" == "yes" call :do21
 if "%do22%" == "yes" call :do22
 if "%do23%" == "yes" call :do23
+if "%do24%" == "yes" call :do24
+if "%do25%" == "yes" call :do25
+if "%do26%" == "yes" call :do26
+if "%do27%" == "yes" call :do27
 :modeSkip
 if "%mode%" == "" (
   set mode=-16
@@ -247,7 +259,15 @@ if [%3] == [] (
 )
 
 if %1 == 8 (
-  set outnum=8-%bits%-%link_size%
+  set outnum=%1-%bits%-%link_size%
+) else if %1 == 11 (
+  set outnum=%1-%bits%
+) else if %1 == 12 (
+  set outnum=%1-%bits%
+) else if %1 == 14 (
+  set outnum=%1-%bits%
+) else if %1 == 22 (
+  set outnum=%1-%bits%
 ) else (
   set outnum=%1
 )
@@ -266,24 +286,10 @@ if errorlevel 1 (
   set failed="yes"
   goto :eof
 ) else if [%1]==[2] (
-  %pcre2test% %mode% %4 %5 %6 %7 %8 %9 -error -70,-62,-2,-1,0,100,101,191,300 >>%2%bits%\%testoutput%
+  %pcre2test% %mode% %4 %5 %6 %7 %8 %9 -error -80,-62,-2,-1,0,100,101,191,300 >>%2%bits%\%testoutput%
 )
 
-set type=
-if [%1]==[11] (
-  set type=-%bits%
-)
-if [%1]==[12] (
-  set type=-%bits%
-)
-if [%1]==[14] (
-  set type=-%bits%
-)
-if [%1]==[22] (
-  set type=-%bits%
-)
-
-fc /n %srcdir%\testdata\%testoutput%%type% %2%bits%\%testoutput% >NUL
+fc /n %srcdir%\testdata\%testoutput% %2%bits%\%testoutput% >NUL
 
 if errorlevel 1 (
   echo.          failed comparison: fc /n %srcdir%\testdata\%testoutput% %2%bits%\%testoutput%
@@ -294,7 +300,7 @@ if errorlevel 1 (
     echo.
     goto :eof
 )
-  fc /n %srcdir%\testdata\%testoutput%%type% %2%bits%\%testoutput%
+  fc /n %srcdir%\testdata\%testoutput% %2%bits%\%testoutput%
 
   set failed="yes"
   goto :eof
@@ -309,7 +315,7 @@ if %jit% EQU 1 call :runsub 1 testoutjit "Test with JIT Override" -q -jit
 goto :eof
 
 :do2
-  copy /y %srcdir%\testdata\testbtables testbtables 
+  copy /y %srcdir%\testdata\testbtables testbtables
   call :runsub 2 testout "API, errors, internals, and non-Perl stuff" -q
   if %jit% EQU 1 call :runsub 2 testoutjit "Test with JIT Override" -q -jit
 goto :eof
@@ -502,6 +508,36 @@ if %supportBSC% EQU 1 (
   goto :eof
 )
   call :runsub 23 testout "Backslash-C disabled test" -q
+goto :eof
+
+:do24
+call :runsub 24 testout "Non-UTF pattern conversion tests" -q
+goto :eof
+
+:do25
+if %unicode% EQU 0 (
+  echo Test 25 Skipped due to absence of Unicode support.
+  goto :eof
+)
+  call :runsub 25 testout "UTF pattern conversion tests" -q
+goto :eof
+
+:do26
+if %unicode% EQU 0 (
+  echo Test 26 Skipped due to absence of Unicode support.
+  goto :eof
+)
+  call :runsub 26 testout "Unicode property tests (Compatible with Perl >= 5.38)" -q
+  if %jit% EQU 1 call :runsub 26 testoutjit "Test with JIT Override" -q -jit
+goto :eof
+
+:do27
+if %unicode% EQU 0 (
+  echo Test 27 Skipped due to absence of Unicode support.
+  goto :eof
+)
+  call :runsub 27 testout "Auto-generated unicode property tests" -q
+  if %jit% EQU 1 call :runsub 27 testoutjit "Test with JIT Override" -q -jit
 goto :eof
 
 :conferror

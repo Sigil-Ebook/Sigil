@@ -4308,7 +4308,6 @@
     ab 
 
 /a[]*+b/alt_bsux,allow_empty_class,match_unset_backref,dupnames
-\= Expect no match
     ab 
 
 /a[^]b/alt_bsux,allow_empty_class,match_unset_backref,dupnames
@@ -4392,9 +4391,18 @@
 
 /Z(*F)Q|ZXY/
     Z\=ps
+    XY\=dfa_restart 
 \= Expect no match 
     ZA\=ps
     X\=ps
+    
+/Z(?:(*F)Q|XY)/
+    Z\=ps
+    XY\=dfa_restart 
+    
+/Z(*F)Q|Z(*F)XY/
+\= Expect no match
+    Z\=ps
 
 /\bthe cat\b/
     the cat\=ps
@@ -5041,5 +5049,155 @@
 
 /|a(?0)/endanchored
     aaaa
+
+/([a-z]++)(*scs:(1).)/
+    aa
+
+# --------------
+
+# EXTENDED CHARACTER CLASSES (UTS#18)
+
+/[a[]/
+    [
+
+/[a[B]]C/alt_extended_class
+    aC
+    BC
+\= Expect no match
+    [C
+
+/[[A][B]]/alt_extended_class
+    A
+    B
+\= Expect no match
+    [
+    ]
+
+/[[A]||[B]]/alt_extended_class
+    A
+    B
+\= Expect no match
+    C
+
+/[[^A][B]]/alt_extended_class
+    B
+    C
+\= Expect no match
+    A
+
+/[^[A][B]]/alt_extended_class
+    C
+\= Expect no match
+    A
+    B
+
+/[^[A]&&[B]]/alt_extended_class
+    A
+    B
+    C
+
+/[A[]]]/alt_extended_class
+    A
+    ]
+\= Expect no match
+    [
+
+/[A[^]]]/alt_extended_class
+    A
+    [
+    C
+\= Expect no match
+    ]
+
+/[A[]]/alt_extended_class,allow_empty_class
+    A
+\= Expect no match
+    ]
+    [
+
+/[A[^]]/alt_extended_class,allow_empty_class
+    A
+    C
+    [
+    ]
+
+/[A-C--B]/alt_extended_class
+    A
+    C
+\= Expect no match
+    B
+
+/[^A-C--B]/alt_extended_class
+    B
+\= Expect no match
+    A
+    C
+
+/[[\d\D]--b]/alt_extended_class
+    a
+    c
+\= Expect no match
+    b
+
+/[\dAC-E[:space:]&&[^z]]/alt_extended_class
+    0
+    A
+    C
+    D
+    E
+    \t
+\= Expect no match
+    B
+    F
+    ;
+
+/[z||[^\dAC-E[:space:]]]/alt_extended_class
+    z
+    B
+    F
+    ;
+\= Expect no match
+    0
+    A
+    C
+    D
+    E
+    \t
+
+/[a-c--b]+/alt_extended_class
+    ac
+    a
+\= Expect no match
+    b
+
+/[a-c--b]{2,3}/alt_extended_class
+    ac
+    cac
+\= Expect no match
+    a
+    bb
+
+/x[a-c--b]+y/alt_extended_class
+    xacy
+    xaay
+    xay
+\= Expect no match
+    zacy
+    xacz
+    xy
+    xby
+
+# --------------
+
+# EXTENDED CHARACTER CLASSES (Perl)
+
+/(?[[A]+[B]])/
+    A
+    B
+\= Expect no match
+    [
+    ]
+
+# --------------
 
 # End of testinput6

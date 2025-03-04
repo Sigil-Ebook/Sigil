@@ -13,7 +13,7 @@ distribution because other apparatus is needed to compile pcre2grep for z/OS.
 The header can be found in the special z/OS distribution, which is available
 from www.zaconsultants.net or from www.cbttape.org.
 
-           Copyright (c) 1997-2023 University of Cambridge
+           Copyright (c) 1997-2024 University of Cambridge
 
 -----------------------------------------------------------------------------
 Redistribution and use in source and binary forms, with or without
@@ -85,6 +85,10 @@ POSSIBILITY OF SUCH DAMAGE.
 #else
 #include <sys/wait.h>
 #endif
+#endif
+
+#ifdef SUPPORT_VALGRIND
+#include <valgrind/memcheck.h>
 #endif
 
 #ifdef HAVE_UNISTD_H
@@ -290,6 +294,7 @@ static BOOL show_total_count = FALSE;
 static BOOL silent = FALSE;
 static BOOL utf = FALSE;
 static BOOL posix_digit = FALSE;
+static BOOL posix_pattern_file = FALSE;
 
 static uint8_t utf8_buffer[8];
 
@@ -428,6 +433,7 @@ used to identify them. */
 #define N_POSIX_DIGIT  (-26)
 #define N_GROUP_SEPARATOR (-27)
 #define N_NO_GROUP_SEPARATOR (-28)
+#define N_POSIX_PATFILE (-29)
 
 static option_item optionlist[] = {
   { OP_NODATA,     N_NULL,   NULL,              "",              "terminate options" },
@@ -449,6 +455,7 @@ static option_item optionlist[] = {
   { OP_PATLIST,    'e',      &match_patdata,    "regex(p)=pattern", "specify pattern (may be used more than once)" },
   { OP_NODATA,     'F',      NULL,              "fixed-strings", "patterns are sets of newline-separated strings" },
   { OP_FILELIST,   'f',      &pattern_files_data, "file=path",   "read patterns from file" },
+  { OP_NODATA, N_POSIX_PATFILE, NULL,           "posix-pattern-file", "use POSIX semantics for pattern files" },
   { OP_FILELIST,   N_FILE_LIST, &file_lists_data, "file-list=path","read files to search from file" },
   { OP_NODATA,     N_FOFFSETS, NULL,            "file-offsets",  "output file offsets, not text" },
   { OP_STRING,     N_GROUP_SEPARATOR, &group_separator, "group-separator=text", "set separator between groups of lines" },
@@ -893,11 +900,12 @@ readdirectory(directory_type *dir)
 for (;;)
   {
   struct dirent *dent = readdir(dir);
-  if (dent == NULL) return NULL;
+  if (dent == NULL) break;
   if (strcmp(dent->d_name, ".") != 0 && strcmp(dent->d_name, "..") != 0)
     return dent->d_name;
   }
-/* Control never reaches here */
+
+return NULL;
 }
 
 static void
@@ -1448,7 +1456,34 @@ while ((c = fgetc(f)) != EOF)
 return yield;
 }
 
+/*************************************************
+*           Read one pattern from file           *
+*************************************************/
 
+/* Wrap around read_one_line() to make sure any terminating '\n' is not
+included in the pattern and empty patterns are correctly identified.
+
+Arguments:
+  buffer     the buffer to read into
+  length     maximum number of characters to read and report how many were
+  f          the file
+
+Returns:     TRUE if a pattern was read into buffer
+*/
+
+static BOOL
+read_pattern(char *buffer, PCRE2_SIZE *length, FILE *f)
+{
+*buffer = '\0';
+*length = read_one_line(buffer, *length, f);
+if (*length > 0 && buffer[*length-1] == '\n') *length = *length - 1;
+if (posix_pattern_file && *length > 0 && buffer[*length-1] == '\r')
+  {
+  *length = *length - 1;
+  if (*length == 0) return TRUE;
+  }
+return (*length > 0 || *buffer == '\n');
+}
 
 /*************************************************
 *             Find end of line                   *
@@ -1506,12 +1541,13 @@ switch(endlinetype)
   for (;;)
     {
     while (p < endptr && *p != '\r') p++;
-    if (++p >= endptr)
+    if (p == endptr)
       {
       *lenptr = 0;
       return endptr;
       }
-    if (*p == '\n')
+    p++;
+    if (p < endptr && *p == '\n')
       {
       *lenptr = 2;
       return p + 1;
@@ -1522,42 +1558,25 @@ switch(endlinetype)
   case PCRE2_NEWLINE_ANYCRLF:
   while (p < endptr)
     {
-    int extra = 0;
-    int c = *((unsigned char *)p);
-
-    if (utf && c >= 0xc0)
+    if (*p == '\n')
       {
-      int gcii, gcss;
-      extra = utf8_table4[c & 0x3f];  /* Number of additional bytes */
-      gcss = 6*extra;
-      c = (c & utf8_table3[extra]) << gcss;
-      for (gcii = 1; gcii <= extra; gcii++)
-        {
-        gcss -= 6;
-        c |= (p[gcii] & 0x3f) << gcss;
-        }
+      *lenptr = 1;
+      return p + 1;
       }
 
-    p += 1 + extra;
-
-    switch (c)
+    if (*p == '\r')
       {
-      case '\n':
-      *lenptr = 1;
-      return p;
-
-      case '\r':
-      if (p < endptr && *p == '\n')
+      if (p + 1 < endptr && p[1] == '\n')
         {
         *lenptr = 2;
-        p++;
+        return p + 2;
         }
-      else *lenptr = 1;
-      return p;
 
-      default:
-      break;
+      *lenptr = 1;
+      return p + 1;
       }
+
+    p++;
     }   /* End of loop for ANYCRLF case */
 
   *lenptr = 0;  /* Must have hit the end */
@@ -1573,6 +1592,11 @@ switch(endlinetype)
       {
       int gcii, gcss;
       extra = utf8_table4[c & 0x3f];  /* Number of additional bytes */
+      if (endptr - p < 1 + extra)
+        {
+        *lenptr = 0;  /* Hit the end, halfway through a character */
+        return endptr;
+        }
       gcss = 6*extra;
       c = (c & utf8_table3[extra]) << gcss;
       for (gcii = 1; gcii <= extra; gcii++)
@@ -1589,26 +1613,26 @@ switch(endlinetype)
       case '\n':    /* LF */
       case '\v':    /* VT */
       case '\f':    /* FF */
-      *lenptr = 1;
+      *lenptr = 1 + extra;
       return p;
 
       case '\r':    /* CR */
-      if (p < endptr && *p == '\n')
+      if (extra == 0 && p < endptr && *p == '\n')
         {
         *lenptr = 2;
         p++;
         }
-      else *lenptr = 1;
+      else *lenptr = 1 + extra;
       return p;
 
 #ifndef EBCDIC
       case 0x85:    /* Unicode NEL */
-      *lenptr = utf? 2 : 1;
+      *lenptr = 1 + extra;
       return p;
 
       case 0x2028:  /* Unicode LS */
       case 0x2029:  /* Unicode PS */
-      *lenptr = 3;
+      *lenptr = 1 + extra;
       return p;
 #endif  /* Not EBCDIC */
 
@@ -1659,33 +1683,53 @@ switch(endlinetype)
   return p;
 
   case PCRE2_NEWLINE_CRLF:
+  p -= 2;
   for (;;)
     {
-    p -= 2;
     while (p > startptr && p[-1] != '\n') p--;
-    if (p <= startptr + 1 || p[-2] == '\r') return p;
+    if (p == startptr) break;
+    if (p - startptr >= 2 && p[-2] == '\r') break;
+    p--;
     }
-  /* Control can never get here */
+  return p;
+
+  case PCRE2_NEWLINE_ANYCRLF:
+  if (p - startptr >= 2 && p[-2] == '\r' && p[-1] == '\n') p -= 2;
+    else p--;
+  while (p > startptr)
+    {
+    if (p[-1] == '\n' || p[-1] == '\r') break;
+    p--;
+    }
+  return p;
 
   case PCRE2_NEWLINE_ANY:
-  case PCRE2_NEWLINE_ANYCRLF:
-  if (*(--p) == '\n' && p > startptr && p[-1] == '\r') p--;
-  if (utf) while ((*p & 0xc0) == 0x80) p--;
+  if (p - startptr >= 2 && p[-2] == '\r' && p[-1] == '\n') p -= 2;
+  else
+    {
+    if (utf) while (p > startptr && (p[-1] & 0xc0) == 0x80) p--;
+    if (p > startptr) p--;
+    }
 
   while (p > startptr)
     {
-    unsigned int c;
+    int c;
     char *pp = p - 1;
 
     if (utf)
       {
       int extra = 0;
-      while ((*pp & 0xc0) == 0x80) pp--;
+      while (pp > startptr && (*pp & 0xc0) == 0x80) pp--;
       c = *((unsigned char *)pp);
       if (c >= 0xc0)
         {
         int gcii, gcss;
         extra = utf8_table4[c & 0x3f];  /* Number of additional bytes */
+        if (p - pp < 1 + extra)
+          {
+          p = pp;  /* Rewind over the broken character */
+          continue;
+          }
         gcss = 6*extra;
         c = (c & utf8_table3[extra]) << gcss;
         for (gcii = 1; gcii <= extra; gcii++)
@@ -1697,17 +1741,7 @@ switch(endlinetype)
       }
     else c = *((unsigned char *)pp);
 
-    if (endlinetype == PCRE2_NEWLINE_ANYCRLF) switch (c)
-      {
-      case '\n':    /* LF */
-      case '\r':    /* CR */
-      return p;
-
-      default:
-      break;
-      }
-
-    else switch (c)
+    switch (c)
       {
       case '\n':    /* LF */
       case '\v':    /* VT */
@@ -1727,7 +1761,7 @@ switch(endlinetype)
     p = pp;  /* Back one character */
     }        /* End of loop for ANY case */
 
-  return startptr;  /* Hit start of data */
+  return p;
   }     /* End of overall switch */
 }
 
@@ -1991,11 +2025,23 @@ switch (*(++string))
   *last = string;
   return DDE_ERROR;
 
+  case '&':
+  /* In a callout, no capture is available. Return the character '0' for
+  consistency with $0. */
+
+  if (callout) *value = '0';
+  else
+    {
+    *value = 0;
+    rc = DDE_CAPTURE;
+    }
+  break;
+
   case '{':
   brace = TRUE;
   string++;
-  if (!isdigit((unsigned char)(*string)))  /* Syntax error: a decimal number required. */
-    {
+  if (!isdigit((unsigned char)(*string)))  /* Syntax error:              */
+    {                                      /* a decimal number required. */
     if (!callout)
       fprintf(stderr, "pcre2grep: Error in output text at offset %d: %s\n",
         (int)(string - begin), "decimal number expected");
@@ -2072,9 +2118,9 @@ switch (*(++string))
     {
     if (!isxdigit(*string)) break;
     if (*string >= '0' && *string <= '9')
-      c = c *16 + *string++ - '0';
+      c = c *16 + (*string++ - '0');
     else
-      c = c * 16 + (*string++ | 0x20) - 'a' + 10;
+      c = c * 16 + ((*string++ | 0x20) - 'a') + 10;
     }
   *value = c;
   string--;  /* Point to last digit */
@@ -2454,10 +2500,13 @@ while (length > 0)
       break;
 
       /* LCOV_EXCL_START */
-      default:         /* Even though this should not occur, the string having */
-      case DDE_ERROR:  /* been checked above, we need to include the free() */
-      free(args);      /* calls so that source checkers do not complain. */
+      default:
+      /* Even though this should not occur, the string having been checked above,
+       * we need to include the free() calls so that source checkers do not complain. */
+      case DDE_ERROR:
+      free(args);
       free(argsvector);
+      abort();
       return 0;
       /* LCOV_EXCL_STOP */
       }
@@ -2480,6 +2529,7 @@ while (length > 0)
 necessary, otherwise assume fork(). */
 
 #ifdef WIN32
+(void)fflush(stdout);
 result = _spawnvp(_P_WAIT, argsvector[0], (const char * const *)argsvector);
 
 #elif defined __VMS
@@ -2503,6 +2553,7 @@ result = _spawnvp(_P_WAIT, argsvector[0], (const char * const *)argsvector);
   }
 
 #else  /* Neither Windows nor VMS */
+(void)fflush(stdout);
 pid = fork();
 if (pid == 0)
   {
@@ -2512,9 +2563,7 @@ if (pid == 0)
   }
 else if (pid > 0)
   {
-  (void)fflush(stdout);
   (void)waitpid(pid, &result, 0);
-  (void)fflush(stdout);
   }
 #endif  /* End Windows/VMS/other handling */
 
@@ -2539,6 +2588,7 @@ static PCRE2_SIZE
 fill_buffer(void *handle, int frtype, char *buffer, PCRE2_SIZE length,
   BOOL input_line_buffered)
 {
+PCRE2_SIZE nread;
 (void)frtype;  /* Avoid warning when not used */
 
 #ifdef SUPPORT_LIBZ
@@ -2553,9 +2603,16 @@ if (frtype == FR_LIBBZ2)
 else
 #endif
 
-return (input_line_buffered ?
+nread = (input_line_buffered ?
   read_one_line(buffer, length, (FILE *)handle) :
   fread(buffer, 1, length, (FILE *)handle));
+
+#ifdef SUPPORT_VALGRIND
+if (nread > 0) VALGRIND_MAKE_MEM_DEFINED_IF_ADDRESSABLE(buffer, nread);
+if (nread < length) VALGRIND_MAKE_MEM_UNDEFINED(buffer + nread, length - nread);
+#endif
+
+return nread;
 }
 
 
@@ -2952,12 +3009,15 @@ while (ptr < endptr)
           FWRITE_IGNORE(lastmatchrestart, 1, pp - lastmatchrestart, stdout);
           lastmatchrestart = pp;
           }
+
         if (lastmatchrestart != ptr) hyphenpending = TRUE;
         }
 
-      /* If there were non-contiguous lines printed above, insert hyphens. */
+      /* If hyphenpending is TRUE when there is no "after" context, it means we
+      are at the start of a new file, having output something from the previous
+      file. Output a separator if enabled.*/
 
-      if (hyphenpending)
+      else if (hyphenpending)
         {
         if (group_separator != NULL)
           fprintf(stdout, "%s%s", group_separator, STDOUT_NL);
@@ -2984,6 +3044,7 @@ while (ptr < endptr)
         if (lastmatchnumber > 0 && p > lastmatchrestart && !hyphenprinted &&
             group_separator != NULL)
           fprintf(stdout, "%s%s", group_separator, STDOUT_NL);
+        hyphenpending = FALSE;
 
         while (p < ptr)
           {
@@ -2998,11 +3059,22 @@ while (ptr < endptr)
           }
         }
 
+      /* If hyphenpending is TRUE here, it was set after outputting some
+      "after" lines (and there are no "before" lines). */
+
+      else if (hyphenpending)
+        {
+        if (group_separator != NULL)
+          fprintf(stdout, "%s%s", group_separator, STDOUT_NL);
+        hyphenpending = FALSE;
+        }
+
       /* Now print the matching line(s); ensure we set hyphenpending at the end
       of the file if any context lines are being output. */
 
       if (after_context > 0 || before_context > 0)
         endhyphenpending = TRUE;
+
 
       if (printname != NULL) fprintf(stdout, "%s%c", printname,
         printname_colon);
@@ -3598,6 +3670,7 @@ switch(letter)
   case N_NOJIT: use_jit = FALSE; break;
   case N_ALLABSK: extra_options |= PCRE2_EXTRA_ALLOW_LOOKAROUND_BSK; break;
   case N_NO_GROUP_SEPARATOR: group_separator = NULL; break;
+  case N_POSIX_PATFILE: posix_pattern_file = TRUE; break;
   case 'a': binary_files = BIN_TEXT; break;
   case 'c': count_only = TRUE; break;
   case N_POSIX_DIGIT: posix_digit = TRUE; break;
@@ -3808,11 +3881,19 @@ else
   filename = name;
   }
 
-while ((patlen = read_one_line(buffer, sizeof(buffer), f)) > 0)
+while (TRUE)
   {
-  while (patlen > 0 && isspace((unsigned char)(buffer[patlen-1]))) patlen--;
+  patlen = sizeof(buffer);
+  if (!read_pattern(buffer, &patlen, f))
+    break;
+
+  if (!posix_pattern_file)
+   {
+   while (patlen > 0 && isspace((unsigned char)(buffer[patlen-1]))) patlen--;
+   }
+
   linenumber++;
-  if (patlen == 0) continue;   /* Skip blank lines */
+  if (!posix_pattern_file && patlen == 0) continue; /* Skip blank lines */
 
   /* Note: this call to add_pattern() puts a pointer to the local variable
   "buffer" into the pattern chain. However, that pointer is used only when
@@ -4244,6 +4325,8 @@ function in the match context. */
 
 #ifdef SUPPORT_PCRE2GREP_CALLOUT
 pcre2_set_callout(match_context, pcre2grep_callout, NULL);
+#else
+extra_options |= PCRE2_EXTRA_NEVER_CALLOUT;
 #endif
 
 /* Put limits into the match context. */
@@ -4381,6 +4464,8 @@ if (no_ucp) pcre2_options &= ~PCRE2_UCP;
 if (case_restrict) extra_options |= PCRE2_EXTRA_CASELESS_RESTRICT;
 if (posix_digit)
   extra_options |= (PCRE2_EXTRA_ASCII_BSD | PCRE2_EXTRA_ASCII_DIGIT);
+if ((pcre2_options & PCRE2_LITERAL) != 0)
+  extra_options &= ~PCRE2_EXTRA_NEVER_CALLOUT;
 
 /* Set the extra options in the compile context. */
 

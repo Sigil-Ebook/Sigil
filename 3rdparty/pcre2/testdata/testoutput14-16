@@ -31,7 +31,7 @@ Failed: error -26: UTF-16 error: isolated low surrogate at offset 2
     XX\x{dfff}\=no_utf_check
  0: X
     XX\x{110000}
-** Failed: character \x{110000} is greater than 0x10ffff and so cannot be converted to UTF-16
+** Failed: character \N{U+110000} is greater than 0x10ffff and therefore cannot be encoded as UTF-16
     XX\x{d800}\x{1234}
 Failed: error -25: UTF-16 error: invalid low surrogate at offset 2
           

@@ -105,8 +105,8 @@ Input for the 16-bit and 32-bit libraries
 <P>
 When testing the 16-bit or 32-bit libraries, there is a need to be able to
 generate character code points greater than 255 in the strings that are passed
-to the library. For subject lines, backslash escapes can be used. In addition,
-when the <b>utf</b> modifier (see
+to the library. For subject lines and some patterns, backslash escapes can be
+used. In addition, when the <b>utf</b> modifier (see
 <a href="#optionmodifiers">"Setting compilation options"</a>
 below) is set, the pattern and any following subject lines are interpreted as
 UTF-8 strings and translated to UTF-16 or UTF-32 as appropriate.
@@ -125,9 +125,8 @@ UTF-8 (in its original definition) is not capable of encoding values greater
 than 0x7fffffff, but such values can be handled by the 32-bit library. When
 testing this library in non-UTF mode with <b>utf8_input</b> set, if any
 character is preceded by the byte 0xff (which is an invalid byte in UTF-8)
-0x80000000 is added to the character's value. This is the only way of passing
-such code points in a pattern string. For subject strings, using an escape
-sequence is preferable.
+0x80000000 is added to the character's value. For subject strings, using an
+escape sequence is preferable.
 </P>
 <br><a name="SEC4" href="#TOC1">COMMAND LINE OPTIONS</a><br>
 <P>
@@ -178,8 +177,8 @@ functionality is intended for use in scripts such as <b>RunTest</b>. The
 following options output the value and set the exit code as indicated:
 <pre>
   ebcdic-nl  the code for LF (= NL) in an EBCDIC environment:
-               0x15 or 0x25
-               0 if used in an ASCII environment
+               either 0x15 or 0x25
+               0 if used in an ASCII/Unicode environment
                exit code is always 0
   linksize   the configured internal link size (2, 3, or 4)
                exit code is set to the link size
@@ -200,6 +199,16 @@ to the same value:
   pcre2-32     the 32-bit library was built
   pcre2-8      the 8-bit library was built
   unicode      Unicode support is available
+</pre>
+Note that the availability of JIT support in the library does not guarantee
+that it can actually be used because in some environments it is unable to
+allocate executable memory. The option "jitusable" gives more detailed
+information. It returns one of the following values:
+<pre>
+  0  JIT is available and usable
+  1  JIT is available but cannot allocate executable memory
+  2  JIT is not available
+  3  Unexpected return from test call to <b>pcre2_jit_compile()</b>
 </pre>
 If an unknown option is given, an error message is output; the exit code is 0.
 </P>
@@ -527,39 +536,48 @@ space is removed, and the line is scanned for backslash escapes, unless the
 <b>subject_literal</b> modifier was set for the pattern. The following provide a
 means of encoding non-printing characters in a visible way:
 <pre>
-  \a         alarm (BEL, \x07)
-  \b         backspace (\x08)
-  \e         escape (\x27)
-  \f         form feed (\x0c)
-  \n         newline (\x0a)
-  \r         carriage return (\x0d)
-  \t         tab (\x09)
-  \v         vertical tab (\x0b)
-  \nnn       octal character (up to 3 octal digits); always
-               a byte unless &#62; 255 in UTF-8 or 16-bit or 32-bit mode
-  \o{dd...}  octal character (any number of octal digits}
-  \xhh       hexadecimal byte (up to 2 hex digits)
-  \x{hh...}  hexadecimal character (any number of hex digits)
+  \a          alarm (BEL, \x07)
+  \b          backspace (\x08)
+  \e          escape (\x27)
+  \f          form feed (\x0c)
+  \n          newline (\x0a)
+  \N{U+hh...} unicode character (any number of hex digits)
+  \r          carriage return (\x0d)
+  \t          tab (\x09)
+  \v          vertical tab (\x0b)
+  \ddd        octal number (up to 3 octal digits); represent a single
+                code point unless larger than 255 with the 8-bit library
+  \o{dd...}   octal number (any number of octal digits} representing a
+                character in UTF mode or a code point
+  \xhh        hexadecimal byte (up to 2 hex digits)
+  \x{hh...}   hexadecimal number (up to 8 hex digits) representing a
+                character in UTF mode or a code point
 </pre>
-The use of \x{hh...} is not dependent on the use of the <b>utf</b> modifier on
-the pattern. It is recognized always. There may be any number of hexadecimal
-digits inside the braces; invalid values provoke error messages.
+Invoking \N{U+hh...} or \x{hh...} doesn't require the use of the <b>utf</b>
+modifier on the pattern. It is always recognized. There may be any number of
+hexadecimal digits inside the braces; invalid values provoke error messages
+but when using \N{U+hh...} with some invalid unicode characters they will
+be accepted with a warning instead.
 </P>
 <P>
-Note that \xhh specifies one byte rather than one character in UTF-8 mode;
-this makes it possible to construct invalid UTF-8 sequences for testing
-purposes. On the other hand, \x{hh} is interpreted as a UTF-8 character in
-UTF-8 mode, generating more than one byte if the value is greater than 127.
-When testing the 8-bit library not in UTF-8 mode, \x{hh} generates one byte
-for values less than 256, and causes an error for greater values.
+Note that even in UTF-8 mode, \xhh (and depending of how large, \ddd)
+describe one byte rather than one character; this makes it possible to
+construct invalid UTF-8 sequences for testing purposes. On the other hand,
+\x{hh...} is interpreted as a UTF-8 character in UTF-8 mode, only generating
+more than one byte if the value is greater than 127. To avoid the ambiguity
+it is preferred to use \N{U+hh...} when describing characters. When testing
+the 8-bit library not in UTF-8 mode, \x{hh} generates one byte for values
+that could fit on it, and causes an error for greater values.
 </P>
 <P>
-In UTF-16 mode, all 4-digit \x{hhhh} values are accepted. This makes it
-possible to construct invalid UTF-16 sequences for testing purposes.
+When testing the 16-bit library, not in UTF-16 mode, all 4-digit \x{hhhh}
+values are accepted. This makes it possible to construct invalid UTF-16
+sequences for testing purposes.
 </P>
 <P>
-In UTF-32 mode, all 4- to 8-digit \x{...} values are accepted. This makes it
-possible to construct invalid UTF-32 sequences for testing purposes.
+When testing the 32-bit library, not in UTF-32 mode, all 4 to 8-digit \x{...}
+values are accepted. This makes it possible to construct invalid UTF-32
+sequences for testing purposes.
 </P>
 <P>
 There is a special backslash sequence that specifies replication of one or more
@@ -625,6 +643,7 @@ for a description of the effects of these options.
       allow_surrogate_escapes   set PCRE2_EXTRA_ALLOW_SURROGATE_ESCAPES
       alt_bsux                  set PCRE2_ALT_BSUX
       alt_circumflex            set PCRE2_ALT_CIRCUMFLEX
+      alt_extended_class        set PCRE2_ALT_EXTENDED_CLASS
       alt_verbnames             set PCRE2_ALT_VERBNAMES
       anchored                  set PCRE2_ANCHORED
   /a  ascii_all                 set all ASCII options
@@ -653,13 +672,17 @@ for a description of the effects of these options.
       match_word                set PCRE2_EXTRA_MATCH_WORD
   /m  multiline                 set PCRE2_MULTILINE
       never_backslash_c         set PCRE2_NEVER_BACKSLASH_C
+      never_callout             set PCRE2_EXTRA_NEVER_CALLOUT
       never_ucp                 set PCRE2_NEVER_UCP
       never_utf                 set PCRE2_NEVER_UTF
   /n  no_auto_capture           set PCRE2_NO_AUTO_CAPTURE
       no_auto_possess           set PCRE2_NO_AUTO_POSSESS
+      no_bs0                    set PCRE2_EXTRA_NO_BS0
       no_dotstar_anchor         set PCRE2_NO_DOTSTAR_ANCHOR
       no_start_optimize         set PCRE2_NO_START_OPTIMIZE
       no_utf_check              set PCRE2_NO_UTF_CHECK
+      python_octal              set PCRE2_EXTRA_PYTHON_OCTAL
+      turkish_casing            set PCRE2_EXTRA_TURKISH_CASING
       ucp                       set PCRE2_UCP
       ungreedy                  set PCRE2_UNGREEDY
       use_offset_limit          set PCRE2_USE_OFFSET_LIMIT
@@ -671,6 +694,23 @@ notation. Otherwise, those less than 0x100 are output in hex without the curly
 brackets. Setting <b>utf</b> in 16-bit or 32-bit mode also causes pattern and
 subject strings to be translated to UTF-16 or UTF-32, respectively, before
 being passed to library functions.
+<br>
+<br>
+The following modifiers enable or disable performance optimizations by
+calling <b>pcre2_set_optimize()</b> before invoking the regex compiler.
+<pre>
+      optimization_full      enable all optional optimizations
+      optimization_none      disable all optional optimizations
+      auto_possess           auto-possessify variable quantifiers
+      auto_possess_off       don't auto-possessify variable quantifiers
+      dotstar_anchor         anchor patterns starting with .*
+      dotstar_anchor_off     don't anchor patterns starting with .*
+      start_optimize         enable pre-scan of subject string
+      start_optimize_off     disable pre-scan of subject string
+</pre>
+See the
+<a href="pcre2_set_optimize.html"><b>pcre2_set_optimize</b></a>
+documentation for details on these optimizations.
 <a name="controlmodifiers"></a></P>
 <br><b>
 Setting compilation controls
@@ -680,14 +720,15 @@ The following modifiers affect the compilation process or request information
 about the pattern. There are single-letter abbreviations for some that are
 heavily used in the test files.
 <pre>
-      bsr=[anycrlf|unicode]     specify \R handling
   /B  bincode                   show binary code without lengths
+      bsr=[anycrlf|unicode]     specify \R handling
       callout_info              show callout information
       convert=&#60;options&#62;         request foreign pattern conversion
       convert_glob_escape=c     set glob escape character
       convert_glob_separator=c  set glob separator character
       convert_length            set convert buffer length
       debug                     same as info,fullbincode
+      expand                    expand repetition syntax in pattern
       framesize                 show matching frame size
       fullbincode               show binary code with lengths
   /I  info                      show info about compiled pattern
@@ -709,6 +750,7 @@ heavily used in the test files.
       posix_nosub               use the POSIX API with REG_NOSUB
       push                      push compiled pattern onto the stack
       pushcopy                  push a copy onto the stack
+      pushtablescopy            push a copy with tables onto the stack
       stackguard=&#60;number&#62;       test the stackguard feature
       subject_literal           treat all subject lines as literal
       tables=[0|1|2|3]          select internal tables
@@ -1128,6 +1170,7 @@ process.
       replace=&#60;string&#62;            specify a replacement string
       startchar                   show starting character when relevant
       substitute_callout          use substitution callouts
+      substitute_case_callout     use substitution case callouts
       substitute_extended         use PCRE2_SUBSTITUTE_EXTENDED
       substitute_literal          use PCRE2_SUBSTITUTE_LITERAL
       substitute_matched          use PCRE2_SUBSTITUTE_MATCHED
@@ -1217,10 +1260,11 @@ Setting match options
 <P>
 The following modifiers set options for <b>pcre2_match()</b> or
 <b>pcre2_dfa_match()</b>. See
-<a href="pcreapi.html"><b>pcreapi</b></a>
+<a href="pcre2api.html"><b>pcre2api</b></a>
 for a description of their effects.
 <pre>
       anchored                   set PCRE2_ANCHORED
+      copy_matched_subject       set PCRE2_COPY_MATCHED_SUBJECT
       endanchored                set PCRE2_ENDANCHORED
       dfa_restart                set PCRE2_DFA_RESTART
       dfa_shortest               set PCRE2_DFA_SHORTEST
@@ -1271,8 +1315,8 @@ pattern, but can be overridden by modifiers on the subject.
       aftertext                  show text after match
       allaftertext               show text after captures
       allcaptures                show all captures
-      allvector                  show the entire ovector
       allusedtext                show all consulted text (non-JIT only)
+      allvector                  show the entire ovector
       altglobal                  alternative global matching
       callout_capture            show captures at callout time
       callout_data=&#60;n&#62;           set a value to pass via callouts
@@ -1306,7 +1350,8 @@ pattern, but can be overridden by modifiers on the subject.
       startchar                  show startchar when relevant
       startoffset=&#60;n&#62;            same as offset=&#60;n&#62;
       substitute_callout         use substitution callouts
-      substitute_extedded        use PCRE2_SUBSTITUTE_EXTENDED
+      substitute_case_callout    use substitution case callouts
+      substitute_extended        use PCRE2_SUBSTITUTE_EXTENDED
       substitute_literal         use PCRE2_SUBSTITUTE_LITERAL
       substitute_matched         use PCRE2_SUBSTITUTE_MATCHED
       substitute_overflow_length use PCRE2_SUBSTITUTE_OVERFLOW_LENGTH
@@ -1590,6 +1635,21 @@ either of them are set, <b>substitute_callout</b> is assumed. For example:
 </pre>
 If both are set for the same number, stop takes precedence. Only a single skip
 or stop is supported, which is sufficient for testing that the feature works.
+</P>
+<br><b>
+Testing substitute case callouts
+</b><br>
+<P>
+If the <b>substitute_case_callout</b> modifier is set, a substitution
+case callout function is set up. The callout function is called for each
+substituted chunk which is to be case-transformed.
+</P>
+<P>
+The callout function passed is a fixed function with implementation for certain
+behaviours: inputs which shrink when case-transformed; inputs which grow; inputs
+with distinct upper/lower/titlecase forms. The characters which are not
+special-cased for testing purposes are left unmodified, as if they are caseless
+characters.
 </P>
 <br><b>
 Setting the JIT stack size
@@ -2204,7 +2264,7 @@ Cambridge, England.
 </P>
 <br><a name="SEC21" href="#TOC1">REVISION</a><br>
 <P>
-Last updated: 24 April 2024
+Last updated: 26 December 2024
 <br>
 Copyright &copy; 1997-2024 University of Cambridge.
 <br>

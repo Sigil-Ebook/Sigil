@@ -2,11 +2,11 @@
 ## DO NOT EDIT - This file generated from ./build-aux/ltmain.in
 ##               by inline-source v2019-02-19.15
 
-# libtool (GNU libtool) 2.5.0.1-38c1-dirty
+# libtool (GNU libtool) 2.4.7
 # Provide generalized library-building support services.
 # Written by Gordon Matzigkeit <gord@gnu.ai.mit.edu>, 1996
 
-# Copyright (C) 1996-2019, 2021-2024 Free Software Foundation, Inc.
+# Copyright (C) 1996-2019, 2021-2022 Free Software Foundation, Inc.
 # This is free software; see the source for copying conditions.  There is NO
 # warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
@@ -31,8 +31,8 @@
 
 PROGRAM=libtool
 PACKAGE=libtool
-VERSION=2.5.0.1-38c1-dirty
-package_revision=2.5.0.1
+VERSION="2.4.7 Debian-2.4.7-7build1"
+package_revision=2.4.7
 
 
 ## ------ ##
@@ -72,11 +72,11 @@ scriptversion=2019-02-19.15; # UTC
 # This is free software.  There is NO warranty; not even for
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 #
-# Copyright (C) 2004-2019, 2021, 2023 Bootstrap Authors
+# Copyright (C) 2004-2019, 2021 Bootstrap Authors
 #
 # This file is dual licensed under the terms of the MIT license
-# <https://opensource.org/licenses/MIT>, and GPL version 2 or later
-# <https://www.gnu.org/licenses/gpl-2.0.html>.  You must apply one of
+# <https://opensource.org/license/MIT>, and GPL version 2 or later
+# <http://www.gnu.org/licenses/gpl-2.0.html>.  You must apply one of
 # these licenses when using or redistributing this software or any of
 # the files within it.  See the URLs above, or the file `LICENSE`
 # included in the Bootstrap distribution for the full license texts.
@@ -143,7 +143,7 @@ nl='
 '
 IFS="$sp	$nl"
 
-# There are apparently some systems that use ';' as a PATH separator!
+# There are apparently some retarded systems that use ';' as a PATH separator!
 if test "${PATH_SEPARATOR+set}" != set; then
   PATH_SEPARATOR=:
   (PATH='/bin;/bin'; FPATH=$PATH; sh -c :) >/dev/null 2>&1 && {
@@ -430,7 +430,7 @@ EXIT_SKIP=77	  # $? = 77 is used to indicate a skipped test to automake.
 # putting '$debug_cmd' at the start of all your functions, you can get
 # bash to show function call trace with:
 #
-#    debug_cmd='eval echo "${FUNCNAME[0]} $*" >&2' bash your-script-name
+#    debug_cmd='echo "${FUNCNAME[0]} $*" >&2' bash your-script-name
 debug_cmd=${debug_cmd-":"}
 exit_cmd=:
 
@@ -572,27 +572,15 @@ func_require_term_colors ()
 # ---------------------
 # Append VALUE onto the existing contents of VAR.
 
-  # We should try to minimise forks, especially on Windows where they are
-  # unreasonably slow, so skip the feature probes when bash or zsh are
-  # being used:
-  if test set = "${BASH_VERSION+set}${ZSH_VERSION+set}"; then
-    : ${_G_HAVE_ARITH_OP="yes"}
-    : ${_G_HAVE_XSI_OPS="yes"}
-    # The += operator was introduced in bash 3.1
-    case $BASH_VERSION in
-      [12].* | 3.0 | 3.0*) ;;
-      *)
-        : ${_G_HAVE_PLUSEQ_OP="yes"}
-        ;;
-    esac
-  fi
-
   # _G_HAVE_PLUSEQ_OP
   # Can be empty, in which case the shell is probed, "yes" if += is
   # useable or anything else if it does not work.
-  test -z "$_G_HAVE_PLUSEQ_OP" \
-    && (eval 'x=a; x+=" b"; test "a b" = "$x"') 2>/dev/null \
-    && _G_HAVE_PLUSEQ_OP=yes
+  if test -z "$_G_HAVE_PLUSEQ_OP" &&  \
+      __PLUSEQ_TEST="a" &&  \
+      __PLUSEQ_TEST+=" b" 2>/dev/null &&  \
+      test "a b" = "$__PLUSEQ_TEST"; then
+    _G_HAVE_PLUSEQ_OP=yes
+  fi
 
 if test yes = "$_G_HAVE_PLUSEQ_OP"
 then
@@ -1536,11 +1524,11 @@ func_lt_ver ()
 # This is free software.  There is NO warranty; not even for
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 #
-# Copyright (C) 2010-2019, 2021, 2023 Bootstrap Authors
+# Copyright (C) 2010-2019, 2021 Bootstrap Authors
 #
 # This file is dual licensed under the terms of the MIT license
-# <https://opensource.org/licenses/MIT>, and GPL version 2 or later
-# <https://www.gnu.org/licenses/gpl-2.0.html>.  You must apply one of
+# <https://opensource.org/license/MIT>, and GPL version 2 or later
+# <http://www.gnu.org/licenses/gpl-2.0.html>.  You must apply one of
 # these licenses when using or redistributing this software or any of
 # the files within it.  See the URLs above, or the file `LICENSE`
 # included in the Bootstrap distribution for the full license texts.
@@ -1705,6 +1693,8 @@ func_propagate_result ()
 func_run_hooks ()
 {
     $debug_cmd
+
+    _G_rc_run_hooks=false
 
     case " $hookable_fns " in
       *" $1 "*) ;;
@@ -2215,7 +2205,7 @@ func_version ()
 # End:
 
 # Set a version string.
-scriptversion='(GNU libtool) 2.5.0.1-38c1-dirty'
+scriptversion='(GNU libtool) 2.4.7'
 
 
 # func_echo ARG...
@@ -2306,13 +2296,13 @@ include the following information:
        compiler:       $LTCC
        compiler flags: $LTCFLAGS
        linker:         $LD (gnu? $with_gnu_ld)
-       version:        $progname (GNU libtool) 2.5.0.1-38c1-dirty
+       version:        $progname $scriptversion Debian-2.4.7-7build1
        automake:       `($AUTOMAKE --version) 2>/dev/null |$SED 1q`
        autoconf:       `($AUTOCONF --version) 2>/dev/null |$SED 1q`
 
 Report bugs to <bug-libtool@gnu.org>.
-GNU libtool home page: <https://www.gnu.org/s/libtool/>.
-General help using GNU software: <https://www.gnu.org/gethelp/>."
+GNU libtool home page: <http://www.gnu.org/s/libtool/>.
+General help using GNU software: <http://www.gnu.org/gethelp/>."
     exit 0
 }
 
@@ -2510,6 +2500,8 @@ libtool_options_prep ()
 
     _G_rc_lt_options_prep=:
 
+    _G_rc_lt_options_prep=:
+
     # Shorthand for --mode=foo, only valid as the first argument
     case $1 in
     clean|clea|cle|cl)
@@ -2668,10 +2660,10 @@ libtool_validate_options ()
     # preserve --debug
     test : = "$debug_cmd" || func_append preserve_args " --debug"
 
-    case $host_os in
+    case $host in
       # Solaris2 added to fix http://debbugs.gnu.org/cgi/bugreport.cgi?bug=16452
       # see also: http://gcc.gnu.org/bugzilla/show_bug.cgi?id=59788
-      cygwin* | mingw* | windows* | pw32* | cegcc* | solaris2* | os2*)
+      *cygwin* | *mingw* | *pw32* | *cegcc* | *solaris2* | *os2*)
         # don't eliminate duplications in $postdeps and $predeps
         opt_duplicate_compiler_generated_deps=:
         ;;
@@ -3003,7 +2995,7 @@ EOF
 
 # func_convert_core_file_wine_to_w32 ARG
 # Helper function used by file name conversion functions when $build is *nix,
-# and $host is mingw, windows, cygwin, or some other w32 environment. Relies on a
+# and $host is mingw, cygwin, or some other w32 environment. Relies on a
 # correctly configured wine environment available, with the winepath program
 # in $build's $PATH.
 #
@@ -3035,10 +3027,9 @@ func_convert_core_file_wine_to_w32 ()
 
 # func_convert_core_path_wine_to_w32 ARG
 # Helper function used by path conversion functions when $build is *nix, and
-# $host is mingw, windows, cygwin, or some other w32 environment. Relies on a
-# correctly configured wine environment available, with the winepath program
-# in $build's $PATH. Assumes ARG has no leading or trailing path separator
-# characters.
+# $host is mingw, cygwin, or some other w32 environment. Relies on a correctly
+# configured wine environment available, with the winepath program in $build's
+# $PATH. Assumes ARG has no leading or trailing path separator characters.
 #
 # ARG is path to be converted from $build format to win32.
 # Result is available in $func_convert_core_path_wine_to_w32_result.
@@ -3693,7 +3684,7 @@ func_mode_compile ()
 
     # On Cygwin there's no "real" PIC flag so we must build both object types
     case $host_os in
-    cygwin* | mingw* | windows* | pw32* | os2* | cegcc*)
+    cygwin* | mingw* | pw32* | os2* | cegcc*)
       pic_mode=default
       ;;
     esac
@@ -4570,7 +4561,7 @@ func_mode_install ()
 	      'exit $?'
 	  tstripme=$stripme
 	  case $host_os in
-	  cygwin* | mingw* | windows* | pw32* | cegcc*)
+	  cygwin* | mingw* | pw32* | cegcc*)
 	    case $realname in
 	    *.dll.a)
 	      tstripme=
@@ -4683,7 +4674,7 @@ func_mode_install ()
 
 	# Do a test to see if this is really a libtool program.
 	case $host in
-	*cygwin* | *mingw* | *windows*)
+	*cygwin* | *mingw*)
 	    if func_ltwrapper_executable_p "$file"; then
 	      func_ltwrapper_scriptname "$file"
 	      wrapper=$func_ltwrapper_scriptname_result
@@ -4911,7 +4902,7 @@ extern \"C\" {
 	      $RM $export_symbols
 	      eval "$SED -n -e '/^: @PROGRAM@ $/d' -e 's/^.* \(.*\)$/\1/p' "'< "$nlist" > "$export_symbols"'
 	      case $host in
-	      *cygwin* | *mingw* | *windows* | *cegcc* )
+	      *cygwin* | *mingw* | *cegcc* )
                 eval "echo EXPORTS "'> "$output_objdir/$outputname.def"'
                 eval 'cat "$export_symbols" >> "$output_objdir/$outputname.def"'
 	        ;;
@@ -4923,7 +4914,7 @@ extern \"C\" {
 	      eval '$GREP -f "$output_objdir/$outputname.exp" < "$nlist" > "$nlist"T'
 	      eval '$MV "$nlist"T "$nlist"'
 	      case $host in
-	        *cygwin* | *mingw* | *windows* | *cegcc* )
+	        *cygwin* | *mingw* | *cegcc* )
 	          eval "echo EXPORTS "'> "$output_objdir/$outputname.def"'
 	          eval 'cat "$nlist" >> "$output_objdir/$outputname.def"'
 	          ;;
@@ -4937,7 +4928,7 @@ extern \"C\" {
 	  func_basename "$dlprefile"
 	  name=$func_basename_result
           case $host in
-	    *cygwin* | *mingw* | *windows* | *cegcc* )
+	    *cygwin* | *mingw* | *cegcc* )
 	      # if an import library, we need to obtain dlname
 	      if func_win32_import_lib_p "$dlprefile"; then
 	        func_tr_sh "$dlprefile"
@@ -5112,7 +5103,7 @@ static const void *lt_preloaded_setup() {
 	# Transform the symbol file into the correct name.
 	symfileobj=$output_objdir/${my_outputname}S.$objext
 	case $host in
-	*cygwin* | *mingw* | *windows* | *cegcc* )
+	*cygwin* | *mingw* | *cegcc* )
 	  if test -f "$output_objdir/$my_outputname.def"; then
 	    compile_command=`$ECHO "$compile_command" | $SED "s%@SYMFILE@%$output_objdir/$my_outputname.def $symfileobj%"`
 	    finalize_command=`$ECHO "$finalize_command" | $SED "s%@SYMFILE@%$output_objdir/$my_outputname.def $symfileobj%"`
@@ -5455,7 +5446,7 @@ func_extract_archives ()
 #
 # Emit a libtool wrapper script on stdout.
 # Don't directly open a file because we may want to
-# incorporate the script contents within a cygwin/mingw/windows
+# incorporate the script contents within a cygwin/mingw
 # wrapper executable.  Must ONLY be called from within
 # func_mode_link because it depends on a number of variables
 # set therein.
@@ -5463,7 +5454,7 @@ func_extract_archives ()
 # ARG is the value that the WRAPPER_SCRIPT_BELONGS_IN_OBJDIR
 # variable will take.  If 'yes', then the emitted script
 # will assume that the directory where it is stored is
-# the $objdir directory.  This is a cygwin/mingw/windows-specific
+# the $objdir directory.  This is a cygwin/mingw-specific
 # behavior.
 func_emit_wrapper ()
 {
@@ -5588,7 +5579,7 @@ func_exec_program_core ()
 "
   case $host in
   # Backslashes separate directories on plain windows
-  *-*-mingw* | *-*-windows* | *-*-os2* | *-cegcc*)
+  *-*-mingw | *-*-os2* | *-cegcc*)
     $ECHO "\
       if test -n \"\$lt_option_debug\"; then
         \$ECHO \"$outputname:$output:\$LINENO: newargv[0]: \$progdir\\\\\$program\" 1>&2
@@ -5656,7 +5647,7 @@ func_exec_program ()
     file=\`ls -ld \"\$thisdir/\$file\" | $SED -n 's/.*-> //p'\`
   done
 
-  # Usually 'no', except on cygwin/mingw/windows when embedded into
+  # Usually 'no', except on cygwin/mingw when embedded into
   # the cwrapper.
   WRAPPER_SCRIPT_BELONGS_IN_OBJDIR=$func_emit_wrapper_arg1
   if test \"\$WRAPPER_SCRIPT_BELONGS_IN_OBJDIR\" = \"yes\"; then
@@ -5788,7 +5779,7 @@ EOF
 #endif
 #include <stdio.h>
 #include <stdlib.h>
-#if defined _WIN32 && !defined __GNUC__
+#ifdef _MSC_VER
 # include <direct.h>
 # include <process.h>
 # include <io.h>
@@ -5813,7 +5804,7 @@ EOF
 /* declarations of non-ANSI functions */
 #if defined __MINGW32__
 # ifdef __STRICT_ANSI__
-_CRTIMP int __cdecl _putenv (const char *);
+int _putenv (const char *);
 # endif
 #elif defined __CYGWIN__
 # ifdef __STRICT_ANSI__
@@ -6011,7 +6002,7 @@ main (int argc, char *argv[])
 	{
 EOF
 	    case $host in
-	      *mingw* | *windows* | *cygwin* )
+	      *mingw* | *cygwin* )
 		# make stdout use "unix" line endings
 		echo "          setmode(1,_O_BINARY);"
 		;;
@@ -6030,7 +6021,7 @@ EOF
         {
           /* however, if there is an option in the LTWRAPPER_OPTION_PREFIX
              namespace, but it is not one of the ones we know about and
-             have already dealt with, above (including dump-script), then
+             have already dealt with, above (inluding dump-script), then
              report an error. Otherwise, targets might begin to believe
              they are allowed to use options in the LTWRAPPER_OPTION_PREFIX
              namespace. The first time any user complains about this, we'll
@@ -6114,7 +6105,7 @@ EOF
 EOF
 
 	    case $host_os in
-	      mingw* | windows*)
+	      mingw*)
 	    cat <<"EOF"
   {
     char* p;
@@ -6156,7 +6147,7 @@ EOF
 EOF
 
 	    case $host_os in
-	      mingw* | windows*)
+	      mingw*)
 		cat <<"EOF"
   /* execv doesn't actually work on mingw as expected on unix */
   newargz = prepare_spawn (newargz);
@@ -6575,7 +6566,7 @@ lt_update_lib_path (const char *name, const char *value)
 
 EOF
 	    case $host_os in
-	      mingw* | windows*)
+	      mingw*)
 		cat <<"EOF"
 
 /* Prepares an argument vector before calling spawn().
@@ -6750,7 +6741,7 @@ func_mode_link ()
     $debug_cmd
 
     case $host in
-    *-*-cygwin* | *-*-mingw* | *-*-windows* | *-*-pw32* | *-*-os2* | *-cegcc*)
+    *-*-cygwin* | *-*-mingw* | *-*-pw32* | *-*-os2* | *-cegcc*)
       # It is impossible to link a dll without this setting, and
       # we shouldn't force the makefile maintainer to figure out
       # what system we are compiling for in order to pass an extra
@@ -7256,7 +7247,7 @@ func_mode_link ()
 	  ;;
 	esac
 	case $host in
-	*-*-cygwin* | *-*-mingw* | *-*-windows* | *-*-pw32* | *-*-os2* | *-cegcc*)
+	*-*-cygwin* | *-*-mingw* | *-*-pw32* | *-*-os2* | *-cegcc*)
 	  testbindir=`$ECHO "$dir" | $SED 's*/lib$*/bin*'`
 	  case :$dllsearchpath: in
 	  *":$dir:"*) ;;
@@ -7276,7 +7267,7 @@ func_mode_link ()
       -l*)
 	if test X-lc = "X$arg" || test X-lm = "X$arg"; then
 	  case $host in
-	  *-*-cygwin* | *-*-mingw* | *-*-windows* | *-*-pw32* | *-*-beos* | *-cegcc* | *-*-haiku*)
+	  *-*-cygwin* | *-*-mingw* | *-*-pw32* | *-*-beos* | *-cegcc* | *-*-haiku*)
 	    # These systems don't actually have a C or math library (as such)
 	    continue
 	    ;;
@@ -7284,7 +7275,7 @@ func_mode_link ()
 	    # These systems don't actually have a C library (as such)
 	    test X-lc = "X$arg" && continue
 	    ;;
-	  *-*-openbsd* | *-*-freebsd* | *-*-dragonfly* | *-*-midnightbsd*)
+	  *-*-openbsd* | *-*-freebsd* | *-*-dragonfly* | *-*-bitrig* | *-*-midnightbsd*)
 	    # Do not include libc due to us having libc/libc_r.
 	    test X-lc = "X$arg" && continue
 	    ;;
@@ -7304,7 +7295,7 @@ func_mode_link ()
 	  esac
 	elif test X-lc_r = "X$arg"; then
 	 case $host in
-	 *-*-openbsd* | *-*-freebsd* | *-*-dragonfly* | *-*-midnightbsd*)
+	 *-*-openbsd* | *-*-freebsd* | *-*-dragonfly* | *-*-bitrig* | *-*-midnightbsd*)
 	   # Do not include libc_r directly, use -pthread flag.
 	   continue
 	   ;;
@@ -7348,7 +7339,7 @@ func_mode_link ()
 	continue
 	;;
       -mt|-mthreads|-kthread|-Kthread|-pthreads|--thread-safe \
-      |-threads|-fopenmp|-fopenmp=*|-openmp|-mp|-xopenmp|-omp|-qsmp=*)
+      |-threads|-fopenmp|-openmp|-mp|-xopenmp|-omp|-qsmp=*)
 	func_append compiler_flags " $arg"
 	func_append compile_command " $arg"
 	func_append finalize_command " $arg"
@@ -7371,7 +7362,7 @@ func_mode_link ()
 
       -no-install)
 	case $host in
-	*-*-cygwin* | *-*-mingw* | *-*-windows* | *-*-pw32* | *-*-os2* | *-*-darwin* | *-cegcc*)
+	*-*-cygwin* | *-*-mingw* | *-*-pw32* | *-*-os2* | *-*-darwin* | *-cegcc*)
 	  # The PATH hackery in wrapper scripts is required on Windows
 	  # and Darwin in order for the loader to find any dlls it needs.
 	  func_warning "'-no-install' is ignored for $host"
@@ -7556,27 +7547,15 @@ func_mode_link ()
       # -O*, -g*, -flto*, -fwhopr*, -fuse-linker-plugin GCC link-time optimization
       # -specs=*             GCC specs files
       # -stdlib=*            select c++ std lib with clang
-      # -fdiagnostics-color* simply affects output
-      # -frecord-gcc-switches used to verify flags were respected
       # -fsanitize=*         Clang/GCC memory and address sanitizer
-      # -fno-sanitize*       Clang/GCC memory and address sanitizer
-      # -shared-libsan       Link with shared sanitizer runtimes (Clang)
-      # -static-libsan       Link with static sanitizer runtimes (Clang)
-      # -no-canonical-prefixes Do not expand any symbolic links
       # -fuse-ld=*           Linker select flags for GCC
-      # -rtlib=*             select c runtime lib with clang
-      # --unwindlib=*        select unwinder library with clang
-      # -f{file|debug|macro|profile}-prefix-map=* needed for lto linking
+      # -static-*            direct GCC to link specific libraries statically
+      # -fcilkplus           Cilk Plus language extension features for C/C++
       # -Wa,*                Pass flags directly to the assembler
-      # -Werror, -Werror=*   Report (specified) warnings as errors
       -64|-mips[0-9]|-r[0-9][0-9]*|-xarch=*|-xtarget=*|+DA*|+DD*|-q*|-m*| \
       -t[45]*|-txscale*|-p|-pg|--coverage|-fprofile-*|-F*|@*|-tp=*|--sysroot=*| \
-      -O*|-g*|-flto*|-fwhopr*|-fuse-linker-plugin|-fstack-protector*|-no-canonical-prefixes| \
-      -stdlib=*|-rtlib=*|--unwindlib=*| \
-      -specs=*|-fsanitize=*|-fno-sanitize*|-shared-libsan|-static-libsan| \
-      -ffile-prefix-map=*|-fdebug-prefix-map=*|-fmacro-prefix-map=*|-fprofile-prefix-map=*| \
-      -fdiagnostics-color*|-frecord-gcc-switches| \
-      -fuse-ld=*|-Wa,*|-Werror|-Werror=*)
+      -O*|-g*|-flto*|-fwhopr*|-fuse-linker-plugin|-fstack-protector*|-stdlib=*| \
+      -specs=*|-fsanitize=*|-fuse-ld=*|-static-*|-fcilkplus|-Wa,*)
         func_quote_arg pretty "$arg"
 	arg=$func_quote_arg_result
         func_append compile_command " $arg"
@@ -7869,7 +7848,10 @@ func_mode_link ()
 	case $pass in
 	dlopen) libs=$dlfiles ;;
 	dlpreopen) libs=$dlprefiles ;;
-	link) libs="$deplibs %DEPLIBS% $dependency_libs" ;;
+	link)
+	  libs="$deplibs %DEPLIBS%"
+	  test "X$link_all_deplibs" != Xno && libs="$libs $dependency_libs"
+	  ;;
 	esac
       fi
       if test lib,dlpreopen = "$linkmode,$pass"; then
@@ -7906,7 +7888,7 @@ func_mode_link ()
 	found=false
 	case $deplib in
 	-mt|-mthreads|-kthread|-Kthread|-pthread|-pthreads|--thread-safe \
-        |-threads|-fopenmp|-fopenmp=*|-openmp|-mp|-xopenmp|-omp|-qsmp=*)
+        |-threads|-fopenmp|-openmp|-mp|-xopenmp|-omp|-qsmp=*)
 	  if test prog,link = "$linkmode,$pass"; then
 	    compile_deplibs="$deplib $compile_deplibs"
 	    finalize_deplibs="$deplib $finalize_deplibs"
@@ -8083,15 +8065,18 @@ func_mode_link ()
 		;;
 	      esac
 	      if $valid_a_lib; then
-		func_warning "Linking the shared library $output against the static library $deplib is not portable!"
+		echo
+		$ECHO "*** Warning: Linking the shared library $output against the"
+		$ECHO "*** static library $deplib is not portable!"
 		deplibs="$deplib $deplibs"
 	      else
-		func_warning "Trying to link with static lib archive $deplib."
-		func_warning "I have the capability to make that library automatically link in when"
-		func_warning "you link to this library.  But I can only do this if you have a"
-		func_warning "shared version of the library, which you do not appear to have"
-		func_warning "because the file extensions .$libext of this argument makes me believe"
-		func_warning "that it is just a static archive that I should not use here."
+		echo
+		$ECHO "*** Warning: Trying to link with static lib archive $deplib."
+		echo "*** I have the capability to make that library automatically link in when"
+		echo "*** you link to this library.  But I can only do this if you have a"
+		echo "*** shared version of the library, which you do not appear to have"
+		echo "*** because the file extensions .$libext of this argument makes me believe"
+		echo "*** that it is just a static archive that I should not use here."
 	      fi
 	      ;;
 	    esac
@@ -8185,19 +8170,19 @@ func_mode_link ()
 	    # It is a libtool convenience library, so add in its objects.
 	    func_append convenience " $ladir/$objdir/$old_library"
 	    func_append old_convenience " $ladir/$objdir/$old_library"
+	    tmp_libs=
+	    for deplib in $dependency_libs; do
+	      deplibs="$deplib $deplibs"
+	      if $opt_preserve_dup_deps; then
+		case "$tmp_libs " in
+		*" $deplib "*) func_append specialdeplibs " $deplib" ;;
+		esac
+	      fi
+	      func_append tmp_libs " $deplib"
+	    done
 	  elif test prog != "$linkmode" && test lib != "$linkmode"; then
 	    func_fatal_error "'$lib' is not a convenience library"
 	  fi
-	  tmp_libs=
-	  for deplib in $dependency_libs; do
-	    deplibs="$deplib $deplibs"
-	    if $opt_preserve_dup_deps; then
-	      case "$tmp_libs " in
-	      *" $deplib "*) func_append specialdeplibs " $deplib" ;;
-	      esac
-	    fi
-	    func_append tmp_libs " $deplib"
-	  done
 	  continue
 	fi # $pass = conv
 
@@ -8286,7 +8271,7 @@ func_mode_link ()
 	  fi
 	  case $host in
 	    # special handling for platforms with PE-DLLs.
-	    *cygwin* | *mingw* | *windows* | *cegcc* )
+	    *cygwin* | *mingw* | *cegcc* )
 	      # Linker will automatically link against shared library if both
 	      # static and shared are present.  Therefore, ensure we extract
 	      # symbols from the import library if a shared library is present
@@ -8429,8 +8414,8 @@ func_mode_link ()
 	fi
 	if test -n "$library_names" &&
 	   { test no = "$use_static_libs" || test -z "$old_library"; }; then
-	  case $host_os in
-	  cygwin* | mingw* | windows* | cegcc* | os2*)
+	  case $host in
+	  *cygwin* | *mingw* | *cegcc* | *os2*)
 	      # No point in relinking DLLs because paths are not encoded
 	      func_append notinst_deplibs " $lib"
 	      need_relink=no
@@ -8456,11 +8441,11 @@ func_mode_link ()
 	  if test -z "$dlopenmodule" && test yes = "$shouldnotlink" && test link = "$pass"; then
 	    echo
 	    if test prog = "$linkmode"; then
-	      func_warning "Linking the executable $output against the loadable module"
+	      $ECHO "*** Warning: Linking the executable $output against the loadable module"
 	    else
-	      func_warning "Linking the shared library $output against the loadable module"
+	      $ECHO "*** Warning: Linking the shared library $output against the loadable module"
 	    fi
-	    func_warning "$linklib is not portable!"
+	    $ECHO "*** $linklib is not portable!"
 	  fi
 	  if test lib = "$linkmode" &&
 	     test yes = "$hardcode_into_libs"; then
@@ -8499,8 +8484,8 @@ func_mode_link ()
 	      soname=$dlname
 	    elif test -n "$soname_spec"; then
 	      # bleh windows
-	      case $host_os in
-	      cygwin* | mingw* | windows* | cegcc* | os2*)
+	      case $host in
+	      *cygwin* | mingw* | *cegcc* | *os2*)
 	        func_arith $current - $age
 		major=$func_arith_result
 		versuffix=-$major
@@ -8555,10 +8540,11 @@ func_mode_link ()
 		    if /usr/bin/file -L $add 2> /dev/null |
 			 $GREP ": [^:]* bundle" >/dev/null; then
 		      if test "X$dlopenmodule" != "X$lib"; then
-			func_warning "lib $linklib is a module, not a shared library"
+			$ECHO "*** Warning: lib $linklib is a module, not a shared library"
 			if test -z "$old_library"; then
-			  func_warning "And there doesn't seem to be a static archive available"
-			  func_warning "The link will probably fail, sorry"
+			  echo
+			  echo "*** And there doesn't seem to be a static archive available"
+			  echo "*** The link will probably fail, sorry"
 			else
 			  add=$dir/$old_library
 			fi
@@ -8698,19 +8684,21 @@ func_mode_link ()
 
 	    # Just print a warning and add the library to dependency_libs so
 	    # that the program can be linked against the static library.
-	    func_warning "This system cannot link to static lib archive $lib."
-	    func_warning "I have the capability to make that library automatically link in when"
-	    func_warning "you link to this library.  But I can only do this if you have a"
-	    func_warning "shared version of the library, which you do not appear to have."
+	    echo
+	    $ECHO "*** Warning: This system cannot link to static lib archive $lib."
+	    echo "*** I have the capability to make that library automatically link in when"
+	    echo "*** you link to this library.  But I can only do this if you have a"
+	    echo "*** shared version of the library, which you do not appear to have."
 	    if test yes = "$module"; then
-	      func_warning "But as you try to build a module library, libtool will still create "
-	      func_warning "a static module, that should work as long as the dlopening application"
-	      func_warning "is linked with the -dlopen flag to resolve symbols at runtime."
+	      echo "*** But as you try to build a module library, libtool will still create "
+	      echo "*** a static module, that should work as long as the dlopening application"
+	      echo "*** is linked with the -dlopen flag to resolve symbols at runtime."
 	      if test -z "$global_symbol_pipe"; then
-		func_warning "However, this would only work if libtool was able to extract symbol"
-		func_warning "lists from a program, using 'nm' or equivalent, but libtool could"
-		func_warning "not find such a program.  So, this module is probably useless."
-		func_warning "'nm' from GNU binutils and a full rebuild may help."
+		echo
+		echo "*** However, this would only work if libtool was able to extract symbol"
+		echo "*** lists from a program, using 'nm' or equivalent, but libtool could"
+		echo "*** not find such a program.  So, this module is probably useless."
+		echo "*** 'nm' from GNU binutils and a full rebuild may help."
 	      fi
 	      if test no = "$build_old_libs"; then
 		build_libtool_libs=module
@@ -9037,7 +9025,9 @@ func_mode_link ()
 	if test pass_all != "$deplibs_check_method"; then
 	  func_fatal_error "cannot build libtool library '$output' from non-libtool objects on this host:$objs"
 	else
-	  func_warning "Linking the shared library $output against the non-libtool objects $objs is not portable!"
+	  echo
+	  $ECHO "*** Warning: Linking the shared library $output against the non-libtool"
+	  $ECHO "*** objects $objs is not portable!"
 	  func_append libobjs " $objs"
 	fi
       fi
@@ -9098,13 +9088,13 @@ func_mode_link ()
 	  #
 	  case $version_type in
 	  # correct linux to gnu/linux during the next big refactor
-	  darwin|freebsd-elf|linux|midnightbsd-elf|osf|qnx|windows|none)
+	  darwin|freebsd-elf|linux|midnightbsd-elf|osf|windows|none)
 	    func_arith $number_major + $number_minor
 	    current=$func_arith_result
 	    age=$number_minor
 	    revision=$number_revision
 	    ;;
-	  freebsd-aout|sco|sunos)
+	  freebsd-aout|qnx|sunos)
 	    current=$number_major
 	    revision=$number_minor
 	    age=0
@@ -9115,6 +9105,9 @@ func_mode_link ()
 	    age=$number_minor
 	    revision=$number_minor
 	    lt_irix_increment=no
+	    ;;
+	  *)
+	    func_fatal_configuration "$modename: unknown library version type '$version_type'"
 	    ;;
 	  esac
 	  ;;
@@ -9251,9 +9244,8 @@ func_mode_link ()
 	  ;;
 
 	qnx)
-	  func_arith $current - $age
-	  major=.$func_arith_result
-	  versuffix=$major.$age.$revision
+	  major=.$current
+	  versuffix=.$current
 	  ;;
 
 	sco)
@@ -9406,7 +9398,7 @@ func_mode_link ()
       if test yes = "$build_libtool_libs"; then
 	if test -n "$rpath"; then
 	  case $host in
-	  *-*-cygwin* | *-*-mingw* | *-*-windows* | *-*-pw32* | *-*-os2* | *-*-beos* | *-cegcc* | *-*-haiku*)
+	  *-*-cygwin* | *-*-mingw* | *-*-pw32* | *-*-os2* | *-*-beos* | *-cegcc* | *-*-haiku*)
 	    # these systems don't actually have a c library (as such)!
 	    ;;
 	  *-*-rhapsody* | *-*-darwin1.[012])
@@ -9456,6 +9448,108 @@ func_mode_link ()
 	  # osf3 & osf4 and I'm not really sure... Just
 	  # implementing what was already the behavior.
 	  newdeplibs=$deplibs
+	  ;;
+	test_compile)
+	  # This code stresses the "libraries are programs" paradigm to its
+	  # limits. Maybe even breaks it.  We compile a program, linking it
+	  # against the deplibs as a proxy for the library.  Then we can check
+	  # whether they linked in statically or dynamically with ldd.
+	  $opt_dry_run || $RM conftest.c
+	  cat > conftest.c <<EOF
+	  int main() { return 0; }
+EOF
+	  $opt_dry_run || $RM conftest
+	  if $LTCC $LTCFLAGS -o conftest conftest.c $deplibs; then
+	    ldd_output=`ldd conftest`
+	    for i in $deplibs; do
+	      case $i in
+	      -l*)
+		func_stripname -l '' "$i"
+		name=$func_stripname_result
+		if test yes = "$allow_libtool_libs_with_static_runtimes"; then
+		  case " $predeps $postdeps " in
+		  *" $i "*)
+		    func_append newdeplibs " $i"
+		    i=
+		    ;;
+		  esac
+		fi
+		if test -n "$i"; then
+		  libname=`eval "\\$ECHO \"$libname_spec\""`
+		  deplib_matches=`eval "\\$ECHO \"$library_names_spec\""`
+		  set dummy $deplib_matches; shift
+		  deplib_match=$1
+		  if test `expr "$ldd_output" : ".*$deplib_match"` -ne 0; then
+		    func_append newdeplibs " $i"
+		  else
+		    droppeddeps=yes
+		    echo
+		    $ECHO "*** Warning: dynamic linker does not accept needed library $i."
+		    echo "*** I have the capability to make that library automatically link in when"
+		    echo "*** you link to this library.  But I can only do this if you have a"
+		    echo "*** shared version of the library, which I believe you do not have"
+		    echo "*** because a test_compile did reveal that the linker did not use it for"
+		    echo "*** its dynamic dependency list that programs get resolved with at runtime."
+		  fi
+		fi
+		;;
+	      *)
+		func_append newdeplibs " $i"
+		;;
+	      esac
+	    done
+	  else
+	    # Error occurred in the first compile.  Let's try to salvage
+	    # the situation: Compile a separate program for each library.
+	    for i in $deplibs; do
+	      case $i in
+	      -l*)
+		func_stripname -l '' "$i"
+		name=$func_stripname_result
+		$opt_dry_run || $RM conftest
+		if $LTCC $LTCFLAGS -o conftest conftest.c $i; then
+		  ldd_output=`ldd conftest`
+		  if test yes = "$allow_libtool_libs_with_static_runtimes"; then
+		    case " $predeps $postdeps " in
+		    *" $i "*)
+		      func_append newdeplibs " $i"
+		      i=
+		      ;;
+		    esac
+		  fi
+		  if test -n "$i"; then
+		    libname=`eval "\\$ECHO \"$libname_spec\""`
+		    deplib_matches=`eval "\\$ECHO \"$library_names_spec\""`
+		    set dummy $deplib_matches; shift
+		    deplib_match=$1
+		    if test `expr "$ldd_output" : ".*$deplib_match"` -ne 0; then
+		      func_append newdeplibs " $i"
+		    else
+		      droppeddeps=yes
+		      echo
+		      $ECHO "*** Warning: dynamic linker does not accept needed library $i."
+		      echo "*** I have the capability to make that library automatically link in when"
+		      echo "*** you link to this library.  But I can only do this if you have a"
+		      echo "*** shared version of the library, which you do not appear to have"
+		      echo "*** because a test_compile did reveal that the linker did not use this one"
+		      echo "*** as a dynamic dependency that programs can get resolved with at runtime."
+		    fi
+		  fi
+		else
+		  droppeddeps=yes
+		  echo
+		  $ECHO "*** Warning!  Library $i is needed by this library but I was not able to"
+		  echo "*** make it link in!  You will probably need to install it or some"
+		  echo "*** library that it depends on before this library will be fully"
+		  echo "*** functional.  Installing it before continuing would be even better."
+		fi
+		;;
+	      *)
+		func_append newdeplibs " $i"
+		;;
+	      esac
+	    done
+	  fi
 	  ;;
 	file_magic*)
 	  set dummy $deplibs_check_method; shift
@@ -9520,16 +9614,17 @@ func_mode_link ()
 	      fi
 	      if test -n "$a_deplib"; then
 		droppeddeps=yes
-		func_warning "Linker path does not have real file for library $a_deplib."
-		func_warning "I have the capability to make that library automatically link in when"
-		func_warning "you link to this library.  But I can only do this if you have a"
-		func_warning "shared version of the library, which you do not appear to have"
-		func_warning "because I did check the linker path looking for a file starting"
+		echo
+		$ECHO "*** Warning: linker path does not have real file for library $a_deplib."
+		echo "*** I have the capability to make that library automatically link in when"
+		echo "*** you link to this library.  But I can only do this if you have a"
+		echo "*** shared version of the library, which you do not appear to have"
+		echo "*** because I did check the linker path looking for a file starting"
 		if test -z "$potlib"; then
-		  func_warning "with $libname but no candidates were found. (...for file magic test)"
+		  $ECHO "*** with $libname but no candidates were found. (...for file magic test)"
 		else
-		  func_warning "with $libname and none of the candidates passed a file format test"
-		  func_warning "using a file magic. Last file checked: $potlib"
+		  $ECHO "*** with $libname and none of the candidates passed a file format test"
+		  $ECHO "*** using a file magic. Last file checked: $potlib"
 		fi
 	      fi
 	      ;;
@@ -9573,16 +9668,17 @@ func_mode_link ()
 	      fi
 	      if test -n "$a_deplib"; then
 		droppeddeps=yes
-		func_warning "Linker path does not have real file for library $a_deplib."
-		func_warning "I have the capability to make that library automatically link in when"
-		func_warning "you link to this library.  But I can only do this if you have a"
-		func_warning "shared version of the library, which you do not appear to have"
-		func_warning "because I did check the linker path looking for a file starting"
+		echo
+		$ECHO "*** Warning: linker path does not have real file for library $a_deplib."
+		echo "*** I have the capability to make that library automatically link in when"
+		echo "*** you link to this library.  But I can only do this if you have a"
+		echo "*** shared version of the library, which you do not appear to have"
+		echo "*** because I did check the linker path looking for a file starting"
 		if test -z "$potlib"; then
-		  func_warning "with $libname but no candidates were found. (...for regex pattern test)"
+		  $ECHO "*** with $libname but no candidates were found. (...for regex pattern test)"
 		else
-		  func_warning "with $libname and none of the candidates passed a file format test"
-		  func_warning "using a regex pattern. Last file checked: $potlib"
+		  $ECHO "*** with $libname and none of the candidates passed a file format test"
+		  $ECHO "*** using a regex pattern. Last file checked: $potlib"
 		fi
 	      fi
 	      ;;
@@ -9606,11 +9702,11 @@ func_mode_link ()
 	  *[!\	\ ]*)
 	    echo
 	    if test none = "$deplibs_check_method"; then
-	      func_warning "Inter-library dependencies are not supported in this platform."
+	      echo "*** Warning: inter-library dependencies are not supported in this platform."
 	    else
-	      func_warning "Inter-library dependencies are not known to be supported."
+	      echo "*** Warning: inter-library dependencies are not known to be supported."
 	    fi
-	    func_warning "All declared inter-library dependencies are being dropped."
+	    echo "*** All declared inter-library dependencies are being dropped."
 	    droppeddeps=yes
 	    ;;
 	  esac
@@ -9631,15 +9727,17 @@ func_mode_link ()
 
 	if test yes = "$droppeddeps"; then
 	  if test yes = "$module"; then
-	    func_warning "libtool could not satisfy all declared inter-library"
-	    func_warning "dependencies of module $libname.  Therefore, libtool will create"
-	    func_warning "a static module, that should work as long as the dlopening"
-	    func_warning "application is linked with the -dlopen flag."
+	    echo
+	    echo "*** Warning: libtool could not satisfy all declared inter-library"
+	    $ECHO "*** dependencies of module $libname.  Therefore, libtool will create"
+	    echo "*** a static module, that should work as long as the dlopening"
+	    echo "*** application is linked with the -dlopen flag."
 	    if test -z "$global_symbol_pipe"; then
-	      func_warning "However, this would only work if libtool was able to extract symbol"
-	      func_warning "lists from a program, using 'nm' or equivalent, but libtool could"
-	      func_warning "not find such a program.  So, this module is probably useless."
-	      func_warning "'nm' from GNU binutils and a full rebuild may help."
+	      echo
+	      echo "*** However, this would only work if libtool was able to extract symbol"
+	      echo "*** lists from a program, using 'nm' or equivalent, but libtool could"
+	      echo "*** not find such a program.  So, this module is probably useless."
+	      echo "*** 'nm' from GNU binutils and a full rebuild may help."
 	    fi
 	    if test no = "$build_old_libs"; then
 	      oldlibs=$output_objdir/$libname.$libext
@@ -9814,7 +9912,7 @@ func_mode_link ()
 
 	orig_export_symbols=
 	case $host_os in
-	cygwin* | mingw* | windows* | cegcc*)
+	cygwin* | mingw* | cegcc*)
 	  if test -n "$export_symbols" && test -z "$export_symbols_regex"; then
 	    # exporting using user supplied symfile
 	    func_dll_def_p "$export_symbols" || {
@@ -10484,7 +10582,7 @@ func_mode_link ()
 	  esac
 	fi
 	case $host in
-	*-*-cygwin* | *-*-mingw* | *-*-windows* | *-*-pw32* | *-*-os2* | *-cegcc*)
+	*-*-cygwin* | *-*-mingw* | *-*-pw32* | *-*-os2* | *-cegcc*)
 	  testbindir=`$ECHO "$libdir" | $SED -e 's*/lib$*/bin*'`
 	  case :$dllsearchpath: in
 	  *":$libdir:"*) ;;
@@ -10562,7 +10660,7 @@ func_mode_link ()
         # Disable wrappers for cegcc and mingw32ce hosts, we are cross compiling anyway.
         wrappers_required=false
         ;;
-      *cygwin* | *mingw* | *windows* )
+      *cygwin* | *mingw* )
         test yes = "$build_libtool_libs" || wrappers_required=false
         ;;
       *)
@@ -10716,7 +10814,7 @@ func_mode_link ()
 	  *) exeext= ;;
 	esac
 	case $host in
-	  *cygwin* | *mingw* | windows* )
+	  *cygwin* | *mingw* )
 	    func_dirname_and_basename "$output" "" "."
 	    output_name=$func_basename_result
 	    output_path=$func_dirname_result
@@ -11050,7 +11148,7 @@ func_mode_link ()
 	  # tests/bindir.at for full details.
 	  tdlname=$dlname
 	  case $host,$output,$installed,$module,$dlname in
-	    *cygwin*,*lai,yes,no,*.dll | *mingw*,*lai,yes,no,*.dll | *windows*,*lai,yes,no,*.dll | *cegcc*,*lai,yes,no,*.dll)
+	    *cygwin*,*lai,yes,no,*.dll | *mingw*,*lai,yes,no,*.dll | *cegcc*,*lai,yes,no,*.dll)
 	      # If a -bindir argument was supplied, place the dll there.
 	      if test -n "$bindir"; then
 		func_relative_path "$install_libdir" "$bindir"

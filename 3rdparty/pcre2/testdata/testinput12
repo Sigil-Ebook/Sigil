@@ -56,9 +56,6 @@
     \x{c0}
     \x{f0}
 
-/Ā{3,4}/IB,utf
-  \x{100}\x{100}\x{100}\x{100\x{100}
-
 /(\x{100}+|x)/IB,utf
 
 /(\x{100}*a|x)/IB,utf
@@ -468,6 +465,27 @@
 /A\z/utf,match_invalid_utf
     A\x{df00}\n
 
+/ab$/match_invalid_utf
+\= Expect no match            
+    ab\x{df00}cde         
+
+/ab\z/match_invalid_utf
+\= Expect no match            
+    ab\x{df00}cde         
+
+/ab\Z/match_invalid_utf
+\= Expect no match            
+    ab\x{df00}cde         
+
+/(..)(*scs:(1)ab\z)/match_invalid_utf
+    ab\x{df00}cde         
+
+/(..)(*scs:(1)ab\Z)/match_invalid_utf
+    ab\x{df00}cde         
+
+/(..)(*scs:(1)ab$)/match_invalid_utf
+    ab\x{df00}cde         
+
 # ---------------------------------------------------- 
 
 /(*UTF)(?=\x{123})/I
@@ -489,9 +507,9 @@
 # ---------------------------------------------------- 
 # UCP and casing tests
 
-/\x{120}/i,I
+/\x{120}/iI
 
-/\x{c1}/i,I,ucp
+/\x{c1}/iI,ucp
 
 /[\x{120}\x{121}]/iB,ucp
 
@@ -561,7 +579,89 @@
 \= Expect no match
     \x{17f} 
 
+/(.) \1/i,ucp
+    i I
+
+/(.) \1/i,ucp,turkish_casing
+\= Expect no match
+    i I
+
+/(.) \1/i,ucp
+    i I
+    \x{212a} k
+\= Expect no match
+    i \x{0130}
+    \x{0131} I
+
+/(.) \1/i,ucp,turkish_casing
+    \x{212a} k
+    i \x{0130}
+    \x{0131} I
+\= Expect no match
+    i I
+
+/(.) (?r:\1)/i,ucp,turkish_casing
+    i I
+\= Expect no match
+    i \x{0130}
+    \x{0131} I
+    \x{212a} k
+
+/[a-z][^i]I/ucp,turkish_casing
+    bII
+    b\x{0130}I
+    b\x{0131}I
+\= Expect no match
+    biI
+
+/[a-z][^i]I/i,ucp,turkish_casing
+    b\x{0131}I
+    bII
+\= Expect no match
+    biI
+    b\x{0130}I
+
+/[a-z](?r:[^i])I/i,ucp,turkish_casing
+    b\x{0131}I
+    b\x{0130}I
+\= Expect no match
+    bII
+    biI
+
+/b(?r:[\x{00FF}-\x{FFEE}])/i,ucp,turkish_casing
+    b\x{0130}
+    b\x{0131}
+    B\x{212a}
+\= Expect no match
+    bi
+    bI
+    bk
+
+/[\x60-\x7f]/i,ucp,turkish_casing
+    i
+\= Expect no match
+    I
+
+/[\x60-\xc0]/i,ucp,turkish_casing
+    i
+\= Expect no match
+    I
+
+/[\x80-\xc0]/i,ucp,turkish_casing
+\= Expect no match
+    i
+    I
+
 # ---------------------------------------------------- 
+
+/b[\x{00FF}-\x{FFEE}]/ir
+    b\x{0130}
+    b\x{0131}
+    B\x{212a}
+\= Expect no match
+    bi
+    bI
+    bk
 
 # Quantifier after a literal that has the value of META_ACCEPT (not UTF). This
 # fails in 16-bit mode, but is OK for 32-bit.
@@ -600,6 +700,15 @@
 /k{2,}?Z/caseless,ucp,no_start_optimize,no_auto_possess
 \= Expect no match
     Kk\x{ffffffff}\x{ffffffff}\x{ffffffff}Z
+
+/[sk](?r:[sk])[sk]/Bi,ucp
+    SKS
+    sks
+    \x{212a}S\x{17f}
+    \x{17f}K\x{212a}
+\= Expect no match
+    s\x{212a}s
+    K\x{17f}K
 
 # --------------------------------------------------------- 
 

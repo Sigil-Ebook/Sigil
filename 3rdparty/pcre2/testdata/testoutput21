@@ -91,4 +91,7 @@ Subject length lower bound = 5
     abZdeX
  0: X
 
+/[\C]/
+Failed: error 107 at offset 2: escape sequence is invalid in character class
+
 # End of testinput21

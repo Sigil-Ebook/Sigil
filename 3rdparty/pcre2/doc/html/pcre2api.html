@@ -179,6 +179,10 @@ document for an overview of all the PCRE2 documentation.
 <br>
 <b>int pcre2_set_compile_recursion_guard(pcre2_compile_context *<i>ccontext</i>,</b>
 <b>  int (*<i>guard_function</i>)(uint32_t, void *), void *<i>user_data</i>);</b>
+<br>
+<br>
+<b>int pcre2_set_optimize(pcre2_compile_context *<i>ccontext</i>,</b>
+<b>  uint32_t <i>directive</i>);</b>
 </P>
 <br><a name="SEC5" href="#TOC1">PCRE2 NATIVE API MATCH CONTEXT FUNCTIONS</a><br>
 <P>
@@ -200,6 +204,13 @@ document for an overview of all the PCRE2 documentation.
 <br>
 <b>int pcre2_set_substitute_callout(pcre2_match_context *<i>mcontext</i>,</b>
 <b>  int (*<i>callout_function</i>)(pcre2_substitute_callout_block *, void *),</b>
+<b>  void *<i>callout_data</i>);</b>
+<br>
+<br>
+<b>int pcre2_set_substitute_case_callout(pcre2_match_context *<i>mcontext</i>,</b>
+<b>  PCRE2_SIZE (*<i>callout_function</i>)(PCRE2_SPTR, PCRE2_SIZE,</b>
+<b>                                 PCRE2_UCHAR *, PCRE2_SIZE,</b>
+<b>                                 int, void *),</b>
 <b>  void *<i>callout_data</i>);</b>
 <br>
 <br>
@@ -808,6 +819,7 @@ following compile-time parameters:
   The compile time nested parentheses limit
   The maximum length of the pattern string
   The extra options bits (none set by default)
+  Which performance optimizations the compiler should apply
 </pre>
 A compile context is also required if you are using custom memory management.
 If none of these apply, just pass NULL as the context argument of
@@ -952,6 +964,110 @@ The first argument to the callout function gives the current depth of
 nesting, and the second is user data that is set up by the last argument of
 <b>pcre2_set_compile_recursion_guard()</b>. The callout function should return
 zero if all is well, or non-zero to force an error.
+<br>
+<br>
+<b>int pcre2_set_optimize(pcre2_compile_context *<i>ccontext</i>,</b>
+<b>  uint32_t <i>directive</i>);</b>
+<br>
+<br>
+PCRE2 can apply various performance optimizations during compilation, in order
+to make matching faster. For example, the compiler might convert some regex
+constructs into an equivalent construct which <b>pcre2_match()</b> can execute
+faster. By default, all available optimizations are enabled. However, in rare
+cases, one might wish to disable specific optimizations. For example, if it is
+known that some optimizations cannot benefit a certain regex, it might be
+desirable to disable them, in order to speed up compilation.
+</P>
+<P>
+The permitted values of <i>directive</i> are as follows:
+<pre>
+  PCRE2_OPTIMIZATION_FULL
+</pre>
+Enable all optional performance optimizations. This is the default value.
+<pre>
+  PCRE2_OPTIMIZATION_NONE
+</pre>
+Disable all optional performance optimizations.
+<pre>
+  PCRE2_AUTO_POSSESS
+  PCRE2_AUTO_POSSESS_OFF
+</pre>
+Enable/disable "auto-possessification" of variable quantifiers such as * and +.
+This optimization, for example, turns a+b into a++b in order to avoid
+backtracks into a+ that can never be successful. However, if callouts are in
+use, auto-possessification means that some callouts are never taken. You can
+disable this optimization if you want the matching functions to do a full,
+unoptimized search and run all the callouts.
+<pre>
+  PCRE2_DOTSTAR_ANCHOR
+  PCRE2_DOTSTAR_ANCHOR_OFF
+</pre>
+Enable/disable an optimization that is applied when .* is the first significant
+item in a top-level branch of a pattern, and all the other branches also start
+with .* or with \A or \G or ^. Such a pattern is automatically anchored if
+PCRE2_DOTALL is set for all the .* items and PCRE2_MULTILINE is not set for any
+^ items. Otherwise, the fact that any match must start either at the start of
+the subject or following a newline is remembered. Like other optimizations,
+this can cause callouts to be skipped.
+</P>
+<P>
+Dotstar anchor optimization is automatically disabled for .* if it is inside an
+atomic group or a capture group that is the subject of a backreference, or if
+the pattern contains (*PRUNE) or (*SKIP).
+<pre>
+  PCRE2_START_OPTIMIZE
+  PCRE2_START_OPTIMIZE_OFF
+</pre>
+Enable/disable optimizations which cause matching functions to scan the subject
+string for specific code unit values before attempting a match. For example, if
+it is known that an unanchored match must start with a specific value, the
+matching code searches the subject for that value, and fails immediately if it
+cannot find it, without actually running the main matching function. This means
+that a special item such as (*COMMIT) at the start of a pattern is not
+considered until after a suitable starting point for the match has been found.
+Also, when callouts or (*MARK) items are in use, these "start-up" optimizations
+can cause them to be skipped if the pattern is never actually used. The start-up
+optimizations are in effect a pre-scan of the subject that takes place before
+the pattern is run.
+</P>
+<P>
+Disabling start-up optimizations ensures that in cases where the result is "no
+match", the callouts do occur, and that items such as (*COMMIT) and (*MARK) are
+considered at every possible starting position in the subject string.
+</P>
+<P>
+Disabling start-up optimizations may change the outcome of a matching operation.
+Consider the pattern
+<pre>
+  (*COMMIT)ABC
+</pre>
+When this is compiled, PCRE2 records the fact that a match must start with the
+character "A". Suppose the subject string is "DEFABC". The start-up
+optimization scans along the subject, finds "A" and runs the first match
+attempt from there. The (*COMMIT) item means that the pattern must match the
+current starting position, which in this case, it does. However, if the same
+match is run without start-up optimizations, the initial scan along the subject
+string does not happen. The first match attempt is run starting from "D" and
+when this fails, (*COMMIT) prevents any further matches being tried, so the
+overall result is "no match".
+</P>
+<P>
+Another start-up optimization makes use of a minimum length for a matching
+subject, which is recorded when possible. Consider the pattern
+<pre>
+  (*MARK:1)B(*MARK:2)(X|Y)
+</pre>
+The minimum length for a match is two characters. If the subject is "XXBB", the
+"starting character" optimization skips "XX", then tries to match "BB", which
+is long enough. In the process, (*MARK:2) is encountered and remembered. When
+the match attempt fails, the next "B" is found, but there is only one character
+left, so there are no more attempts, and "no match" is returned with the "last
+mark seen" set to "2". Without start-up optimizations, however, matches are
+tried at every possible starting position, including at the end of the subject,
+where (*MARK:1) is encountered, but there is no "B", so the "last mark seen"
+that is returned is "1". In this case, the optimizations do not affect the
+overall match result, which is still "no match", but they do affect the
+auxiliary information that is returned.
 <a name="matchcontext"></a></P>
 <br><b>
 The match context
@@ -1008,6 +1124,19 @@ documentation.
 This sets up a callout function for PCRE2 to call after each substitution
 made by <b>pcre2_substitute()</b>. Details are given in the section entitled
 "Creating a new string with substitutions"
+<a href="#substitutions">below.</a>
+<br>
+<br>
+<b>int pcre2_set_substitute_case_callout(pcre2_match_context *<i>mcontext</i>,</b>
+<b>  PCRE2_SIZE (*<i>callout_function</i>)(PCRE2_SPTR, PCRE2_SIZE,</b>
+<b>                                 PCRE2_UCHAR *, PCRE2_SIZE,</b>
+<b>                                 int, void *),</b>
+<b>  void *<i>callout_data</i>);</b>
+<br>
+<br>
+This sets up a callout function for PCRE2 to call when performing case
+transformations inside <b>pcre2_substitute()</b>. Details are given in the
+section entitled "Creating a new string with substitutions"
 <a href="#substitutions">below.</a>
 <br>
 <br>
@@ -1228,7 +1357,10 @@ for the amount of heap memory used by <b>pcre2_match()</b> or
 The output is a uint32_t integer that is set to one if support for just-in-time
 compiling is included in the library; otherwise it is set to zero. Note that
 having the support in the library does not guarantee that JIT will be used for
-any given match. See the
+any given match, and neither does it guarantee that JIT will actually be able
+to function, because it may not be able to allocate executable memory in some
+environments. There is a special call to <b>pcre2_jit_compile()</b> that can be
+used to check this. See the
 <a href="pcre2jit.html"><b>pcre2jit</b></a>
 documentation for more details.
 <pre>
@@ -1431,7 +1563,7 @@ respectively, when <b>pcre2_compile()</b> returns NULL because a compilation
 error has occurred.
 </P>
 <P>
-There are nearly 100 positive error codes that <b>pcre2_compile()</b> may return
+There are over 100 positive error codes that <b>pcre2_compile()</b> may return
 if it finds an error in the pattern. There are also some negative error codes
 that are used for invalid UTF strings when validity checking is in force. These
 are the same as given by <b>pcre2_match()</b> and <b>pcre2_dfa_match()</b>, and
@@ -1540,6 +1672,16 @@ end of the subject, for compatibility with Perl. If you want a multiline
 circumflex also to match after a terminating newline, you must set
 PCRE2_ALT_CIRCUMFLEX.
 <pre>
+  PCRE2_ALT_EXTENDED_CLASS
+</pre>
+Alters the parsing of character classes to follow the extended syntax
+described by Unicode UTS#18. The PCRE2_ALT_EXTENDED_CLASS option has no impact
+on the behaviour of the Perl-specific "(?[...])" syntax for extended classes,
+but instead enables the alternative syntax of extended class behaviour inside
+ordinary "[...]" character classes. See the
+<a href="pcre2pattern.html"><b>pcre2pattern</b></a>
+documentation for details of the character classes supported.
+<pre>
   PCRE2_ALT_VERBNAMES
 </pre>
 By default, for compatibility with Perl, the name in any verb sequence such as
@@ -1569,16 +1711,31 @@ letters in the subject. It is equivalent to Perl's /i option, and it can be
 changed within a pattern by a (?i) option setting. If either PCRE2_UTF or
 PCRE2_UCP is set, Unicode properties are used for all characters with more than
 one other case, and for all characters whose code points are greater than
-U+007F. Note that there are two ASCII characters, K and S, that, in addition to
+U+007F.
+</P>
+<P>
+Note that there are two ASCII characters, K and S, that, in addition to
 their lower case ASCII equivalents, are case-equivalent with U+212A (Kelvin
 sign) and U+017F (long S) respectively. If you do not want this case
 equivalence, you can suppress it by setting PCRE2_EXTRA_CASELESS_RESTRICT.
+</P>
+<P>
+One language family, Turkish and Azeri, has its own case-insensitivity rules,
+which can be selected by setting PCRE2_EXTRA_TURKISH_CASING. This alters the
+behaviour of the 'i', 'I', U+0130 (capital I with dot above), and U+0131
+(small dotless i) characters.
 </P>
 <P>
 For lower valued characters with only one other case, a lookup table is used
 for speed. When neither PCRE2_UTF nor PCRE2_UCP is set, a lookup table is used
 for all code points less than 256, and higher code points (available only in
 16-bit or 32-bit mode) are treated as not having another case.
+</P>
+<P>
+From release 10.45 PCRE2_CASELESS also affects what some of the letter-related
+Unicode property escapes (\p and \P) match. The properties Lu (upper case
+letter), Ll (lower case letter), and Lt (title case letter) are all treated as
+LC (cased letter) when PCRE2_CASELESS is set.
 <pre>
   PCRE2_DOLLAR_ENDONLY
 </pre>
@@ -1775,7 +1932,7 @@ This option locks out the use of Unicode properties for handling \B, \b, \D,
 for the PCRE2_UCP option below. In particular, it prevents the creator of the
 pattern from enabling this facility by starting the pattern with (*UCP). This
 option may be useful in applications that process patterns from external
-sources. The option combination PCRE_UCP and PCRE_NEVER_UCP causes an error.
+sources. The option combination PCRE2_UCP and PCRE2_NEVER_UCP causes an error.
 <pre>
   PCRE2_NEVER_UTF
 </pre>
@@ -1798,85 +1955,57 @@ though the reference can be by name or by number.
 <pre>
   PCRE2_NO_AUTO_POSSESS
 </pre>
-If this option is set, it disables "auto-possessification", which is an
-optimization that, for example, turns a+b into a++b in order to avoid
+If this (deprecated) option is set, it disables "auto-possessification", which
+is an optimization that, for example, turns a+b into a++b in order to avoid
 backtracks into a+ that can never be successful. However, if callouts are in
 use, auto-possessification means that some callouts are never taken. You can
 set this option if you want the matching functions to do a full unoptimized
 search and run all the callouts, but it is mainly provided for testing
 purposes.
+</P>
+<P>
+If a compile context is available, it is recommended to use
+<b>pcre2_set_optimize()</b> with the <i>directive</i> PCRE2_AUTO_POSSESS_OFF rather
+than the compile option PCRE2_NO_AUTO_POSSESS. Note that PCRE2_NO_AUTO_POSSESS
+takes precedence over the <b>pcre2_set_optimize()</b> optimization directives
+PCRE2_AUTO_POSSESS and PCRE2_AUTO_POSSESS_OFF.
 <pre>
   PCRE2_NO_DOTSTAR_ANCHOR
 </pre>
-If this option is set, it disables an optimization that is applied when .* is
-the first significant item in a top-level branch of a pattern, and all the
-other branches also start with .* or with \A or \G or ^. The optimization is
-automatically disabled for .* if it is inside an atomic group or a capture
-group that is the subject of a backreference, or if the pattern contains
-(*PRUNE) or (*SKIP). When the optimization is not disabled, such a pattern is
-automatically anchored if PCRE2_DOTALL is set for all the .* items and
-PCRE2_MULTILINE is not set for any ^ items. Otherwise, the fact that any match
-must start either at the start of the subject or following a newline is
+If this (deprecated) option is set, it disables an optimization that is applied
+when .* is the first significant item in a top-level branch of a pattern, and
+all the other branches also start with .* or with \A or \G or ^. The
+optimization is automatically disabled for .* if it is inside an atomic group
+or a capture group that is the subject of a backreference, or if the pattern
+contains (*PRUNE) or (*SKIP). When the optimization is not disabled, such a
+pattern is automatically anchored if PCRE2_DOTALL is set for all the .* items
+and PCRE2_MULTILINE is not set for any ^ items. Otherwise, the fact that any
+match must start either at the start of the subject or following a newline is
 remembered. Like other optimizations, this can cause callouts to be skipped.
+(If a compile context is available, it is recommended to use
+<b>pcre2_set_optimize()</b> with the <i>directive</i> PCRE2_DOTSTAR_ANCHOR_OFF
+instead.)
 <pre>
   PCRE2_NO_START_OPTIMIZE
 </pre>
 This is an option whose main effect is at matching time. It does not change
 what <b>pcre2_compile()</b> generates, but it does affect the output of the JIT
-compiler.
+compiler. Setting this option is equivalent to calling <b>pcre2_set_optimize()</b>
+with the <i>directive</i> parameter set to PCRE2_START_OPTIMIZE_OFF.
 </P>
 <P>
 There are a number of optimizations that may occur at the start of a match, in
 order to speed up the process. For example, if it is known that an unanchored
 match must start with a specific code unit value, the matching code searches
 the subject for that value, and fails immediately if it cannot find it, without
-actually running the main matching function. This means that a special item
-such as (*COMMIT) at the start of a pattern is not considered until after a
-suitable starting point for the match has been found. Also, when callouts or
-(*MARK) items are in use, these "start-up" optimizations can cause them to be
-skipped if the pattern is never actually used. The start-up optimizations are
+actually running the main matching function. The start-up optimizations are
 in effect a pre-scan of the subject that takes place before the pattern is run.
 </P>
 <P>
-The PCRE2_NO_START_OPTIMIZE option disables the start-up optimizations,
-possibly causing performance to suffer, but ensuring that in cases where the
-result is "no match", the callouts do occur, and that items such as (*COMMIT)
-and (*MARK) are considered at every possible starting position in the subject
-string.
-</P>
-<P>
-Setting PCRE2_NO_START_OPTIMIZE may change the outcome of a matching operation.
-Consider the pattern
-<pre>
-  (*COMMIT)ABC
-</pre>
-When this is compiled, PCRE2 records the fact that a match must start with the
-character "A". Suppose the subject string is "DEFABC". The start-up
-optimization scans along the subject, finds "A" and runs the first match
-attempt from there. The (*COMMIT) item means that the pattern must match the
-current starting position, which in this case, it does. However, if the same
-match is run with PCRE2_NO_START_OPTIMIZE set, the initial scan along the
-subject string does not happen. The first match attempt is run starting from
-"D" and when this fails, (*COMMIT) prevents any further matches being tried, so
-the overall result is "no match".
-</P>
-<P>
-As another start-up optimization makes use of a minimum length for a matching
-subject, which is recorded when possible. Consider the pattern
-<pre>
-  (*MARK:1)B(*MARK:2)(X|Y)
-</pre>
-The minimum length for a match is two characters. If the subject is "XXBB", the
-"starting character" optimization skips "XX", then tries to match "BB", which
-is long enough. In the process, (*MARK:2) is encountered and remembered. When
-the match attempt fails, the next "B" is found, but there is only one character
-left, so there are no more attempts, and "no match" is returned with the "last
-mark seen" set to "2". If NO_START_OPTIMIZE is set, however, matches are tried
-at every possible starting position, including at the end of the subject, where
-(*MARK:1) is encountered, but there is no "B", so the "last mark seen" that is
-returned is "1". In this case, the optimizations do not affect the overall
-match result, which is still "no match", but they do affect the auxiliary
-information that is returned.
+Disabling the start-up optimizations may cause performance to suffer. However,
+this may be desirable for patterns which contain callouts or items such as
+(*COMMIT) and (*MARK). See the above description of PCRE2_START_OPTIMIZE_OFF
+for further details.
 <pre>
   PCRE2_NO_UTF_CHECK
 </pre>
@@ -1931,9 +2060,16 @@ The second effect of PCRE2_UCP is to force the use of Unicode properties for
 upper/lower casing operations, even when PCRE2_UTF is not set. This makes it
 possible to process strings in the 16-bit UCS-2 code. This option is available
 only if PCRE2 has been compiled with Unicode support (which is the default).
-The PCRE2_EXTRA_CASELESS_RESTRICT option (see below) restricts caseless
+</P>
+<P>
+The PCRE2_EXTRA_CASELESS_RESTRICT option (see above) restricts caseless
 matching such that ASCII characters match only ASCII characters and non-ASCII
-characters match only non-ASCII characters.
+characters match only non-ASCII characters. The PCRE2_EXTRA_TURKISH_CASING option
+(see above) alters the matching of the 'i' characters to follow their behaviour
+in Turkish and Azeri languages. For further details on
+PCRE2_EXTRA_CASELESS_RESTRICT and PCRE2_EXTRA_TURKISH_CASING, see the
+<a href="pcre2unicode.html"><b>pcre2unicode</b></a>
+page.
 <pre>
   PCRE2_UNGREEDY
 </pre>
@@ -2070,7 +2206,8 @@ characters. The ASCII letter S is case-equivalent to U+017f (long S) and the
 ASCII letter K is case-equivalent to U+212a (Kelvin sign). This option disables
 recognition of case-equivalences that cross the ASCII/non-ASCII boundary. In a
 caseless match, both characters must either be ASCII or non-ASCII. The option
-can be changed with a pattern by the (?r) option setting.
+can be changed within a pattern by the (*CASELESS_RESTRICT) or (?r) option
+settings.
 <pre>
   PCRE2_EXTRA_ESCAPED_CR_IS_LF
 </pre>
@@ -2097,6 +2234,34 @@ and the end. This is achieved by automatically inserting the code for "\b(?:"
 at the start of the compiled pattern and ")\b" at the end. The option may be
 used with PCRE2_LITERAL. However, it is ignored if PCRE2_EXTRA_MATCH_LINE is
 also set.
+<pre>
+  PCRE2_EXTRA_NO_BS0
+</pre>
+If this option is set (note that its final character is the digit 0) it locks
+out the use of the sequence \0 unless at least one more octal digit follows.
+<pre>
+  PCRE2_EXTRA_PYTHON_OCTAL
+</pre>
+If this option is set, PCRE2 follows Python's rules for interpreting octal
+escape sequences. The rules for handling sequences such as \14, which could
+be an octal number or a back reference are different. Details are given in the
+<a href="pcre2pattern.html"><b>pcre2pattern</b></a>
+documentation.
+<pre>
+  PCRE2_EXTRA_NEVER_CALLOUT
+</pre>
+If this option is set, PCRE2 treats callouts in the pattern as a syntax error,
+returning PCRE2_ERROR_CALLOUT_CALLER_DISABLED. This is useful if the application
+knows that a callout will not be provided to <b>pcre2_match()</b>, so that
+callouts in the pattern are not silently ignored.
+<pre>
+  PCRE2_EXTRA_TURKISH_CASING
+</pre>
+This option alters case-equivalence of the 'i' letters to follow the
+alphabet used by Turkish and Azeri languages. The option can be changed within
+a pattern by the (*TURKISH_CASING) start-of-pattern setting. Either the UTF or
+UCP options must be set. In the 8-bit library, UTF must be set. This option
+cannot be combined with PCRE2_EXTRA_CASELESS_RESTRICT.
 <a name="jitcompiling"></a></P>
 <br><a name="SEC21" href="#TOC1">JUST-IN-TIME (JIT) COMPILATION</a><br>
 <P>
@@ -2303,6 +2468,7 @@ following are true:
   PCRE2_DOTALL is in force for .*
   Neither (*PRUNE) nor (*SKIP) appears in the pattern
   PCRE2_NO_DOTSTAR_ANCHOR is not set
+  Dotstar anchoring has not been disabled with PCRE2_DOTSTAR_ANCHOR_OFF
 </pre>
 For patterns that are auto-anchored, the PCRE2_ANCHORED bit is set in the
 options returned for PCRE2_INFO_ALLOPTIONS.
@@ -3646,9 +3812,10 @@ PCRE2_SUBSTITUTE_OVERFLOW_LENGTH changes what happens when the output buffer is
 too small. The default action is to return PCRE2_ERROR_NOMEMORY immediately. If
 this option is set, however, <b>pcre2_substitute()</b> continues to go through
 the motions of matching and substituting (without, of course, writing anything)
-in order to compute the size of buffer that is needed. This value is passed
-back via the <i>outlengthptr</i> variable, with the result of the function still
-being PCRE2_ERROR_NOMEMORY.
+in order to compute the size of buffer that is needed, which will include the
+extra space for the terminating NUL. This value is passed back via the
+<i>outlengthptr</i> variable, with the result of the function still being
+PCRE2_ERROR_NOMEMORY.
 </P>
 <P>
 Passing a buffer size of zero is a permitted way of finding out how much memory
@@ -3667,18 +3834,26 @@ If PCRE2_SUBSTITUTE_LITERAL is set, the replacement string is not interpreted
 in any way. By default, however, a dollar character is an escape character that
 can specify the insertion of characters from capture groups and names from
 (*MARK) or other control verbs in the pattern. Dollar is the only escape
-character (backslash is treated as literal). The following forms are always
+character (backslash is treated as literal). The following forms are
 recognized:
 <pre>
   $$                  insert a dollar character
-  $&#60;n&#62; or ${&#60;n&#62;}      insert the contents of group &#60;n&#62;
+  $n or ${n}          insert the contents of group <i>n</i>
+  $0 or $&            insert the entire matched substring
+  $`                  insert the substring that precedes the match
+  $'                  insert the substring that follows the match
+  $_                  insert the entire input string
   $*MARK or ${*MARK}  insert a control verb name
 </pre>
-Either a group number or a group name can be given for &#60;n&#62;. Curly brackets are
-required only if the following character would be interpreted as part of the
-number or name. The number may be zero to include the entire matched string.
-For example, if the pattern a(b)c is matched with "=abc=" and the replacement
-string "+$1$0$1+", the result is "=+babcb+=".
+Either a group number or a group name can be given for <i>n</i>, for example $2 or
+$NAME. Curly brackets are required only if the following character would be
+interpreted as part of the number or name. The number may be zero to include
+the entire matched string. For example, if the pattern a(b)c is matched with
+"=abc=" and the replacement string "+$1$0$1+", the result is "=+babcb+=".
+</P>
+<P>
+The JavaScript form $&#60;name&#62;, where the angle brackets are part of the syntax,
+is also recognized for group names, but not for group numbers or *MARK.
 </P>
 <P>
 $*MARK inserts the name from the last encountered backtracking control verb on
@@ -3732,28 +3907,53 @@ not influence the extended substitution syntax described below.
 PCRE2_SUBSTITUTE_EXTENDED causes extra processing to be applied to the
 replacement string. Without this option, only the dollar character is special,
 and only the group insertion forms listed above are valid. When
-PCRE2_SUBSTITUTE_EXTENDED is set, two things change:
+PCRE2_SUBSTITUTE_EXTENDED is set, several things change:
 </P>
 <P>
 Firstly, backslash in a replacement string is interpreted as an escape
-character. The usual forms such as \n or \x{ddd} can be used to specify
-particular character codes, and backslash followed by any non-alphanumeric
-character quotes that character. Extended quoting can be coded using \Q...\E,
-exactly as in pattern strings.
+character. The usual forms such as \x{ddd} can be used to specify particular
+character codes, and backslash followed by any non-alphanumeric character
+quotes that character. Extended quoting can be coded using \Q...\E, exactly
+as in pattern strings. The escapes \b and \v are interpreted as the
+characters backspace and vertical tab, respectively.
+</P>
+<P>
+The interpretation of backslash followed by one or more digits is the same as
+in a pattern, which in Perl has some ambiguities. Details are given in the
+<a href="pcre2pattern.html"><b>pcre2pattern</b></a>
+page.
+</P>
+<P>
+The Python form \g&#60;n&#62;, where the angle brackets are part of the syntax and <i>n</i>
+is either a group name or number, is recognized as an altertive way of
+inserting the contents of a group, for example \g&#60;3&#62;.
 </P>
 <P>
 There are also four escape sequences for forcing the case of inserted letters.
-The insertion mechanism has three states: no case forcing, force upper case,
-and force lower case. The escape sequences change the current state: \U and
-\L change to upper or lower case forcing, respectively, and \E (when not
-terminating a \Q quoted sequence) reverts to no case forcing. The sequences
-\u and \l force the next character (if it is a letter) to upper or lower
-case, respectively, and then the state automatically reverts to no case
-forcing. Case forcing applies to all inserted characters, including those from
-capture groups and letters within \Q...\E quoted sequences. If either
-PCRE2_UTF or PCRE2_UCP was set when the pattern was compiled, Unicode
+Case forcing applies to all inserted characters, including those from capture
+groups and letters within \Q...\E quoted sequences. The insertion mechanism
+has three states: no case forcing, force upper case, and force lower case. The
+escape sequences change the current state: \U and \L change to upper or lower
+case forcing, respectively, and \E (when not terminating a \Q quoted
+sequence) reverts to no case forcing. The sequences \u and \l force the next
+character (if it is a letter) to upper or lower case, respectively, and then
+the state automatically reverts to no case forcing.
+</P>
+<P>
+However, if \u is immediately followed by \L or \l is immediately followed
+by \U, the next character's case is forced by the first escape sequence, and
+subsequent characters by the second. This provides a "title casing" facility
+that can be applied to group captures. For example, if group 1 has captured
+"heLLo", the replacement string "\u\L$1" becomes "Hello".
+</P>
+<P>
+If either PCRE2_UTF or PCRE2_UCP was set when the pattern was compiled, Unicode
 properties are used for case forcing characters whose code points are greater
-than 127.
+than 127. However, only simple case folding, as determined by the Unicode file
+<b>CaseFolding.txt</b> is supported. PCRE2 does not support language-specific
+special casing rules such as using different lower case Greek sigmas in the
+middle and ends of words (as defined in the Unicode file
+<b>SpecialCasing.txt</b>).
 </P>
 <P>
 Note that case forcing sequences such as \U...\E do not nest. For example,
@@ -3762,20 +3962,20 @@ effect. Note also that the PCRE2_ALT_BSUX and PCRE2_EXTRA_ALT_BSUX options do
 not apply to replacement strings.
 </P>
 <P>
-The second effect of setting PCRE2_SUBSTITUTE_EXTENDED is to add more
+The final effect of setting PCRE2_SUBSTITUTE_EXTENDED is to add more
 flexibility to capture group substitution. The syntax is similar to that used
 by Bash:
 <pre>
-  ${&#60;n&#62;:-&#60;string&#62;}
-  ${&#60;n&#62;:+&#60;string1&#62;:&#60;string2&#62;}
+  ${n:-string}
+  ${n:+string1:string2}
 </pre>
-As before, &#60;n&#62; may be a group number or a name. The first form specifies a
-default value. If group &#60;n&#62; is set, its value is inserted; if not, &#60;string&#62; is
-expanded and the result inserted. The second form specifies strings that are
-expanded and inserted when group &#60;n&#62; is set or unset, respectively. The first
-form is just a convenient shorthand for
+As in the simple case, <i>n</i> may be a group number or a name. The first form
+specifies a default value. If group <i>n</i> is set, its value is inserted; if
+not, the string is expanded and the result inserted. The second form specifies
+strings that are expanded and inserted when group <i>n</i> is set or unset,
+respectively. The first form is just a convenient shorthand for
 <pre>
-  ${&#60;n&#62;:+${&#60;n&#62;}:&#60;string&#62;}
+  ${n:+${n}:string}
 </pre>
 Backslash can be used to escape colons and closing curly brackets in the
 replacement strings. A change of the case forcing state within a replacement
@@ -3852,9 +4052,18 @@ Substitution callouts
 The <b>pcre2_set_substitution_callout()</b> function can be used to specify a
 callout function for <b>pcre2_substitute()</b>. This information is passed in
 a match context. The callout function is called after each substitution has
-been processed, but it can cause the replacement not to happen. The callout
-function is not called for simulated substitutions that happen as a result of
-the PCRE2_SUBSTITUTE_OVERFLOW_LENGTH option.
+been processed, but it can cause the replacement not to happen.
+</P>
+<P>
+The callout function is not called for simulated substitutions that happen as a
+result of the PCRE2_SUBSTITUTE_OVERFLOW_LENGTH option. In this mode, when
+substitution processing exceeds the buffer space provided by the caller,
+processing continues by counting code units. The simulation is unable to
+populate the callout block, and so the simulation is pessimistic about the
+required buffer size. Whichever is larger of accepted or rejected substitution
+is reported as the required size. Therefore, the returned buffer length may be
+an overestimate (without a substitution callout, it is normally an exact
+measurement).
 </P>
 <P>
 The first argument of the callout function is a pointer to a substitute callout
@@ -3902,6 +4111,107 @@ PCRE2_SUBSTITUTE_GLOBAL is set. Otherwise (the value is less than zero or
 PCRE2_SUBSTITUTE_GLOBAL is not set), the rest of the input is copied to the
 output and the call to <b>pcre2_substitute()</b> exits, returning the number of
 matches so far.
+</P>
+<br><b>
+Substitution case callouts
+</b><br>
+<P>
+<b>int pcre2_set_substitute_case_callout(pcre2_match_context *<i>mcontext</i>,</b>
+<b>  PCRE2_SIZE (*<i>callout_function</i>)(PCRE2_SPTR, PCRE2_SIZE,</b>
+<b>                                 PCRE2_UCHAR *, PCRE2_SIZE,</b>
+<b>                                 int, void *),</b>
+<b>  void *<i>callout_data</i>);</b>
+<br>
+<br>
+The <b>pcre2_set_substitution_case_callout()</b> function can be used to specify
+a callout function for <b>pcre2_substitute()</b> to use when performing case
+transformations. This does not affect any case insensitivity behaviour when
+performing a match, but only the user-visible transformations performed when
+processing a substitution such as:
+<pre>
+    pcre2_substitute(..., "\\U$1", ...)
+</PRE>
+</P>
+<P>
+The default case transformations applied by PCRE2 are reasonably complete, and,
+in UTF or UCP mode, perform the simple locale-invariant case transformations as
+specified by Unicode. This is suitable for the internal (invisible)
+case-equivalence procedures used during pattern matching, but an application
+may wish to use more sophisticated locale-aware processing for the user-visible
+substitution transformations.
+</P>
+<P>
+One example implementation of the <i>callout_function</i> using the ICU
+library would be:
+<br>
+<br>
+<pre>
+    PCRE2_SIZE
+    icu_case_callout(
+      PCRE2_SPTR input, PCRE2_SIZE input_len,
+      PCRE2_UCHAR *output, PCRE2_SIZE output_cap,
+      int to_case, void *data_ptr)
+    {
+      UErrorCode err = U_ZERO_ERROR;
+      int32_t r = to_case == PCRE2_SUBSTITUTE_CASE_LOWER
+        ? u_strToLower(output, output_cap, input, input_len, NULL, &err)
+        : to_case == PCRE2_SUBSTITUTE_CASE_UPPER
+        ? u_strToUpper(output, output_cap, input, input_len, NULL, &err)
+        : u_strToTitle(output, output_cap, input, input_len, &first_char_only,
+                       NULL, &err);
+      if (U_FAILURE(err)) return (~(PCRE2_SIZE)0);
+      return r;
+    }
+</PRE>
+</P>
+<P>
+The first and second arguments of the case callout function are the Unicode
+string to transform.
+</P>
+<P>
+The third and fourth arguments are the output buffer and its capacity.
+</P>
+<P>
+The fifth is one of the constants PCRE2_SUBSTITUTE_CASE_LOWER,
+PCRE2_SUBSTITUTE_CASE_UPPER, or PCRE2_SUBSTITUTE_CASE_TITLE_FIRST.
+PCRE2_SUBSTITUTE_CASE_LOWER and PCRE2_SUBSTITUTE_CASE_UPPER are passed to the
+callout to indicate that the case of the entire callout input should be
+case-transformed. PCRE2_SUBSTITUTE_CASE_TITLE_FIRST is passed to indicate that
+only the first character or glyph should be transformed to Unicode titlecase
+and the rest to Unicode lowercase (note that titlecasing sometimes uses Unicode
+properties to titlecase each word in a string; but PCRE2 is requesting that only
+the single leading character is to be titlecased).
+</P>
+<P>
+The sixth argument is the <i>callout_data</i> supplied to
+<b>pcre2_set_substitute_case_callout()</b>.
+</P>
+<P>
+The resulting string in the destination buffer may be larger or smaller than the
+input, if the casing rules merge or split characters. The return value is the
+length required for the output string. If a buffer of sufficient size was
+provided to the callout, then the result must be written to the buffer and the
+number of code units returned. If the result does not fit in the provided
+buffer, then the required capacity must be returned and PCRE2 will not make use
+of the output buffer. PCRE2 provides input and output buffers which overlap, so
+the callout must support this by suitable internal buffering.
+</P>
+<P>
+Alternatively, if the callout wishes to indicate an error, then it may return
+(~(PCRE2_SIZE)0). In this case pcre2_substitute() will immediately fail with
+error PCRE2_ERROR_REPLACECASE.
+</P>
+<P>
+When a case callout is combined with the PCRE2_SUBSTITUTE_OVERFLOW_LENGTH
+option, there are situations when pcre2_substitute() will return an
+underestimate of the required buffer size. If you call pcre2_substitute() once
+with PCRE2_SUBSTITUTE_OVERFLOW_LENGTH, and the input buffer is too small for
+the replacement string to be constructed, then instead of calling the case
+callout, pcre2_substitute() will make an estimate of the required buffer size.
+The second call should also pass PCRE2_SUBSTITUTE_OVERFLOW_LENGTH, because that
+second call is not guaranteed to succeed either, if the case callout requires
+more buffer space than expected. The caller must make repeated attempts in a
+loop.
 </P>
 <br><a name="SEC38" href="#TOC1">DUPLICATE CAPTURE GROUP NAMES</a><br>
 <P>
@@ -4177,7 +4487,7 @@ Cambridge, England.
 </P>
 <br><a name="SEC43" href="#TOC1">REVISION</a><br>
 <P>
-Last updated: 24 April 2024
+Last updated: 26 December 2024
 <br>
 Copyright &copy; 1997-2024 University of Cambridge.
 <br>

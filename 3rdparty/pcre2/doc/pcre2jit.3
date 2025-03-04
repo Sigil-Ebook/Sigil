@@ -1,4 +1,4 @@
-.TH PCRE2JIT 3 "21 February 2024" "PCRE2 10.43"
+.TH PCRE2JIT 3 "22 August 2024" "PCRE2 10.45"
 .SH NAME
 PCRE2 - Perl-compatible regular expressions (revised API)
 .SH "PCRE2 JUST-IN-TIME COMPILER SUPPORT"
@@ -38,7 +38,7 @@ platforms:
 .sp
 If --enable-jit is set on an unsupported platform, compilation fails.
 .P
-A client program can tell if JIT support is available by calling
+A client program can tell if JIT support has been compiled by calling
 \fBpcre2_config()\fP with the PCRE2_CONFIG_JIT option. The result is one if
 PCRE2 was built with JIT support, and zero otherwise. However, having the JIT
 code available does not guarantee that it will be used for any particular
@@ -49,9 +49,16 @@ items that are
 not supported by JIT
 .\"
 (see below). Another reason is that in some environments JIT is unable to get
-memory in which to build its compiled code. The only guarantee from
+executable memory in which to build its compiled code. The only guarantee from
 \fBpcre2_config()\fP is that if it returns zero, JIT will definitely \fInot\fP
 be used.
+.P
+As of release 10.45 there is a more informative way to test for JIT support. If
+\fBpcre2_compile_jit()\fP is called with the single option PCRE2_JIT_TEST_ALLOC
+it returns zero if JIT is available and has a working allocator. Otherwise it
+returns PCRE2_ERROR_NOMEMORY if JIT is available but cannot allocate executable
+memory, or PCRE2_ERROR_JIT_UNSUPPORTED if JIT support is not compiled. The
+code argument is ignored, so it can be a NULL value.
 .P
 A simple program does not need to check availability in order to use JIT when
 possible. The API is implemented in a way that falls back to the interpretive
@@ -103,7 +110,8 @@ option bits. For example, you can call it once with PCRE2_JIT_COMPLETE and
 PCRE2_JIT_COMPLETE and PCRE2_JIT_PARTIAL_HARD. This time it will ignore
 PCRE2_JIT_COMPLETE and just compile code for partial matching. If
 \fBpcre2_jit_compile()\fP is called with no option bits set, it immediately
-returns zero. This is an alternative way of testing whether JIT is available.
+returns zero. This is an alternative way of testing whether JIT support has
+been compiled.
 .P
 At present, it is not possible to free JIT compiled code except when the entire
 compiled pattern is freed by calling \fBpcre2_code_free()\fP.
@@ -476,6 +484,6 @@ Cambridge, England.
 .rs
 .sp
 .nf
-Last updated: 21 February 2024
+Last updated: 22 August 2024
 Copyright (c) 1997-2024 University of Cambridge.
 .fi
