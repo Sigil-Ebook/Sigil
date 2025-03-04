@@ -106,7 +106,7 @@ Currently these projects include:
 
 * Hunspell 1.7.2 - https://github.com/hunspell/hunspell
 * MiniZip version 1.1 (plus some security changes)
-* Perl-compatible Regular Expression Library 2 (pcre2 version 10.44)
+* Perl-compatible Regular Expression Library 2 (pcre2 version 10.45)
 * ZLib Data Compression Library (zlib 1.3.1)
 * jQuery-3.6.4 (src/Resource_Files/javascript/jquery-3.6.4.min.js)
 * jQuery.ScrollTo-2.1.2 (src/Resource_Files/javascript/jquery.scrollTo-2.1.2.min.js)
