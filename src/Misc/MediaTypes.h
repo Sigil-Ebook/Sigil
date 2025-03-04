@@ -47,6 +47,7 @@ public:
     QString GetMediaTypeFromXML(const QString& absolute_file_path, const QString &fallback = "");
     QString GetGroupFromMediaType(const QString &mediatype, const QString &fallback = "");
     QString GetResourceDescFromMediaType(const QString &mediatype, const QString &fallback = "");
+    QString GetFileExtFromMediaType(const QString &media_type, const QString & fallback="");
 
 private:
 
@@ -58,11 +59,15 @@ private:
 
     void SetMTypeToRDescMap();
 
+    void SetMTypeToExtMap();
+
     QHash<QString, QString> m_ExtToMType;
     
     QHash<QString, QString> m_MTypeToGroup;
 
     QHash<QString, QString>m_MTypeToRDesc;
+
+    QHash<QString, QString>m_MTypeToExt;
     
     static MediaTypes *m_instance;
 };

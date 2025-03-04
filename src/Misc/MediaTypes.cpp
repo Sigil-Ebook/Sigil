@@ -187,12 +187,19 @@ QString MediaTypes::GetResourceDescFromMediaType(const QString &media_type, cons
     return desc;
 }
 
+QString MediaTypes::GetFileExtFromMediaType(const QString &media_type, const QString & fallback)
+{
+    QString ext = m_MTypeToExt.value(media_type, "");
+    if (ext.isEmpty())return fallback;
+    return ext;
+}
 
 MediaTypes::MediaTypes()
 {
     SetExtToMTypeMap();
     SetMTypeToGroupMap();
     SetMTypeToRDescMap();
+    SetMTypeToExtMap();
 }
 
 void MediaTypes::SetExtToMTypeMap()
@@ -212,6 +219,7 @@ void MediaTypes::SetExtToMTypeMap()
     m_ExtToMType[ "jpeg"  ] = "image/jpeg";
     m_ExtToMType[ "jpg"   ] = "image/jpeg";
     m_ExtToMType[ "js"    ] = "application/javascript";
+    m_ExtToMType[ "es"    ] = "application/ecmascript";
     m_ExtToMType[ "m4a"   ] = "audio/mp4";
     m_ExtToMType[ "m4v"   ] = "video/mp4";
     m_ExtToMType[ "mp3"   ] = "audio/mpeg";
@@ -405,6 +413,103 @@ void MediaTypes::SetMTypeToRDescMap()
     m_MTypeToRDesc[ "application/pdf"                         ] = "PdfResource";  // not a core media type
 
     m_MTypeToRDesc[ "vnd.apple.ibooks+xml"                    ] = "Resource";
+
+}
+
+
+void MediaTypes::SetMTypeToExtMap()
+{
+    if (!m_MTypeToExt.isEmpty()) {
+        return;
+    }
+
+    // Base Epub
+    m_MTypeToExt[ "application/epub+zip"                    ] = "epub";
+    m_MTypeToExt[ "application/oebps-package+xml"           ] = "opf";
+    m_MTypeToExt[ "application/x-dtbncx+xml"                ] = "ncx";
+    m_MTypeToExt[ "application/smil+xml"                    ] = "smil";
+    m_MTypeToExt[ "application/pls+xml"                     ] = "pls";
+    m_MTypeToExt[ "application/xhtml+xml"                   ] = "xhtml";
+    m_MTypeToExt[ "application/x-dtbook+xml"                ] = "xhtml";
+    m_MTypeToExt[ "text/html"                               ] = "xhtml";
+    m_MTypeToExt[ "text/css"                                ] = "css";
+
+    // Adobe Specific
+    m_MTypeToExt[ "application/adobe-page-template+xml"     ] = "xpgt";
+    m_MTypeToExt[ "application/vnd.adobe-page-template+xml" ] = "xpgt";
+    m_MTypeToExt[ "application/oebps-page-map+xml"          ] = "xml";
+    m_MTypeToExt[ "application/vnd.adobe-page-map+xml"      ] = "xml";
+    m_MTypeToExt[ "application/pdf"                         ] = "pdf";
+
+    // Apple Specific
+    m_MTypeToExt[ "vnd.apple.ibooks+xml"                    ] = "xml";
+
+    // Images
+    m_MTypeToExt[ "image/bmp"                               ] = "bmp";
+    m_MTypeToExt[ "image/gif"                               ] = "gif";
+    m_MTypeToExt[ "image/jpeg"                              ] = "jpg"; // jpeg
+    m_MTypeToExt[ "image/png"                               ] = "png";
+    m_MTypeToExt[ "image/svg+xml"                           ] = "svg";
+    m_MTypeToExt[ "image/tiff"                              ] = "tif"; // tiff
+    m_MTypeToExt[ "image/webp"                              ] = "webp";
+
+    // Fonts - Opentype
+    m_MTypeToExt[ "font/otf"                                ] = "otf";
+    m_MTypeToExt[ "application/vnd.ms-opentype"             ] = "otf";
+    m_MTypeToExt[ "application/x-font-otf"                  ] = "otf";
+    m_MTypeToExt[ "application/x-font-opentype"             ] = "otf";
+    m_MTypeToExt[ "application/x-opentype-font"             ] = "otf";
+    m_MTypeToExt[ "application/font-otf"                    ] = "otf";
+
+    // Fonts - Truetype
+    m_MTypeToExt[ "font/ttf"                                ] = "ttf";
+    m_MTypeToExt[ "application/x-font-ttf"                  ] = "ttf";
+    m_MTypeToExt[ "application/x-font-truetype"             ] = "ttf";
+    m_MTypeToExt[ "application/x-truetype-font"             ] = "ttf";
+    m_MTypeToExt[ "application/font-ttf"                    ] = "ttf";
+
+    // Font Collection TrueType
+    m_MTypeToExt[ "font/collection"                         ] = "ttc";
+    m_MTypeToExt[ "application/x-font-truetype-collection"  ] = "ttc";
+
+    // Font - woff / woff2    
+    m_MTypeToExt[ "font/woff"                               ] = "woff";
+    m_MTypeToExt[ "application/font-woff"                   ] = "woff";
+    m_MTypeToExt[ "font/woff2"                              ] = "woff2";
+    m_MTypeToExt[ "application/font-woff2"                  ] = "woff2";
+
+    // Font Scalable
+    m_MTypeToExt[ "font/sfnt"                               ] = "sfnt"; // ttf or otf
+    m_MTypeToExt[ "application/font-sfnt"                   ] = "sfnt"; // ttf or otf
+
+    // Javascript
+    m_MTypeToExt[ "application/javascript"                  ] = "js";
+    m_MTypeToExt[ "application/x-javascript"                ] = "js";
+    m_MTypeToExt[ "application/ecmascript"                  ] = "es"; // js
+    m_MTypeToExt[ "text/javascript"                         ] = "js";
+
+    // Text Plain
+    m_MTypeToExt[ "text/plain"                              ] = "txt";
+
+    // Xml (general)
+    m_MTypeToExt[ "application/xml"                         ] = "xml";
+    m_MTypeToExt[ "text/xml"                                ] = "xml";
+
+    // Audio
+    m_MTypeToExt[ "audio/mpeg"                              ] = "mpeg";
+    m_MTypeToExt[ "audio/mp3"                               ] = "mp3";
+    m_MTypeToExt[ "audio/mp4"                               ] = "m4a";
+    m_MTypeToExt[ "audio/ogg"                               ] = "ogg";
+    m_MTypeToExt[ "audio/opus"                              ] = "opus";
+
+    // Video
+    m_MTypeToExt[ "video/mp4"                               ] = "m4v"; // mp4  
+    m_MTypeToExt[ "video/ogg"                               ] = "ogv";
+    m_MTypeToExt[ "video/webm"                              ] = "webm";
+
+    // Video Captioning
+    m_MTypeToExt[ "text/vtt"                                ] = "vtt";
+    m_MTypeToExt[ "application/ttml+xml"                    ] = "ttml";
 
 }
 
