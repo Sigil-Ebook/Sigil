@@ -446,7 +446,6 @@ QList <Resource *> BookBrowser::AllMediaResources()
     resources.append(m_OPFModel->GetResourceListInFolder(Resource::SVGResourceType));
 #endif
     resources.append(m_OPFModel->GetResourceListInFolder(Resource::VideoResourceType));
-    resources.append(m_OPFModel->GetResourceListInFolder(Resource::VideoResourceType));
     resources.append(m_OPFModel->GetResourceListInFolder(Resource::AudioResourceType));
     return resources;
 }

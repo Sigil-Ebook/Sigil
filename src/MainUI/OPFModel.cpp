@@ -163,7 +163,9 @@ QList <Resource *> OPFModel::GetResourceListInFolder(Resource::ResourceType reso
             QStandardItem *item = folder->child(i);
             QString identifier = item->data().toString();
             Resource *resource = m_Book->GetFolderKeeper()->GetResourceByIdentifier(identifier);
-            resources.append(resource);
+            if (resource->Type() == resource_type) { 
+                resources.append(resource);
+            }
         }
     }
 
