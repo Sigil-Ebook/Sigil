@@ -187,6 +187,7 @@ static const QStringList AUTOMATE_TOOLS = QStringList() <<
     "SetPluginParameter" <<
     "SplitOnSGFSectionMarkers" <<
     "StandardizeEpub" <<
+    "UseStandardFileExtensions" <<
     "UpdateManifestProperties" <<
     "ValidateStylesheetsWithW3C" <<
     "WellFormedCheckEpub";
@@ -415,6 +416,7 @@ bool MainWindow::Automate(const QStringList &commands)
             else if (cmd == "DeleteUnusedMedia")          success = DeleteUnusedMedia(true);
             else if (cmd == "DeleteUnusedStyles")         success = DeleteUnusedStyles(true);
             else if (cmd == "StandardizeEpub")            success = StandardizeEpub();
+            else if (cmd == "UseStanadrdFileExtensions")  success = UseStandardFileExtensions();
             else if (cmd == "SplitOnSGFSectionMarkers")   success = SplitOnSGFSectionMarkers();
             else if (cmd == "AddCover")                   success = AddCover();
             else if (cmd == "GenerateTOC")                success = GenerateTOC(true);
@@ -774,6 +776,100 @@ bool MainWindow::StandardizeEpub()
         setWindowTitle(tr("%1[*] - epub%2 - %3").arg(m_CurrentFileName).arg(epubversion).arg(tr("Sigil")));
     }
     ShowMessageOnStatusBar(tr("Restructure completed."));
+    return true;
+}
+
+
+bool MainWindow::UseStandardFileExtensions()
+{
+    SaveTabData();
+
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+
+    // perform well-formed check on all the html resources
+    QList<HTMLResource *> htmlresources = m_Book->GetHTMLResources();
+    foreach (HTMLResource * hresource, htmlresources) {
+        if (!hresource->FileIsWellFormed()) {
+            Utility::warning(this, tr("Sigil"), 
+                                 tr("Bulk rename cancelled: %1, XML not well formed.").arg(hresource->ShortPathName()));
+            QApplication::restoreOverrideCursor();
+            return false;
+        }
+    }
+    // make sure opf is in good shape as well
+    OPFResource* opfresource = m_Book->GetOPF();
+    if (!opfresource->FileIsWellFormed()) {
+        Utility::warning(this, tr("Sigil"),
+                             tr("Bulk rename cancelled: %1, OPF not well formed.").arg(opfresource->ShortPathName()));
+        QApplication::restoreOverrideCursor();
+        return false;
+    }
+
+    QList<Resource*> resources;
+    QStringList newfilenames;
+    
+    // first special case the opf and ncx by handling them first
+    QString opfname = m_Book->GetOPF()->Filename();
+    if (!opfname.endsWith(".opf")) {
+        QStringList parts = opfname.split('.');
+        if (parts.size() > 1) {
+            parts.last() = "opf";
+        } else {
+            parts << "opf";
+        }
+        resources << m_Book->GetOPF();
+        newfilenames << parts.join('.');
+    }
+    NCXResource * ncx = m_Book->GetNCX();
+    if (ncx) {
+        QString ncxname = ncx->Filename();
+        if (!ncxname.endsWith(".ncx")) {
+            QStringList parts = ncxname.split('.');
+            if (parts.size() > 1) {
+                parts.last() = "ncx";
+            } else {
+                parts << "ncx";
+            }
+            resources << m_Book->GetNCX();
+            newfilenames << parts.join('.');
+        }
+    }
+    if (!newfilenames.isEmpty()) {
+        m_BookBrowser->RenameResourceList(resources, newfilenames);
+    }
+
+    //now handle all other files
+    newfilenames.clear();
+    resources.clear();
+
+    foreach(Resource* resource, m_Book->GetFolderKeeper()->GetResourceList()) {
+        QString aname = resource->Filename();
+        QString mt = resource->GetMediaType();
+        QString ext = MediaTypes::instance()->GetFileExtFromMediaType(mt);
+        if (!ext.isEmpty()) {
+            if (!aname.endsWith("." + ext)) {
+                QStringList parts = aname.split('.');
+                if (parts.size() > 1) {
+                    parts.last() = ext;
+                } else {
+                    parts << ext;
+                }
+                resources << resource;
+                newfilenames << parts.join('.');
+            }
+        }
+    }
+    if (!newfilenames.isEmpty()) {
+        m_BookBrowser->RenameResourceList(resources, newfilenames);
+    }
+
+    // update what is needed
+    m_Book->GetFolderKeeper()->updateShortPathNames();
+    m_BookBrowser->Refresh();
+    m_Book->SetModified();
+    QApplication::restoreOverrideCursor();
+
+    ShowMessageOnStatusBar(tr("Bulk rename completed."));
     return true;
 }
 
@@ -5959,6 +6055,7 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionNewSVGFile, "MainWindow.NewSVGFile");
     sm->registerAction(this, ui.actionAddExistingFile, "MainWindow.AddExistingFile");
     sm->registerAction(this, ui.actionStandardize, "MainWindow.StandardizeEpub");
+    sm->registerAction(this, ui.actionStdFileExts, "MainWindow.UseStandardFileExtensions");
     sm->registerAction(this, ui.actionRebaseManifestIDs, "MainWindow.RebaseManifestIDs");
     sm->registerAction(this, ui.actionCustomLayout, "MainWindow.CustomLayout");
     sm->registerAction(this, ui.actionOpen, "MainWindow.Open");
@@ -6356,6 +6453,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionAbout,         SIGNAL(triggered()), this, SLOT(AboutDialog()));
     // Tools
     connect(ui.actionStandardize,                SIGNAL(triggered()), this, SLOT(StandardizeEpub()));
+    connect(ui.actionStdFileExts,                SIGNAL(triggered()), this, SLOT(UseStandardFileExtensions()));
     connect(ui.actionRebaseManifestIDs,          SIGNAL(triggered()), this, SLOT(RebaseManifestIDs()));
     connect(ui.actionUpdateManifestMediaTypes,   SIGNAL(triggered()), this, SLOT(UpdateManifestMediaTypes()));
     connect(ui.actionCustomLayout,               SIGNAL(triggered()), this, SLOT(CreateEpubLayout()));

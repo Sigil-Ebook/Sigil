@@ -386,6 +386,7 @@
     <addaction name="actionMetaEditor"/>
     <addaction name="menuTOC"/>
     <addaction name="actionStandardize" />
+    <addaction name="actionStdFileExts" />
     <addaction name="actionRebaseManifestIDs" />
     <addaction name="actionUpdateManifestMediaTypes"/>
     <addaction name="actionCustomLayout" />
@@ -1529,6 +1530,14 @@
    </property>
    <property name="toolTip">
     <string>Restructure Epub to Sigil Standard Form</string>
+   </property>
+  </action>
+  <action name="actionStdFileExts">
+   <property name="text">
+    <string>Use Standard File Extensions</string>
+   </property>
+   <property name="toolTip">
+    <string>Rename all files to use standard file extensions</string>
    </property>
   </action>
     <action name="actionRebaseManifestIDs">

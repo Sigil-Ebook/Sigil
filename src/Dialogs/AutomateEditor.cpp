@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-**  Copyright (C) 2021 Kevin B. Hendricks, Stratford, ON Canada
+**  Copyright (C) 2021-2025 Kevin B. Hendricks, Stratford, ON Canada
 **  Based on the MetaEditor, AddMetadata Dialogs design
 **  This file is part of Sigil.
 **
@@ -319,6 +319,7 @@ void AutomateEditor::loadToolElements()
 
          "SplitOnSGFSectionMarkers" << "SplitOnSGFSectionMarkers" << tr("Split XHtml files on Sigil Section Markers") <<
          "StandardizeEpub" << "StandardizeEpub" << tr("Convert Epub layout to Sigil's historic Standard form.") <<
+         "UseStandardFileExtensions" << "UseStandardFileExtensions" << tr("Rename files to use standard file extensions for their media type.") <<
          "UpdateManifestProperties" << "UpdateManifestProperties" << tr("Update Epub3 OPF Manifest properties.") <<
          "ValidateStylesheetsWithW3C" << "ValidateStylesheetsWithW3C" << tr("Validate All Stylesheets with W3C in external browser.") <<
          "WellFormedCheckEpub" << "WellFormedCheckEpub" << tr("Perform a basic Well-Formed Check on Epub XHtml files.");
