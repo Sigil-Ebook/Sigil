@@ -139,7 +139,7 @@ void PythonFunctionEditor::deleteFunction()
     QString fn = m_cb->currentText();
     QMessageBox::StandardButton button_pressed;
     button_pressed = Utility::warning(this, tr("Sigil"),
-                                      tr("Are you sure you want to delete the function?: ") + fn,
+                                      tr("Are you sure you want to delete the function?:") + "\n" + fn,
                                       QMessageBox::Ok | QMessageBox::Cancel);
     if (button_pressed == QMessageBox::Ok) {
         int idx = m_cb->currentIndex();

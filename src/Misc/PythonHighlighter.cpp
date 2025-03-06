@@ -129,7 +129,7 @@ void PythonHighlighter::initializeRules()
       basicStyles.insert("string2", getTextCharFormat("lightCyan"));
       basicStyles.insert("comment", getTextCharFormat("lightYellow", "italic"));
       basicStyles.insert("self", getTextCharFormat("blue", "italic"));
-      basicStyles.insert("numbers", getTextCharFormat("lightBrown"));
+      basicStyles.insert("numbers", getTextCharFormat("yellow"));
   } else {
       basicStyles.insert("keyword", getTextCharFormat("blue", "bold"));
       basicStyles.insert("operator", getTextCharFormat("darkMagenta"));
