@@ -76,7 +76,6 @@ PythonFunctionEditor::PythonFunctionEditor(QMap<QString,QVariant>& func, const Q
     gl->addWidget(m_butdel, 1, 3);
     gl->addWidget(m_butuse, 1, 4);
     gl->setRowStretch(2,1);
-    m_layout ->addLayout(gl);
     m_layout->addLayout(gl);
     m_layout->addWidget(m_editor);
 
