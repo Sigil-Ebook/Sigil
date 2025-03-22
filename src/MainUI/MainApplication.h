@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2024 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2025 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2024      Doug Massay
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Grant Drake
@@ -67,6 +67,7 @@ private:
     mutable QString m_accumulatedQss;
     QTimer * m_PaletteChangeTimer;
     bool m_AlwaysUseNFC = true;
+    bool m_UseAppPaletteEvent = false;
 };
 
 #endif // MAINAPPLICATION_H
