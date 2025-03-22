@@ -63,7 +63,7 @@ MainApplication::MainApplication(int &argc, char **argv)
 #if defined(Q_OS_WIN32) || defined(Q_OS_MAC)
     m_UseAppPaletteEvent=false;
 #else 
-    if (qEnvironmentVariableIsSet("SIGIL_USE_COLORSCHEME_CHANGED")) m_UseAppPaletteEvent= false;
+    if (qEnvironmentVariableIsSet("SIGIL_USE_COLORSCHEME_CHANGED")) m_UseAppPaletteEvent=false;
 #endif
 #endif
 
@@ -74,6 +74,11 @@ MainApplication::MainApplication(int &argc, char **argv)
         connect(m_PaletteChangeTimer, SIGNAL(timeout()),this, SLOT(systemColorChanged()));
         m_PaletteChangeTimer->stop();
     } else {
+      
+// gcc compiler is not smart enough to optimize the else clause away based on qt version < 6.5.0
+// so we still need this ifdef
+#if QT_VERSION >= QT_VERSION_CHECK(6,5,0)
+
         // Connect Qt system color scheme change signal to reporting mechanism
         DBG qDebug() << "initial styleHints colorScheme: " << styleHints()->colorScheme();
         if (styleHints()->colorScheme() == Qt::ColorScheme::Unknown) {
@@ -84,6 +89,9 @@ MainApplication::MainApplication(int &argc, char **argv)
         connect(styleHints(), &QStyleHints::colorSchemeChanged, this, [this]() {
                     MainApplication::systemColorChanged();
             });
+
+#endif  // Qt 6.5.0 or greater
+
     }
 }
 
@@ -133,6 +141,11 @@ void MainApplication::systemColorChanged()
         // but this is where we are at now
         m_isDark = isdark;
     } else {
+      
+// gcc compiler is not smart enough to optimize the else clause away based on qt version < 6.5.0
+// so we still need this ifdef
+#if QT_VERSION >= QT_VERSION_CHECK(6,5,0)
+
         DBG qDebug() << "    via Qt ColorSDchemeChanged Signal";
         switch (styleHints()->colorScheme())
         {
@@ -157,6 +170,9 @@ void MainApplication::systemColorChanged()
 #endif
                 break;
         }
+
+#endif // Qt 6.5.0 or greater
+
     }
     QTimer::singleShot(0, this, SLOT(EmitPaletteChanged()));
 }
