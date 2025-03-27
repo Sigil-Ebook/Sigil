@@ -17246,45 +17246,45 @@ Entities can be separated by lines, commas, or spaces.</source>
         <translation>사용</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="89"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="88"/>
         <source>Python Function Replace</source>
         <translation>파이썬 함수 바꾸기</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="119"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="118"/>
         <source>Input Name</source>
         <translation>이름 입력</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="120"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="119"/>
         <source>Input Function Name</source>
         <translation>함수명 입력</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="125"/>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="127"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="124"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="126"/>
         <source>Warning</source>
         <translation>경고</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="125"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="124"/>
         <source>Name can not be empty</source>
         <translation>이름에 공백이 포함될 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="127"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="126"/>
         <source>Name can not be duplicate</source>
         <translation>이름이 중복될 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="142"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="141"/>
         <source>Sigil</source>
         <translation>시길</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="143"/>
-        <source>Are you sure you want to delete the function?: </source>
-        <translation>이 기능을 삭제하시겠습니까?: </translation>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="142"/>
+        <source>Are you sure you want to delete the function?:</source>
+        <translation>이 기능을 삭제하시겠습니까?:</translation>
     </message>
 </context>
 <context>

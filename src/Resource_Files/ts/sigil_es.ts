@@ -145,12 +145,12 @@
         <location filename="../../Widgets/AlertBox.cpp" line="102"/>
         <location filename="../../Widgets/AlertBox.cpp" line="108"/>
         <source>Show Details...</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar detalles...</translation>
     </message>
     <message>
         <location filename="../../Widgets/AlertBox.cpp" line="108"/>
         <source>Hide Details...</source>
-        <translation type="unfinished"/>
+        <translation>Ocultar detalles...</translation>
     </message>
 </context>
 <context>
@@ -832,7 +832,7 @@ si se especifica un tipo de letra «sans-serif» en el CSS</translation>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="322"/>
         <source>Rename files to use standard file extensions for their media type.</source>
-        <translation type="unfinished"/>
+        <translation>Cambiar el nombre de los archivos para usar la extensión estándar según el tipo de archivo.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="323"/>
@@ -1155,7 +1155,7 @@ Siempre debe haber al menos uno.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1856"/>
         <source>Obfuscation Algorithm</source>
-        <translation type="unfinished"/>
+        <translation>Algoritmo de ofuscación</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1858"/>
@@ -1288,7 +1288,7 @@ Siempre debe haber al menos uno.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2124"/>
         <source>Clear Editor List</source>
-        <translation type="unfinished"/>
+        <translation>Limpiar la lista del editor</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2133"/>
@@ -3023,7 +3023,7 @@ o Nav.</translation>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="90"/>
         <source>Python Function Replace</source>
-        <translation type="unfinished"/>
+        <translation>Sustitución de función Python</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="96"/>
@@ -3545,7 +3545,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="72"/>
         <source>Python Function Replace</source>
-        <translation type="unfinished"/>
+        <translation>Sustitución de función Python</translation>
     </message>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="85"/>
@@ -9512,12 +9512,12 @@ Las hojas de estilo que aparecen primero tienen prioridad sobre las posteriores.
     <message>
         <location filename="../../Form_Files/main.ui" line="1537"/>
         <source>Use Standard File Extensions</source>
-        <translation type="unfinished"/>
+        <translation>Usar extensiones de archivo estándar</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1540"/>
         <source>Rename all files to use standard file extensions</source>
-        <translation type="unfinished"/>
+        <translation>Cambiar el nombre de todos los archivos para usar extensiones estándar</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1545"/>
@@ -9581,14 +9581,16 @@ Las hojas de estilo que aparecen primero tienen prioridad sobre las posteriores.
     <message>
         <location filename="../../Form_Files/main.ui" line="1600"/>
         <source>&amp;Hide Find &amp;&amp; Replace...</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Ocultar buscar y sustituir...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1603"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Hide Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Hide the Find and Replace Window.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Ocultar buscar y sustiutuir&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Ocultar la ventana de buscar y sustutuir.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1614"/>
@@ -11573,17 +11575,17 @@ Esta acción no se puede deshacer.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="794"/>
         <source>Bulk rename cancelled: %1, XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Cambio de nombre en masa cancelado: %1, el código XML no es correcto.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="803"/>
         <source>Bulk rename cancelled: %1, OPF not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Cambio de nombre en masa cancelado: %1, el OPF no es correcto.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="872"/>
         <source>Bulk rename completed.</source>
-        <translation type="unfinished"/>
+        <translation>Cambio de nombre en masa completado.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="884"/>
@@ -17253,7 +17255,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="61"/>
         <source>Function</source>
-        <translation type="unfinished"/>
+        <translation>Función</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="67"/>
@@ -17268,48 +17270,48 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="71"/>
         <source>Use</source>
-        <translation type="unfinished"/>
+        <translation>Usar</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="89"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="88"/>
         <source>Python Function Replace</source>
-        <translation type="unfinished"/>
+        <translation>Sustitución de función Python</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="118"/>
+        <source>Input Name</source>
+        <translation>Nombre de entrada</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="119"/>
-        <source>Input Name</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="120"/>
         <source>Input Function Name</source>
-        <translation type="unfinished"/>
+        <translation>Nombre de función de entrada</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="125"/>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="127"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="124"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="126"/>
         <source>Warning</source>
         <translation>Advertencia</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="125"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="124"/>
         <source>Name can not be empty</source>
-        <translation type="unfinished"/>
+        <translation>El nombre no puede estar vacío</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="127"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="126"/>
         <source>Name can not be duplicate</source>
-        <translation type="unfinished"/>
+        <translation>El nombre no puede estar duplicado</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="142"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="141"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="143"/>
-        <source>Are you sure you want to delete the function?: </source>
-        <translation type="unfinished"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="142"/>
+        <source>Are you sure you want to delete the function?:</source>
+        <translation>¿Está seguro de querer borrar la funcíón?:</translation>
     </message>
 </context>
 <context>
@@ -18363,7 +18365,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="532"/>
         <source>Option: Text Only</source>
-        <translation type="unfinished"/>
+        <translation>Opción: Sólo texto</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="827"/>

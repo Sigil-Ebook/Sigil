@@ -145,12 +145,12 @@
         <location filename="../../Widgets/AlertBox.cpp" line="102"/>
         <location filename="../../Widgets/AlertBox.cpp" line="108"/>
         <source>Show Details...</source>
-        <translation type="unfinished"/>
+        <translation>Details einblenden...</translation>
     </message>
     <message>
         <location filename="../../Widgets/AlertBox.cpp" line="108"/>
         <source>Hide Details...</source>
-        <translation type="unfinished"/>
+        <translation>Details ausblenden...</translation>
     </message>
 </context>
 <context>
@@ -832,7 +832,7 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="322"/>
         <source>Rename files to use standard file extensions for their media type.</source>
-        <translation type="unfinished"/>
+        <translation>Benennt alle Dateien so um, dass sie die Standard-Dateierweiterung für ihren Medientyp haben</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="323"/>
@@ -1155,7 +1155,7 @@ Mindestens eine Datei muss verbleiben.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1856"/>
         <source>Obfuscation Algorithm</source>
-        <translation type="unfinished"/>
+        <translation>Obfuskationsalgorithmus</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1858"/>
@@ -1288,7 +1288,7 @@ Mindestens eine Datei muss verbleiben.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2124"/>
         <source>Clear Editor List</source>
-        <translation type="unfinished"/>
+        <translation>Editor-Liste löschen</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2133"/>
@@ -3022,7 +3022,7 @@ um OPF/ NCX/NAV-Namen und -Dateipfade festzulegen.</translation>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="90"/>
         <source>Python Function Replace</source>
-        <translation type="unfinished"/>
+        <translation>Python-Ersetzungsfunktion</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="96"/>
@@ -3544,7 +3544,7 @@ Nur wirksam bei der Suche in HTML-Dateien.</translation>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="72"/>
         <source>Python Function Replace</source>
-        <translation type="unfinished"/>
+        <translation>Python-Ersetzungsfunktion</translation>
     </message>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="85"/>
@@ -9514,12 +9514,12 @@ Zuerst aufgeführte Stylesheets haben Vorrang vor später hinzugefügten Stylesh
     <message>
         <location filename="../../Form_Files/main.ui" line="1537"/>
         <source>Use Standard File Extensions</source>
-        <translation type="unfinished"/>
+        <translation>Standard-Datei-Erweiterungen verwenden</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1540"/>
         <source>Rename all files to use standard file extensions</source>
-        <translation type="unfinished"/>
+        <translation>Alle Dateien so umbenennen, dass sie Standard-Dateierweiterungen haben</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1545"/>
@@ -9583,14 +9583,16 @@ Zuerst aufgeführte Stylesheets haben Vorrang vor später hinzugefügten Stylesh
     <message>
         <location filename="../../Form_Files/main.ui" line="1600"/>
         <source>&amp;Hide Find &amp;&amp; Replace...</source>
-        <translation type="unfinished"/>
+        <translation>Suc&amp;hen &amp;&amp; Ersetzen ausblenden...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1603"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Hide Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Hide the Find and Replace Window.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Suchen &amp;amp; Ersetzen ausblenden&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Blendet das Fenster Suchen &amp;amp; Ersetzen aus.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1614"/>
@@ -11308,7 +11310,7 @@ Zuerst aufgeführte Stylesheets haben Vorrang vor später hinzugefügten Stylesh
     <message>
         <location filename="../../Form_Files/main.ui" line="3144"/>
         <source>Update OPF Manifest Media Types</source>
-        <translation type="unfinished"/>
+        <translation>OPF-Manifest-Medien-Typen aktualisieren</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3149"/>
@@ -11570,17 +11572,17 @@ Diese Änderung kann nicht rückgängig gemacht werden.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="794"/>
         <source>Bulk rename cancelled: %1, XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Massenum­be­nen­nung abgebrochen: %1, XML enthält Syntaxfehler.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="803"/>
         <source>Bulk rename cancelled: %1, OPF not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Massenum­be­nen­nung abgebrochen: %1, OPF enthält Syntaxfehler.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="872"/>
         <source>Bulk rename completed.</source>
-        <translation type="unfinished"/>
+        <translation>Massenum­be­nen­nung abgeschlossen</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="884"/>
@@ -11869,7 +11871,7 @@ Diese Änderung kann nicht rückgängig gemacht werden.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2556"/>
         <source>OPF Manifest Mimetypes Updated.</source>
-        <translation type="unfinished"/>
+        <translation>OPF-Manifest-Mimetypen wurden aktualisiert</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2565"/>
@@ -17026,12 +17028,12 @@ Sind Sie sicher, dass Sie fortsetzen wollen?</translation>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="253"/>
         <source>Shortcuts</source>
-        <translation>Plugin-Symbole zuweisen</translation>
+        <translation>Schnellstart-Symbolleiste</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="261"/>
         <source>Quick Launch Plugin Assignments</source>
-        <translation>Plugin-Symbol-Zuordnungen</translation>
+        <translation>Schnellstart-Symbolleiste-Zuweisungen</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="271"/>
@@ -17253,7 +17255,7 @@ HTML-Entitäten können durch Zeilen, Komma oder Leerzeichen getrennt werden.</t
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="61"/>
         <source>Function</source>
-        <translation type="unfinished"/>
+        <translation>Funktion</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="67"/>
@@ -17268,48 +17270,48 @@ HTML-Entitäten können durch Zeilen, Komma oder Leerzeichen getrennt werden.</t
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="71"/>
         <source>Use</source>
-        <translation type="unfinished"/>
+        <translation>Verwenden</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="89"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="88"/>
         <source>Python Function Replace</source>
-        <translation type="unfinished"/>
+        <translation>Python-Ersetzungsfunktion</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="118"/>
+        <source>Input Name</source>
+        <translation>Namen eingeben</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="119"/>
-        <source>Input Name</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="120"/>
         <source>Input Function Name</source>
-        <translation type="unfinished"/>
+        <translation>Namen der Funktion eingeben</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="125"/>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="127"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="124"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="126"/>
         <source>Warning</source>
         <translation>Warnung</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="125"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="124"/>
         <source>Name can not be empty</source>
-        <translation type="unfinished"/>
+        <translation>Name darf nicht leer sein</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="127"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="126"/>
         <source>Name can not be duplicate</source>
-        <translation type="unfinished"/>
+        <translation>Name kann nur einmal verwendet werden</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="142"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="141"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="143"/>
-        <source>Are you sure you want to delete the function?: </source>
-        <translation type="unfinished"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="142"/>
+        <source>Are you sure you want to delete the function?:</source>
+        <translation>Sind Sie sicher, dass Sie die Funktion löschen möchten?</translation>
     </message>
 </context>
 <context>
@@ -17464,7 +17466,7 @@ Zeile: %1 Spalte %2 - %3</translation>
     <message>
         <location filename="../../Importers/Importer.cpp" line="47"/>
         <source>The OPF contains missing or unrecognized media types.  Temporary media types have been generated. You should edit your OPF to fix these.</source>
-        <translation type="unfinished"/>
+        <translation>Die OPF-Datei enthält unbekannte Medien-Typen. Sie wurden durch temporäre Medien-Typen ersetzt, die Sie überprüfen und ggf. bearbeiten sollten.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="807"/>
@@ -17664,7 +17666,7 @@ die Sie verwenden, für alle ausgewählten Dateien gültig ist.
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="14"/>
         <source>Replacements (Select Desired Replacements)</source>
-        <translation type="unfinished"/>
+        <translation>Ersetzungen (Gewünschte Ersetzungen auswählen)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="37"/>
@@ -17700,13 +17702,15 @@ die Sie verwenden, für alle ausgewählten Dateien gültig ist.
         <location filename="../../Form_Files/ReplacementChooser.ui" line="108"/>
         <source>Select desired replacements in the table.
        Warning: Once replacements are applied, no &quot;undo&quot; is possible.</source>
-        <translation type="unfinished"/>
+        <translation>Gewünschte Ersetzungen in der Tabelle auswählen.
+       Achtung: Ersetzungen können nicht rückgängig gemacht werden!</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="136"/>
         <source>Apply the selected replacements listed in the table.
          Warning: Once applied, no &quot;undo&quot; is possible.</source>
-        <translation type="unfinished"/>
+        <translation>In der Tabelle ausgewählte Ersetzungen durchführen.
+         Achtung: Durchgeführte Ersetzungen können nicht rückgängig gemacht werden!</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="140"/>
@@ -17801,7 +17805,7 @@ dann, falls nicht gefunden, nach dem zweiten Eintrag in der Liste suchen, usw.</
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="108"/>
         <source>Alt+F</source>
-        <translation type="unfinished"/>
+        <translation>Alt+F</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="118"/>
@@ -18363,7 +18367,7 @@ Möchten Sie die Änderungen speichern?</translation>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="532"/>
         <source>Option: Text Only</source>
-        <translation type="unfinished"/>
+        <translation>Option: Nur Text</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="827"/>

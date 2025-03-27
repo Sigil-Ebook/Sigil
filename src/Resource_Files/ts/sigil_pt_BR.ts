@@ -17317,45 +17317,45 @@ Entidades podem ser separadas por linhas, vírgulas ou espaços em branco.</tran
         <translation>Usar</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="89"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="88"/>
         <source>Python Function Replace</source>
         <translation>Substituição de Função Python</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="119"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="118"/>
         <source>Input Name</source>
         <translation>Digite Nome</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="120"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="119"/>
         <source>Input Function Name</source>
         <translation>Digite Nome da Função</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="125"/>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="127"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="124"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="126"/>
         <source>Warning</source>
         <translation>Cuidado</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="125"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="124"/>
         <source>Name can not be empty</source>
         <translation>Nome não pode estar vazio</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="127"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="126"/>
         <source>Name can not be duplicate</source>
         <translation>Nome não pode ser duplicado</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="142"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="141"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="143"/>
-        <source>Are you sure you want to delete the function?: </source>
-        <translation>Tem certeza que deseja apagar a função?:</translation>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="142"/>
+        <source>Are you sure you want to delete the function?:</source>
+        <translation>Tem certeza de que deseja apagar a função?:</translation>
     </message>
 </context>
 <context>

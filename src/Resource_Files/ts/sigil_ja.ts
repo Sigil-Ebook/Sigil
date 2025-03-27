@@ -17279,44 +17279,44 @@ Entities can be separated by lines, commas, or spaces.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="89"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="88"/>
         <source>Python Function Replace</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="119"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="118"/>
         <source>Input Name</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="120"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="119"/>
         <source>Input Function Name</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="125"/>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="127"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="124"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="126"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="125"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="124"/>
         <source>Name can not be empty</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="127"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="126"/>
         <source>Name can not be duplicate</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="142"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="141"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="143"/>
-        <source>Are you sure you want to delete the function?: </source>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="142"/>
+        <source>Are you sure you want to delete the function?:</source>
         <translation type="unfinished"/>
     </message>
 </context>

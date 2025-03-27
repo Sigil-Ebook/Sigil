@@ -2608,7 +2608,7 @@ i kontynuuj wyszukiwanie.</translation>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="135"/>
         <source>Perform the dry run ReplaceAll again and rebuild the table</source>
-        <translation>Wykonaj ponownie próbne zastąpienie wszystkich dopasowań i przebuduj tabelkę</translation>
+        <translation>Wykonaj ponownie próbne zastąpienie wszystkich dopasowań i przebuduj tabelę</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="138"/>
@@ -3215,7 +3215,7 @@ Valid only when searching HTML files.</source>
         <location filename="../../MainUI/FindReplace.cpp" line="770"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1987"/>
         <source>No replacements made</source>
-        <translation>Nie znaleziono do zastąpienia</translation>
+        <translation>Nie znaleziono nic do zastąpienia</translation>
     </message>
     <message numerus="yes">
         <location filename="../../MainUI/FindReplace.cpp" line="713"/>
@@ -17281,47 +17281,45 @@ Encje mogą być oddzielone liniami, przecinkami lub spacjami.</translation>
         <translation>Użyj</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="89"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="88"/>
         <source>Python Function Replace</source>
         <translation>Zastąp przy pomocy funkcji Pythona</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="119"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="118"/>
         <source>Input Name</source>
         <translation>Podaj nazwę</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="120"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="119"/>
         <source>Input Function Name</source>
         <translation>Wpisz nazwę funkcji</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="125"/>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="127"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="124"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="126"/>
         <source>Warning</source>
         <translation>Ostrzeżenie</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="125"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="124"/>
         <source>Name can not be empty</source>
         <translation>Nazwa nie może być pusta</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="127"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="126"/>
         <source>Name can not be duplicate</source>
         <translation>Nazwa nie może być zduplikowana</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="142"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="141"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="143"/>
-        <source>Are you sure you want to delete the function?: </source>
-        <translation>Czy na pewno chcesz usunąć tę funkcję?
-
-</translation>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="142"/>
+        <source>Are you sure you want to delete the function?:</source>
+        <translation>Czy na pewno chcesz usunąć funkcję?:</translation>
     </message>
 </context>
 <context>
@@ -17711,7 +17709,7 @@ Należy uważać by każde rozszerzenie było odpowiednie do rodzaju wybranego p
         <location filename="../../Form_Files/ReplacementChooser.ui" line="108"/>
         <source>Select desired replacements in the table.
        Warning: Once replacements are applied, no &quot;undo&quot; is possible.</source>
-        <translation>Wybierz żądane zastąpienia z tabelki.
+        <translation>Wybierz żądane zastąpienia z tabeli.
        Uwaga: Po zastosowaniu zastąpień nie ma możliwości cofnięcia.</translation>
     </message>
     <message>

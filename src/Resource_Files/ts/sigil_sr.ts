@@ -145,12 +145,12 @@
         <location filename="../../Widgets/AlertBox.cpp" line="102"/>
         <location filename="../../Widgets/AlertBox.cpp" line="108"/>
         <source>Show Details...</source>
-        <translation type="unfinished"/>
+        <translation>Прикажи детаље…</translation>
     </message>
     <message>
         <location filename="../../Widgets/AlertBox.cpp" line="108"/>
         <source>Hide Details...</source>
-        <translation type="unfinished"/>
+        <translation>Сакриј детаље…</translation>
     </message>
 </context>
 <context>
@@ -832,7 +832,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="322"/>
         <source>Rename files to use standard file extensions for their media type.</source>
-        <translation type="unfinished"/>
+        <translation>Фајлови се преименују тако да се користи стандардна екстензија фајла за њихов тип медија.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="323"/>
@@ -1155,7 +1155,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1856"/>
         <source>Obfuscation Algorithm</source>
-        <translation type="unfinished"/>
+        <translation>Алгоритам скривања</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1858"/>
@@ -1288,7 +1288,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2124"/>
         <source>Clear Editor List</source>
-        <translation type="unfinished"/>
+        <translation>Обриши листу едитора</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2133"/>
@@ -3025,7 +3025,7 @@ locations and names for the OPF, NCX and/or Nav.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="90"/>
         <source>Python Function Replace</source>
-        <translation type="unfinished"/>
+        <translation>Замена Python функцијом</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="96"/>
@@ -3548,7 +3548,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="72"/>
         <source>Python Function Replace</source>
-        <translation type="unfinished"/>
+        <translation>Замена Python функцијом</translation>
     </message>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="85"/>
@@ -9516,12 +9516,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1537"/>
         <source>Use Standard File Extensions</source>
-        <translation type="unfinished"/>
+        <translation>Користи стандардну екстензију фајла</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1540"/>
         <source>Rename all files to use standard file extensions</source>
-        <translation type="unfinished"/>
+        <translation>Сви фајлови се преименују тако да се користи стандардна екстензија фајла</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1545"/>
@@ -9585,14 +9585,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1600"/>
         <source>&amp;Hide Find &amp;&amp; Replace...</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Сакриј Пронађи &amp;&amp; Замени...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1603"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Hide Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Hide the Find and Replace Window.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Сакриј Пронађи &amp;amp; Замени&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Скривање прозора за претрагу и замену.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1614"/>
@@ -11317,7 +11319,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="3144"/>
         <source>Update OPF Manifest Media Types</source>
-        <translation type="unfinished"/>
+        <translation>Ажурирај типове медија OPF манифеста</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3149"/>
@@ -11579,17 +11581,17 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="794"/>
         <source>Bulk rename cancelled: %1, XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Отказана је пакетна промеа имена: %1, XML није добро формиран.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="803"/>
         <source>Bulk rename cancelled: %1, OPF not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Отказана је пакетна промеа имена: %1, OPF није добро формиран.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="872"/>
         <source>Bulk rename completed.</source>
-        <translation type="unfinished"/>
+        <translation>Пакетна промена имена је завршена.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="884"/>
@@ -11877,7 +11879,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2556"/>
         <source>OPF Manifest Mimetypes Updated.</source>
-        <translation type="unfinished"/>
+        <translation>Ажурирани су mime типови OPF манифеста.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2565"/>
@@ -17260,7 +17262,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="61"/>
         <source>Function</source>
-        <translation type="unfinished"/>
+        <translation>Функција</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="67"/>
@@ -17275,47 +17277,47 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="71"/>
         <source>Use</source>
-        <translation type="unfinished"/>
+        <translation>Користи</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="89"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="88"/>
         <source>Python Function Replace</source>
-        <translation type="unfinished"/>
+        <translation>Замена Python функцијом</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="118"/>
+        <source>Input Name</source>
+        <translation>Унос имена</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="119"/>
-        <source>Input Name</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="120"/>
         <source>Input Function Name</source>
-        <translation type="unfinished"/>
+        <translation>Унос имена функције</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="125"/>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="127"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="124"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="126"/>
         <source>Warning</source>
         <translation>Упозорење</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="125"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="124"/>
         <source>Name can not be empty</source>
-        <translation type="unfinished"/>
+        <translation>Име не може да буде празно</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="127"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="126"/>
         <source>Name can not be duplicate</source>
-        <translation type="unfinished"/>
+        <translation>Име не може да буде дупликат</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="142"/>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="141"/>
         <source>Sigil</source>
         <translation>Сигил</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="143"/>
-        <source>Are you sure you want to delete the function?: </source>
+        <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="142"/>
+        <source>Are you sure you want to delete the function?:</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -17471,7 +17473,7 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Importers/Importer.cpp" line="47"/>
         <source>The OPF contains missing or unrecognized media types.  Temporary media types have been generated. You should edit your OPF to fix these.</source>
-        <translation type="unfinished"/>
+        <translation>OPF садржи недостајуће или непрепознате типове медија. Генерисани су привремени типови медија. Требало би да уредите свој OPF да ово исправите.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="807"/>
@@ -17671,7 +17673,7 @@ valid for all selected files.
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="14"/>
         <source>Replacements (Select Desired Replacements)</source>
-        <translation type="unfinished"/>
+        <translation>Замене (Избор жељених замена)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="37"/>
@@ -17707,13 +17709,15 @@ valid for all selected files.
         <location filename="../../Form_Files/ReplacementChooser.ui" line="108"/>
         <source>Select desired replacements in the table.
        Warning: Once replacements are applied, no &quot;undo&quot; is possible.</source>
-        <translation type="unfinished"/>
+        <translation>Изаберите жељене замене у табели.
+       Упозорење: једном када се замене примене, није могуће поништавање команде.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="136"/>
         <source>Apply the selected replacements listed in the table.
          Warning: Once applied, no &quot;undo&quot; is possible.</source>
-        <translation type="unfinished"/>
+        <translation>Примењује изабране замене наведене у табели.
+         Упозорење: једном када се примени, није могуће поништавање.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="140"/>
@@ -17808,7 +17812,7 @@ then if not found look for the second entry in the list, etc.</source>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="108"/>
         <source>Alt+F</source>
-        <translation type="unfinished"/>
+        <translation>Alt+F</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="118"/>
@@ -18370,7 +18374,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="532"/>
         <source>Option: Text Only</source>
-        <translation type="unfinished"/>
+        <translation>Опција: Само текст</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="827"/>
