@@ -67,6 +67,8 @@ const QString extra_dict_dirs = QString(EXTRA_DICT_DIRS);
 const QString mathjax3_dir = QString(MATHJAX3_DIR);
 const QString virt_python_bin = QString(VIRT_PYTHON_BIN);
 const QString BUNDLED_PY_VERSION = QString(_BUNDLED_PYVER);
+const QString PYTHON_MAIN_PREFIX = "/lib";
+const QString PYTHON_LIB_PATH = "/python" + BUNDLED_PY_VERSION;
 #if (_APPIMAGE_BUILD == 1)
     const bool APPIMAGE_BUILD = true;
 #else
