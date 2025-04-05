@@ -163,6 +163,8 @@ extern const bool dicts_are_bundled;
 extern const QString extra_dict_dirs;
 extern const QString mathjax3_dir;
 extern const QString virt_python_bin;
+extern const QString BUNDLED_PY_VERSION;
+extern const bool APPIMAGE_BUILD;
 #endif
 
 #endif // SG_CONSTANTS_H
