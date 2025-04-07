@@ -196,11 +196,13 @@ EmbeddedPython::EmbeddedPython()
 #if defined(BUNDLING_PYTHON)
     // initialize to be embedded (isolated)
     PyConfig_InitIsolatedConfig(&config);
+#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
     if (APPIMAGE_BUILD) {
         QString interppath = QCoreApplication::applicationDirPath() + "/python3";
         qDebug() << "Embedded interpreter path: " << interppath;
         PyConfig_SetString(&config, &config.executable, interppath.toStdWString().c_str());
     }
+#endif // !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
 #else
     // Linux, NetBSD, and everyone else (no Bundling)
 #if defined(LINUX_VIRT_PY)
