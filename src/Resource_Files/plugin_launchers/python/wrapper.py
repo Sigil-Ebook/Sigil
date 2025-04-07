@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
-# Copyright (c) 2014-2022 Kevin B. Hendricks and Doug Massay
+# Copyright (c) 2014-2025 Kevin B. Hendricks and Doug Massay
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without modification,
@@ -1044,6 +1044,9 @@ class Wrapper(object):
             lib_name = 'sigilgumbo.dll'
         else:
             lib_dir = os.path.abspath(self.appdir)
+            # The Linux AppImage structure is different than the normal bundle
+            if 'SIGIL_APPIMAGE_BUILD' in os.environ:
+                lib_dir = os.path.abspath(os.path.join(self.appdir, "..", "lib"))
             lib_name = 'libsigilgumbo.so'
         return os.path.join(lib_dir, lib_name)
 
@@ -1056,5 +1059,8 @@ class Wrapper(object):
             lib_name = 'hunspell.dll'
         else:
             lib_dir = os.path.abspath(self.appdir)
+            # The Linux AppImage structure is different than the normal bundle
+            if 'SIGIL_APPIMAGE_BUILD' in os.environ:
+                lib_dir = os.path.abspath(os.path.join(self.appdir, "..", "lib"))
             lib_name = 'libhunspell.so'
         return os.path.join(lib_dir, lib_name)

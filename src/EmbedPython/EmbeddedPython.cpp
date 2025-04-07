@@ -1,6 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2015-2025  Kevin Hendricks
+**  Copyright (C) 2015-2025  Doug Massay
 **  Copyright (C) 2015       John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -35,7 +36,7 @@
 #include "Misc/Utility.h"
 #include "sigil_constants.h"
 
-#define DBG if(0)
+#define DBG if(1)
 
 // IMPORTANT NOTE:  This interface does NOT support passing/converting the type bool
 // All bool values should be converted to integeres with values of 0 for false and 1 for true
@@ -195,6 +196,11 @@ EmbeddedPython::EmbeddedPython()
 #if defined(BUNDLING_PYTHON)
     // initialize to be embedded (isolated)
     PyConfig_InitIsolatedConfig(&config);
+    if (APPIMAGE_BUILD) {
+        QString interppath = QCoreApplication::applicationDirPath() + "/python3";
+        qDebug() << "Embedded interpreter path: " << interppath;
+        PyConfig_SetString(&config, &config.executable, interppath.toStdWString().c_str());
+    }
 #else
     // Linux, NetBSD, and everyone else (no Bundling)
 #if defined(LINUX_VIRT_PY)
@@ -254,10 +260,23 @@ EmbeddedPython::EmbeddedPython()
             qDebug() << QString(status.err_msg);
         }
     }
-#else // Windows since Linux does not use a Bundled Python
+#elif defined(Q_OS_WIN32) // Windows
     QString pyhomepath = QCoreApplication::applicationDirPath();
     foreach (const QString &src_path, PYTHON_SYS_PATHS) {
         QString pysyspath = pyhomepath + PYTHON_MAIN_PATH + src_path;
+        status = PyWideStringList_Append(&config.module_search_paths, pysyspath.toStdWString().c_str());
+        if (PyStatus_Exception(status)) {
+            qDebug() << "EmbeddedPython constructor error: Could not set sys.path";
+            qDebug() << QString(status.err_msg);
+        }
+    }
+#else // *nix
+    QDir exedir(QCoreApplication::applicationDirPath());
+    exedir.cdUp();
+    QString pyhomepath = exedir.absolutePath() + PYTHON_MAIN_PREFIX;
+    foreach (const QString &src_path, PYTHON_SYS_PATHS) {
+        QString pysyspath = pyhomepath + PYTHON_LIB_PATH + src_path;
+        qDebug() << "sys.path = " << pysyspath;
         status = PyWideStringList_Append(&config.module_search_paths, pysyspath.toStdWString().c_str());
         if (PyStatus_Exception(status)) {
             qDebug() << "EmbeddedPython constructor error: Could not set sys.path";

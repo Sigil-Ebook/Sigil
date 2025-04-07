@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2018-2021  Kevin Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2018-2025  Kevin Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2018-2025  Doug Massay
 **  Copyright (C) 2014  John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -87,7 +88,12 @@ QString PluginDB::buildBundledInterpPath()
 #elif defined(Q_OS_WIN32)
   bundled_python3_path = QCoreApplication::applicationDirPath() + "/python3.exe";
 #else
-  bundled_python3_path = QCoreApplication::applicationDirPath() + "/python3/bin/python3";
+  if (APPIMAGE_BUILD) {
+      bundled_python3_path = QCoreApplication::applicationDirPath() + "/python3";
+  } else {
+      bundled_python3_path = "";
+  }
+  
 #endif
   
   QFileInfo checkPython3(bundled_python3_path);
