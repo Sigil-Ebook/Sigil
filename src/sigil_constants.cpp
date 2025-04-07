@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2023 Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2015-2023 Doug Massay
+**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2025 Doug Massay
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -66,9 +66,13 @@ const bool dicts_are_bundled = DICTS_ARE_BUNDLED;
 const QString extra_dict_dirs = QString(EXTRA_DICT_DIRS);
 const QString mathjax3_dir = QString(MATHJAX3_DIR);
 const QString virt_python_bin = QString(VIRT_PYTHON_BIN);
-#if __x86_64__ || __ppc64__
-const QStringList PYTHON_SYS_PATHS = QStringList () << "/plat-x86_64-linux-gnu" << "/plat-linux" << "/lib-dynload" << "/site-packages";
+const QString BUNDLED_PY_VERSION = QString(_BUNDLED_PYVER);
+const QString PYTHON_MAIN_PREFIX = "/lib";
+const QString PYTHON_LIB_PATH = "/python" + BUNDLED_PY_VERSION;
+#if (_APPIMAGE_BUILD == 1)
+    const bool APPIMAGE_BUILD = true;
 #else
-const QStringList PYTHON_SYS_PATHS = QStringList () << "/plat-i386-linux-gnu" << "/plat-linux" << "/lib-dynload" << "/site-packages";
+    const bool APPIMAGE_BUILD = false;
 #endif
+const QStringList PYTHON_SYS_PATHS = QStringList () << "" << "/lib-dynload" << "/site-packages";
 #endif

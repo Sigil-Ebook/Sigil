@@ -86,6 +86,10 @@ if( UNIX AND NOT APPLE )
 
    # Because GCC's link time optimization is willfully choosing to suck.
    add_compile_options(-fno-lto)
+
+   if( NOT DEFINED APPIMAGE_BUILD )
+       set( APPIMAGE_BUILD 0 )
+   endif()
 endif()
 
 # Check if platform is 64 bit

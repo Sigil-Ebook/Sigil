@@ -1,7 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2015-2022 Doug Massay
+**  Copyright (C) 2015-2025 Doug Massay
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -163,6 +163,9 @@ extern const bool dicts_are_bundled;
 extern const QString extra_dict_dirs;
 extern const QString mathjax3_dir;
 extern const QString virt_python_bin;
+extern const QString PYTHON_MAIN_PREFIX;
+extern const QString PYTHON_LIB_PATH;
+extern const bool APPIMAGE_BUILD;
 #endif
 
 #endif // SG_CONSTANTS_H
