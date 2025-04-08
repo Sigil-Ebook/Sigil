@@ -7,7 +7,7 @@ env:
   BUILD_TYPE: Release
 
 jobs:
-  Test package build:
+  test-package-build:
     runs-on: ubuntu-latest
 
     container:
