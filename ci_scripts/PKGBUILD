@@ -8,38 +8,56 @@ pkgdesc='multi-platform EPUB2/EPUB3 ebook editor'
 arch=('x86_64')
 url="https://github.com/Sigil-Ebook/Sigil"
 license=(GPL3)
-depends=(hunspell
+depends=(hicolor-icon-theme
+         hunspell
+         mathjax
          minizip
          python-css-parser
          python-dulwich
          python-lxml
          qt6-svg
-         qt6-webengine
-         qt6-5compat)
-makedepends=(git
-             cmake
+         qt6-webengine)
+makedepends=(cmake
              qt6-tools)
+optdepends=('hunspell-en_US: for English dictionary support'
+            'hyphen-en: for English hyphenation support in plugins'
+            'pageedit: external editor to replace BookView'
+            'pyside6: recommended for plugins'
+            'python-html5lib: recommended for plugins'
+            'python-chardet: recommended for plugins'
+            'python-cssselect: recommended for plugins'
+            'python-pillow: recommended for plugins'
+            'python-regex: recommended for plugins'
+            'tk: recommended for plugins')
+_archive="${pkgname^}-$pkgver"
 source=("git+$url.git#commit=$_commit")
 sha512sums=('SKIP')
 
-
 prepare() {
-	cd "${srcdir}/${pkgname^}"
+	cd "$_archive
+    mkdir -p build
 }
 
 build() {
-	mkdir -p "${srcdir}/${pkgname^}/build"
-    cd "${srcdir}/${pkgname^}/build"
-	/usr/lib/qt6/bin/qt-cmake -G "Unix Makefiles" \
-		-DUSE_SYSTEM_LIBS=1 \
-		-DSYSTEM_LIBS_REQUIRED=1 \
-        -DUSE_QT6=1 \
-		-DCMAKE_INSTALL_PREFIX=/usr \
-		-DCMAKE_INSTALL_LIBDIR=lib \
-		-DCMAKE_SKIP_RPATH=ON ..
-	make -j$(getconf _NPROCESSORS_ONLN)
+	cd "$_archive/build"
+	cmake -G "Unix Makefiles" \
+		-D USE_SYSTEM_LIBS=1 \
+		-D SYSTEM_LIBS_REQUIRED=1 \
+		-D INSTALL_BUNDLED_DICTS=0 \
+		-D INSTALL_HICOLOR_ICONS=1 \
+		-D DISABLE_UPDATE_CHECK=1 \
+		-D MATHJAX3_DIR=/usr/share/mathjax \
+		-D CMAKE_INSTALL_PREFIX=/usr \
+		-D CMAKE_INSTALL_LIBDIR=lib \
+		-D CMAKE_C_FLAGS="$CFLAGS" \
+		-D CMAKE_CXX_FLAGS="$CXXFLAGS" \
+		-D CMAKE_SKIP_RPATH=ON ..
+	make
 }
 
 package() {
-    touch "${srcdir}/${pkgname^}/build/done.txt"
+	cd "$_archive/build"
+	make install DESTDIR="$pkgdir"
+	python -m compileall "$pkgdir/usr/share/sigil/"{plugin_launchers/python/,python3lib}
+	python -O -m compileall "$pkgdir/usr/share/sigil/"{plugin_launchers/python/,python3lib}
 }
