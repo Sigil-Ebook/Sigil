@@ -13,8 +13,8 @@ jobs:
     container:
       image: archlinux
       options: --privileged
-      #volumes:
-      #  - /sys/fs/cgroup:/sys/fs/cgroup
+      volumes:
+        - /sys/fs/cgroup:/sys/fs/cgroup
     steps:
     - uses: actions/checkout@v4
     - name: Build Arch Linux Qt6 package
