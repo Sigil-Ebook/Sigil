@@ -18,7 +18,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build Arch Linux Qt6 package
-      uses: FFY00/build-arch-package@master
+      uses: FFY00/build-arch-package@main
       with:
         BUILD_SCRIPT: extra-x86_64-build
         PKGBUILD: $GITHUB_WORKSPACE/ci_scripts/PKGBUILD
