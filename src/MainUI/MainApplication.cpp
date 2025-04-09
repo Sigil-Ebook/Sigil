@@ -102,7 +102,7 @@ void MainApplication::saveInPreviewCache(const QString &key, const QString& xhtm
 
 QString MainApplication::loadFromPreviewCache(const QString &key)
 {
-    return m_PreviewCache.take(key);
+    return m_PreviewCache.value(key, ""); 
 }
 
 bool MainApplication::event(QEvent *pEvent)

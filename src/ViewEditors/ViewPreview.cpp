@@ -172,21 +172,31 @@ void ViewPreview::CustomSetDocument(const QString &path, const QString &html)
 
     m_isLoadFinished = false;
 
-    // If Tidy is turned off, then Sigil will explode if there is no xmlns
+    // Sigil may explode if there is no xmlns
     // on the <html> element. So we will silently add it if needed to ensure
     // no errors occur, to allow loading of documents created outside of
     // Sigil as well as catering for section splits etc.
     QString replaced_html = html;
     replaced_html = replaced_html.replace("<html>", "<html xmlns=\"http://www.w3.org/1999/xhtml\">");
+
+    // Because of Chrome's silly 2MB url (GURL) size limit, we must create our own
+    // URL Scheme: (sigil) and then use our own scheme handler to directly load
+    // local files thereby avoiding the 2mb data url limit from using:
+    // setContent(replaced_html.toUtf8(),
+    //            "application/xhtml+xml;charset=UTF-8",
+    //            QUrl::fromLocalFile(path));
+
+    // Since the replaced html has possibly been modified by injections for
+    // dark mode, mathml, and etc., there is no original file that matches
+    // this exact xhtml, so store it in an application level cache so that
+    // our sigil URLSchemeHandler can find it. 
     MainApplication *mainApplication = qobject_cast<MainApplication *>(qApp);
-    QString key = Utility::CreateUUID();
-    mainApplication->saveInPreviewCache(key, replaced_html);
     QUrl tgturl = QUrl::fromLocalFile(path);
     tgturl.setScheme("sigil");
     tgturl.setHost("");
-    tgturl.setQuery("sigilpreview=" + key); 
+    QString key = tgturl.toString();
+    mainApplication->saveInPreviewCache(key, replaced_html);
     page()->load(tgturl);
-    // setContent(replaced_html.toUtf8(), "application/xhtml+xml;charset=UTF-8", QUrl::fromLocalFile(path));
 }
 
 bool ViewPreview::IsLoadingFinished()

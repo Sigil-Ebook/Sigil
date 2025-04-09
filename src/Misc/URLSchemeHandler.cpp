@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2020-2024  Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2020-2025  Kevin B. Hendricks, Stratford, ON, Canada
 **
 **  This file is part of Sigil.
 **
@@ -47,6 +47,7 @@ URLSchemeHandler::URLSchemeHandler(QObject *parent)
 
 void URLSchemeHandler::requestStarted(QWebEngineUrlRequestJob *request)
 {
+    DBG qDebug() << "    ";
     DBG qDebug() << "In URLSchemeHandler with url: " << request->requestUrl();
     DBG qDebug() << "In URLSchemeHandler with method: " << request->requestMethod();
     DBG qDebug() << "In URLSchemeHandler with initiator: " << request->initiator();
@@ -54,19 +55,19 @@ void URLSchemeHandler::requestStarted(QWebEngineUrlRequestJob *request)
     QUrl url = request->requestUrl();
     QByteArray data;
     QString content_type;  // must NOT include ";charset=UTF-8"
-    if (url.hasQuery() && url.query().contains("sigilpreview=")) {
-        QString key = url.query();
-        key = key.mid(key.indexOf("=")+1);
+    QString key = url.toString();
+    MainApplication *mainApplication = qobject_cast<MainApplication *>(qApp);
+    QString xhtml = mainApplication->loadFromPreviewCache(key);
+    if (!xhtml.isEmpty()) {
         content_type = QString("application/xhtml+xml");
-        MainApplication *mainApplication = qobject_cast<MainApplication *>(qApp);
-        QString xhtml = mainApplication->loadFromPreviewCache(key);
         data = xhtml.toUtf8();
     } else {
         QUrl fileurl("file://" + url.path());
-        QString local_file =  fileurl.toLocalFile();
+        QString local_file = fileurl.toLocalFile();
         QFileInfo fi(local_file);
         if (fi.exists()) {
-            QString mt = MediaTypes::instance()->GetMediaTypeFromExtension(fi.suffix().toLower(), "");
+            // FIXME - use file contents to sniff for the best media-type instead of just file extension
+            QString mt = MediaTypes::instance()->GetMediaTypeFromExtension(fi.suffix().toLower(), "application/octet-stream");
             content_type = mt;
 
             // Work around bug in QtWebEngine when using custom schemes that load audio and video resources
@@ -96,6 +97,8 @@ void URLSchemeHandler::requestStarted(QWebEngineUrlRequestJob *request)
                 data = file.readAll();
                 file.close();
             }
+        } else {
+            qDebug() << "URLSchemeHandler will fail request because no local file found: " << url;
         }
     }
     if (!data.isEmpty()) {
