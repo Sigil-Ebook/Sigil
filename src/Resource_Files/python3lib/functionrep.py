@@ -1,4 +1,5 @@
 import re
+import os
 
 from fr_utils import unescapeit, toUpper, toLower, swapcase, capitalize
 
@@ -114,3 +115,10 @@ def replace_titlecase_ignore_tags(match, number, file_name, metadata, data, *arg
 def replace_swapcase_ignore_tags(match, number, file_name, metadata, data, *args, **kwargs):
     '''Swap the case of the matched text, ignoring the text inside tag definitions.'''
     return apply_func_to_html_text(match, swapcase)
+
+
+def replace_debug_log(message):
+    logfile = os.environ.get('SIGIL_FUNCTION_REPLACE_LOG_FILE', None);
+    if logfile:
+        with open(logfile, "a", encoding="utf-8") as f:
+            f.write(message)

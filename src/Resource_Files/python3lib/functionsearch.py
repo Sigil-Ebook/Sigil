@@ -124,6 +124,7 @@ class FunctionSearch(object):
         global replace_capitalize_ignore_tags
         global replace_titlecase_ignore_tags
         global replace_swapcase_ignore_tags
+        global replace_debug_log
 
         self.metadataxml = metadataxml
         self.function_name = function_name
@@ -157,6 +158,7 @@ class FunctionSearch(object):
             try:
                 result=self.replace(match,self.number,self.bookpath,self.metadataxml,self.funcData)
             except Exception as e:
+                replace_debug_log(str(e))
                 print(e)
             return result
 
@@ -175,6 +177,7 @@ class FunctionSearch(object):
         try:
             result=self.replace(match,self.number,self.bookpath,self.metadataxml,self.funcData)
         except Exception as e:
+            replace_debug_log(str(e))
             print(e)
         return result
 
