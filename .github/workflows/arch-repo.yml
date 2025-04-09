@@ -1,0 +1,24 @@
+name: Build Qt6 Sigil package on Arch Linux
+
+on:
+  workflow_dispatch:
+
+env:
+  BUILD_TYPE: Release
+
+jobs:
+  test-package-build:
+    runs-on: ubuntu-latest
+
+    container:
+      image: archlinux
+      options: --privileged
+      volumes:
+        - /sys/fs/cgroup:/sys/fs/cgroup
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build Arch Linux Qt6 package
+      uses: FFY00/build-arch-package@main
+      with:
+        BUILD_SCRIPT: extra-x86_64-build
+        PKGBUILD: $GITHUB_WORKSPACE/ci_scripts/PKGBUILD
