@@ -509,6 +509,7 @@ void TabManager::UpdateTabName(ContentTab *renamed_tab)
 {
     Q_ASSERT(renamed_tab);
     setTabText(indexOf(renamed_tab), renamed_tab->GetShortPathName());
+    setTabToolTip(indexOf(renamed_tab), renamed_tab->GetShortPathName());
 }
 
 void TabManager::SetFocusInTab()
