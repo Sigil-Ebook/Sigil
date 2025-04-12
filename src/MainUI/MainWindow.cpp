@@ -2038,8 +2038,17 @@ bool MainWindow::SaveAs()
     QString save_path       = "";
     QString default_filter  = "";
 
-    if (m_CurrentFilePath.isEmpty()) {
-        m_CurrentFilePath = (m_CurrentFileName.isEmpty())?DEFAULT_FILENAME:m_CurrentFileName;
+    QString main_title = m_Book->GetOPF()->GetPrimaryBookTitle();
+    QString sanitized_title = Utility::CleanFileName(main_title);
+
+    QString proposed_name;
+    if (m_CurrentFileName == DEFAULT_FILENAME && !sanitized_title.isEmpty() && sanitized_title[0] != '[') {
+        proposed_name = sanitized_title + ".epub";
+    } else {
+        proposed_name = QFileInfo(m_CurrentFilePath).fileName();
+        if (proposed_name.isEmpty()) {
+            proposed_name = DEFAULT_FILENAME;
+        }
     }
 
     if (m_LastFolderOpen.isEmpty()) {
@@ -2048,12 +2057,12 @@ bool MainWindow::SaveAs()
 
     // If we can save this file type, then we use the current filename
     if (c_SaveFilters.contains(QFileInfo(m_CurrentFilePath).suffix().toLower())) {
-        save_path       = m_LastFolderOpen + "/" + QFileInfo(m_CurrentFilePath).fileName();
+        save_path       = m_LastFolderOpen + "/" + proposed_name;
         default_filter  = c_SaveFilters.value(QFileInfo(m_CurrentFilePath).suffix().toLower());
     }
     // If not, we change the extension to EPUB
     else {
-        save_path       = m_LastFolderOpen + "/" + QFileInfo(m_CurrentFilePath).completeBaseName() + ".epub";
+        save_path       = m_LastFolderOpen + "/" + QFileInfo(proposed_name).completeBaseName() + ".epub";
         default_filter  = c_SaveFilters.value("epub");
     }
     QFileDialog::Options options = QFileDialog::Options();
@@ -2092,6 +2101,10 @@ bool MainWindow::SaveAs()
 
     if (!save_result) {
         m_CurrentFilePath.clear();
+    } else {
+        // Save OK
+        m_CurrentFileName = QFileInfo(filename).fileName();
+        m_CurrentFilePath = filename;
     }
 
     return save_result;

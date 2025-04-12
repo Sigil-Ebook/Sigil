@@ -280,6 +280,8 @@ public:
     static QImage  RenderSvgToImage(const QString& filepath);
 
     static QString UseNFC(const QString& text);
+
+    static QString CleanFileName(const QString &name);
 };
 #endif // UTILITY_H
 

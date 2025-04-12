@@ -1557,3 +1557,36 @@ QString Utility::UseNFC(const QString& text)
     }
     return txt;
 }
+
+QString Utility::CleanFileName(const QString &name)
+{
+    QString result = name.normalized(QString::NormalizationForm_C);
+    result.replace(QRegularExpression("[\\\\|/|?*<>]"), "_");
+    result.replace(":", "_");
+    result.replace("\"", "_");
+    result.replace("+", "_");
+    result.replace(" ", "_");
+    result = result.trimmed();
+
+    QRegularExpression only_dots("\\.+");
+    if (result == "." || result == ".." || only_dots.match(result).hasMatch()) {
+        return "_";
+    }
+
+    result.replace("..", "_");
+
+    if (result.endsWith(".")) {
+        result.chop(1);
+        result.append("_");
+    }
+
+    if (!result.isEmpty() && result.startsWith(".")) {
+        result.prepend("_");
+    }
+
+    if (result.isEmpty()) {
+        return "_";
+    } else {
+        return result;
+    }
+}
