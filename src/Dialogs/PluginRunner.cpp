@@ -300,7 +300,7 @@ void PluginRunner::startPlugin()
 #elif defined(Q_OS_WIN32)
         args.append(QString("-Bu"));
 #elif !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
-        args.append(QString("-Bu"));
+        args.append(QString("-EBu"));
 #endif
     }
     else {
@@ -370,26 +370,26 @@ void PluginRunner::startPlugin()
         // Relative to the interpreter binary to make it easier to relocate the bundled Python.
         //QString pythonhome = QDir::toNativeSeparators(AppImageLibs + PYTHON_LIB_PATH);
         QString pythonhome = exedir.absolutePath();
-        env.insert("PYTHONHOME", pythonhome);
-        env.insert("PYTHONIOENCODING", "UTF-8");
+        //env.insert("PYTHONHOME", pythonhome);
+        //env.insert("PYTHONIOENCODING", "UTF-8");
         // Remove all other Python environment variables to avoid potential system Python interference.
         // (Linux relevant Python env vars from v3.4 thru v3.6 (no debug build vars))
-        QStringList vars_to_unset;
-        vars_to_unset << "PYTHONPATH" << "PYTHONOPTIMIZE" << "PYTHONDEBUG" << "PYTHONSTARTUP"
-                      << "PYTHONINSPECT" << "PYTHONUNBUFFERED" << "PYTHONVERBOSE" << "PYTHONCASEOK"
-                      << "PYTHONDONTWRITEBYTECODE" << "PYTHONHASHSEED" << "PYTHONNOUSERSITE" << "PYTHONUSERBASE"
-                      << "PYTHONWARNINGS" << "PYTHONFAULTHANDLER" << "PYTHONTRACEMALLOC" << "PYTHONASYNCIODEBUG"
-                      << "PYTHONMALLOC" << "PYTHONMALLOCSTATS";
-        foreach(QString envvar, vars_to_unset) {
-            env.remove(envvar);
-        }
+        //QStringList vars_to_unset;
+        //vars_to_unset << "PYTHONPATH" << "PYTHONOPTIMIZE" << "PYTHONDEBUG" << "PYTHONSTARTUP"
+        //              << "PYTHONINSPECT" << "PYTHONUNBUFFERED" << "PYTHONVERBOSE" << "PYTHONCASEOK"
+        //              << "PYTHONDONTWRITEBYTECODE" << "PYTHONHASHSEED" << "PYTHONNOUSERSITE" << "PYTHONUSERBASE"
+        //              << "PYTHONWARNINGS" << "PYTHONFAULTHANDLER" << "PYTHONTRACEMALLOC" << "PYTHONASYNCIODEBUG"
+        //              << "PYTHONMALLOC" << "PYTHONMALLOCSTATS";
+        //foreach(QString envvar, vars_to_unset) {
+        //    env.remove(envvar);
+        //}
         QString cert_path = AppImageLibs + PYTHON_LIB_PATH + "/site-packages" + "/certifi/cacert.pem";
         env.insert("SSL_CERT_FILE", cert_path);
         // Qt5.7+ variable that may interfere in the future.
-        env.remove("QT_QPA_PLATFORMTHEME");
+        //env.remove("QT_QPA_PLATFORMTHEME");
         // Replace Qt environment variables with our own (for bundled PyQt5)
-        env.insert("QT_QPA_PLATFORM_PLUGIN_PATH", QDir::toNativeSeparators(AppImageLibs + "/platforms"));
-        env.insert("QT_PLUGIN_PATH", QDir::toNativeSeparators(AppImageLibs + "/plugins"));
+        //env.insert("QT_QPA_PLATFORM_PLUGIN_PATH", QDir::toNativeSeparators(AppImageLibs + "/platforms"));
+        //env.insert("QT_PLUGIN_PATH", QDir::toNativeSeparators(AppImageLibs + "/plugins"));
         // Prepend Sigil lib directory to LD_LIBRARY_PATH so the bundled interpreter
         // can find the included Qt libs (for PyQt6) and the Python dll.
         QStringList ld = env.value("LD_LIBRARY_PATH", "").split(PATH_LIST_DELIM);
