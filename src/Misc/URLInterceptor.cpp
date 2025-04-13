@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2020-2023 Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2020-2025 Kevin B. Hendricks, Stratford, ON, Canada
 **
 **  This file is part of Sigil.
 **
@@ -40,17 +40,18 @@ URLInterceptor::URLInterceptor(QObject *parent)
 void URLInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
 {
     // Debug:  output all requests
-    DBG qDebug() << "-----";
-    DBG qDebug() << "method: " << info.requestMethod();
-    DBG qDebug() << "party: " << info.firstPartyUrl();
-    DBG qDebug() << "request" << info.requestUrl();
-    DBG qDebug() << "navtype: " << info.navigationType();
-    DBG qDebug() << "restype: " << info.resourceType();
-    DBG qDebug() << "ActiveWindow: " <<  qApp->activeWindow();
+    DBG qDebug() << "     ";
+    DBG qDebug() << "URLInterceptor";
+    DBG qDebug() << "    method: " << info.requestMethod();
+    DBG qDebug() << "    1st party url: " << info.firstPartyUrl();
+    DBG qDebug() << "    request url: " << info.requestUrl();
+    DBG qDebug() << "    navtype: " << info.navigationType();
+    DBG qDebug() << "    restype: " << info.resourceType();
+    DBG qDebug() << "    ActiveWindow: " <<  qApp->activeWindow();
 
     if (info.requestMethod() != "GET") {
         info.block(true);
-        qDebug() << "Warning: URLInterceptor Blocking POST request from " << info.firstPartyUrl();
+        qDebug() << "    Warning: URLInterceptor Blocking POST request from " << info.firstPartyUrl();
         return;
     }
     
@@ -83,7 +84,7 @@ void URLInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
         QString mathjaxfolder;
         QString usercssfolder = Utility::DefinePrefsDir() + "/";
         QString sourcefolder = sourceurl.toLocalFile();
-        DBG qDebug() << "sourcefolder: " << sourcefolder;
+        // DBG qDebug() << "sourcefolder: " << sourcefolder;
         // create a topLevelWidgets equivalent to screen out stale QWidgets more safely
         const QWidgetList all_widgets = QApplication::allWidgets();
         foreach(QWidget* w, all_widgets) {
@@ -93,17 +94,17 @@ void URLInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
                     QSharedPointer<Book> book = mw->GetCurrentBook();
                     if (!book.isNull()) {
                         QString path_to_book = book->GetFolderKeeper()->GetFullPathToMainFolder() + "/";
-                        DBG qDebug() << "path_to_book: " << path_to_book;
+                        // DBG qDebug() << "path_to_book: " << path_to_book;
                         QString path_to_mathjax = mw->GetMathJaxFolder();
                         if (sourcefolder.startsWith(path_to_book)) {
                             bookfolder = path_to_book;
                             mathjaxfolder = path_to_mathjax;
-                            DBG qDebug() << "mainwin: " <<  mw;
-                            DBG qDebug() << "book: " << bookfolder;
-                            DBG qDebug() << "mathjax: " << mathjaxfolder;
-                            DBG qDebug() << "usercss: " << usercssfolder;
-                            DBG qDebug() << "party: " << info.firstPartyUrl();
-                            DBG qDebug() << "source: " << sourcefolder;
+                            DBG qDebug() << "        mainwin: " <<  mw;
+                            DBG qDebug() << "        book: " << bookfolder;
+                            DBG qDebug() << "        mathjax: " << mathjaxfolder;
+                            DBG qDebug() << "        usercss: " << usercssfolder;
+                            DBG qDebug() << "        1stparty: " << info.firstPartyUrl();
+                            DBG qDebug() << "        source: " << sourcefolder;
                             break;
                         }
                     }

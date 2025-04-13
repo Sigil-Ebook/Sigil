@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2024 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2025 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2019-2023 Doug Massay
 **
 **  This file is part of Sigil.
@@ -108,6 +108,7 @@ ViewPreview::ViewPreview(QWidget *parent, bool setbackground)
       m_CustomSetDocumentInProgress(false),
       m_pendingScrollToFragment(QString()),
       m_LoadOkay(false),
+      m_CacheCleared(true),
       m_overlay(new LoadingOverlay(this))
 {
     QWebEngineProfile* profile = WebProfileMgr::instance()->GetPreviewProfile();
@@ -126,7 +127,6 @@ ViewPreview::ViewPreview(QWidget *parent, bool setbackground)
                                                        (ss.javascriptOn() == 1));
     m_ViewWebPage->profile()->settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessRemoteUrls,
                                                        (ss.remoteOn() == 1));
-
     ConnectSignalsToSlots();
 }
 
@@ -136,6 +136,11 @@ ViewPreview::~ViewPreview()
         delete m_ViewWebPage;
         m_ViewWebPage = 0;
     }
+}
+
+void ViewPreview::CacheCleared()
+{
+    m_CacheCleared = true;
 }
 
 QString ViewPreview::GetCaretLocationUpdate()
@@ -158,15 +163,30 @@ void ViewPreview::CustomSetDocument(const QString &path, const QString &html)
 
     m_CustomSetDocumentInProgress = true;
 
-    // If this is not the very first load of this document, store the caret location
     if (!url().isEmpty()) {
 
-        // This next line really causes problems as it happens to interfere with later loading
+        // Storing the Caret Location here causes problems as it happens to interfere with later loading
         // StoreCurrentCaretLocation();
- 
-        // keep memory footprint small clear any caches when a new page loads
-        if (url().toLocalFile() != path) {
-	    page()->profile()->clearHttpCache();
+
+        // To keep memory footprint small, clear any caches when a new page loads
+	// But in Qt 6.7.0 and later cache clearing became asynchronous requiring a callback
+	// *before* trying to load anything after a cache clear, otherwise loading
+        // remote resources fails
+
+        // Note: toLocalFile() fails with any custom scheme (ie. our sigil: scheme)
+        // So convert url to file: scheme to extract the local file
+        QUrl localurl(url());
+        localurl.setScheme("file");
+        localurl.setHost("");
+        if (localurl.toLocalFile() != path) {
+	     DBG qDebug() <<  "clearing Preview's httpcache";
+#if QT_VERSION >= QT_VERSION_CHECK(6, 7, 0)
+	     m_CacheCleared = false;
+#endif
+	     page()->profile()->clearHttpCache();
+             while(!m_CacheCleared) {
+                 qApp->processEvents(QEventLoop::ExcludeUserInputEvents | QEventLoop::ExcludeSocketNotifiers, 50);
+             }
         } 
     }
 
@@ -174,7 +194,7 @@ void ViewPreview::CustomSetDocument(const QString &path, const QString &html)
 
     // Sigil may explode if there is no xmlns
     // on the <html> element. So we will silently add it if needed to ensure
-    // no errors occur, to allow loading of documents created outside of
+    // no errors occur, to allow loading of html documents created outside of
     // Sigil as well as catering for section splits etc.
     QString replaced_html = html;
     replaced_html = replaced_html.replace("<html>", "<html xmlns=\"http://www.w3.org/1999/xhtml\">");
@@ -559,4 +579,7 @@ void ViewPreview::ConnectSignalsToSlots()
     connect(page(), SIGNAL(LinkClicked(const QUrl &)), this, SIGNAL(LinkClicked(const QUrl &)));
     connect(page(), SIGNAL(loadProgress(int)), this, SLOT(LoadingProgress(int)));
     connect(page(), SIGNAL(linkHovered(const QString &)), this, SLOT(LinkHovered(const QString &)));
+#if QT_VERSION >= QT_VERSION_CHECK(6, 7, 0)
+    connect(page()->profile(), SIGNAL(clearHttpCacheCompleted()), this, SLOT(CacheCleared()));
+#endif
 }

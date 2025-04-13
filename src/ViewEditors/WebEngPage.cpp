@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2024 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2025 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2023- Doug Massay
 **
 **  This file is part of Sigil.
@@ -55,6 +55,7 @@ WebEngPage::WebEngPage(QWebEngineProfile* profile, QObject *parent, bool setback
 
 bool WebEngPage::acceptNavigationRequest(const QUrl & url, QWebEnginePage::NavigationType type, bool isMainFrame)
 {
+    DBG qDebug() << "    ";
     DBG qDebug() << "acceptNavigationRequest " << url.toString() << " , " << type << " , " << isMainFrame;
     if ((type == QWebEnginePage::NavigationTypeLinkClicked) || (type == QWebEnginePage::NavigationTypeOther)) {
         if (isMainFrame) {

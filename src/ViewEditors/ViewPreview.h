@@ -115,7 +115,7 @@ public slots:
     void ShowOverlay();
     void HideOverlay();
     QString GetHTML() const;
-
+    void CacheCleared();
 
 signals:
     /**
@@ -239,6 +239,8 @@ private:
 
     bool m_LoadOkay;
     // QAction *m_InspectElement;
+
+    bool m_CacheCleared;
 
     QString m_hoverUrl;
 
