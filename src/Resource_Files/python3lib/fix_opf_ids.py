@@ -35,7 +35,7 @@ def GenerateUniqueId(val, used_ids):
     cnt = 0
     while val in used_ids:
         cnt += 1
-        val = baseval + ("cnt: {0:04d}".format(cnt))
+        val = baseval + ("{0:04d}".format(cnt))
         if cnt >= 10000:
             val = "x" + str(uuid4())
     return val
@@ -60,7 +60,7 @@ def rebase_manifest_ids(opfdata):
         new_id = GetValidId(new_id)
         if new_id != id:
             if new_id in used_ids:
-                new_id = GetUniqueId(new_id, used_ids)
+                new_id = GenerateUniqueId(new_id, used_ids)
             changed_ids[id] = new_id
             if id not in changed_ids.values():
                 del used_ids[id]
