@@ -59,7 +59,7 @@ jobs:
         modules: 'qtwebengine qtpositioning qtpdf qtwebchannel'
         setup-python: 'false'
         cache: ${{ steps.cache-qt.outputs.cache-hit }}
-        extra: "-b https://mirrors.dotsrc.org/qtproject"
+        # extra: "-b https://mirrors.dotsrc.org/qtproject"
 
     - uses: lukka/get-cmake@latest
 
