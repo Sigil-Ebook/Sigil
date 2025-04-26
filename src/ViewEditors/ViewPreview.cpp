@@ -169,8 +169,8 @@ void ViewPreview::CustomSetDocument(const QString &path, const QString &html)
         // StoreCurrentCaretLocation();
 
         // To keep memory footprint small, clear any caches when a new page loads
-	// But in Qt 6.7.0 and later cache clearing became asynchronous requiring a callback
-	// *before* trying to load anything after a cache clear, otherwise loading
+        // But in Qt 6.7.0 and later cache clearing became asynchronous requiring a callback
+        // *before* trying to load anything after a cache clear, otherwise loading
         // remote resources fails
 
         // Note: toLocalFile() fails with any custom scheme (ie. our sigil: scheme)
@@ -178,16 +178,22 @@ void ViewPreview::CustomSetDocument(const QString &path, const QString &html)
         QUrl localurl(url());
         localurl.setScheme("file");
         localurl.setHost("");
+        QDeadlineTimer deadline(1000);  // in milliseconds
+
         if (localurl.toLocalFile() != path) {
-	     DBG qDebug() <<  "clearing Preview's httpcache";
+            DBG qDebug() <<  "clearing Preview's httpcache";
 #if QT_VERSION >= QT_VERSION_CHECK(6, 7, 0)
-	     m_CacheCleared = false;
+	        m_CacheCleared = false;
 #endif
-	     page()->profile()->clearHttpCache();
-             while(!m_CacheCleared) {
-                 qApp->processEvents(QEventLoop::ExcludeUserInputEvents | QEventLoop::ExcludeSocketNotifiers, 50);
-             }
-        } 
+	        page()->profile()->clearHttpCache();
+            while(!m_CacheCleared && (!deadline.hasExpired())) {
+                 qApp->processEvents(QEventLoop::ExcludeUserInputEvents, 50);
+            }
+            if (deadline.hasExpired()) {
+                 qDebug() << "View Preview Cache Clear failed - deadline expired";
+            }
+            m_CacheCleared = true;
+        }
     }
 
     m_isLoadFinished = false;

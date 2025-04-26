@@ -91,51 +91,85 @@ WebProfileMgr::WebProfileMgr()
     // Create URLSchemeHandler and URLInterceptor
     m_URLhandler = new URLSchemeHandler();
     m_URLint = new URLInterceptor();
-    
-    // initialize the defaultProfile to be restrictive for security
-    QWebEngineSettings *web_settings = QWebEngineProfile::defaultProfile()->settings();
-    InitializeDefaultSettings(web_settings);
-    // Use URLInterceptor for protection
-    QWebEngineProfile::defaultProfile()->setUrlRequestInterceptor(m_URLint);
 
-    // create the profile for Preview
     SettingsStore ss;
-    m_preview_profile = new QWebEngineProfile("Preview", nullptr);
-    InitializeDefaultSettings(m_preview_profile->settings());
-    m_preview_profile->settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessFileUrls, true);
-    m_preview_profile->settings()->setAttribute(QWebEngineSettings::ErrorPageEnabled, false);
-    m_preview_profile->settings()->setAttribute(QWebEngineSettings::PluginsEnabled, true);
-    m_preview_profile->settings()->setAttribute(QWebEngineSettings::PdfViewerEnabled, true);
-    m_preview_profile->settings()->setDefaultTextEncoding("UTF-8");  
-    m_preview_profile->settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, (ss.javascriptOn() == 1));
-    m_preview_profile->settings()->setAttribute(QWebEngineSettings::JavascriptCanOpenWindows, (ss.javascriptOn() == 1));
-    m_preview_profile->settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessRemoteUrls, (ss.remoteOn() == 1));
-    m_preview_profile->settings()->setAttribute(QWebEngineSettings::FocusOnNavigationEnabled, false);
-    m_preview_profile->settings()->setAttribute(QWebEngineSettings::LocalStorageEnabled, true);
-    // Enable local-storage for epub3
+
+    // create local storage path if needed
     QString localStorePath = Utility::DefinePrefsDir() + "/local-storage/";
     QDir storageDir(localStorePath);
     if (!storageDir.exists()) {
         storageDir.mkpath(localStorePath);
     }
+
+    // create a place for Caches if needed
+    QString PreviewCachePath = Utility::DefinePrefsDir() + "/Preview-Cache/";
+    QDir cacheDir(PreviewCachePath);
+    if (!cacheDir.exists()) {
+        cacheDir.mkpath(PreviewCachePath);
+    }
+
+    // Preview Profile
+    // ---------------
+    // create the profile for Preview
+
+    // we may need to give this profile a unique storage name otherwise cache
+    // is never cleared on Windows by a second or third instance of Sigil
+    // m_preview_profile = new QWebEngineProfile(QString("Preview") + Utility::CreateUUID(), nullptr);
+    
+    // but this leaves way too many directory folders around in the Caches.
+    // So try using a memory cache instead
+    
+    m_preview_profile = new QWebEngineProfile(QString("Preview"), nullptr);
     m_preview_profile->setPersistentStoragePath(localStorePath);
+    m_preview_profile->setCachePath(PreviewCachePath);
+    m_preview_profile->setHttpCacheType(QWebEngineProfile::MemoryHttpCache);
+    m_preview_profile->setSpellCheckEnabled(false);
+    
+    InitializeDefaultSettings(m_preview_profile->settings());
+    m_preview_profile->settings()->setDefaultTextEncoding("UTF-8");  
+    m_preview_profile->settings()->setAttribute(QWebEngineSettings::LocalStorageEnabled, true);
+    m_preview_profile->settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessFileUrls, true);
+    m_preview_profile->settings()->setAttribute(QWebEngineSettings::ErrorPageEnabled, false);
+    m_preview_profile->settings()->setAttribute(QWebEngineSettings::PluginsEnabled, true);
+    m_preview_profile->settings()->setAttribute(QWebEngineSettings::PdfViewerEnabled, true);
+    m_preview_profile->settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, (ss.javascriptOn() == 1));
+    m_preview_profile->settings()->setAttribute(QWebEngineSettings::JavascriptCanOpenWindows, (ss.javascriptOn() == 1));
+    m_preview_profile->settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessRemoteUrls, (ss.remoteOn() == 1));
+    m_preview_profile->settings()->setAttribute(QWebEngineSettings::FocusOnNavigationEnabled, false);
+    
     // Use both our URLInterceptor and our URLSchemeHandler
     m_preview_profile->installUrlSchemeHandler("sigil", m_URLhandler);
     m_preview_profile->setUrlRequestInterceptor(m_URLint);
 
+
+    // OneTime Profile
+    // ---------------
     // create the profile for OneTime
     m_onetime_profile = new QWebEngineProfile();
     InitializeDefaultSettings(m_onetime_profile->settings());
+    m_onetime_profile->setSpellCheckEnabled(false);
     m_onetime_profile->settings()->setDefaultTextEncoding("UTF-8");  
     m_onetime_profile->settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessFileUrls, true);
     m_onetime_profile->settings()->setAttribute(QWebEngineSettings::PluginsEnabled, true);
     m_onetime_profile->settings()->setAttribute(QWebEngineSettings::PdfViewerEnabled, true);
+    
     // Unfortunately the PdfView used for PdfTab now requires both java and LocalStorage work
     m_onetime_profile->settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, (ss.javascriptOn() == 1));
     m_onetime_profile->settings()->setAttribute(QWebEngineSettings::LocalStorageEnabled, true);
     m_onetime_profile->setPersistentStoragePath(localStorePath);
+
     // Use URLInterceptor for protection
     m_onetime_profile->setUrlRequestInterceptor(m_URLint);
+
+
+    // Default Profile
+    // ---------------
+    // initialize the defaultProfile to be restrictive for security
+    QWebEngineSettings *web_settings = QWebEngineProfile::defaultProfile()->settings();
+    InitializeDefaultSettings(web_settings);
+    QWebEngineProfile::defaultProfile()->setSpellCheckEnabled(false);
+    // Use URLInterceptor for protection
+    QWebEngineProfile::defaultProfile()->setUrlRequestInterceptor(m_URLint);
 
 }
 
