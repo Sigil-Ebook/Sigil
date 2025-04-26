@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2023  Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2023-2025  Kevin B. Hendricks, Stratford, ON, Canada
 **
 **  This file is part of Sigil.
 **
@@ -43,6 +43,8 @@ public:
     static WebProfileMgr *instance();
     QWebEngineProfile* GetPreviewProfile();
     QWebEngineProfile* GetOneTimeProfile();
+    void FlushDiskCaches();
+    void CleanUpForExit();
     
 private:
 
@@ -53,6 +55,7 @@ private:
 
     QWebEngineProfile* m_preview_profile;
     QWebEngineProfile* m_onetime_profile;
+    QString m_disk_cache_path;
     static WebProfileMgr *m_instance;
 };
 

@@ -901,7 +901,11 @@ int main(int argc, char *argv[])
             MainWindow *widget = GetMainWindow(arguments);
             widget->show();
             widget->activateWindow();
-            return app.exec();
+            app.exec();
+            WebProfileMgr::instance()->FlushDiskCaches();
+            QCoreApplication::processEvents();
+            WebProfileMgr::instance()->CleanUpForExit();
+            return 0;
         }
     } catch (std::exception &e) {
         Utility::DisplayExceptionErrorDialog(e.what());
