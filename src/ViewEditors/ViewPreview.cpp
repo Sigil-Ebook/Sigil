@@ -178,7 +178,7 @@ void ViewPreview::CustomSetDocument(const QString &path, const QString &html)
         QUrl localurl(url());
         localurl.setScheme("file");
         localurl.setHost("");
-        QDeadlineTimer deadline(1000);  // in milliseconds
+        QDeadlineTimer deadline(3000);  // in milliseconds
 
         if (localurl.toLocalFile() != path) {
             DBG qDebug() <<  "clearing Preview's httpcache";

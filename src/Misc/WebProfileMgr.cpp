@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2024-2025 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2023-2025 Kevin B. Hendricks, Stratford Ontario Canada
 **
 **  This file is part of Sigil.
 **
@@ -42,7 +42,7 @@ WebProfileMgr *WebProfileMgr::instance()
     return m_instance;
 }
 
-
+#if 0
 void WebProfileMgr::FlushDiskCaches()
 {
     if (m_preview_profile) {
@@ -62,7 +62,7 @@ void WebProfileMgr::CleanUpForExit()
         dcp.removeRecursively();
     }
 }
-
+#endif
 
 QWebEngineProfile*  WebProfileMgr::GetPreviewProfile()
 {
@@ -136,15 +136,14 @@ WebProfileMgr::WebProfileMgr()
     // we may need to give this profile a unique storage name otherwise cache
     // is never cleared on Windows by a second or third instance of Sigil
     
-    // but this leaves way too many directory folders around in the Caches.
-    // So try using a memory cache instead
-
-    m_preview_profile = new QWebEngineProfile(QString("Preview-") + Utility::CreateUUID(), nullptr);
+    // m_preview_profile = new QWebEngineProfile(QString("Preview-") + Utility::CreateUUID(), nullptr);
+    m_preview_profile = new QWebEngineProfile();
     m_preview_profile->setPersistentStoragePath(localStorePath);
-    m_preview_profile->setCachePath(PreviewCachePath);
-    m_preview_profile->setHttpCacheType(QWebEngineProfile::DiskHttpCache);
+    // m_preview_profile->setCachePath(PreviewCachePath);
+    // m_preview_profile->setHttpCacheType(QWebEngineProfile::DiskHttpCache);
+    // m_disk_cache_path = Utility::DefinePrefsDir() + "/QtWebEngine/" + m_preview_profile->storageName();
     m_preview_profile->setSpellCheckEnabled(false);
-    m_disk_cache_path = Utility::DefinePrefsDir() + "/QtWebEngine/" + m_preview_profile->storageName();
+
     
     InitializeDefaultSettings(m_preview_profile->settings());
     m_preview_profile->settings()->setDefaultTextEncoding("UTF-8");  
