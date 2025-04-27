@@ -902,9 +902,9 @@ int main(int argc, char *argv[])
             widget->show();
             widget->activateWindow();
             app.exec();
-            WebProfileMgr::instance()->FlushDiskCaches();
-            QCoreApplication::processEvents();
-            WebProfileMgr::instance()->CleanUpForExit();
+            // WebProfileMgr::instance()->FlushDiskCaches();
+            // QCoreApplication::processEvents();
+            // WebProfileMgr::instance()->CleanUpForExit();
             return 0;
         }
     } catch (std::exception &e) {

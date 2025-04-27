@@ -42,7 +42,7 @@ WebProfileMgr *WebProfileMgr::instance()
     return m_instance;
 }
 
-
+#if 0
 void WebProfileMgr::FlushDiskCaches()
 {
     if (m_preview_profile) {
@@ -53,7 +53,6 @@ void WebProfileMgr::FlushDiskCaches()
         m_onetime_profile->deleteLater();
     }
 }
-
 
 void WebProfileMgr::CleanUpForExit()
 {
@@ -66,7 +65,7 @@ void WebProfileMgr::CleanUpForExit()
         ecp.removeRecursively();
     }
 }
-
+#endif
 
 QWebEngineProfile*  WebProfileMgr::GetPreviewProfile()
 {
@@ -126,9 +125,9 @@ WebProfileMgr::WebProfileMgr()
         storageDir.mkpath(localStorePath);
     }
 
+#if 0
     // create a place for Caches if needed
     // disable as this is very broken
-#if 0
     QString PreviewCachePath = Utility::DefinePrefsDir() + "/Preview-Cache/";
     QDir cacheDir(PreviewCachePath);
     if (!cacheDir.exists()) {
@@ -143,15 +142,15 @@ WebProfileMgr::WebProfileMgr()
     // we may need to give this profile a unique storage name otherwise cache
     // is never cleared on Windows by a second or third instance of Sigil
     
-    m_preview_profile = new QWebEngineProfile(QString("Preview-") + Utility::CreateUUID(), nullptr);
-    // m_preview_profile = new QWebEngineProfile();
+    // m_preview_profile = new QWebEngineProfile(QString("Preview-") + Utility::CreateUUID(), nullptr);
     // m_preview_profile->setCachePath(PreviewCachePath);
+    // m_preview_profile->setHttpCacheType(QWebEngineProfile::DiskHttpCache);
+    m_preview_profile = new QWebEngineProfile();
     m_preview_profile->setPersistentStoragePath(localStorePath);
-    m_preview_profile->setHttpCacheType(QWebEngineProfile::DiskHttpCache);
-    qDebug() << "WebProfileMgr - StorageName: " << m_preview_profile->storageName();
+    // qDebug() << "WebProfileMgr - StorageName: " << m_preview_profile->storageName();
     qDebug() << "WebProfileMgr - CachePath: " << m_preview_profile->cachePath();
-    m_disk_cache_path = m_preview_profile->cachePath();
-    m_extra_cache_path = Utility::DefinePrefsDir() + "/QtWebEngine/" + m_preview_profile->storageName();
+    // m_disk_cache_path = m_preview_profile->cachePath();
+    // m_extra_cache_path = Utility::DefinePrefsDir() + "/QtWebEngine/" + m_preview_profile->storageName();
     m_preview_profile->setSpellCheckEnabled(false);
     
     InitializeDefaultSettings(m_preview_profile->settings());
