@@ -397,7 +397,7 @@ void PluginRunner::startPlugin()
         ld.removeAll(AppImageLibs);
         ld.prepend(AppImageLibs);
         // Reset modified LD_LIBRARY_PATH
-        //env.insert("LD_LIBRARY_PATH", ld.join(PATH_LIST_DELIM));
+        env.insert("LD_LIBRARY_PATH", ld.join(PATH_LIST_DELIM));
         // If launched by another program (calibre), the new working directory could mess with how the
         // bundled interpreter finds/loads PyQt6. So set it manually to the bundled interpreter's directory.
         //m_process.setWorkingDirectory(QDir::toNativeSeparators(QFileInfo(m_enginePath).absolutePath()));
