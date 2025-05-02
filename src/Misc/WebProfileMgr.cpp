@@ -151,7 +151,7 @@ WebProfileMgr::WebProfileMgr()
     qDebug() << "WebProfileMgr - CachePath: " << m_preview_profile->cachePath();
     // m_disk_cache_path = m_preview_profile->cachePath();
     // m_extra_cache_path = Utility::DefinePrefsDir() + "/QtWebEngine/" + m_preview_profile->storageName();
-    m_preview_profile->setSpellCheckEnabled(false);
+    // m_preview_profile->setSpellCheckEnabled(false); // setting to false actually generates warnings!
     
     InitializeDefaultSettings(m_preview_profile->settings());
     m_preview_profile->settings()->setDefaultTextEncoding("UTF-8");  
@@ -175,7 +175,7 @@ WebProfileMgr::WebProfileMgr()
     // create the profile for OneTime
     m_onetime_profile = new QWebEngineProfile();
     InitializeDefaultSettings(m_onetime_profile->settings());
-    m_onetime_profile->setSpellCheckEnabled(false);
+    // m_onetime_profile->setSpellCheckEnabled(false); // setting to false actually generates warnings!
     m_onetime_profile->settings()->setDefaultTextEncoding("UTF-8");  
     m_onetime_profile->settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessFileUrls, true);
     m_onetime_profile->settings()->setAttribute(QWebEngineSettings::PluginsEnabled, true);
@@ -195,7 +195,7 @@ WebProfileMgr::WebProfileMgr()
     // initialize the defaultProfile to be restrictive for security
     QWebEngineSettings *web_settings = QWebEngineProfile::defaultProfile()->settings();
     InitializeDefaultSettings(web_settings);
-    QWebEngineProfile::defaultProfile()->setSpellCheckEnabled(false);
+    // QWebEngineProfile::defaultProfile()->setSpellCheckEnabled(false); // setting to false actually generates warnings!
     // Use URLInterceptor for protection
     QWebEngineProfile::defaultProfile()->setUrlRequestInterceptor(m_URLint);
 
