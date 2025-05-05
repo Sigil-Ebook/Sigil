@@ -106,9 +106,7 @@ void ViewAV::WriteSettings()
 
 void ViewAV::ConnectSignalsToSlots()
 {
-#ifdef Q_OS_MAC
     MainApplication *mainApplication = qobject_cast<MainApplication *>(qApp);
     connect(mainApplication, SIGNAL(applicationPaletteChanged()), this, SLOT(ReloadViewer()));
-#endif
     connect(m_bp, SIGNAL(clicked()), this, SLOT(accept()));
 }
