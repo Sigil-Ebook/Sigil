@@ -25,7 +25,6 @@
 #define CODEVIEWEDITOR_H
 
 #include <QtCore/QList>
-#include <QtCore/QStack>
 #include <QtWidgets/QPlainTextEdit>
 #include <QtGui/QStandardItem>
 #include <QtCore/QUrl>
@@ -670,45 +669,9 @@ private:
 
     bool InViewableImage();
 
-    /**
-     * An element on the stack when searching for
-     * the current caret location.
-     */
-    struct StackElement {
-        /**
-         * The tag name.
-         */
-        QString name;
+    // Used to convert between Hierarchy and QWedPath used by Preview, Gumbo, and TagLister
+    QList<ElementIndex> ConvertQWebPathToHierarchy(const QString& qwebpath) const;
 
-        /**
-         * The number of child elements
-         * detected for the element, so far.
-         */
-        int num_children;
-    };
-
-    /**
-     * Returns a stack of elements representing the
-     * current location of the caret in the document.
-     *
-     * @param offset The number of characters from document start to the end of
-     *               the start tag of the element the caret is residing in.
-     * @return The element location stack.
-     */
-    QStack<StackElement> GetCaretLocationStack(int offset) const;
-
-    /**
-     * Takes the stack provided by GetCaretLocationStack()
-     * and converts it into the element location hierarchy
-     * used by other ViewEditors.
-     *
-     * @param stack The StackElement stack.
-     * @return The converted ElementIndex hierarchy.
-     */
-    QList<ElementIndex> ConvertStackToHierarchy(const QStack<StackElement> stack) const;
-
-
-    // Used to convert Hierarchy to QWedPath used by BV and Gumbo
     QString ConvertHierarchyToQWebPath(const QList<ElementIndex>& hierarchy) const;
 
     /**

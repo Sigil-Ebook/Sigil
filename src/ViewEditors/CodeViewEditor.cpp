@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2024 Doug Massay
-**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2025 Doug Massay
+**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **  Copyright (C) 2012      Grant Drake
@@ -36,7 +36,6 @@
 #include <QColor>
 #include <QScrollBar>
 #include <QShortcut>
-#include <QXmlStreamReader>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
 #include <QRegularExpressionMatchIterator>
@@ -2680,7 +2679,6 @@ int CodeViewEditor::GetSelectionOffset(Searchable::Direction search_direction, b
     return offset;
 }
 
-
 void CodeViewEditor::ScrollByLine(bool down)
 {
     int current_scroll_value = verticalScrollBar()->value();
@@ -2706,24 +2704,9 @@ QList<ElementIndex> CodeViewEditor::GetCaretLocation()
     // We search for the first opening tag *behind* the caret.
     // This specifies the element the caret is located in.
     int pos = textCursor().position();
-    int offset = 0;
-    int len = 0;
-    QRegularExpression tag(XML_OPENING_TAG);
-    QRegularExpressionMatchIterator i = tag.globalMatch(toPlainText());
-    // There is no way to search for the last match (str.lastIndexOf) in a string and also have
-    // the matched text length. So we search forward for every match (QRegularExpression doesn't
-    // have a way to search backwards) and only use the last match's info.
-    while (i.hasNext()) {
-        QRegularExpressionMatch mo = i.next();
-        int start = mo.capturedStart();
-        if (start > pos) {
-            break;
-        }
-        offset = start;
-        len = mo.capturedLength();
-    }
-    QList<ElementIndex> hierarchy = ConvertStackToHierarchy(GetCaretLocationStack(offset + len));
-
+    MaybeRegenerateTagList();
+    QString qwebpath = m_TagList.GeneratePathToTag(pos);
+    QList<ElementIndex> hierarchy = ConvertQWebPathToHierarchy(qwebpath);
     // determine last block element containing caret
     QString element_name;
     foreach(ElementIndex ei, hierarchy) {
@@ -2732,65 +2715,28 @@ QList<ElementIndex> CodeViewEditor::GetCaretLocation()
         }
     }
     m_element_name = element_name;
-
     return hierarchy;
 }
-
 
 void CodeViewEditor::StoreCaretLocationUpdate(const QList<ElementIndex> &hierarchy)
 {
     m_CaretUpdate = hierarchy;
 }
 
-
-QStack<CodeViewEditor::StackElement> CodeViewEditor::GetCaretLocationStack(int offset) const
+QList<ElementIndex> CodeViewEditor::ConvertQWebPathToHierarchy(const QString & webpath) const
 {
-    QString source = toPlainText();
-    QXmlStreamReader reader(source);
-    QStack<StackElement> stack;
-
-    while (!reader.atEnd()) {
-        reader.readNext();
-
-        if (reader.isComment()) {
-            if (reader.characterOffset() == offset) {
-                break;
-            }
-        } else if (reader.isStartElement()) {
-            // If we detected the start of a new element, then
-            // the element currently on the top of the stack
-            // has one more child element
-            if (!stack.isEmpty()) {
-                stack.top().num_children++;
-            }
-
-            StackElement new_element;
-            new_element.name = reader.name().toString();
-            new_element.num_children = 0;
-            stack.push(new_element);
-
-            // Check if this is the element start tag
-            // we are looking for
-            if (reader.characterOffset() == offset) {
-                break;
-            }
-        }
-        // If we detect the end tag of an element,
-        // we remove it from the top of the stack
-        else if (reader.isEndElement()) {
-            stack.pop();
-        }
+    // The location element hierarchy encoded in a string
+    QString location_string = webpath;
+    QStringList elements    = location_string.split(",", Qt::SkipEmptyParts);
+    QList<ElementIndex> location;
+    foreach(QString element, elements) {
+        ElementIndex new_element;
+        new_element.name  = element.split(" ")[ 0 ];
+        new_element.index = element.split(" ")[ 1 ].toInt();
+        location.append(new_element);
     }
-
-    if (reader.hasError()) {
-        // Just return an empty location.
-        // Maybe we could return the stack we currently have?
-        return QStack<StackElement>();
-    }
-
-    return stack;
+    return location;
 }
-
 
 QString CodeViewEditor::ConvertHierarchyToQWebPath(const QList<ElementIndex>& hierarchy) const
 {
@@ -2801,20 +2747,6 @@ QString CodeViewEditor::ConvertHierarchyToQWebPath(const QList<ElementIndex>& hi
     }
     return pathparts.join(",");
 }
-
-
-QList<ElementIndex> CodeViewEditor::ConvertStackToHierarchy(const QStack<StackElement> stack) const
-{
-    QList<ElementIndex> hierarchy;
-    foreach(StackElement stack_element, stack) {
-        ElementIndex new_element;
-        new_element.name  = stack_element.name;
-        new_element.index = stack_element.num_children - 1;
-        hierarchy.append(new_element);
-    }
-    return hierarchy;
-}
-
 
 std::tuple<int, int> CodeViewEditor::ConvertHierarchyToCaretMove(const QList<ElementIndex> &hierarchy) const
 {
@@ -2841,7 +2773,6 @@ std::tuple<int, int> CodeViewEditor::ConvertHierarchyToCaretMove(const QList<Ele
     return std::make_tuple(line - cursor.blockNumber(), col);
 }
 
-
 bool CodeViewEditor::ExecuteCaretUpdate(bool default_to_top)
 {
     // If there's a cursor/caret update waiting (from BookView),
@@ -2855,7 +2786,6 @@ bool CodeViewEditor::ExecuteCaretUpdate(bool default_to_top)
 
         return false;
     }
-
     QTextCursor cursor(document());
     int vertical_lines_move = 0;
     int horizontal_chars_move = 0;
@@ -2863,14 +2793,7 @@ bool CodeViewEditor::ExecuteCaretUpdate(bool default_to_top)
     // conversion uses toPlainText(), and the text needs to up-to-date.
     std::tie(vertical_lines_move, horizontal_chars_move) = ConvertHierarchyToCaretMove(m_CaretUpdate);
     cursor.movePosition(QTextCursor::NextBlock, QTextCursor::MoveAnchor, vertical_lines_move - 1);
-
-    for (int i = 1 ; i < horizontal_chars_move ; i++) {
-        cursor.movePosition(QTextCursor::NextCharacter , QTextCursor::MoveAnchor);
-        // TODO: cursor.movePosition( QTextCursor::Left, ...) is badly bugged in Qt 4.7.
-        // Test whether it's fixed when the next version of Qt comes out.
-        // cursor.movePosition( QTextCursor::Left, QTextCursor::MoveAnchor, horizontal_chars_move );
-    }
-
+    cursor.movePosition(QTextCursor::NextCharacter, QTextCursor::MoveAnchor, horizontal_chars_move);
     m_CaretUpdate.clear();
     setTextCursor(cursor);
     m_DelayedCursorScreenCenteringRequired = true;
