@@ -148,7 +148,7 @@ WebProfileMgr::WebProfileMgr()
     m_preview_profile = new QWebEngineProfile();
     m_preview_profile->setPersistentStoragePath(localStorePath);
     // qDebug() << "WebProfileMgr - StorageName: " << m_preview_profile->storageName();
-    qDebug() << "WebProfileMgr - CachePath: " << m_preview_profile->cachePath();
+    // qDebug() << "WebProfileMgr - CachePath: " << m_preview_profile->cachePath();
     // m_disk_cache_path = m_preview_profile->cachePath();
     // m_extra_cache_path = Utility::DefinePrefsDir() + "/QtWebEngine/" + m_preview_profile->storageName();
     // m_preview_profile->setSpellCheckEnabled(false); // setting to false actually generates warnings!

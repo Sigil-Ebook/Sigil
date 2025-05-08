@@ -40,7 +40,7 @@
 #include "Misc/SettingsStore.h"
 #include "Widgets/CaretStyle.h"
 
-#define DBG if(1)
+#define DBG if(0)
 
 MainApplication::MainApplication(int &argc, char **argv)
     : QApplication(argc, argv),
