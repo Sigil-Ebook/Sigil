@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2020-2024 Kevin B. Hendricks, Stratford Ontario
+**  Copyright (C) 2020-2025 Kevin B. Hendricks, Stratford Ontario
 **
 **  This file is part of Sigil.
 **
@@ -39,6 +39,7 @@ TagLister::TagLister()
     : m_source(""),
       m_pos(0),
       m_next(0),
+      m_child(-1),
       m_bodyStartPos(-1),
       m_bodyEndPos(-1),
       m_bodyOpenTag(-1),
@@ -47,17 +48,20 @@ TagLister::TagLister()
     m_TagPath << "root";
     m_TagPos << -1;
     m_TagLen << 0;
+    m_TagChild << -1;
 }
 
 // Normal Constructor
 TagLister::TagLister(const QString &source)
     : m_source(source),
       m_pos(0),
-      m_next(0)
+      m_next(0),
+      m_child(-1)
 {
     m_TagPath << "root";
     m_TagPos << -1;
     m_TagLen << 0;
+    m_TagChild << -1;
     buildTagList();
 }
 
@@ -67,9 +71,11 @@ void TagLister::reloadLister(const QString& source)
     m_source = source;
     m_pos = 0;
     m_next = 0;
+    m_child = -1;
     m_TagPath = QStringList() << "root";
     m_TagPos = QList<int>() << -1;
     m_TagLen = QList<int>() << 0;
+    m_TagChild = QList<int>() << -1;
     buildTagList();
 }
 
@@ -160,13 +166,26 @@ int TagLister::findLastTagOnOrBefore(int pos)
     // find that tag that starts immediately **after** pos and then
     // then use its predecessor 
     int i = 0;
-    TagLister::TagInfo ti = at(i);
+    TagLister::TagInfo ti = m_Tags.at(i);
     while((ti.pos <= pos) && (ti.len != -1)) {
         i++;
         ti = m_Tags.at(i);
     }
     i--;
     return i;
+}
+
+QString TagLister::GeneratePathToTag(int pos)
+{
+    QStringList path_segments;
+    if (m_Tags.size() < 3) return "";
+    int i = findLastTagOnOrBefore(pos);
+    TagInfo ti = m_Tags.at(i);
+    while(ti.ttype == "end" && i > 0) {
+        i = i - 1;
+        ti = m_Tags.at(i);
+    }
+    return ti.tpath;
 }
 
 // m_Tags is padded with an ending dummy tag
@@ -296,6 +315,19 @@ QString TagLister::extractAllAttributes(const QStringView tagstring)
 
 // private routines
 
+QString TagLister::makePathToTag()
+{
+    int i = 1; // skip over root
+    QStringList tagpath;
+    while (i < m_TagPath.size()) {
+        int child_index = -1;
+        if (i+1 < m_TagPath.size()) child_index = m_TagChild.at(i+1);
+        tagpath << m_TagPath.at(i) + " " + QString::number(child_index);
+        i = i + 1;
+    }
+    return tagpath.join(",");
+}
+
 TagLister::TagInfo TagLister::getNext()
 {
     TagInfo mi;
@@ -303,30 +335,41 @@ TagLister::TagInfo TagLister::getNext()
     mi.len = -1;
     mi.open_pos = -1;
     mi.open_len = -1;
+    mi.child = -1;
     QStringView markup = parseML();
     while (!markup.isNull()) {
         if ((markup.at(0) == '<') && (markup.at(markup.size() - 1) == '>')) {
             mi.pos = m_pos;
             parseTag(markup, mi);
             if (mi.ttype == "begin") {
-                m_TagPath << mi.tname;
                 m_TagPos << mi.pos;
                 m_TagLen << mi.len;
+                mi.child = ++m_child;
+                m_TagChild << mi.child;
+                m_child = -1;
+                m_TagPath << mi.tname;
+
+            } else if (mi.ttype == "single") {
+                m_child++;
+                mi.child = m_child;
             } else if (mi.ttype == "end") {
-                QString tname = m_TagPath.last();
-                if (tname == mi.tname) {
+                QString pathnode = m_TagPath.last();
+                if (pathnode.startsWith(mi.tname)) {
                     m_TagPath.removeLast();
                     mi.open_pos = m_TagPos.takeLast();
                     mi.open_len = m_TagLen.takeLast();
+                    mi.child = m_TagChild.takeLast();
+                    m_child = mi.child;
                 } else {
                     qDebug() << "TagLister Error: Not well formed -  open close mismatch: ";
-                    qDebug() << "   open Tag: " << tname << " at position: " << m_TagPos.last();
+                    qDebug() << "   open Tag: " << pathnode << " at position: " << m_TagPos.last();
                     qDebug() << "   close Tag: " << mi.tname << " at position: " << mi.pos;
                     mi.open_pos = -1;
                     mi.open_len = -1;
+                    mi.child = -1;
                 }
             }
-            mi.tpath = m_TagPath.join(".");
+            mi.tpath = makePathToTag();
             return mi;
         }
         // skip anything not a tag
@@ -444,6 +487,7 @@ int TagLister::stopWhenContains(const QStringView tgt, const QString& stopchars,
     while((p < tgt.length()) && !stopchars.contains(tgt.at(p))) p++;
     return p;
 }
+
 
 void TagLister::buildTagList()
 {
