@@ -107,11 +107,11 @@ jobs:
       working-directory: ${{runner.workspace}}/build
       run: |
         if [[ -v DISP_INPUT ]]; then
-          LINUXDEPLOY_OUTPUT_APP_NAME="Sigil-$DISP_INPUT-x86_64"
+          export LINUXDEPLOY_OUTPUT_APP_NAME="Sigil-$DISP_INPUT-x86_64"
         elif [[ -v TAG_NAME ]]; then
-          LINUXDEPLOY_OUTPUT_APP_NAME="Sigil-$TAG_NAME-x86_64"
+          export LINUXDEPLOY_OUTPUT_APP_NAME="Sigil-$TAG_NAME-x86_64"
         else
-          LINUXDEPLOY_OUTPUT_APP_NAME="Sigil-$SHORT_SHA-x86_64"
+          export LINUXDEPLOY_OUTPUT_APP_NAME="Sigil-$SHORT_SHA-x86_64"
         fi
         DEPLOY_PLATFORM_THEMES=1 \
         NO_STRIP=true \
