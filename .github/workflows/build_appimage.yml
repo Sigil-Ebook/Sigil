@@ -45,13 +45,6 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: ${{env.PY_VER2}}
-
-    - name: Cache Qt
-      id: cache-qt
-      uses: actions/cache@v4
-      with:
-        path: ${{runner.workspace}}/Qt
-        key: ${{ runner.os }}-sigilqt-${{ hashFiles('**/reset-lin-caches.txt') }}
   
     - name: Install Qt
       uses: jurplel/install-qt-action@v3
@@ -60,7 +53,6 @@ jobs:
         dir: ${{runner.workspace}}/Qt
         modules: 'qtwebengine qtpositioning qtpdf qtwebchannel qtserialport qtimageformats'
         setup-python: 'false'
-        cache: ${{ steps.cache-qt.outputs.cache-hit }}
 
     - uses: lukka/get-cmake@latest
 
@@ -114,7 +106,7 @@ jobs:
     - name: Make AppImage
       working-directory: ${{runner.workspace}}/build
       run: |
-        if [[ -v DISP_INPUT ]]; then;
+        if [[ -v DISP_INPUT ]]; then
           LINUXDEPLOY_OUTPUT_APP_NAME="Sigil-$DISP_INPUT-x86_64"
         elif [[ -v TAG_NAME ]]; then
           LINUXDEPLOY_OUTPUT_APP_NAME="Sigil-$TAG_NAME-x86_64"
