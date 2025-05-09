@@ -1,0 +1,146 @@
+name: Build Sigil AppImage
+
+on:
+  push:
+
+  workflow_dispatch:
+    inputs:
+      vers_info:
+        description: 'Version for file name'
+        required: true
+        default: ''
+
+env:
+  PY_VER: 3.13
+  PY_VER2: 3.13.2
+  QT_VER: 6.8.2
+
+jobs:
+
+  build:
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    runs-on: ubuntu-22.04
+
+    - name: Get Short SHA
+        if: ${{ github.event.name != 'workflow_dispatch' }}
+        id: get_short_sha
+        run: echo "SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)" >> $GITHUB_ENV
+
+    - name: Get Dispatch Input
+        if: ${{ github.event.name == 'workflow_dispatch' }}
+        id: get_dispatch_input
+        run: echo "DISP_INPUT=${{ github.event.inputs.vers_info }}" >> $GITHUB_ENV
+
+    - name: Get Tag Name
+        if: startswith( github.ref, 'refs/tags/')
+        id: get_tag_name
+        run: echo "TAG_NAME=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
+
+    - name: Pick File Output
+        id: file_out
+        run: |
+          
+
+
+    - name: Checkout Sigil
+      uses: actions/checkout@v4
+      with:
+        ref: master
+        fetch-depth: 0
+        path: sigilsrc
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{env.PY_VER2}}
+
+    - name: Cache Qt
+      id: cache-qt
+      uses: actions/cache@v4
+      with:
+        path: ${{runner.workspace}}/Qt
+        key: ${{ runner.os }}-sigilqt-${{ hashFiles('**/reset-lin-caches.txt') }}
+  
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: ${{env.QT_VER}}
+        dir: ${{runner.workspace}}/Qt
+        modules: 'qtwebengine qtpositioning qtpdf qtwebchannel qtserialport qtimageformats'
+        setup-python: 'false'
+        cache: ${{ steps.cache-qt.outputs.cache-hit }}
+
+    - uses: lukka/get-cmake@latest
+
+    - name: Package Python
+      run: |
+        which python3
+        mkdir ${{runner.workspace}}/build
+        pip install patchelf
+        pip install -r $GITHUB_WORKSPACE/.github/workflows/requirements.txt
+        python3 $GITHUB_WORKSPACE/.github/workflows/appimg_python3_gather.py ${{runner.workspace}}/build/sigil.AppDir $PY_VER
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get install -y mesa-common-dev libglu1-mesa-dev libxcb-cursor-dev libgtk-3-dev libtiff-dev libwebp-dev
+        which cmake
+        cmake --version
+        which ninja
+        ninja --version
+        which qmake
+        qmake -v
+        which python3
+        python3 --version
+        gcc --version
+        cd ${{runner.workspace}}/build
+        wget -nv https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
+        chmod +x linuxdeploy-x86_64.AppImage
+        wget -nv https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage
+        chmod +x linuxdeploy-plugin-qt-x86_64.AppImage
+        wget -nv https://github.com/linuxdeploy/linuxdeploy-plugin-appimage/releases/download/continuous/linuxdeploy-plugin-appimage-x86_64.AppImage
+        chmod +x linuxdeploy-plugin-appimage-x86_64.AppImage
+        cp /lib/x86_64-linux-gnu/libtiff.so.5 ${{runner.workspace}}/build/sigil.AppDir/usr/lib/
+        cp /lib/x86_64-linux-gnu/libwebp.so.7 ${{runner.workspace}}/build/sigil.AppDir/usr/lib/
+
+
+    - name: Build Sigil
+      working-directory: ${{runner.workspace}}/build
+      run: |
+        cmake $GITHUB_WORKSPACE/sigilsrc \
+        -G "Ninja" \
+        -DCMAKE_PREFIX_PATH=${QT_ROOT_DIR}/lib/cmake \
+        -DPKG_SYSTEM_PYTHON=1 \
+        -DAPPIMAGE_BUILD=1 \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DINSTALL_HICOLOR_ICONS=1 \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_INSTALL_LIBDIR=lib \
+        -DCMAKE_SKIP_RPATH=ON
+        ninja
+        DESTDIR=sigil.AppDir ninja install
+    
+    - name: Make AppImage
+      working-directory: ${{runner.workspace}}/build
+      run: |
+        if [[ -v DISP_INPUT ]]; then;
+          LINUXDEPLOY_OUTPUT_APP_NAME="Sigil-$DISP_INPUT-x86_64"
+        elif [[ -v TAG_NAME ]]; then
+          LINUXDEPLOY_OUTPUT_APP_NAME="Sigil-$TAG_NAME-x86_64"
+        else
+          LINUXDEPLOY_OUTPUT_APP_NAME="Sigil-$SHORT_SHA-x86_64"
+        fi \
+        DEPLOY_PLATFORM_THEMES=1 \
+        NO_STRIP=true \
+        DISABLE_COPYRIGHT_FILES_DEPLOYMENT=1 \
+        LD_LIBRARY_PATH=lib:sigil.AppDir/usr/lib/python$PY_VER/site-packages/pillow.libs:$LD_LIBRARY_PATH \
+        ./linuxdeploy-x86_64.AppImage --appdir sigil.AppDir --plugin qt
+        python3 $GITHUB_WORKSPACE/.github/workflows/appimg_cleanup.py ${{runner.workspace}}/build/sigil.AppDir/usr/lib $PY_VER
+        cp -f $GITHUB_WORKSPACE/AppRun ${{runner.workspace}}/build/sigil.AppDir/
+        ./linuxdeploy-plugin-appimage-x86_64.AppImage --appdir=sigil.AppDir
+     
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: AppImage-artifact
+        path: ${{runner.workspace}}/build/Sigil-*-x86_64.AppImage
+        retention-days: 5

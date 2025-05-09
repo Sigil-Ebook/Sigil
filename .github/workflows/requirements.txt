@@ -1,0 +1,11 @@
+six==1.17.0
+html5lib==1.1
+regex==2024.11.6
+css-parser==1.0.10
+cssselect==1.2.0
+certifi==2025.1.31
+dulwich==0.22.7
+chardet==5.2.0
+pillow==11.1.0
+lxml==5.3.0
+PySide6==6.8.2
