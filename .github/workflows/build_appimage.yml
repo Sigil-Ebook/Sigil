@@ -22,12 +22,12 @@ jobs:
 
     steps:
     - name: Get Short SHA
-      if: ${{ github.event.name != 'workflow_dispatch' }}
+      if: ${{ github.event_name != 'workflow_dispatch' }}
       id: get_short_sha
       run: echo "SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)" >> $GITHUB_ENV
 
     - name: Get Dispatch Input
-      if: ${{ github.event.name == 'workflow_dispatch' }}
+      if: ${{ github.event_name == 'workflow_dispatch' }}
       id: get_dispatch_input
       run: echo "DISP_INPUT=${{ github.event.inputs.vers_info }}" >> $GITHUB_ENV
 
