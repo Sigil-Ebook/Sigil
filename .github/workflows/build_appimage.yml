@@ -119,7 +119,7 @@ jobs:
         LD_LIBRARY_PATH=lib:sigil.AppDir/usr/lib/python$PY_VER/site-packages/pillow.libs:$LD_LIBRARY_PATH \
         ./linuxdeploy-x86_64.AppImage --appdir sigil.AppDir --plugin qt
         python3 $GITHUB_WORKSPACE/.github/workflows/appimg_cleanup.py ${{runner.workspace}}/build/sigil.AppDir/usr/lib $PY_VER
-        cp -f $GITHUB_WORKSPACE/AppRun ${{runner.workspace}}/build/sigil.AppDir/
+        cp -f $GITHUB_WORKSPACE/.github/workflows/AppRun ${{runner.workspace}}/build/sigil.AppDir/
         ./linuxdeploy-plugin-appimage-x86_64.AppImage --appdir=sigil.AppDir
      
     - name: Upload Artifact
