@@ -175,16 +175,42 @@ int TagLister::findLastTagOnOrBefore(int pos)
     return i;
 }
 
+// There may not be one here if no tags exists because
+// the front of m_Tags is not padded with a dummy tag
+// so this can return -1 meaning none exists
+// but both the body and html tags exist this should not happen
+int TagLister::findLastOpenOrSingleTagThatContainsYou(int pos)
+{
+    int i = findLastTagOnOrBefore(pos);
+    bool found = false;
+    while ((i >= 0) && !found) {
+        TagLister::TagInfo ti = m_Tags.at(i);
+        // qDebug() << "testing: " << ti.tname << ti.ttype << ti.tpath << ti.child << ti.pos << ti.len;
+        if (ti.ttype == "single") {
+            if ((pos >= ti.pos) && (pos < ti.pos + ti.len)) found = true;
+        }
+        if (ti.ttype == "end") {
+            if ((pos >= ti.open_pos) && (pos < ti.pos + ti.len)) found = true;
+        }
+        if (ti.ttype == "begin") {
+            int ci  = findCloseTagForOpen(i);
+            if (ci != -1) {
+                TagLister::TagInfo cls = m_Tags.at(ci);
+                if ((pos >= ti.pos) && (pos < (cls.pos + cls.len))) found = true;
+            }
+        }
+        // if not found try the preceding tag
+        if (!found) i = i - 1;
+    }
+    if (!found) i = -1;
+    return i;
+}
+
 QString TagLister::GeneratePathToTag(int pos)
 {
-    QStringList path_segments;
-    if (m_Tags.size() < 3) return "";
-    int i = findLastTagOnOrBefore(pos);
+    int i = findLastOpenOrSingleTagThatContainsYou(pos);
+    if (i < 0) return "html -1";
     TagInfo ti = m_Tags.at(i);
-    while(ti.ttype == "end" && i > 0) {
-        i = i - 1;
-        ti = m_Tags.at(i);
-    }
     return ti.tpath;
 }
 

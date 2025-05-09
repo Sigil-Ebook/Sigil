@@ -72,6 +72,7 @@ public:
     int findFirstTagOnOrAfter(int pos);
     int findOpenTagForClose(int i);
     int findCloseTagForOpen(int i);
+    int findLastOpenOrSingleTagThatContainsYou(int pos);
     int findBodyOpenTag();
     int findBodyCloseTag();
     QString GeneratePathToTag(int pos);
