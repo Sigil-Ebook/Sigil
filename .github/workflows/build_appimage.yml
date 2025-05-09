@@ -40,8 +40,6 @@ jobs:
       uses: actions/checkout@v4
       with:
         ref: master
-        fetch-depth: 0
-        path: sigilsrc
 
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -100,7 +98,7 @@ jobs:
     - name: Build Sigil
       working-directory: ${{runner.workspace}}/build
       run: |
-        cmake $GITHUB_WORKSPACE/sigilsrc \
+        cmake $GITHUB_WORKSPACE \
         -G "Ninja" \
         -DCMAKE_PREFIX_PATH=${QT_ROOT_DIR}/lib/cmake \
         -DPKG_SYSTEM_PYTHON=1 \
