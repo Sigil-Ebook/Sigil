@@ -163,14 +163,15 @@ bool OpenExternally::openFile(const QString &filePath, const QString &applicatio
 }
 
 
-bool OpenExternally::openFileWithXEditor(const QString& filePath, const QString &application, int spinenum)
+bool OpenExternally::openFileWithXEditor(const QString& filePath, const QString &application, int spinenum, int filepos)
 {
     QString spineno = QString::number(spinenum);
+    QString curpos = QString::number(filepos);
 
 #if defined(Q_OS_MAC)
 
     if (QFile::exists(filePath) && QDir(application).exists()) {
-        QStringList arguments = QStringList() << "-a" << application << "--args" << filePath << spineno;
+        QStringList arguments = QStringList() << "-a" << application << "--args" << filePath << spineno << curpos;
         return QProcess::startDetached("/usr/bin/open", arguments);
     }
 
@@ -188,14 +189,14 @@ bool OpenExternally::openFileWithXEditor(const QString& filePath, const QString 
             // Filename only. No other way to get the cmd string properly quoted/escaped otherwise. We'll change
             // the working directory to the directory where the scripts resides so that it can be found/launched.
             QString nativeArguments;
-            nativeArguments = QString(QFileInfo(application).fileName() + " \"" + QDir::toNativeSeparators(filePath) + "\"" + " %1").arg(spineno);
+            nativeArguments = QString(QFileInfo(application).fileName() + " \"" + QDir::toNativeSeparators(filePath) + "\"" + " %1 %2").arg(spineno).arg(curpos);
             proc.setNativeArguments(nativeArguments);
         } else {
             DBG qDebug() << "External binary program being launched: " << application;
             batch = false;
             proc.setProgram(application);
             QStringList arguments;
-            arguments << QDir::toNativeSeparators(filePath) << spineno;
+            arguments << QDir::toNativeSeparators(filePath) << spineno << curpos;
             proc.setArguments(arguments);
         }
         // Change to the directory of the application/script first. This is
@@ -225,7 +226,7 @@ bool OpenExternally::openFileWithXEditor(const QString& filePath, const QString 
 
     if (QFile::exists(filePath) && QFile::exists(application)) {
         QStringList arguments = QStringList(QDir::toNativeSeparators(filePath));
-        arguments << spineno;
+        arguments << spineno << curpos;
         return QProcess::startDetached(QDir::toNativeSeparators(application), arguments, QFileInfo(filePath).absolutePath());
     }
 

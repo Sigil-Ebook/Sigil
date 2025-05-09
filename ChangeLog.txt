@@ -35,6 +35,7 @@ pre-2.5.0
          variable: SIGIL_USE_COLORSCHEME_CHANGED
      - add a Use Standard File Extensions tool with menu and automator tool support
      - speed up CV by extending TagLister to remove need for QStack and QXmlStreamReader for our web paths
+     - Pagedit version 2.5.0 will now sync cursor position with CV when opening an external xhtml file
 
 
 Sigil-2.4.2

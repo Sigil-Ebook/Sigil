@@ -1336,6 +1336,10 @@ void MainWindow::launchExternalXEditor()
         opf_resource = qobject_cast<OPFResource *>(tab->GetLoadedResource());
     }
 
+    // get currenttext position if xhtml file is currently being edited
+    int filepos = -1;
+    if (html_resource) filepos = tab->GetCursorPosition();
+
     SettingsStore ss;
     QString XEditorPath = ss.externalXEditorPath();
     if (XEditorPath.isEmpty()) {
@@ -1401,7 +1405,7 @@ void MainWindow::launchExternalXEditor()
             }
         }
 
-        if (OpenExternally::openFileWithXEditor(resource->GetFullPath(), XEditorPath, spinenum)) {
+        if (OpenExternally::openFileWithXEditor(resource->GetFullPath(), XEditorPath, spinenum, filepos)) {
             m_Book->GetFolderKeeper()->WatchResourceFile(resource);
             ShowMessageOnStatusBar(tr("Executing PageEdit Xhtml Editor"));
             return;

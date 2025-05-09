@@ -44,7 +44,7 @@ public:
 
     static void clearEditorListForResourceType(const Resource::ResourceType type);
     
-    static bool openFileWithXEditor(const QString& filePath, const QString &application, int spinenum = 0);
+    static bool openFileWithXEditor(const QString& filePath, const QString &application, int spinenum = 0, int filepos = -1);
 
     static const QStringList editorsForResourceType(const Resource::ResourceType type);
 
