@@ -16,31 +16,25 @@ env:
   QT_VER: 6.8.2
 
 jobs:
-
   build:
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
     runs-on: ubuntu-22.04
 
+    steps:
     - name: Get Short SHA
-        if: ${{ github.event.name != 'workflow_dispatch' }}
-        id: get_short_sha
-        run: echo "SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)" >> $GITHUB_ENV
+      if: ${{ github.event.name != 'workflow_dispatch' }}
+      id: get_short_sha
+      run: echo "SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)" >> $GITHUB_ENV
 
     - name: Get Dispatch Input
-        if: ${{ github.event.name == 'workflow_dispatch' }}
-        id: get_dispatch_input
-        run: echo "DISP_INPUT=${{ github.event.inputs.vers_info }}" >> $GITHUB_ENV
+      if: ${{ github.event.name == 'workflow_dispatch' }}
+      id: get_dispatch_input
+      run: echo "DISP_INPUT=${{ github.event.inputs.vers_info }}" >> $GITHUB_ENV
 
     - name: Get Tag Name
-        if: startswith( github.ref, 'refs/tags/')
-        id: get_tag_name
-        run: echo "TAG_NAME=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
-
-    - name: Pick File Output
-        id: file_out
-        run: |
-          
-
+      if: startswith( github.ref, 'refs/tags/')
+      id: get_tag_name
+      run: echo "TAG_NAME=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
 
     - name: Checkout Sigil
       uses: actions/checkout@v4
