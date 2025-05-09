@@ -112,7 +112,7 @@ jobs:
           LINUXDEPLOY_OUTPUT_APP_NAME="Sigil-$TAG_NAME-x86_64"
         else
           LINUXDEPLOY_OUTPUT_APP_NAME="Sigil-$SHORT_SHA-x86_64"
-        fi \
+        fi
         DEPLOY_PLATFORM_THEMES=1 \
         NO_STRIP=true \
         DISABLE_COPYRIGHT_FILES_DEPLOYMENT=1 \
