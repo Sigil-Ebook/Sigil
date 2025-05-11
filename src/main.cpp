@@ -396,8 +396,11 @@ int main(int argc, char *argv[])
     // handle other startup based on current settings and environment variables
     SettingsStore settings;
 
-#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC) && !defined(APPIMAGE_BUILD)
-    settings.setUseBundledInterp(false);
+#if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
+    if (!APPIMAGE_BUILD) {
+        settings.setUseBundledInterp(false);
+        qDebug() << "Use Bundled Interp set to false in main.cpp";
+    }
 #endif
 
 #if defined(Q_OS_WIN32)
