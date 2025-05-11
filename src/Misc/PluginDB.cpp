@@ -90,10 +90,11 @@ QString PluginDB::buildBundledInterpPath()
 #else
   if (APPIMAGE_BUILD) {
       bundled_python3_path = QCoreApplication::applicationDirPath() + "/python3";
+      qDebug() << "setting AppImage python3 path to: " << bundled_python3_path;
   } else {
       bundled_python3_path = "";
   }
-  
+ 
 #endif
   
   QFileInfo checkPython3(bundled_python3_path);
