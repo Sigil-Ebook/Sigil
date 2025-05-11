@@ -308,6 +308,7 @@
     <addaction name="actionCount"/>
     <addaction name="actionDryRun"/>
     <addaction name="actionFilterReplaceAll"/>
+    <addaction name="actionRestartSearch"/>
     <addaction name="separator"/>
     <addaction name="menuSearchCurrentFile"/>
     <addaction name="separator"/>
@@ -2069,6 +2070,11 @@
   <action name="actionFilterReplaceAll">
    <property name="text">
     <string>Filter Replacements</string>
+   </property>
+  </action>
+  <action name="actionRestartSearch">
+   <property name="text">
+    <string>Restart Current Search</string>
    </property>
   </action>
   <action name="actionMarkSelection">
