@@ -361,7 +361,7 @@ bool PluginWidget::bundledInterpReady()
             return true;
         }
     }
-    qDebug() << PluginWidget returning bundledInterpReady() as false";
+    qDebug() << "PluginWidget returning bundledInterpReady() as false";
     return false;
 }
 
