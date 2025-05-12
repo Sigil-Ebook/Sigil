@@ -14,6 +14,7 @@ env:
   PY_VER: 3.13
   PY_VER2: 3.13.2
   QT_VER: 6.8.2
+  DOWNLOADQT: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/AppImageWebEngine682.tar.xz
 
 jobs:
   build:
@@ -51,8 +52,13 @@ jobs:
       with:
         version: ${{env.QT_VER}}
         dir: ${{runner.workspace}}/Qt
-        modules: 'qtwebengine qtpositioning qtpdf qtwebchannel qtserialport qtimageformats'
+        modules: 'qtpositioning qtpdf qtwebchannel qtserialport qtimageformats'
         setup-python: 'false'
+
+    - name: Install patched QtWebEngine
+      run: |
+        curl -L -o qtwebengine.tar.xz "$DOWNLOADQT"
+        tar -xJvf qtwebengine.tar.xz -C ${{runner.workspace}}/Qt
 
     - uses: lukka/get-cmake@latest
 
@@ -123,7 +129,7 @@ jobs:
         ./linuxdeploy-plugin-appimage-x86_64.AppImage --appdir=sigil.AppDir
      
     - name: Upload Artifact
-      if: contains(github.event.head_commit.message, '[deploy]') || startswith( github.ref, 'refs/tags/') || ${{ github.event_name == 'workflow_dispatch' }}
+      if: contains(github.event.head_commit.message, '[deploy]') || startswith( github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch'
       uses: actions/upload-artifact@v4
       with:
         name: AppImage-artifact
