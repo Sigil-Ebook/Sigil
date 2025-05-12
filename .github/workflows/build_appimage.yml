@@ -123,6 +123,7 @@ jobs:
         ./linuxdeploy-plugin-appimage-x86_64.AppImage --appdir=sigil.AppDir
      
     - name: Upload Artifact
+      if: contains(github.event.head_commit.message, '[deploy]') || startswith( github.ref, 'refs/tags/') || ${{ github.event_name == 'workflow_dispatch' }}
       uses: actions/upload-artifact@v4
       with:
         name: AppImage-artifact
