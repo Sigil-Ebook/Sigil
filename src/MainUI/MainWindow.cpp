@@ -1355,7 +1355,7 @@ void MainWindow::launchExternalXEditor()
     }
 
     //bool isPageEdit = ss.externalXEditorPath().contains("pageedit", Qt::CaseInsensitive);
-    bool isPageEdit = (xeditorinfo.baseName().toLower() == "pageedit");
+    bool isPageEdit = (xeditorinfo.baseName().toLower().startsWith("pageedit"));
     // qDebug() << "External editor is PageEdit: " << isPageEdit;
 
     if (isPageEdit) {
