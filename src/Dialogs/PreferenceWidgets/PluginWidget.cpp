@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford Ontario Canada
  **
  **  This file is part of Sigil.
  **
@@ -129,7 +129,6 @@ void PluginWidget::readSettings()
 
     // Should the bundled Python interpreter be used?
     m_useBundledInterp = settings.useBundledInterp();
-    qDebug() << "PluginWidget reading in settings for useBundledInterp as: " << m_useBundledInterp;
 
     // Load the available plugin information
     PluginDB *pdb = PluginDB::instance();
@@ -354,14 +353,12 @@ bool PluginWidget::bundledInterpReady()
 {
     QString bpath;
     bpath = PluginDB::buildBundledInterpPath();
-    qDebug() << "bundled interpreter path from PluginDB: " << bpath;
     if (bpath != "") {
         QFileInfo checkPython3(bpath);
         if (checkPython3.exists() && checkPython3.isFile() && checkPython3.isReadable() && checkPython3.isExecutable() ) {
             return true;
         }
     }
-    qDebug() << "PluginWidget returning bundledInterpReady() as false";
     return false;
 }
 
