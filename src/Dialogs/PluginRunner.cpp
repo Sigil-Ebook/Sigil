@@ -361,72 +361,57 @@ void PluginRunner::startPlugin()
     //Whether bundled or external, set working dir to the directory of the interpreter being used.
     m_process.setWorkingDirectory(QDir::toNativeSeparators(QFileInfo(m_enginePath).absolutePath()));
 #elif !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
-    QDir exedir(QCoreApplication::applicationDirPath());
-    exedir.cdUp();
-    QString AppImageLibs = QDir::toNativeSeparators(exedir.absolutePath() + PYTHON_MAIN_PREFIX);
-    if (settings.useBundledInterp()) {  // Linux bundled Python settings
-        // Set Python env variables to control how the bundled interpreter finds it's various pieces
-        // (and to isolate the bundled interpreter from any system Python).
-        // Relative to the interpreter binary to make it easier to relocate the bundled Python.
-        //QString pythonhome = QDir::toNativeSeparators(AppImageLibs + PYTHON_LIB_PATH);
-        QString pythonhome = exedir.absolutePath();
-        //env.insert("PYTHONHOME", pythonhome);
-        //env.insert("PYTHONIOENCODING", "UTF-8");
-        // Remove all other Python environment variables to avoid potential system Python interference.
-        // (Linux relevant Python env vars from v3.4 thru v3.6 (no debug build vars))
-        //QStringList vars_to_unset;
-        //vars_to_unset << "PYTHONPATH" << "PYTHONOPTIMIZE" << "PYTHONDEBUG" << "PYTHONSTARTUP"
-        //              << "PYTHONINSPECT" << "PYTHONUNBUFFERED" << "PYTHONVERBOSE" << "PYTHONCASEOK"
-        //              << "PYTHONDONTWRITEBYTECODE" << "PYTHONHASHSEED" << "PYTHONNOUSERSITE" << "PYTHONUSERBASE"
-        //              << "PYTHONWARNINGS" << "PYTHONFAULTHANDLER" << "PYTHONTRACEMALLOC" << "PYTHONASYNCIODEBUG"
-        //              << "PYTHONMALLOC" << "PYTHONMALLOCSTATS";
-        //foreach(QString envvar, vars_to_unset) {
-        //    env.remove(envvar);
-        //}
+    QDir exedir(QCoreApplication::applicationDirPath());  //  usr/bin in AppImage
+    exedir.cdUp();  //  usr in AppImage
+    // The following variable will be meaningless outside of an AppImage build; so do not use it there
+    QString AppImageLibs = QDir::toNativeSeparators(exedir.absolutePath() + PYTHON_MAIN_PREFIX);  //  usr/lib in AppImage
+    if (settings.useBundledInterp()) {  // Bundled Python being launched from AppImage Sigil
+        QString pythonhome = exedir.absolutePath(); //  usr in AppImage
+        // Make sure certifi module has a root cert
         QString cert_path = AppImageLibs + PYTHON_LIB_PATH + "/site-packages" + "/certifi/cacert.pem";
         env.insert("SSL_CERT_FILE", cert_path);
-        // Qt5.7+ variable that may interfere in the future.
-        //env.remove("QT_QPA_PLATFORMTHEME");
-        // Replace Qt environment variables with our own (for bundled PyQt5)
-        //env.insert("QT_QPA_PLATFORM_PLUGIN_PATH", QDir::toNativeSeparators(AppImageLibs + "/platforms"));
-        //env.insert("QT_PLUGIN_PATH", QDir::toNativeSeparators(AppImageLibs + "/plugins"));
-        // Prepend Sigil lib directory to LD_LIBRARY_PATH so the bundled interpreter
-        // can find the included Qt libs (for PyQt6) and the Python dll.
+        // Make sure Sigil's libdir appears only once ... and first in LD_LIBRARY_PATH.
+        // Should not technically be necessary since this is how the AppImage is launched, but it can't hurt.
         QStringList ld = env.value("LD_LIBRARY_PATH", "").split(PATH_LIST_DELIM);
-        // Make sure Sigil's libdir appears only once ... and first.
         ld.removeAll(AppImageLibs);
         ld.prepend(AppImageLibs);
-        // Reset modified LD_LIBRARY_PATH
+        // Rebuild modified LD_LIBRARY_PATH
         env.insert("LD_LIBRARY_PATH", ld.join(PATH_LIST_DELIM));
-        // If launched by another program (calibre), the new working directory could mess with how the
-        // bundled interpreter finds/loads PyQt6. So set it manually to the bundled interpreter's directory.
-        //m_process.setWorkingDirectory(QDir::toNativeSeparators(QFileInfo(m_enginePath).absolutePath()));
-        //QStringList preload;
-        //preload.append(QDir::toNativeSeparators(AppImageLibs + "/libsigilgumbo.so"));
-        //preload.append(QDir::toNativeSeparators(AppImageLibs + "/libhunspell.so"));
-        //env.insert("LD_PRELOAD", preload.join(PATH_LIST_DELIM));
+        // Set an env var so the plugin framework can determine it's being launched from an AppImage.
         env.insert("SIGIL_APPIMAGE_BUILD", "1");
     }
-    else {  // Linux native Python settings
-        if (APPIMAGE_BUILD) {
-            env.remove("LD_LIBRARY_PATH");
-            QStringList preload;
-            preload.append(QDir::toNativeSeparators(AppImageLibs + "/libsigilgumbo.so"));
-            preload.append(QDir::toNativeSeparators(AppImageLibs + "/libhunspell.so"));
-            env.insert("LD_PRELOAD", preload.join(PATH_LIST_DELIM));
-            env.insert("SIGIL_APPIMAGE_BUILD", "1");
-        } else {
-            // Remove Sigil's appdir from LD_LIBRARY_PATH if it exists in environment so system Python can run unimpeded.
-            QString appdir = QCoreApplication::applicationDirPath();
+    else {  // External Python interp being used
+        if (APPIMAGE_BUILD) {  // External Python launched from AppImage Sigil
+            // Remove the AppImage lib directory from LD_LIBRARY_PATH so
+            // the external python/modules don't try to use it first
             QStringList ld = env.value("LD_LIBRARY_PATH", "").split(PATH_LIST_DELIM);
-            ld.removeAll(appdir);
-            // Reset modified LD_LIBRARY_PATH or unset if empty
-            if (!ld.count()==0) {
+            ld.removeAll(AppImageLibs);
+            // Rebuild modified LD_LIBRARY_PATH or remove if empty
+            if (ld.count() > 0) {
                 env.insert("LD_LIBRARY_PATH", ld.join(PATH_LIST_DELIM));
             }
             else {
                 env.remove("LD_LIBRARY_PATH");
             }
+            // An external python interpreter launched from an AppImage still needs to use
+            // the libsigilgumbo and libhunspell that's bundled with the AppImage.
+            QStringList preload;
+            preload.append(QDir::toNativeSeparators(AppImageLibs + "/libsigilgumbo.so"));
+            preload.append(QDir::toNativeSeparators(AppImageLibs + "/libhunspell.so"));
+            env.insert("LD_PRELOAD", preload.join(PATH_LIST_DELIM));
+            // Set an env var so the plugin framework can determine it's being launched from an AppImage.
+            env.insert("SIGIL_APPIMAGE_BUILD", "1");
+        } else {  // A no-AppImage version of Sigil using the system Python
+            // Make sure Sigil's app dir appears only once ... and first.
+            QString appdir = QCoreApplication::applicationDirPath();
+            QStringList ld = env.value("LD_LIBRARY_PATH", "").split(PATH_LIST_DELIM);
+            ld.removeAll(appdir);
+            ld.prepend(appdir);
+            // Sigil's application directory will be looked to for libsigilgumbo
+            // Sigil will also check there first for libhunspell and then look to the system
+            // (which will be the case for most repo mantained versions of Sigil)
+            // Rebuild modified LD_LIBRARY_PATH
+            env.insert("LD_LIBRARY_PATH", ld.join(PATH_LIST_DELIM));
         }
     }
 #endif
