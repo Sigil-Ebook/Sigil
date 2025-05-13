@@ -242,6 +242,7 @@ bool OpenExternally::openFileWithXEditor(const QString& filePath, const QString 
     if (QFile::exists(filePath) && QFile::exists(application)) {
         QStringList arguments = QStringList(QDir::toNativeSeparators(filePath));
         arguments << spineno << curpos;
+        proc.setProgram(QDir::toNativeSeparators(application));
         proc.setProcessEnvironment(env);
         proc.setArguments(arguments);
         proc.setWorkingDirectory(QFileInfo(filePath).absolutePath());
