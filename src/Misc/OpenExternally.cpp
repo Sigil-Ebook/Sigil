@@ -35,6 +35,7 @@
 #include "Misc/OpenExternally.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
+#include "sigil_constants.h"
 
 #define DBG if(0)
 
