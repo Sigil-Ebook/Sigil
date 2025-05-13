@@ -22,6 +22,7 @@
 *************************************************************************/
 
 #include <QtCore/QProcess>
+#include <QProcessEnvironment>
 #if defined(Q_OS_WIN32)
 #include "Windows.h"
 #endif
@@ -222,12 +223,29 @@ bool OpenExternally::openFileWithXEditor(const QString& filePath, const QString 
         return proc.startDetached();
     }
 
-#else
-
+#else  // Linux
+    QProcess proc;
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    if(APPIMAGE_BUILD) {
+        QString AppImageLibs = env.value("APPIMAGE_LIB_DIR", "");
+        QStringList ld = env.value("LD_LIBRARY_PATH", "").split(PATH_LIST_DELIM);
+        ld.removeAll(AppImageLibs);
+        // Rebuild modified LD_LIBRARY_PATH or remove if empty
+        if (ld.count() > 0) {
+            env.insert("LD_LIBRARY_PATH", ld.join(PATH_LIST_DELIM));
+        }
+        else {
+            env.remove("LD_LIBRARY_PATH");
+        }
+    }
     if (QFile::exists(filePath) && QFile::exists(application)) {
         QStringList arguments = QStringList(QDir::toNativeSeparators(filePath));
         arguments << spineno << curpos;
-        return QProcess::startDetached(QDir::toNativeSeparators(application), arguments, QFileInfo(filePath).absolutePath());
+        proc.setProcessEnvironment(env);
+        proc.setArguments(arguments);
+        proc.setWorkingDirectory(QFileInfo(filePath).absolutePath());
+        //return QProcess::startDetached(QDir::toNativeSeparators(application), arguments, QFileInfo(filePath).absolutePath());
+        return proc.startDetached();
     }
 
 #endif
