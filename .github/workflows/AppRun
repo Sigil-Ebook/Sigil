@@ -11,10 +11,10 @@ SIGIL_EXTRA_ROOT="$this_dir/usr/share/sigil"
 export SIGIL_EXTRA_ROOT
 echo "${SIGIL_EXTRA_ROOT}"
 
-LD_LIBRARY_PATH="$this_dir/usr/lib:$LD_LIBRARY_PATH"
-export LD_LIBRARY_PATH
-echo $LD_LIBRARY_PATH
+# LD_LIBRARY_PATH="$this_dir/usr/lib:$LD_LIBRARY_PATH"
+# export LD_LIBRARY_PATH
+# echo $LD_LIBRARY_PATH
 
 source "$this_dir"/apprun-hooks/"linuxdeploy-plugin-qt-hook.sh"
 
-exec "$this_dir"/AppRun.wrapped "$@"
+LD_LIBRARY_PATH="$this_dir/usr/lib:$LD_LIBRARY_PATH" exec "$this_dir"/AppRun.wrapped "$@"
