@@ -44,6 +44,7 @@ exclude_libs = [
     "libpcre.so.3",
     "libpixman-1.so.0",
     "libprotobuf-lite.so.9",
+    "libreadline.so.8",
     "libselinux.so.1",
     "libsystemd.so.0",
     "libthai.so.0",
