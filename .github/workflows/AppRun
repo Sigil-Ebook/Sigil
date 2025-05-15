@@ -15,6 +15,9 @@ LD_LIBRARY_PATH="$this_dir/usr/lib:$LD_LIBRARY_PATH"
 export LD_LIBRARY_PATH
 echo $LD_LIBRARY_PATH
 
+export SIGIL_APPIMAGE_LIB_DIR="$this_dir/usr/lib"
+export SIGIL_EXEC_WRAPPER="$this_dir/usr/optional/exec_wrapper.so"
+
 source "$this_dir"/apprun-hooks/"linuxdeploy-plugin-qt-hook.sh"
 
-exec "$this_dir"/AppRun.wrapped "$@"
+LD_PRELOAD="$this_dir"/usr/optional/exec_wrapper.so exec "$this_dir"/AppRun.wrapped "$@"
