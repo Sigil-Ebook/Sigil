@@ -171,7 +171,7 @@ add_subdirectory( internal/gumbo )
 
 # Add external process wrapper for appimages
 if( APPIMAGE_BUILD )
-    add_subdirectory( internal/wrapper_exec )
+    add_subdirectory( internal/exec_wrapper)
 endif()
 
 add_subdirectory( 3rdparty/ )

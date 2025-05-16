@@ -9,14 +9,14 @@
 
 cmake_minimum_required( VERSION 3.18 ) 
 
-project(wrapper_exec C )
+project(exec_wrapper C )
 
 set( SOURCES exec.c )
 
-add_library( wrapper_exec SHARED ${SOURCES} )
-set_target_properties(wrapper_exec PROPERTIES 
+add_library( exec_wrapper SHARED ${SOURCES} )
+set_target_properties(exec_wrapper PROPERTIES 
     PREFIX ""
-    OUTPUT_NAME "wrapper_exec"
+    OUTPUT_NAME "exec_wrapper"
     SUFFIX ".so"
 )
 

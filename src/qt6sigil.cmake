@@ -613,7 +613,7 @@ if( UNIX AND NOT APPLE )
     endif()
 
     if( APPIMAGE_BUILD )
-        install( PROGRAMS ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/wrapper_exec.so DESTINATION ${CMAKE_INSTALL_PREFIX}/optional )
+        install( PROGRAMS ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/exec_wrapper.so DESTINATION ${CMAKE_INSTALL_PREFIX}/optional )
     endif()
 
     if( BUILD_PATCHED_LIBXML2 )
