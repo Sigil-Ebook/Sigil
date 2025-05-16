@@ -122,21 +122,6 @@ typedef int (*execve_func_t)(const char *filename, char *const argv[], char *con
 #define DEBUG_PRINT(...)  /**/
 #endif
 
-/* remove substring in place */
-static char* substr_remove(char* str, const char* sub) {
-    size_t len = strlen(sub);
-    if (len > 0) {
-        char * p = str;
-        while ((p = strstr(p, sub)) != NULL) {
-            memmove(p, p + len, strlen(p + len) + 1);
-            p = str;
-        }
-    }
-
-    return str;
-}
-
-
 static void env_free(char* const *env)
 {
     size_t len = 0;
@@ -154,6 +139,21 @@ static size_t get_number_of_variables(char* const *env)
     while (env[number] != 0) number++;
     
     return number != 0 ? (ssize_t)number : -1;
+}
+
+#if 0
+/* remove substring in place */
+static char* substr_remove(char* str, const char* sub) {
+    size_t len = strlen(sub);
+    if (len > 0) {
+        char * p = str;
+        while ((p = strstr(p, sub)) != NULL) {
+            memmove(p, p + len, strlen(p + len) + 1);
+            p = str;
+        }
+    }
+
+    return str;
 }
 
 
@@ -177,6 +177,60 @@ static char* append_char(const char* searchterm, const char c)
     buffer[len+1]= '\0';
     return strdup(buffer);
 }
+#endif
+
+
+static char* update_path_envvar_to_remove_segment(const char* path_envvar, const char* segment_to_remove)
+{
+    size_t pl_len = strlen(path_envvar);
+    char newev[pl_len + 1];
+    char buffer[pl_len + 1];
+
+    char* bp = strchr(path_envvar, '=');
+    if (!bp) {
+        return strdup(path_envvar);
+    }
+    bp++;
+
+    /* copy env var name and the '=' to new env var */
+    char* pend = mempcpy(newev, path_envvar, bp - path_envvar);
+    int first_segment = 1;
+
+    /* parse the path list into buffer segment by segment */
+    const char *subp;
+    for (const char *p = bp ; ;  p = subp) {
+
+        /* if reached end of path_envvar stop */
+        if (*p == '\0') break;
+
+        subp = strchrnul(p, ':');
+
+        char* bend = mempcpy(buffer, p, subp - p);
+        *bend = '\0';
+
+        /* if it is empty or fully matches segment ignore it */
+        if ((buffer[0] == '\0') || (strcmp(buffer, segment_to_remove) == 0)) {
+            /* skip over ':' and if no futher segments stop */
+            if (*subp++ == '\0') break;
+            continue;
+        }
+
+        /* prepend a ':' path separator if not first segment */
+        if (!first_segment) {
+            *pend++ = ':';
+        } else {
+            first_segment = 0;
+        }
+
+        /* append buffer to new env var */
+        pend = mempcpy(pend, buffer, subp - p);
+
+        /* skip over ':' and if no further segments stop */
+        if (*subp++ == '\0') break;
+    }
+    *pend = '\0';;
+    return strdup(newev);
+}
 
 
 static char* const* read_env_from_evp(char* const *evp)
@@ -195,32 +249,13 @@ static char* const* read_env_from_evp(char* const *evp)
 
         if (strncmp(ptr,"LD_LIBRARY_PATH=",16) == 0) {
             char* libpath = NULL;
-            libpath = calloc(var_len + 1, sizeof(char));
-            strncpy(libpath, ptr, var_len + 1);
             if (strlen(applibpath) > 0) {
-                /* Using the following substring removal sequence should
-                 * properly account for ':' path separators in the following variations
-                 *
-                 * =TARGET
-                 * =TARGET:FILLER
-                 * =FILLER1:TARGET
-                 * =FILLER1:TARGET:FILLER2
-                 *
-                 * pass1 remove :TARGET
-                 * pass2 remove TARGET:
-                 * pass3 remove TARGET
-                 *
-                 * Then discard if all you are left with is "LD_LIBRARY_PATH="
-                 */
-                char * v1 = prepend_char(applibpath, ':');
-                libpath = substr_remove(libpath, v1);
-                char * v2 = append_char(applibpath, ':');
-                libpath = substr_remove(libpath, v2);
-                libpath = substr_remove(libpath, applibpath);
-                free(v1);
-                free(v2);
+                libpath = update_path_envvar_to_remove_segment(ptr, applibpath);
+            } else {
+                libpath = calloc(var_len + 1, sizeof(char));
+                strncpy(libpath, ptr, var_len + 1);
             }
-            DEBUG_PRINT("\tedited ld lib path: %s\n", libpath);
+            DEBUG_PRINT("\tEdited LD_LIBRARY_PATH: %s\n", libpath);
             if (strcmp(libpath, "LD_LIBRARY_PATH=") != 0) {
                 size_t newlen = strlen(libpath);
                 env[n] = calloc(newlen + 1, sizeof(char));
@@ -232,32 +267,13 @@ static char* const* read_env_from_evp(char* const *evp)
 
         } else if (strncmp(ptr,"LD_PRELOAD=",11) == 0) {
             char* preloadpath = NULL;
-            preloadpath = calloc(var_len+1, sizeof(char));
-            strncpy(preloadpath, ptr, var_len + 1);
             if (strlen(execwrapper) > 0) {
-                /* Using the following substring removal sequence should
-                 * properly account for ':' path separators in the following variations
-                 *
-                 * =TARGET
-                 * =TARGET:FILLER
-                 * =FILLER1:TARGET
-                 * =FILLER1:TARGET:FILLER2
-                 *
-                 * pass1 remove :TARGET
-                 * pass2 remove TARGET:
-                 * pass3 remove TARGET
-                 *
-                 * Then discard if all you are left with is "LD_PRELOAD="
-                 */                 
-                char * v1 = prepend_char(execwrapper, ':');
-                preloadpath = substr_remove(preloadpath, v1);
-                char * v2 = append_char(execwrapper, ':');
-                preloadpath = substr_remove(preloadpath, v2);
-                preloadpath = substr_remove(preloadpath, execwrapper);
-                free(v1);
-                free(v2);
+                preloadpath = update_path_envvar_to_remove_segment(ptr, execwrapper);
+            } else {
+                preloadpath = calloc(var_len+1, sizeof(char));
+                strncpy(preloadpath, ptr, var_len + 1);
             }
-            DEBUG_PRINT("\tedited preload path: %s\n", preloadpath);
+            DEBUG_PRINT("\tEdited LD_PRELOAD: %s\n", preloadpath);
             if (strcmp(preloadpath, "LD_PRELOAD=") != 0) {
                 size_t newlen = strlen(preloadpath);
                 env[n] = calloc(newlen + 1, sizeof(char));
@@ -292,12 +308,12 @@ static char* create_fullpath_using_path_env(const char* filename)
     const char *subp;
     for (const char *p = path ; ;  p = subp) {
         struct stat sb;
+        if (*p == '\0') break;
         subp = strchrnul(p, ':');
-        if (*subp == '\0') break;
         if (subp - p >= path_len) {
             continue;
         }
-        char *pend = memcpy(buffer, p, subp - p);
+        char *pend = mempcpy(buffer, p, subp - p);
         *pend = '/';
         memcpy(pend + (p < subp), filename, file_len);
         DEBUG_PRINT("\tTesting fullpath: %s\n", buffer);
@@ -305,7 +321,7 @@ static char* create_fullpath_using_path_env(const char* filename)
             /* we have a match */
             return strdup(buffer);
         }
-        if (*subp++ == '\0') break; 
+        if (*subp++ == '\0') break;
     }
     buffer[0] = '\0';
 

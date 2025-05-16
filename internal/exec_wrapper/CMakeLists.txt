@@ -22,5 +22,6 @@ set_target_properties(exec_wrapper PROPERTIES
 
 if( UNIX AND NOT APPLE )
     # cmake sets -fPIC on by default with shared libs
-	set( CMAKE_C_FLAGS "-fPIC -O2 -DDEBUG=1 -ldl" )
+	# set( CMAKE_C_FLAGS "-fPIC -O2 -DDEBUG=1 -ldl" )
+	set( CMAKE_C_FLAGS "-fPIC -O2 -ldl" )
 endif()
