@@ -156,20 +156,6 @@ bool OpenExternally::openFile(const QString &filePath, const QString &applicatio
 #else  // Linux
     QProcess proc;
     QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
-    if(APPIMAGE_BUILD) {
-        QDir exedir(QCoreApplication::applicationDirPath());  //  usr/bin in AppImage
-        exedir.cdUp();  //  usr in AppImage
-        QString AppImageLibs = QDir::toNativeSeparators(exedir.absolutePath() + "/lib");  //  usr/lib in AppImage
-        QStringList ld = env.value("LD_LIBRARY_PATH", "").split(PATH_LIST_DELIM);
-        ld.removeAll(AppImageLibs);
-        // Rebuild modified LD_LIBRARY_PATH or remove if empty
-        if (ld.count() > 0) {
-            env.insert("LD_LIBRARY_PATH", ld.join(PATH_LIST_DELIM));
-        }
-        else {
-            env.remove("LD_LIBRARY_PATH");
-        }
-    }
     if (QFile::exists(filePath) && QFile::exists(application)) {
         QStringList arguments = QStringList(QDir::toNativeSeparators(filePath));
         proc.setProgram(QDir::toNativeSeparators(application));
@@ -246,20 +232,6 @@ bool OpenExternally::openFileWithXEditor(const QString& filePath, const QString 
 #else  // Linux
     QProcess proc;
     QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
-    if(APPIMAGE_BUILD) {
-        QDir exedir(QCoreApplication::applicationDirPath());  //  usr/bin in AppImage
-        exedir.cdUp();  //  usr in AppImage
-        QString AppImageLibs = QDir::toNativeSeparators(exedir.absolutePath() + "/lib");  //  usr/lib in AppImage
-        QStringList ld = env.value("LD_LIBRARY_PATH", "").split(PATH_LIST_DELIM);
-        ld.removeAll(AppImageLibs);
-        // Rebuild modified LD_LIBRARY_PATH or remove if empty
-        if (ld.count() > 0) {
-            env.insert("LD_LIBRARY_PATH", ld.join(PATH_LIST_DELIM));
-        }
-        else {
-            env.remove("LD_LIBRARY_PATH");
-        }
-    }
     if (QFile::exists(filePath) && QFile::exists(application)) {
         QStringList arguments = QStringList(QDir::toNativeSeparators(filePath));
         arguments << spineno << curpos;
