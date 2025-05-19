@@ -52,7 +52,7 @@ jobs:
       with:
         version: ${{env.QT_VER}}
         dir: ${{runner.workspace}}/Qt
-        modules: 'qtpositioning qtpdf qtwebchannel qtserialport qtimageformats'
+        modules: 'qtpositioning qtpdf qtwebchannel qtserialport qtimageformats qtwaylandcompositor'
         setup-python: 'false'
 
     - name: Install patched QtWebEngine
