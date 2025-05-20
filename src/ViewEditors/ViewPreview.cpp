@@ -176,12 +176,12 @@ void ViewPreview::CustomSetDocument(const QString &path, const QString &html)
 
         // Note: toLocalFile() fails with any custom scheme (ie. our sigil: scheme)
         // So convert url to file: scheme to extract the local file
-        QUrl localurl(url());
-        localurl.setScheme("file");
-        localurl.setHost("");
-        if (localurl.toLocalFile() != path) {
-            ClearWebCache();
-        }
+        // QUrl localurl(url());
+        // localurl.setScheme("file");
+        // localurl.setHost("");
+        // if (localurl.toLocalFile() != path) {
+        ClearWebCache();
+        // }
     }
 
     m_isLoadFinished = false;

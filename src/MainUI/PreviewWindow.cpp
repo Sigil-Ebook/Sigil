@@ -722,7 +722,7 @@ void PreviewWindow::ReloadPreview()
     //force reset m_updatingPage in case a signal is lost
     m_progress->reset();
     m_updatingPage = false;
-    m_Preview->ClearWebCache();
+    // m_Preview->ClearWebCache();
     emit RequestPreviewReload();
 }
 
