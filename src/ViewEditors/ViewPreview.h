@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2023 Kevin B. Hendricks Stratford, Ontario, Canada
-**  Copyright (C) 2021-2023 Doug Massay
+**  Copyright (C) 2019-2025 Kevin B. Hendricks Stratford, Ontario, Canada
+**  Copyright (C) 2021-2025 Doug Massay
 **
 **  This file is part of Sigil.
 **
@@ -116,6 +116,7 @@ public slots:
     void HideOverlay();
     QString GetHTML() const;
     void CacheCleared();
+    void ClearWebCache();
 
 signals:
     /**

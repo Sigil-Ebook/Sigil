@@ -155,6 +155,7 @@ QSize ViewPreview::sizeHint() const
     return QSize(200, 400);
 }
 
+
 void ViewPreview::CustomSetDocument(const QString &path, const QString &html)
 {
     if (html.isEmpty()) {
@@ -178,21 +179,8 @@ void ViewPreview::CustomSetDocument(const QString &path, const QString &html)
         QUrl localurl(url());
         localurl.setScheme("file");
         localurl.setHost("");
-        QDeadlineTimer deadline(3000);  // in milliseconds
-
         if (localurl.toLocalFile() != path) {
-            DBG qDebug() <<  "clearing Preview's httpcache";
-#if QT_VERSION >= QT_VERSION_CHECK(6, 7, 0)
-	        m_CacheCleared = false;
-#endif
-	        page()->profile()->clearHttpCache();
-            while(!m_CacheCleared && (!deadline.hasExpired())) {
-                 qApp->processEvents(QEventLoop::ExcludeUserInputEvents, 50);
-            }
-            if (deadline.hasExpired()) {
-                 qDebug() << "View Preview Cache Clear failed - deadline expired";
-            }
-            m_CacheCleared = true;
+            ClearWebCache();
         }
     }
 
@@ -577,6 +565,24 @@ bool ViewPreview::ExecuteCaretUpdate(const QString &caret_update)
 }
 
 
+void ViewPreview::ClearWebCache()
+{
+    QDeadlineTimer deadline(3000);  // in milliseconds                                                                      
+    DBG qDebug() <<  "clearing Preview's httpcache";
+#if QT_VERSION >= QT_VERSION_CHECK(6, 7, 0)
+    m_CacheCleared = false;
+#endif
+    page()->profile()->clearHttpCache();
+    while(!m_CacheCleared && (!deadline.hasExpired())) {
+        qApp->processEvents(QEventLoop::ExcludeUserInputEvents, 50);
+    }
+    if (deadline.hasExpired()) {
+        DBG qDebug() << "View Preview Cache Clear failed - deadline expired";
+    }
+    m_CacheCleared = true;
+}
+
+
 void ViewPreview::ConnectSignalsToSlots()
 {
     connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(UpdateFinishedState(bool)));
@@ -589,3 +595,4 @@ void ViewPreview::ConnectSignalsToSlots()
     connect(page()->profile(), SIGNAL(clearHttpCacheCompleted()), this, SLOT(CacheCleared()));
 #endif
 }
+

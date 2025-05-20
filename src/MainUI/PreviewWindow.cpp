@@ -719,10 +719,10 @@ void PreviewWindow::ReloadPreview()
 {
     // m_Preview->triggerPageAction(QWebEnginePage::ReloadAndBypassCache);
     // m_Preview->triggerPageAction(QWebEnginePage::Reload);
-
     //force reset m_updatingPage in case a signal is lost
     m_progress->reset();
     m_updatingPage = false;
+    m_Preview->ClearWebCache();
     emit RequestPreviewReload();
 }
 
