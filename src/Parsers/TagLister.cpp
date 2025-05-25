@@ -181,29 +181,91 @@ int TagLister::findLastTagOnOrBefore(int pos)
 // but both the body and html tags exist this should not happen
 int TagLister::findLastOpenOrSingleTagThatContainsYou(int pos)
 {
-    int i = findLastTagOnOrBefore(pos);
+    // to sync to Preview the position must be inside the body tag someplace
+    int bpos = pos;
+    if (bpos >= m_bodyEndPos) bpos = m_bodyEndPos;
+    if (bpos <= m_bodyStartPos) bpos = m_bodyStartPos;
+
+    int k = findLastTagOnOrBefore(bpos);
+    // assign to j the next following tag if still inside body
+    int j = k+1;
+    if (j > m_bodyCloseTag) j = m_bodyCloseTag;
+
+    // qDebug() << "last tag on or before: " << m_Tags.at(k).tname << m_Tags.at(k).ttype << m_Tags.at(k).tpath;
+    // qDebug() << "next tag on or after: " << m_Tags.at(j).tname << m_Tags.at(j).ttype << m_Tags.at(j).tpath;
+
+    // start search at last tag on or before
+    int i = k;
     bool found = false;
     while ((i >= 0) && !found) {
         TagLister::TagInfo ti = m_Tags.at(i);
         // qDebug() << "testing: " << ti.tname << ti.ttype << ti.tpath << ti.child << ti.pos << ti.len;
+
         if (ti.ttype == "single") {
-            if ((pos >= ti.pos) && (pos < ti.pos + ti.len)) found = true;
+            if ((bpos >= ti.pos) && (bpos < ti.pos + ti.len)) found = true;
         }
         if (ti.ttype == "end") {
-            if ((pos >= ti.open_pos) && (pos < ti.pos + ti.len)) found = true;
+            if ((bpos >= ti.open_pos) && (bpos < ti.pos + ti.len)) {
+                found = true;
+            }
         }
         if (ti.ttype == "begin") {
             int ci  = findCloseTagForOpen(i);
             if (ci != -1) {
                 TagLister::TagInfo cls = m_Tags.at(ci);
-                if ((pos >= ti.pos) && (pos < (cls.pos + cls.len))) found = true;
+                if ((bpos >= ti.pos) && (bpos < (cls.pos + cls.len))) found = true;
             }
         }
         // if not found try the preceding tag
         if (!found) i = i - 1;
     }
-    if (!found) i = -1;
-    return i;
+    if (!found) {
+        return -1;
+    }
+    // qDebug() << "found tag: " << m_Tags.at(i).tname << m_Tags.at(i).ttype << m_Tags.at(i).tpath;
+
+    // we could be in an end tag not an open or single tag
+    if (m_Tags.at(i).ttype == "end") {
+        i = findOpenTagForClose(i);
+    }
+    if (i < 0) return -1;
+
+    // now handle all the special cases that could result
+    if (m_Tags.at(i).tname == "body") {
+        // in body tag we can select its first element or if in a text child node of the body
+        // tag we can select its first follow on non-text node to get a better location.
+        // The closest following tag is pointed to by j
+        // qDebug() << "containing tag is body so may be bare text child of body";
+
+        if ((m_Tags.at(j).ttype == "single") || (m_Tags.at(j).ttype == "begin")) {
+            // qDebug() << "returning closest following open or single tag";
+            return j;
+
+        } else if (m_Tags.at(j).ttype == "end") {
+
+            // use its paired open tag
+            int b = findOpenTagForClose(j);
+            if (b >= 0) {
+                if ((m_Tags.at(b).tname != "html") && (m_Tags.at(b).tname != "body")) {
+                    // qDebug() << "returning closest following open or single tag";
+                    return b;
+                }
+            }
+
+            // need to again handle the special case of CV location *after* last tag in
+            // body or html, or inside </body> or </html> or after both  by returning
+            // the closest preceding open tag - start search at k
+            while(k >= 0 && m_Tags.at(k).ttype == "end") {
+                k = k - 1;
+            }
+            if (k >= 0) {
+                // qDebug() << "returning closest preceding open or single tag";
+                return k;
+            }
+        }
+    }
+    // qDebug() << "returning proper containing tag";
+    return i;  // proper containing tag
 }
 
 QString TagLister::GeneratePathToTag(int pos)
