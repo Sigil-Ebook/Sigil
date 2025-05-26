@@ -1,4 +1,9 @@
-pre-2.5.0
+pre-2.X.X
+   Bug Fixes
+     - improve CV to PV syncing when cursor on empty lines
+
+
+Sigil-2.5.0
    Bug Fixes
      - allow SVG resources to be selectable alongside Image resources and context menu to work in BookBrowser
      - because Linux has multiple light and dark themes (but different)

@@ -175,102 +175,52 @@ int TagLister::findLastTagOnOrBefore(int pos)
     return i;
 }
 
-// There may not be one here if no tags exists because
-// the front of m_Tags is not padded with a dummy tag
-// so this can return -1 meaning none exists
+// this routine can return -1 meaning none exists
 // but both the body and html tags exist this should not happen
 int TagLister::findLastOpenOrSingleTagThatContainsYou(int pos)
 {
     // to sync to Preview the position must be inside the body tag someplace
     int bpos = pos;
-    if (bpos >= m_bodyEndPos) bpos = m_bodyEndPos;
-    if (bpos <= m_bodyStartPos) bpos = m_bodyStartPos;
+    if (bpos > m_bodyEndPos) bpos = m_bodyEndPos;
+    if (bpos < m_bodyStartPos) bpos = m_bodyStartPos;
 
     int k = findLastTagOnOrBefore(bpos);
-    // assign to j the next following tag if still inside body
-    int j = k+1;
-    if (j > m_bodyCloseTag) j = m_bodyCloseTag;
+    TagLister::TagInfo ti = m_Tags.at(k);
 
-    // qDebug() << "last tag on or before: " << m_Tags.at(k).tname << m_Tags.at(k).ttype << m_Tags.at(k).tpath;
-    // qDebug() << "next tag on or after: " << m_Tags.at(j).tname << m_Tags.at(j).ttype << m_Tags.at(j).tpath;
+    // test if it contains you
+    // if bpos inside a single tag use it
+    if (ti.ttype == "single") {
+        if ((bpos >= ti.pos) && (bpos < ti.pos + ti.len)) return k;
+    }
 
-    // start search at last tag on or before
+    // if bpos inside a begin tag and a child of it, use it
+    if (ti.ttype == "begin") {
+        int ci  = findCloseTagForOpen(k);
+        if (ci != -1) {
+            TagLister::TagInfo cls = m_Tags.at(ci);
+            if ((bpos >= ti.pos) && (bpos < (cls.pos + cls.len))) return k;
+        }
+    }
+
+    // ow. start search at last tag on or before and stop for closest single or begin tag
     int i = k;
     bool found = false;
     while ((i >= 0) && !found) {
         TagLister::TagInfo ti = m_Tags.at(i);
-        // qDebug() << "testing: " << ti.tname << ti.ttype << ti.tpath << ti.child << ti.pos << ti.len;
-
         if (ti.ttype == "single") {
-            if ((bpos >= ti.pos) && (bpos < ti.pos + ti.len)) found = true;
-        }
-        if (ti.ttype == "end") {
-            if ((bpos >= ti.open_pos) && (bpos < ti.pos + ti.len)) {
-                found = true;
-            }
+            found = true;
         }
         if (ti.ttype == "begin") {
-            int ci  = findCloseTagForOpen(i);
-            if (ci != -1) {
-                TagLister::TagInfo cls = m_Tags.at(ci);
-                if ((bpos >= ti.pos) && (bpos < (cls.pos + cls.len))) found = true;
-            }
+            found = true;
         }
         // if not found try the preceding tag
         if (!found) i = i - 1;
     }
-    if (!found) {
-        return -1;
-    }
-    // qDebug() << "found tag: " << m_Tags.at(i).tname << m_Tags.at(i).ttype << m_Tags.at(i).tpath;
-
-    // we could be in an end tag not an open or single tag
-    if (m_Tags.at(i).ttype == "end") {
-        i = findOpenTagForClose(i);
-    }
-    if (i < 0) return -1;
-
-    // now handle all the special cases that could result
-    if (m_Tags.at(i).tname == "body") {
-        // in body tag we can select its first element or if in a text child node of the body
-        // tag we can select its first follow on non-text node to get a better location.
-        // The closest following tag is pointed to by j
-        // qDebug() << "containing tag is body so may be bare text child of body";
-
-        if ((m_Tags.at(j).ttype == "single") || (m_Tags.at(j).ttype == "begin")) {
-            // qDebug() << "returning closest following open or single tag";
-            return j;
-
-        } else if (m_Tags.at(j).ttype == "end") {
-
-            // use its paired open tag
-            int b = findOpenTagForClose(j);
-            if (b >= 0) {
-                if ((m_Tags.at(b).tname != "html") && (m_Tags.at(b).tname != "body")) {
-                    // qDebug() << "returning closest following open or single tag";
-                    return b;
-                }
-            }
-
-            // need to again handle the special case of CV location *after* last tag in
-            // body or html, or inside </body> or </html> or after both  by returning
-            // the closest preceding open tag - start search at k
-            while(k >= 0 && m_Tags.at(k).ttype == "end") {
-                k = k - 1;
-            }
-            if (k >= 0) {
-                // qDebug() << "returning closest preceding open or single tag";
-                return k;
-            }
-        }
-    }
-    // qDebug() << "returning proper containing tag";
-    return i;  // proper containing tag
+    if (!found) return -1;
+    return i;
 }
 
-// There may not be one here if no tags exists because
-// the front of m_Tags is not padded with a dummy tag
-// so this can return -1 meaning none exists
+// this routine can return -1 meaning none exists
 // but both the body and html tags exist so this should never happen
 int TagLister::findLastOpenTagOnOrBefore(int pos)
 {
@@ -279,18 +229,10 @@ int TagLister::findLastOpenTagOnOrBefore(int pos)
     if (bpos >= m_bodyEndPos) bpos = m_bodyEndPos;
     if (bpos <= m_bodyStartPos) bpos = m_bodyStartPos;
 
-    int k = findLastTagOnOrBefore(bpos);
-    // qDebug() << "last tag on or before: " << m_Tags.at(k).tname << m_Tags.at(k).ttype << m_Tags.at(k).tpath;
-
-    // start search at last tag on or position before looking backwards for nearest open tag
-    int i = k;
+    int i = findLastTagOnOrBefore(bpos);
     bool found = false;
     while ((i >= 0) && !found) {
-        // TagLister::TagInfo ti = m_Tags.at(i);
-        // qDebug() << "testing: " << ti.tname << ti.ttype << ti.tpath << ti.child << ti.pos << ti.len;
-        if (m_Tags.at(i).ttype == "begin") {
-            found = true;
-        }
+        if (m_Tags.at(i).ttype == "begin") found = true;
         if (!found) i = i - 1;
     }
     if (!found) {
@@ -301,8 +243,8 @@ int TagLister::findLastOpenTagOnOrBefore(int pos)
 
 QString TagLister::GeneratePathToTag(int pos)
 {
-    // int i = findLastOpenOrSingleTagThatContainsYou(pos);
-    int i = findLastOpenTagOnOrBefore(pos);
+    int i = findLastOpenOrSingleTagThatContainsYou(pos);
+    // int i = findLastOpenTagOnOrBefore(pos);
     if (i < 0) return "html -1";
     TagInfo ti = m_Tags.at(i);
     return ti.tpath;
