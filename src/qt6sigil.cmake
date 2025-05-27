@@ -547,6 +547,19 @@ if( UNIX AND NOT APPLE )
     query_qmake(QT_INSTALL_LIBS QT_LIBRARY_DIR)
     query_qmake(QT_INSTALL_PLUGINS QT_PLUGINS_DIR)
 
+    if( APPIMAGE_BUILD )
+        if( INCLUDE_GIT_SHORT_SHA )
+            execute_process(
+                COMMAND git rev-parse --short HEAD
+                OUTPUT_VARIABLE GIT_COMMIT_SHORT_SHA
+                OUTPUT_STRIP_TRAILING_WHITESPACE
+            )
+            set( APPIMAGE_FULL_VERSION "${SIGIL_FULL_VERSION}-${GIT_COMMIT_SHORT_SHA}" )
+        else()
+            set( APPIMAGE_FULL_VERSION "${SIGIL_FULL_VERSION}" )
+        endif()
+    endif()
+
     if ( NOT SHARE_INSTALL_PREFIX )
         set ( SHARE_INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX} )
     endif()
@@ -620,7 +633,13 @@ if( UNIX AND NOT APPLE )
         install( PROGRAMS ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/libsigilxml2.so.2.9.4 DESTINATION ${CMAKE_INSTALL_LIBDIR}/sigil )
         install( FILES ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/libxml2.so.2 DESTINATION ${CMAKE_INSTALL_LIBDIR}/sigil )
     endif()
-    install( FILES ${LINUX_DESKTOP_FILE} DESTINATION ${SHARE_INSTALL_PREFIX}/share/applications/ )
+
+    set( LINUX_DESKTOP_FILE_CONFIGURED ${CMAKE_BINARY_DIR}/sigil.desktop )
+    if( APPIMAGE_BUILD )
+        configure_file( ${LINUX_DESKTOP_FILE} ${LINUX_DESKTOP_FILE_CONFIGURED} )
+    else()
+        configure_file( ${LINUX_DESKTOP_FILE} ${LINUX_DESKTOP_FILE_CONFIGURED} COPYONLY )
+    install( FILES ${LINUX_DESKTOP_FILE_CONFIGURED} DESTINATION ${SHARE_INSTALL_PREFIX}/share/applications/ )
 
     # Qt6 gets shiny new(ish) teal icons
     set( ICON_SRC_PATH  ${PROJECT_SOURCE_DIR}/Resource_Files/icon/app_icons_alt )

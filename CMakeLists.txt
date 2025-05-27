@@ -90,6 +90,9 @@ if( UNIX AND NOT APPLE )
    if( NOT DEFINED APPIMAGE_BUILD )
        set( APPIMAGE_BUILD 0 )
    endif()
+   if( NOT DEFINED INCLUDE_GIT_SHORT_SHA )
+       set( INCLUDE_GIT_SHORT_SHA 0 )
+   endif()
 endif()
 
 # Check if platform is 64 bit

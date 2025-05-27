@@ -644,9 +644,15 @@ file( GLOB PLUGIN_FILES_PYTHON Resource_Files/plugin_launchers/python/* )
 
 file( GLOB EXAMPLE_FILES Resource_Files/examples/* )
 
-set( LINUX_DESKTOP_FILE
-    Resource_Files/freedesktop/sigil.desktop
-    )
+if( APPIMAGE_BUILD )
+    set( LINUX_DESKTOP_FILE
+        Resource_Files/freedesktop/sigil-appimage.desktop
+        )
+else()
+    set( LINUX_DESKTOP_FILE
+        Resource_Files/freedesktop/sigil.desktop
+        )
+endif()
 
 set( LINUX_DESKTOP_ICON_FILE
     app_icon_48.png
