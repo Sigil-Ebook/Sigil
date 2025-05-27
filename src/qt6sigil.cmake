@@ -639,6 +639,7 @@ if( UNIX AND NOT APPLE )
         configure_file( ${LINUX_DESKTOP_FILE} ${LINUX_DESKTOP_FILE_CONFIGURED} )
     else()
         configure_file( ${LINUX_DESKTOP_FILE} ${LINUX_DESKTOP_FILE_CONFIGURED} COPYONLY )
+    endif()
     install( FILES ${LINUX_DESKTOP_FILE_CONFIGURED} DESTINATION ${SHARE_INSTALL_PREFIX}/share/applications/ )
 
     # Qt6 gets shiny new(ish) teal icons
