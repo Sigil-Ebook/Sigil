@@ -92,7 +92,7 @@ public:
      * Search for a CSSSelector with the same definition of original group text and pos as this,
      * and if found remove from the document text
      * If not found returns a null string.
-     * Note the caller must intialise a new CSSInfo object to re-parse the updated text for another remove.
+     * Note the caller must initialise a new CSSInfo object to re-parse the updated text for another remove.
      */
     QString removeMatchingSelectors(QList<CSSSelector *> cssSelectors);
 

@@ -560,7 +560,7 @@ private slots:
     void InspectHTML();
 
     /**
-     * Updates the cursor postion label to refelect the position of the
+     * Updates the cursor position label to reflect the position of the
      * cursor within the text.
      *
      * Use a negative value to to denote an unknown or invalid value.
@@ -976,7 +976,7 @@ private:
     PreviewWindow *m_PreviewWindow;
 
     /**
-     * The lable that displays the cursor position.
+     * The label that displays the cursor position.
      * Line and column.
      */
     QLabel *m_lbCursorPosition;

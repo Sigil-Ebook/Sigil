@@ -42,7 +42,7 @@ Linux Build and Install
 
 Starting with Sigil 2.3.0, Qt6.4 is the minimum requirement to build Sigil. You'll need to use an older version if you need to build with Qt5.
 
-For newer Linux systems like Ubuntu 23.04 (and its derivitives), or Arch Linux, or Debian Trixie or Unstable, you should be able to compile Sigil using repo-provided dependencies. Instructions for doing so can be found in:
+For newer Linux systems like Ubuntu 23.04 (and its derivatives), or Arch Linux, or Debian Trixie or Unstable, you should be able to compile Sigil using repo-provided dependencies. Instructions for doing so can be found in:
 
 > [docs/Building_on_Linux.md](./docs/Building_on_Linux.md)
 
@@ -112,7 +112,7 @@ Currently these projects include:
 * jQuery.ScrollTo-2.1.2 (src/Resource_Files/javascript/jquery.scrollTo-2.1.2.min.js)
 * MathJax.js Version 3.2.X [required minimum is 3.2.2]: (src/Resource_Files/polyfills)
 
-In addtion, Sigil uses the following other packages that have been specifically
+In addition, Sigil uses the following other packages that have been specifically
 modified for use inside Sigil:
 
 * Beautiful Soup 4 (src/Resource_Files/plugin_launchers/sigil_bs4)

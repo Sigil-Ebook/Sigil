@@ -111,9 +111,9 @@ public:
      */
     int getCaptureSubpatternCount();
     /**
-     * Convert a named capture group to its absolute numbered group equivelent.
+     * Convert a named capture group to its absolute numbered group equivalent.
      *
-     * @param name The named catpure group.
+     * @param name The named capture group.
      * @return The absolute numbered group represented by the name. -1 if the
      * named group does not exist within the pattern.
      */

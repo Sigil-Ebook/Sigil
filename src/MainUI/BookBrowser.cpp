@@ -396,9 +396,9 @@ QList <Resource *> BookBrowser::ValidSelectedSVGResources()
 
 QList <Resource *> BookBrowser::ValidSelectedJSResources()
 {
-    QStringList mts = QStringList() << "application/javscript" <<
+    QStringList mts = QStringList() << "application/javascript" <<
                                        "text/javascript" <<
-                                       "application/x-javscript" <<
+                                       "application/x-javascript" <<
                                        "application/ecmacript";
     return ValidSelectedResourcesByMT(mts);
 }

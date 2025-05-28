@@ -637,7 +637,7 @@ class PageElement(object):
         """Force an attribute value into a string representation.
 
         A multi-valued attribute will be converted into a
-        space-separated stirng.
+        space-separated string.
         """
         value = self.get(value, default)
         if isinstance(value, list) or isinstance(value, tuple):

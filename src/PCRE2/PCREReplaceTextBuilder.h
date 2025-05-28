@@ -51,7 +51,7 @@ public:
      * representing the captured subpatterns.
      * @param replacement_pattern The replacement pattern. Can be text or text
      * and control characters.
-     * @param[out] out The string to store the repacement.
+     * @param[out] out The string to store the replacement.
      *
      * @return True if replacement text is created.
      */

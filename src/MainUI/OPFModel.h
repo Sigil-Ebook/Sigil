@@ -73,7 +73,7 @@ public:
     void Refresh();
 
     /**
-     * Re-sorts the selected HTML entires in alphanumeric order
+     * Re-sorts the selected HTML entries in alphanumeric order
      */
     void SortHTML(QList <QModelIndex> index_list);
 

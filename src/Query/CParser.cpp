@@ -528,7 +528,7 @@ CSelector* CParser::parsePseudoclassSelector()
         }
         else
         {
-            throw QueryParserException(error("impossibile"));
+            throw QueryParserException(error("impossible"));
         }
         return new CTextSelector(op, value);
     }

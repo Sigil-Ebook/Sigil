@@ -26,7 +26,7 @@ which python3
 # Prerequisites
 
 # Your may need to have the packaging module installed on your python3
-# and instll setuptools module
+# and install setuptools module
 # pip3 install --upgrade packaging
 # pip3 install --upgrade setuptools
 

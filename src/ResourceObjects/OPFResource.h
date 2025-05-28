@@ -138,7 +138,7 @@ public:
     QList<MetaEntry> GetDCMetadata() const;
 
     /**
-     * Returns list of any Media Overlay Active Class Selctors if defined in OPF metadata
+     * Returns list of any Media Overlay Active Class Selectors if defined in OPF metadata
      */
     QStringList GetMediaOverlayActiveClassSelectors() const;
     

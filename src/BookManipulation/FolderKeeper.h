@@ -157,7 +157,7 @@ public:
      * This function is a very fast O(1).
      *
      * @param identifier The identifier to search for.
-     * @return The searched-for resourcse.
+     * @return The searched-for resource.
      */
     Resource *GetResourceByIdentifier(const QString &identifier) const;
 
@@ -231,7 +231,7 @@ public:
     void WatchResourceFile(const Resource *resource);
 
     /**
-     * Dueing Save operations from Sigil we need to suspend/resume file watching.
+     * During Save operations from Sigil we need to suspend/resume file watching.
      */
     void SuspendWatchingResources();
     void ResumeWatchingResources();
