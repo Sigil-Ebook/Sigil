@@ -14,7 +14,7 @@ Activate the new virtual environment with the following command:
 
 >`source sigilpy/bin/activate`
 
-Update the pip module in the virtual environement to the latest version (from pypi.org):
+Update the pip module in the virtual environment to the latest version (from pypi.org):
 
 >`python -m pip install --upgrade pip`
 

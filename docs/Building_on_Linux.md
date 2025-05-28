@@ -80,7 +80,7 @@ The following command can be copied and pasted for convenience on Debian-based s
 **Note:** On Debian-based systems, you may need to also install the libgl1-mesa-dev package if cmake complains of missing OpenGL headers and/or includes
 
 ## <a name="thirdparty"/>3rd-Party Dependencies (optional step)
-Sigil will provide the extra third-party libs if you do nothing, but most (if not all) of Sigil's third-party dependencies should be avialable in your software repos. If you want to make use of them on Arch, `sudo pacman -S` the following packages.
+Sigil will provide the extra third-party libs if you do nothing, but most (if not all) of Sigil's third-party dependencies should be available in your software repos. If you want to make use of them on Arch, `sudo pacman -S` the following packages.
 
 + hunspell
 + pcre2
@@ -260,7 +260,7 @@ There are several configuration and environment variable options that can tailor
 
 -DMATHJAX_DIR=`<path>` **Only for Sigil 1.9.10 and earlier!** If you would like use your system's MathJax implementation instead of the one that comes bundled with Sigil, use this cmake directive when first configuring. A minimum of MathJax v2.7.0 is required to work with Sigil. NOTE: if -DMATHJAX_DIR=`<path>` is used, Sigil will install a config script to `<path>`/config/local. This file is required for Sigil's Preview to be able properly render MathML. This feature was added between Sigil 0.9.12 and 0.9.13.
 
--DMATHJAX3_DIR=`<path>` **Only for Sigil 1.9.20 and Later!** If you would like use your system's MathJax implementation instead of the one that comes bundled with Sigil, use this cmake directive when first configuring. A minimum of MathJax v3.2.2 is required to work with Sigil. MathJax 3.2.2+ is required for Sigil's Preview to be able properly render MathML starting with Sigil v1.9.20. Ensure your system MathJax meets this minimum version requirement before using usinf this CMAKE define.
+-DMATHJAX3_DIR=`<path>` **Only for Sigil 1.9.20 and Later!** If you would like use your system's MathJax implementation instead of the one that comes bundled with Sigil, use this cmake directive when first configuring. A minimum of MathJax v3.2.2 is required to work with Sigil. MathJax 3.2.2+ is required for Sigil's Preview to be able properly render MathML starting with Sigil v1.9.20. Ensure your system MathJax meets this minimum version requirement before using this CMAKE define.
 
 -DINSTALL_HICOLOR_ICONS=(0|1) Install various-sized Sigil application icons to the typical hicolor theme directories (`<INSTALL_PREFIX>/share/icons/hicolor`). The default is 0, which installs a single icon to the `<INSTALL_PREFIX>/share/pixmap` folder.
 
