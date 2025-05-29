@@ -537,9 +537,9 @@ QString ViewPreview::GetElementSelectingJS_WithTextNode(const QList<ElementIndex
 }
 
 
-bool ViewPreview::ExecuteCaretUpdate()
+bool ViewPreview::ExecuteCaretUpdate(bool default_to_top)
 {
-
+    Q_UNUSED(default_to_top);
     // If there is no caret location update pending...
     if (m_CaretLocationUpdate.isEmpty()) {
         return false;

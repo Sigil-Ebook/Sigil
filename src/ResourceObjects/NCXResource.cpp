@@ -92,8 +92,9 @@ NCXResource::NCXResource(const QString &mainfolder,
 
 // a rename of the ncx should only need updating in the opf
 // which should happen automagically via signals and slots here
-bool NCXResource::RenameTo(const QString &new_filename)
+bool NCXResource::RenameTo(const QString &new_filename, bool in_bulk)
 {
+    Q_UNUSED(in_bulk);
     bool successful = Resource::RenameTo(new_filename);
     return successful;
 }
@@ -101,8 +102,9 @@ bool NCXResource::RenameTo(const QString &new_filename)
 
 // a move of the ncx should need updating in the ncx and opf
 // which should happen automagically via signals and slots here
-bool NCXResource::MoveTo(const QString &newbookpath)
+bool NCXResource::MoveTo(const QString &newbookpath, bool in_bulk)
 {
+    Q_UNUSED(in_bulk);
     bool successful = Resource::MoveTo(newbookpath);
     return successful;
 }

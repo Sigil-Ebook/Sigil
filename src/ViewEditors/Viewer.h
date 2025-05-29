@@ -88,7 +88,7 @@ public:
      *
      * @return \c true if the update was performed.
      */
-    virtual bool ExecuteCaretUpdate() {
+    virtual bool ExecuteCaretUpdate(bool default_to_top=false) {
         return false;
     }
 };

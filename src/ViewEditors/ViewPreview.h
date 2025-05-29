@@ -98,7 +98,7 @@ public:
     void StoreCaretLocationUpdate(const QList<ElementIndex> &hierarchy);
 
     // inherited
-    bool ExecuteCaretUpdate();
+    bool ExecuteCaretUpdate(bool default_to_top=false);
 
     /**
      * Force a caret location update to the specified position.

@@ -2775,7 +2775,7 @@ std::tuple<int, int> CodeViewEditor::ConvertHierarchyToCaretMove(const QList<Ele
 
 bool CodeViewEditor::ExecuteCaretUpdate(bool default_to_top)
 {
-    // If there's a cursor/caret update waiting (from BookView),
+    // If there's a cursor/caret update waiting (from Preview),
     // we update the caret location and reset the update variable
     if (m_CaretUpdate.isEmpty()) {
         if (default_to_top) {

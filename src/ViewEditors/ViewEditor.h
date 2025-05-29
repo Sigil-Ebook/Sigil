@@ -74,7 +74,7 @@ public:
      *
      * @return The element selecting list.
      */
-    virtual QList<ElementIndex> GetCaretLocation(bool normalize=false) {
+    virtual QList<ElementIndex> GetCaretLocation() {
         return QList<ElementIndex>();
     }
 
@@ -97,7 +97,7 @@ public:
      *
      * @return \c true if the update was performed.
      */
-    virtual bool ExecuteCaretUpdate() {
+    virtual bool ExecuteCaretUpdate(bool default_to_top=false) {
         return false;
     }
 };

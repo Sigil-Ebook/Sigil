@@ -55,9 +55,9 @@ public:
 
     // inherited
 
-    virtual bool RenameTo(const QString &new_filename);
+    virtual bool RenameTo(const QString &new_filename, bool in_bulk=false);
 
-    virtual bool MoveTo(const QString &newbookpath);
+    virtual bool MoveTo(const QString &newbookpath, bool in_bulk=false);
 
     virtual ResourceType Type() const;
 
