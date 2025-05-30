@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
-# Copyright (c) 2014-2023 Kevin B. Hendricks and Doug Massay
+# Copyright (c) 2014-2025 Kevin B. Hendricks and Doug Massay
 # Copyright (c) 2014      John Schember
 # All rights reserved.
 #
