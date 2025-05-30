@@ -1,7 +1,13 @@
-pre-2.X.X
+Sigil-2.5.1
    Bug Fixes
-     - improve CV to PV syncing when cursor on empty lines
+     - fix CodeView to Preview syncing when cursor on empty lines
+     - fix build warnings related to overloaded-virtual
 
+   New Features
+     - Add AppImage .desktop file with version information
+     - strip AppImage bins when possible
+     - update docs to include Sigil_Plugin_Framework version 15
+     
 
 Sigil-2.5.0
    Bug Fixes
