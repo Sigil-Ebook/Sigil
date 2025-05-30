@@ -120,7 +120,6 @@ jobs:
           export LINUXDEPLOY_OUTPUT_APP_NAME="Sigil-$SHORT_SHA"
         fi
         DEPLOY_PLATFORM_THEMES=1 \
-        NO_STRIP=true \
         DISABLE_COPYRIGHT_FILES_DEPLOYMENT=1 \
         LD_LIBRARY_PATH=lib:sigil.AppDir/usr/lib/python$PY_VER/site-packages/pillow.libs:$LD_LIBRARY_PATH \
         EXTRA_PLATFORM_PLUGINS=libqwayland-generic.so \
@@ -128,6 +127,7 @@ jobs:
         ./linuxdeploy-x86_64.AppImage --appdir sigil.AppDir --plugin qt
         python3 $GITHUB_WORKSPACE/.github/workflows/appimg_cleanup.py ${{runner.workspace}}/build/sigil.AppDir/usr/lib $PY_VER
         cp -f $GITHUB_WORKSPACE/.github/workflows/AppRun ${{runner.workspace}}/build/sigil.AppDir/
+        LDAI_UPDATE_INFORMATION="gh-releases-zsync|Sigil-Ebbok|Sigil|latest|Sigil-*x86_64.AppImage.zsync" \
         ./linuxdeploy-plugin-appimage-x86_64.AppImage --appdir=sigil.AppDir
      
     - name: Upload Artifact
