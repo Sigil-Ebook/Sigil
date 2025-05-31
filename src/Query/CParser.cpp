@@ -486,7 +486,7 @@ CSelector* CParser::parsePseudoclassSelector()
         else
         {
             sel->release();
-            throw QueryParserException(error("impossbile"));
+            throw QueryParserException(error("impossible"));
         }
         CSelector* ret = new CUnarySelector(op, sel);
         sel->release();
@@ -528,7 +528,7 @@ CSelector* CParser::parsePseudoclassSelector()
         }
         else
         {
-            throw QueryParserException(error("impossibile"));
+            throw QueryParserException(error("impossible"));
         }
         return new CTextSelector(op, value);
     }
