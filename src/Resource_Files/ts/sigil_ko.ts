@@ -16022,8 +16022,8 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 <context>
     <name>NCXResource</name>
     <message>
-        <location filename="../../ResourceObjects/NCXResource.cpp" line="183"/>
         <location filename="../../ResourceObjects/NCXResource.cpp" line="185"/>
+        <location filename="../../ResourceObjects/NCXResource.cpp" line="187"/>
         <source>Start</source>
         <translation>시작</translation>
     </message>
@@ -16158,12 +16158,12 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 <context>
     <name>OPFResource</name>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1592"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1594"/>
         <source>[Title here]</source>
         <translation>[제목을 넣으세요]</translation>
     </message>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1602"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1604"/>
         <source>[Main title here]</source>
         <translation>[메인 제목을 넣으세요]</translation>
     </message>

@@ -16059,8 +16059,8 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
 <context>
     <name>NCXResource</name>
     <message>
-        <location filename="../../ResourceObjects/NCXResource.cpp" line="183"/>
         <location filename="../../ResourceObjects/NCXResource.cpp" line="185"/>
+        <location filename="../../ResourceObjects/NCXResource.cpp" line="187"/>
         <source>Start</source>
         <translation>Początek czytania</translation>
     </message>
@@ -16195,12 +16195,12 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
 <context>
     <name>OPFResource</name>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1592"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1594"/>
         <source>[Title here]</source>
         <translation>[Tutaj tytuł]</translation>
     </message>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1602"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1604"/>
         <source>[Main title here]</source>
         <translation>[Tutaj tytuł główny]</translation>
     </message>

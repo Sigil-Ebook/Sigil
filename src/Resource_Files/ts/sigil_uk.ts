@@ -16057,8 +16057,8 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 <context>
     <name>NCXResource</name>
     <message>
-        <location filename="../../ResourceObjects/NCXResource.cpp" line="183"/>
         <location filename="../../ResourceObjects/NCXResource.cpp" line="185"/>
+        <location filename="../../ResourceObjects/NCXResource.cpp" line="187"/>
         <source>Start</source>
         <translation>Старт</translation>
     </message>
@@ -16194,12 +16194,12 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 <context>
     <name>OPFResource</name>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1592"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1594"/>
         <source>[Title here]</source>
         <translation>[Назва отут]</translation>
     </message>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1602"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1604"/>
         <source>[Main title here]</source>
         <translation>[Основний заголовок отут]</translation>
     </message>

@@ -16050,8 +16050,8 @@ Möchten Sie die Dateien vor dem Speichern automatisch bereinigen? Oder möchten
 <context>
     <name>NCXResource</name>
     <message>
-        <location filename="../../ResourceObjects/NCXResource.cpp" line="183"/>
         <location filename="../../ResourceObjects/NCXResource.cpp" line="185"/>
+        <location filename="../../ResourceObjects/NCXResource.cpp" line="187"/>
         <source>Start</source>
         <translation>Start</translation>
     </message>
@@ -16187,12 +16187,12 @@ Möchten Sie die Dateien vor dem Speichern automatisch bereinigen? Oder möchten
 <context>
     <name>OPFResource</name>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1592"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1594"/>
         <source>[Title here]</source>
         <translation>[Titel hier eingeben]</translation>
     </message>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1602"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1604"/>
         <source>[Main title here]</source>
         <translation>[Haupttitel hier eingeben]</translation>
     </message>

@@ -145,12 +145,12 @@
         <location filename="../../Widgets/AlertBox.cpp" line="102"/>
         <location filename="../../Widgets/AlertBox.cpp" line="108"/>
         <source>Show Details...</source>
-        <translation type="unfinished"/>
+        <translation>Details tonen...</translation>
     </message>
     <message>
         <location filename="../../Widgets/AlertBox.cpp" line="108"/>
         <source>Hide Details...</source>
-        <translation type="unfinished"/>
+        <translation>Details verbergen...</translation>
     </message>
 </context>
 <context>
@@ -1057,47 +1057,47 @@ Er moet altijd minstens één overblijven.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1739"/>
         <source>(root folder)</source>
-        <translation type="unfinished"/>
+        <translation>(hoofdmap)</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1749"/>
         <source>FileName</source>
-        <translation type="unfinished"/>
+        <translation>Bestandsnaam</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1752"/>
         <source>Folder</source>
-        <translation type="unfinished"/>
+        <translation>Map</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1755"/>
         <source>Media Type</source>
-        <translation type="unfinished"/>
+        <translation>Mediatype</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1758"/>
         <source>File Size(kb)</source>
-        <translation type="unfinished"/>
+        <translation>Grootte (kB)</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1761"/>
         <source>Epub Version</source>
-        <translation type="unfinished"/>
+        <translation>Epub versie</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1778"/>
         <source>Word Count</source>
-        <translation type="unfinished"/>
+        <translation>Aantal woorden</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1781"/>
         <source>Primary Language</source>
-        <translation type="unfinished"/>
+        <translation>Hoofdtaal</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1788"/>
         <source>WellFormed</source>
-        <translation type="unfinished"/>
+        <translation>Grammaticaal correct</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1790"/>
@@ -1112,27 +1112,27 @@ Er moet altijd minstens één overblijven.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1795"/>
         <source>Linked Stylesheets</source>
-        <translation type="unfinished"/>
+        <translation>Gekoppelde stijlbladen</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1798"/>
         <source>Linked Javascripts</source>
-        <translation type="unfinished"/>
+        <translation>Gekoppelde JavaScripts</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1801"/>
         <source>Linked Images</source>
-        <translation type="unfinished"/>
+        <translation>Gekoppelde afbeeldingen</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1804"/>
         <source>Linked Audio</source>
-        <translation type="unfinished"/>
+        <translation>Gekoppelde audio</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1807"/>
         <source>Linked Video</source>
-        <translation type="unfinished"/>
+        <translation>Gekoppelde video</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1834"/>
@@ -1147,7 +1147,7 @@ Er moet altijd minstens één overblijven.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1846"/>
         <source>Defined Ids</source>
-        <translation type="unfinished"/>
+        <translation>Gedefinieerde ID&apos;s</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1853"/>
@@ -1184,7 +1184,7 @@ Er moet altijd minstens één overblijven.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2096"/>
         <source>Add Blank Javascript</source>
-        <translation>Lege JavaScript toevoegen</translation>
+        <translation>Leeg JavaScript toevoegen</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2097"/>
@@ -1270,7 +1270,7 @@ Er moet altijd minstens één overblijven.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2115"/>
         <source>Get Info...</source>
-        <translation type="unfinished"/>
+        <translation>Informatie verkrijgen...</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2116"/>
@@ -1331,7 +1331,7 @@ Er moet altijd minstens één overblijven.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2149"/>
         <source>Show Information about selected file.</source>
-        <translation type="unfinished"/>
+        <translation>Informatie tonen over geselecteerd bestand.</translation>
     </message>
 </context>
 <context>
@@ -8407,7 +8407,9 @@ Gebruik Bewerken-&gt;Voorkeuren-&gt;Woordenlijsten spellingcontrole om het woord
         <source>Move the selected javascripts up in priority.
 
 Javascripts that are listed first are loaded first.</source>
-        <translation type="unfinished"/>
+        <translation>De prioriteit van de geselecteerde JavaScripts verhogen.
+
+JavaScripts die eerst vermeld staan worden eerst geladen.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkJavascripts.ui" line="51"/>
@@ -8417,7 +8419,7 @@ Javascripts that are listed first are loaded first.</source>
     <message>
         <location filename="../../Form_Files/LinkJavascripts.ui" line="64"/>
         <source>Move the selected javascripts down in priority.</source>
-        <translation type="unfinished"/>
+        <translation>De prioriteit van de geselecteerde JavaScripts verlagen.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkJavascripts.ui" line="67"/>
@@ -8447,7 +8449,7 @@ Javascripts that are listed first are loaded first.</source>
         <source>Move the selected stylesheets up in priority.
 
 Stylesheets that are listed first take precedence over later stylesheets.</source>
-        <translation>De geselecteerde stijlbladen ophogen in prioriteit.
+        <translation>De prioriteit van de geselecteerde stijlbladen verhogen.
 
 Stijlbladen die eerst vermeld staan hebben voorrang boven latere stijlbladen.</translation>
     </message>
@@ -8459,7 +8461,7 @@ Stijlbladen die eerst vermeld staan hebben voorrang boven latere stijlbladen.</t
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="64"/>
         <source>Move the selected stylesheets down in priority.</source>
-        <translation>De geselecteerde stijlbladen verlagen in prioriteit.</translation>
+        <translation>De prioriteit van de geselecteerde stijlbladen verlagen.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="67"/>
@@ -8600,7 +8602,7 @@ Stijlbladen die eerst vermeld staan hebben voorrang boven latere stijlbladen.</t
     <message>
         <location filename="../../Form_Files/MDViewer.ui" line="14"/>
         <source>Information</source>
-        <translation type="unfinished"/>
+        <translation>Informatie</translation>
     </message>
 </context>
 <context>
@@ -9583,14 +9585,16 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1601"/>
         <source>&amp;Hide Find &amp;&amp; Replace...</source>
-        <translation type="unfinished"/>
+        <translation>Zoeken &amp;&amp; vervangen verber&amp;gen...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1604"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Hide Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Hide the Find and Replace Window.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Zoeken en vervangen verbergen&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Verbergt het scherm zoeken en vervangen.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1615"/>
@@ -9933,7 +9937,7 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="1898"/>
         <source>Ctrl+Alt+Q</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+Q</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1906"/>
@@ -10114,7 +10118,7 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="2054"/>
         <source>Ctrl+Alt+A</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+A</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2059"/>
@@ -10124,7 +10128,7 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="2062"/>
         <source>Ctrl+Alt+N</source>
-        <translation type="unfinished"/>
+        <translation>Ctrl+Alt+N</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2067"/>
@@ -10139,7 +10143,7 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="2077"/>
         <source>Restart Current Search</source>
-        <translation type="unfinished"/>
+        <translation>Huidige zoekopdracht opnieuw starten</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2082"/>
@@ -11046,12 +11050,12 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="2847"/>
         <source>Blank Javascript</source>
-        <translation>Lege JavaScript</translation>
+        <translation>Leeg JavaScript</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2850"/>
         <source>Add a new blank javascript to the book.</source>
-        <translation>Een nieuwe lege JavaScript aan het boek toevoegen.</translation>
+        <translation>Een nieuw leeg JavaScript aan het boek toevoegen.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2855"/>
@@ -11366,7 +11370,7 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../Form_Files/main.ui" line="3221"/>
         <source>Focus on BookBrowser</source>
-        <translation>Focus op boekverkenner</translation>
+        <translation>Focus op Boekverkenner</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3226"/>
@@ -12052,7 +12056,7 @@ Deze actie kan niet ongedaan worden gemaakt.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3786"/>
         <source>Link Javascripts cancelled: %1, XML not well formed.</source>
-        <translation>Koppelen Javascripts geannuleerd: %1, XML is niet grammaticaal correct.</translation>
+        <translation>Koppelen JavaScripts geannuleerd: %1, XML is niet grammaticaal correct.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3896"/>
@@ -16088,8 +16092,8 @@ Let op: Het betreft hier de &quot;respondent-appellee&quot; volgens de Angelsaks
 <context>
     <name>NCXResource</name>
     <message>
-        <location filename="../../ResourceObjects/NCXResource.cpp" line="183"/>
         <location filename="../../ResourceObjects/NCXResource.cpp" line="185"/>
+        <location filename="../../ResourceObjects/NCXResource.cpp" line="187"/>
         <source>Start</source>
         <translation>Start</translation>
     </message>
@@ -16225,12 +16229,12 @@ Let op: Het betreft hier de &quot;respondent-appellee&quot; volgens de Angelsaks
 <context>
     <name>OPFResource</name>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1592"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1594"/>
         <source>[Title here]</source>
         <translation>[Plaats hier de titel]</translation>
     </message>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1602"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1604"/>
         <source>[Main title here]</source>
         <translation>[Plaats hier de hoofdtitel]</translation>
     </message>
@@ -16493,7 +16497,7 @@ Let op: Het betreft hier de &quot;respondent-appellee&quot; volgens de Angelsaks
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="121"/>
         <source>this version of PCRE2 does not have support for \P, \p, or \X</source>
-        <translation type="unfinished"/>
+        <translation>deze versie van PCRE2 ondersteunt geen \P, \p, of \X</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="122"/>
@@ -18066,7 +18070,7 @@ inclusief de items in geselecteerde groepen.</translation>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="115"/>
         <source>Target: Selected Javascript Files</source>
-        <translation>Zoekgebied: Geselecteerde Javascript-bestanden</translation>
+        <translation>Zoekgebied: Geselecteerde JavaScript-bestanden</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="116"/>
@@ -18375,7 +18379,7 @@ Wilt u uw wijzigingen opslaan?</translation>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="514"/>
         <source>Target: Selected Javascript Files</source>
-        <translation>Zoekgebied: Geselecteerde Javascript-bestanden</translation>
+        <translation>Zoekgebied: Geselecteerde JavaScript-bestanden</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="517"/>

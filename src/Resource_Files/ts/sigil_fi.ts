@@ -16057,8 +16057,8 @@ Haluatko korjata tiedostot automaattisesti ennen tallentamista? Tai peruuttaa Ta
 <context>
     <name>NCXResource</name>
     <message>
-        <location filename="../../ResourceObjects/NCXResource.cpp" line="183"/>
         <location filename="../../ResourceObjects/NCXResource.cpp" line="185"/>
+        <location filename="../../ResourceObjects/NCXResource.cpp" line="187"/>
         <source>Start</source>
         <translation>Alku</translation>
     </message>
@@ -16194,12 +16194,12 @@ Haluatko korjata tiedostot automaattisesti ennen tallentamista? Tai peruuttaa Ta
 <context>
     <name>OPFResource</name>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1592"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1594"/>
         <source>[Title here]</source>
         <translation>[Nimi tähän]</translation>
     </message>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1602"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1604"/>
         <source>[Main title here]</source>
         <translation>[Päänimi tähän]</translation>
     </message>

@@ -2100,7 +2100,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="127"/>
         <source>DotAll</source>
-        <translation>单行模式（.*）</translation>
+        <translation>覆盖全部</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="144"/>
@@ -3810,7 +3810,7 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="442"/>
         <source>EPUB3 W3C Stylesheet Validation Level:</source>
-        <translation>针对EPUB2文件 W3C样式校验器 应依据：</translation>
+        <translation>针对EPUB3文件W3C样式校验器应依据：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="454"/>
@@ -16061,8 +16061,8 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 <context>
     <name>NCXResource</name>
     <message>
-        <location filename="../../ResourceObjects/NCXResource.cpp" line="183"/>
         <location filename="../../ResourceObjects/NCXResource.cpp" line="185"/>
+        <location filename="../../ResourceObjects/NCXResource.cpp" line="187"/>
         <source>Start</source>
         <translation>开始</translation>
     </message>
@@ -16198,12 +16198,12 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 <context>
     <name>OPFResource</name>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1592"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1594"/>
         <source>[Title here]</source>
         <translation>[此处填写标题]</translation>
     </message>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1602"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1604"/>
         <source>[Main title here]</source>
         <translation>[此处填写主标题]</translation>
     </message>
