@@ -410,10 +410,19 @@ TagLister::TagInfo TagLister::getNext()
                 m_TagChild << mi.child;
                 m_child = -1;
                 m_TagPath << mi.tname;
+                mi.tpath = makePathToTag();
 
             } else if (mi.ttype == "single") {
-                m_child++;
-                mi.child = m_child;
+                // for path purposes temporarily treat like open tag
+                // until makePathToTag is calculated
+                mi.child = ++m_child;
+                m_TagChild << mi.child;
+                m_TagPath << mi.tname;
+                mi.tpath = makePathToTag();
+                // then remove it from tagpath since single and has no children
+                m_TagPath.removeLast();
+                m_TagChild.removeLast();
+
             } else if (mi.ttype == "end") {
                 QString pathnode = m_TagPath.last();
                 if (pathnode.startsWith(mi.tname)) {
@@ -430,8 +439,8 @@ TagLister::TagInfo TagLister::getNext()
                     mi.open_len = -1;
                     mi.child = -1;
                 }
+                mi.tpath = makePathToTag();
             }
-            mi.tpath = makePathToTag();
             return mi;
         }
         // skip anything not a tag
@@ -521,7 +530,9 @@ void TagLister::parseTag(const QStringView tagstring, TagLister::TagInfo& mi)
     // fill in tag type
     if (mi.ttype.isEmpty()) {
         mi.ttype = "begin";
-        if (tagstring.endsWith(QL1SV("/>")) || tagstring.endsWith(QL1SV("/ >"))) mi.ttype = "single";
+        if (tagstring.endsWith(QL1SV("/>")) || tagstring.endsWith(QL1SV("/ >"))) {
+            mi.ttype = "single";
+        }
     }
     return;
 }
