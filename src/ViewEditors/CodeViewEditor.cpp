@@ -2705,7 +2705,12 @@ QList<ElementIndex> CodeViewEditor::GetCaretLocation()
     // This specifies the element the caret is located in.
     int pos = textCursor().position();
     MaybeRegenerateTagList();
-    QString qwebpath = m_TagList.GeneratePathToTag(pos);
+    // default to top if not well formed to see Preview error message
+    QString qwebpath = "html 1, body -1";
+    if (XhtmlDoc::IsDataWellFormed(m_TagList.getSource())) {
+        qwebpath = m_TagList.GeneratePathToTag(pos);
+    }
+    qDebug() << "qwebpath: " << qwebpath;
     QList<ElementIndex> hierarchy = ConvertQWebPathToHierarchy(qwebpath);
     // determine last block element containing caret
     QString element_name;
