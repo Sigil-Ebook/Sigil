@@ -113,6 +113,7 @@ public:
     int GetCurrentReplacementCountInPython(PyObjectPtr FSO);
 
     QString GetSingleReplacementByFunction(PyObjectPtr FSO,
+                                           const QString& bookpath,
                                            const QString& text,
                                            const QList<std::pair<int,int>>capture_groups);
 

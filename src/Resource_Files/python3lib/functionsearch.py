@@ -168,7 +168,8 @@ class FunctionSearch(object):
     def get_current_replacement_count(self):
         return self.number
 
-    def get_single_replacement_by_function(self, text, capture_groups):
+    def get_single_replacement_by_function(self, bookpath, text, capture_groups):
+        self.bookpath = bookpath
         match = SigilMatch(text, capture_groups)
         if match.start() == -1:
             return ''

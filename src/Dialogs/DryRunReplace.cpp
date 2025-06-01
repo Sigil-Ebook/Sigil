@@ -185,7 +185,8 @@ void DryRunReplace::CreateTable()
                     can_replace = spcre->replaceText(match_segment, match_info.at(i).capture_groups_offsets,
                                                       replace_text, new_text);
                 } else {
-                    can_replace = spcre->functionReplaceText(match_segment, match_info.at(i).capture_groups_offsets,
+                    can_replace = spcre->functionReplaceText(bookpath, match_segment,
+                                                             match_info.at(i).capture_groups_offsets,
                                                              fsp, new_text);
                 }
 

@@ -133,7 +133,7 @@ void ReplacementChooser::CreateTable()
     QString functionname;
     QString rname = replace_text.trimmed();
     if (rname.startsWith("\\F<") && rname.endsWith(">")) {
-	rname = rname.mid(3,-1);
+        rname = rname.mid(3,-1);
         rname.chop(1);
         functionname = rname;
     }
@@ -173,7 +173,8 @@ void ReplacementChooser::CreateTable()
                     can_replace = spcre->replaceText(match_segment, match_info.at(i).capture_groups_offsets, 
                                                       replace_text, new_text);
                 } else {
-                    can_replace = spcre->functionReplaceText(match_segment, match_info.at(i).capture_groups_offsets,
+                    can_replace = spcre->functionReplaceText(bookpath, match_segment,
+                                                             match_info.at(i).capture_groups_offsets,
                                                              fsp, new_text);
                 }
                 // set pre and post context strings

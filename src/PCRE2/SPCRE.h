@@ -148,7 +148,8 @@ public:
     bool replaceText(const QString &text, const QList<std::pair<int, int>> &capture_groups_offsets,
                      const QString &replacement_pattern, QString &out);
 
-    bool functionReplaceText(const QString &text, const QList<std::pair<int, int>> &capture_groups_offsets,
+    bool functionReplaceText(const QString &bookpath, const QString &text,
+                             const QList<std::pair<int, int>> &capture_groups_offsets,
                              PyObjectPtr fsp, QString &out);
 
 private:

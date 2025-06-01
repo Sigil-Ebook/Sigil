@@ -509,6 +509,7 @@ int PythonRoutines::GetCurrentReplacementCountInPython(PyObjectPtr FSO)
 
 
 QString PythonRoutines::GetSingleReplacementByFunction(PyObjectPtr FSO,
+                                                       const QString& bookpath,
                                                        const QString& text,
                                                        const QList<std::pair<int,int> > capture_groups)
 {
@@ -520,6 +521,7 @@ QString PythonRoutines::GetSingleReplacementByFunction(PyObjectPtr FSO,
     QString traceback;
     QList<QVariant> args;
     EmbeddedPython* epp = EmbeddedPython::instance();
+    args.append(QVariant(bookpath));
     args.append(QVariant(text));
     QList<QVariant> groups;
     for (int i=0; i < capture_groups.size(); i++) {
