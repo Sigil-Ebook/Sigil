@@ -1,8 +1,9 @@
-pre-2.5.2
+Sigil-2.5.2
    Bug Fixes
-     - fix missing python function replace file_name in DryRun and Filter Replacements
+     - fix missing python function replace "file_name" in DryRun and Filter Replacements
      - fix CV to Preview syncing to self-closing tags that are bare in body
      - workaround recent Qt changes by making PV sync to top when code in CV is not well formed
+
 
 Sigil-2.5.1
    Bug Fixes

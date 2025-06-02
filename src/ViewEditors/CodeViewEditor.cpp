@@ -2710,7 +2710,7 @@ QList<ElementIndex> CodeViewEditor::GetCaretLocation()
     if (XhtmlDoc::IsDataWellFormed(m_TagList.getSource())) {
         qwebpath = m_TagList.GeneratePathToTag(pos);
     }
-    qDebug() << "qwebpath: " << qwebpath;
+    // qDebug() << "qwebpath: " << qwebpath;
     QList<ElementIndex> hierarchy = ConvertQWebPathToHierarchy(qwebpath);
     // determine last block element containing caret
     QString element_name;
