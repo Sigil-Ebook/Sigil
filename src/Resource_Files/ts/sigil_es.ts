@@ -2649,7 +2649,7 @@ opuesto y continuar la búsqueda.</translation>
         <translation>Después</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/DryRunReplace.cpp" line="260"/>
+        <location filename="../../Dialogs/DryRunReplace.cpp" line="261"/>
         <source>Dry Run Replace-All</source>
         <translation>Ensayo de sustituir todo</translation>
     </message>

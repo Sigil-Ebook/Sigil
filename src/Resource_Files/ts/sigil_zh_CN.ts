@@ -2652,7 +2652,7 @@ other end to continue searching.</source>
         <translation>之后</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/DryRunReplace.cpp" line="260"/>
+        <location filename="../../Dialogs/DryRunReplace.cpp" line="261"/>
         <source>Dry Run Replace-All</source>
         <translation>模拟运行替换全部</translation>
     </message>

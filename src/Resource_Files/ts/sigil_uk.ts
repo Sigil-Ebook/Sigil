@@ -2650,7 +2650,7 @@ other end to continue searching.</source>
         <translation>Після</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/DryRunReplace.cpp" line="260"/>
+        <location filename="../../Dialogs/DryRunReplace.cpp" line="261"/>
         <source>Dry Run Replace-All</source>
         <translation>Пробний запуск «Замінити Все»</translation>
     </message>

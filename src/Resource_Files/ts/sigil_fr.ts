@@ -2648,7 +2648,7 @@ l&apos;autre extrémité pour continuer la recherche.</translation>
         <translation>Après</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/DryRunReplace.cpp" line="260"/>
+        <location filename="../../Dialogs/DryRunReplace.cpp" line="261"/>
         <source>Dry Run Replace-All</source>
         <translation>Simulation du Remplacer tous</translation>
     </message>

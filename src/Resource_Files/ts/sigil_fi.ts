@@ -2650,7 +2650,7 @@ Toimii vain HTML-tiedostoja etsittäessä.</translation>
         <translation>Jälkeen</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/DryRunReplace.cpp" line="260"/>
+        <location filename="../../Dialogs/DryRunReplace.cpp" line="261"/>
         <source>Dry Run Replace-All</source>
         <translation>Kuivaharjoittelu - Korvaa kaikki</translation>
     </message>

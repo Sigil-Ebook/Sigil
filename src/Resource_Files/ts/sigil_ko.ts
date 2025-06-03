@@ -2638,7 +2638,7 @@ other end to continue searching.</source>
         <translation>다음</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/DryRunReplace.cpp" line="260"/>
+        <location filename="../../Dialogs/DryRunReplace.cpp" line="261"/>
         <source>Dry Run Replace-All</source>
         <translation>모두 바꾸기 시뮬레이션</translation>
     </message>

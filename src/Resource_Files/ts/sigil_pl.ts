@@ -2651,7 +2651,7 @@ i kontynuuj wyszukiwanie.</translation>
         <translation>Po</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/DryRunReplace.cpp" line="260"/>
+        <location filename="../../Dialogs/DryRunReplace.cpp" line="261"/>
         <source>Dry Run Replace-All</source>
         <translation>Próbne zastępowanie wszystkich</translation>
     </message>

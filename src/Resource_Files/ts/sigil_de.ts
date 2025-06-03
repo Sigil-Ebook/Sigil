@@ -2649,7 +2649,7 @@ umlaufend zum anderen Ende.</translation>
         <translation>Nachher</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/DryRunReplace.cpp" line="260"/>
+        <location filename="../../Dialogs/DryRunReplace.cpp" line="261"/>
         <source>Dry Run Replace-All</source>
         <translation>Probelauf für &quot;Alle ersetzen&quot;</translation>
     </message>

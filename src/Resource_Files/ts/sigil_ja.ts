@@ -2651,7 +2651,7 @@ HTMLファイルを検索する場合にのみ有効です。</translation>
         <translation>後</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/DryRunReplace.cpp" line="260"/>
+        <location filename="../../Dialogs/DryRunReplace.cpp" line="261"/>
         <source>Dry Run Replace-All</source>
         <translation>すべて置換のテスト実行(Dry Run)</translation>
     </message>

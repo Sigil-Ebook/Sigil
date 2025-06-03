@@ -2650,7 +2650,7 @@ aramaya devam etmek için diğer uç.</translation>
         <translation>Sonraki</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/DryRunReplace.cpp" line="260"/>
+        <location filename="../../Dialogs/DryRunReplace.cpp" line="261"/>
         <source>Dry Run Replace-All</source>
         <translation>Kuru Çalıştırma Tümünü Değiştir</translation>
     </message>
