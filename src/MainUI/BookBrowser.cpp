@@ -778,7 +778,7 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
     }
 
     QFileDialog::Options options = QFileDialog::Options();
-#ifdef Q_OS_MAC
+#if defined(Q_OS_WIN32) || defined(Q_OS_MAC)
     options = options | QFileDialog::DontUseNativeDialog;
 #endif
     
@@ -792,6 +792,12 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
 
     if (filepaths.isEmpty()) {
         return added_book_paths;
+    }
+
+    foreach(QString filepath, filepaths) {
+        if (!Utility::IsFileReadable(filepath)) {
+            return added_book_paths;
+        }
     }
 
     m_LastFolderOpen = QFileInfo(filepaths.first()).absolutePath();
