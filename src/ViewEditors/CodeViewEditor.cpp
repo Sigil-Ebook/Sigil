@@ -3346,11 +3346,11 @@ QString CodeViewEditor::ProcessAttribute(const QString &attribute_name,
     // Now look for the attribute, which may or may not already exist
     TagLister::AttInfo ainfo;
     TagLister::parseAttribute(opening_tag_text, attribute_name, ainfo);
-
     // qDebug() << " in tag: " << opening_tag_text;
     // qDebug() << " found attribute: " << ainfo.aname << ainfo.avalue << ainfo.pos << ainfo.len;
     // set absolute attribute start and end locations in text
-    int attribute_start = ti.pos + ti.len - 1;  // right before the tag '>'
+    int attribute_start = ti.pos + ti.len - 1;   // right before the tag '>'
+    if (ti.ttype == "single") attribute_start--; // and before the '/' in single tags
     int attribute_end = attribute_start;
     if (ainfo.pos != -1) {
         // attribute exists
