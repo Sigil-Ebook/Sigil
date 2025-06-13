@@ -75,7 +75,7 @@ static std::unordered_set<std::string> structural_tags     = {
     "table","tbody","tfoot","thead","td","th","tr","ul","math","maction",
     "annotation","annotation-xml","menclose","mfrac","mmultiscripts",
     "mover","mpadded","mphantom","mroot","mrow","semantics",
-    "msqrt","mstyle","mtable","mtd","mtr","munder","munderover"
+    "msqrt","mstyle","mtable","mtd","mtr","munder","munderover","nav"
 };
 
 
