@@ -37,6 +37,8 @@
 #include "Misc/SettingsStore.h"
 #include "Misc/Plugin.h"
 #include "Misc/PluginDB.h"
+#include "Misc/Utility.h"
+#include "sigil_exception.h"
 #include "Dialogs/AutomateEditor.h"
 
 
@@ -131,21 +133,35 @@ QString AutomateEditor::GetAutomateList()
 QString AutomateEditor::SetNewAutomateList(QString& data) 
 {
     QString newdata = "";
+
+    if (data.isEmpty()) {
+        return newdata;
+    }
+
     QStringList dlist = data.split(_RS);
     QStringList nlist;
-    foreach(QString rc, dlist) {
-            // treat as element with content
-            QStringList parts = rc.split(_US);
-            QString value = parts.at(1);
-            QString aline = parts.at(0);
-            if (!value.isEmpty()) {
-                aline = aline + " " + value;
-            }
-            nlist << aline;
+    foreach (QString rc, dlist) {
+        if (rc.isEmpty()) {
+            continue;
+        }
+        // treat as element with content
+        QStringList parts = rc.split(_US);
+        if (parts.size() < 2) {
+            continue;
+        }
+        QString aline = parts.at(0);
+        QString value = parts.at(1);
+        if (!value.isEmpty()) {
+            aline = aline + " " + value;
+        }
+        nlist << aline;
     }
+
     newdata = nlist.join('\n');
-    if (!newdata.endsWith('\n')) newdata = newdata + "\n";
-    Utility::WriteUnicodeTextFile(newdata, m_automate_path);
+    if (!newdata.isEmpty() && !newdata.endsWith('\n')) {
+        newdata += "\n";
+    }
+
     return newdata;
 }
 
@@ -193,11 +209,31 @@ void AutomateEditor::saveData()
 
     TreeModel *model = qobject_cast<TreeModel *>(view->model());
     QString data = model->getAllModelData();
+
     qDebug() << "received from model: " << data;
+    if (data.isEmpty()) {
+        QFile file(m_automate_path);
+        if (!file.open(QIODevice::WriteOnly)) {
+            QMessageBox::warning(this, tr("Warning"), tr("Cannot save empty automation list: Failed to create file %1").arg(m_automate_path));
+            return;
+        }
+        file.close();
+        QDialog::accept();
+        return;
+    }
+
     QString newdata = SetNewAutomateList(data);
-    qDebug() << "wrote out: " << newdata;
-    QDialog::accept();
+
+    try {
+        Utility::WriteUnicodeTextFile(newdata, m_automate_path);
+        qDebug() << "wrote out: " << newdata;
+        QDialog::accept();
+    } catch (CannotOpenFile& e) {
+        Utility::critical(this, tr("Error"), tr("Failed to save automation list to %1").arg(QString(e.what())));
+        return;
+    }
 }
+
 
 void AutomateEditor::reject()
 {
