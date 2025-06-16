@@ -212,12 +212,6 @@ void AutomateEditor::saveData()
 
     qDebug() << "received from model: " << data;
     if (data.isEmpty()) {
-        QFile file(m_automate_path);
-        if (!file.open(QIODevice::WriteOnly)) {
-            QMessageBox::warning(this, tr("Warning"), tr("Cannot save empty automation list: Failed to create file %1").arg(m_automate_path));
-            return;
-        }
-        file.close();
         QDialog::accept();
         return;
     }
