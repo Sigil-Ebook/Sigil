@@ -5446,7 +5446,6 @@ bool MainWindow::LoadFile(const QString &fullfilepath, bool is_internal)
             // shown when the window is displayed.
             m_LastOpenFileWarnings.append(importer->GetLoadWarnings());
             if (!m_IsInitialLoad) {
-                qDebug() << "In LoadFile and Showing Warnings";
                 ShowLastOpenFileWarnings();
             }
             if (!is_internal) {
@@ -6381,7 +6380,6 @@ void MainWindow::changeEvent(QEvent *e)
             }
             // moved here from showEvent to make sure it comes after state restoration
             if (m_FirstTime && !m_LastOpenFileWarnings.isEmpty()) {
-                qDebug() << "In Window Activation and about to do load warnigns";
                 QTimer::singleShot(0, this, SLOT(ShowLastOpenFileWarnings()));
             }
             m_FirstTime = false;
