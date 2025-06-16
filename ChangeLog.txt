@@ -1,3 +1,9 @@
+Sigil-2.5.3
+     - prevent crash on Windows when hand typing in an external url in Add Existing files
+     - fix bug in how nav is handled by Prettify (Thank you BeckyEbook)
+     - fix bug in wait cursor appearing when showing last epub open warnings
+
+
 Sigil-2.5.2
    Bug Fixes
      - fix missing python function replace "file_name" in DryRun and Filter Replacements

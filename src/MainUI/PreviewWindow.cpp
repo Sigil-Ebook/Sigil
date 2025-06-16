@@ -253,8 +253,6 @@ float PreviewWindow::GetZoomFactor()
 
 void PreviewWindow::SetupView()
 {
-    QApplication::setOverrideCursor(Qt::WaitCursor);
-
     // QWebEngineView events are routed to their parent
     m_Preview->installEventFilter(this);
 
@@ -323,7 +321,6 @@ void PreviewWindow::SetupView()
     m_MainWidget->setLayout(m_Layout);
 
     setWidget(m_MainWidget);
-    QApplication::restoreOverrideCursor();
 }
 
 

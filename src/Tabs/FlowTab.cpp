@@ -71,9 +71,6 @@ FlowTab::FlowTab(HTMLResource *resource,
     m_defaultCaretLocationToTop(false),
     m_LastPosition(-1)
 {
-    // Loading a flow tab can take a while. We set the wait
-    // cursor and clear it at the end of the delayed initialization.
-    QApplication::setOverrideCursor(Qt::WaitCursor);
     CreateCodeViewIfRequired(false);
     m_Layout->addWidget(m_wCodeView);
     LoadSettings();
@@ -126,7 +123,6 @@ void FlowTab::CreateCodeViewIfRequired(bool is_delayed_load)
         return;
     }
 
-    QApplication::setOverrideCursor(Qt::WaitCursor);
     m_wCodeView = new CodeViewEditor(CodeViewEditor::Highlight_XHTML, true, this);
     m_wCodeView->SetReformatHTMLEnabled(true);
 
@@ -139,8 +135,6 @@ void FlowTab::CreateCodeViewIfRequired(bool is_delayed_load)
         // Zoom assignment only works after the document has been loaded
         m_wCodeView->Zoom();
     }
-
-    QApplication::restoreOverrideCursor();
 }
 
 void FlowTab::DelayedInitialization()
@@ -169,8 +163,6 @@ void FlowTab::DelayedInitialization()
     // sync Preview to where CodeView is now
     emit ScrollPreviewImmediately();
 
-    // Cursor set in constructor
-    QApplication::restoreOverrideCursor();
 }
 
 bool FlowTab::IsLoadingFinished()
@@ -197,7 +189,6 @@ bool FlowTab::IsModified()
 
 void FlowTab::CodeView()
 {
-    QApplication::setOverrideCursor(Qt::WaitCursor);
     CreateCodeViewIfRequired();
     m_wCodeView->SetDelayedCursorScreenCenteringRequired();
 
@@ -210,7 +201,6 @@ void FlowTab::CodeView()
 
     m_wCodeView->ExecuteCaretUpdate();
     
-    QApplication::restoreOverrideCursor();
 }
 
 void FlowTab::ThemeChangeRefresh()
