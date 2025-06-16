@@ -873,7 +873,7 @@ CSS&apos;nizde bir sans-serif yazı tipi ailesi belirtilmişse</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="96"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2258"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2264"/>
         <source>Open With</source>
         <translation>Birlikte Aç</translation>
     </message>
@@ -885,12 +885,12 @@ CSS&apos;nizde bir sans-serif yazı tipi ailesi belirtilmişse</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="301"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="729"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="862"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="894"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="954"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1067"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1378"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1483"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="868"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="900"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="960"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1073"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1384"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1489"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -920,7 +920,7 @@ CSS&apos;nizde bir sans-serif yazı tipi ailesi belirtilmişse</translation>
         <translation>Mevcut Dosyaları Ekle</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="832"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="838"/>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
@@ -929,7 +929,7 @@ CSS&apos;nizde bir sans-serif yazı tipi ailesi belirtilmişse</translation>
 &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="841"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="847"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
@@ -938,7 +938,7 @@ CSS&apos;nizde bir sans-serif yazı tipi ailesi belirtilmişse</translation>
 &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="863"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="869"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
@@ -947,12 +947,12 @@ OK to replace?</source>
 Değiştirmek için uygun mu?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="889"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="895"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
         <translation>&quot;%1&quot; dosyası silinemiyor veya değiştirilemiyor.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="894"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="900"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
@@ -961,7 +961,7 @@ A file with this name already exists in the book.</source>
 Bu isimde bir dosya kitapta zaten var.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="955"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="961"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
@@ -970,363 +970,363 @@ Bu isimde bir dosya kitapta zaten var.</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="968"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="974"/>
         <source>File(s) added or replaced.</source>
         <translation>Dosya(lar) eklendi veya değiştirildi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1008"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1014"/>
         <source>Save As File</source>
         <translation>Dosya Olarak Kaydet</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1031"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1037"/>
         <source>Unable to save the file.</source>
         <translation>Dosya kaydedilemiyor.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1045"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1051"/>
         <source>Choose the directory to save the files to</source>
         <translation>Dosyaların kaydedileceği dizini seçin</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1067"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1073"/>
         <source>One or more files already exists.  OK to overwrite?</source>
         <translation>Bir veya daha fazla dosya zaten var. Üzerine yazılsın mı?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1084"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1090"/>
         <source>Unable to save files.  Destination may be a directory.</source>
         <translation>Dosyalar kaydedilemiyor. Hedef bir dizin olabilir.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1092"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1098"/>
         <source>Unable to save files.</source>
         <translation>Dosyalar kaydedilemiyor.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1316"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1322"/>
         <source>Filenames can not contain these characters: &quot;%1&quot;.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1378"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1384"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
         <translation>Yinelenen dosya adlarına neden olacağından dosyalar yeniden adlandırılamaz.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1449"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1455"/>
         <source>Destination Folder has invalid path &quot;%1&quot;</source>
         <translation>Hedef Klasörde geçersiz &quot;%1&quot; yolu var</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1483"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1489"/>
         <source>Cannot move files since this would result in duplicate filenames.</source>
         <translation>Yinelenen dosya adlarına neden olacağından dosyalar taşınamaz.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1530"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1536"/>
         <source>The Nav document can not be removed.</source>
         <translation>Nav belgesi kaldırılamaz.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1538"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1544"/>
         <source>The NCX can not be removed.</source>
         <translation>NCX kaldırılamaz.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1545"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1551"/>
         <source>The OPF is required for epub and can not be removed.</source>
         <translation>OPF epub için gereklidir ve kaldırılamaz.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1554"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1560"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>Tüm html dosyalarını kaldıramazsınız.
 Her zaman en az bir tane olmalıdır.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1702"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1708"/>
         <source>Unable to set file as cover image.</source>
         <translation>Dosya kapak resmi olarak ayarlanamıyor.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1739"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1745"/>
         <source>(root folder)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1749"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1755"/>
         <source>FileName</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1752"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1758"/>
         <source>Folder</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1755"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1761"/>
         <source>Media Type</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1758"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1764"/>
         <source>File Size(kb)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1761"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1767"/>
         <source>Epub Version</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1778"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1784"/>
         <source>Word Count</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1781"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1787"/>
         <source>Primary Language</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1788"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1794"/>
         <source>WellFormed</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1790"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1796"/>
         <source>Yes</source>
         <translation>Evet</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1792"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1798"/>
         <source>No</source>
         <translation>Hayır</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1795"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1801"/>
         <source>Linked Stylesheets</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1798"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1804"/>
         <source>Linked Javascripts</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1801"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1807"/>
         <source>Linked Images</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1804"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1810"/>
         <source>Linked Audio</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1807"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1813"/>
         <source>Linked Video</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1834"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1840"/>
         <source>Semantics OPF Guide or Nav Landmarks</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1843"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1849"/>
         <source>Manifest Properties</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1846"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1852"/>
         <source>Defined Ids</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1853"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1865"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1859"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1871"/>
         <source>Description</source>
         <translation>Açıklama</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1856"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1862"/>
         <source>Obfuscation Algorithm</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1858"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2107"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1864"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2113"/>
         <source>None</source>
         <translation>Hiçbiri</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2093"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2099"/>
         <source>Select All</source>
         <translation>Tümünü Seç</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2094"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2100"/>
         <source>Add Blank HTML File</source>
         <translation>Boş HTML Dosyası Ekle</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2095"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2101"/>
         <source>Add Blank Stylesheet</source>
         <translation>Boş Stil Sayfası Ekle</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2096"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2102"/>
         <source>Add Blank Javascript</source>
         <translation>Boş Javascript Ekle</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2097"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2103"/>
         <source>Add Blank SVG Image</source>
         <translation>Boş SVG Resmi Ekle</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2098"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2104"/>
         <source>Add Existing Files...</source>
         <translation>Mevcut Dosyaları Ekle...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2099"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2100"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2105"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2106"/>
         <source>Add Copy</source>
         <translation>Kopya Ekle</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2101"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2107"/>
         <source>Rename</source>
         <translation>Yeniden Adlandır</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2102"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2108"/>
         <source>RegEx Rename</source>
         <translation>RegEx Yeniden Adlandır</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2103"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2109"/>
         <source>Move</source>
         <translation>Taşı</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2104"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2110"/>
         <source>Delete</source>
         <translation>Sil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2105"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2111"/>
         <source>Cover Image</source>
         <translation>Kapak resmi</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2106"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2112"/>
         <source>Merge</source>
         <translation>Birleştir</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2108"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2114"/>
         <source>Use Adobe&apos;s Method</source>
         <translation>Adobe&apos;nin Yöntemini Kullanın</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2109"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2115"/>
         <source>Use IDPF&apos;s Method</source>
         <translation>IDPF Yöntemini Kullanın</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2110"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2116"/>
         <source>Sort</source>
         <translation>Sırala</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2111"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2117"/>
         <source>Renumber TOC Entries</source>
         <translation>TOC Girişlerini Yeniden Numaralandır</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2112"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2118"/>
         <source>Link Stylesheets...</source>
         <translation>Stil Sayfalarını Bağla...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2113"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2119"/>
         <source>Link Javascripts...</source>
         <translation>Javascript&apos;i bağla...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2114"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2120"/>
         <source>Add Semantics...</source>
         <translation>Anlambilim Ekle...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2115"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2121"/>
         <source>Get Info...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2116"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2122"/>
         <source>Validate with W3C</source>
         <translation>W3C ile doğrula</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2117"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2123"/>
         <source>Save As</source>
         <translation>Farklı kaydet</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2123"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2298"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2129"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2304"/>
         <source>Other Application</source>
         <translation>Diğer Uygulamalar</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2124"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2130"/>
         <source>Clear Editor List</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2133"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2139"/>
         <source>Merge with previous file, or merge multiple files into one.</source>
         <translation>Önceki dosyayla birleştirin veya birden çok dosyayı tek bir dosyada birleştirin.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2136"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2142"/>
         <source>Rename selected file(s)</source>
         <translation>Seçili dosya(ları) yeniden adlandırın</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2138"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2144"/>
         <source>Use Regular Expressions to Rename selected file(s)</source>
         <translation>Seçili dosya(ları) yeniden adlandırmak için Normal İfadeler Kullanın</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2141"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2147"/>
         <source>Move selected file(s) to a new folder</source>
         <translation>Seçili dosya(ları) yeni bir klasöre taşı</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2143"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2149"/>
         <source>Link Stylesheets to selected file(s).</source>
         <translation>Stil Sayfalarını seçili dosya(lara) bağlayın.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2145"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2151"/>
         <source>Link Javascripts to selected file(s).</source>
         <translation>Dosyaları seçmek için Javascript&apos;i bağlayın().</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2147"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2153"/>
         <source>Add Semantics to selected file(s).</source>
         <translation>Seçili dosya(lara) Anlamsallık ekleyin.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2149"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2155"/>
         <source>Show Information about selected file.</source>
         <translation type="unfinished"/>
     </message>
@@ -5113,321 +5113,331 @@ Değişikliklerinizi kaydetmek istiyor musunuz?</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="180"/>
+        <source>Endnotes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/Landmarks.cpp" line="180"/>
+        <source>A collection of notes at the end of a work or a section within it.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Misc/Landmarks.cpp" line="181"/>
         <source>Epigraph</source>
         <translation>Yazıt</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="180"/>
+        <location filename="../../Misc/Landmarks.cpp" line="181"/>
         <source>A quotation that is pertinent but not integral to the text.</source>
         <translation>Metne uygun olan ancak tamamlayıcı olmayan bir alıntı.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="181"/>
+        <location filename="../../Misc/Landmarks.cpp" line="182"/>
         <source>Epilogue</source>
         <translation>Sonsöz</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="181"/>
+        <location filename="../../Misc/Landmarks.cpp" line="182"/>
         <source>A concluding section that is typically written from a later point in time than the main story, although still part of the narrative.</source>
         <translation>Hala anlatının bir parçası olmasına rağmen, genellikle ana hikayeden daha sonraki bir zamandan itibaren yazılmış bir sonuç bölümü.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="182"/>
+        <location filename="../../Misc/Landmarks.cpp" line="183"/>
         <source>Errata</source>
         <translation>Hatalar</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="182"/>
+        <location filename="../../Misc/Landmarks.cpp" line="183"/>
         <source>Publication errata, in printed works typically a loose sheet inserted by hand; sometimes a bound page that contains corrections for mistakes in the work.</source>
         <translation>Yayın hataları, basılı çalışmalarda tipik olarak elle yerleştirilen gevşek bir sayfa; bazen çalışmadaki hatalar için düzeltmeler içeren ciltli bir sayfa.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="183"/>
+        <location filename="../../Misc/Landmarks.cpp" line="184"/>
         <source>Footnotes</source>
         <translation>Dipnotlar</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="183"/>
+        <location filename="../../Misc/Landmarks.cpp" line="184"/>
         <source>A collection of notes appearing at the bottom of a page.</source>
         <translation>Bir sayfanın altında görünen bir not koleksiyonu.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="184"/>
+        <location filename="../../Misc/Landmarks.cpp" line="185"/>
         <source>Foreword</source>
         <translation>Önsöz</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="184"/>
+        <location filename="../../Misc/Landmarks.cpp" line="185"/>
         <source>An introductory section that precedes the work, typically not written by the work&apos;s author.</source>
         <translation>Çalışmadan önce gelen, genellikle eserin yazarı tarafından yazılmayan bir giriş bölümü.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="185"/>
+        <location filename="../../Misc/Landmarks.cpp" line="186"/>
         <source>Front Matter</source>
         <translation>Ön Konu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="185"/>
+        <location filename="../../Misc/Landmarks.cpp" line="186"/>
         <source>Preliminary material to the main content of a publication, such as tables of contents, dedications, etc.</source>
         <translation>Bir yayının ana içeriği için içindekiler, ithaflar vb. Gibi ön materyal.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="186"/>
+        <location filename="../../Misc/Landmarks.cpp" line="187"/>
         <source>Glossary</source>
         <translation>Sözlük</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="186"/>
+        <location filename="../../Misc/Landmarks.cpp" line="187"/>
         <source>An alphabetical list of terms in a particular domain of knowledge, with the definitions for those terms.</source>
         <translation>Belirli bir bilgi alanındaki terimlerin, bu terimlerin tanımlarıyla birlikte alfabetik bir listesi.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="187"/>
+        <location filename="../../Misc/Landmarks.cpp" line="188"/>
         <source>Half Title Page</source>
         <translation>Yarım Başlık Sayfası</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="187"/>
+        <location filename="../../Misc/Landmarks.cpp" line="188"/>
         <source>The half title page of the work which carries just the title itself.</source>
         <translation>Sadece başlığın kendisini taşıyan eserin yarım başlık sayfası.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="188"/>
+        <location filename="../../Misc/Landmarks.cpp" line="189"/>
         <source>Imprimatur</source>
         <translation>Tastik</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="188"/>
+        <location filename="../../Misc/Landmarks.cpp" line="189"/>
         <source>A formal statement authorizing the publication of the work.</source>
         <translation>Çalışmanın yayınlanmasına izin veren resmi bir beyan.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="189"/>
+        <location filename="../../Misc/Landmarks.cpp" line="190"/>
         <source>Imprint</source>
         <translation>Künye</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="189"/>
+        <location filename="../../Misc/Landmarks.cpp" line="190"/>
         <source>Information relating to the publication or distribution of the work.</source>
         <translation>Eserin yayınlanması veya dağıtımı ile ilgili bilgiler.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="190"/>
+        <location filename="../../Misc/Landmarks.cpp" line="191"/>
         <source>Index</source>
         <translation>Dizin</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="190"/>
+        <location filename="../../Misc/Landmarks.cpp" line="191"/>
         <source>A detailed list, usually arranged alphabetically, of the specific information in a publication.</source>
         <translation>Bir yayındaki belirli bilgilerin genellikle alfabetik olarak düzenlenmiş ayrıntılı listesi.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="191"/>
+        <location filename="../../Misc/Landmarks.cpp" line="192"/>
         <source>Introduction</source>
         <translation>Giriş</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="191"/>
+        <location filename="../../Misc/Landmarks.cpp" line="192"/>
         <source>A section in the beginning of the work, typically introducing the reader to the scope or nature of the work&apos;s content.</source>
         <translation>Çalışmanın başlangıcında, tipik olarak okuyucuyu çalışmanın içeriğinin kapsamını veya doğasını tanıtan bir bölüm.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="192"/>
+        <location filename="../../Misc/Landmarks.cpp" line="193"/>
         <source>Landmarks</source>
         <translation>Sınır İşareti</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="192"/>
+        <location filename="../../Misc/Landmarks.cpp" line="193"/>
         <source>A collection of references to well-known/recurring components within the publication</source>
         <translation>Yayındaki iyi bilinen / yinelenen bileşenlere atıflar koleksiyonu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="193"/>
+        <location filename="../../Misc/Landmarks.cpp" line="194"/>
         <source>List of Audio Clips</source>
         <translation>Ses Kliplerinin Listesi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="193"/>
+        <location filename="../../Misc/Landmarks.cpp" line="194"/>
         <source>A listing of audio clips included in the work.</source>
         <translation>Çalışmaya dahil edilen ses kliplerinin bir listesi.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="194"/>
+        <location filename="../../Misc/Landmarks.cpp" line="195"/>
         <source>List of Illustrations</source>
         <translation>Çizimler listesi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="194"/>
+        <location filename="../../Misc/Landmarks.cpp" line="195"/>
         <source>A listing of illustrations included in the work.</source>
         <translation>Çalışmaya dahil edilen resimlerin bir listesi.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="195"/>
+        <location filename="../../Misc/Landmarks.cpp" line="196"/>
         <source>List of Tables</source>
         <translation>Tablo listesi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="195"/>
+        <location filename="../../Misc/Landmarks.cpp" line="196"/>
         <source>A listing of tables included in the work.</source>
         <translation>Çalışmaya dahil edilen tabloların bir listesi.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="196"/>
+        <location filename="../../Misc/Landmarks.cpp" line="197"/>
         <source>List of Video Clips</source>
         <translation>Video Klip Listesi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="196"/>
+        <location filename="../../Misc/Landmarks.cpp" line="197"/>
         <source>A listing of video clips included in the work.</source>
         <translation>Çalışmaya dahil edilen video kliplerin listesi.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="197"/>
+        <location filename="../../Misc/Landmarks.cpp" line="198"/>
         <source>Notice</source>
         <translation>Bildiri</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="197"/>
+        <location filename="../../Misc/Landmarks.cpp" line="198"/>
         <source>Information that requires special attention, and that must not be skipped or suppressed. Examples include: alert, warning, caution, danger, important.</source>
         <translation>Özel dikkat gerektiren ve atlanmaması veya bastırılmaması gereken bilgiler. Örnekler şunları içerir: uyarı, uyarı, dikkat, tehlike, önemli.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="198"/>
+        <location filename="../../Misc/Landmarks.cpp" line="199"/>
         <source>Other Credits</source>
         <translation>Diğer Katkı sağlayanlar</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="198"/>
+        <location filename="../../Misc/Landmarks.cpp" line="199"/>
         <source>Acknowledgments of previously published parts of the work, illustration credits, and permission to quote from copyrighted material.</source>
         <translation>Çalışmanın daha önce yayınlanmış bölümlerinin teşekkürleri, illüstrasyon katkıları ve telif hakkıyla korunan materyalden alıntı yapma izni.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="199"/>
+        <location filename="../../Misc/Landmarks.cpp" line="200"/>
         <source>Page List</source>
         <translation>Sayfa Listesi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="199"/>
+        <location filename="../../Misc/Landmarks.cpp" line="200"/>
         <source>A list of references to pagebreaks (start locations) from a print version of the ebook</source>
         <translation>E-kitabın basılı bir sürümünden sayfa sonlarına (başlangıç konumları) referansların listesi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="200"/>
+        <location filename="../../Misc/Landmarks.cpp" line="201"/>
         <source>Part</source>
         <translation>Parça</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="200"/>
+        <location filename="../../Misc/Landmarks.cpp" line="201"/>
         <source>A major structural division of a piece of writing, typically encapsulating a set of related chapters.</source>
         <translation>Bir yazı parçasının, tipik olarak bir dizi ilgili bölümü kapsayan büyük bir yapısal bölümü.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="201"/>
+        <location filename="../../Misc/Landmarks.cpp" line="202"/>
         <source>Preamble</source>
         <translation>Önsöz</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="201"/>
+        <location filename="../../Misc/Landmarks.cpp" line="202"/>
         <source>A section in the beginning of the work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content</source>
         <translation>Çalışmanın başlangıcında, tipik olarak çalışmanın içeriğinin kapsamı veya doğası ile ilgili giriş ve / veya açıklayıcı düzyazı içeren bir bölüm</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="202"/>
+        <location filename="../../Misc/Landmarks.cpp" line="203"/>
         <source>Preface</source>
         <translation>Önsöz</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="202"/>
+        <location filename="../../Misc/Landmarks.cpp" line="203"/>
         <source>An introductory section that precedes the work, typically written by the work&apos;s author.</source>
         <translation>Tipik olarak eserin yazarı tarafından yazılan, çalışmadan önce gelen bir giriş bölümü.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="203"/>
+        <location filename="../../Misc/Landmarks.cpp" line="204"/>
         <source>Prologue</source>
         <translation>Giriş Bölümü</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="203"/>
+        <location filename="../../Misc/Landmarks.cpp" line="204"/>
         <source>An introductory section that sets the background to a story, typically part of the narrative.</source>
         <translation>Bir hikayenin arka planını, tipik olarak anlatının bir parçası olarak ayarlayan bir giriş bölümü.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="204"/>
+        <location filename="../../Misc/Landmarks.cpp" line="205"/>
         <source>Questions and Answers</source>
         <translation>Sorular ve cevaplar</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="204"/>
+        <location filename="../../Misc/Landmarks.cpp" line="205"/>
         <source>A question and answer section.</source>
         <translation>Bir soru ve cevap bölümü.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="205"/>
+        <location filename="../../Misc/Landmarks.cpp" line="206"/>
         <source>Rear Notes</source>
         <translation>Arka Notlar</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="205"/>
-        <source>A collection of notes appearing at the rear (backmatter) of the work, or at the end of a section.</source>
-        <translation>Çalışmanın arkasında (arka malzeme) veya bir bölümün sonunda görünen bir not koleksiyonu.</translation>
+        <location filename="../../Misc/Landmarks.cpp" line="206"/>
+        <source>A collection of notes appearing at the rear (backmatter) of the work, or at the end of a section. Status: Deprecated</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="206"/>
+        <location filename="../../Misc/Landmarks.cpp" line="207"/>
         <source>Revision History</source>
         <translation>Revizyon Geçmişi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="206"/>
+        <location filename="../../Misc/Landmarks.cpp" line="207"/>
         <source>A record of changes made to a work.</source>
         <translation>Bir çalışmada yapılan değişikliklerin kaydı.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="207"/>
+        <location filename="../../Misc/Landmarks.cpp" line="208"/>
         <source>Subchapter</source>
         <translation>Alt Bölüm</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="207"/>
+        <location filename="../../Misc/Landmarks.cpp" line="208"/>
         <source>A major sub-division of a chapter.</source>
         <translation>Bir bölümün büyük bir alt bölümü.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="208"/>
+        <location filename="../../Misc/Landmarks.cpp" line="209"/>
         <source>Title Page</source>
         <translation>Giriş sayfası</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="208"/>
+        <location filename="../../Misc/Landmarks.cpp" line="209"/>
         <source>A page at the beginning of a book giving its title, authors, publisher and other publication information.</source>
         <translation>Kitabın başındaki, yazarlarını, yayıncısını ve diğer yayın bilgilerini veren bir sayfa.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="209"/>
+        <location filename="../../Misc/Landmarks.cpp" line="210"/>
         <source>Table of Contents</source>
         <translation>İçindekiler</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="209"/>
+        <location filename="../../Misc/Landmarks.cpp" line="210"/>
         <source>A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work&apos;s frontmatter, or at the beginning of a section.</source>
         <translation>Kitap veya belgenin başlıklarının veya bölümlerinin göründükleri sıraya göre düzenlenmiş bir listesi olan içindekiler tablosu. Tipik olarak çalışmanın ön kısmında veya bir bölümün başında görünür.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="210"/>
+        <location filename="../../Misc/Landmarks.cpp" line="211"/>
         <source>Volume</source>
         <translation>Ses Düzeyi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="210"/>
+        <location filename="../../Misc/Landmarks.cpp" line="211"/>
         <source>A component of a collection.</source>
         <translation>Bir koleksiyonun bileşeni.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="211"/>
+        <location filename="../../Misc/Landmarks.cpp" line="212"/>
         <source>Warning</source>
         <translation>Uyarı</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="211"/>
+        <location filename="../../Misc/Landmarks.cpp" line="212"/>
         <source>A warning or caution about specific material. Status: Deprecated - Replaced by &apos;notice&apos;.</source>
         <translation>Belirli bir malzeme hakkında bir uyarı veya ikaz. Durum: Kullanımdan Kaldırıldı - &quot;bildirim&quot; ile değiştirildi.</translation>
     </message>
@@ -17480,7 +17490,7 @@ Satır: %1 Sütun %2 - %3</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="807"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="813"/>
         <source>Adding Existing Files..</source>
         <translation>Mevcut Dosyaları Ekleme..</translation>
     </message>
