@@ -212,6 +212,7 @@ void AutomateEditor::saveData()
 
     qDebug() << "received from model: " << data;
     if (data.isEmpty()) {
+        QMessageBox::warning(this, tr("Warning"), tr("Cannot save an empty automation list."));
         QDialog::accept();
         return;
     }
