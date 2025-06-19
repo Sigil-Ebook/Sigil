@@ -1,7 +1,15 @@
-Sigil-2.5.3
+pre-2.6.0
+   Bug Fixes
      - prevent crash on Windows when hand typing in an external url in Add Existing files
      - fix bug in how nav is handled by Prettify (Thank you BeckyEbook)
      - fix bug in wait cursor appearing when showing last epub open warnings
+     - fix crash caused by empty Automate lists (Thank you BeckyEbook)
+
+New Features
+     - Added in new Code View Insert menu items "Role..." (epub3 only)
+         to make adding Aria role attributes and epub:type attributes where allowed easier
+     - Added in new Code View Insert menu items "Aria Clips..." (epub3 only)
+         to make adding code clips that improving Accessibility easier.
 
 
 Sigil-2.5.2
