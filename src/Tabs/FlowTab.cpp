@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2024 Kevin B Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2016-2025 Kevin B Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2012      Grant Drake
@@ -449,6 +449,14 @@ bool FlowTab::InsertIdEnabled()
     return false;
 }
 
+bool FlowTab::InsertRoleEnabled()
+{
+    if (m_wCodeView) {
+        return m_wCodeView->IsInsertRoleAllowed();
+    }
+    return false;
+}
+
 bool FlowTab::InsertHyperlinkEnabled()
 {
     if (m_wCodeView) {
@@ -813,10 +821,26 @@ QString FlowTab::GetSelectedText()
     return "";
 }
 
+QString FlowTab::GetCurrentTag()
+{
+    if (m_wCodeView) {
+        return m_wCodeView->GetCurrentSingleOrOpenTagName();
+    } 
+    return "";
+}
+
 bool FlowTab::InsertId(const QString &id)
 {
     if (m_wCodeView) {
         return m_wCodeView->InsertId(id);
+    } 
+    return false;
+}
+
+bool FlowTab::InsertRole(const QString &role)
+{
+    if (m_wCodeView) {
+        return m_wCodeView->InsertRole(role);
     } 
     return false;
 }
@@ -1118,6 +1142,14 @@ bool FlowTab::PasteClipNumber(int clip_number)
 {
     if (m_wCodeView) {
         return m_wCodeView->PasteClipNumber(clip_number);
+    }
+    return false;
+}
+
+bool FlowTab::PasteClipText(const QString& cliptext)
+{
+    if (m_wCodeView) {
+        return m_wCodeView->PasteClipText(cliptext);
     }
     return false;
 }

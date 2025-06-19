@@ -92,6 +92,8 @@ public:
     bool MarkForIndexEnabled();
 
     bool InsertIdEnabled();
+    bool InsertRoleEnabled();
+    
     bool InsertHyperlinkEnabled();
 
     bool InsertSpecialCharacterEnabled();
@@ -165,6 +167,7 @@ public:
     bool NumberListChecked();
 
     bool PasteClipNumber(int clip_number);
+    bool PasteClipText(const QString& cliptext);
     bool PasteClipEntries(QList<ClipEditorModel::clipEntry *>clips);
 
     QString GetCaretElementName();
@@ -246,9 +249,10 @@ public slots:
     QString GetAttributeId();
     QString GetAttributeHref();
     QString GetAttributeIndexTitle();
-
+    QString GetCurrentTag();
     QString GetSelectedText();
     bool InsertId(const QString &id);
+    bool InsertRole(const QString &role);
     bool InsertHyperlink(const QString &url);
 
     void GoToLinkOrStyle();

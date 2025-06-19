@@ -60,6 +60,7 @@
 #include "Misc/SettingsStore.h"
 #include "Misc/SpellCheck.h"
 #include "Misc/HTMLSpellCheck.h"
+#include "Misc/AriaRoles.h"
 #include "Misc/Utility.h"
 #include "Parsers/HTMLStyleInfo.h"
 #include "PCRE2/PCRECache.h"
@@ -2099,6 +2100,28 @@ bool CodeViewEditor::IsInsertIdAllowed()
     return true;
 }
 
+QString CodeViewEditor::GetCurrentSingleOrOpenTagName()
+{
+    int pos = textCursor().selectionStart();
+    return GetOpeningTagName(pos);
+}
+
+bool CodeViewEditor::IsInsertRoleAllowed()
+{
+    int pos = textCursor().selectionStart();
+
+    if (!IsPositionInBody(pos)) {
+        return false;
+    }
+
+    // Only allow if in opening or single tag
+    QString tag_name = GetOpeningTagName(pos);
+
+    if (tag_name.isEmpty()) return false;
+
+    return true;
+}
+
 bool CodeViewEditor::IsInsertHyperlinkAllowed()
 {
     int pos = textCursor().selectionStart();
@@ -2155,6 +2178,29 @@ bool CodeViewEditor::InsertId(const QString &attribute_value)
     }
 
     return InsertTagAttribute(element_name, attribute_name, attribute_value, tag_list);
+}
+
+bool CodeViewEditor::InsertRole(const QString &attribute_value)
+{
+    int pos = textCursor().selectionStart();
+    QString element_name = GetOpeningTagName(pos);
+    QString attribute_name = "role";
+    QStringList tag_list = AriaRoles::instance()->AllowedTags(attribute_value);
+    QString etype = AriaRoles::instance()->EpubTypeMapping(attribute_value);
+    if (etype == attribute_value) {
+        // this is an epub:type only attribute
+        attribute_name = "epub:type";
+        return InsertTagAttribute(element_name, attribute_name, attribute_value, tag_list);
+    }
+    // This could have both aria role and epub:type
+    bool rv = InsertTagAttribute(element_name, attribute_name, attribute_value, tag_list);
+    if (rv) { 
+        if (!etype.isEmpty()) {
+            attribute_name = "epub:type";
+            InsertTagAttribute(element_name, attribute_name, etype, tag_list);
+        }
+    }
+    return rv;
 }
 
 bool CodeViewEditor::InsertHyperlink(const QString &attribute_value)
@@ -2559,10 +2605,17 @@ void CodeViewEditor::PasteClipEntryFromName(const QString &name)
 
 bool CodeViewEditor::PasteClipEntry(ClipEditorModel::clipEntry *clip)
 {
-    if (!clip || clip->text.isEmpty()) {
+    if (!clip) {
         return false;
     }
+    return PasteClipText(clip->text);
+}
 
+bool CodeViewEditor::PasteClipText(const QString& cliptext)
+{
+    if (cliptext.isEmpty()) {
+        return false;
+    }
     QTextCursor cursor = textCursor();
     // Convert to plain text or \s won't get newlines
     const QString &document_text = toPlainText();
@@ -2571,7 +2624,7 @@ bool CodeViewEditor::PasteClipEntry(ClipEditorModel::clipEntry *clip)
     if (selected_text.isEmpty()) {
         // Allow users to use the same entry for insert/replace
         // Will not handle complicated regex, but good for tags like <p>\1</p>
-        QString replacement_text = clip->text;
+        QString replacement_text = cliptext;
         replacement_text.remove(QString("\\1"));
         cursor.beginEditBlock();
         cursor.removeSelectedText();
@@ -2587,12 +2640,11 @@ bool CodeViewEditor::PasteClipEntry(ClipEditorModel::clipEntry *clip)
         bool found = FindNext(search_regex, Searchable::Direction_Down, false, false, false);
 
         if (found) {
-            ReplaceSelected(search_regex, clip->text, Searchable::Direction_Down, true);
+            ReplaceSelected(search_regex, cliptext, Searchable::Direction_Down, true);
         }
         cursor.setPosition(cursor.selectionEnd());
         setTextCursor(cursor);
     }
-
     return true;
 }
 
@@ -3346,11 +3398,12 @@ QString CodeViewEditor::ProcessAttribute(const QString &attribute_name,
     // Now look for the attribute, which may or may not already exist
     TagLister::AttInfo ainfo;
     TagLister::parseAttribute(opening_tag_text, attribute_name, ainfo);
+
     // qDebug() << " in tag: " << opening_tag_text;
     // qDebug() << " found attribute: " << ainfo.aname << ainfo.avalue << ainfo.pos << ainfo.len;
     // set absolute attribute start and end locations in text
-    int attribute_start = ti.pos + ti.len - 1;   // right before the tag '>'
-    if (ti.ttype == "single") attribute_start--; // and before the '/' in single tags
+    int attribute_start = ti.pos + ti.len - 1;  // right before the tag '>'
+    if (ti.ttype == "single") attribute_start--; // right before the single tag '/'s
     int attribute_end = attribute_start;
     if (ainfo.pos != -1) {
         // attribute exists

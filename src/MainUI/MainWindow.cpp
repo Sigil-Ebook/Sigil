@@ -55,6 +55,8 @@
 #include "BookManipulation/Index.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "Dialogs/About.h"
+#include "Dialogs/AddClips.h"
+#include "Dialogs/AddRoles.h"
 #include "Dialogs/ClipEditor.h"
 #include "Dialogs/ClipboardHistorySelector.h"
 #include "Dialogs/DeleteStyles.h"
@@ -93,6 +95,7 @@
 #include "Misc/HTMLSpellCheckML.h"
 #include "Misc/KeyboardShortcutManager.h"
 #include "Misc/Landmarks.h"
+#include "Misc/AriaRoles.h"
 #include "Misc/MediaTypes.h"
 #include "Misc/OpenExternally.h"
 #include "Misc/Plugin.h"
@@ -3253,6 +3256,66 @@ void MainWindow::InsertId()
     }
 }
 
+
+void MainWindow::InsertClip()
+{
+    SaveTabData();
+    ShowMessageOnStatusBar();
+
+    FlowTab *flow_tab = GetCurrentFlowTab();
+    if (!flow_tab) {
+        Utility::warning(this, tr("Sigil"), tr("You can only insert an aria clips in xhtml files."));
+        return;
+    }
+
+    AddClips addclip(this);
+
+    if (addclip.exec() == QDialog::Accepted) {
+        QStringList clips = addclip.GetSelectedEntries();
+        if (!clips.isEmpty()) {
+            QString new_clip = clips.at(0);
+            if (!flow_tab->PasteClipText(new_clip)) {
+                Utility::warning(this, tr("Sigil"), tr("You inserting an aria clip failed."));
+                return;
+            }
+        }
+    }
+}
+
+void MainWindow::InsertRole()
+{
+    SaveTabData();
+    ShowMessageOnStatusBar();
+
+    FlowTab *flow_tab = GetCurrentFlowTab();
+    if (!flow_tab || !flow_tab->InsertRoleEnabled()) {
+        Utility::warning(this, tr("Sigil"), tr("You cannot insert an aria role at this position."));
+        return;
+    }
+
+    QString tagname = flow_tab->GetCurrentTag();
+    
+    AddRoles addmeaning(tagname, this);
+
+    if (addmeaning.exec() == QDialog::Accepted) {
+        QStringList codes = addmeaning.GetSelectedEntries();
+        if (!codes.isEmpty()) {
+            QString new_code = codes.at(0);
+            QStringList allowed_tags = AriaRoles::instance()->AllowedTags(new_code);
+            if (!allowed_tags.isEmpty()) {
+                if (!allowed_tags.contains(tagname)) {
+                    Utility::warning(this, tr("Sigil"), tr("The selected role can not be used on this tag."));
+                    return;
+                }
+                if (!flow_tab->InsertRole(new_code)) {
+                    Utility::warning(this, tr("Sigil"), tr("You cannot insert an aria role at this position."));
+                    return;
+                }
+            }
+        }
+    }
+}
+
 void MainWindow::InsertHyperlink()
 {
     SaveTabData();
@@ -4471,6 +4534,7 @@ void MainWindow::UpdateUIOnTabCountChange()
 
 void MainWindow::SetStateActionsCodeView()
 {
+    bool editing_epub3 = m_Book->GetOPF()->GetEpubVersion().startsWith("3");
     ui.actionPrintPreview->setEnabled(true);
     ui.actionPrint->setEnabled(true);
     ui.actionSplitSection->setEnabled(true);
@@ -4478,6 +4542,8 @@ void MainWindow::SetStateActionsCodeView()
     ui.actionInsertFile->setEnabled(true);
     ui.actionInsertSpecialCharacter->setEnabled(true);
     ui.actionInsertId->setEnabled(true);
+    ui.actionInsertClip->setEnabled(editing_epub3);
+    ui.actionInsertRole->setEnabled(editing_epub3);
     ui.actionInsertHyperlink->setEnabled(true);
     ui.actionInsertClosingTag->setEnabled(true);
     ui.actionUndo->setEnabled(true);
@@ -4569,6 +4635,8 @@ void MainWindow::SetStateActionsRawView()
     ui.actionInsertFile->setEnabled(false);
     ui.actionInsertSpecialCharacter->setEnabled(true);
     ui.actionInsertId->setEnabled(false);
+    ui.actionInsertClip->setEnabled(false);
+    ui.actionInsertRole->setEnabled(false);
     ui.actionInsertHyperlink->setEnabled(false);
     ui.actionInsertClosingTag->setEnabled(false);
     ui.actionUndo->setEnabled(true);
@@ -4641,6 +4709,8 @@ void MainWindow::SetStateActionsStaticView()
     ui.actionInsertFile->setEnabled(false);
     ui.actionInsertSpecialCharacter->setEnabled(false);
     ui.actionInsertId->setEnabled(false);
+    ui.actionInsertClip->setEnabled(false);
+    ui.actionInsertRole->setEnabled(false);
     ui.actionInsertHyperlink->setEnabled(false);
     ui.actionInsertClosingTag->setEnabled(false);
     ui.actionUndo->setEnabled(false);
@@ -5746,6 +5816,10 @@ void MainWindow::UpdateUiWithCurrentFile(const QString &fullfilepath, bool just_
     } else {
         setWindowTitle(tr("%1[*] - epub%2 - %3").arg(m_CurrentFileName).arg(epubversion).arg(tr("Sigil")));
     }
+
+    // disable epub3 tools menu on epub2
+    ui.menuEPUB3Tools->setEnabled(epubversion.startsWith("3"));
+
     if (m_CurrentFilePath.isEmpty()) {
         return;
     }
@@ -6096,10 +6170,12 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionCopy, "MainWindow.Copy");
     sm->registerAction(this, ui.actionPaste, "MainWindow.Paste");
     sm->registerAction(this, ui.actionPasteClipboardHistory, "MainWindow.PasteClipboardHistory");
+    sm->registerAction(this, ui.actionInsertId, "MainWindow.InsertId");
+    sm->registerAction(this, ui.actionInsertClip, "MainWindow.InsertClip");
+    sm->registerAction(this, ui.actionInsertRole, "MainWindow.InsertRole");
     sm->registerAction(this, ui.actionDeleteLine, "MainWindow.DeleteLine");
     sm->registerAction(this, ui.actionInsertFile, "MainWindow.InsertFile");
     sm->registerAction(this, ui.actionInsertSpecialCharacter, "MainWindow.InsertSpecialCharacter");
-    sm->registerAction(this, ui.actionInsertId, "MainWindow.InsertId");
     sm->registerAction(this, ui.actionInsertHyperlink, "MainWindow.InsertHyperlink");
     sm->registerAction(this, ui.actionMarkForIndex, "MainWindow.MarkForIndex");
     sm->registerAction(this, ui.actionSplitSection, "MainWindow.SplitSection");
@@ -6445,6 +6521,8 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionInsertFile,      SIGNAL(triggered()), this, SLOT(InsertFileDialog()));
     connect(ui.actionInsertSpecialCharacter, SIGNAL(triggered()), this, SLOT(InsertSpecialCharacter()));
     connect(ui.actionInsertId,        SIGNAL(triggered()),  this,   SLOT(InsertId()));
+    connect(ui.actionInsertClip,      SIGNAL(triggered()),  this,   SLOT(InsertClip()));
+    connect(ui.actionInsertRole,      SIGNAL(triggered()),  this,   SLOT(InsertRole()));
     connect(ui.actionInsertHyperlink, SIGNAL(triggered()),  this,   SLOT(InsertHyperlink()));
     connect(ui.actionPreferences,     SIGNAL(triggered()), this, SLOT(PreferencesDialog()));
     // Search
