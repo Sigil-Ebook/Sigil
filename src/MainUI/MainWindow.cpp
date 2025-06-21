@@ -3267,13 +3267,13 @@ void MainWindow::InsertClip()
         Utility::warning(this, tr("Sigil"), tr("You can only insert an aria clips in xhtml files."));
         return;
     }
-
-    AddClips addclip(this);
+    QString selected_text = flow_tab->GetSelectedText();
+    
+    AddClips addclip(selected_text, this);
 
     if (addclip.exec() == QDialog::Accepted) {
-        QStringList clips = addclip.GetSelectedEntries();
-        if (!clips.isEmpty()) {
-            QString new_clip = clips.at(0);
+        QString new_clip = addclip.GetSelectedClip();
+        if (!new_clip.isEmpty()) {
             if (!flow_tab->PasteClipText(new_clip)) {
                 Utility::warning(this, tr("Sigil"), tr("You inserting an aria clip failed."));
                 return;

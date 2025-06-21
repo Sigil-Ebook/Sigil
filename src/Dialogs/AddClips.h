@@ -46,12 +46,12 @@ public:
      * @param infomap  QHash map used to generate the list of properties this dialog displays
      * @param parent The dialog's parent.
      */
-    AddClips(QWidget *parent = 0);
+    AddClips(const QString& selected_text, QWidget *parent = 0);
 
     /**
      * Returns the list of clips selected by user.
      */
-    QStringList GetSelectedEntries();
+    QString GetSelectedClip();
 
 private slots:
 
@@ -91,6 +91,8 @@ private:
      * Holds the clips of the selected entries
      */
     QStringList m_SelectedEntries;
+
+    QString m_selected_text;
 
     /**
      * Holds all the widgets Qt Designer created for us.

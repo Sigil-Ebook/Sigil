@@ -34,7 +34,6 @@ static const QString ph_href_to_endnote = AriaClips::tr("HREF_TO_ENDNOTE");
 static const QString ph_href_endnote_return = AriaClips::tr("HREF_RETURN_FROM_ENDNOTE");
 static const QString ph_sidebar_label = AriaClips::tr("LABEL_FOR_SIDEBAR");
 static const QString ph_tip_label = AriaClips::tr("LABEL_FOR_TIP");
-static const QString ph_number = AriaClips::tr("_N_"); // number of footnote, endnote, page, etc
 
 AriaClips *AriaClips::m_instance = 0;
 
@@ -166,7 +165,7 @@ void AriaClips::SetAriaClipsMap()
     QStringList data;
     data <<
 tr("Section") << "section" << "<section>\n  \\1\n</section>\n" <<
-tr("Aside") << "aside" << "<aside>\n  \\1\n<</aside>\n" <<
+tr("Aside") << "aside" << "<aside>\n  \\1\n</aside>\n" <<
 tr("Chapter")<< "chapter" << "<section role=\"doc-chapter\" epub:type=\"chapter\" aria-labelledby=\"heading1\">\n  <h1 id=\"heading1\">CHAPTER_TITLE_HERE</h1>\n  \\1\n</section>\n" <<
 tr("Footnotes") << "footnotes" << "<section role=\"doc-footnotes\" epub:type=\"footnotes\">\n  \\1\n</section>\n" <<
 tr("Reference to Footnote") << "fn_ref" << "<a id=\"ref_fn_N_\" href=\"#fn_N_\" epub:type=\"noteref\" role=\"doc-noteref\">[_N_]</a>" <<
@@ -225,7 +224,6 @@ QString AriaClips::TranslatePlaceholders(const QString& cliptext)
     newtext.replace("HREF_RETURN_FROM_ENDNOTE", ph_href_endnote_return);
     newtext.replace("LABEL_FOR_SIDEBAR", ph_sidebar_label);
     newtext.replace("LABEL_FOR_TIP", ph_tip_label);
-    newtext.replace("_N_", ph_number);
     return newtext;   
 }
 

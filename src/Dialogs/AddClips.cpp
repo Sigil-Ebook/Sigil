@@ -21,6 +21,8 @@
 
 #include <QDate>
 #include <QModelIndex>
+#include <QRegularExpression>
+#include <QRegularExpressionMatch>
 
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
@@ -29,8 +31,15 @@
 
 static const QString SETTINGS_GROUP = "add_clips";
 
-AddClips::AddClips(QWidget *parent)
+static const QStringList UPDATE_ONLY_NUMBER = QStringList() << "fn_ref" << "fn_backlink" << "endnote_ref" <<
+                                                                   "endnote_backlink" << "pagebreak_span";
+
+static const QStringList UPDATE_NUMBER_AND_FILL = QStringList() << "fn_aside" << "fn_div" << "endnote_li";
+
+
+AddClips::AddClips(const QString& selected_text, QWidget *parent)
     :
+    m_selected_text(selected_text),
     QDialog(parent)
 {
     ui.setupUi(this);
@@ -69,9 +78,35 @@ void AddClips::UpdateDescription(QListWidgetItem *current)
     }
 }
 
-QStringList AddClips::GetSelectedEntries()
+QString AddClips::GetSelectedClip()
 {
-    return m_SelectedEntries;
+    QString clip = "";
+    if (!m_SelectedEntries.isEmpty()) {
+        QString code = m_SelectedEntries.at(0);
+        clip = AriaClips::instance()->GetDescriptionByCode(code);
+        
+        if (!m_selected_text.isEmpty()) {
+            if (UPDATE_ONLY_NUMBER.contains(code) || UPDATE_NUMBER_AND_FILL.contains(code)) {
+                // extract a number from text selected in CV to replace _N_
+                QRegularExpression findLeadingNumber("^\\s*\\[?(\\d+)\\]?\\.?\\s*");
+                QRegularExpressionMatch amtch = findLeadingNumber.match(m_selected_text, 0);
+                QString anum;
+                if (amtch.hasMatch()) {
+                    anum = amtch.captured(1);
+                    size_t alen  = amtch.capturedLength(0);
+                    m_selected_text = m_selected_text.remove(0, alen);
+                }
+                if (!anum.isEmpty()) {
+                    clip.replace("_N_", anum);
+                    if (UPDATE_NUMBER_AND_FILL.contains(code)) {
+                        clip.replace("\\1", m_selected_text);
+                    }
+                }
+            }
+        }
+        clip = AriaClips::instance()->TranslatePlaceholders(clip);
+    }
+    return clip;
 }
 
 void AddClips::SaveSelection()
@@ -79,9 +114,7 @@ void AddClips::SaveSelection()
     m_SelectedEntries.clear();
     foreach(QListWidgetItem * item, ui.lwProperties->selectedItems()) {
         QString code = m_Name2Code.value(item->text(), QString() );
-        QString text = AriaClips::instance()->GetDescriptionByCode(code);
-        text = AriaClips::instance()->TranslatePlaceholders(text);
-        m_SelectedEntries.append(text);
+        m_SelectedEntries.append(code);
     }
 }
 
