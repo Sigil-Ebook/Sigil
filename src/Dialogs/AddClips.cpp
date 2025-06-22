@@ -26,7 +26,9 @@
 
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
+#include "Misc/AriaRoles.h"
 #include "Misc/AriaClips.h"
+#include "Dialogs/AddRoles.h"
 #include "Dialogs/AddClips.h"
 
 static const QString SETTINGS_GROUP = "add_clips";
@@ -34,7 +36,7 @@ static const QString SETTINGS_GROUP = "add_clips";
 static const QStringList UPDATE_ONLY_NUMBER = QStringList() << "fn_ref" << "fn_backlink" << "endnote_ref" <<
                                                                    "endnote_backlink" << "pagebreak_span";
 
-static const QStringList UPDATE_NUMBER_AND_FILL = QStringList() << "fn_aside" << "fn_div" << "endnote_li";
+static const QStringList UPDATE_NUMBER_AND_FILL = QStringList() << "fn_aside" << "fn_div" << "fn_p" << "endnote_li";
 
 
 AddClips::AddClips(const QString& selected_text, QWidget *parent)
@@ -100,6 +102,32 @@ QString AddClips::GetSelectedClip()
                     clip.replace("_N_", anum);
                     if (UPDATE_NUMBER_AND_FILL.contains(code)) {
                         clip.replace("\\1", m_selected_text);
+                    }
+                }
+            }
+        }
+        if ((code == "section") || (code == "aside")) {
+            // allow user to select roles and epub types
+            AddRoles addmeaning(code, this);
+            if (addmeaning.exec() == QDialog::Accepted) {
+                QStringList rolecodes = addmeaning.GetSelectedEntries();
+                if (!rolecodes.isEmpty()) {
+                    QString rcode = rolecodes.at(0);
+                    QString etype = AriaRoles::instance()->EpubTypeMapping(rcode);
+                    QString atts_added = " ";
+                    if (etype == rcode) {
+                        // this is an epub:type only attribute
+                        atts_added += "epub:type=\"" + etype + "\"";
+                    } else {
+                        if (!etype.isEmpty()) {
+                            atts_added += "epub:type=\"" + etype + "\" ";
+                        }
+                        atts_added += "role=\"" + rcode + "\"";
+                    }
+                    // inject those attributes before the first ">" in the clip
+                    int p = clip.indexOf('>');
+                    if (p > -1) {
+                        clip.insert(p,atts_added);
                     }
                 }
             }

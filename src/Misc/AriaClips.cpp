@@ -172,6 +172,7 @@ tr("Reference to Footnote") << "fn_ref" << "<a id=\"ref_fn_N_\" href=\"#fn_N_\" 
 tr("Backlink from Footnote") << "fn_backlink" << "<a href=\"ref_fn_N_\" epub:type=\"backlink\" role=\"doc-backlink\">[_N_]</a>" <<
 tr("Footnote Aside With Backlink") << "fn_aside" << "<aside id=\"fn_N_\" epub:type=\"footnote\" role=\"doc-footnote\">\n  <p>\n    <a href=\"#ref_fn_N_\" epub:type=\"backlink\" role=\"doc-backlink\">[_N_]</a>\n    \\1\n  </p>\n</aside>\n" <<
 tr("Footnote Div With BackLink") << "fn_div" << "<div id=\"fn_N_\" epub:type=\"footnote\" role=\"doc-footnote\">\n  <p>\n    <a href=\"#ref_fn_N_\" epub:type=\"backlink\" role=\"doc-backlink\">[_N_]</a>\n    \\1\n  </p>\n</div>\n" <<
+tr("Footnote P With BackLink") << "fn_p" << "<p id=\"fn_N_\" epub:type=\"footnote\" role=\"doc-footnote\">\n    <a href=\"#ref_fn_N_\" epub:type=\"backlink\" role=\"doc-backlink\">[_N_]</a>\n    \\1\n  </p>\n" <<
 tr("Reference to Endnote") << "endnote_ref" << "<a id=\"ref_en_N_\" href=\"HREF_TO_ENDNOTES#en_N_\" epub:type=\"noteref\" role=\"doc-noteref\">[_N_]</a>" <<
 tr("Backlink from Endnote") << "endnote_backlink" << "<a href=\"HREF_FOR_RETURN_FROM_ENDNOTE#en_N_\" epub:type=\"backlink\" role=\"doc-backlink\">[_N_]</a>" <<
 tr("Endnotes") << "endnotes" << "<section epub:type=\"endnotes\" role=\"doc-endnotes\">\n  <ol>\n  </ol>\n</section>\n" <<
@@ -206,6 +207,7 @@ void AriaClips::SetCodeToRawTitleMap()
     m_CodeToRawTitle[ "fn_backlink"      ] = "Backlink from Footnote";
     m_CodeToRawTitle[ "fn_aside"         ] = "Footnote Aside with Backlink";
     m_CodeToRawTitle[ "fn_div"           ] = "Footnote Div with Backlink";
+    m_CodeToRawTitle[ "fn_p"             ] = "Footnote P with Backlink";
     m_CodeToRawTitle[ "endnote_ref"      ] = "Reference to Endnote";
     m_CodeToRawTitle[ "endnote_backlink" ] = "Backlink from Endnote";
     m_CodeToRawTitle[ "endnotes"         ] = "Endnotes";
