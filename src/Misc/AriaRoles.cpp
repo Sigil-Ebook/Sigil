@@ -193,7 +193,7 @@ void AriaRoles::SetAriaRolesMap()
         tr("Colophon") << "doc-colophon" << tr("A short section of production notes particular to the edition (e.g., describing the typeface used), often located at the end of a work.") <<
         tr("Conclusion") << "doc-conclusion" << tr("A concluding section or statment that summarizes the work or wraps up the narrative.") <<
         tr("Cover") << "doc-cover" << tr("An image that sets the mood or tone for the work and typically includes the title and author.") <<
-        tr("Credit") << "doc-credit" << tr("An ackknowledment of the source of integrated content from third-party sources, such as photos.  Typically identifies the creator, copyright, and any restrictions on reuse.") <<
+        tr("Credit") << "doc-credit" << tr("An acknowledgement of the source of integrated content from third-party sources, such as photos.  Typically identifies the creator, copyright, and any restrictions on reuse.") <<
         tr("Credits") << "doc-credits" << tr("A collection of credits.") <<
         tr("Dedication") << "doc-dedication" << tr("An inscription at the front of the work, typically addressed in tribute to one or more persons close to the author.") <<
         tr("Endnote") << "endnote" << tr("One of a collection of notes that occur at the end of a work, or a section within it that provides additional context to a referenced passage of text. [epub:type ONLY]") <<
@@ -219,7 +219,7 @@ void AriaRoles::SetAriaRolesMap()
         tr("Preamble") << "preamble" << tr("A section at the beginning of a work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work's content. [epub:type ONLY]") <<
         tr("Preface") << "doc-preface" << tr("An introductory section that precedes the work, typically written by the author of the work.") <<
         tr("Prologue") << "doc-prologue" << tr("An introductory section that sets the background to a work, typically part of the narrative.") <<
-        tr("Pull Quote") << "doc-pullquote" << tr("A distinctively placed or highlighted quotation from the current content designed to draw attnetion to a topic or highlight a key point.") <<
+        tr("Pull Quote") << "doc-pullquote" << tr("A distinctively placed or highlighted quotation from the current content designed to draw attention to a topic or highlight a key point.") <<
         tr("Questions and Answers") << "doc-qna" << tr("A section of content structured as a series of questions and answers, such as an interview or list of frequently asked questions.") <<
         tr("Subtitle") << "doc-subtitle" << tr("An explanatory or alternate title for the work, or a section or components within it.") <<
         tr("Tip") << "doc-tip" << tr("Helpful information that clarifies some aspect of the content or assists in comprehension.") <<

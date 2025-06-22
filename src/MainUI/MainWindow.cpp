@@ -3267,9 +3267,17 @@ void MainWindow::InsertClip()
         Utility::warning(this, tr("Sigil"), tr("You can only insert an aria clips in xhtml files."));
         return;
     }
+    HTMLResource* html_resource = qobject_cast<HTMLResource*>(flow_tab->GetLoadedResource());
+    QString book_lang;
+    if (html_resource) book_lang = html_resource->GetLanguageAttribute();
+    if (book_lang.isEmpty()) {
+        m_Book->GetOPF()->GetPrimaryBookLanguage();
+    }
+    
     QString selected_text = flow_tab->GetSelectedText();
     
-    AddClips addclip(selected_text, this);
+    
+    AddClips addclip(selected_text, book_lang, this);
 
     if (addclip.exec() == QDialog::Accepted) {
         QString new_clip = addclip.GetSelectedClip();

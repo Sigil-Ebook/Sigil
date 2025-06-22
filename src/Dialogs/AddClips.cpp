@@ -39,9 +39,10 @@ static const QStringList UPDATE_ONLY_NUMBER = QStringList() << "fn_ref" << "fn_b
 static const QStringList UPDATE_NUMBER_AND_FILL = QStringList() << "fn_aside" << "fn_div" << "fn_p" << "endnote_li";
 
 
-AddClips::AddClips(const QString& selected_text, QWidget *parent)
+AddClips::AddClips(const QString& selected_text, const QString& book_lang, QWidget *parent)
     :
     m_selected_text(selected_text),
+    m_book_lang(book_lang),
     QDialog(parent)
 {
     ui.setupUi(this);
@@ -73,7 +74,7 @@ void AddClips::UpdateDescription(QListWidgetItem *current)
     QString code = m_Name2Code.value(current->text(), QString());
     if (!code.isEmpty()) {
         text = AriaClips::instance()->GetDescriptionByCode(code);
-        text = AriaClips::instance()->TranslatePlaceholders(text);
+        text = AriaClips::instance()->TranslatePlaceholders(text, m_book_lang);
     }
     if (!text.isEmpty()) {
         ui.lbDescription->setText(text);
@@ -132,7 +133,7 @@ QString AddClips::GetSelectedClip()
                 }
             }
         }
-        clip = AriaClips::instance()->TranslatePlaceholders(clip);
+        clip = AriaClips::instance()->TranslatePlaceholders(clip, m_book_lang);
     }
     return clip;
 }

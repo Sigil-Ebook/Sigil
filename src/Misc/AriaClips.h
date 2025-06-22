@@ -47,6 +47,7 @@ public:
 
     QString GetName(const QString &code);
     QString GetTitle(const QString &code, const QString &lang);
+    QString GetBookTranslationFor(const QString& term, const QString& lang, const QString& fallback);
     QString GetDescriptionByCode(const QString &code);
     QString GetDescriptionByName(const QString &name);
     QString GetCode(const QString &name);
@@ -55,7 +56,7 @@ public:
     bool isAriaClipsCode(const QString &code);
     bool isAriaClipsName(const QString &name);
     const QHash<QString, DescriptiveInfo>& GetCodeMap();
-    QString TranslatePlaceholders(const QString &cliptext);
+    QString TranslatePlaceholders(const QString &cliptext, const QString& book_lang);
 
 private:
 
