@@ -6,10 +6,11 @@ pre-2.6.0
      - fix crash caused by empty Automate lists (Thank you BeckyEbook)
 
 New Features
-     - Added in new Code View Insert menu items "Role..." (epub3 only)
+     - Added in new CodeView Insert menu item: "Role..." (epub3 only)
          to make adding Aria role attributes and epub:type attributes where allowed easier
-     - Added in new Code View Insert menu items "Aria Clips..." (epub3 only)
+     - Added in new CodeView Insert menu item: "Aria Clips..." (epub3 only)
          to make adding code clips that improving Accessibility easier.
+     - Made the Epub3 Tools menu menu items be disabled on Epub3
 
 
 Sigil-2.5.2
