@@ -96,8 +96,8 @@ QString AddClips::GetSelectedClip()
                 QString anum;
                 if (amtch.hasMatch()) {
                     anum = amtch.captured(1);
-                    size_t alen  = amtch.capturedLength(0);
-                    m_selected_text = m_selected_text.remove(0, alen);
+                    // size_t alen  = amtch.capturedLength(0);
+                    // m_selected_text = m_selected_text.remove(0, alen);
                 }
                 if (!anum.isEmpty()) {
                     clip.replace("_N_", anum);

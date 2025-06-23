@@ -29,15 +29,20 @@
 #include "Misc/UILanguage.h"
 #include "Misc/AriaClips.h"
 
-static const QString ph_chapter_title = AriaClips::tr("CHAPTER_TITLE_HERE");
+static const QString ph_chapter_title       = AriaClips::tr("CHAPTER_TITLE_HERE");
 
-static const QString ph_href_to_endnote = AriaClips::tr("HREF_TO_ENDNOTE");
+static const QString ph_href_to_endnote     = AriaClips::tr("HREF_TO_ENDNOTE");
 static const QString ph_href_endnote_return = AriaClips::tr("HREF_RETURN_FROM_ENDNOTE");
 
-static const QString ph_fn_book_label = AriaClips::tr("Footnotes");
-static const QString ph_tip_book_label = AriaClips::tr("Tip");
-static const QString ph_sidebar_book_label = AriaClips::tr("Sidebar");
-static const QString ph_page_book_label = AriaClips::tr("Page");
+static const QString ph_fn_book_label       = AriaClips::tr("Footnotes");
+static const QString ph_tip_book_label      = AriaClips::tr("Tip");
+static const QString ph_sidebar_book_label  = AriaClips::tr("Sidebar");
+static const QString ph_page_book_label     = AriaClips::tr("Page");
+
+static const QString ph_backlink_book_label = AriaClips::tr("Back to");
+
+static const QString ph_fn_link_book_label = AriaClips::tr("To footnote");
+static const QString ph_en_link_book_label = AriaClips::tr("To endnote");
 
 AriaClips *AriaClips::m_instance = 0;
 
@@ -174,21 +179,37 @@ void AriaClips::SetAriaClipsMap()
     data <<
         
 tr("Aside") << "aside" << "<aside>\n  \\1\n</aside>\n" <<
+
 tr("Aside: Sidebar") << "sidebar" << "<aside aria-label=\"LABEL_FOR_SIDEBAR\">\n  \\1\n</aside>\n" <<
+
 tr("Aside: Tip") << "tip" << "<aside role=\"doc-tip\" epub:type=\"tip\" aria-label=\"LABEL_FOR_TIP\">\n  \\1\n</aside>\n" <<
-tr("Backlink from Footnote") << "fn_backlink" << "<a href=\"ref_fn_N_\" epub:type=\"backlink\" role=\"doc-backlink\">[_N_]</a>" <<
-tr("Backlink from Endnote") << "endnote_backlink" << "<a href=\"HREF_FOR_RETURN_FROM_ENDNOTE#en_N_\" epub:type=\"backlink\" role=\"doc-backlink\">[_N_]</a>" <<
-tr("Endnote in li") << "endnote_li" << "    <li id=\"en_N_\" epub:type=\"endnote\">\n      <p>\n        <a href=\"HREF_FOR_RETURN_FROM_ENDNOTE#en_N_\" epub:type=\"backlink\" role=\"doc-backlink\">[_N_]</a>\n        \\1\n      </p>\n    </li>\n" <<
-tr("Footnote in aside") << "fn_aside" << "<aside id=\"fn_N_\" epub:type=\"footnote\" role=\"doc-footnote\">\n  <p>\n    <a href=\"#ref_fn_N_\" epub:type=\"backlink\" role=\"doc-backlink\">[_N_]</a>\n    \\1\n  </p>\n</aside>\n" <<
-tr("Footnote in div") << "fn_div" << "<div id=\"fn_N_\" epub:type=\"footnote\" role=\"doc-footnote\">\n  <p>\n    <a href=\"#ref_fn_N_\" epub:type=\"backlink\" role=\"doc-backlink\">[_N_]</a>\n    \\1\n  </p>\n</div>\n" <<
-tr("Footnote in p") << "fn_p" << "<p id=\"fn_N_\" epub:type=\"footnote\" role=\"doc-footnote\">\n    <a href=\"#ref_fn_N_\" epub:type=\"backlink\" role=\"doc-backlink\">[_N_]</a>\n    \\1\n  </p>\n" <<
+
+tr("Backlink from Footnote") << "fn_backlink" << "<a href=\"ref_fn_N_\" epub:type=\"backlink\" role=\"doc-backlink\">LABEL_FOR_FOOTNOTE_BACKLINK [_N_]</a>" <<
+
+tr("Backlink from Endnote") << "endnote_backlink" << "<a href=\"HREF_FOR_RETURN_FROM_ENDNOTE#en_N_\" epub:type=\"backlink\" role=\"doc-backlink\">LABEL_FOR_ENDNOTE_BACKLINK [_N_]</a>" <<
+
+tr("Endnote in li") << "endnote_li" << "    <li id=\"en_N_\" epub:type=\"endnote\">\n      <p>\\1\n        <a href=\"HREF_FOR_RETURN_FROM_ENDNOTE#en_N_\" epub:type=\"backlink\" role=\"doc-backlink\">LABEL_FOR_ENDNOTE_BACKLINK [_N_]</a>\n      </p>\n    </li>\n" <<
+
+tr("Footnote in aside") << "fn_aside" << "<aside id=\"fn_N_\" epub:type=\"footnote\" role=\"doc-footnote\">\n  <p>\\1\n    <a href=\"#ref_fn_N_\" epub:type=\"backlink\" role=\"doc-backlink\">LABEL_FOR_FOOTNOTE_BACKLINK [_N_]</a>\n  </p>\n</aside>\n" <<
+
+tr("Footnote in div") << "fn_div" << "<div id=\"fn_N_\" epub:type=\"footnote\" role=\"doc-footnote\">\n  <p>\\1\n    <a href=\"#ref_fn_N_\" epub:type=\"backlink\" role=\"doc-backlink\">LABEL_FOR_FOOTNOTE_BACKLINK [_N_]</a>\n  </p>\n</div>\n" <<
+
+tr("Footnote in p") << "fn_p" << "<p id=\"fn_N_\" epub:type=\"footnote\" role=\"doc-footnote\">\n    \\1\n     <a href=\"#ref_fn_N_\" epub:type=\"backlink\" role=\"doc-backlink\">LABEL_FOR_FOOTNOTE_BACKLINK [_N_]</a>\n  </p>\n" <<
+
 tr("PageBreak in hr") << "pagebreak_hr" << "<hr epub:type=\"pagebreak\" role=\"doc-pagebreak\" />\n" <<
+
 tr("PageBreak in span") << "pagebreak_span" << "<span id=\"page_N_\" epub:type=\"pagebreak\" role=\"doc-pagebreak\" aria-label=\"LABEL_FOR_PAGE _N_\" />" <<
-tr("Reference to Footnote") << "fn_ref" << "<a id=\"ref_fn_N_\" href=\"#fn_N_\" epub:type=\"noteref\" role=\"doc-noteref\">[_N_]</a>" <<
-tr("Reference to Endnote") << "endnote_ref" << "<a id=\"ref_en_N_\" href=\"HREF_TO_ENDNOTES#en_N_\" epub:type=\"noteref\" role=\"doc-noteref\">[_N_]</a>" <<
+
+tr("Reference to Footnote") << "fn_ref" << "<a id=\"ref_fn_N_\" href=\"#fn_N_\" epub:type=\"noteref\" role=\"doc-noteref\" aria-label=\"LABEL_FOR_FOOTNOTE_REFERENCE _N_\">[_N_]</a>" <<
+
+tr("Reference to Endnote") << "endnote_ref" << "<a id=\"ref_en_N_\" href=\"HREF_TO_ENDNOTES#en_N_\" epub:type=\"noteref\" role=\"doc-noteref\" aria-label=\"LABEL_FOR_ENDNOTE_REFERENCE _N_\">[_N_]</a>" <<
+
 tr("Section") << "section" << "<section>\n  \\1\n</section>\n" <<
+
 tr("Section: Chapter")<< "chapter" << "<section role=\"doc-chapter\" epub:type=\"chapter\" aria-labelledby=\"heading1\">\n  <h1 id=\"heading1\">CHAPTER_TITLE_HERE</h1>\n  \\1\n</section>\n" <<
+
 tr("Section: Endnotes") << "endnotes" << "<section epub:type=\"endnotes\" role=\"doc-endnotes\">\n  <ol>\n  </ol>\n</section>\n" <<
+
 tr("Section: Footnotes") << "footnotes" << "<section epub:type=\"footnotes\" aria-label=\"LABEL_FOR_FOOTNOTES\">\n  \\1\n</section>\n";
 
     for (int i = 0; i < data.count(); i++) {
@@ -250,7 +271,19 @@ QString AriaClips::TranslatePlaceholders(const QString& cliptext, const QString&
     
     QString page_lbl = GetBookTranslationFor("Page", book_lang, ph_page_book_label); 
     newtext.replace("LABEL_FOR_PAGE", page_lbl);
-    
+
+    QString fn_backlink_lbl = GetBookTranslationFor("Back to", book_lang, ph_backlink_book_label); 
+    newtext.replace("LABEL_FOR_FOOTNOTE_BACKLINK", fn_backlink_lbl);
+
+    QString en_backlink_lbl = GetBookTranslationFor("Back to", book_lang, ph_backlink_book_label); 
+    newtext.replace("LABEL_FOR_ENDNOTE_BACKLINK", en_backlink_lbl);
+
+    QString fn_reference_lbl = GetBookTranslationFor("To footnote", book_lang, ph_fn_link_book_label); 
+    newtext.replace("LABEL_FOR_FOOTNOTE_REFERENCE", fn_reference_lbl);
+
+    QString en_reference_lbl = GetBookTranslationFor("To endnote", book_lang, ph_en_link_book_label); 
+    newtext.replace("LABEL_FOR_ENDNOTE_REFERENCE", en_reference_lbl);
+
     return newtext;
 }
 
