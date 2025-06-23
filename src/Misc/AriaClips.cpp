@@ -186,9 +186,9 @@ tr("Aside: Tip") << "tip" << "<aside role=\"doc-tip\" epub:type=\"tip\" aria-lab
 
 tr("Backlink from Footnote") << "fn_backlink" << "<a href=\"ref_fn_N_\" epub:type=\"backlink\" role=\"doc-backlink\">LABEL_FOR_FOOTNOTE_BACKLINK [_N_]</a>" <<
 
-tr("Backlink from Endnote") << "endnote_backlink" << "<a href=\"HREF_FOR_RETURN_FROM_ENDNOTE#en_N_\" epub:type=\"backlink\" role=\"doc-backlink\">LABEL_FOR_ENDNOTE_BACKLINK [_N_]</a>" <<
+tr("Backlink from Endnote") << "endnote_backlink" << "<a href=\"HREF_RETURN_FROM_ENDNOTE#en_N_\" epub:type=\"backlink\" role=\"doc-backlink\">LABEL_FOR_ENDNOTE_BACKLINK [_N_]</a>" <<
 
-tr("Endnote in li") << "endnote_li" << "    <li id=\"en_N_\" epub:type=\"endnote\">\n      <p>\\1\n        <a href=\"HREF_FOR_RETURN_FROM_ENDNOTE#en_N_\" epub:type=\"backlink\" role=\"doc-backlink\">LABEL_FOR_ENDNOTE_BACKLINK [_N_]</a>\n      </p>\n    </li>\n" <<
+tr("Endnote in li") << "endnote_li" << "    <li id=\"en_N_\" epub:type=\"endnote\">\n      <p>\\1\n        <a href=\"HREF_RETURN_FROM_ENDNOTE#en_N_\" epub:type=\"backlink\" role=\"doc-backlink\">LABEL_FOR_ENDNOTE_BACKLINK [_N_]</a>\n      </p>\n    </li>\n" <<
 
 tr("Footnote in aside") << "fn_aside" << "<aside id=\"fn_N_\" epub:type=\"footnote\" role=\"doc-footnote\">\n  <p>\\1\n    <a href=\"#ref_fn_N_\" epub:type=\"backlink\" role=\"doc-backlink\">LABEL_FOR_FOOTNOTE_BACKLINK [_N_]</a>\n  </p>\n</aside>\n" <<
 
@@ -202,7 +202,7 @@ tr("PageBreak in span") << "pagebreak_span" << "<span id=\"page_N_\" epub:type=\
 
 tr("Reference to Footnote") << "fn_ref" << "<a id=\"ref_fn_N_\" href=\"#fn_N_\" epub:type=\"noteref\" role=\"doc-noteref\" aria-label=\"LABEL_FOR_FOOTNOTE_REFERENCE _N_\">[_N_]</a>" <<
 
-tr("Reference to Endnote") << "endnote_ref" << "<a id=\"ref_en_N_\" href=\"HREF_TO_ENDNOTES#en_N_\" epub:type=\"noteref\" role=\"doc-noteref\" aria-label=\"LABEL_FOR_ENDNOTE_REFERENCE _N_\">[_N_]</a>" <<
+tr("Reference to Endnote") << "endnote_ref" << "<a id=\"ref_en_N_\" href=\"HREF_TO_ENDNOTE#en_N_\" epub:type=\"noteref\" role=\"doc-noteref\" aria-label=\"LABEL_FOR_ENDNOTE_REFERENCE _N_\">[_N_]</a>" <<
 
 tr("Section") << "section" << "<section>\n  \\1\n</section>\n" <<
 
@@ -255,7 +255,7 @@ QString AriaClips::TranslatePlaceholders(const QString& cliptext, const QString&
     QString newtext = cliptext;
     
     // Placeholders should be translated in UI lang as they are meant for epub dev to fill in
-    newtext.replace("CHAPTER_TITLE_HEAR", ph_chapter_title);
+    newtext.replace("CHAPTER_TITLE_HERE", ph_chapter_title);
     newtext.replace("HREF_TO_ENDNOTE", ph_href_to_endnote);
     newtext.replace("HREF_RETURN_FROM_ENDNOTE", ph_href_endnote_return);
     
