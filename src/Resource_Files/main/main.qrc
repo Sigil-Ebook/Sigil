@@ -71,6 +71,8 @@
         <file>index-create.svg</file>
         <file>index-edit.svg</file>
         <file>index-mark.svg</file>
+        <file>insert-aria-clip.svg</file>
+        <file>insert-aria-role.svg</file>
         <file>insert-bullet-list.svg</file>
         <file>insert-hyperlink.svg</file>
         <file>insert-id.svg</file>

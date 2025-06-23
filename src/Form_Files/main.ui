@@ -1390,6 +1390,10 @@
    </property>
   </action>
   <action name="actionInsertClip">
+  <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/insert-aria-clip.svg</normaloff>:/main/insert-aria-clip.svg</iconset>
+   </property>
    <property name="text">
     <string>Aria Clip...</string>
    </property>
@@ -1400,7 +1404,11 @@
    </property>
   </action>
   <action name="actionInsertRole">
-   <property name="text">
+   <property name="icon">
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/insert-aria-role.svg</normaloff>:/main/insert-aria-role.svg</iconset>
+   </property>
+    <property name="text">
     <string>Role...</string>
    </property>
    <property name="toolTip">
