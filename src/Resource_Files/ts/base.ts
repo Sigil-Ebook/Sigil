@@ -710,87 +710,102 @@ if a sans-serif font-family specified in your CSS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="176"/>
-        <source>Aside</source>
+        <location filename="../../Misc/AriaClips.cpp" line="42"/>
+        <source>Back to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="177"/>
-        <source>Aside: Sidebar</source>
+        <location filename="../../Misc/AriaClips.cpp" line="44"/>
+        <source>To footnote</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="178"/>
-        <source>Aside: Tip</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Misc/AriaClips.cpp" line="179"/>
-        <source>Backlink from Footnote</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Misc/AriaClips.cpp" line="180"/>
-        <source>Backlink from Endnote</source>
+        <location filename="../../Misc/AriaClips.cpp" line="45"/>
+        <source>To endnote</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="181"/>
-        <source>Endnote in li</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Misc/AriaClips.cpp" line="182"/>
-        <source>Footnote in aside</source>
+        <source>Aside</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="183"/>
-        <source>Footnote in div</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Misc/AriaClips.cpp" line="184"/>
-        <source>Footnote in p</source>
+        <source>Aside: Sidebar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="185"/>
-        <source>PageBreak in hr</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Misc/AriaClips.cpp" line="186"/>
-        <source>PageBreak in span</source>
+        <source>Aside: Tip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="187"/>
-        <source>Reference to Footnote</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Misc/AriaClips.cpp" line="188"/>
-        <source>Reference to Endnote</source>
+        <source>Backlink from Footnote</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="189"/>
-        <source>Section</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../Misc/AriaClips.cpp" line="190"/>
-        <source>Section: Chapter</source>
+        <source>Backlink from Endnote</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="191"/>
+        <source>Endnote in li</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="193"/>
+        <source>Footnote in aside</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="195"/>
+        <source>Footnote in div</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="197"/>
+        <source>Footnote in p</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="199"/>
+        <source>PageBreak in hr</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="201"/>
+        <source>PageBreak in span</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="203"/>
+        <source>Reference to Footnote</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="205"/>
+        <source>Reference to Endnote</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="207"/>
+        <source>Section</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="209"/>
+        <source>Section: Chapter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="211"/>
         <source>Section: Endnotes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="192"/>
+        <location filename="../../Misc/AriaClips.cpp" line="213"/>
         <source>Section: Footnotes</source>
         <translation type="unfinished"></translation>
     </message>
