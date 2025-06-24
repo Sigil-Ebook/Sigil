@@ -185,7 +185,7 @@ void AriaRoles::SetAriaRolesMap()
         tr("Acknowledgments") << "doc-acknowledgments" << tr("A section or statement that acknowledges significant contributions by persons, organizations, governments, and other entities to the realization of the work.") <<
         tr("Afterword") << "doc-afterword" << tr("A closing statement from the author or a person of importance, typically providing insight into how the content came to be written, its significance or related events that have transpired since its timeline.") <<
         tr("Appendix") << "doc-appendix" << tr("A section of supplemental information located after the primary content that informs the content but is not central to it.") <<
-        tr("Back Link") << "doc-backlink" << tr("A link that allows the user to return to a related location in the content (e.g., from a footnote to its references of from a glossary defintion to where a term is used.)") <<
+        tr("Back Link") << "doc-backlink" << tr("A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary defintion to where a term is used.)") <<
         tr("Bibliography") << "doc-bibliography" << tr("A list of external references cited in the work, which may be to print or digital sources.") <<
         tr("Bibliography Entry") << "biblioentry" << tr("A single reference to an external source in a bibliography. [epub:type ONLY]") <<
         tr("Bibliography Reference") << "doc-biblioref" << tr("A reference to a bibliography entry.") <<
@@ -223,7 +223,7 @@ void AriaRoles::SetAriaRolesMap()
         tr("Questions and Answers") << "doc-qna" << tr("A section of content structured as a series of questions and answers, such as an interview or list of frequently asked questions.") <<
         tr("Subtitle") << "doc-subtitle" << tr("An explanatory or alternate title for the work, or a section or components within it.") <<
         tr("Tip") << "doc-tip" << tr("Helpful information that clarifies some aspect of the content or assists in comprehension.") <<
-        tr("Table of Contents") << "doc-toc" << tr("A navigational aid the provides an ordered list of links to the major sectional headings in the content.  A table of contents may cover an entire work, or only a smaller section of it.");
+        tr("Table of Contents") << "doc-toc" << tr("A navigational aid that provides an ordered list of links to the major sectional headings in the content.  A table of contents may cover an entire work, or only a smaller section of it.");
  
 
     for (int i = 0; i < data.count(); i++) {
