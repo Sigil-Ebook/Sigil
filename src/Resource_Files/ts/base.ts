@@ -859,7 +859,7 @@ if a sans-serif font-family specified in your CSS</source>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="188"/>
-        <source>A link that allows the user to return to a related location in the content (e.g., from a footnote to its references of from a glossary defintion to where a term is used.)</source>
+        <source>A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary defintion to where a term is used.)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1239,7 +1239,7 @@ if a sans-serif font-family specified in your CSS</source>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="226"/>
-        <source>A navigational aid the provides an ordered list of links to the major sectional headings in the content.  A table of contents may cover an entire work, or only a smaller section of it.</source>
+        <source>A navigational aid that provides an ordered list of links to the major sectional headings in the content.  A table of contents may cover an entire work, or only a smaller section of it.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
