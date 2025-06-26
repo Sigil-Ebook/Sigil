@@ -195,7 +195,7 @@ QList<SPCRE::MatchInfo> SPCRE::getEveryMatchInfo(const QString &text)
     // Run until no matches are found.
     do {
 
-        rc = pcre2_match_16(m_re, text.utf16(), text.length(), last_offset[1], 0, m_matchdata, m_mcontext);
+        rc = pcre2_match_16(m_re, text.utf16(), text.length(), last_offset[1], PCRE2_NOTEMPTY, m_matchdata, m_mcontext);
 
         // NOTE: until a call to pcre2_match_16 happens even through m_matchdata exists
         // and the ovector count is known, the pcre2_get_ovector_pointer returns a pointer
@@ -241,7 +241,7 @@ SPCRE::MatchInfo SPCRE::getFirstMatchInfo(const QString &text)
     // MSVC doesn't support it.
     // int *ovector = new int[ovector_size];
     // memset(ovector, 0, sizeof(int)*ovector_size);
-    rc = pcre2_match_16(m_re, text.utf16(), text.length(), 0, 0, m_matchdata, m_mcontext);
+    rc = pcre2_match_16(m_re, text.utf16(), text.length(), 0, PCRE2_NOTEMPTY, m_matchdata, m_mcontext);
     PCRE2_SIZE * ovector = pcre2_get_ovector_pointer_16(m_matchdata);
 
     if (rc >= 0 && ovector[0] != ovector[1]) {
