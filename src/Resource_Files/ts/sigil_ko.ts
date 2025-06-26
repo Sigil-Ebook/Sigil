@@ -114,6 +114,19 @@
     </message>
 </context>
 <context>
+    <name>AddClips</name>
+    <message>
+        <location filename="../../Form_Files/AddClips.ui" line="14"/>
+        <source>Add Aria Clips</source>
+        <translation>Aria 클립 추가</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AddClips.ui" line="56"/>
+        <source>Aria Clips Code Template</source>
+        <translation>Aria 클립 코드 템플릿</translation>
+    </message>
+</context>
+<context>
     <name>AddMetadata</name>
     <message>
         <location filename="../../Form_Files/AddMetadata.ui" line="14"/>
@@ -124,6 +137,19 @@
         <location filename="../../Form_Files/AddMetadata.ui" line="50"/>
         <source>Metadata description</source>
         <translation>메타데이터 설명</translation>
+    </message>
+</context>
+<context>
+    <name>AddRoles</name>
+    <message>
+        <location filename="../../Form_Files/AddRoles.ui" line="14"/>
+        <source>Add Aria Roles</source>
+        <translation>Aria 역할 추가</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AddRoles.ui" line="56"/>
+        <source>Description of Aria Roles</source>
+        <translation>Aria 역할 설명</translation>
     </message>
 </context>
 <context>
@@ -643,6 +669,578 @@ if a sans-serif font-family specified in your CSS</source>
     </message>
 </context>
 <context>
+    <name>AriaClips</name>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="32"/>
+        <source>CHAPTER_TITLE_HERE</source>
+        <translation>CHAPTER_TITLE_HERE</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="34"/>
+        <source>HREF_TO_ENDNOTE</source>
+        <translation>HREF_TO_ENDNOTE</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="35"/>
+        <source>HREF_RETURN_FROM_ENDNOTE</source>
+        <translation>HREF_RETURN_FROM_ENDNOTE</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="37"/>
+        <source>Footnotes</source>
+        <translation>각주</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="38"/>
+        <source>Tip</source>
+        <translation>Tip</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="39"/>
+        <source>Sidebar</source>
+        <translation>Sidebar</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="40"/>
+        <source>Page</source>
+        <translation>Page</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="42"/>
+        <source>Back to</source>
+        <translation>Back to</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="44"/>
+        <source>To footnote</source>
+        <translation>각주</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="45"/>
+        <source>To endnote</source>
+        <translation>미주</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="181"/>
+        <source>Aside</source>
+        <translation>Aside</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="183"/>
+        <source>Aside: Sidebar</source>
+        <translation>Aside: Sidebar</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="185"/>
+        <source>Aside: Tip</source>
+        <translation>Aside: Tip</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="187"/>
+        <source>Backlink from Footnote</source>
+        <translation>Backlink from Footnote</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="189"/>
+        <source>Backlink from Endnote</source>
+        <translation>Backlink from Endnote</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="191"/>
+        <source>Endnote in li</source>
+        <translation>Endnote in li</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="193"/>
+        <source>Footnote in aside</source>
+        <translation>Footnote in aside</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="195"/>
+        <source>Footnote in div</source>
+        <translation>Footnote in div</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="197"/>
+        <source>Footnote in p</source>
+        <translation>Footnote in p</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="199"/>
+        <source>PageBreak in hr</source>
+        <translation>PageBreak in hr</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="201"/>
+        <source>PageBreak in span</source>
+        <translation>PageBreak in span</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="203"/>
+        <source>Reference to Footnote</source>
+        <translation>Reference to Footnote</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="205"/>
+        <source>Reference to Endnote</source>
+        <translation>Reference to Endnote</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="207"/>
+        <source>Section</source>
+        <translation>Section</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="209"/>
+        <source>Section: Chapter</source>
+        <translation>Section: Chapter</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="211"/>
+        <source>Section: Endnotes</source>
+        <translation>Section: Endnotes</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaClips.cpp" line="213"/>
+        <source>Section: Footnotes</source>
+        <translation>Section: Footnotes</translation>
+    </message>
+</context>
+<context>
+    <name>AriaRoles</name>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="184"/>
+        <source>Abstract</source>
+        <translation>Abstract</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="184"/>
+        <source>A short summary of the principle ideas, concepts and conclusions of the work, or of section or excerpt within it.</source>
+        <translation>이 작업, 혹은 작업 내 특정 섹션이나 발췌문의 주요 아이디어, 개념 및 결론에 대한 짧은 요약입니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="185"/>
+        <source>Acknowledgments</source>
+        <translation>감사의 글</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="185"/>
+        <source>A section or statement that acknowledges significant contributions by persons, organizations, governments, and other entities to the realization of the work.</source>
+        <translation>이 작업의 실현에 있어 개인, 조직, 정부 및 기타 단체들의 중요한 기여를 인정하는 섹션 또는 진술입니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="186"/>
+        <source>Afterword</source>
+        <translation>후기</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="186"/>
+        <source>A closing statement from the author or a person of importance, typically providing insight into how the content came to be written, its significance or related events that have transpired since its timeline.</source>
+        <translation>저자 또는 중요한 인물의 마무리 진술로, 일반적으로 내용이 어떻게 작성되었는지, 그 의미 또는 해당 타임라인 이후에 발생한 관련 사건에 대한 통찰을 제공합니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="187"/>
+        <source>Appendix</source>
+        <translation>부록(부속물)</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="187"/>
+        <source>A section of supplemental information located after the primary content that informs the content but is not central to it.</source>
+        <translation> 주요 내용 뒤에 위치하며, 내용에 대한 정보를 제공하지만 핵심적이지는 않은 보충 정보 섹션입니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="188"/>
+        <source>Back Link</source>
+        <translation>Back Link</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="188"/>
+        <source>A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary defintion to where a term is used.)</source>
+        <translation>사용자가 콘텐츠 내 관련 위치로 돌아갈 수 있도록 하는 링크입니다(예: 각주에서 참조 문헌으로, 또는 용어집 정의에서 용어가 사용된 곳으로 이동하는 링크).</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="189"/>
+        <source>Bibliography</source>
+        <translation>서지</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="189"/>
+        <source>A list of external references cited in the work, which may be to print or digital sources.</source>
+        <translation> 이 작업에서 인용한 외부 참고 자료 목록입니다. 여기에는 인쇄물 또는 디지털 자료가 포함될 수 있습니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="190"/>
+        <source>Bibliography Entry</source>
+        <translation>Bibliography Entry</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="190"/>
+        <source>A single reference to an external source in a bibliography. [epub:type ONLY]</source>
+        <translation>참고 문헌에 있는 외부 출처에 대한 단일 참조입니다. [epub:type ONLY]</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="191"/>
+        <source>Bibliography Reference</source>
+        <translation>Bibliography Reference</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="191"/>
+        <source>A reference to a bibliography entry.</source>
+        <translation>참고 문헌 항목에 대한 참조입니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="192"/>
+        <source>Chapter</source>
+        <translation>장</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="192"/>
+        <source>A major thematic section of content in a work.</source>
+        <translation> 작품에서 주요한 주제별 내용을 다루는 섹션입니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="193"/>
+        <source>Colophon</source>
+        <translation>판권지</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="193"/>
+        <source>A short section of production notes particular to the edition (e.g., describing the typeface used), often located at the end of a work.</source>
+        <translation>해당 판본에만 특별히 포함된 짧은 제작 노트(예: 사용된 서체 설명 등)로, 주로 책의 말미에 위치합니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="194"/>
+        <source>Conclusion</source>
+        <translation>결론</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="194"/>
+        <source>A concluding section or statment that summarizes the work or wraps up the narrative.</source>
+        <translation>작품을 요약하거나 서술을 마무리하는 결론 섹션 또는 진술입니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="195"/>
+        <source>Cover</source>
+        <translation>표지</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="195"/>
+        <source>An image that sets the mood or tone for the work and typically includes the title and author.</source>
+        <translation> 작품의 분위기나 톤을 설정하고 일반적으로 제목과 저자를 포함하는 이미지입니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="196"/>
+        <source>Credit</source>
+        <translation>Credit</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="196"/>
+        <source>An acknowledgement of the source of integrated content from third-party sources, such as photos.  Typically identifies the creator, copyright, and any restrictions on reuse.</source>
+        <translation>사진과 같이 제3자 출처의 통합 콘텐츠에 대한 출처를 밝히는 내용입니다. 일반적으로 제작자, 저작권 및 재사용 제한 사항을 명시합니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="197"/>
+        <source>Credits</source>
+        <translation>Credits</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="197"/>
+        <source>A collection of credits.</source>
+        <translation>크레딧 모음입니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="198"/>
+        <source>Dedication</source>
+        <translation>헌정사</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="198"/>
+        <source>An inscription at the front of the work, typically addressed in tribute to one or more persons close to the author.</source>
+        <translation>작품 앞부분에 있는 헌사로, 일반적으로 저자와 가까운 한 명 또는 여러 사람에게 바치는 글입니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="199"/>
+        <source>Endnote</source>
+        <translation>Endnote</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="199"/>
+        <source>One of a collection of notes that occur at the end of a work, or a section within it that provides additional context to a referenced passage of text. [epub:type ONLY]</source>
+        <translation>작품 또는 작품 내 특정 섹션의 말미에 위치하며, 참조된 텍스트 구절에 추가적인 맥락을 제공하는 각주 모음 중 하나입니다. [epub:type ONLY]</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="200"/>
+        <source>Endnotes</source>
+        <translation>미주</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="200"/>
+        <source>A collection of notes at the end of a work or a section within it.</source>
+        <translation>작품이나 작품 내 섹션의 끝에 있는 주석/메모 모음입니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="201"/>
+        <source>Epigraph</source>
+        <translation>지문(Epigraph)</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="201"/>
+        <source>A quotation set at the start of the work or a section that establishes the theme or sets the mood.</source>
+        <translation>작품이나 특정 섹션의 시작 부분에 배치되어 주제를 확립하거나 분위기를 조성하는 인용문입니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="202"/>
+        <source>Epilogue</source>
+        <translation>발문(Epilogue)</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="202"/>
+        <source>A concluding section of narrative that wraps up or comments on the actions and events of the work, typically from a future perspective.</source>
+        <translation>작품의 행동과 사건들을 마무리하거나 논평하는 서술의 결론 섹션으로, 일반적으로 미래의 관점에서 이루어집니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="203"/>
+        <source>Errata</source>
+        <translation>정오표</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="203"/>
+        <source>A set of corrections discovered after initial publication of the work, sometimes referred to as corrigenda.</source>
+        <translation>작품 초판 발행 후 발견된 수정 사항들의 모음으로, 때로는 &apos;정오표(corrigenda)&apos;라고도 불립니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="204"/>
+        <source>Example</source>
+        <translation>Example</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="204"/>
+        <source>An illustration of a key concept of the work, such as a code listing, case study or problem. [aria role ONLY]</source>
+        <translation>작품의 핵심 개념을 보여주는 삽화로, 코드 목록, 사례 연구 또는 문제 등이 될 수 있습니다. [aria role ONLY]</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="205"/>
+        <source>Footnote</source>
+        <translation>Footnote</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="205"/>
+        <source>Ancillary information, such as a citation or commentary, that provides additional context to a referenced passage of text.</source>
+        <translation> 참조된 텍스트 구절에 추가적인 맥락을 제공하는, 인용이나 해설과 같은 부수적인 정보입니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="206"/>
+        <source>Footnotes</source>
+        <translation>각주</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="206"/>
+        <source>A collection of footnotes. [epub:type ONLY]</source>
+        <translation>각주 모음입니다. [epub:type ONLY]</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="207"/>
+        <source>Foreword</source>
+        <translation>머리말</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="207"/>
+        <source>An introductory section that precedes the work, typically not written by the author of the work.</source>
+        <translation>작품 앞에 위치하는 도입부 섹션으로, 일반적으로 작품의 저자가 작성하지 않습니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="208"/>
+        <source>Glossary</source>
+        <translation>용어집</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="208"/>
+        <source>A brief dictionary of new, uncommon, or specialized terms used in the content.</source>
+        <translation>콘텐츠에 사용된 새롭거나 흔치 않거나 전문적인 용어들을 간략하게 정리한 사전입니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="209"/>
+        <source>Glossary Reference</source>
+        <translation>Glossary Reference</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="209"/>
+        <source>A reference to a glossary definition.</source>
+        <translation> 용어집 정의에 대한 참조입니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="210"/>
+        <source>Index</source>
+        <translation>색인</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="210"/>
+        <source>A navigational aid that provides a detailed list of links to key subjects, names and other important topics covered in the work.</source>
+        <translation>작품에서 다루는 주요 주제, 인명 및 기타 중요한 항목들에 대한 상세한 링크 목록을 제공하는 내비게이션 보조 도구입니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="211"/>
+        <source>Introduction</source>
+        <translation>소개, 서론</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="211"/>
+        <source>A preliminary section that typically introduces the scope or nature of the work.</source>
+        <translation> 작품의 범위나 성격을 일반적으로 소개하는 예비 섹션입니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="212"/>
+        <source>Note Reference</source>
+        <translation>Note Reference</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="212"/>
+        <source>A reference to a footnote or endnote, typically appearing as a superscripted number or symbol in the main body of the text.</source>
+        <translation>본문의 각주나 미주를 가리키는 것으로, 주로 본문에서 위첨자 숫자나 기호로 나타납니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="213"/>
+        <source>Notice</source>
+        <translation>주의</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="213"/>
+        <source>Notifies the user of consequences that might arise from an action or event.  Examples include warnings, cautions and dangers.</source>
+        <translation>어떤 행동이나 사건으로 인해 발생할 수 있는 결과를 사용자에게 알리는 것입니다. 여기에는 경고, 주의, 위험 등이 포함됩니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="214"/>
+        <source>Pagebreak</source>
+        <translation>Pagebreak</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="214"/>
+        <source>A separator denoting the position before which a break occurs between contiguous pages in a statically paginated version of the content.</source>
+        <translation>콘텐츠의 정적 페이지 버전에서 연속적인 페이지들 사이에 페이지 나누기가 발생하는 위치를 나타내는 구분 기호입니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="215"/>
+        <source>Page Footer</source>
+        <translation>Page Footer</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="215"/>
+        <source>A section of text appearing at the bottom of a page that provides context about the current work and location within it. The page footer is distinct from the body text and normally follows a repeating template that contains (possibly truncated) items such as the document title, current section, author name(s), and page number.</source>
+        <translation>페이지 하단에 나타나는 텍스트 섹션으로, 현재 작업과 그 내에서의 위치에 대한 문맥을 제공합니다. 페이지 바닥글은 본문 텍스트와 구별되며, 일반적으로 문서 제목, 현재 섹션, 저자 이름(들), 페이지 번호 등 (축약될 수도 있는) 항목들을 포함하는 반복적인 템플릿을 따릅니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="216"/>
+        <source>Page Header</source>
+        <translation>Page Header</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="216"/>
+        <source>A section of text appearing at the top of a page that provides context about the current work and location within it. The page header is distinct from the body text and normally follows a repeating template that contains (possibly truncated) items such as the document title, current section, author name(s), and page number.</source>
+        <translation> 
+페이지 상단에 나타나는 텍스트 섹션으로, 현재 작업과 그 내에서의 위치에 대한 문맥을 제공합니다. 페이지 머리글은 본문 텍스트와 구별되며, 일반적으로 문서 제목, 현재 섹션, 저자 이름(들), 페이지 번호 등 (축약될 수도 있는) 항목들을 포함하는 반복적인 템플릿을 따릅니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="217"/>
+        <source>Page List</source>
+        <translation>페이지 목록</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="217"/>
+        <source>A navigational aid that provides a list of links to the page breaks in the content.</source>
+        <translation>콘텐츠 내 페이지 나누기 위치로 연결되는 링크 목록을 제공하는 내비게이션 보조 도구입니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="218"/>
+        <source>Part</source>
+        <translation>부</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="218"/>
+        <source>A major structural division in a work that contains a set of related sections dealing with a particular subject, narrative arc, or similar encapsulated theme.</source>
+        <translation>작품에서 특정 주제, 서사적 아크 또는 유사한 캡슐화된 테마를 다루는 일련의 관련 섹션들을 포함하는 주요 구조적 구분입니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="219"/>
+        <source>Preamble</source>
+        <translation>전문</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="219"/>
+        <source>A section at the beginning of a work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content. [epub:type ONLY]</source>
+        <translation>작품 시작 부분에 위치한 섹션으로, 일반적으로 작품 내용의 범위나 성격에 관한 서론 및/또는 설명 산문을 담고 있습니다. [epub:type ONLY]</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="220"/>
+        <source>Preface</source>
+        <translation>지은이의 말</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="220"/>
+        <source>An introductory section that precedes the work, typically written by the author of the work.</source>
+        <translation>작품 앞에 위치하며, 일반적으로 작품의 저자가 작성하는 서론 섹션입니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="221"/>
+        <source>Prologue</source>
+        <translation>서두</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="221"/>
+        <source>An introductory section that sets the background to a work, typically part of the narrative.</source>
+        <translation>작품의 배경을 설정하는 도입부 섹션으로, 일반적으로 서사의 일부입니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="222"/>
+        <source>Pull Quote</source>
+        <translation>Pull Quote</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="222"/>
+        <source>A distinctively placed or highlighted quotation from the current content designed to draw attention to a topic or highlight a key point.</source>
+        <translation>현재 콘텐츠에서 주목을 끌거나 핵심 요점을 강조하기 위해 눈에 띄게 배치되거나 강조된 인용문입니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="223"/>
+        <source>Questions and Answers</source>
+        <translation>질의 응답</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="223"/>
+        <source>A section of content structured as a series of questions and answers, such as an interview or list of frequently asked questions.</source>
+        <translation> 질의응답 형식으로 구성된 콘텐츠 섹션으로, 인터뷰나 자주 묻는 질문(FAQ) 목록 등이 있습니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="224"/>
+        <source>Subtitle</source>
+        <translation>Subtitle</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="224"/>
+        <source>An explanatory or alternate title for the work, or a section or components within it.</source>
+        <translation>이 작업 또는 그 안의 섹션이나 구성 요소에 대한 설명 또는 대체 제목입니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="225"/>
+        <source>Tip</source>
+        <translation>Tip</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="225"/>
+        <source>Helpful information that clarifies some aspect of the content or assists in comprehension.</source>
+        <translation>콘텐츠의 특정 측면을 명확히 하거나 이해를 돕는 유용한 정보입니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="226"/>
+        <source>Table of Contents</source>
+        <translation>차례</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/AriaRoles.cpp" line="226"/>
+        <source>A navigational aid that provides an ordered list of links to the major sectional headings in the content.  A table of contents may cover an entire work, or only a smaller section of it.</source>
+        <translation>콘텐츠의 주요 섹션 제목으로 연결되는 순서가 있는 링크 목록을 제공하는 내비게이션 도구입니다. 목차는 전체 작품을 다루거나 또는 그 중 작은 부분만 다룰 수도 있습니다.</translation>
+    </message>
+</context>
+<context>
     <name>AutomateEditor</name>
     <message>
         <location filename="../../Form_Files/AutomateEditor.ui" line="20"/>
@@ -701,147 +1299,167 @@ if a sans-serif font-family specified in your CSS</source>
         <translation>확인 버튼을 눌러 변경 사항을 저장합니다. 저장하지 않으려면 취소 버튼을 누르세요.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/AutomateEditor.cpp" line="63"/>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="65"/>
         <source>Command</source>
         <translation>명령</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/AutomateEditor.cpp" line="63"/>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="65"/>
         <source>Parameter</source>
         <translation>매개변수</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/AutomateEditor.cpp" line="164"/>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="180"/>
         <source>[SavedSearch full name here]</source>
         <translation>[저장된 검색 이름]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/AutomateEditor.cpp" line="167"/>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="183"/>
         <source>[String parameter for next Plugin run here]</source>
         <translation>[다음 플러그인 실행을 위한 문자열 매개변수]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/AutomateEditor.cpp" line="300"/>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="215"/>
+        <source>Warning</source>
+        <translation>경고</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="215"/>
+        <source>Cannot save an empty automation list.</source>
+        <translation> 비어 있는 자동화 목록은 저장할 수 없습니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="227"/>
+        <source>Error</source>
+        <translation>오류</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="227"/>
+        <source>Failed to save automation list to %1</source>
+        <translation>자동화 목록을 %1에 저장하지 못했습니다.</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="331"/>
         <source>Add Cover to epub.</source>
         <translation>EPUB에 표지를 추가합니다.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/AutomateEditor.cpp" line="301"/>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="332"/>
         <source>Create HTML Table Of Contents.</source>
         <translation>HTML 차례(TOC)를 생성합니다.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/AutomateEditor.cpp" line="302"/>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="333"/>
         <source>Delete Unused Media Resource.</source>
         <translation>사용하지 않은 미디어 리소스 삭제</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/AutomateEditor.cpp" line="303"/>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="334"/>
         <source>Delete Unused CSS Selectors.</source>
         <translation>사용하지 않은 CSS 선택자 삭제</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/AutomateEditor.cpp" line="304"/>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="335"/>
         <source>Generate NCX and OPF Guide from Epub3 Nav.</source>
         <translation>Epub3 Nav에서 NCX 및 OPF 가이드를 생성합니다.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/AutomateEditor.cpp" line="305"/>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="336"/>
         <source>Generate TOC from Heading Tags.</source>
         <translation>제목 태그를 기준으로 차례를 생성합니다.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/AutomateEditor.cpp" line="306"/>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="337"/>
         <source>Mend and Prettify all XHtml files.</source>
         <translation>모든 xhtml 파일의 오류를 수정하고 가독성을 향상시킵니다.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/AutomateEditor.cpp" line="307"/>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="338"/>
         <source>Mend All XHtml files.</source>
         <translation>모든 Xhtml 파일을 Mend 방식으로 정리합니다.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/AutomateEditor.cpp" line="308"/>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="339"/>
         <source>Reformat All CSS to Multiple Lines format.</source>
         <translation>모든 CSS를 다중 라인 형식으로 다시 정리합니다.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/AutomateEditor.cpp" line="309"/>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="340"/>
         <source>Reformat All CSS to Single Lines format.</source>
         <translation>모든 CSS를 싱글 라인 형식으로 다시 정리합니다.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/AutomateEditor.cpp" line="310"/>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="341"/>
         <source>Remove NCX and OPF Guide from Epub3.</source>
         <translation>EPUB3에서 NCX와 OPF Guide를 제거합니다.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/AutomateEditor.cpp" line="311"/>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="342"/>
         <source>Save a Checkpoint of the current epub.</source>
         <translation>현재 EPUB의 체크포인트를 저장합니다.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/AutomateEditor.cpp" line="312"/>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="343"/>
         <source>Run the named Saved Search with Replace All.</source>
         <translation>이름이 지정된 Saved Search와 Replace All을 실행합니다.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/AutomateEditor.cpp" line="313"/>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="344"/>
         <source>Save the current epub.</source>
         <translation>현재 EPUB 저장</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/AutomateEditor.cpp" line="314"/>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="345"/>
         <source>Select all CSS Files in BookBrowser</source>
         <translation>책 탐색기에서 모든 CSS 파일 선택</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/AutomateEditor.cpp" line="315"/>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="346"/>
         <source>Select all HTML Files in BookBrowser</source>
         <translation>책 탐색기에서 모든 HTML 파일 선택</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/AutomateEditor.cpp" line="316"/>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="347"/>
         <source>Select all Image Files in BookBrowser</source>
         <translation>책 탐색기에서 모든 이미지 파일 선택</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/AutomateEditor.cpp" line="317"/>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="348"/>
         <source>Reset BookBrowser to its initial selection</source>
         <translation>책 탐색기를 초기 선택으로 재설정합니다.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/AutomateEditor.cpp" line="318"/>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="349"/>
         <source>set a string parameter to be passed to the next plugin.</source>
         <translation>다음 플러그인에 전달할 문자열 매개변수를 설정합니다.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/AutomateEditor.cpp" line="320"/>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="351"/>
         <source>Split XHtml files on Sigil Section Markers</source>
         <translation>장 나누기 표시 코드가 표시된 부분을 XHTML파일로 분할합니다.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/AutomateEditor.cpp" line="321"/>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="352"/>
         <source>Convert Epub layout to Sigil&apos;s historic Standard form.</source>
         <translation>EPUB 레이아웃을 시길의 기본적인(historic) 표준 형식으로 변환합니다.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/AutomateEditor.cpp" line="322"/>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="353"/>
         <source>Rename files to use standard file extensions for their media type.</source>
         <translation>미디어 유형에 맞는 표준 파일 확장자를 사용하도록 파일 이름을 바꿉니다.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/AutomateEditor.cpp" line="323"/>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="354"/>
         <source>Update Epub3 OPF Manifest properties.</source>
         <translation>Epub3 OPF 매니페스트 속성을 업데이트합니다.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/AutomateEditor.cpp" line="324"/>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="355"/>
         <source>Validate All Stylesheets with W3C in external browser.</source>
         <translation>외부 브라우저에서 W3C로 모든 스타일시트를 검증합니다.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/AutomateEditor.cpp" line="325"/>
+        <location filename="../../Dialogs/AutomateEditor.cpp" line="356"/>
         <source>Perform a basic Well-Formed Check on Epub XHtml files.</source>
         <translation>Epub XHTML 파일에 대한 기본 Well-Formed Check를 수행합니다.</translation>
     </message>
@@ -1900,147 +2518,147 @@ Do you want to save your changes?</source>
 <context>
     <name>CodeViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="587"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="588"/>
         <source>Cannot insert closing tag at this position.</source>
         <translation>이 위치에 닫기 태그를 삽입 할 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="595"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="596"/>
         <source>No open tags found at this position.</source>
         <translation>이 위치에 열려있는 태그가 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1501"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1502"/>
         <source>Add To Default Dictionary</source>
         <translation>기본 사전에 추가</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1514"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1515"/>
         <source>Add To Dictionary</source>
         <translation>사전에 추가하기</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1531"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1532"/>
         <source>Ignore</source>
         <translation>무시</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1593"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1594"/>
         <source>Reformat CSS</source>
         <translation>CSS 정리</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1595"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1596"/>
         <source>Multiple Lines Per Style</source>
         <translation>스타일을 여러 줄로 정리</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1596"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1597"/>
         <source>Single Line Per Style</source>
         <translation>스타일을 한 줄로 정리</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1622"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1623"/>
         <source>Rename Selected Class</source>
         <translation>선택한 클래스 이름 바꾸기</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1644"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1645"/>
         <source>Reformat HTML</source>
         <translation>HTML 정리</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1646"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1647"/>
         <source>Mend and Prettify Code</source>
         <translation>오류 수정 및 가독성 향상</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1647"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1648"/>
         <source>Mend and Prettify Code - All HTML Files</source>
         <translation>오류 수정 및 가독성 향상 - 모든 파일에 적용</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1648"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1649"/>
         <source>Mend Code</source>
         <translation>오류 수정</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1649"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1650"/>
         <source>Mend Code - All HTML Files</source>
         <translation>오류 수정 - 모든 파일에 적용</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1679"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1680"/>
         <source>Go To Link Or Style</source>
         <translation>링크 혹은 스타일로 이동</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1701"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1702"/>
         <source>Toggle Line Wrap Mode</source>
         <translation>줄바꿈 모드 전환</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1723"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1724"/>
         <source>View Image</source>
         <translation>이미지 보기</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1724"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1725"/>
         <source>Open Tab For Image</source>
         <translation>이미지를 탭으로 열기</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1750"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1751"/>
         <source>Mark Selected Text</source>
         <translation>선택 영역 표시</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1752"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1753"/>
         <source>Unmark Marked Text</source>
         <translation>선택 내용 표시 해제</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1778"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1779"/>
         <source>Clips</source>
         <translation>클립</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1788"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1789"/>
         <source>Add To Clips</source>
         <translation>클립에 추가</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1917"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1918"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
         <translation>이 기능은 HTML 시작 태그에 사용할 수 있습니다.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1927"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1928"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
         <translation>이 기능은 HTML 태그 사이에 사용할 수 있습니다.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1991"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1992"/>
         <source>Selected Text is not a valid class name.</source>
         <translation>선택한 텍스트는 유효한 클래스 이름이 아닙니다.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1998"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1999"/>
         <source>Rename Class</source>
         <translation>클래스 이름 바꾸기</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1999"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2000"/>
         <source>Enter new class name</source>
         <translation>새 클래스 이름 입력</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2019"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2020"/>
         <source>Class renamed.</source>
         <translation>클래스 이름이 변경되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2021"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2022"/>
         <source>Class rename aborted.</source>
         <translation>클래스 이름 변경이 중단되었습니다.</translation>
     </message>
@@ -3545,7 +4163,7 @@ HTML 파일을 검색할 때만 유효합니다.</translation>
 <context>
     <name>FlowTab</name>
     <message>
-        <location filename="../../Tabs/FlowTab.cpp" line="867"/>
+        <location filename="../../Tabs/FlowTab.cpp" line="881"/>
         <source>Print %1</source>
         <translation>인쇄 %1</translation>
     </message>
@@ -8639,244 +9257,244 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation>클립02(&amp;p)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="213"/>
+        <location filename="../../Form_Files/main.ui" line="215"/>
         <source>&amp;Help</source>
         <translation>도움말(&amp;H)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="223"/>
+        <location filename="../../Form_Files/main.ui" line="225"/>
         <source>For&amp;mat</source>
         <translation>서식(&amp;M)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="227"/>
+        <location filename="../../Form_Files/main.ui" line="229"/>
         <source>&amp;Heading</source>
         <translation>제목 태그(&amp;H)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="268"/>
+        <location filename="../../Form_Files/main.ui" line="270"/>
         <source>&amp;View</source>
         <translation>보기(&amp;V)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="272"/>
+        <location filename="../../Form_Files/main.ui" line="274"/>
         <source>&amp;Toolbars</source>
         <translation>도구 모음(&amp;T)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="284"/>
+        <location filename="../../Form_Files/main.ui" line="286"/>
         <source>&amp;Search</source>
         <translation>검색(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="288"/>
+        <location filename="../../Form_Files/main.ui" line="290"/>
         <source>Current Fil&amp;e</source>
         <translation>현재 파일(&amp;E)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="324"/>
+        <location filename="../../Form_Files/main.ui" line="326"/>
         <source>&amp;Window</source>
         <translation>창(&amp;W)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="336"/>
+        <location filename="../../Form_Files/main.ui" line="338"/>
         <source>&amp;Tools</source>
         <translation>도구(&amp;T)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="340"/>
+        <location filename="../../Form_Files/main.ui" line="342"/>
         <source>&amp;Table Of Contents</source>
         <translation>차례(&amp;T)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="348"/>
+        <location filename="../../Form_Files/main.ui" line="350"/>
         <source>Spe&amp;llcheck</source>
         <translation>맞춤법 검사(&amp;l)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="362"/>
+        <location filename="../../Form_Files/main.ui" line="364"/>
         <source>&amp;Index</source>
         <translation>색인(&amp;I)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="373"/>
+        <location filename="../../Form_Files/main.ui" line="375"/>
         <source>Re&amp;format HTML</source>
         <translation>HTML 정리(&amp;f)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="380"/>
+        <location filename="../../Form_Files/main.ui" line="382"/>
         <source>Epub&amp;3 Tools</source>
         <translation>Epub&amp;3 도구</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="411"/>
+        <location filename="../../Form_Files/main.ui" line="413"/>
         <source>&amp;Plugins</source>
         <translation>플러그인(&amp;P)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="417"/>
+        <location filename="../../Form_Files/main.ui" line="419"/>
         <source>Chec&amp;kpoints</source>
         <translation>체크포인트(&amp;k)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="443"/>
+        <location filename="../../Form_Files/main.ui" line="445"/>
         <source>New</source>
         <translation>새로</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="457"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1713"/>
+        <location filename="../../Form_Files/main.ui" line="459"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1716"/>
         <source>File</source>
         <translation>파일</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="471"/>
+        <location filename="../../Form_Files/main.ui" line="473"/>
         <source>Add Existing</source>
         <translation>기존 파일 추가</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="484"/>
+        <location filename="../../Form_Files/main.ui" line="486"/>
         <source>Checkpoints</source>
         <translation>체크포인트(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="499"/>
+        <location filename="../../Form_Files/main.ui" line="501"/>
         <source>Index</source>
         <translation>색인</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="515"/>
+        <location filename="../../Form_Files/main.ui" line="517"/>
         <source>Undo/Redo</source>
         <translation>되돌리기/다시실행</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="529"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="614"/>
+        <location filename="../../Form_Files/main.ui" line="531"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="617"/>
         <source>Edit</source>
         <translation>편집</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="545"/>
+        <location filename="../../Form_Files/main.ui" line="547"/>
         <source>External Editor</source>
         <translation>외부 편집기</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="558"/>
+        <location filename="../../Form_Files/main.ui" line="560"/>
         <source>Find</source>
         <translation>찾기</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="572"/>
+        <location filename="../../Form_Files/main.ui" line="574"/>
         <source>Insert</source>
         <translation>삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="589"/>
+        <location filename="../../Form_Files/main.ui" line="593"/>
         <source>Back</source>
         <translation>뒤로</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="602"/>
+        <location filename="../../Form_Files/main.ui" line="606"/>
         <source>Donate</source>
         <translation>기부</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="614"/>
+        <location filename="../../Form_Files/main.ui" line="618"/>
         <source>Tools</source>
         <translation>메타 편집기</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="629"/>
+        <location filename="../../Form_Files/main.ui" line="633"/>
         <source>Plugins Set 1</source>
         <translation>플러그인 1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="645"/>
+        <location filename="../../Form_Files/main.ui" line="649"/>
         <source>Plugins Set 2</source>
         <translation>플러그인 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="661"/>
+        <location filename="../../Form_Files/main.ui" line="665"/>
         <source>Automation Lists</source>
         <translation>자동화 목록</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="675"/>
+        <location filename="../../Form_Files/main.ui" line="679"/>
         <source>Automation List 1</source>
         <translation>자동화 목록 1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="686"/>
+        <location filename="../../Form_Files/main.ui" line="690"/>
         <source>Automation List 2</source>
         <translation>자동화 목록 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="697"/>
+        <location filename="../../Form_Files/main.ui" line="701"/>
         <source>Automation List 3</source>
         <translation>자동화 목록 3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="705"/>
+        <location filename="../../Form_Files/main.ui" line="709"/>
         <source>Heading</source>
         <translation>제목 태그</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="719"/>
+        <location filename="../../Form_Files/main.ui" line="723"/>
         <source>Set Heading Level of Selected Text</source>
         <translation>선택한 텍스트의 제목 수준 설정</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="732"/>
+        <location filename="../../Form_Files/main.ui" line="736"/>
         <source>Format</source>
         <translation>서식</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="749"/>
+        <location filename="../../Form_Files/main.ui" line="753"/>
         <source>Align</source>
         <translation>정렬</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="764"/>
+        <location filename="../../Form_Files/main.ui" line="768"/>
         <source>List</source>
         <translation>목록</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="777"/>
+        <location filename="../../Form_Files/main.ui" line="781"/>
         <source>Indent</source>
         <translation>들여쓰기</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="790"/>
+        <location filename="../../Form_Files/main.ui" line="794"/>
         <source>Change Case</source>
         <translation>대소문자 변경</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="804"/>
+        <location filename="../../Form_Files/main.ui" line="808"/>
         <source>Set Case of Selected Text</source>
         <translation>선택한 텍스트의 대소 문자 설정</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="814"/>
+        <location filename="../../Form_Files/main.ui" line="818"/>
         <source>Text Direction</source>
         <translation>텍스트 방향</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="828"/>
+        <location filename="../../Form_Files/main.ui" line="832"/>
         <source>Clip Bar</source>
         <translation>클립 바1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="869"/>
+        <location filename="../../Form_Files/main.ui" line="873"/>
         <source>Clip Bar2</source>
         <translation>클립 바2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="915"/>
+        <location filename="../../Form_Files/main.ui" line="919"/>
         <source>New Default</source>
         <translation>기본 EPUB 새로 만들기</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="918"/>
+        <location filename="../../Form_Files/main.ui" line="922"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new default book.&lt;/p&gt;</source>
@@ -8885,17 +9503,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;기본 설정된 EPUB으로 새로 만들기&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="923"/>
+        <location filename="../../Form_Files/main.ui" line="927"/>
         <source>Ctrl+N</source>
         <translation>Ctrl+N</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="933"/>
+        <location filename="../../Form_Files/main.ui" line="937"/>
         <source>ePub&amp;2</source>
         <translation>ePub&amp;2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="936"/>
+        <location filename="../../Form_Files/main.ui" line="940"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New ePub2&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new ePub2 book.&lt;/p&gt;</source>
@@ -8904,12 +9522,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;빈 EPUB2 파일을 새로 만듧니다.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="948"/>
+        <location filename="../../Form_Files/main.ui" line="952"/>
         <source>ePub&amp;3</source>
         <translation>ePub&amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="951"/>
+        <location filename="../../Form_Files/main.ui" line="955"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New ePub3&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new ePub3 book.&lt;/p&gt;</source>
@@ -8918,12 +9536,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;빈 EPUB3 파일을 새로 만듧니다.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="963"/>
+        <location filename="../../Form_Files/main.ui" line="967"/>
         <source>&amp;Save</source>
         <translation>저장(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="966"/>
+        <location filename="../../Form_Files/main.ui" line="970"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book.&lt;/p&gt;</source>
@@ -8932,17 +9550,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;현재 책 저장하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="971"/>
+        <location filename="../../Form_Files/main.ui" line="975"/>
         <source>Ctrl+S</source>
         <translation>Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="976"/>
+        <location filename="../../Form_Files/main.ui" line="980"/>
         <source>Save &amp;As...</source>
         <translation>다른 이름으로 저장(&amp;A)...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="979"/>
+        <location filename="../../Form_Files/main.ui" line="983"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Save As&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Save the current book with a different filename.&lt;/p&gt;</source>
@@ -8951,27 +9569,27 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;현재 책을 다른 파일 이름으로 저장하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="984"/>
+        <location filename="../../Form_Files/main.ui" line="988"/>
         <source>Ctrl+Shift+S</source>
         <translation>Ctrl+Shift+S</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="989"/>
+        <location filename="../../Form_Files/main.ui" line="993"/>
         <source>Save A &amp;Copy...</source>
         <translation>사본으로 저장(&amp;C)...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="992"/>
+        <location filename="../../Form_Files/main.ui" line="996"/>
         <source>Save a copy of your book to another file name.</source>
         <translation>책의 사본을 다른 파일 이름으로 저장합니다.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1001"/>
+        <location filename="../../Form_Files/main.ui" line="1005"/>
         <source>Cu&amp;t</source>
         <translation>잘라내기(&amp;t)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1004"/>
+        <location filename="../../Form_Files/main.ui" line="1008"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Cut&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cuts the selected text from the document and puts it on the clipboard.&lt;/p&gt;</source>
@@ -8980,12 +9598,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문서에서 선택한 텍스트를 잘라내서 클립보드에 보관하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1015"/>
+        <location filename="../../Form_Files/main.ui" line="1019"/>
         <source>&amp;Paste</source>
         <translation>붙여넣기(&amp;P)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1018"/>
+        <location filename="../../Form_Files/main.ui" line="1022"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paste&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Pastes the content from the clipboard into the book.&lt;/p&gt;</source>
@@ -8994,27 +9612,27 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;클립보드에 있는 내용물을 책 안에 붙여넣기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1025"/>
+        <location filename="../../Form_Files/main.ui" line="1029"/>
         <source>&amp;Closing Tag</source>
         <translation>태그 닫기(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1028"/>
+        <location filename="../../Form_Files/main.ui" line="1032"/>
         <source>Insert a closing tag in Code View.</source>
         <translation>코드 보기에서 닫는 태그를 넣으세요.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1031"/>
+        <location filename="../../Form_Files/main.ui" line="1035"/>
         <source>Ctrl+.</source>
         <translation>Ctrl+.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1040"/>
+        <location filename="../../Form_Files/main.ui" line="1044"/>
         <source>&amp;Undo</source>
         <translation>되돌리기(&amp;U)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1043"/>
+        <location filename="../../Form_Files/main.ui" line="1047"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Undo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Reverts the changes of the previous operation.&lt;/p&gt;</source>
@@ -9023,17 +9641,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;바로 전에 작업한 변경 내용을 되돌리기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1048"/>
+        <location filename="../../Form_Files/main.ui" line="1052"/>
         <source>Ctrl+Z</source>
         <translation>Ctrl+Z</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1057"/>
+        <location filename="../../Form_Files/main.ui" line="1061"/>
         <source>&amp;Redo</source>
         <translation>다시 실행(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1060"/>
+        <location filename="../../Form_Files/main.ui" line="1064"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Redo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restores the changes reverted by the previous Undo action.&lt;/p&gt;</source>
@@ -9042,17 +9660,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;바로 전에 되돌리기 작업한 변경 내용을 다시 실행하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1065"/>
+        <location filename="../../Form_Files/main.ui" line="1069"/>
         <source>Ctrl+Y</source>
         <translation>Ctrl+Y</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1074"/>
+        <location filename="../../Form_Files/main.ui" line="1078"/>
         <source>&amp;Copy</source>
         <translation>복사(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1077"/>
+        <location filename="../../Form_Files/main.ui" line="1081"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Copy&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Copies the selected text and puts it on the clipboard.&lt;/p&gt;</source>
@@ -9061,12 +9679,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문서에서 선택한 텍스트를 복사해서 클립보드에 보관하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1091"/>
+        <location filename="../../Form_Files/main.ui" line="1095"/>
         <source>Align &amp;Left</source>
         <translation>왼쪽 정렬(&amp;L)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1094"/>
+        <location filename="../../Form_Files/main.ui" line="1098"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Left&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the left.&lt;/p&gt;</source>
@@ -9075,12 +9693,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문단을 왼쪽으로 정렬합니다.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1108"/>
+        <location filename="../../Form_Files/main.ui" line="1112"/>
         <source>Align &amp;Right</source>
         <translation>오른쪽 정렬(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1111"/>
+        <location filename="../../Form_Files/main.ui" line="1115"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Align Right&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to the right.&lt;/p&gt;</source>
@@ -9089,12 +9707,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문단을 오른쪽으로 정렬합니다.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1125"/>
+        <location filename="../../Form_Files/main.ui" line="1129"/>
         <source>&amp;Center</source>
         <translation>가운데 정렬(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1128"/>
+        <location filename="../../Form_Files/main.ui" line="1132"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Center&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Center the paragraph.&lt;/p&gt;</source>
@@ -9103,17 +9721,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;단락을 가운데 맞춤.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1133"/>
+        <location filename="../../Form_Files/main.ui" line="1137"/>
         <source>Ctrl+E</source>
         <translation>Ctrl+E</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1145"/>
+        <location filename="../../Form_Files/main.ui" line="1149"/>
         <source>&amp;Justify</source>
         <translation>양쪽 맞춤(&amp;J)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1148"/>
+        <location filename="../../Form_Files/main.ui" line="1152"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Justify&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Align the paragraph to both the left and right margins.&lt;/p&gt;</source>
@@ -9122,17 +9740,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;왼쪽과 오른쪽의 여백에 단락을 맞추기 .&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1153"/>
+        <location filename="../../Form_Files/main.ui" line="1157"/>
         <source>Ctrl+J</source>
         <translation>Ctrl+J</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1165"/>
+        <location filename="../../Form_Files/main.ui" line="1169"/>
         <source>&amp;Bold</source>
         <translation>진하게(&amp;B)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1168"/>
+        <location filename="../../Form_Files/main.ui" line="1172"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bold&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text bold.&lt;/p&gt;</source>
@@ -9141,17 +9759,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;선택한 텍스트를 굵게 합니다.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1173"/>
+        <location filename="../../Form_Files/main.ui" line="1177"/>
         <source>Ctrl+B</source>
         <translation>Ctrl+B</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1185"/>
+        <location filename="../../Form_Files/main.ui" line="1189"/>
         <source>&amp;Italic</source>
         <translation>기울임(&amp;I)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1188"/>
+        <location filename="../../Form_Files/main.ui" line="1192"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Italic&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Make the selected text italic.&lt;/p&gt;</source>
@@ -9160,17 +9778,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;선택한 텍스트에 기울임 스타일을 지정 합니다.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1193"/>
+        <location filename="../../Form_Files/main.ui" line="1197"/>
         <source>Ctrl+I</source>
         <translation>Ctrl+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1202"/>
+        <location filename="../../Form_Files/main.ui" line="1206"/>
         <source>&amp;Open...</source>
         <translation>열기...(&amp;O)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1205"/>
+        <location filename="../../Form_Files/main.ui" line="1209"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Open&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Open a book from disk.&lt;/p&gt;</source>
@@ -9179,17 +9797,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;디스크에서 책 열기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1210"/>
+        <location filename="../../Form_Files/main.ui" line="1214"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1222"/>
+        <location filename="../../Form_Files/main.ui" line="1226"/>
         <source>&amp;Underline</source>
         <translation>밑줄(&amp;U)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1225"/>
+        <location filename="../../Form_Files/main.ui" line="1229"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Underline&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Underline the selected text.&lt;/p&gt;</source>
@@ -9198,42 +9816,42 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;선택한 텍스트에 밑줄을 넣습니다.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1230"/>
+        <location filename="../../Form_Files/main.ui" line="1234"/>
         <source>Ctrl+U</source>
         <translation>Ctrl+U</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1242"/>
+        <location filename="../../Form_Files/main.ui" line="1246"/>
         <source>&amp;Quit</source>
         <translation>나가기(&amp;Q)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1245"/>
+        <location filename="../../Form_Files/main.ui" line="1249"/>
         <source>Exit</source>
         <translation>종료</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1248"/>
+        <location filename="../../Form_Files/main.ui" line="1252"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1260"/>
+        <location filename="../../Form_Files/main.ui" line="1264"/>
         <source>&amp;About...</source>
         <translation>시길 정보(&amp;A)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1263"/>
+        <location filename="../../Form_Files/main.ui" line="1267"/>
         <source>Show information about Sigil.</source>
         <translation>시길에 대한 정보 보기.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1268"/>
+        <location filename="../../Form_Files/main.ui" line="1272"/>
         <source>Add &amp;Cover...</source>
         <translation>표지 추가(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1271"/>
+        <location filename="../../Form_Files/main.ui" line="1275"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Cover&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add a cover.&lt;/p&gt;</source>
@@ -9242,12 +9860,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;표지를 추가합니다.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1282"/>
+        <location filename="../../Form_Files/main.ui" line="1286"/>
         <source>&amp;Metadata Editor...</source>
         <translation>메타데이터 편집기...(&amp;M)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1285"/>
+        <location filename="../../Form_Files/main.ui" line="1289"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Metadata Editor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display information about your book including the author and title.&lt;/p&gt;</source>
@@ -9256,17 +9874,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;저자, 제목 등을 포함하는 책에 대한 정보를 표시하고 편집하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1290"/>
+        <location filename="../../Form_Files/main.ui" line="1294"/>
         <source>F8</source>
         <translation>F8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1299"/>
+        <location filename="../../Form_Files/main.ui" line="1303"/>
         <source>&amp;Generate Table Of Contents...</source>
         <translation>차례 만들기...(&amp;G)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1302"/>
+        <location filename="../../Form_Files/main.ui" line="1306"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Generate Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Generate a new Table of Contents from headings in your book.&lt;/p&gt;</source>
@@ -9275,17 +9893,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;책에 있는 헤딩 태그를 기준으로 차례를 만듧니다.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1307"/>
+        <location filename="../../Form_Files/main.ui" line="1311"/>
         <source>Ctrl+T</source>
         <translation>Ctrl+T</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1316"/>
+        <location filename="../../Form_Files/main.ui" line="1320"/>
         <source>&amp;Edit Table Of Contents...</source>
         <translation>차례 편집(&amp;E)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1319"/>
+        <location filename="../../Form_Files/main.ui" line="1323"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Edit Table of Contents&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Directly edit the existing Table of Contents.&lt;/p&gt;</source>
@@ -9294,12 +9912,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;만들어 진 차례를 직접 수정합니다.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1330"/>
+        <location filename="../../Form_Files/main.ui" line="1334"/>
         <source>&amp;Split At Cursor</source>
         <translation>현재 커서 위치에서 분할(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1333"/>
+        <location filename="../../Form_Files/main.ui" line="1337"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Split At Cursor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Split the current file into two files using your cursor location as the dividing point.&lt;/p&gt;</source>
@@ -9308,17 +9926,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;커서가 있는 위치에서 현재 파일을 두 개의 파일로 분할합니다.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1338"/>
+        <location filename="../../Form_Files/main.ui" line="1342"/>
         <source>Ctrl+Return</source>
         <translation>Ctrl+Return</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1347"/>
+        <location filename="../../Form_Files/main.ui" line="1351"/>
         <source>&amp;File...</source>
         <translation>파일....(&amp;F)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1350"/>
+        <location filename="../../Form_Files/main.ui" line="1354"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert File&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select image, video or audio files from your book to insert into the text.&lt;/p&gt;
@@ -9331,17 +9949,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;메뉴 파일-추가-기존 파일을 사용하여 책에 파일을 추가 할 수 있습니다.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1357"/>
+        <location filename="../../Form_Files/main.ui" line="1361"/>
         <source>Ctrl+Shift+I</source>
         <translation>Ctrl+Shift+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1366"/>
+        <location filename="../../Form_Files/main.ui" line="1370"/>
         <source>&amp;Special Character...</source>
         <translation>특수 문자(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1369"/>
+        <location filename="../../Form_Files/main.ui" line="1373"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Special Character&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Select a character to insert into your text.&lt;/p&gt;</source>
@@ -9350,13 +9968,13 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;텍스트에 넣을 문자 선택하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1380"/>
+        <location filename="../../Form_Files/main.ui" line="1384"/>
         <source>I&amp;D...</source>
         <translation>I&amp;D...
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1383"/>
+        <location filename="../../Form_Files/main.ui" line="1387"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert ID&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with an ID name to use as a link target.&lt;/p&gt;</source>
@@ -9365,12 +9983,40 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;링크 타겟으로 사용할 ID 이름으로 앵커를 추가하거나 편집합니다.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1394"/>
+        <location filename="../../Form_Files/main.ui" line="1398"/>
+        <source>Aria Clip...</source>
+        <translation>Aria 클립...</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1401"/>
+        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Aria Clip&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert a Aria code clip.&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Aria 클립 삽입&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Aria 코드 클립 삽입.&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1412"/>
+        <source>Role...</source>
+        <translation>역할...</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1415"/>
+        <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Aria Role&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert an Aria role and any associated epub:type.&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Aria 역할 삽입&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Aria 역할과 관련 epub:type 삽입.&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/main.ui" line="1426"/>
         <source>&amp;Link...</source>
         <translation>링크(&amp;L)....</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1397"/>
+        <location filename="../../Form_Files/main.ui" line="1429"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Link&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert or edit an anchor with a hyperlink to a target.&lt;/p&gt;</source>
@@ -9379,12 +10025,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;대상에 대한 하이퍼 링크가있는 앵커를 삽입하거나 편집하십시오.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1411"/>
+        <location filename="../../Form_Files/main.ui" line="1443"/>
         <source>&amp;Numbered List</source>
         <translation>글머리 숫자(&amp;N)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1414"/>
+        <location filename="../../Form_Files/main.ui" line="1446"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Numbering&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a numbered list.&lt;/p&gt;</source>
@@ -9393,12 +10039,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;글머리 숫자 목록 만들기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1428"/>
+        <location filename="../../Form_Files/main.ui" line="1460"/>
         <source>Bulle&amp;ted List</source>
         <translation>글머리 목록(&amp;t)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1431"/>
+        <location filename="../../Form_Files/main.ui" line="1463"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Bullets&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a bulleted list.&lt;/p&gt;</source>
@@ -9407,17 +10053,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;글머리 기호 목록 만들기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1436"/>
+        <location filename="../../Form_Files/main.ui" line="1468"/>
         <source>Ctrl+Shift+L</source>
         <translation>Ctrl+Shift+L</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1448"/>
+        <location filename="../../Form_Files/main.ui" line="1480"/>
         <source>Stri&amp;kethrough</source>
         <translation>취소선(&amp;K)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1451"/>
+        <location filename="../../Form_Files/main.ui" line="1483"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Strikethrough&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Draw a line through the selected text.&lt;/p&gt;</source>
@@ -9426,12 +10072,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;선택한 텍스트에 취소선 그리기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1465"/>
+        <location filename="../../Form_Files/main.ui" line="1497"/>
         <source>&amp;Subscript</source>
         <translation>아래 첨자(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1468"/>
+        <location filename="../../Form_Files/main.ui" line="1500"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Subscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and below the normal line.&lt;/p&gt;</source>
@@ -9440,12 +10086,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;선택한 텍스트를 조금 작고 기준선 아래로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1482"/>
+        <location filename="../../Form_Files/main.ui" line="1514"/>
         <source>Su&amp;perscript</source>
         <translation>위첨자(&amp;p)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1485"/>
+        <location filename="../../Form_Files/main.ui" line="1517"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Superscript&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Set the selected text slightly smaller and above the normal line.&lt;/p&gt;</source>
@@ -9454,108 +10100,108 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;선택한 텍스트를 조금 작고 기준선 위로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1496"/>
+        <location filename="../../Form_Files/main.ui" line="1528"/>
         <source>&amp;Print...</source>
         <translation>인쇄...(&amp;P)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1499"/>
+        <location filename="../../Form_Files/main.ui" line="1531"/>
         <source>Print</source>
         <translation>인쇄</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1502"/>
+        <location filename="../../Form_Files/main.ui" line="1534"/>
         <source>Ctrl+P</source>
         <translation>Ctrl+P</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1511"/>
+        <location filename="../../Form_Files/main.ui" line="1543"/>
         <source>Print Pre&amp;view...</source>
         <translation>인쇄 미리보기...(&amp;v)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1514"/>
+        <location filename="../../Form_Files/main.ui" line="1546"/>
         <source>Print Preview</source>
         <translation>인쇄 미리보기</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1519"/>
-        <location filename="../../Form_Files/main.ui" line="1522"/>
+        <location filename="../../Form_Files/main.ui" line="1551"/>
+        <location filename="../../Form_Files/main.ui" line="1554"/>
         <source>Close</source>
         <translation>닫기</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1525"/>
+        <location filename="../../Form_Files/main.ui" line="1557"/>
         <source>Ctrl+Shift+W</source>
         <translation>Ctrl+Shift+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1530"/>
+        <location filename="../../Form_Files/main.ui" line="1562"/>
         <source>Restructure Epub to Sigil Norm</source>
         <translation>시길 표준 양식으로 재구성</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1533"/>
+        <location filename="../../Form_Files/main.ui" line="1565"/>
         <source>Restructure Epub to Sigil Standard Form</source>
         <translation>시길 표준 양식으로 EPUB의 구조를 다시 구성합니다.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1538"/>
+        <location filename="../../Form_Files/main.ui" line="1570"/>
         <source>Use Standard File Extensions</source>
         <translation>표준 파일 확장자 사용</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1541"/>
+        <location filename="../../Form_Files/main.ui" line="1573"/>
         <source>Rename all files to use standard file extensions</source>
         <translation>모든 파일의 이름을 표준 파일 확장자로 변경합니다.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1546"/>
+        <location filename="../../Form_Files/main.ui" line="1578"/>
         <source>Rebase OPF Manifest IDs on Current Filenames</source>
         <translation>OPF 매니페스트 ID 재생성</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1549"/>
+        <location filename="../../Form_Files/main.ui" line="1581"/>
         <source>Updates each Manifest ID to reflect its current file name</source>
         <translation>매니페스트 파일 목록의 ID를 현재 파일 이름으로 업데이트 합니다.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1558"/>
+        <location filename="../../Form_Files/main.ui" line="1590"/>
         <source>Zoom &amp;In</source>
         <translation>확대(&amp;I)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1561"/>
+        <location filename="../../Form_Files/main.ui" line="1593"/>
         <source>Zoom In</source>
         <translation>확대</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1564"/>
+        <location filename="../../Form_Files/main.ui" line="1596"/>
         <source>Ctrl+=</source>
         <translation>Ctrl+=</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1573"/>
+        <location filename="../../Form_Files/main.ui" line="1605"/>
         <source>Zoom &amp;Out</source>
         <translation>축소(&amp;O)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1576"/>
+        <location filename="../../Form_Files/main.ui" line="1608"/>
         <source>Zoom Out</source>
         <translation>축소</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1579"/>
+        <location filename="../../Form_Files/main.ui" line="1611"/>
         <source>Ctrl+-</source>
         <translation>Ctrl+-</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1588"/>
+        <location filename="../../Form_Files/main.ui" line="1620"/>
         <source>&amp;Find &amp;&amp; Replace...</source>
         <translation>찾기 &amp;&amp; 바꾸기(&amp;F)...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1591"/>
+        <location filename="../../Form_Files/main.ui" line="1623"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find and replace text in the document.&lt;/p&gt;</source>
@@ -9564,17 +10210,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문서에서 텍스트를 찾아 바꾸기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1596"/>
+        <location filename="../../Form_Files/main.ui" line="1628"/>
         <source>Ctrl+F</source>
         <translation>Ctrl+F</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1601"/>
+        <location filename="../../Form_Files/main.ui" line="1633"/>
         <source>&amp;Hide Find &amp;&amp; Replace...</source>
         <translation>찾기&amp;&amp;바꾸기 숨김(&amp;H)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1604"/>
+        <location filename="../../Form_Files/main.ui" line="1636"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Hide Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Hide the Find and Replace Window.&lt;/p&gt;</source>
@@ -9583,12 +10229,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;찾기&amp;amp;바꾸기 창을 숨깁니다.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1615"/>
+        <location filename="../../Form_Files/main.ui" line="1647"/>
         <source>Incre&amp;ase Indent</source>
         <translation>들여쓰기(&amp;a)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1618"/>
+        <location filename="../../Form_Files/main.ui" line="1650"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Increase Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Increase the indent level of the paragraph.&lt;/p&gt;</source>
@@ -9597,17 +10243,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문단 들여쓰기 값 조정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1623"/>
+        <location filename="../../Form_Files/main.ui" line="1655"/>
         <source>Ctrl+Alt+M</source>
         <translation>Ctrl+Alt+M</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1632"/>
+        <location filename="../../Form_Files/main.ui" line="1664"/>
         <source>&amp;Decrease Indent</source>
         <translation>들여쓰기 취소(&amp;D)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1635"/>
+        <location filename="../../Form_Files/main.ui" line="1667"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Decrease Indent&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Decrease the indent level of the paragraph.&lt;/p&gt;</source>
@@ -9616,18 +10262,18 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문단 내어쓰기 값 조정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1640"/>
-        <location filename="../../Form_Files/main.ui" line="2085"/>
+        <location filename="../../Form_Files/main.ui" line="1672"/>
+        <location filename="../../Form_Files/main.ui" line="2117"/>
         <source>Ctrl+Shift+M</source>
         <translation>Ctrl+Shift+M</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1649"/>
+        <location filename="../../Form_Files/main.ui" line="1681"/>
         <source>Te&amp;xt Direction LTR</source>
         <translation>텍스트 방향 좌에서 우로(&amp;x)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1652"/>
+        <location filename="../../Form_Files/main.ui" line="1684"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Left-to-Right&lt;/b&gt;&lt;/p&gt;
 
@@ -9639,12 +10285,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문단의 방향을 왼쪽에서 오른쪽으로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1665"/>
+        <location filename="../../Form_Files/main.ui" line="1697"/>
         <source>T&amp;ext Direction RTL</source>
         <translation>텍스트 방향 우에서 좌로(&amp;e)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1668"/>
+        <location filename="../../Form_Files/main.ui" line="1700"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Right-to-Left&lt;/b&gt;&lt;/p&gt;
 
@@ -9656,12 +10302,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문단의 방향을 오른쪽에서 왼쪽으로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1681"/>
+        <location filename="../../Form_Files/main.ui" line="1713"/>
         <source>Text Directi&amp;on Default</source>
         <translation>기본 텍스트 방향(&amp;o)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1684"/>
+        <location filename="../../Form_Files/main.ui" line="1716"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Default&lt;/b&gt;&lt;/p&gt;
 
@@ -9673,22 +10319,22 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문단의 방향을 기본값으로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1693"/>
+        <location filename="../../Form_Files/main.ui" line="1725"/>
         <source>Remove &amp;Formatting</source>
         <translation>서식 제거(&amp;F)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1696"/>
+        <location filename="../../Form_Files/main.ui" line="1728"/>
         <source>Ctrl+Space</source>
         <translation>Ctrl+Space</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1705"/>
+        <location filename="../../Form_Files/main.ui" line="1737"/>
         <source>Remove Tag Pair</source>
         <translation>태그 쌍 제거</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1708"/>
+        <location filename="../../Form_Files/main.ui" line="1740"/>
         <source>
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Remove Open and Close Tag Pair.&lt;/p&gt;
     </source>
@@ -9697,12 +10343,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1719"/>
+        <location filename="../../Form_Files/main.ui" line="1751"/>
         <source>&amp;Lowercase</source>
         <translation>소문자로(&amp;L)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1722"/>
+        <location filename="../../Form_Files/main.ui" line="1754"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Lowercase&lt;/b&gt;&lt;/p&gt;
 
@@ -9714,17 +10360,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;선택한 텍스트를 소문자로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1729"/>
+        <location filename="../../Form_Files/main.ui" line="1761"/>
         <source>Ctrl+Alt+L</source>
         <translation>Ctrl+Alt+L</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1738"/>
+        <location filename="../../Form_Files/main.ui" line="1770"/>
         <source>&amp;Uppercase</source>
         <translation>대문자로(&amp;U)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1741"/>
+        <location filename="../../Form_Files/main.ui" line="1773"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Uppercase&lt;/b&gt;&lt;/p&gt;
 
@@ -9736,17 +10382,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;선택한 텍스트를 대문자로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1748"/>
+        <location filename="../../Form_Files/main.ui" line="1780"/>
         <source>Ctrl+Alt+U</source>
         <translation>Ctrl+Alt+U</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1757"/>
+        <location filename="../../Form_Files/main.ui" line="1789"/>
         <source>&amp;Titlecase</source>
         <translation>제목 스타일 대소문자(&amp;T)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1760"/>
+        <location filename="../../Form_Files/main.ui" line="1792"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Titlecase&lt;/b&gt;&lt;/p&gt;
 
@@ -9757,12 +10403,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;선택한 각 영문 단어의 첫번째 글자를 대문자로 바꿉니다.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1773"/>
+        <location filename="../../Form_Files/main.ui" line="1805"/>
         <source>&amp;Capitalize</source>
         <translation>첫 글자를 대문자로(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1776"/>
+        <location filename="../../Form_Files/main.ui" line="1808"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Capitalize&lt;/b&gt;&lt;/p&gt;
 
@@ -9774,127 +10420,127 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;선택한 텍스트에서 단어의 첫 글자를 대문자로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1785"/>
+        <location filename="../../Form_Files/main.ui" line="1817"/>
         <source>Sigil Website...</source>
         <translation>시길 공식 홈페이지...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1790"/>
+        <location filename="../../Form_Files/main.ui" line="1822"/>
         <source>&amp;Next Tab</source>
         <translation>다음 탭(&amp;N)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1793"/>
+        <location filename="../../Form_Files/main.ui" line="1825"/>
         <source>Ctrl+PgUp</source>
         <translation>Ctrl+PgUp</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1798"/>
+        <location filename="../../Form_Files/main.ui" line="1830"/>
         <source>&amp;Previous Tab</source>
         <translation>이전 탭(&amp;P)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1801"/>
+        <location filename="../../Form_Files/main.ui" line="1833"/>
         <source>Ctrl+PgDown</source>
         <translation>Ctrl+PgDown</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1806"/>
+        <location filename="../../Form_Files/main.ui" line="1838"/>
         <source>&amp;Close Tab</source>
         <translation>탭 닫기(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1809"/>
+        <location filename="../../Form_Files/main.ui" line="1841"/>
         <source>Ctrl+W</source>
         <translation>Ctrl+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1814"/>
+        <location filename="../../Form_Files/main.ui" line="1846"/>
         <source>Split At &amp;Markers</source>
         <translation>장 나누기 표시 분할(&amp;M)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1817"/>
+        <location filename="../../Form_Files/main.ui" line="1849"/>
         <source>Split At Sigil split file markers</source>
         <translation>장 나누기 표시가 된 부분을 파일로 분할합니다.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1820"/>
+        <location filename="../../Form_Files/main.ui" line="1852"/>
         <source>F6</source>
         <translation>양쪽 맞춤(&amp;J)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1825"/>
+        <location filename="../../Form_Files/main.ui" line="1857"/>
         <source>Split &amp;Marker</source>
         <translation>장 나누기 표시(&amp;M)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1828"/>
+        <location filename="../../Form_Files/main.ui" line="1860"/>
         <source>Insert Sigil split file marker</source>
         <translation>파일을 나눌 위치를 표시합니다.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1831"/>
+        <location filename="../../Form_Files/main.ui" line="1863"/>
         <source>Ctrl+Shift+Return</source>
         <translation>Ctrl+Shift+Return</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1836"/>
+        <location filename="../../Form_Files/main.ui" line="1868"/>
         <source>User &amp;Guide...</source>
         <translation>사용 안내(&amp;G)...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1839"/>
+        <location filename="../../Form_Files/main.ui" line="1871"/>
         <source>User Guide</source>
         <translation>사용 안내</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1842"/>
+        <location filename="../../Form_Files/main.ui" line="1874"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1847"/>
+        <location filename="../../Form_Files/main.ui" line="1879"/>
         <source>&amp;Frequently Asked Questions...</source>
         <translation>자주 묻는 질문...(&amp;F)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1850"/>
+        <location filename="../../Form_Files/main.ui" line="1882"/>
         <source>Frequently Asked Questions</source>
         <translation>자주 묻는 질문</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1855"/>
+        <location filename="../../Form_Files/main.ui" line="1887"/>
         <source>&amp;Tutorials...</source>
         <translation>스스로 익히기(&amp;T)...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1858"/>
+        <location filename="../../Form_Files/main.ui" line="1890"/>
         <source>Tutorials</source>
         <translation>스스로 익히기</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1863"/>
+        <location filename="../../Form_Files/main.ui" line="1895"/>
         <source>Well-Formed Check &amp;EPUB</source>
         <translation>EPUB 문법 검사(Wel-Formed Check)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1866"/>
+        <location filename="../../Form_Files/main.ui" line="1898"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Well-Formed Check EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum needed to be successfully parsed. This does not indicate compliance with the relevant epub standards.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EPUB 문법 검사(Well-Formed Check)&lt;/span&gt;&lt;/p&gt;&lt;p&gt; 문서가 구문 분석에 필요한 최소값을 준수하는지 확인합니다. 이는 EPUB 표준을 준수 함을 나타내지 않습니다.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1869"/>
+        <location filename="../../Form_Files/main.ui" line="1901"/>
         <source>F7</source>
         <translation>F7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1874"/>
+        <location filename="../../Form_Files/main.ui" line="1906"/>
         <source>Validate Stylesheets With &amp;W3C</source>
         <translation>W3C CSS 검사(&amp;W)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1877"/>
+        <location filename="../../Form_Files/main.ui" line="1909"/>
         <source>
      &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Validate Stylesheets with W3C&lt;/b&gt;&lt;/p&gt;
 
@@ -9905,12 +10551,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;온라인 W3C CSS Validation Service를 사용하여 CSS 스타일 시트가 W3C 표준을 준수하는지 확인합니다&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1890"/>
+        <location filename="../../Form_Files/main.ui" line="1922"/>
         <source>&amp;Spellcheck...</source>
         <translation>맞춤법 검사(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1893"/>
+        <location filename="../../Form_Files/main.ui" line="1925"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Spellcheck&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find all misspelled words and allow you to add them to a dictionary or ignore them.&lt;/p&gt;</source>
@@ -9919,102 +10565,102 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;맞춤법이 틀린 단어를 모두 찾아서 사전에 추가하거나 무시할 수 있습니다. 한글 맞춤법 검사 파일은 다음 사이트에서 다운받아 추가할 수 있습니다. https://github.com/spellcheck-ko/hunspell-dict-ko/releases&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1898"/>
+        <location filename="../../Form_Files/main.ui" line="1930"/>
         <source>Ctrl+Alt+Q</source>
         <translation>Ctrl+Alt+Q</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1906"/>
+        <location filename="../../Form_Files/main.ui" line="1938"/>
         <source>&amp;Highlight Misspelled Words</source>
         <translation>맞춤법 틀린 단어 강조(&amp;H)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1909"/>
+        <location filename="../../Form_Files/main.ui" line="1941"/>
         <source>Enable or disable highlighting of misspelled words in Code View.</source>
         <translation>코드 보기 창에서 맞춤법이 틀린 단어를 강조하거나 기능을 해제합니다. </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1914"/>
+        <location filename="../../Form_Files/main.ui" line="1946"/>
         <source>&amp;Next Misspelled Word</source>
         <translation>맞춤법 틀린 단어 찾기(&amp;N)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1917"/>
+        <location filename="../../Form_Files/main.ui" line="1949"/>
         <source>Find the next misspelled word in the book.</source>
         <translation>맞춤법이 틀린 다음 단어 찾기</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1920"/>
+        <location filename="../../Form_Files/main.ui" line="1952"/>
         <source>F4</source>
         <translation>F4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1925"/>
+        <location filename="../../Form_Files/main.ui" line="1957"/>
         <source>&amp;Add Misspelled Word</source>
         <translation>맞춤법 틀린 단어 추가(&amp;A)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1928"/>
+        <location filename="../../Form_Files/main.ui" line="1960"/>
         <source>Add the current misspelled word under the caret to the default user dictionary.</source>
         <translation>기본 사용자 사전에 맞춤법이 틀린 단어로 추가합니다.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1933"/>
+        <location filename="../../Form_Files/main.ui" line="1965"/>
         <source>&amp;Ignore Misspelled Word</source>
         <translation>맞춤법 틀린 단어 무시(&amp;I)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1936"/>
+        <location filename="../../Form_Files/main.ui" line="1968"/>
         <source>Ignore the current misspelled word under the caret until Sigil is restarted.</source>
         <translation>시길이 다시 시작될 때까지 맞춤법이 틀린 단어를 무시합니다.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1941"/>
+        <location filename="../../Form_Files/main.ui" line="1973"/>
         <source>&amp;Clear Ignored Words</source>
         <translation>무시 단어 지우기(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1944"/>
+        <location filename="../../Form_Files/main.ui" line="1976"/>
         <source>Clear currently ignored words from Spellcheck without having to restart Sigil.</source>
         <translation>시길을 다시 시작하지 않고도 맞춤법 검사를 무시하도록 추가한 단어를 초기화합니다.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1949"/>
+        <location filename="../../Form_Files/main.ui" line="1981"/>
         <source>&amp;Index Editor...</source>
         <translation>색인 편집기...(&amp;I)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1957"/>
+        <location filename="../../Form_Files/main.ui" line="1989"/>
         <source>Ctrl+Alt+I</source>
         <translation>Ctrl+Alt+I</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1962"/>
+        <location filename="../../Form_Files/main.ui" line="1994"/>
         <source>&amp;Delete Unused Media Files...</source>
         <translation>미사용 미디어 파일 삭제(&amp;D)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1967"/>
+        <location filename="../../Form_Files/main.ui" line="1999"/>
         <source>Delete &amp;Unused Stylesheet Selectors...</source>
         <translation>미사용 CSS 선택자 삭제...(&amp;U)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1972"/>
+        <location filename="../../Form_Files/main.ui" line="2004"/>
         <source>&amp;Reports...</source>
         <translation>보고서...(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1975"/>
+        <location filename="../../Form_Files/main.ui" line="2007"/>
         <source>Ctrl+Shift+R</source>
         <translation>Ctrl+Shift+R</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1984"/>
+        <location filename="../../Form_Files/main.ui" line="2016"/>
         <source>&amp;Donate...</source>
         <translation>기부하기...(&amp;D)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1987"/>
+        <location filename="../../Form_Files/main.ui" line="2019"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Donate&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Donate to support Sigil.&lt;/p&gt;
@@ -10025,842 +10671,842 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 </translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1995"/>
+        <location filename="../../Form_Files/main.ui" line="2027"/>
         <source>Close &amp;Other Tabs</source>
         <translation>다른 탭 닫기(&amp;O)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="1998"/>
+        <location filename="../../Form_Files/main.ui" line="2030"/>
         <source>Ctrl+Alt+W</source>
         <translation>Ctrl+Alt+W</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2003"/>
+        <location filename="../../Form_Files/main.ui" line="2035"/>
         <source>Go To &amp;Line...</source>
         <translation>줄 이동(&amp;L)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2006"/>
+        <location filename="../../Form_Files/main.ui" line="2038"/>
         <source>Ctrl+/</source>
         <translation>Ctrl+/</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2011"/>
+        <location filename="../../Form_Files/main.ui" line="2043"/>
         <source>Find &amp;Next</source>
         <translation>다음 찾기(&amp;N)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2014"/>
+        <location filename="../../Form_Files/main.ui" line="2046"/>
         <source>Ctrl+G</source>
         <translation>Ctrl+G</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2019"/>
+        <location filename="../../Form_Files/main.ui" line="2051"/>
         <source>Find &amp;Previous</source>
         <translation>이전 찾기(&amp;P)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2022"/>
+        <location filename="../../Form_Files/main.ui" line="2054"/>
         <source>Ctrl+Shift+G</source>
         <translation>Ctrl+Shift+G</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2027"/>
+        <location filename="../../Form_Files/main.ui" line="2059"/>
         <source>Replace</source>
         <translation>바꾸기</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2030"/>
+        <location filename="../../Form_Files/main.ui" line="2062"/>
         <source>Ctrl+R</source>
         <translation>Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2035"/>
+        <location filename="../../Form_Files/main.ui" line="2067"/>
         <source>&amp;Replace/Find Next</source>
         <translation>바꾸기/찾기 다음(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2038"/>
+        <location filename="../../Form_Files/main.ui" line="2070"/>
         <source>Ctrl+]</source>
         <translation>Ctrl+]</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2043"/>
+        <location filename="../../Form_Files/main.ui" line="2075"/>
         <source>R&amp;eplace/Find Previous</source>
         <translation>바꾸기/찾기 이전(&amp;E)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2046"/>
+        <location filename="../../Form_Files/main.ui" line="2078"/>
         <source>Ctrl+[</source>
         <translation>Ctrl+[</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2051"/>
+        <location filename="../../Form_Files/main.ui" line="2083"/>
         <source>Replace &amp;All</source>
         <translation>모두 바꾸기(&amp;A)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2054"/>
+        <location filename="../../Form_Files/main.ui" line="2086"/>
         <source>Ctrl+Alt+A</source>
         <translation>Ctrl+Alt+A</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2059"/>
+        <location filename="../../Form_Files/main.ui" line="2091"/>
         <source>&amp;Count All</source>
         <translation>모두 세기(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2062"/>
+        <location filename="../../Form_Files/main.ui" line="2094"/>
         <source>Ctrl+Alt+N</source>
         <translation>Ctrl+Alt+N</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2067"/>
+        <location filename="../../Form_Files/main.ui" line="2099"/>
         <source>Dry Run Replace All</source>
         <translation>모두 바꾸기 시뮬레이션</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2072"/>
+        <location filename="../../Form_Files/main.ui" line="2104"/>
         <source>Filter Replacements</source>
         <translation>모두 바꾸기 필터</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2077"/>
+        <location filename="../../Form_Files/main.ui" line="2109"/>
         <source>Restart Current Search</source>
         <translation>검색 다시 시작</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2082"/>
+        <location filename="../../Form_Files/main.ui" line="2114"/>
         <source>Mar&amp;k Selected Text</source>
         <translation>선택 영역 표시(&amp;k)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2090"/>
+        <location filename="../../Form_Files/main.ui" line="2122"/>
         <source>Find &amp;Next In File</source>
         <translation>파일 안에서 다음 찾기(&amp;N)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2095"/>
+        <location filename="../../Form_Files/main.ui" line="2127"/>
         <source>&amp;Replace Next In File</source>
         <translation>파일 안에서 다음 바꾸기(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2100"/>
+        <location filename="../../Form_Files/main.ui" line="2132"/>
         <source>Replace &amp;All In File</source>
         <translation>현재 파일 안에서 모두 바꾸기(&amp;A)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2105"/>
+        <location filename="../../Form_Files/main.ui" line="2137"/>
         <source>&amp;Count All In File</source>
         <translation>파일 안에서 모두 세기(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2114"/>
+        <location filename="../../Form_Files/main.ui" line="2146"/>
         <source>&amp;Saved Searches...</source>
         <translation>저장된 검색(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2117"/>
+        <location filename="../../Form_Files/main.ui" line="2149"/>
         <source>Ctrl+Alt+F</source>
         <translation>Ctrl+Alt+F</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2122"/>
+        <location filename="../../Form_Files/main.ui" line="2154"/>
         <source>&amp;Clip Editor...</source>
         <translation>클립 편집기(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2125"/>
+        <location filename="../../Form_Files/main.ui" line="2157"/>
         <source>Open the Clip Editor.</source>
         <translation>클립 편집기 열기</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2128"/>
+        <location filename="../../Form_Files/main.ui" line="2160"/>
         <source>Ctrl+Alt+C</source>
         <translation>Ctrl+Alt+C</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2133"/>
+        <location filename="../../Form_Files/main.ui" line="2165"/>
         <source>Clip &amp;1</source>
         <translation>클립 0&amp;1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2136"/>
+        <location filename="../../Form_Files/main.ui" line="2168"/>
         <source>Insert Clip 1</source>
         <translation>클립 01 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2139"/>
+        <location filename="../../Form_Files/main.ui" line="2171"/>
         <source>Ctrl+Alt+1</source>
         <translation>Ctrl+Alt+1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2144"/>
+        <location filename="../../Form_Files/main.ui" line="2176"/>
         <source>Clip &amp;2</source>
         <translation>클립 0&amp;2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2147"/>
+        <location filename="../../Form_Files/main.ui" line="2179"/>
         <source>Insert Clip 2</source>
         <translation>클립 02 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2150"/>
+        <location filename="../../Form_Files/main.ui" line="2182"/>
         <source>Ctrl+Alt+2</source>
         <translation>Ctrl+Alt+2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2155"/>
+        <location filename="../../Form_Files/main.ui" line="2187"/>
         <source>Clip &amp;3</source>
         <translation>클립 0&amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2158"/>
+        <location filename="../../Form_Files/main.ui" line="2190"/>
         <source>Insert Clip 3</source>
         <translation>클립 03 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2161"/>
+        <location filename="../../Form_Files/main.ui" line="2193"/>
         <source>Ctrl+Alt+3</source>
         <translation>Ctrl+Alt+3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2166"/>
+        <location filename="../../Form_Files/main.ui" line="2198"/>
         <source>Clip &amp;4</source>
         <translation>클립 0&amp;4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2169"/>
+        <location filename="../../Form_Files/main.ui" line="2201"/>
         <source>Insert Clip 4</source>
         <translation>클립 04 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2172"/>
+        <location filename="../../Form_Files/main.ui" line="2204"/>
         <source>Ctrl+Alt+4</source>
         <translation>Ctrl+Alt+4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2177"/>
+        <location filename="../../Form_Files/main.ui" line="2209"/>
         <source>Clip &amp;5</source>
         <translation>클립 0&amp;5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2180"/>
+        <location filename="../../Form_Files/main.ui" line="2212"/>
         <source>Insert Clip 5</source>
         <translation>클립 05 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2183"/>
+        <location filename="../../Form_Files/main.ui" line="2215"/>
         <source>Ctrl+Alt+5</source>
         <translation>Ctrl+Alt+5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2188"/>
+        <location filename="../../Form_Files/main.ui" line="2220"/>
         <source>Clip &amp;6</source>
         <translation>클립 0&amp;6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2191"/>
+        <location filename="../../Form_Files/main.ui" line="2223"/>
         <source>Insert Clip 6</source>
         <translation>클립 06 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2194"/>
+        <location filename="../../Form_Files/main.ui" line="2226"/>
         <source>Ctrl+Alt+6</source>
         <translation>Ctrl+Alt+6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2199"/>
+        <location filename="../../Form_Files/main.ui" line="2231"/>
         <source>Clip &amp;7</source>
         <translation>클립 0&amp;7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2202"/>
+        <location filename="../../Form_Files/main.ui" line="2234"/>
         <source>Insert Clip 7</source>
         <translation>클립 07 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2205"/>
+        <location filename="../../Form_Files/main.ui" line="2237"/>
         <source>Ctrl+Alt+7</source>
         <translation>Ctrl+Alt+7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2210"/>
+        <location filename="../../Form_Files/main.ui" line="2242"/>
         <source>Clip &amp;8</source>
         <translation>클립 0&amp;8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2213"/>
+        <location filename="../../Form_Files/main.ui" line="2245"/>
         <source>Insert Clip 8</source>
         <translation>클립 08 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2216"/>
+        <location filename="../../Form_Files/main.ui" line="2248"/>
         <source>Ctrl+Alt+8</source>
         <translation>Ctrl+Alt+8</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2221"/>
+        <location filename="../../Form_Files/main.ui" line="2253"/>
         <source>Clip &amp;9</source>
         <translation>클립 0&amp;9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2224"/>
+        <location filename="../../Form_Files/main.ui" line="2256"/>
         <source>Insert Clip 9</source>
         <translation>클립 09 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2227"/>
+        <location filename="../../Form_Files/main.ui" line="2259"/>
         <source>Ctrl+Alt+9</source>
         <translation>Ctrl+Alt+9</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2232"/>
+        <location filename="../../Form_Files/main.ui" line="2264"/>
         <source>Clip 1&amp;0</source>
         <translation>클립 1&amp;0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2235"/>
+        <location filename="../../Form_Files/main.ui" line="2267"/>
         <source>Insert Clip 10</source>
         <translation>클립 10 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2238"/>
+        <location filename="../../Form_Files/main.ui" line="2270"/>
         <source>Ctrl+Alt+0</source>
         <translation>Ctrl+Alt+0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2243"/>
+        <location filename="../../Form_Files/main.ui" line="2275"/>
         <source>Clip 11</source>
         <translation>클립 11</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2246"/>
+        <location filename="../../Form_Files/main.ui" line="2278"/>
         <source>Insert Clip 11</source>
         <translation>클립 11 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2251"/>
+        <location filename="../../Form_Files/main.ui" line="2283"/>
         <source>Clip 12</source>
         <translation>클립 12</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2254"/>
+        <location filename="../../Form_Files/main.ui" line="2286"/>
         <source>Insert Clip 12</source>
         <translation>클립 12 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2259"/>
+        <location filename="../../Form_Files/main.ui" line="2291"/>
         <source>Clip 13</source>
         <translation>클립 13</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2262"/>
+        <location filename="../../Form_Files/main.ui" line="2294"/>
         <source>Insert Clip 13</source>
         <translation>클립 13 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2267"/>
+        <location filename="../../Form_Files/main.ui" line="2299"/>
         <source>Clip 14</source>
         <translation>클립 14</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2270"/>
+        <location filename="../../Form_Files/main.ui" line="2302"/>
         <source>Insert Clip 14</source>
         <translation>클립 14 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2275"/>
+        <location filename="../../Form_Files/main.ui" line="2307"/>
         <source>Clip 15</source>
         <translation>클립 15</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2278"/>
+        <location filename="../../Form_Files/main.ui" line="2310"/>
         <source>Insert Clip 15</source>
         <translation>클립 15 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2283"/>
+        <location filename="../../Form_Files/main.ui" line="2315"/>
         <source>Clip 16</source>
         <translation>클립 16</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2286"/>
+        <location filename="../../Form_Files/main.ui" line="2318"/>
         <source>Insert Clip 16</source>
         <translation>클립 16 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2291"/>
+        <location filename="../../Form_Files/main.ui" line="2323"/>
         <source>Clip 17</source>
         <translation>클립 17</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2294"/>
+        <location filename="../../Form_Files/main.ui" line="2326"/>
         <source>Insert Clip 17</source>
         <translation>클립 17 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2299"/>
+        <location filename="../../Form_Files/main.ui" line="2331"/>
         <source>Clip 18</source>
         <translation>클립 18</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2302"/>
+        <location filename="../../Form_Files/main.ui" line="2334"/>
         <source>Insert Clip 18</source>
         <translation>클립 18 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2307"/>
+        <location filename="../../Form_Files/main.ui" line="2339"/>
         <source>Clip 19</source>
         <translation>클립 19</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2310"/>
+        <location filename="../../Form_Files/main.ui" line="2342"/>
         <source>Insert Clip 19</source>
         <translation>클립 19 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2315"/>
+        <location filename="../../Form_Files/main.ui" line="2347"/>
         <source>Clip 20</source>
         <translation>클립 20</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2318"/>
+        <location filename="../../Form_Files/main.ui" line="2350"/>
         <source>Insert Clip 20</source>
         <translation>클립 20 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2324"/>
+        <location filename="../../Form_Files/main.ui" line="2356"/>
         <source>Clip 21</source>
         <translation>클립 21</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2327"/>
+        <location filename="../../Form_Files/main.ui" line="2359"/>
         <source>Insert Clip 21</source>
         <translation>클립 21 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2332"/>
+        <location filename="../../Form_Files/main.ui" line="2364"/>
         <source>Clip 22</source>
         <translation>클립 22</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2335"/>
+        <location filename="../../Form_Files/main.ui" line="2367"/>
         <source>Insert Clip 22</source>
         <translation>클립 22 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2340"/>
+        <location filename="../../Form_Files/main.ui" line="2372"/>
         <source>Clip 23</source>
         <translation>클립 23</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2343"/>
+        <location filename="../../Form_Files/main.ui" line="2375"/>
         <source>Insert Clip 23</source>
         <translation>클립 23 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2348"/>
+        <location filename="../../Form_Files/main.ui" line="2380"/>
         <source>Clip 24</source>
         <translation>클립 24</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2351"/>
+        <location filename="../../Form_Files/main.ui" line="2383"/>
         <source>Insert Clip 24</source>
         <translation>클립 24 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2356"/>
+        <location filename="../../Form_Files/main.ui" line="2388"/>
         <source>Clip 25</source>
         <translation>클립 25</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2359"/>
+        <location filename="../../Form_Files/main.ui" line="2391"/>
         <source>Insert Clip 25</source>
         <translation>클립 25 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2364"/>
+        <location filename="../../Form_Files/main.ui" line="2396"/>
         <source>Clip 26</source>
         <translation>클립 26</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2367"/>
+        <location filename="../../Form_Files/main.ui" line="2399"/>
         <source>Insert Clip 26</source>
         <translation>클립 26 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2372"/>
+        <location filename="../../Form_Files/main.ui" line="2404"/>
         <source>Clip 27</source>
         <translation>클립 27</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2375"/>
+        <location filename="../../Form_Files/main.ui" line="2407"/>
         <source>Insert Clip 27</source>
         <translation>클립 27 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2380"/>
+        <location filename="../../Form_Files/main.ui" line="2412"/>
         <source>Clip 28</source>
         <translation>클립 28</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2383"/>
+        <location filename="../../Form_Files/main.ui" line="2415"/>
         <source>Insert Clip 28</source>
         <translation>클립 28 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2388"/>
+        <location filename="../../Form_Files/main.ui" line="2420"/>
         <source>Clip 29</source>
         <translation>클립 29</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2391"/>
+        <location filename="../../Form_Files/main.ui" line="2423"/>
         <source>Insert Clip 29</source>
         <translation>클립 29 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2396"/>
+        <location filename="../../Form_Files/main.ui" line="2428"/>
         <source>Clip 30</source>
         <translation>클립 30</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2399"/>
+        <location filename="../../Form_Files/main.ui" line="2431"/>
         <source>Insert Clip 30</source>
         <translation>클립 30 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2404"/>
+        <location filename="../../Form_Files/main.ui" line="2436"/>
         <source>Clip 31</source>
         <translation>클립 31</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2407"/>
+        <location filename="../../Form_Files/main.ui" line="2439"/>
         <source>Insert Clip 31</source>
         <translation>클립 31 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2412"/>
+        <location filename="../../Form_Files/main.ui" line="2444"/>
         <source>Clip 32</source>
         <translation>클립 32</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2415"/>
+        <location filename="../../Form_Files/main.ui" line="2447"/>
         <source>Insert Clip 32</source>
         <translation>클립 32 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2420"/>
+        <location filename="../../Form_Files/main.ui" line="2452"/>
         <source>Clip 33</source>
         <translation>클립 33</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2423"/>
+        <location filename="../../Form_Files/main.ui" line="2455"/>
         <source>Insert Clip 33</source>
         <translation>클립 33 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2428"/>
+        <location filename="../../Form_Files/main.ui" line="2460"/>
         <source>Clip 34</source>
         <translation>클립 34</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2431"/>
+        <location filename="../../Form_Files/main.ui" line="2463"/>
         <source>Insert Clip 34</source>
         <translation>클립 34 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2436"/>
+        <location filename="../../Form_Files/main.ui" line="2468"/>
         <source>Clip 35</source>
         <translation>클립 35</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2439"/>
+        <location filename="../../Form_Files/main.ui" line="2471"/>
         <source>Insert Clip 35</source>
         <translation>클립 35 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2444"/>
+        <location filename="../../Form_Files/main.ui" line="2476"/>
         <source>Clip 36</source>
         <translation>클립 36</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2447"/>
+        <location filename="../../Form_Files/main.ui" line="2479"/>
         <source>Insert Clip 36</source>
         <translation>클립 36 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2452"/>
+        <location filename="../../Form_Files/main.ui" line="2484"/>
         <source>Clip 37</source>
         <translation>클립 37</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2455"/>
+        <location filename="../../Form_Files/main.ui" line="2487"/>
         <source>Insert Clip 37</source>
         <translation>클립 37 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2460"/>
+        <location filename="../../Form_Files/main.ui" line="2492"/>
         <source>Clip 38</source>
         <translation>클립 38</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2463"/>
+        <location filename="../../Form_Files/main.ui" line="2495"/>
         <source>Insert Clip 38</source>
         <translation>클립 38 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2468"/>
+        <location filename="../../Form_Files/main.ui" line="2500"/>
         <source>Clip 39</source>
         <translation>클립 39</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2471"/>
+        <location filename="../../Form_Files/main.ui" line="2503"/>
         <source>Insert Clip 39</source>
         <translation>클립 39 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2476"/>
+        <location filename="../../Form_Files/main.ui" line="2508"/>
         <source>Clip 40</source>
         <translation>클립 40</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2479"/>
+        <location filename="../../Form_Files/main.ui" line="2511"/>
         <source>Insert Clip 40</source>
         <translation>클립 40 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2484"/>
+        <location filename="../../Form_Files/main.ui" line="2516"/>
         <source>Clip 41</source>
         <translation>클립 41</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2487"/>
+        <location filename="../../Form_Files/main.ui" line="2519"/>
         <source>Insert Clip 41</source>
         <translation>클립 41 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2492"/>
+        <location filename="../../Form_Files/main.ui" line="2524"/>
         <source>Clip 42</source>
         <translation>클립 42</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2495"/>
+        <location filename="../../Form_Files/main.ui" line="2527"/>
         <source>Insert Clip 42</source>
         <translation>클립 42 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2500"/>
+        <location filename="../../Form_Files/main.ui" line="2532"/>
         <source>Clip 43</source>
         <translation>클립 43</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2503"/>
+        <location filename="../../Form_Files/main.ui" line="2535"/>
         <source>Insert Clip 43</source>
         <translation>클립 43 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2508"/>
+        <location filename="../../Form_Files/main.ui" line="2540"/>
         <source>Clip 44</source>
         <translation>클립 44</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2511"/>
+        <location filename="../../Form_Files/main.ui" line="2543"/>
         <source>Insert Clip 44</source>
         <translation>클립 44 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2516"/>
+        <location filename="../../Form_Files/main.ui" line="2548"/>
         <source>Clip 45</source>
         <translation>클립 45</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2519"/>
+        <location filename="../../Form_Files/main.ui" line="2551"/>
         <source>Insert Clip 45</source>
         <translation>클립 45 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2524"/>
+        <location filename="../../Form_Files/main.ui" line="2556"/>
         <source>Clip 46</source>
         <translation>클립 46</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2527"/>
+        <location filename="../../Form_Files/main.ui" line="2559"/>
         <source>Insert Clip 46</source>
         <translation>클립 46 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2532"/>
+        <location filename="../../Form_Files/main.ui" line="2564"/>
         <source>Clip 47</source>
         <translation>클립 47</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2535"/>
+        <location filename="../../Form_Files/main.ui" line="2567"/>
         <source>Insert Clip 47</source>
         <translation>클립 47 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2540"/>
+        <location filename="../../Form_Files/main.ui" line="2572"/>
         <source>Clip 48</source>
         <translation>클립 48</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2543"/>
+        <location filename="../../Form_Files/main.ui" line="2575"/>
         <source>Insert Clip 48</source>
         <translation>클립 48 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2548"/>
+        <location filename="../../Form_Files/main.ui" line="2580"/>
         <source>Clip 49</source>
         <translation>클립 49</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2551"/>
+        <location filename="../../Form_Files/main.ui" line="2583"/>
         <source>Insert Clip 49</source>
         <translation>클립 49 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2556"/>
+        <location filename="../../Form_Files/main.ui" line="2588"/>
         <source>Clip 50</source>
         <translation>클립 50</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2559"/>
+        <location filename="../../Form_Files/main.ui" line="2591"/>
         <source>Insert Clip 50</source>
         <translation>클립 50 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2564"/>
+        <location filename="../../Form_Files/main.ui" line="2596"/>
         <source>Clip 51</source>
         <translation>클립 51</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2567"/>
+        <location filename="../../Form_Files/main.ui" line="2599"/>
         <source>Insert Clip 51</source>
         <translation>클립 51 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2572"/>
+        <location filename="../../Form_Files/main.ui" line="2604"/>
         <source>Clip 52</source>
         <translation>클립 52</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2575"/>
+        <location filename="../../Form_Files/main.ui" line="2607"/>
         <source>Insert Clip 52</source>
         <translation>클립 52 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2580"/>
+        <location filename="../../Form_Files/main.ui" line="2612"/>
         <source>Clip 53</source>
         <translation>클립 53</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2583"/>
+        <location filename="../../Form_Files/main.ui" line="2615"/>
         <source>Insert Clip 53</source>
         <translation>클립 53 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2588"/>
+        <location filename="../../Form_Files/main.ui" line="2620"/>
         <source>Clip 54</source>
         <translation>클립 54</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2591"/>
+        <location filename="../../Form_Files/main.ui" line="2623"/>
         <source>Insert Clip 54</source>
         <translation>클립 54 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2596"/>
+        <location filename="../../Form_Files/main.ui" line="2628"/>
         <source>Clip 55</source>
         <translation>클립 55</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2599"/>
+        <location filename="../../Form_Files/main.ui" line="2631"/>
         <source>Insert Clip 55</source>
         <translation>클립 55 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2604"/>
+        <location filename="../../Form_Files/main.ui" line="2636"/>
         <source>Clip 56</source>
         <translation>클립 56 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2607"/>
+        <location filename="../../Form_Files/main.ui" line="2639"/>
         <source>Insert Clip 56</source>
         <translation>클립 56 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2612"/>
+        <location filename="../../Form_Files/main.ui" line="2644"/>
         <source>Clip 57</source>
         <translation>클립 57</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2615"/>
+        <location filename="../../Form_Files/main.ui" line="2647"/>
         <source>Insert Clip 57</source>
         <translation>클립 57 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2620"/>
+        <location filename="../../Form_Files/main.ui" line="2652"/>
         <source>Clip 58</source>
         <translation>클립 58</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2623"/>
+        <location filename="../../Form_Files/main.ui" line="2655"/>
         <source>Insert Clip 58</source>
         <translation>클립 58 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2628"/>
+        <location filename="../../Form_Files/main.ui" line="2660"/>
         <source>Clip 59</source>
         <translation>클립 59</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2631"/>
+        <location filename="../../Form_Files/main.ui" line="2663"/>
         <source>Insert Clip 59</source>
         <translation>클립 59 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2636"/>
+        <location filename="../../Form_Files/main.ui" line="2668"/>
         <source>Clip 60</source>
         <translation>클립 60</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2639"/>
+        <location filename="../../Form_Files/main.ui" line="2671"/>
         <source>Insert Clip 60</source>
         <translation>클립 60 삽입</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2647"/>
+        <location filename="../../Form_Files/main.ui" line="2679"/>
         <source>&amp;Preferences...</source>
         <translation>설정(&amp;P)...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2650"/>
+        <location filename="../../Form_Files/main.ui" line="2682"/>
         <source>F5</source>
         <translation>F5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2655"/>
+        <location filename="../../Form_Files/main.ui" line="2687"/>
         <source>&amp;Zoom Reset</source>
         <translation>확대 초기화(&amp;Z)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2658"/>
+        <location filename="../../Form_Files/main.ui" line="2690"/>
         <source>Zoom Reset</source>
         <translation>확대/축소 다시 설정</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2661"/>
+        <location filename="../../Form_Files/main.ui" line="2693"/>
         <source>Ctrl+0</source>
         <translation>Ctrl+0</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2673"/>
+        <location filename="../../Form_Files/main.ui" line="2705"/>
         <source>Heading &amp;1</source>
         <translation>Heading &amp;1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2676"/>
+        <location filename="../../Form_Files/main.ui" line="2708"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 1&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 1 heading.&lt;/p&gt;</source>
@@ -10869,17 +11515,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문단 형태를 제목 1로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2681"/>
+        <location filename="../../Form_Files/main.ui" line="2713"/>
         <source>Ctrl+1</source>
         <translation>Ctrl+1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2693"/>
+        <location filename="../../Form_Files/main.ui" line="2725"/>
         <source>Heading &amp;2</source>
         <translation>Heading &amp;2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2696"/>
+        <location filename="../../Form_Files/main.ui" line="2728"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 2&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 2 heading.&lt;/p&gt;</source>
@@ -10888,17 +11534,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문단 형태를 제목 2로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2701"/>
+        <location filename="../../Form_Files/main.ui" line="2733"/>
         <source>Ctrl+2</source>
         <translation>Ctrl+2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2713"/>
+        <location filename="../../Form_Files/main.ui" line="2745"/>
         <source>Heading &amp;3</source>
         <translation>Heading &amp;3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2716"/>
+        <location filename="../../Form_Files/main.ui" line="2748"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 3&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 3 heading.&lt;/p&gt;</source>
@@ -10907,17 +11553,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문단 형태를 제목 3로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2721"/>
+        <location filename="../../Form_Files/main.ui" line="2753"/>
         <source>Ctrl+3</source>
         <translation>Ctrl+3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2733"/>
+        <location filename="../../Form_Files/main.ui" line="2765"/>
         <source>Heading &amp;4</source>
         <translation>Heading &amp;4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2736"/>
+        <location filename="../../Form_Files/main.ui" line="2768"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 4&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 4 heading.&lt;/p&gt;</source>
@@ -10926,17 +11572,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문단 형태를 제목 4로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2741"/>
+        <location filename="../../Form_Files/main.ui" line="2773"/>
         <source>Ctrl+4</source>
         <translation>Ctrl+4</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2753"/>
+        <location filename="../../Form_Files/main.ui" line="2785"/>
         <source>Heading &amp;5</source>
         <translation>Heading &amp;5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2756"/>
+        <location filename="../../Form_Files/main.ui" line="2788"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 5&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 5 heading.&lt;/p&gt;</source>
@@ -10945,17 +11591,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문단 형태를 제목 5로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2761"/>
+        <location filename="../../Form_Files/main.ui" line="2793"/>
         <source>Ctrl+5</source>
         <translation>Ctrl+5</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2773"/>
+        <location filename="../../Form_Files/main.ui" line="2805"/>
         <source>Heading &amp;6</source>
         <translation>Heading &amp;6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2776"/>
+        <location filename="../../Form_Files/main.ui" line="2808"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Heading 6&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a level 6 heading.&lt;/p&gt;</source>
@@ -10964,17 +11610,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문단 형태를 제목 6로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2781"/>
+        <location filename="../../Form_Files/main.ui" line="2813"/>
         <source>Ctrl+6</source>
         <translation>Ctrl+6</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2793"/>
+        <location filename="../../Form_Files/main.ui" line="2825"/>
         <source>&amp;Normal</source>
         <translation>문단(&amp;N)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2796"/>
+        <location filename="../../Form_Files/main.ui" line="2828"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Paragraph&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Format paragraph as a normal paragraph.&lt;/p&gt;</source>
@@ -10983,37 +11629,37 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;문단 형태를 제목 로 설정하기.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2801"/>
+        <location filename="../../Form_Files/main.ui" line="2833"/>
         <source>Ctrl+7</source>
         <translation>Ctrl+7</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2809"/>
+        <location filename="../../Form_Files/main.ui" line="2841"/>
         <source>&amp;Preserve Existing Attributes</source>
         <translation>기존 속성 유지(&amp;P)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2812"/>
+        <location filename="../../Form_Files/main.ui" line="2844"/>
         <source>When applying this style, preserve any existing attributes on the tag</source>
         <translation>이 스타일을 적용할때 태그에 있는 기존의 특성(attributes)은 유지됩니다</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2817"/>
+        <location filename="../../Form_Files/main.ui" line="2849"/>
         <source>Blank HTML File</source>
         <translation>빈 HTML 파일</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2820"/>
+        <location filename="../../Form_Files/main.ui" line="2852"/>
         <source>Add a new blank HTML file to the book.</source>
         <translation>책에 빈 HTML을 추가합니다.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2829"/>
+        <location filename="../../Form_Files/main.ui" line="2861"/>
         <source>Existing Files...</source>
         <translation>기존 파일...</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2832"/>
+        <location filename="../../Form_Files/main.ui" line="2864"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Add Existing Files&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Add files from your computer to the book.&lt;/p&gt;</source>
@@ -11022,137 +11668,137 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;책에 컴퓨터에서 파일을 추가합니다.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2839"/>
+        <location filename="../../Form_Files/main.ui" line="2871"/>
         <source>Blank Stylesheet</source>
         <translation>빈 스타일시트</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2842"/>
+        <location filename="../../Form_Files/main.ui" line="2874"/>
         <source>Add a new blank stylesheet to the book.</source>
         <translation>책에 새 빈 스타일시트를 추가합니다.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2847"/>
+        <location filename="../../Form_Files/main.ui" line="2879"/>
         <source>Blank Javascript</source>
         <translation>빈 자바스크립트</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2850"/>
+        <location filename="../../Form_Files/main.ui" line="2882"/>
         <source>Add a new blank javascript to the book.</source>
         <translation>책에 새 빈 자바스크립트를 추가합니다.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2855"/>
+        <location filename="../../Form_Files/main.ui" line="2887"/>
         <source>Blank SVG Image</source>
         <translation>빈 SVG 이미지</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2858"/>
+        <location filename="../../Form_Files/main.ui" line="2890"/>
         <source>Add a new blank svg image file to the book.</source>
         <translation>책에 새 빈 svg 이미지 파일을 추가합니다.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2863"/>
+        <location filename="../../Form_Files/main.ui" line="2895"/>
         <source>Pre&amp;vious File</source>
         <translation>이전 파일(&amp;V)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2866"/>
+        <location filename="../../Form_Files/main.ui" line="2898"/>
         <source>Open previous file of the same type.</source>
         <translation>동일한 형태의 기존 파일을 엽니다.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2869"/>
+        <location filename="../../Form_Files/main.ui" line="2901"/>
         <source>Alt+PgUp</source>
         <translation>Alt+PgUp</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2874"/>
+        <location filename="../../Form_Files/main.ui" line="2906"/>
         <source>Next &amp;File</source>
         <translation>다음 파일(&amp;F)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2877"/>
+        <location filename="../../Form_Files/main.ui" line="2909"/>
         <source>Open next file of the same type.</source>
         <translation>동일한 형태의 다음 파일을 엽니다.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2880"/>
+        <location filename="../../Form_Files/main.ui" line="2912"/>
         <source>Alt+PgDown</source>
         <translation>Alt+PgDown</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2885"/>
+        <location filename="../../Form_Files/main.ui" line="2917"/>
         <source>&amp;Add To Index Editor</source>
         <translation>색인 편집기에 추가(&amp;A)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2892"/>
+        <location filename="../../Form_Files/main.ui" line="2924"/>
         <source>Add the selected text to the Index Editor.</source>
         <translation>색인 편집기에 선택한 텍스트 추가</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2897"/>
+        <location filename="../../Form_Files/main.ui" line="2929"/>
         <source>&amp;Mark For Index</source>
         <translation>색인 마크(&amp;M)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2904"/>
+        <location filename="../../Form_Files/main.ui" line="2936"/>
         <source>Mark the selected text for inclusion in the Index.</source>
         <translation>선택한 텍스트를 색인에 포함하도록 표시</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2907"/>
+        <location filename="../../Form_Files/main.ui" line="2939"/>
         <source>Ctrl+Shift+X</source>
         <translation>Ctrl+Shift+X</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2912"/>
+        <location filename="../../Form_Files/main.ui" line="2944"/>
         <source>&amp;Create Index</source>
         <translation>색인 만들기(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2919"/>
+        <location filename="../../Form_Files/main.ui" line="2951"/>
         <source>Generate a new Index HTML file.</source>
         <translation>새로운 색인 HTML 파일 생성</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2924"/>
+        <location filename="../../Form_Files/main.ui" line="2956"/>
         <source>&amp;Create HTML from Table Of Contents</source>
         <translation>&amp;차례(TOC)에서 HTML 만들기</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2927"/>
+        <location filename="../../Form_Files/main.ui" line="2959"/>
         <source>Create a new HTML file using the current TOC.</source>
         <translation>현재 차례를 사용하여 새 HTML 파일 차례를 만듧니다.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2936"/>
+        <location filename="../../Form_Files/main.ui" line="2968"/>
         <source>Book&amp;mark Location</source>
         <translation>현재 위치 북마크(&amp;m)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2939"/>
+        <location filename="../../Form_Files/main.ui" line="2971"/>
         <source>Ctrl+Alt+B</source>
         <translation>Ctrl+Alt+B</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2944"/>
+        <location filename="../../Form_Files/main.ui" line="2976"/>
         <source>&amp;Go To Link Or Style</source>
         <translation>링크 혹은 스타일로 이동(&amp;G)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2947"/>
+        <location filename="../../Form_Files/main.ui" line="2979"/>
         <source>F3</source>
         <translation>F3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2956"/>
+        <location filename="../../Form_Files/main.ui" line="2988"/>
         <source>&amp;Back</source>
         <translation>뒤로(&amp;B)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2959"/>
+        <location filename="../../Form_Files/main.ui" line="2991"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Back&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Go back to where you last went to a link or style, or bookmarked your location.&lt;/p&gt;
@@ -11162,576 +11808,581 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;마지막으로 이동한 링크, 스타일 또는 북마크한 위치로 이동합니다.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2965"/>
+        <location filename="../../Form_Files/main.ui" line="2997"/>
         <source>Ctrl+\</source>
         <translation>Ctrl+\</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2970"/>
+        <location filename="../../Form_Files/main.ui" line="3002"/>
         <source>Edit/Paste From Clipboard &amp;History...</source>
         <translation>클립보드에서 붙여넣기/편집(&amp;H)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2973"/>
+        <location filename="../../Form_Files/main.ui" line="3005"/>
         <source>Ctrl+Alt+V</source>
         <translation>Ctrl+Alt+V</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2978"/>
+        <location filename="../../Form_Files/main.ui" line="3010"/>
         <source>&amp;Delete Line</source>
         <translation>줄 삭제(&amp;D)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2981"/>
+        <location filename="../../Form_Files/main.ui" line="3013"/>
         <source>Ctrl+D</source>
         <translation>Ctrl+D</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2990"/>
+        <location filename="../../Form_Files/main.ui" line="3022"/>
         <source>Run Automate List 1</source>
         <translation>자동화 목록 1 실행</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="2995"/>
+        <location filename="../../Form_Files/main.ui" line="3027"/>
         <source>Edit Automate List 1</source>
         <translation>자동화 목록 1 편집</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3004"/>
+        <location filename="../../Form_Files/main.ui" line="3036"/>
         <source>Run Automate List 2</source>
         <translation>자동화 목록 2 실행</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3009"/>
+        <location filename="../../Form_Files/main.ui" line="3041"/>
         <source>Edit Automate List 2</source>
         <translation>자동화 목록 2 편집</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3018"/>
+        <location filename="../../Form_Files/main.ui" line="3050"/>
         <source>Run Automate List 3</source>
         <translation>자동화 목록 3 실행</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3023"/>
+        <location filename="../../Form_Files/main.ui" line="3055"/>
         <source>Edit Automate List 3</source>
         <translation>자동화 목록 3 편집</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3028"/>
+        <location filename="../../Form_Files/main.ui" line="3060"/>
         <source>Manage Plugins</source>
         <translation>플러그인 관리</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3037"/>
+        <location filename="../../Form_Files/main.ui" line="3069"/>
         <source>Run Plugin 1</source>
         <translation>플러그인1 실행</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3046"/>
+        <location filename="../../Form_Files/main.ui" line="3078"/>
         <source>Run Plugin 2</source>
         <translation>플러그인2 실행</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3055"/>
+        <location filename="../../Form_Files/main.ui" line="3087"/>
         <source>Run Plugin 3</source>
         <translation>플러그인3 실행</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3064"/>
+        <location filename="../../Form_Files/main.ui" line="3096"/>
         <source>Run Plugin 4</source>
         <translation>플러그인4 실행</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3073"/>
+        <location filename="../../Form_Files/main.ui" line="3105"/>
         <source>Run Plugin 5</source>
         <translation>플러그인5 실행</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3082"/>
+        <location filename="../../Form_Files/main.ui" line="3114"/>
         <source>Run Plugin 6</source>
         <translation>플러그인6 실행</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3091"/>
+        <location filename="../../Form_Files/main.ui" line="3123"/>
         <source>Run Plugin 7</source>
         <translation>플러그인7 실행</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3100"/>
+        <location filename="../../Form_Files/main.ui" line="3132"/>
         <source>Run Plugin 8</source>
         <translation>플러그인8 실행</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3109"/>
+        <location filename="../../Form_Files/main.ui" line="3141"/>
         <source>Run Plugin 9</source>
         <translation>플러그인9 실행</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3118"/>
+        <location filename="../../Form_Files/main.ui" line="3150"/>
         <source>Run Plugin 10</source>
         <translation>플러그인10 실행</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3127"/>
+        <location filename="../../Form_Files/main.ui" line="3159"/>
         <source>Launch External Xhtml Editor</source>
         <translation>외부 HTML 편집기 실행</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3130"/>
+        <location filename="../../Form_Files/main.ui" line="3162"/>
         <source>F2</source>
         <translation>F2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3135"/>
+        <location filename="../../Form_Files/main.ui" line="3167"/>
         <source>Mend and &amp;Prettify All HTML Files</source>
         <translation>모든 HTML 파일 오류 수정 및 가독성 향상(&amp;P)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3140"/>
+        <location filename="../../Form_Files/main.ui" line="3172"/>
         <source>&amp;Mend All HTML Files</source>
         <translation>모든 HTML 파일 오류 수정(&amp;M)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3145"/>
+        <location filename="../../Form_Files/main.ui" line="3177"/>
         <source>&amp;Update Manifest Properties</source>
         <translation>매니페스트 속성 업데이트(&amp;U)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3150"/>
+        <location filename="../../Form_Files/main.ui" line="3182"/>
         <source>Update OPF Manifest Media Types</source>
         <translation>OPF 매니페스트 미디어 유형 업데이트</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3155"/>
+        <location filename="../../Form_Files/main.ui" line="3187"/>
         <source>Generate &amp;NCX/Guide for epub2 e-readers</source>
         <translation>EPUB2용 &amp;NCX/Guide 생성</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3160"/>
+        <location filename="../../Form_Files/main.ui" line="3192"/>
         <source>Create a Custom Empty Epub</source>
         <translation>사용자 정의 EPUB 만들기</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3165"/>
+        <location filename="../../Form_Files/main.ui" line="3197"/>
         <source>Remove the NCX and Guide</source>
         <translation>NCX와 Guide 제거</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3174"/>
+        <location filename="../../Form_Files/main.ui" line="3206"/>
         <source>Create Checkpoint for Epub</source>
         <translation>EPUB 체크포인트 만들기</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3183"/>
+        <location filename="../../Form_Files/main.ui" line="3215"/>
         <source>Restore Epub from previous Checkpoint</source>
         <translation>이전 체크포인트로 EPUB 복원</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3192"/>
+        <location filename="../../Form_Files/main.ui" line="3224"/>
         <source>Compare Epub against Previous Checkpoint</source>
         <translation>이전 체크포인트와 EPUB 비교</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3201"/>
+        <location filename="../../Form_Files/main.ui" line="3233"/>
         <source>Manage Checkpoint Repositories</source>
         <translation>체크포인트 저장소 관리</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3206"/>
+        <location filename="../../Form_Files/main.ui" line="3238"/>
         <source>Edit Checkpoint Descriptions</source>
         <translation>체크포인트 설명 편집</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3211"/>
+        <location filename="../../Form_Files/main.ui" line="3243"/>
         <source>Show Log of Checkpoints</source>
         <translation>체크포인트 로그 보기</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3216"/>
+        <location filename="../../Form_Files/main.ui" line="3248"/>
         <source>Focus on CodeView</source>
         <translation>코드 보기로 이동</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3221"/>
+        <location filename="../../Form_Files/main.ui" line="3253"/>
         <source>Focus on BookBrowser</source>
         <translation>책 탐색기로 이동</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3226"/>
+        <location filename="../../Form_Files/main.ui" line="3258"/>
         <source>Focus on Preview</source>
         <translation>미리보기로 이동</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3231"/>
+        <location filename="../../Form_Files/main.ui" line="3263"/>
         <source>Focus on Table of Contents</source>
         <translation>차례 창으로 이동</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/main.ui" line="3236"/>
+        <location filename="../../Form_Files/main.ui" line="3268"/>
         <source>Focus on Clips Window</source>
         <translation>클립 창으로 이동</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="347"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="350"/>
         <source>Automate List Editor cancelled.</source>
         <translation>자동화 목록 편집기를 취소하였습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="350"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="353"/>
         <source>Automate List edited.</source>
         <translation>자동화 목록이 수정되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="356"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="359"/>
         <source>Error: Automation Already in Use</source>
         <translation>오류: 자동화가 이미 사용 중입니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="362"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="365"/>
         <source>Missing Automation List</source>
         <translation>자동화 목록 누락</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="396"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="399"/>
         <source>running</source>
         <translation>실행중</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="455"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="458"/>
         <source>skipped since not an epub3</source>
         <translation>EPUB3가 아니어서 다음 기능을 수행합니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="480"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="483"/>
         <source>Missing or unknown Saved Search name</source>
         <translation>저장된 검색 이름이 없거나 잘못되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="484"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="487"/>
         <source>Missing or unknown plugin or tool</source>
         <translation>플러그인 또는 도구가 없거나 이름이 잘못 지정되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="489"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="492"/>
         <source>failed</source>
         <translation>실패</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="497"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="500"/>
         <source>Validation tool</source>
         <translation>검사 도구</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="498"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="501"/>
         <source>found errors</source>
         <translation>발견된 오류</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="501"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="504"/>
         <source>Validation tool found errors - Abort or Ignore?</source>
         <translation>유효성 검사 도구에서 오류가 발견되었습니다. 중단하시겠습니까? 아니면 무시하시겠습니까?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="510"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="513"/>
         <source>Aborted due to Validation Errors</source>
         <translation>유효성 검사 오류로 인해 중단되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="513"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="516"/>
         <source>Ignored Validation Errors</source>
         <translation>유효성 검사 오류를 무시하였습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="516"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="519"/>
         <source>Validation Tool Reported No Problems Found</source>
         <translation>유효성 검사에서 오류가 발견되지 않았습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="523"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="526"/>
         <source>Automation List Failed</source>
         <translation>자동화 목록 실패</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="525"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="528"/>
         <source>Automation List Completed</source>
         <translation>자동화 목록 완료</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="527"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="530"/>
         <source>Automate Log</source>
         <translation>자동화 로그</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="602"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="605"/>
         <source>Input</source>
         <translation>입력</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="608"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="611"/>
         <source>Output</source>
         <translation>출력</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="620"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="623"/>
         <source>Validation</source>
         <translation>적합성 검사</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="669"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="682"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="691"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="699"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="776"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="793"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="802"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="883"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1677"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1993"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2241"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2406"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2926"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3022"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3076"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3086"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3110"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3124"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3230"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3246"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3251"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3264"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3277"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3282"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3294"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3304"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3309"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3473"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3480"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3496"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3555"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3587"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3786"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4932"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4973"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4979"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4985"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5209"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5229"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5277"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5541"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5747"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="672"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="685"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="694"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="702"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="779"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="796"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="805"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="886"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1680"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1996"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2244"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2409"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2929"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3025"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3079"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3089"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3113"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3127"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3233"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3249"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3254"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3267"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3286"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3300"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3315"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3319"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3335"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3348"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3353"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3365"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3375"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3380"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3544"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3551"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3567"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3626"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3658"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3857"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5010"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5051"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5057"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5063"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5287"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5307"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5355"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5619"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5825"/>
         <source>Sigil</source>
         <translation>시길</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="670"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="673"/>
         <source>Are you sure you want to restructure this epub?
 This action cannot be reversed.</source>
         <translation>이 EPUB을 재구성하시겠습니까?
 이 작업은 되돌릴 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="683"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="692"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="700"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="686"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="695"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="703"/>
         <source>Restructure cancelled: %1, XML not well formed.</source>
         <translation>재구성이 취소되었습니다 : %1, XML이 문법에 맞지 않습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="774"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="776"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5275"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5277"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5745"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5747"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="777"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="779"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5353"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5355"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5823"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5825"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] - epub%2 - %3</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="774"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5275"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5745"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="777"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5353"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5823"/>
         <source>Sigil [std]</source>
         <translation>시길 [std]</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="778"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="781"/>
         <source>Restructure completed.</source>
         <translation>재구성이 완료되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="794"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="797"/>
         <source>Bulk rename cancelled: %1, XML not well formed.</source>
         <translation>대량 이름 바꾸기 작업 취소: %1, XML 형식이 잘못되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="803"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="806"/>
         <source>Bulk rename cancelled: %1, OPF not well formed.</source>
         <translation>대량 이름 바꾸기 작업 취소: %1, OPF 형식이 잘못되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="872"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="875"/>
         <source>Bulk rename completed.</source>
         <translation>대량 이름 바꾸기 작업 완료 </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="884"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="887"/>
         <source>Rebase cancelled: %1, XML not well formed.</source>
         <translation>재생성 취소: %1, XML이 문법에 맞지 않습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="892"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="895"/>
         <source>Rebase completed.</source>
         <translation>재생성을 끝냈습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1001"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1004"/>
         <source>Checkpoint generation failed.</source>
         <translation>체크포인트를 만들지 못했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1007"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1010"/>
         <source>Checkpoint saved.</source>
         <translation>체크포인트가 저장되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1044"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1047"/>
         <source>Checkout Failed. No checkpoints found</source>
         <translation>복구할 수 없습니다. 체크포인트를 찾지 못했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1061"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1064"/>
         <source>Checkout Failed. No checkpoint selected</source>
         <translation>복구할 수 없습니다. 체크포인트를 선택하지 않았습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1085"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1088"/>
         <source>Epub Generate from Tag Failed.</source>
         <translation>태그에서 Epub 생성에 실패했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1090"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1093"/>
         <source>Epub Generation succeeded</source>
         <translation>EPUB 생성에 성공했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1104"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1107"/>
         <source>Repository Checkout</source>
         <translation>저장소 체크아웃</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1105"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1108"/>
         <source>Your current book will be replaced losing any unsaved changes ... Are you sure you want to proceed?</source>
         <translation>현재 작업중인 책이 대체되며, 저장하지 않은 모든 데이터가 사라집니다. 계속 진행하시겠습니까?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1129"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1153"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1132"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1156"/>
         <source>Diff Failed. No checkpoints found</source>
         <translation>비교할 수 없습니다. 체크포인트를 찾지 못했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1169"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1172"/>
         <source>Diff Failed. No checkpoint selected for comparison</source>
         <translation>비교할 수 없습니다. 비교할 체크포인트를 선택하지 않았습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1200"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1203"/>
         <source>Results of Comparison</source>
         <translation>비교 결과</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1200"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1203"/>
         <source>No differences were found.</source>
         <translation>다른 점을 찾지 못했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1221"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1236"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1224"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1239"/>
         <source>Description Edit Failed. No checkpoints found</source>
         <translation>설명 편집에 실패했습니다. 체크포인트를 찾을 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1253"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1256"/>
         <source>Description Edit Failed. No checkpoint selected to edit</source>
         <translation>설명 편집에 실패했습니다. 편집할 체크포인트를 선택하지 않았습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1270"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1273"/>
         <source>Edit checkpoint Description</source>
         <translation>체크포인트 설명 편집</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1271"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1274"/>
         <source>New Checkpoint Description:</source>
         <translation>새로운 체크포인트 설명:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1282"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1285"/>
         <source>Description Edit Failed for unknown reason</source>
         <translation>알 수 없는 이유로 설명 편집에 실패했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1288"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1291"/>
         <source>Description edit cancelled or empty</source>
         <translation>설명 편집이 취소되었거나 비어 있음</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1291"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1294"/>
         <source>Description successfully updated</source>
         <translation>설명이 성공적으로 업데이트되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1315"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1318"/>
         <source>Repository Log</source>
         <translation>저장소 기록</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1346"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1349"/>
         <source>No External Xhtml Editor has been specified:  See Preferences</source>
         <translation>외부 Xhtml 편집기를 지정하지 않았습니다: 설정을 확인하세요.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1353"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1356"/>
         <source>Specified External Xhtml Editor path does not exist</source>
         <translation>설정한 외부 Xhtml 편집기의 경로가 존재하지 않습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1363"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1366"/>
         <source>PageEdit XHtml Editor works only on Html/OPF Resources</source>
         <translation>PageEdit XHtml Editor는 Html/OPF 리소스에서만 작동합니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1369"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1372"/>
         <source>External XHtml Editor works only on Html Resources</source>
         <translation>외부 XHtml 편집기는 HTML 리소스에서만 작동합니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1410"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1413"/>
         <source>Executing PageEdit Xhtml Editor</source>
         <translation>PageEdit Xhtml 편집기 실행</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1423"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1426"/>
         <source>Executing External Xhtml Editor</source>
         <translation>외부 Xhtml 편집기 실행</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1427"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1430"/>
         <source>Failed to Launch External Xhtml Editor</source>
         <translation>외부 Xhtml 편집기를 실행하지 못했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1595"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1598"/>
         <source>Navigation cancelled as location no longer exists.</source>
         <translation>위치가 더 이상 존재하지 않아 탐색이 취소되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1612"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1615"/>
         <source>Location bookmarked.</source>
         <translation>위치가 북마크 되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1677"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1680"/>
         <source>Are you sure you want to open this external link?
 
 %1</source>
@@ -11740,438 +12391,459 @@ This action cannot be reversed.</source>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1713"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1716"/>
         <source>was updated</source>
         <translation>업데이트 되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1720"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1723"/>
         <source>Warning</source>
         <translation>경고</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1720"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1723"/>
         <source>The file was NOT well formed and may be corrupted.</source>
         <translation>파일이 문법에 맞지 않습니다. 손상된 파일일 수 있습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1763"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1766"/>
         <source>Warning: </source>
         <translation>경고: </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1860"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1863"/>
         <source>Sigil is closing...</source>
         <translation>시길을 닫는 중...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1927"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1930"/>
         <source>New file created.</source>
         <translation>새 파일 만들어짐.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1952"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1955"/>
         <source>Open File</source>
         <translation>파일 열기</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1992"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1995"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
         <translation>이 파일은 더 이상 존재하지 않습니다. 확인을 클릭하면 메뉴에서 제거됩니다.
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2079"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2082"/>
         <source>Save File</source>
         <translation>파일 저장</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2137"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2140"/>
         <source>Save a Copy</source>
         <translation>사본으로 저장</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2176"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2179"/>
         <source>Epub layout discarded.</source>
         <translation>EPUB 레이아웃이 삭제되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2183"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2186"/>
         <source>New epub created.</source>
         <translation>새로운 EPUB이 생성되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2218"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2221"/>
         <source>Go To Line</source>
         <translation>줄 이동</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2218"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2221"/>
         <source>Line #</source>
         <translation>줄 #</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2241"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2244"/>
         <source>Image does not exist: </source>
         <translation>존재하지 않는 이미지: </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2321"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2324"/>
         <source>or</source>
         <translation>또는</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2329"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2332"/>
         <source>No CSS styles named</source>
         <translation>CSS 스타일 이름이 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2329"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2332"/>
         <source>found, or stylesheet not linked.</source>
         <translation>찾거나 스타일 시트가 연결되지 않았습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2402"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2405"/>
         <source>&lt;html&gt;&lt;p&gt;The href &lt;b&gt;%1&lt;/b&gt; found in &lt;b&gt;%2&lt;/b&gt; does not exist (and there may be more). Splitting or merging under these conditions can result in broken links.&lt;/p&gt;&lt;p&gt;Do you still wish to continue?&lt;/p&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;p&gt;&lt;b&gt;%2&lt;/b&gt;에서 찾은 링크 경로 &lt;b&gt;%1&lt;/b&gt;은(는) 존재하지 않습니다. 이러한 조건에서 분할하거나 병합하면 링크가 끊어 질 수 있습니다.&lt;/p&gt;&lt;p&gt;계속 진행하시겠습니까?&lt;/p&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2426"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2429"/>
         <source>Add Cover</source>
         <translation>표지 추가</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2475"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2478"/>
         <source>An existing Cover file has been found.</source>
         <translation>기존 표지 파일이 발견되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2538"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2541"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
         <translation>예상치 못한 오류. 표지에는 이미지 파일 만 사용할 수 있습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2557"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2560"/>
         <source>Cover added.</source>
         <translation>표지가 추가되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2573"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2576"/>
         <source>OPF Manifest Mimetypes Updated.</source>
         <translation>OPF 매니페스트 미디어 유형이 업데이트되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2582"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2600"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2632"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2585"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2603"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2635"/>
         <source>Not Available for epub2.</source>
         <translation>EPUB2에서 사용할 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2590"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2593"/>
         <source>OPF Manifest Properties Updated.</source>
         <translation>OPF 매니페스트 속성이 업데이트되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2622"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2625"/>
         <source>NCX and Guide removed.</source>
         <translation>NCX와 Guide가 삭제되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2649"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2682"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2652"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2685"/>
         <source>NCX and Guide generation failed.</source>
         <translation>NCX 와 Guide 생성에 실패했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2718"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2721"/>
         <source>NCX and Guide generated.</source>
         <translation>NCX 와 Guide가 생성되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2815"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2818"/>
         <source>An existing Index file has been found.</source>
         <translation>기존 색인 파일이 발견되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2907"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2910"/>
         <source>Styles deleted.</source>
         <translation>스타일 삭제됨.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2915"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2918"/>
         <source>Reports Being Generated.</source>
         <translation>보고서 생성중</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2926"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2929"/>
         <source>Reports cancelled due to XML not well formed.</source>
         <translation>XML이 문법에 맞지 않아 보고서가 취소되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3022"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3025"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
         <translation>XML이 문법에 맞지 않아 사용하지 않는 미디어 파일 삭제 작업이 취소되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3070"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3073"/>
         <source>Unused media files deleted.</source>
         <translation>미사용 미디어 파일 삭제</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3073"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3076"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3079"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation>삭제할 미사용 이미지, 비디오 또는 오디오 파일이 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3086"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3089"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation>XML이 문법에 맞지 않아 사용하지 않는 스타일 삭제가 취소되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3108"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3110"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3111"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3113"/>
         <source>There are no unused stylesheet selectors to delete.</source>
         <translation>삭제할 미사용 CSS 선택자가 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3124"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3127"/>
         <source>You cannot insert a file at this position.</source>
         <translation>이 위치에는 파일을 삽입 할 수 없습니다</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3131"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3134"/>
         <source>Insert File</source>
         <translation>파일 삽입</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3184"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3187"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>파일 &quot;%1&quot; 이(가) 존재하지 않습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3230"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3251"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3233"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3254"/>
         <source>You cannot insert an id at this position.</source>
         <translation>이 위치에는 ID를 넣을 수 없습니다. </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3246"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3249"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation>잘못된 ID 이름 - 반드시 영문으로 시작하고 영문, 숫자, 언더바(_) 콜론(:), 하이픈(-) 혹은 점(.)만 사용 가능</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3264"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3282"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3267"/>
+        <source>You can only insert an aria clips in xhtml files.</source>
+        <translation>XHTML 파일에만 ARIA 클립을 삽입할 수 있습니다.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="3286"/>
+        <source>You inserting an aria clip failed.</source>
+        <translation>ARIA 클립 삽입에 실패했습니다.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="3300"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3319"/>
+        <source>You cannot insert an aria role at this position.</source>
+        <translation>이 위치에는 ARIA 역할(role)을 삽입할 수 없습니다.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="3315"/>
+        <source>The selected role can not be used on this tag.</source>
+        <translation>선택된 역할은 이 태그에서 사용할 수 없습니다.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="3335"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3353"/>
         <source>You cannot insert a link at this position.</source>
         <translation>이 위치에는 링크를 삽입할 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3277"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3348"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>잘못된 링크 - &apos;&lt;&apos;나 &apos;&gt;&apos;는 포함할 수 없음</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3294"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3365"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation>색인 항목을 선택하지 않았거나 색인을 추가할 수 없는 위치입니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3304"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3375"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>입력이 유효하지 않습니다- &apos;&lt;&apos;또는 &apos;&gt;&apos;를 포함 할 수 없습니다</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3309"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3380"/>
         <source>You cannot mark an index at this position.</source>
         <translation>색인을 추가할 수 없는 위치입니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3391"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3403"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3422"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3462"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3474"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3493"/>
         <source>Select the destination to paste into first.</source>
         <translation>붙여 넣기 할 대상을 먼저 선택하십시오.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3411"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3482"/>
         <source>Pasted clip entry %1.</source>
         <translation>붙여 넣은 클립 항목 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3473"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3544"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>하나의 리소스가 선택되었으며 병합 할 이전 리소스가 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3481"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3552"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>선택한 파일들을 합치시겠습니까?
 합친 뒤에는 되돌릴 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3496"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3567"/>
         <source>Merge cancelled: XHTML files involved in merge are not well formed.</source>
         <translation>병합 취소됨 : 병합하려는 XHTML 파일의 형식이 올바르지 않습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3555"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3626"/>
         <source>Cannot merge file %1</source>
         <translation>파일 %1을 병합하지 못했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3569"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3640"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>병합을 완료했습니다. 차례를 다시 생성해야 합니다. </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3587"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3658"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation>스타일시트 연결 실패: %1, XML이 문법에 맞지 않습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3717"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3788"/>
         <source>Word updated.</source>
         <translation>단어를 업데이트 했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3786"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3857"/>
         <source>Link Javascripts cancelled: %1, XML not well formed.</source>
         <translation>자바스크립트 연결이 취소됨: %1, XML 형식이 잘못되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3896"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3967"/>
         <source>File(s) deleted.</source>
         <translation>파일이 삭제되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3907"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3978"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>차례 편집을 취소했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3912"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3983"/>
         <source>Table Of Contents edited.</source>
         <translation>차례를 편집했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3930"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4001"/>
         <source>Generate TOC cancelled.</source>
         <translation>차례 생성을 취소했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3955"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4026"/>
         <source>Table Of Contents generated.</source>
         <translation>차례가 만들어 졌습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3957"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4028"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>차례 변경이 필요하지 않습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4031"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4102"/>
         <source>An existing HTML Table of Contents file has been found.</source>
         <translation>기존 HTML 차례 파일이 발견되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4115"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4186"/>
         <source>Text selection marked.</source>
         <translation>선택한 텍스트를 표시(mark)했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4117"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4135"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4188"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4206"/>
         <source>Text selection unmarked.</source>
         <translation>선택한 텍스트의 표시(mark)를 삭제했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4184"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4255"/>
         <source>Metadata Editor cancelled.</source>
         <translation>메타데이터 편집을 취소했습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4187"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4258"/>
         <source>Metadata edited.</source>
         <translation>메타데이터를 편집했습니다. </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4295"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4366"/>
         <source>RunPlugin</source>
         <translation>플러그인 실행</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4321"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4392"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>이 EPUB에는 유효성을 검사 할 CSS 스타일 시트가 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4352"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4423"/>
         <source>This EPUB does not contain any CSS stylesheets to reformat.</source>
         <translation>이 EPUB에는 다시 설정할 CSS 스타일시트가 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4844"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4922"/>
         <source>Line: %1, Col: %2</source>
         <translation>행: %1, 열: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4932"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5010"/>
         <source>File cannot be split at this position.</source>
         <translation>이 위치에서는 파일을 나눌 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4955"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5033"/>
         <source>Split completed.</source>
         <translation>나누기가 끝났습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4973"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5051"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>하나 이상의 파일이 HTML 파일이 아니기 때문에 분할할 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4979"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5057"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>분할 취소: %1 XML이 문법에 맞지 않습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4985"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5063"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>하나 이상의 파일이 HTML 파일이 아니기 때문에 분할 할 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5018"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5096"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>분할이 완료되었습니다. 차례 갱신이 필요합니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5020"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5098"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>장 나누기 표시가 없습니다. 추가-&gt;장 나누기 표시를 이용하세요.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5210"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5288"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>이 문서가 수정되었습나더.⏎
 변경 사항을 저장하시겠습니까?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5231"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5309"/>
         <source>Should Sigil overwrite this file?</source>
         <translation>시길이 이 파일을 덮어쓸까요?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5417"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5495"/>
         <source>No importer for file type: %1</source>
         <translation>추가할 수 없는 파일 타입 : %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5424"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5502"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -12184,44 +12856,44 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
 파일을 열거 나 다시로드 할 때 소스 정리 환경 설정을 Mend XHTML 소스 코드로 설정하십시오.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5429"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5507"/>
         <source>Loading file...</source>
         <translation>파일을 불러오는 중...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5443"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5521"/>
         <source>File loaded.</source>
         <translation>파일을 불러옴.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5469"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5547"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>이 파일를 만든 사람이 DRM으로 암호화했습니다. 시길은 이 파일을 열 수 없습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5477"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5555"/>
         <source>Cannot load EPUB: %1</source>
         <translation>EPUB를 불러들일 수 없습니다: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5482"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5560"/>
         <source>Cannot load file %1: %2</source>
         <translation>파일 %1 을 불러들 일 수 없습니다: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5509"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5587"/>
         <source>Saving EPUB...</source>
         <translation>EPUB 저장 중...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5518"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5596"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>시길은 &quot;%1&quot; 형식의 파일로 저장할 수 없습니다.
 다른 포맷을 선택해주세요.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5542"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5620"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to mend on Save.
 
 Do you want to automatically mend the files before saving? Or cancel the Save?</source>
@@ -12230,94 +12902,94 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 저장 전에 형식이 올바르지 않은 HTML 코드를 자동으로 수정하시겠습니까? 원치 않을 경우 저장을 취소합니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5547"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5625"/>
         <source>Saving EPUB... cancelled</source>
         <translation>EPUB 저장 중... 취소됨</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5573"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5651"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>EPUB이 저장되었습니다. 하지만 일부 HTML 파일이 문법에 맞지 않습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5575"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5653"/>
         <source>EPUB saved.</source>
         <translation>EPUB이 저장되었습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5581"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5659"/>
         <source>Cannot save file %1: %2</source>
         <translation>파일 %1 를 저장할 수 없습니다: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5714"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5792"/>
         <source>EPUB files (*.epub)</source>
         <translation>EPUB 파일 (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5715"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5716"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5717"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5793"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5794"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5795"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>HTML 파일 (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5718"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5796"/>
         <source>Text files (*.txt)</source>
         <translation>텍스트 파일 (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5719"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5797"/>
         <source>All files (*.*)</source>
         <translation>모든 파일 (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5727"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5805"/>
         <source>EPUB file (*.epub)</source>
         <translation>EPUB 파일 (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5825"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5907"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>기존 제목 속성 유지는 다음과 같습니다: </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5826"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5908"/>
         <source>ON</source>
         <translation>켜기</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5826"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5908"/>
         <source>OFF</source>
         <translation>끄기</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5851"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5933"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6823"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6909"/>
         <source>Focus changed to CodeView window.</source>
         <translation>코드보기 창으로 이동하였습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6832"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6918"/>
         <source>Focus changed to BookBrowser window.</source>
         <translation>책 탐색기 창으로 이동하였습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6841"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6927"/>
         <source>Focus changed to Preview window.</source>
         <translation>미리보기 창으로 이동하였습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6850"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6936"/>
         <source>Focus changed to Table Of Contents window.</source>
         <translation>차례 창으로 이동하였습니다.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6859"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6945"/>
         <source>Focus changed to Clips window.</source>
         <translation>클립 창으로 이동하였습니다.</translation>
     </message>
@@ -17202,38 +17874,38 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="73"/>
         <location filename="../../MainUI/PreviewWindow.cpp" line="99"/>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="474"/>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="482"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="471"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="479"/>
         <source>Preview</source>
         <translation>미리보기</translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="275"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="273"/>
         <source>Inspect Page</source>
         <translation>웹 브라우저 개발 도구</translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="281"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="279"/>
         <source>Select-All</source>
         <translation>선택-모두</translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="287"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="285"/>
         <source>Copy Selection To ClipBoard</source>
         <translation>클립 보드에 선택 항목 복사</translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="293"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="291"/>
         <source>Update Preview Window</source>
         <translation>미리보기 창 업데이트</translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="299"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="297"/>
         <source>Cycle Custom CSS Files</source>
         <translation>사용자 정의 CSS 바꾸기</translation>
     </message>
     <message>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="308"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="306"/>
         <source>Print Preview View</source>
         <translation>인쇄 미리 보기</translation>
     </message>
