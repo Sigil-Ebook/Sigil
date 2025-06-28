@@ -114,7 +114,7 @@ void URLInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
         // if can not determine book folder block it
         if (bookfolder.isEmpty()) {
             info.block(true);
-            qDebug() << "Error: URLInterceptor can not determine book folder so all file requests blocked";
+            qDebug() << "Error: URLInterceptor cannot determine book folder so all file requests blocked";
             return;
         }
         // path must be inside of bookfolder, Note it is legal for it not to exist

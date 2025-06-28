@@ -1319,7 +1319,7 @@ void BookBrowser::RenameSelected()
 	    has_bad_chars = has_bad_chars || badchars.contains(ch);
 	}
         if (has_bad_chars) {
-	    Utility::DisplayStdErrorDialog(tr("Filenames can not contain these characters: \"%1\".").arg(badchars));
+	    Utility::DisplayStdErrorDialog(tr("Filenames cannot contain these characters: \"%1\".").arg(badchars));
 	    return;
 	}
     }
@@ -1533,7 +1533,7 @@ void BookBrowser::RemoveResources(QList<Resource *> tab_resources, QList<Resourc
     Resource * nav_resource =  m_Book->GetConstOPF()->GetNavResource();
     if (nav_resource && resources.contains(nav_resource)) {
         Utility::DisplayStdErrorDialog(
-            tr("The Nav document can not be removed.")
+            tr("The Nav document cannot be removed.")
         );
         return;
     }
@@ -1541,14 +1541,14 @@ void BookBrowser::RemoveResources(QList<Resource *> tab_resources, QList<Resourc
     NCXResource * ncx_resource = m_Book->GetNCX();
     if (ncx_resource && resources.contains(ncx_resource)) {
         Utility::DisplayStdErrorDialog(
-            tr("The NCX can not be removed.")
+            tr("The NCX cannot be removed.")
         );
         return;
     }
     Resource::ResourceType resource_type = resources.first()->Type();
     if (resource_type == Resource::OPFResourceType) {
         Utility::DisplayStdErrorDialog(
-            tr("The OPF is required for epub and can not be removed.")
+            tr("The OPF is required for epub and cannot be removed.")
         );
         return;
     }

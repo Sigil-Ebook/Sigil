@@ -720,7 +720,7 @@ void FlowTab::SplitSection()
     }
     HTMLResource * nav_resource = mainWindow->GetCurrentBook()->GetConstOPF()->GetNavResource();
     if (nav_resource && (nav_resource == m_HTMLResource)) {
-        Utility::DisplayStdErrorDialog("The Nav file can not be split");
+        Utility::DisplayStdErrorDialog("The Nav file cannot be split");
         return;
     }
 
@@ -748,7 +748,7 @@ void FlowTab::InsertSGFSectionMarker()
     }
     HTMLResource * nav_resource = mainWindow->GetCurrentBook()->GetConstOPF()->GetNavResource();
     if (nav_resource && (nav_resource == m_HTMLResource)) {
-        Utility::DisplayStdErrorDialog("The Nav file can not be split");
+        Utility::DisplayStdErrorDialog("The Nav file cannot be split");
         return;
     }
 

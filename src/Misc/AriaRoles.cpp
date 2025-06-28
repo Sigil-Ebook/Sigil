@@ -185,13 +185,13 @@ void AriaRoles::SetAriaRolesMap()
         tr("Acknowledgments") << "doc-acknowledgments" << tr("A section or statement that acknowledges significant contributions by persons, organizations, governments, and other entities to the realization of the work.") <<
         tr("Afterword") << "doc-afterword" << tr("A closing statement from the author or a person of importance, typically providing insight into how the content came to be written, its significance or related events that have transpired since its timeline.") <<
         tr("Appendix") << "doc-appendix" << tr("A section of supplemental information located after the primary content that informs the content but is not central to it.") <<
-        tr("Back Link") << "doc-backlink" << tr("A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary defintion to where a term is used.)") <<
+        tr("Back Link") << "doc-backlink" << tr("A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary definition to where a term is used.)") <<
         tr("Bibliography") << "doc-bibliography" << tr("A list of external references cited in the work, which may be to print or digital sources.") <<
         tr("Bibliography Entry") << "biblioentry" << tr("A single reference to an external source in a bibliography. [epub:type ONLY]") <<
         tr("Bibliography Reference") << "doc-biblioref" << tr("A reference to a bibliography entry.") <<
         tr("Chapter") << "doc-chapter" << tr("A major thematic section of content in a work.") <<
         tr("Colophon") << "doc-colophon" << tr("A short section of production notes particular to the edition (e.g., describing the typeface used), often located at the end of a work.") <<
-        tr("Conclusion") << "doc-conclusion" << tr("A concluding section or statment that summarizes the work or wraps up the narrative.") <<
+        tr("Conclusion") << "doc-conclusion" << tr("A concluding section or statement that summarizes the work or wraps up the narrative.") <<
         tr("Cover") << "doc-cover" << tr("An image that sets the mood or tone for the work and typically includes the title and author.") <<
         tr("Credit") << "doc-credit" << tr("An acknowledgement of the source of integrated content from third-party sources, such as photos.  Typically identifies the creator, copyright, and any restrictions on reuse.") <<
         tr("Credits") << "doc-credits" << tr("A collection of credits.") <<

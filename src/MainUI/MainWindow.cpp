@@ -3283,7 +3283,7 @@ void MainWindow::InsertClip()
         QString new_clip = addclip.GetSelectedClip();
         if (!new_clip.isEmpty()) {
             if (!flow_tab->PasteClipText(new_clip)) {
-                Utility::warning(this, tr("Sigil"), tr("You inserting an aria clip failed."));
+                Utility::warning(this, tr("Sigil"), tr("Inserting an aria clip failed."));
                 return;
             }
         }
@@ -3312,7 +3312,7 @@ void MainWindow::InsertRole()
             QStringList allowed_tags = AriaRoles::instance()->AllowedTags(new_code);
             if (!allowed_tags.isEmpty()) {
                 if (!allowed_tags.contains(tagname)) {
-                    Utility::warning(this, tr("Sigil"), tr("The selected role can not be used on this tag."));
+                    Utility::warning(this, tr("Sigil"), tr("The selected role cannot be used on this tag."));
                     return;
                 }
                 if (!flow_tab->InsertRole(new_code)) {

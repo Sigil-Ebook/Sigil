@@ -271,7 +271,7 @@ void PluginRunner::startPlugin()
     QStringList args;
     SettingsStore settings;
     if (!m_ready) {
-        Utility::DisplayStdErrorDialog(tr("Error: plugin can not start"));
+        Utility::DisplayStdErrorDialog(tr("Error: plugin cannot start"));
         return;
     }
     ui.textEdit->clear();

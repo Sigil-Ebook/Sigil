@@ -121,9 +121,9 @@ void PythonFunctionEditor::createFunction()
                                        QString(), &ok);
     if (ok) {
         if (fn.isEmpty()) {
-            QMessageBox::warning(this, tr("Warning"), tr("Name can not be empty"));
+            QMessageBox::warning(this, tr("Warning"), tr("Name cannot be empty"));
         } else if (m_funcmap.keys().contains(fn)) {
-            QMessageBox::warning(this, tr("Warning"), tr("Name can not be duplicate"));
+            QMessageBox::warning(this, tr("Warning"), tr("Name cannot be duplicate"));
 		} else {
             m_funcmap[fn] = QVariant(EMPTY_REPLACE_FUNCTION);
             m_cb->addItem(fn);
