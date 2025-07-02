@@ -92,12 +92,12 @@
     <message>
         <location filename="../../Form_Files/AddAutomatePlugin.ui" line="14"/>
         <source>Add Automate Plugin</source>
-        <translation>Adicione Plugin Automatizado</translation>
+        <translation>Adicione Extensão Automatizada</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddAutomatePlugin.ui" line="50"/>
         <source>Plugin description</source>
-        <translation>Descrição do Plugin</translation>
+        <translation>Descrição da Extensão</translation>
     </message>
 </context>
 <context>
@@ -858,8 +858,8 @@ se uma família de fontes sem serifa tiver sido especificada no seu CSS</transla
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="188"/>
-        <source>A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary defintion to where a term is used.)</source>
-        <translation>Um atalho que permite ao usuário voltar para um local relacionado no conteúdo (por exemplo, de uma nota de rodapé para sua referência ou de uma definição do glossário para onde o termo é usado.)</translation>
+        <source>A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary definition to where a term is used.)</source>
+        <translation>Um atalho que permite ao usuário voltar a um local relacionado no conteúdo (por exemplo, de uma nota de rodapé para sua referência ou de uma definição no glossário a onde o termo é usado.)</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="189"/>
@@ -918,8 +918,8 @@ se uma família de fontes sem serifa tiver sido especificada no seu CSS</transla
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="194"/>
-        <source>A concluding section or statment that summarizes the work or wraps up the narrative.</source>
-        <translation>Uma seção concludente ou declaração que resume a obra ou encerra a narrativa.</translation>
+        <source>A concluding section or statement that summarizes the work or wraps up the narrative.</source>
+        <translation>Uma seção ou afirmação de finalização que resume a obra ou encerra a narrativa.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="195"/>
@@ -1272,12 +1272,12 @@ se uma família de fontes sem serifa tiver sido especificada no seu CSS</transla
     <message>
         <location filename="../../Form_Files/AutomateEditor.ui" line="81"/>
         <source>Add a new Plugin element to the list.</source>
-        <translation>Adicionar um novo elemento de Plugin à lista.</translation>
+        <translation>Adicionar um novo elemento de Extensão à lista.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AutomateEditor.ui" line="84"/>
         <source>Add Plugin</source>
-        <translation>Adicionar extensão</translation>
+        <translation>Adicionar Extensão</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AutomateEditor.ui" line="109"/>
@@ -1318,7 +1318,7 @@ se uma família de fontes sem serifa tiver sido especificada no seu CSS</transla
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="183"/>
         <source>[String parameter for next Plugin run here]</source>
-        <translation>[Parâmetro da próxima extensão aqui]</translation>
+        <translation>[Parâmetro da próxima Extensão aqui]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="215"/>
@@ -1622,7 +1622,7 @@ Um arquivo com este nome já existe no livro.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1322"/>
-        <source>Filenames can not contain these characters: &quot;%1&quot;.</source>
+        <source>Filenames cannot contain these characters: &quot;%1&quot;.</source>
         <translation>Nomes de arquivos não podem conter estes caracteres: &quot;%1&quot;.</translation>
     </message>
     <message>
@@ -1642,18 +1642,18 @@ Um arquivo com este nome já existe no livro.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1536"/>
-        <source>The Nav document can not be removed.</source>
-        <translation>O arquivo NAV não pode ser removido.</translation>
+        <source>The Nav document cannot be removed.</source>
+        <translation>O documento de Navegação não pode ser removido.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1544"/>
-        <source>The NCX can not be removed.</source>
+        <source>The NCX cannot be removed.</source>
         <translation>O NCX não pode ser removido.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1551"/>
-        <source>The OPF is required for epub and can not be removed.</source>
-        <translation>O OPF é essencial para epubs e não pode ser removido.</translation>
+        <source>The OPF is required for epub and cannot be removed.</source>
+        <translation>O OPF é obrigatório para epub e não pode ser removido.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1560"/>
@@ -9391,7 +9391,7 @@ Folhas de estilos que são listadas primeiro tem precedência sobre as demais.</
     <message>
         <location filename="../../Form_Files/main.ui" line="413"/>
         <source>&amp;Plugins</source>
-        <translation>&amp;Plugins</translation>
+        <translation>E&amp;xtensões</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="419"/>
@@ -9468,12 +9468,12 @@ Folhas de estilos que são listadas primeiro tem precedência sobre as demais.</
     <message>
         <location filename="../../Form_Files/main.ui" line="633"/>
         <source>Plugins Set 1</source>
-        <translation>Configurar extensões 1</translation>
+        <translation>Configurar Extensões 1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="649"/>
         <source>Plugins Set 2</source>
-        <translation>Configurar extensões 2</translation>
+        <translation>Configurar Extensões 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="665"/>
@@ -11936,57 +11936,57 @@ Folhas de estilos que são listadas primeiro tem precedência sobre as demais.</
     <message>
         <location filename="../../Form_Files/main.ui" line="3060"/>
         <source>Manage Plugins</source>
-        <translation>Gerenciar extensões</translation>
+        <translation>Gerenciar Extensões</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3069"/>
         <source>Run Plugin 1</source>
-        <translation>Executar extensão 1</translation>
+        <translation>Executar Extensão 1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3078"/>
         <source>Run Plugin 2</source>
-        <translation>Executar extensão 2</translation>
+        <translation>Executar Extensão 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3087"/>
         <source>Run Plugin 3</source>
-        <translation>Executar extensão 3</translation>
+        <translation>Executar Extensão 3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3096"/>
         <source>Run Plugin 4</source>
-        <translation>Executar extensão 4</translation>
+        <translation>Executar Extensão 4</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3105"/>
         <source>Run Plugin 5</source>
-        <translation>Executar extensão 5</translation>
+        <translation>Executar Extensão 5</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3114"/>
         <source>Run Plugin 6</source>
-        <translation>Executar extensão 6</translation>
+        <translation>Executar Extensão 6</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3123"/>
         <source>Run Plugin 7</source>
-        <translation>Executar extensão 7</translation>
+        <translation>Executar Extensão 7</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3132"/>
         <source>Run Plugin 8</source>
-        <translation>Executar extensão 8</translation>
+        <translation>Executar Extensão 8</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3141"/>
         <source>Run Plugin 9</source>
-        <translation>Executar extensão 9</translation>
+        <translation>Executar Extensão 9</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3150"/>
         <source>Run Plugin 10</source>
-        <translation>Executar extensão 10</translation>
+        <translation>Executar Extensão 10</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3159"/>
@@ -12126,7 +12126,7 @@ Folhas de estilos que são listadas primeiro tem precedência sobre as demais.</
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="487"/>
         <source>Missing or unknown plugin or tool</source>
-        <translation>Plugin ou ferramenta ausente ou desconhecido</translation>
+        <translation>Extensão ou ferramenta ausente ou desconhecida</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="492"/>
@@ -12691,8 +12691,8 @@ Essa ação não poderá ser desfeita.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3286"/>
-        <source>You inserting an aria clip failed.</source>
-        <translation>Erro na inserção de um clip aria .</translation>
+        <source>Inserting an aria clip failed.</source>
+        <translation>A inserção de um clip aria deu problema.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3300"/>
@@ -12702,8 +12702,8 @@ Essa ação não poderá ser desfeita.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3315"/>
-        <source>The selected role can not be used on this tag.</source>
-        <translation>O role selecionado não pode ser utilizado nesta tag.</translation>
+        <source>The selected role cannot be used on this tag.</source>
+        <translation>O role selecionado não pode ser usado nesta tag.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3335"/>
@@ -12844,7 +12844,7 @@ Esta ação não pode ser desfeita.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4366"/>
         <source>RunPlugin</source>
-        <translation>Executar extensão</translation>
+        <translation>Executar Extensão</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4392"/>
@@ -17458,7 +17458,7 @@ Deseja corrigir automaticamente os arquivos antes de salvar? Ou cancelar o salva
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="14"/>
         <source>Plugin Runner</source>
-        <translation>Executador de extensão</translation>
+        <translation>Executor de Extensão</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PluginRunner.ui" line="28"/>
@@ -17537,8 +17537,8 @@ Deseja corrigir automaticamente os arquivos antes de salvar? Ou cancelar o salva
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="274"/>
-        <source>Error: plugin can not start</source>
-        <translation>Erro: a extensão não pode ser inicializada</translation>
+        <source>Error: plugin cannot start</source>
+        <translation>Erro: extensão não conseguiu ser executada</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="423"/>
@@ -17743,12 +17743,12 @@ Tem certeza que deseja continuar?</translation>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="210"/>
         <source>Add Plugin</source>
-        <translation>Adicionar extensão</translation>
+        <translation>Adicionar Extensão</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="220"/>
         <source>Remove Plugin</source>
-        <translation>Remover extensão</translation>
+        <translation>Remover Extensão</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="230"/>
@@ -17828,7 +17828,7 @@ Tem certeza que deseja continuar?</translation>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="230"/>
         <source>Error: Plugin plugin.xml is invalid or not supported on your operating system.</source>
-        <translation>Erro: O arquivo da extensão Extensão.xml é inválido ou não é compatível com seu sistema operacional.</translation>
+        <translation>Erro: O arquivo da extensão plugin.xml é inválido ou não é compatível com seu sistema operacional.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="233"/>
@@ -17838,12 +17838,12 @@ Tem certeza que deseja continuar?</translation>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="236"/>
         <source>Error: Plugin Could Not be Unzipped.</source>
-        <translation>Erro: Não foi possível descompactar a extensão.</translation>
+        <translation>Erro: Não foi Possível Descompactar a Extensão.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="239"/>
         <source>Error: Plugin not a valid Sigil plugin.</source>
-        <translation>Erro: a extensão não é uma extensão válido para o Sigil.</translation>
+        <translation>Erro: a Extensão não é uma extensão válido para o Sigil.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="277"/>
@@ -17853,7 +17853,7 @@ Tem certeza que deseja continuar?</translation>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="325"/>
         <source>Remove All Plugins</source>
-        <translation>Remover todas as extensões</translation>
+        <translation>Remover Todas as Extensões</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="326"/>
@@ -18025,12 +18025,12 @@ Entidades podem ser separadas por linhas, vírgulas ou espaços em branco.</tran
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="124"/>
-        <source>Name can not be empty</source>
+        <source>Name cannot be empty</source>
         <translation>Nome não pode estar vazio</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="126"/>
-        <source>Name can not be duplicate</source>
+        <source>Name cannot be duplicate</source>
         <translation>Nome não pode ser duplicado</translation>
     </message>
     <message>

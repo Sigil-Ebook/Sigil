@@ -859,7 +859,7 @@ si aucune famille sans-serif de police n&apos;est spécifiée dans votre CSS</tr
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="188"/>
-        <source>A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary defintion to where a term is used.)</source>
+        <source>A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary definition to where a term is used.)</source>
         <translation>Un lien permettant à l&apos;utilisateur de revenir à un emplacement connexe dans le contenu (par exemple, d&apos;une note de bas-de-page à ses références ou d&apos;une définition du glossaire à l&apos;endroit où un terme est utilisé).</translation>
     </message>
     <message>
@@ -919,7 +919,7 @@ si aucune famille sans-serif de police n&apos;est spécifiée dans votre CSS</tr
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="194"/>
-        <source>A concluding section or statment that summarizes the work or wraps up the narrative.</source>
+        <source>A concluding section or statement that summarizes the work or wraps up the narrative.</source>
         <translation>Une section ou une déclaration finale qui résume d&apos;un ouvrage ou conclut le récit.</translation>
     </message>
     <message>
@@ -1621,7 +1621,7 @@ Un fichier du même nom existe déjà dans le livre.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1322"/>
-        <source>Filenames can not contain these characters: &quot;%1&quot;.</source>
+        <source>Filenames cannot contain these characters: &quot;%1&quot;.</source>
         <translation>Les noms de fichiers ne peuvent pas contenir ces caractères : “%1”.</translation>
     </message>
     <message>
@@ -1641,17 +1641,17 @@ Un fichier du même nom existe déjà dans le livre.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1536"/>
-        <source>The Nav document can not be removed.</source>
+        <source>The Nav document cannot be removed.</source>
         <translation>Le document Nav ne peut pas être supprimé.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1544"/>
-        <source>The NCX can not be removed.</source>
+        <source>The NCX cannot be removed.</source>
         <translation>Le NCX ne peut pas être supprimé.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1551"/>
-        <source>The OPF is required for epub and can not be removed.</source>
+        <source>The OPF is required for epub and cannot be removed.</source>
         <translation>L&apos;OPF est requit dans un ePub et ne peut pas être supprimé.</translation>
     </message>
     <message>
@@ -12637,8 +12637,8 @@ Cette action ne peut pas être annulée.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3286"/>
-        <source>You inserting an aria clip failed.</source>
-        <translation>L&apos;insertion d&apos;un Clip Aria a échoué.</translation>
+        <source>Inserting an aria clip failed.</source>
+        <translation>Échec de l&apos;insertion d&apos;un Clip Aria.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3300"/>
@@ -12648,7 +12648,7 @@ Cette action ne peut pas être annulée.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3315"/>
-        <source>The selected role can not be used on this tag.</source>
+        <source>The selected role cannot be used on this tag.</source>
         <translation>Le rôle sélectionné ne peut pas être utilisé sur cette balise.</translation>
     </message>
     <message>
@@ -17484,7 +17484,7 @@ propriété</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="274"/>
-        <source>Error: plugin can not start</source>
+        <source>Error: plugin cannot start</source>
         <translation>Erreur : le greffon ne peut pas démarrer</translation>
     </message>
     <message>
@@ -17972,12 +17972,12 @@ Les entités peuvent être séparées pas des lignes, des virgules ou des espace
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="124"/>
-        <source>Name can not be empty</source>
+        <source>Name cannot be empty</source>
         <translation>Un nom ne peut pas être vide</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="126"/>
-        <source>Name can not be duplicate</source>
+        <source>Name cannot be duplicate</source>
         <translation>Un nom ne peut pas être en double</translation>
     </message>
     <message>

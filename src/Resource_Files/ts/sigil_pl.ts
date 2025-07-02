@@ -859,7 +859,7 @@ została określona rodzina czcionek bezszeryfowych</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="188"/>
-        <source>A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary defintion to where a term is used.)</source>
+        <source>A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary definition to where a term is used.)</source>
         <translation>Łącze umożliwiające powrót do powiązanego miejsca w treści (np. z przypisu do jego odniesienia lub ze słownika do miejsca użycia terminu).</translation>
     </message>
     <message>
@@ -919,7 +919,7 @@ została określona rodzina czcionek bezszeryfowych</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="194"/>
-        <source>A concluding section or statment that summarizes the work or wraps up the narrative.</source>
+        <source>A concluding section or statement that summarizes the work or wraps up the narrative.</source>
         <translation>Końcowa sekcja lub oświadczenie podsumowujące pracę lub zamykające narrację.</translation>
     </message>
     <message>
@@ -1623,7 +1623,7 @@ Plik o tej samej nazwie już jest w książce.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1322"/>
-        <source>Filenames can not contain these characters: &quot;%1&quot;.</source>
+        <source>Filenames cannot contain these characters: &quot;%1&quot;.</source>
         <translation>Nazwa pliku nie może zawierać tych znaków: &quot;%1&quot;.</translation>
     </message>
     <message>
@@ -1643,17 +1643,17 @@ Plik o tej samej nazwie już jest w książce.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1536"/>
-        <source>The Nav document can not be removed.</source>
-        <translation>Dokumentu Nav nie można usunąć.</translation>
+        <source>The Nav document cannot be removed.</source>
+        <translation>Nie można usunąć dokumentu Nav.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1544"/>
-        <source>The NCX can not be removed.</source>
+        <source>The NCX cannot be removed.</source>
         <translation>Nie można usunąć pliku NCX.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1551"/>
-        <source>The OPF is required for epub and can not be removed.</source>
+        <source>The OPF is required for epub and cannot be removed.</source>
         <translation>OPF musi istnieć w pliku EPUB i nie można go usunąć.</translation>
     </message>
     <message>
@@ -12656,7 +12656,7 @@ Tej akcji nie można cofnąć.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3286"/>
-        <source>You inserting an aria clip failed.</source>
+        <source>Inserting an aria clip failed.</source>
         <translation>Wstawienie wycinka Aria nie powiodło się.</translation>
     </message>
     <message>
@@ -12667,7 +12667,7 @@ Tej akcji nie można cofnąć.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3315"/>
-        <source>The selected role can not be used on this tag.</source>
+        <source>The selected role cannot be used on this tag.</source>
         <translation>Wybrana rola nie może być używana na tym znaczniku.</translation>
     </message>
     <message>
@@ -17501,7 +17501,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="274"/>
-        <source>Error: plugin can not start</source>
+        <source>Error: plugin cannot start</source>
         <translation>Błąd: wtyczki nie można uruchomić</translation>
     </message>
     <message>
@@ -17989,12 +17989,12 @@ Encje mogą być oddzielone liniami, przecinkami lub spacjami.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="124"/>
-        <source>Name can not be empty</source>
+        <source>Name cannot be empty</source>
         <translation>Nazwa nie może być pusta</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="126"/>
-        <source>Name can not be duplicate</source>
+        <source>Name cannot be duplicate</source>
         <translation>Nazwa nie może być zduplikowana</translation>
     </message>
     <message>

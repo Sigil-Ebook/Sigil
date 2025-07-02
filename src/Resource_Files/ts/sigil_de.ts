@@ -118,12 +118,12 @@
     <message>
         <location filename="../../Form_Files/AddClips.ui" line="14"/>
         <source>Add Aria Clips</source>
-        <translation type="unfinished"/>
+        <translation>Aria-Clips hinzufügen</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddClips.ui" line="56"/>
         <source>Aria Clips Code Template</source>
-        <translation type="unfinished"/>
+        <translation>Aria-Clips-Code-Vorlage</translation>
     </message>
 </context>
 <context>
@@ -144,12 +144,12 @@
     <message>
         <location filename="../../Form_Files/AddRoles.ui" line="14"/>
         <source>Add Aria Roles</source>
-        <translation type="unfinished"/>
+        <translation>Aria-Rollen hinzufügen</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddRoles.ui" line="56"/>
         <source>Description of Aria Roles</source>
-        <translation type="unfinished"/>
+        <translation>Beschreibung von Aria-Rollen</translation>
     </message>
 </context>
 <context>
@@ -677,17 +677,17 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="32"/>
         <source>CHAPTER_TITLE_HERE</source>
-        <translation type="unfinished"/>
+        <translation>KAPITEL_TITEL_HIER</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="34"/>
         <source>HREF_TO_ENDNOTE</source>
-        <translation type="unfinished"/>
+        <translation>HREF_ZUR_ENDNOTE</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="35"/>
         <source>HREF_RETURN_FROM_ENDNOTE</source>
-        <translation type="unfinished"/>
+        <translation>HREF_FÜR_RÜCKKEHR_VON_ENDNOTE</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="37"/>
@@ -697,7 +697,7 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="38"/>
         <source>Tip</source>
-        <translation type="unfinished"/>
+        <translation>Tipp</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="39"/>
@@ -707,22 +707,22 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="40"/>
         <source>Page</source>
-        <translation type="unfinished"/>
+        <translation>Seite</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="42"/>
         <source>Back to</source>
-        <translation type="unfinished"/>
+        <translation>Zurück zu</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="44"/>
         <source>To footnote</source>
-        <translation type="unfinished"/>
+        <translation>Zu Fußnote</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="45"/>
         <source>To endnote</source>
-        <translation type="unfinished"/>
+        <translation>Zu Endnote</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="181"/>
@@ -732,82 +732,82 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="183"/>
         <source>Aside: Sidebar</source>
-        <translation type="unfinished"/>
+        <translation>Nebenbemerkung: Seitenleiste</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="185"/>
         <source>Aside: Tip</source>
-        <translation type="unfinished"/>
+        <translation>Nebenbemerkung: Tipp</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="187"/>
         <source>Backlink from Footnote</source>
-        <translation type="unfinished"/>
+        <translation>Rückverweis von Fußnote</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="189"/>
         <source>Backlink from Endnote</source>
-        <translation type="unfinished"/>
+        <translation>Rückverweis von Endnote</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="191"/>
         <source>Endnote in li</source>
-        <translation type="unfinished"/>
+        <translation>Fußnote in li-Tag</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="193"/>
         <source>Footnote in aside</source>
-        <translation type="unfinished"/>
+        <translation>Fußnote in aside-Tag</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="195"/>
         <source>Footnote in div</source>
-        <translation type="unfinished"/>
+        <translation>Fußnote in div-Tag</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="197"/>
         <source>Footnote in p</source>
-        <translation type="unfinished"/>
+        <translation>Fußnote in p-Tag</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="199"/>
         <source>PageBreak in hr</source>
-        <translation type="unfinished"/>
+        <translation>Seitenumbruch in hr-Tag</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="201"/>
         <source>PageBreak in span</source>
-        <translation type="unfinished"/>
+        <translation>Seitenumbruch in span-Tag</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="203"/>
         <source>Reference to Footnote</source>
-        <translation type="unfinished"/>
+        <translation>Verweis auf Fußnote</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="205"/>
         <source>Reference to Endnote</source>
-        <translation type="unfinished"/>
+        <translation>Verweis auf Endnote</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="207"/>
         <source>Section</source>
-        <translation type="unfinished"/>
+        <translation>Abschnitt</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="209"/>
         <source>Section: Chapter</source>
-        <translation type="unfinished"/>
+        <translation>Abschnitt: Kapitel</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="211"/>
         <source>Section: Endnotes</source>
-        <translation type="unfinished"/>
+        <translation>Abschnitt: Endnoten</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="213"/>
         <source>Section: Footnotes</source>
-        <translation type="unfinished"/>
+        <translation>Abschnitt: Fußnoten</translation>
     </message>
 </context>
 <context>
@@ -815,12 +815,12 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="184"/>
         <source>Abstract</source>
-        <translation>Inhaltsangabe</translation>
+        <translation>Zusammenfassung</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="184"/>
         <source>A short summary of the principle ideas, concepts and conclusions of the work, or of section or excerpt within it.</source>
-        <translation type="unfinished"/>
+        <translation>Eine kurze Zusammenfassung der wichtigsten Ideen, Konzepte und Schlussfolgerungen des Werks oder eines Abschnitts oder Auszugs daraus.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="185"/>
@@ -830,7 +830,7 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="185"/>
         <source>A section or statement that acknowledges significant contributions by persons, organizations, governments, and other entities to the realization of the work.</source>
-        <translation type="unfinished"/>
+        <translation>Ein Abschnitt oder eine Erklärung, die bedeutende Beiträge von Personen, Organisationen, Regierungen und anderen Einrichtungen zur Entstehung des Werks anerkennt.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="186"/>
@@ -840,7 +840,7 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="186"/>
         <source>A closing statement from the author or a person of importance, typically providing insight into how the content came to be written, its significance or related events that have transpired since its timeline.</source>
-        <translation type="unfinished"/>
+        <translation>Eine abschließende Stellungnahme des Autors oder einer wichtigen Person, die in der Regel Einblicke darin gibt, wie der Inhalt entstanden ist, welche Bedeutung er hat oder welche damit zusammenhängenden Ereignisse seitdem stattgefunden haben.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="187"/>
@@ -850,16 +850,16 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="187"/>
         <source>A section of supplemental information located after the primary content that informs the content but is not central to it.</source>
-        <translation type="unfinished"/>
+        <translation>Ein Abschnitt mit ergänzenden Informationen, der nach dem Hauptinhalt platziert ist, den Inhalt unterstützt, aber nicht im Mittelpunkt steht.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="188"/>
         <source>Back Link</source>
-        <translation type="unfinished"/>
+        <translation>Rückverweis</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="188"/>
-        <source>A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary defintion to where a term is used.)</source>
+        <source>A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary definition to where a term is used.)</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -870,27 +870,27 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="189"/>
         <source>A list of external references cited in the work, which may be to print or digital sources.</source>
-        <translation type="unfinished"/>
+        <translation>Eine Liste externer Quellen, die im Werk zitiert werden und sowohl Print- als auch digitale Quellen umfassen können.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="190"/>
         <source>Bibliography Entry</source>
-        <translation type="unfinished"/>
+        <translation>Literaturangabe</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="190"/>
         <source>A single reference to an external source in a bibliography. [epub:type ONLY]</source>
-        <translation type="unfinished"/>
+        <translation>Ein einzelner Verweis auf eine externe Quelle in einer Bibliografie. [NUR epub:type]</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="191"/>
         <source>Bibliography Reference</source>
-        <translation type="unfinished"/>
+        <translation>Literaturverweis</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="191"/>
         <source>A reference to a bibliography entry.</source>
-        <translation type="unfinished"/>
+        <translation>Ein Verweis auf eine Literaturangabe in einer Bibliografie.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="192"/>
@@ -900,7 +900,7 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="192"/>
         <source>A major thematic section of content in a work.</source>
-        <translation type="unfinished"/>
+        <translation>Ein thematisch bedeutender Abschnitt des Inhalts eines Werks.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="193"/>
@@ -910,7 +910,7 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="193"/>
         <source>A short section of production notes particular to the edition (e.g., describing the typeface used), often located at the end of a work.</source>
-        <translation type="unfinished"/>
+        <translation>Ein kurzer Abschnitt mit Produktionsnotizen, die für die Ausgabe spezifisch sind (z. B. Beschreibung der verwendeten Schriftart), oft am Ende eines Werks zu finden.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="194"/>
@@ -919,7 +919,7 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="194"/>
-        <source>A concluding section or statment that summarizes the work or wraps up the narrative.</source>
+        <source>A concluding section or statement that summarizes the work or wraps up the narrative.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -930,27 +930,27 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="195"/>
         <source>An image that sets the mood or tone for the work and typically includes the title and author.</source>
-        <translation type="unfinished"/>
+        <translation>Ein Bild, das die Stimmung oder den Ton des Werks festlegt und typischerweise den Titel und den Autor enthält.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="196"/>
         <source>Credit</source>
-        <translation type="unfinished"/>
+        <translation>Danksagung</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="196"/>
         <source>An acknowledgement of the source of integrated content from third-party sources, such as photos.  Typically identifies the creator, copyright, and any restrictions on reuse.</source>
-        <translation type="unfinished"/>
+        <translation>Ein Hinweis auf die Quelle von integriertem Inhalt aus Drittquellen, wie zum Beispiel Fotos. In der Regel werden der Urheber, das Urheberrecht und eventuelle Einschränkungen zur Wiederverwendung angegeben.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="197"/>
         <source>Credits</source>
-        <translation type="unfinished"/>
+        <translation>Danksagungen</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="197"/>
         <source>A collection of credits.</source>
-        <translation type="unfinished"/>
+        <translation>Eine Sammlung von Danksagungen.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="198"/>
@@ -960,17 +960,17 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="198"/>
         <source>An inscription at the front of the work, typically addressed in tribute to one or more persons close to the author.</source>
-        <translation type="unfinished"/>
+        <translation>Eine Inschrift am Anfang des Werks, die in der Regel als Widmung an eine oder mehrere dem Autor nahestehende Personen gerichtet ist.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="199"/>
         <source>Endnote</source>
-        <translation type="unfinished"/>
+        <translation>Endnote</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="199"/>
         <source>One of a collection of notes that occur at the end of a work, or a section within it that provides additional context to a referenced passage of text. [epub:type ONLY]</source>
-        <translation type="unfinished"/>
+        <translation>Eine von mehreren Anmerkungen, die am Ende eines Werks erscheinen, oder ein Abschnitt innerhalb des Werks, der zusätzlichen Kontext zu einer referenzierten Textstelle bietet. [NUR epub:type]</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="200"/>
@@ -990,7 +990,7 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="201"/>
         <source>A quotation set at the start of the work or a section that establishes the theme or sets the mood.</source>
-        <translation type="unfinished"/>
+        <translation>Ein Zitat, das am Anfang des Werks oder eines Abschnitts steht und das Thema einführt oder die Stimmung vorgibt.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="202"/>
@@ -1000,7 +1000,7 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="202"/>
         <source>A concluding section of narrative that wraps up or comments on the actions and events of the work, typically from a future perspective.</source>
-        <translation type="unfinished"/>
+        <translation>Ein abschließender Abschnitt der Erzählung, der die Handlungen und Ereignisse des Werks zusammenfasst oder kommentiert, typischerweise aus einer zukünftigen Perspektive.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="203"/>
@@ -1010,27 +1010,27 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="203"/>
         <source>A set of corrections discovered after initial publication of the work, sometimes referred to as corrigenda.</source>
-        <translation type="unfinished"/>
+        <translation>Eine Sammlung von Korrekturen, die nach der Erstveröffentlichung des Werks entdeckt wurden, manchmal auch als Corrigenda bezeichnet.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="204"/>
         <source>Example</source>
-        <translation type="unfinished"/>
+        <translation>Beispiel</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="204"/>
         <source>An illustration of a key concept of the work, such as a code listing, case study or problem. [aria role ONLY]</source>
-        <translation type="unfinished"/>
+        <translation>Eine Illustration eines zentralen Konzepts des Werks, wie zum Beispiel ein Codebeispiel, eine Fallstudie oder eine Aufgabenstellung. [NUR aria-Rolle]</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="205"/>
         <source>Footnote</source>
-        <translation type="unfinished"/>
+        <translation>Fußnote</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="205"/>
         <source>Ancillary information, such as a citation or commentary, that provides additional context to a referenced passage of text.</source>
-        <translation type="unfinished"/>
+        <translation>Zusätzliche Informationen, wie ein Zitat oder ein Kommentar, die zusätzlichen Kontext zu einer referenzierten Textstelle bieten.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="206"/>
@@ -1040,7 +1040,7 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="206"/>
         <source>A collection of footnotes. [epub:type ONLY]</source>
-        <translation type="unfinished"/>
+        <translation>Eine Sammlung von Fußnoten. [NUR epub:type]</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="207"/>
@@ -1050,7 +1050,7 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="207"/>
         <source>An introductory section that precedes the work, typically not written by the author of the work.</source>
-        <translation type="unfinished"/>
+        <translation>Ein einleitender Abschnitt, der dem Werk vorangestellt ist und in der Regel nicht vom Autor des Werks selbst verfasst wurde.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="208"/>
@@ -1060,17 +1060,17 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="208"/>
         <source>A brief dictionary of new, uncommon, or specialized terms used in the content.</source>
-        <translation type="unfinished"/>
+        <translation>Ein kurzes Wörterbuch mit neuen, ungebräuchlichen oder fachsprachlichen Begriffen, die im Inhalt verwendet werden.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="209"/>
         <source>Glossary Reference</source>
-        <translation type="unfinished"/>
+        <translation>Glossar-Verweis</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="209"/>
         <source>A reference to a glossary definition.</source>
-        <translation type="unfinished"/>
+        <translation>Ein Verweis auf eine Glossardefinition.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="210"/>
@@ -1080,7 +1080,7 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="210"/>
         <source>A navigational aid that provides a detailed list of links to key subjects, names and other important topics covered in the work.</source>
-        <translation type="unfinished"/>
+        <translation>Ein Navigationshilfsmittel, das eine detaillierte Liste von Links zu wichtigen Themen, Namen und anderen bedeutenden Inhalten des Werks bietet.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="211"/>
@@ -1090,17 +1090,17 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="211"/>
         <source>A preliminary section that typically introduces the scope or nature of the work.</source>
-        <translation type="unfinished"/>
+        <translation>Ein einleitender Abschnitt, der typischerweise den Umfang oder die Art des Werks vorstellt.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="212"/>
         <source>Note Reference</source>
-        <translation type="unfinished"/>
+        <translation>Anmerkungsverweis</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="212"/>
         <source>A reference to a footnote or endnote, typically appearing as a superscripted number or symbol in the main body of the text.</source>
-        <translation type="unfinished"/>
+        <translation>Ein Verweis auf eine Fußnote oder Endnote, der typischerweise als hochgestellte Zahl oder Symbol im Haupttext erscheint.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="213"/>
@@ -1110,37 +1110,37 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="213"/>
         <source>Notifies the user of consequences that might arise from an action or event.  Examples include warnings, cautions and dangers.</source>
-        <translation type="unfinished"/>
+        <translation>Weist den Nutzer auf mögliche Konsequenzen einer Handlung oder eines Ereignisses hin. Beispiele sind Warnungen, Hinweise und Gefahren.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="214"/>
         <source>Pagebreak</source>
-        <translation type="unfinished"/>
+        <translation>Seitenumbruch</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="214"/>
         <source>A separator denoting the position before which a break occurs between contiguous pages in a statically paginated version of the content.</source>
-        <translation type="unfinished"/>
+        <translation>Ein Trennzeichen, das die Stelle markiert, vor der ein Seitenumbruch in einer statisch paginierten Version des Inhalts erfolgt.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="215"/>
         <source>Page Footer</source>
-        <translation type="unfinished"/>
+        <translation>Fußzeile</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="215"/>
         <source>A section of text appearing at the bottom of a page that provides context about the current work and location within it. The page footer is distinct from the body text and normally follows a repeating template that contains (possibly truncated) items such as the document title, current section, author name(s), and page number.</source>
-        <translation type="unfinished"/>
+        <translation>Ein Textabschnitt am unteren Rand einer Seite, der Kontext zum aktuellen Werk und zur Position innerhalb des Werks bietet. Die Fußzeile ist vom Fließtext getrennt und folgt normalerweise einer sich wiederholenden Vorlage, die (möglicherweise gekürzte) Angaben wie den Dokumenttitel, den aktuellen Abschnitt, den/die Autor(en) und die Seitenzahl enthält.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="216"/>
         <source>Page Header</source>
-        <translation type="unfinished"/>
+        <translation>Kopfzeile</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="216"/>
         <source>A section of text appearing at the top of a page that provides context about the current work and location within it. The page header is distinct from the body text and normally follows a repeating template that contains (possibly truncated) items such as the document title, current section, author name(s), and page number.</source>
-        <translation type="unfinished"/>
+        <translation>Ein Textabschnitt am oberen Rand einer Seite, der Kontext zum aktuellen Werk und zur Position innerhalb des Werks bietet. Die Kopfzeile ist vom Fließtext getrennt und folgt normalerweise einer sich wiederholenden Vorlage, die (möglicherweise gekürzte) Angaben wie den Dokumenttitel, den aktuellen Abschnitt, den/die Autor(en) und die Seitenzahl enthält.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="217"/>
@@ -1150,7 +1150,7 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="217"/>
         <source>A navigational aid that provides a list of links to the page breaks in the content.</source>
-        <translation type="unfinished"/>
+        <translation>Ein Navigationshilfsmittel, das eine Liste von Links zu den Seitenumbrüchen im Inhalt bietet.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="218"/>
@@ -1160,7 +1160,7 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="218"/>
         <source>A major structural division in a work that contains a set of related sections dealing with a particular subject, narrative arc, or similar encapsulated theme.</source>
-        <translation type="unfinished"/>
+        <translation>Eine bedeutende strukturelle Unterteilung in einem Werk, die eine Reihe zusammenhängender Abschnitte zu einem bestimmten Thema, Handlungsbogen oder ähnlichem abgeschlossenen Themenbereich enthält.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="219"/>
@@ -1170,7 +1170,7 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="219"/>
         <source>A section at the beginning of a work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content. [epub:type ONLY]</source>
-        <translation type="unfinished"/>
+        <translation>Ein Abschnitt am Anfang eines Werks, der typischerweise einleitenden und/oder erklärenden Text zum Umfang oder zur Art des Inhalts enthält. [NUR epub:type]</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="220"/>
@@ -1180,7 +1180,7 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="220"/>
         <source>An introductory section that precedes the work, typically written by the author of the work.</source>
-        <translation type="unfinished"/>
+        <translation>Ein einleitender Abschnitt, der dem Werk vorangestellt ist und in der Regel vom Autor des Werks selbst verfasst wurde.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="221"/>
@@ -1190,17 +1190,17 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="221"/>
         <source>An introductory section that sets the background to a work, typically part of the narrative.</source>
-        <translation type="unfinished"/>
+        <translation>Ein einleitender Abschnitt, der den Hintergrund zu einem Werk liefert und typischerweise Teil der Erzählung ist.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="222"/>
         <source>Pull Quote</source>
-        <translation type="unfinished"/>
+        <translation>Textzitat</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="222"/>
         <source>A distinctively placed or highlighted quotation from the current content designed to draw attention to a topic or highlight a key point.</source>
-        <translation type="unfinished"/>
+        <translation>Ein auffällig platzierter oder hervorgehobener Auszug aus dem aktuellen Inhalt, der die Aufmerksamkeit auf ein Thema lenken oder einen wichtigen Punkt hervorheben soll.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="223"/>
@@ -1210,27 +1210,27 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="223"/>
         <source>A section of content structured as a series of questions and answers, such as an interview or list of frequently asked questions.</source>
-        <translation type="unfinished"/>
+        <translation>Ein Inhaltsabschnitt, der als Reihe von Fragen und Antworten strukturiert ist, wie zum Beispiel ein Interview oder eine Liste häufig gestellter Fragen.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="224"/>
         <source>Subtitle</source>
-        <translation type="unfinished"/>
+        <translation>Untertitel</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="224"/>
         <source>An explanatory or alternate title for the work, or a section or components within it.</source>
-        <translation type="unfinished"/>
+        <translation>Ein erläuternder oder alternativer Titel für das Werk oder für einen Abschnitt oder Bestandteil davon.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="225"/>
         <source>Tip</source>
-        <translation type="unfinished"/>
+        <translation>Tipp</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="225"/>
         <source>Helpful information that clarifies some aspect of the content or assists in comprehension.</source>
-        <translation type="unfinished"/>
+        <translation>Hilfreiche Informationen, die einen Aspekt des Inhalts erläutern oder das Verständnis erleichtern.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="226"/>
@@ -1240,7 +1240,7 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="226"/>
         <source>A navigational aid that provides an ordered list of links to the major sectional headings in the content.  A table of contents may cover an entire work, or only a smaller section of it.</source>
-        <translation type="unfinished"/>
+        <translation>Ein Navigationshilfsmittel, das eine geordnete Liste von Links zu den wichtigsten Abschnittsüberschriften im Inhalt bietet. Ein Inhaltsverzeichnis kann das gesamte Werk oder nur einen kleineren Teil davon abdecken.</translation>
     </message>
 </context>
 <context>
@@ -1329,7 +1329,7 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="215"/>
         <source>Cannot save an empty automation list.</source>
-        <translation type="unfinished"/>
+        <translation>Eine leere Automatisierungsliste kann nicht gespeichert werden.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="227"/>
@@ -1339,7 +1339,7 @@ Sans-Serif-Schriftfamilie in der CSS-Datei angegeben wurde.</translation>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="227"/>
         <source>Failed to save automation list to %1</source>
-        <translation type="unfinished"/>
+        <translation>Automatisierungsliste konnte nicht als %1 gespeichert werden.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="331"/>
@@ -1623,8 +1623,8 @@ Eine Datei mit diesem Namen existiert bereits im Buch.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1322"/>
-        <source>Filenames can not contain these characters: &quot;%1&quot;.</source>
-        <translation>Dateinamen dürfen nicht diese Zeichen &quot;%1&quot; enthalten.</translation>
+        <source>Filenames cannot contain these characters: &quot;%1&quot;.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1384"/>
@@ -1643,18 +1643,18 @@ Eine Datei mit diesem Namen existiert bereits im Buch.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1536"/>
-        <source>The Nav document can not be removed.</source>
-        <translation>Die Nav-Datei kann nicht gelöscht werden.</translation>
+        <source>The Nav document cannot be removed.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1544"/>
-        <source>The NCX can not be removed.</source>
-        <translation>Die NCX-Datei kann nicht gelöscht werden.</translation>
+        <source>The NCX cannot be removed.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1551"/>
-        <source>The OPF is required for epub and can not be removed.</source>
-        <translation>Die OPF-Datei ist ein wesentlicher EPUB-Bestandteil und kann nicht gelöscht werden.</translation>
+        <source>The OPF is required for epub and cannot be removed.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1560"/>
@@ -4667,7 +4667,7 @@ HTML-Datei bereinigen.</translation>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="181"/>
         <source>A collection of notes appearing at the bottom of a page.</source>
-        <translation>Eine Sammlung von Noten am Ende einer Seite.</translation>
+        <translation>Eine Sammlung von Anmerkungen am unteren Rand einer Seite.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="182"/>
@@ -4797,7 +4797,8 @@ HTML-Datei bereinigen.</translation>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="194"/>
         <source>A collection of notes. It can be used to identify footnotes, rear notes, marginal notes, inline notes, and similar when legacy naming conventions are not desired. Status: Deprecated - Replaced by: &apos;footnotes&apos;, &apos;rearnotes&apos;</source>
-        <translation>Eine Liste von Noten. Kann für Fußnoten, Anhangsnoten, Randnoten usw. verwendet werden, wenn genauere Angaben nicht gewünscht werden. Status: veraltet - wurde durch Fuß- und Anhangsnoten ersetzt. </translation>
+        <translation>Eine Sammlung von Anmerkungen. Sie kann verwendet werden, um Fußnoten, Endnoten, Randnotizen, Inline-Anmerkungen und Ähnliches zu kennzeichnen, wenn herkömmliche Bezeichnungen nicht gewünscht sind.
+Status: Veraltet – ersetzt durch: „footnotes“, „rearnotes“.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="195"/>
@@ -6054,7 +6055,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="212"/>
         <source>A warning or caution about specific material. Status: Deprecated - Replaced by &apos;notice&apos;.</source>
-        <translation>Eine Warnung vor speziellen Inhalten. Status: veraltet - Ersetzt durch &apos;Benachrichtigung&apos;.</translation>
+        <translation>Eine Warnung oder ein Hinweis bezüglich bestimmter Inhalte. Status: Veraltet – ersetzt durch „Hinweis“.</translation>
     </message>
 </context>
 <context>
@@ -10006,26 +10007,30 @@ Zuerst aufgeführte Stylesheets haben Vorrang vor später hinzugefügten Stylesh
     <message>
         <location filename="../../Form_Files/main.ui" line="1398"/>
         <source>Aria Clip...</source>
-        <translation type="unfinished"/>
+        <translation>Aria-Clip...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1401"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Aria Clip&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert a Aria code clip.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Aria Clip einfügen&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Fügt einen Aria-Code-Clip ein.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1412"/>
         <source>Role...</source>
-        <translation type="unfinished"/>
+        <translation>Rolle...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1415"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Aria Role&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert an Aria role and any associated epub:type.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Aria-Rolle einfügen&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Fügt eine Aria-Rolle und das äquivalente epub:type-Attribut ein.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1426"/>
@@ -12638,22 +12643,22 @@ Diese Änderung kann nicht rückgängig gemacht werden.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3267"/>
         <source>You can only insert an aria clips in xhtml files.</source>
-        <translation type="unfinished"/>
+        <translation>Aria-Clips können nur in XTHML-Dateien eingefügt werden.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3286"/>
-        <source>You inserting an aria clip failed.</source>
+        <source>Inserting an aria clip failed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3300"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3319"/>
         <source>You cannot insert an aria role at this position.</source>
-        <translation type="unfinished"/>
+        <translation>Sie können hier keinen Aria-Clip einfügen.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3315"/>
-        <source>The selected role can not be used on this tag.</source>
+        <source>The selected role cannot be used on this tag.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -17489,8 +17494,8 @@ Möchten Sie die Dateien vor dem Speichern automatisch bereinigen? Oder möchten
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="274"/>
-        <source>Error: plugin can not start</source>
-        <translation>Fehler: Plugin kann nicht gestartet werden</translation>
+        <source>Error: plugin cannot start</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="423"/>
@@ -17977,13 +17982,13 @@ HTML-Entitäten können durch Zeilen, Komma oder Leerzeichen getrennt werden.</t
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="124"/>
-        <source>Name can not be empty</source>
-        <translation>Name darf nicht leer sein</translation>
+        <source>Name cannot be empty</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="126"/>
-        <source>Name can not be duplicate</source>
-        <translation>Name kann nur einmal verwendet werden</translation>
+        <source>Name cannot be duplicate</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="141"/>

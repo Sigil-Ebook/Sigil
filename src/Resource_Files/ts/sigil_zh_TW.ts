@@ -859,7 +859,7 @@ if a sans-serif font-family specified in your CSS</source>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="188"/>
-        <source>A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary defintion to where a term is used.)</source>
+        <source>A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary definition to where a term is used.)</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -919,7 +919,7 @@ if a sans-serif font-family specified in your CSS</source>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="194"/>
-        <source>A concluding section or statment that summarizes the work or wraps up the narrative.</source>
+        <source>A concluding section or statement that summarizes the work or wraps up the narrative.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1623,7 +1623,7 @@ A file with this name already exists in the book.</source>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1322"/>
-        <source>Filenames can not contain these characters: &quot;%1&quot;.</source>
+        <source>Filenames cannot contain these characters: &quot;%1&quot;.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1643,18 +1643,18 @@ A file with this name already exists in the book.</source>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1536"/>
-        <source>The Nav document can not be removed.</source>
-        <translation>無法移除 Nav 文件。</translation>
+        <source>The Nav document cannot be removed.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1544"/>
-        <source>The NCX can not be removed.</source>
-        <translation>無法移除 NCX。</translation>
+        <source>The NCX cannot be removed.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1551"/>
-        <source>The OPF is required for epub and can not be removed.</source>
-        <translation>epub 需要 OPF，無法移除。</translation>
+        <source>The OPF is required for epub and cannot be removed.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1560"/>
@@ -12622,7 +12622,7 @@ This action cannot be reversed.</source>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3286"/>
-        <source>You inserting an aria clip failed.</source>
+        <source>Inserting an aria clip failed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -12633,7 +12633,7 @@ This action cannot be reversed.</source>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3315"/>
-        <source>The selected role can not be used on this tag.</source>
+        <source>The selected role cannot be used on this tag.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -17467,8 +17467,8 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="274"/>
-        <source>Error: plugin can not start</source>
-        <translation>錯誤：無法啟動外掛</translation>
+        <source>Error: plugin cannot start</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="423"/>
@@ -17955,12 +17955,12 @@ Entities can be separated by lines, commas, or spaces.</source>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="124"/>
-        <source>Name can not be empty</source>
+        <source>Name cannot be empty</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="126"/>
-        <source>Name can not be duplicate</source>
+        <source>Name cannot be duplicate</source>
         <translation type="unfinished"/>
     </message>
     <message>

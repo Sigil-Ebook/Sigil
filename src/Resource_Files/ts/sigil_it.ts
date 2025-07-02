@@ -677,7 +677,7 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="32"/>
         <source>CHAPTER_TITLE_HERE</source>
-        <translation type="unfinished"/>
+        <translation>QUI_IL_TITOLO_CAPITOLO</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="34"/>
@@ -702,42 +702,42 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="39"/>
         <source>Sidebar</source>
-        <translation type="unfinished"/>
+        <translation>Barra laterale</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="40"/>
         <source>Page</source>
-        <translation type="unfinished"/>
+        <translation>Pagina</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="42"/>
         <source>Back to</source>
-        <translation type="unfinished"/>
+        <translation>Indietro</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="44"/>
         <source>To footnote</source>
-        <translation type="unfinished"/>
+        <translation>Al pie&apos; di pagina</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="45"/>
         <source>To endnote</source>
-        <translation type="unfinished"/>
+        <translation>Alla nota finale</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="181"/>
         <source>Aside</source>
-        <translation type="unfinished"/>
+        <translation>Da parte</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="183"/>
         <source>Aside: Sidebar</source>
-        <translation type="unfinished"/>
+        <translation>Da parte: Barra laterale</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="185"/>
         <source>Aside: Tip</source>
-        <translation type="unfinished"/>
+        <translation>Da parte: Suggerimento</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="187"/>
@@ -792,22 +792,22 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="207"/>
         <source>Section</source>
-        <translation type="unfinished"/>
+        <translation>Sezione</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="209"/>
         <source>Section: Chapter</source>
-        <translation type="unfinished"/>
+        <translation>Sezione: Capitolo</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="211"/>
         <source>Section: Endnotes</source>
-        <translation type="unfinished"/>
+        <translation>Sezione: Note finali</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="213"/>
         <source>Section: Footnotes</source>
-        <translation type="unfinished"/>
+        <translation>Sezione: Pie&apos; di pagine</translation>
     </message>
 </context>
 <context>
@@ -820,7 +820,7 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="184"/>
         <source>A short summary of the principle ideas, concepts and conclusions of the work, or of section or excerpt within it.</source>
-        <translation type="unfinished"/>
+        <translation>Un breve riassunto delle idee principali, dei concetti e delle conclusioni dell&apos;opera, o di una sezione o di un estratto al suo interno.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="185"/>
@@ -830,7 +830,7 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="185"/>
         <source>A section or statement that acknowledges significant contributions by persons, organizations, governments, and other entities to the realization of the work.</source>
-        <translation type="unfinished"/>
+        <translation>Una sezione o dichiarazione che riconosce i contributi significativi forniti da persone, organizzazioni, governi e altre entità alla realizzazione dell&apos;opera.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="186"/>
@@ -840,7 +840,7 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="186"/>
         <source>A closing statement from the author or a person of importance, typically providing insight into how the content came to be written, its significance or related events that have transpired since its timeline.</source>
-        <translation type="unfinished"/>
+        <translation>Dichiarazione conclusiva dell&apos;autore o di una persona importante, che in genere fornisce informazioni su come il contenuto è stato scritto, sul suo significato o sugli eventi correlati accaduti nel tempo.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="187"/>
@@ -850,16 +850,16 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="187"/>
         <source>A section of supplemental information located after the primary content that informs the content but is not central to it.</source>
-        <translation type="unfinished"/>
+        <translation>Una sezione di informazioni supplementari situata dopo il contenuto principale che informa sul contenuto ma non ne è centrale.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="188"/>
         <source>Back Link</source>
-        <translation type="unfinished"/>
+        <translation>Collegamento indietro</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="188"/>
-        <source>A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary defintion to where a term is used.)</source>
+        <source>A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary definition to where a term is used.)</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -919,7 +919,7 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="194"/>
-        <source>A concluding section or statment that summarizes the work or wraps up the narrative.</source>
+        <source>A concluding section or statement that summarizes the work or wraps up the narrative.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1623,8 +1623,8 @@ Un file con questo nome esiste già nel libro.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1322"/>
-        <source>Filenames can not contain these characters: &quot;%1&quot;.</source>
-        <translation>I nomi file non possono contenere i seguenti caratteri: &quot;%1&quot;.</translation>
+        <source>Filenames cannot contain these characters: &quot;%1&quot;.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1384"/>
@@ -1643,18 +1643,18 @@ Un file con questo nome esiste già nel libro.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1536"/>
-        <source>The Nav document can not be removed.</source>
-        <translation>Il documento Nav  non può essere rimosso.</translation>
+        <source>The Nav document cannot be removed.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1544"/>
-        <source>The NCX can not be removed.</source>
-        <translation>Il file NCX non può essere cancellato</translation>
+        <source>The NCX cannot be removed.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1551"/>
-        <source>The OPF is required for epub and can not be removed.</source>
-        <translation>Il file OPF è indispensabile per epub e non può essere cancellato.</translation>
+        <source>The OPF is required for epub and cannot be removed.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1560"/>
@@ -12613,7 +12613,7 @@ Questa azione non può essere annullata.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3286"/>
-        <source>You inserting an aria clip failed.</source>
+        <source>Inserting an aria clip failed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -12624,7 +12624,7 @@ Questa azione non può essere annullata.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3315"/>
-        <source>The selected role can not be used on this tag.</source>
+        <source>The selected role cannot be used on this tag.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -17291,7 +17291,7 @@ eseguito il fac-simile.</translation>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="173"/>
         <source>using \C is disabled by the application</source>
-        <translation type="unfinished"/>
+        <translation>l&apos;utilizzo di \C è disabilitato dall&apos;applicazione</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="174"/>
@@ -17321,12 +17321,12 @@ eseguito il fac-simile.</translation>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="181"/>
         <source>internal error: unknown code in parsed pattern</source>
-        <translation type="unfinished"/>
+        <translation>errore interno: codice sconosciuto nel modello analizzato</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="184"/>
         <source>internal error: bad code value in parsed_skip()</source>
-        <translation type="unfinished"/>
+        <translation>errore interno: valore codice errato in parsed_skip()</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="185"/>
@@ -17346,7 +17346,7 @@ eseguito il fac-simile.</translation>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="188"/>
         <source>invalid hyphen in option setting</source>
-        <translation type="unfinished"/>
+        <translation>trattino non valido nell&apos;impostazione delle opzioni</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="191"/>
@@ -17458,8 +17458,8 @@ eseguito il fac-simile.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="274"/>
-        <source>Error: plugin can not start</source>
-        <translation>Errore: il plugin non può avviarsi</translation>
+        <source>Error: plugin cannot start</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="423"/>
@@ -17946,12 +17946,12 @@ Le entità possono essere separate da linee, virgole o spazi.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="124"/>
-        <source>Name can not be empty</source>
+        <source>Name cannot be empty</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="126"/>
-        <source>Name can not be duplicate</source>
+        <source>Name cannot be duplicate</source>
         <translation type="unfinished"/>
     </message>
     <message>

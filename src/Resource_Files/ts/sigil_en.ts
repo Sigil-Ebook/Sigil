@@ -859,8 +859,8 @@ if a sans-serif font-family specified in your CSS</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="188"/>
-        <source>A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary defintion to where a term is used.)</source>
-        <translation>A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary defintion to where a term is used.)</translation>
+        <source>A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary definition to where a term is used.)</source>
+        <translation>A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary definition to where a term is used.)</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="189"/>
@@ -919,8 +919,8 @@ if a sans-serif font-family specified in your CSS</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="194"/>
-        <source>A concluding section or statment that summarizes the work or wraps up the narrative.</source>
-        <translation>A concluding section or statment that summarizes the work or wraps up the narrative.</translation>
+        <source>A concluding section or statement that summarizes the work or wraps up the narrative.</source>
+        <translation>A concluding section or statement that summarizes the work or wraps up the narrative.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="195"/>
@@ -1623,8 +1623,8 @@ A file with this name already exists in the book.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1322"/>
-        <source>Filenames can not contain these characters: &quot;%1&quot;.</source>
-        <translation>Filenames can not contain these characters: &quot;%1&quot;.</translation>
+        <source>Filenames cannot contain these characters: &quot;%1&quot;.</source>
+        <translation>Filenames cannot contain these characters: &quot;%1&quot;.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1384"/>
@@ -1643,18 +1643,18 @@ A file with this name already exists in the book.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1536"/>
-        <source>The Nav document can not be removed.</source>
-        <translation>The Nav document can not be removed.</translation>
+        <source>The Nav document cannot be removed.</source>
+        <translation>The Nav document cannot be removed.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1544"/>
-        <source>The NCX can not be removed.</source>
-        <translation>The NCX can not be removed.</translation>
+        <source>The NCX cannot be removed.</source>
+        <translation>The NCX cannot be removed.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1551"/>
-        <source>The OPF is required for epub and can not be removed.</source>
-        <translation>The OPF is required for epub and can not be removed.</translation>
+        <source>The OPF is required for epub and cannot be removed.</source>
+        <translation>The OPF is required for epub and cannot be removed.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1560"/>
@@ -12654,8 +12654,8 @@ This action cannot be reversed.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3286"/>
-        <source>You inserting an aria clip failed.</source>
-        <translation>You inserting an aria clip failed.</translation>
+        <source>Inserting an aria clip failed.</source>
+        <translation>Inserting an aria clip failed.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3300"/>
@@ -12665,8 +12665,8 @@ This action cannot be reversed.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3315"/>
-        <source>The selected role can not be used on this tag.</source>
-        <translation>The selected role can not be used on this tag.</translation>
+        <source>The selected role cannot be used on this tag.</source>
+        <translation>The selected role cannot be used on this tag.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3335"/>
@@ -17500,8 +17500,8 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="274"/>
-        <source>Error: plugin can not start</source>
-        <translation>Error: plugin can not start</translation>
+        <source>Error: plugin cannot start</source>
+        <translation>Error: plugin cannot start</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="423"/>
@@ -17988,13 +17988,13 @@ Entities can be separated by lines, commas, or spaces.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="124"/>
-        <source>Name can not be empty</source>
-        <translation>Name can not be empty</translation>
+        <source>Name cannot be empty</source>
+        <translation>Name cannot be empty</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="126"/>
-        <source>Name can not be duplicate</source>
-        <translation>Name can not be duplicate</translation>
+        <source>Name cannot be duplicate</source>
+        <translation>Name cannot be duplicate</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="141"/>
