@@ -27,3 +27,5 @@ You don't need to keep the virtual environment activated after this point to use
 > `deactivate`
 
 That's it. Now open Sigil's Preferences, go to the Plugin section, click the 'Set' button, browse to /home/[username]/sigilpy/bin/ and select the python binary. Make sure the latest testplugin is installed and use it to verify all tests are passing. Or if you don't have Sigil compiled yet, go back to the build instructions and configure Sigil's plugin preferences after you have Sigil up and running.
+
+NOTE: on some linux distros, the command may be `python3` rather than `python`.
