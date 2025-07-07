@@ -118,12 +118,12 @@
     <message>
         <location filename="../../Form_Files/AddClips.ui" line="14"/>
         <source>Add Aria Clips</source>
-        <translation type="unfinished"/>
+        <translation>Додај Aria клипове</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddClips.ui" line="56"/>
         <source>Aria Clips Code Template</source>
-        <translation type="unfinished"/>
+        <translation>Шаблон Aria клипова кода</translation>
     </message>
 </context>
 <context>
@@ -144,12 +144,12 @@
     <message>
         <location filename="../../Form_Files/AddRoles.ui" line="14"/>
         <source>Add Aria Roles</source>
-        <translation type="unfinished"/>
+        <translation>Додај Aria улоге</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddRoles.ui" line="56"/>
         <source>Description of Aria Roles</source>
-        <translation type="unfinished"/>
+        <translation>Опис Aria улога</translation>
     </message>
 </context>
 <context>
@@ -677,17 +677,17 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="32"/>
         <source>CHAPTER_TITLE_HERE</source>
-        <translation type="unfinished"/>
+        <translation>ОВДЕ_ИДЕ_НАСЛОВ_ПОГЛАВЉА</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="34"/>
         <source>HREF_TO_ENDNOTE</source>
-        <translation type="unfinished"/>
+        <translation>HREF_НА_БЕЛЕШКУ_НА_КРАЈУ</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="35"/>
         <source>HREF_RETURN_FROM_ENDNOTE</source>
-        <translation type="unfinished"/>
+        <translation>HREF_ПОВРАТАК_СА_БЕЛЕШКЕ_НА_КРАЈУ</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="37"/>
@@ -697,117 +697,117 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="38"/>
         <source>Tip</source>
-        <translation type="unfinished"/>
+        <translation>Савет</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="39"/>
         <source>Sidebar</source>
-        <translation type="unfinished"/>
+        <translation>Бочна трака</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="40"/>
         <source>Page</source>
-        <translation type="unfinished"/>
+        <translation>Страница</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="42"/>
         <source>Back to</source>
-        <translation type="unfinished"/>
+        <translation>Назад на</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="44"/>
         <source>To footnote</source>
-        <translation type="unfinished"/>
+        <translation>На фусноту</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="45"/>
         <source>To endnote</source>
-        <translation type="unfinished"/>
+        <translation>На белешку на крају</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="181"/>
         <source>Aside</source>
-        <translation type="unfinished"/>
+        <translation>Aside</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="183"/>
         <source>Aside: Sidebar</source>
-        <translation type="unfinished"/>
+        <translation>Aside: Бочна трака</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="185"/>
         <source>Aside: Tip</source>
-        <translation type="unfinished"/>
+        <translation>Aside: Савет</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="187"/>
         <source>Backlink from Footnote</source>
-        <translation type="unfinished"/>
+        <translation>Повратни линк са фусноте</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="189"/>
         <source>Backlink from Endnote</source>
-        <translation type="unfinished"/>
+        <translation>Повратни линк са белешке на крају</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="191"/>
         <source>Endnote in li</source>
-        <translation type="unfinished"/>
+        <translation>Белешка на крају у li</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="193"/>
         <source>Footnote in aside</source>
-        <translation type="unfinished"/>
+        <translation>Фуснота у aside</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="195"/>
         <source>Footnote in div</source>
-        <translation type="unfinished"/>
+        <translation>Фуснота у div</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="197"/>
         <source>Footnote in p</source>
-        <translation type="unfinished"/>
+        <translation>Фуснота у p</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="199"/>
         <source>PageBreak in hr</source>
-        <translation type="unfinished"/>
+        <translation>ПреломСтранице у hr</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="201"/>
         <source>PageBreak in span</source>
-        <translation type="unfinished"/>
+        <translation>ПреломСтранице у span</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="203"/>
         <source>Reference to Footnote</source>
-        <translation type="unfinished"/>
+        <translation>Референца на фусноту</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="205"/>
         <source>Reference to Endnote</source>
-        <translation type="unfinished"/>
+        <translation>Референца на белешку на крају</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="207"/>
         <source>Section</source>
-        <translation type="unfinished"/>
+        <translation>Section</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="209"/>
         <source>Section: Chapter</source>
-        <translation type="unfinished"/>
+        <translation>Section: Поглавље</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="211"/>
         <source>Section: Endnotes</source>
-        <translation type="unfinished"/>
+        <translation>Section: Белешке на крају</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="213"/>
         <source>Section: Footnotes</source>
-        <translation type="unfinished"/>
+        <translation>Section: Фусноте</translation>
     </message>
 </context>
 <context>
@@ -815,12 +815,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="184"/>
         <source>Abstract</source>
-        <translation type="unfinished"/>
+        <translation>Сажетак</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="184"/>
         <source>A short summary of the principle ideas, concepts and conclusions of the work, or of section or excerpt within it.</source>
-        <translation type="unfinished"/>
+        <translation>Кратак преглед основних идеја, концепата и закључака рада, или одељка или одломка у њему.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="185"/>
@@ -830,7 +830,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="185"/>
         <source>A section or statement that acknowledges significant contributions by persons, organizations, governments, and other entities to the realization of the work.</source>
-        <translation type="unfinished"/>
+        <translation>Одељак или изјава која признаје значајни допринос особа, организација, влада и осталих ентитета у реализацији рада.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="186"/>
@@ -840,7 +840,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="186"/>
         <source>A closing statement from the author or a person of importance, typically providing insight into how the content came to be written, its significance or related events that have transpired since its timeline.</source>
-        <translation type="unfinished"/>
+        <translation>Завршна изјава аутора или важне особе, која типично даје увид у то како је садржај написан, његову важност, или повезане догађаје који су се догодили од када је почео њен временски ток.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="187"/>
@@ -850,17 +850,17 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="187"/>
         <source>A section of supplemental information located after the primary content that informs the content but is not central to it.</source>
-        <translation type="unfinished"/>
+        <translation>Одељак додатних информација који се налази након основног садржаја и који даје информације о садржају, али није од централне важности.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="188"/>
         <source>Back Link</source>
-        <translation type="unfinished"/>
+        <translation>Повратни линк</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="188"/>
         <source>A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary definition to where a term is used.)</source>
-        <translation type="unfinished"/>
+        <translation>Линк који кориснику омогућава да се врати на повезану локацију у садржају (нпр. из фусноте на њену референцу, или из дефиниције у речнику на место употребе тог термина.)</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="189"/>
@@ -870,27 +870,27 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="189"/>
         <source>A list of external references cited in the work, which may be to print or digital sources.</source>
-        <translation type="unfinished"/>
+        <translation>Листа спољних референци цитираних у раду које могу бити штампани или дигитални извори.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="190"/>
         <source>Bibliography Entry</source>
-        <translation type="unfinished"/>
+        <translation>Библиографска ставка</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="190"/>
         <source>A single reference to an external source in a bibliography. [epub:type ONLY]</source>
-        <translation type="unfinished"/>
+        <translation>Једна референца на спољни извор у библиографији. [САМО epub:type]</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="191"/>
         <source>Bibliography Reference</source>
-        <translation type="unfinished"/>
+        <translation>Библиографска референца</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="191"/>
         <source>A reference to a bibliography entry.</source>
-        <translation type="unfinished"/>
+        <translation>Референца на библиографску ставку.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="192"/>
@@ -900,7 +900,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="192"/>
         <source>A major thematic section of content in a work.</source>
-        <translation type="unfinished"/>
+        <translation>Главни тематски одељак садржаја у раду.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="193"/>
@@ -910,7 +910,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="193"/>
         <source>A short section of production notes particular to the edition (e.g., describing the typeface used), often located at the end of a work.</source>
-        <translation type="unfinished"/>
+        <translation>Кратак одељак продукционих белешки које се односе на издање (нпр. опис типографског писма које се користи), често се налази на крају рада.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="194"/>
@@ -920,7 +920,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="194"/>
         <source>A concluding section or statement that summarizes the work or wraps up the narrative.</source>
-        <translation type="unfinished"/>
+        <translation>Завршни одељак или изјава која резимира рад или заокружује наратив.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="195"/>
@@ -930,27 +930,27 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="195"/>
         <source>An image that sets the mood or tone for the work and typically includes the title and author.</source>
-        <translation type="unfinished"/>
+        <translation>Слика која поставља расположење или тон рада и типично садржи наслов и аутора.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="196"/>
         <source>Credit</source>
-        <translation type="unfinished"/>
+        <translation>Заслуга</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="196"/>
         <source>An acknowledgement of the source of integrated content from third-party sources, such as photos.  Typically identifies the creator, copyright, and any restrictions on reuse.</source>
-        <translation type="unfinished"/>
+        <translation>Признање извора интегрисаног садржаја који долази од трећих страна, као што су фотографије. Типично наводи креатора, ауторска права и евентуална ограничења поновне употребе.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="197"/>
         <source>Credits</source>
-        <translation type="unfinished"/>
+        <translation>Заслуге</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="197"/>
         <source>A collection of credits.</source>
-        <translation type="unfinished"/>
+        <translation>Колекција заслуга.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="198"/>
@@ -960,27 +960,27 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="198"/>
         <source>An inscription at the front of the work, typically addressed in tribute to one or more persons close to the author.</source>
-        <translation type="unfinished"/>
+        <translation>Натпис на почетку рада, типично усмерен на почаст једној или више особа блиских аутору.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="199"/>
         <source>Endnote</source>
-        <translation type="unfinished"/>
+        <translation>Белешка на крају</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="199"/>
         <source>One of a collection of notes that occur at the end of a work, or a section within it that provides additional context to a referenced passage of text. [epub:type ONLY]</source>
-        <translation type="unfinished"/>
+        <translation>Једна из колекције белешки које се јављају на крају рада, или одељка у њему и која пружа додатни контекст референцираном пасажу текста. [САМО epub:type] </translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="200"/>
         <source>Endnotes</source>
-        <translation type="unfinished"/>
+        <translation>Белешке на крају</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="200"/>
         <source>A collection of notes at the end of a work or a section within it.</source>
-        <translation type="unfinished"/>
+        <translation>Колекција белешки која се јавља на крају дела или одељка у њему.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="201"/>
@@ -990,7 +990,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="201"/>
         <source>A quotation set at the start of the work or a section that establishes the theme or sets the mood.</source>
-        <translation type="unfinished"/>
+        <translation>Цитат који се поставља на почетак рада или одељка који утврђује тему или успоставља расположење.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="202"/>
@@ -1000,7 +1000,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="202"/>
         <source>A concluding section of narrative that wraps up or comments on the actions and events of the work, typically from a future perspective.</source>
-        <translation type="unfinished"/>
+        <translation>Завршни одељак наратива који заокружује или коментарише акције и догађаје рада, типично из будуће перспективе.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="203"/>
@@ -1010,27 +1010,27 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="203"/>
         <source>A set of corrections discovered after initial publication of the work, sometimes referred to as corrigenda.</source>
-        <translation type="unfinished"/>
+        <translation>Скуп корекција откривених након почетног издања дела, понекад се назива и коригенда.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="204"/>
         <source>Example</source>
-        <translation type="unfinished"/>
+        <translation>Пример</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="204"/>
         <source>An illustration of a key concept of the work, such as a code listing, case study or problem. [aria role ONLY]</source>
-        <translation type="unfinished"/>
+        <translation>Илустрација кључног концепта дела, као што је листинг кода, студија случаја или проблем. [САМО aria role]</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="205"/>
         <source>Footnote</source>
-        <translation type="unfinished"/>
+        <translation>Фуснота</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="205"/>
         <source>Ancillary information, such as a citation or commentary, that provides additional context to a referenced passage of text.</source>
-        <translation type="unfinished"/>
+        <translation>Допунска информација, као што је цитат или коментар, која пружа додатни контекст референцираном пасажу текста.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="206"/>
@@ -1040,7 +1040,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="206"/>
         <source>A collection of footnotes. [epub:type ONLY]</source>
-        <translation type="unfinished"/>
+        <translation>Колекција фусноти. [САМО epub:type]</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="207"/>
@@ -1050,7 +1050,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="207"/>
         <source>An introductory section that precedes the work, typically not written by the author of the work.</source>
-        <translation type="unfinished"/>
+        <translation>Уводни одељак који претходи делу, обично га није написао сам аутор дела.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="208"/>
@@ -1060,17 +1060,17 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="208"/>
         <source>A brief dictionary of new, uncommon, or specialized terms used in the content.</source>
-        <translation type="unfinished"/>
+        <translation>Кратак речник нових, неуобичајених или специјализованих термина који се користе у садржају.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="209"/>
         <source>Glossary Reference</source>
-        <translation type="unfinished"/>
+        <translation>Референца речнка</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="209"/>
         <source>A reference to a glossary definition.</source>
-        <translation type="unfinished"/>
+        <translation>Референца на дефиницију у речнику.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="210"/>
@@ -1080,7 +1080,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="210"/>
         <source>A navigational aid that provides a detailed list of links to key subjects, names and other important topics covered in the work.</source>
-        <translation type="unfinished"/>
+        <translation>Навигациона помоћ која обезбеђује детаљну листу кључних субјеката, имена и осталих важних тема које су покривене у раду.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="211"/>
@@ -1090,17 +1090,17 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="211"/>
         <source>A preliminary section that typically introduces the scope or nature of the work.</source>
-        <translation type="unfinished"/>
+        <translation>Почетни одељак који најчешће уводи читаоца у тему или природу садржаја дела.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="212"/>
         <source>Note Reference</source>
-        <translation type="unfinished"/>
+        <translation>Референца белешке</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="212"/>
         <source>A reference to a footnote or endnote, typically appearing as a superscripted number or symbol in the main body of the text.</source>
-        <translation type="unfinished"/>
+        <translation>Референца на фусноту или белешку на крају, типично се у главном телу текста појављује као број или симбол написан у експоненту.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="213"/>
@@ -1110,37 +1110,37 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="213"/>
         <source>Notifies the user of consequences that might arise from an action or event.  Examples include warnings, cautions and dangers.</source>
-        <translation type="unfinished"/>
+        <translation>Обавештава корисника о последицама које би могле проистећи из акције или догађаја. Примери су упозорења и опасности.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="214"/>
         <source>Pagebreak</source>
-        <translation type="unfinished"/>
+        <translation>Прелом странице</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="214"/>
         <source>A separator denoting the position before which a break occurs between contiguous pages in a statically paginated version of the content.</source>
-        <translation type="unfinished"/>
+        <translation>Граничник који означава позицију испред које се јавља прелом у континуалном току страница код статички преломљене верзије садржаја.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="215"/>
         <source>Page Footer</source>
-        <translation type="unfinished"/>
+        <translation>Подножје странице</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="215"/>
         <source>A section of text appearing at the bottom of a page that provides context about the current work and location within it. The page footer is distinct from the body text and normally follows a repeating template that contains (possibly truncated) items such as the document title, current section, author name(s), and page number.</source>
-        <translation type="unfinished"/>
+        <translation>Одељак текста који се јавља на дну странице и који обезбеђује контекст о текућем делу и локацији унутар њега. Подножје странице је одвојено од тела текста и обично следи понављајући шаблон који садржи (можда одсечене) ставке као што су наслов документа, текући одељак, име(на) аутора и број странице.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="216"/>
         <source>Page Header</source>
-        <translation type="unfinished"/>
+        <translation>Заглавље странице</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="216"/>
         <source>A section of text appearing at the top of a page that provides context about the current work and location within it. The page header is distinct from the body text and normally follows a repeating template that contains (possibly truncated) items such as the document title, current section, author name(s), and page number.</source>
-        <translation type="unfinished"/>
+        <translation>Одељак текста који се јавља на врху странице и који обезбеђује контекст о текућем делу и локацији унутар њега. Заглавље странице је одвојено од тела текста и обично следи понављајући шаблон који садржи (можда одсечене) ставке као што су наслов документа, текући одељак, име(на) аутора и број странице.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="217"/>
@@ -1150,7 +1150,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="217"/>
         <source>A navigational aid that provides a list of links to the page breaks in the content.</source>
-        <translation type="unfinished"/>
+        <translation>Навигациона помоћ која обезбеђује листу линкова на преломе страница у садржају.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="218"/>
@@ -1160,7 +1160,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="218"/>
         <source>A major structural division in a work that contains a set of related sections dealing with a particular subject, narrative arc, or similar encapsulated theme.</source>
-        <translation type="unfinished"/>
+        <translation>Главна структурна подела у делу која садржи скуп повезаних одељака који се баве одређеном темом, луком наратива или сличном обухваћеном темом.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="219"/>
@@ -1170,7 +1170,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="219"/>
         <source>A section at the beginning of a work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content. [epub:type ONLY]</source>
-        <translation type="unfinished"/>
+        <translation>Одељак на почетку дела који најчешће садржи уводну и/или објашњујућу прозу која се тиче теме или природе садржаја дела. [САМО epub:type]</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="220"/>
@@ -1180,7 +1180,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="220"/>
         <source>An introductory section that precedes the work, typically written by the author of the work.</source>
-        <translation type="unfinished"/>
+        <translation>Уводни одељак који претходи делу, обично га је написао сам аутор дела.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="221"/>
@@ -1190,17 +1190,17 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="221"/>
         <source>An introductory section that sets the background to a work, typically part of the narrative.</source>
-        <translation type="unfinished"/>
+        <translation>Уводни одељак који даје позадину дела, обично је део наратива.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="222"/>
         <source>Pull Quote</source>
-        <translation type="unfinished"/>
+        <translation>Истакнути цитат</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="222"/>
         <source>A distinctively placed or highlighted quotation from the current content designed to draw attention to a topic or highlight a key point.</source>
-        <translation type="unfinished"/>
+        <translation>Упечатљиво постављен или истакнут цитат из текућег садржаја осмишљен тако да привуче пажњу на тему или да истакне кључни смисао.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="223"/>
@@ -1210,27 +1210,27 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="223"/>
         <source>A section of content structured as a series of questions and answers, such as an interview or list of frequently asked questions.</source>
-        <translation type="unfinished"/>
+        <translation>Одељак садржаја организован као низ питања и одговора, као што је интервју или листа често постављаних питања.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="224"/>
         <source>Subtitle</source>
-        <translation type="unfinished"/>
+        <translation>Поднаслов</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="224"/>
         <source>An explanatory or alternate title for the work, or a section or components within it.</source>
-        <translation type="unfinished"/>
+        <translation>Описни или алтернативни наслов дела, одељка или компоненте у њему.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="225"/>
         <source>Tip</source>
-        <translation type="unfinished"/>
+        <translation>Савет</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="225"/>
         <source>Helpful information that clarifies some aspect of the content or assists in comprehension.</source>
-        <translation type="unfinished"/>
+        <translation>Корисна информација која разјашњава неки аспект садржаја или помаже у разумевању.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="226"/>
@@ -1240,7 +1240,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="226"/>
         <source>A navigational aid that provides an ordered list of links to the major sectional headings in the content.  A table of contents may cover an entire work, or only a smaller section of it.</source>
-        <translation type="unfinished"/>
+        <translation>Навигациона помоће која обезбеђује уређену листу линкова на главне наслове одељака у садржају. Садржај може да покрије цело дело, или само мали његов део.</translation>
     </message>
 </context>
 <context>
@@ -1329,7 +1329,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="215"/>
         <source>Cannot save an empty automation list.</source>
-        <translation type="unfinished"/>
+        <translation>Не може да се сачува празна листа аутоматизације.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="227"/>
@@ -1339,7 +1339,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="227"/>
         <source>Failed to save automation list to %1</source>
-        <translation type="unfinished"/>
+        <translation>Није успело чување листе аутоматизације у %1</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="331"/>
@@ -1624,7 +1624,7 @@ A file with this name already exists in the book.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1322"/>
         <source>Filenames cannot contain these characters: &quot;%1&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>Имена фајлова не смеју да садрже следеће карактере: „%1”.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1384"/>
@@ -1644,17 +1644,17 @@ A file with this name already exists in the book.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1536"/>
         <source>The Nav document cannot be removed.</source>
-        <translation type="unfinished"/>
+        <translation>Nav документ не може да се уклони.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1544"/>
         <source>The NCX cannot be removed.</source>
-        <translation type="unfinished"/>
+        <translation>NCX не може да се уклони.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1551"/>
         <source>The OPF is required for epub and cannot be removed.</source>
-        <translation type="unfinished"/>
+        <translation>OPF је неопходан за epub и не може да се уклони.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1560"/>
@@ -5731,12 +5731,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="180"/>
         <source>Endnotes</source>
-        <translation type="unfinished"/>
+        <translation>Белешке на крају</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="180"/>
         <source>A collection of notes at the end of a work or a section within it.</source>
-        <translation type="unfinished"/>
+        <translation>Колекција белешки која се јавља на крају дела или одељка у њему.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="181"/>
@@ -5996,7 +5996,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="206"/>
         <source>A collection of notes appearing at the rear (backmatter) of the work, or at the end of a section. Status: Deprecated</source>
-        <translation type="unfinished"/>
+        <translation>Колекција белешки која се јавља на крају дела (у позадинској материји), или на крају одељка. Статус: застарело</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="207"/>
@@ -10008,26 +10008,30 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1398"/>
         <source>Aria Clip...</source>
-        <translation type="unfinished"/>
+        <translation>Aria клип…</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1401"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Aria Clip&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert a Aria code clip.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Уметни Aria клип&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Умеће клип Aria кода.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1412"/>
         <source>Role...</source>
-        <translation type="unfinished"/>
+        <translation>Улога</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1415"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Aria Role&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert an Aria role and any associated epub:type.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Уметни Aria улогу&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Умеће Aria улогу и било који придружени epub:type.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1426"/>
@@ -10802,7 +10806,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2109"/>
         <source>Restart Current Search</source>
-        <translation type="unfinished"/>
+        <translation>Поново покрени текућу претрагу</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2114"/>
@@ -12646,23 +12650,23 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3267"/>
         <source>You can only insert an aria clips in xhtml files.</source>
-        <translation type="unfinished"/>
+        <translation>Aria клипове можете да умећете само у xhtml фајлове.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3286"/>
         <source>Inserting an aria clip failed.</source>
-        <translation type="unfinished"/>
+        <translation>Није успело уметање aria клипа.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3300"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3319"/>
         <source>You cannot insert an aria role at this position.</source>
-        <translation type="unfinished"/>
+        <translation>На ову позицију не можете да уметнете aria улогу.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3315"/>
         <source>The selected role cannot be used on this tag.</source>
-        <translation type="unfinished"/>
+        <translation>Изабрана улога не може да се користи на овој ознаци.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3335"/>
@@ -17497,7 +17501,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="274"/>
         <source>Error: plugin cannot start</source>
-        <translation type="unfinished"/>
+        <translation>Грешка: не може да се покрене додатак</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="423"/>
@@ -17985,12 +17989,12 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="124"/>
         <source>Name cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Име не може да буде празно</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="126"/>
         <source>Name cannot be duplicate</source>
-        <translation type="unfinished"/>
+        <translation>Име не може да буде дупликат</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="141"/>

@@ -677,17 +677,17 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="32"/>
         <source>CHAPTER_TITLE_HERE</source>
-        <translation type="unfinished"/>
+        <translation>CHAPTER_TITLE_HERE</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="34"/>
         <source>HREF_TO_ENDNOTE</source>
-        <translation type="unfinished"/>
+        <translation>HREF_TO_ENDNOTE</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="35"/>
         <source>HREF_RETURN_FROM_ENDNOTE</source>
-        <translation type="unfinished"/>
+        <translation>HREF_RETURN_FROM_ENDNOTE</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="37"/>
@@ -707,7 +707,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="40"/>
         <source>Page</source>
-        <translation type="unfinished"/>
+        <translation>Страница</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="42"/>
@@ -1015,7 +1015,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="204"/>
         <source>Example</source>
-        <translation type="unfinished"/>
+        <translation>Пример</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="204"/>
@@ -1624,7 +1624,7 @@ A file with this name already exists in the book.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1322"/>
         <source>Filenames cannot contain these characters: &quot;%1&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>Имена файлов не могут содержать символы: «%1».</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1384"/>
@@ -1644,17 +1644,17 @@ A file with this name already exists in the book.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1536"/>
         <source>The Nav document cannot be removed.</source>
-        <translation type="unfinished"/>
+        <translation>Невозможно удалить документ Nav.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1544"/>
         <source>The NCX cannot be removed.</source>
-        <translation type="unfinished"/>
+        <translation>NCX не может быть удалён.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1551"/>
         <source>The OPF is required for epub and cannot be removed.</source>
-        <translation type="unfinished"/>
+        <translation>OPF требуется для EPUB и не может быть удалён.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1560"/>
@@ -9011,7 +9011,7 @@ Use Preferences-&gt;Spellcheck Dictionaries to set the Spellcheck dictionary.</s
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="43"/>
         <source>User Interface Language:</source>
-        <translation>Язык пользовательского интерфейса:</translation>
+        <translation>Язык интерфейса пользователя:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="57"/>
@@ -9390,7 +9390,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="517"/>
         <source>Undo/Redo</source>
-        <translation>Отменить/Вернуть</translation>
+        <translation>Отменить/Повторить действие</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="531"/>
@@ -9654,16 +9654,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1044"/>
         <source>&amp;Undo</source>
-        <translation>&amp;Отменить</translation>
+        <translation>&amp;Отменить действие</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1047"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Undo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Reverts the changes of the previous operation.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Отменить&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Отменить действие&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Отменяет предыдущее действие.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Отменяет предыдущую операцию или команду.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1052"/>
@@ -9673,16 +9673,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1061"/>
         <source>&amp;Redo</source>
-        <translation>В&amp;ернуть</translation>
+        <translation>&amp;Повторить действие</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1064"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Redo&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restores the changes reverted by the previous Undo action.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Вернуть&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Повторить действие&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Восстанавливает изменения, отменённые предыдущим действием Отменить.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Восстанавливает изменения, отменённые предыдущей командай «Отменить действие».&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1069"/>
@@ -10801,7 +10801,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2109"/>
         <source>Restart Current Search</source>
-        <translation type="unfinished"/>
+        <translation>Повторить текущий поиск</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2114"/>
@@ -17497,7 +17497,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="274"/>
         <source>Error: plugin cannot start</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка: модуль не запускается</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="423"/>
@@ -17944,7 +17944,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="61"/>
         <source>Function</source>
-        <translation type="unfinished"/>
+        <translation>Функция</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="67"/>
@@ -17959,7 +17959,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="71"/>
         <source>Use</source>
-        <translation type="unfinished"/>
+        <translation>Применить</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="88"/>
@@ -17969,12 +17969,12 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="118"/>
         <source>Input Name</source>
-        <translation type="unfinished"/>
+        <translation>Ввод названия</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="119"/>
         <source>Input Function Name</source>
-        <translation type="unfinished"/>
+        <translation>Введите название функции</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="124"/>
@@ -17985,12 +17985,12 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="124"/>
         <source>Name cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Название не может быть пустым</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="126"/>
         <source>Name cannot be duplicate</source>
-        <translation type="unfinished"/>
+        <translation>Название не может дублироваться</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="141"/>

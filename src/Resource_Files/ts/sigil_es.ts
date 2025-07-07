@@ -860,7 +860,7 @@ si se especifica un tipo de letra «sans-serif» en el CSS</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="188"/>
         <source>A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary definition to where a term is used.)</source>
-        <translation type="unfinished"/>
+        <translation>Un enlace que permite al usuario volver a una ubicación relacionada del contenido (por ejemplo, de una nota al pie a sus referencias o de una definición en un glosario al lugar donde se usa el término.)</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="189"/>
@@ -920,7 +920,7 @@ si se especifica un tipo de letra «sans-serif» en el CSS</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="194"/>
         <source>A concluding section or statement that summarizes the work or wraps up the narrative.</source>
-        <translation type="unfinished"/>
+        <translation>Una sección o declaración final que resume la obra o concluye la narrativa.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="195"/>
@@ -1624,7 +1624,7 @@ Ya hay un archivo con este nombre en el libro.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1322"/>
         <source>Filenames cannot contain these characters: &quot;%1&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>Los nombres de archivo no pueden contener estos caracteres: «%1».</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1384"/>
@@ -1644,17 +1644,17 @@ Ya hay un archivo con este nombre en el libro.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1536"/>
         <source>The Nav document cannot be removed.</source>
-        <translation type="unfinished"/>
+        <translation>El documento Nav no se puede eliminar.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1544"/>
         <source>The NCX cannot be removed.</source>
-        <translation type="unfinished"/>
+        <translation>El archivo NCX no se puede eliminar.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1551"/>
         <source>The OPF is required for epub and cannot be removed.</source>
-        <translation type="unfinished"/>
+        <translation>El archivo OPF es necesario para el epub y no puede eliminarse.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1560"/>
@@ -12648,7 +12648,7 @@ Esta acción no se puede deshacer.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3286"/>
         <source>Inserting an aria clip failed.</source>
-        <translation type="unfinished"/>
+        <translation>Fallo al insertar fragmento ARIA.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3300"/>
@@ -12659,7 +12659,7 @@ Esta acción no se puede deshacer.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3315"/>
         <source>The selected role cannot be used on this tag.</source>
-        <translation type="unfinished"/>
+        <translation>El rol seleccionado no se puede usar en esta etiqueta.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3335"/>
@@ -17494,7 +17494,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="274"/>
         <source>Error: plugin cannot start</source>
-        <translation type="unfinished"/>
+        <translation>Error: el complemento no puede iniciarse</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="423"/>
@@ -17981,12 +17981,12 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="124"/>
         <source>Name cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>El nombre no puede estar vacío</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="126"/>
         <source>Name cannot be duplicate</source>
-        <translation type="unfinished"/>
+        <translation>El nombre no puede estar duplicado</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="141"/>
