@@ -99,7 +99,15 @@ FlowTab::~FlowTab()
     // from our underlying resource including Deleted and Modified as they no 
     // longer needs to be delivered
 
-    disconnect(this, 0, 0, 0);
+    // disconnect(this, 0, 0, 0);
+    // the above generates the following warning even when used in destructor?
+    //   Warning: QObject::disconnect: wildcard call disconnects from destroyed signal of FlowTab::unnamed
+    // so replace with individual signal disconnections
+    disconnect(this,  SIGNAL(LinkClicked(const QUrl &)), 0, 0);
+    disconnect(this,  SIGNAL(OldTabRequest(QString, HTMLResource *)), 0, 0);
+    disconnect(this,  SIGNAL(CentralTabRequest(ContentTab *)), 0, 0);
+    disconnect(this,  SIGNAL(DeleteMe(ContentTab *)), 0, 0);
+    disconnect(this,  SIGNAL(TabRenamed(ContentTab *)), 0, 0);
 
     if (!GetResourceWasDeleted()) {
         // was: disconnect(m_HTMLResource, SIGNAL(Modified()), this, SLOT(ResourceModified()));
