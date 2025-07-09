@@ -41,9 +41,9 @@ static const QStringList UPDATE_NUMBER_AND_FILL = QStringList() << "fn_aside" <<
 
 AddClips::AddClips(const QString& selected_text, const QString& book_lang, QWidget *parent)
     :
+    QDialog(parent),
     m_selected_text(selected_text),
-    m_book_lang(book_lang),
-    QDialog(parent)
+    m_book_lang(book_lang)
 {
     ui.setupUi(this);
 
