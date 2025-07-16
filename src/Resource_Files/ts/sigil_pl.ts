@@ -4184,7 +4184,7 @@ Offset:</translation>
 <context>
     <name>FlowTab</name>
     <message>
-        <location filename="../../Tabs/FlowTab.cpp" line="881"/>
+        <location filename="../../Tabs/FlowTab.cpp" line="889"/>
         <source>Print %1</source>
         <translation>Drukowanie %1</translation>
     </message>
@@ -9560,6 +9560,7 @@ Arkusze stylów, które są pierwsze na liście, mają pierwszeństwo przed pó�
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new ePub3 book.&lt;/p&gt;</source>
         <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Nowy ePub3&lt;/b&gt;&lt;/p&gt;
+
 Tworzy nowy dokument ePub3.&lt;/p&gt;</translation>
     </message>
     <message>

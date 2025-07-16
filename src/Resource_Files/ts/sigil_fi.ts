@@ -4181,7 +4181,7 @@ Toimii vain HTML-tiedostoja etsittäessä.</translation>
 <context>
     <name>FlowTab</name>
     <message>
-        <location filename="../../Tabs/FlowTab.cpp" line="881"/>
+        <location filename="../../Tabs/FlowTab.cpp" line="889"/>
         <source>Print %1</source>
         <translation>Tulosta %1</translation>
     </message>

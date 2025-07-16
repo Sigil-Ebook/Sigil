@@ -4181,7 +4181,7 @@ Yalnızca HTML dosyaları aranırken geçerlidir.</translation>
 <context>
     <name>FlowTab</name>
     <message>
-        <location filename="../../Tabs/FlowTab.cpp" line="881"/>
+        <location filename="../../Tabs/FlowTab.cpp" line="889"/>
         <source>Print %1</source>
         <translation>%1 yazdır</translation>
     </message>

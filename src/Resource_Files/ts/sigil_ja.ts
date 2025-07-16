@@ -4182,7 +4182,7 @@ HTMLファイルを検索する場合にのみ有効です。</translation>
 <context>
     <name>FlowTab</name>
     <message>
-        <location filename="../../Tabs/FlowTab.cpp" line="881"/>
+        <location filename="../../Tabs/FlowTab.cpp" line="889"/>
         <source>Print %1</source>
         <translation>%1 を印刷</translation>
     </message>
