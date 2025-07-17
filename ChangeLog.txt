@@ -14,7 +14,7 @@ Sigil-2.6.0
          to make adding Aria role attributes and epub:type attributes where allowed easier
      - Added in new CodeView Insert menu item: "Aria Clips..." (epub3 only)
          to make adding code clips that improving Accessibility easier.
-     - Made the Epub3 Tools menu menu items be disabled on Epub3
+     - Made the Epub3 Tools menu submenu items be shown as disabled on Epub2
 
 
 Sigil-2.5.2
