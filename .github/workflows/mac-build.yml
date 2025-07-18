@@ -37,7 +37,7 @@ env:
 jobs:
   build:
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
-    runs-on: macos-14
+    runs-on: macos-13
 
     steps:
     - uses: actions/checkout@v4
@@ -97,7 +97,6 @@ jobs:
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_CXX_FLAGS=-Wno-inconsistent-missing-override \
         -DCMAKE_PREFIX_PATH=${{runner.workspace}}/${{env.QT}}/lib/cmake \
-        -DCMAKE_OSX_ARCHITECTURES=x86_64 \
         -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/ $GITHUB_WORKSPACE  
         make -j$(getconf _NPROCESSORS_ONLN)   
 
