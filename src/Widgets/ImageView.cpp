@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2024 Kevin B. Hendricks
+**  Copyright (C) 2019-2025 Kevin B. Hendricks
 **  Copyright (C) 2013      Dave Heiland
 **
 **  This file is part of Sigil.
@@ -70,16 +70,46 @@ ImageView::ImageView(QWidget *parent)
     m_WebView->setAcceptDrops(false);
     m_WebView->setUrl(QUrl("about:blank"));
     m_layout->addWidget(m_WebView);
+#if 0
+    connect(m_WebView, SIGNAL(loadFinished(bool)), this, SLOT(LoadIsFinished(bool)));
+    connect(m_WebView, SIGNAL(loadStarted()), this, SLOT(LoadIsStarted()));
+    connect(m_WebView, SIGNAL(loadProgress(int)), this, SLOT(LoadIsProgressing(int)));
+# endif
 }
 
 ImageView::~ImageView()
 {
 }
 
+#if 0
+void ImageView::LoadIsStarted()
+{
+    qDebug() << "load started";
+    m_ready = false;
+}
+
+void ImageView::LoadIsFinished(bool okay)
+{
+    qDebug() << "okay is: " << okay;
+    m_ready = true;
+}
+
+void ImageView::LoadIsProgressing(int progress)
+{
+    qDebug() << "progress is: " << progress;
+}
+
+bool ImageView::isReady()
+{
+    return (m_ready == true);
+}
+#endif
+
+
 void ImageView::ShowImage(QString path)
 {
     m_path = path;
-    m_WebView->page()->profile()->clearHttpCache();
+    // m_WebView->page()->profile()->clearHttpCache();
     const QFileInfo fileInfo = QFileInfo(path);
     const double ffsize = fileInfo.size() / 1024.0;
     const QString fsize = QLocale().toString(ffsize, 'f', 2);
@@ -103,6 +133,9 @@ void ImageView::ShowImage(QString path)
         html = Utility::AddDarkCSS(html);
     }
     m_WebView->page()->setBackgroundColor(Utility::WebViewBackgroundColor());
+    // qDebug() << "ImageView: " << path;
+    // qDebug() << "ImageView: " << imgUrl;
+    // qDebug() << "ImageView: " << html;
     m_WebView->setHtml(html, imgUrl);
 }
 

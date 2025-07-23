@@ -79,12 +79,26 @@ void URLInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
     // verify all url file and sigil schemes before allowing
     // if ((destination.scheme() == "file") || (destination.scheme() == "sigil")) {
     if (destination.scheme() == "file") {
-        // find the relavent MainWindow
+        QString destpath = destination.toLocalFile();
+        
+        // first check for safe destinations inside the users Sigil Preferences folder
+        QString repofolder = Utility::DefinePrefsDir() + "/repo/";
+        if (destpath.startsWith(repofolder)) {
+            info.block(false);
+            return;
+        }
+        QString usercssfolder = Utility::DefinePrefsDir() + "/";
+        // or path must be inside the Sigil user's preferences directory
+        if (destpath.startsWith(usercssfolder)) {
+            info.block(false);
+            return;
+        }
+
+        // find the relevant MainWindow
         QString bookfolder;
         QString mathjaxfolder;
-        QString usercssfolder = Utility::DefinePrefsDir() + "/";
         QString sourcefolder = sourceurl.toLocalFile();
-        // DBG qDebug() << "sourcefolder: " << sourcefolder;
+        DBG qDebug() << "sourcefolder: " << sourcefolder;
         // create a topLevelWidgets equivalent to screen out stale QWidgets more safely
         const QWidgetList all_widgets = QApplication::allWidgets();
         foreach(QWidget* w, all_widgets) {
@@ -118,13 +132,7 @@ void URLInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
             return;
         }
         // path must be inside of bookfolder, Note it is legal for it not to exist
-        QString destpath = destination.toLocalFile();
         if (destpath.startsWith(bookfolder)) {
-            info.block(false);
-            return;
-        }
-        // or path must be inside the Sigil user's preferences directory
-        if (destpath.startsWith(usercssfolder)) {
             info.block(false);
             return;
         }
@@ -133,14 +141,13 @@ void URLInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
             info.block(false);
             return;
         }
-
         // otherwise block it to prevent access to any outside Sigil user file path
         info.block(true);
         qDebug() << "Warning: URLInterceptor blocking access to url " << destination;
         qDebug() << "    from " << info.firstPartyUrl();
         return;
     }
-
+    qDebug() << "URLInterceptor: allow others to proceed";
     // allow others to proceed
     info.block(false);
     return;

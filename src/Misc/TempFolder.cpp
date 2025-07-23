@@ -41,6 +41,20 @@ TempFolder::TempFolder()
     m_tempDir.setAutoRemove(false);
 }
 
+
+TempFolder::TempFolder(const QString base_path)
+    : m_tempDir(GetNewTempFolderTemplateFromBasePath(base_path))
+{
+    // verify m_tempDir was properly created
+    if (!m_tempDir.isValid()) {
+        qDebug() << "Error: Invalid m_tempDir" << m_tempDir.path();
+    }
+
+    // will be cleaned manually in the destructor
+    m_tempDir.setAutoRemove(false);
+}
+
+
 TempFolder::~TempFolder()
 {
     // To be super safe here ...
@@ -82,6 +96,12 @@ QString TempFolder::GetNewTempFolderTemplate()
         return Utility::DefinePrefsDir() + "/workspace" + "/Sigil-XXXXXX";;
     }
     return temp_path + "/Sigil-XXXXXX"; 
+}
+
+
+QString TempFolder::GetNewTempFolderTemplateFromBasePath(const QString base_path)
+{
+    return base_path + "/Sigil-XXXXXX";
 }
 
 

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2019-2025 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2013 Dave Heiland
 **
 **  This file is part of Sigil.
@@ -38,7 +38,7 @@ class ViewImage : public QDialog
     Q_OBJECT
 
 public:
-    ViewImage(QWidget *parent = 0, bool delete_on_close = false);
+    ViewImage(QWidget *parent = 0);
     ~ViewImage();
 
     QSize sizeHint();

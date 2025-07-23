@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2024 Kevin B. Hendricks
+**  Copyright (C) 2019-2025 Kevin B. Hendricks
 **  Copyright (C) 2013      Dave Heiland
 **
 **  This file is part of Sigil.
@@ -38,14 +38,13 @@
 
 static QString SETTINGS_GROUP = "view_image";
 
-ViewImage::ViewImage(QWidget *parent, bool delete_on_close)
+ViewImage::ViewImage(QWidget *parent)
     :
     QDialog(parent),
     m_iv(new ImageView(this)),
     m_bp(new QToolButton(this)),
     m_layout(new QVBoxLayout(this))
 {
-    if (delete_on_close) setAttribute(Qt::WA_DeleteOnClose, true);
     m_layout->addWidget(m_iv);
     m_bp->setToolTip(tr("Close this window"));
     m_bp->setText(tr("Done"));
@@ -72,7 +71,7 @@ QSize ViewImage::sizeHint()
 void ViewImage::ShowImage(QString path)
 {
     m_iv->ShowImage(path);
-    QApplication::processEvents();
+    QApplication::processEvents(QEventLoop::ExcludeUserInputEvents);
 }
 
 void ViewImage::ReloadViewer()

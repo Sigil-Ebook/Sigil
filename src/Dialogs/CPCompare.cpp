@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2020-2024 Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2020-2025 Kevin B. Hendricks, Stratford Ontario Canada
  **
  **  This file is part of Sigil.
  **
@@ -21,6 +21,7 @@
 #include <QString>
 #include <QList>
 #include <QDialog>
+#include <QPointer>
 #include <QWidget>
 #include <QKeySequence>
 #include <QKeyEvent>
@@ -32,6 +33,7 @@
 #include <QFuture>
 #include <QFileInfo>
 #include <QMessageBox>
+
 #include <QDebug>
 
 #include "Dialogs/ListSelector.h"
@@ -75,8 +77,11 @@ CPCompare::CPCompare(const QString& bookroot,
     : QDialog(parent),
       m_bookroot(bookroot),
       m_cpdir(cpdir),
-      m_bp(new QToolButton(this)),
-      m_layout(new QVBoxLayout(this))
+      m_bp(new QToolButton),
+      m_layout(new QVBoxLayout(this)),
+      m_vi(new ViewImage(this)),
+      m_av(new ViewAV(this)),
+      m_vf(new ViewFont(this))
 {
     m_dlist = new ListSelector(tr("Files Only in Checkpoint"), tr("View"), dlist, this);
     m_alist = new ListSelector(tr("Files Only in Current ePub"), tr("View"), alist, this);
@@ -112,20 +117,23 @@ void CPCompare::handle_del_request()
             sv->show();
             sv->raise();
         } else if (IMAGE_EXTENSIONS.contains(ext)) {
-            ViewImage * vi = new ViewImage(this, true);
-            vi->ShowImage(filepath);
-            vi->show();
-            vi->raise();
+            m_vi->show();
+            m_vi->raise();
+            m_vi->activateWindow();
+            m_vi->ShowImage(filepath);
+            break;
         } else if (AUDIO_EXTENSIONS.contains(ext) || VIDEO_EXTENSIONS.contains(ext)) {
-            ViewAV * av = new ViewAV(this);
-            av->ShowAV(filepath);
-            av->show();
-            av->raise();
+            m_av->show();
+            m_av->raise();
+            m_av->activateWindow();
+            m_av->ShowAV(filepath);
+            break;
         } else if (FONT_EXTENSIONS.contains(ext)) {
-            ViewFont * vf = new ViewFont(this);
-            vf->ShowFont(filepath);
-            vf->show();
-            vf->raise();
+            m_vf->show();
+            m_vf->raise();
+            m_vf->activateWindow();
+            m_vf->ShowFont(filepath);
+            break;
         } else {
             qDebug() << "attempted to show a binary file " << apath;
         }
@@ -146,20 +154,23 @@ void CPCompare::handle_add_request()
             sv->show();
             sv->raise();
         } else if (IMAGE_EXTENSIONS.contains(ext)) {
-            ViewImage * vi = new ViewImage(this, true);
-            vi->ShowImage(filepath);
-            vi->show();
-            vi->raise();
+            m_vi->show();
+            m_vi->raise();
+            m_vi->activateWindow();
+            m_vi->ShowImage(filepath);
+            break;
         } else if (AUDIO_EXTENSIONS.contains(ext) || VIDEO_EXTENSIONS.contains(ext)) {
-            ViewAV * av = new ViewAV(this);
-            av->ShowAV(filepath);
-            av->show();
-            av->raise();
+            m_av->show();
+            m_av->raise();
+            m_av->activateWindow();
+            m_av->ShowAV(filepath);
+            break;
         } else if (FONT_EXTENSIONS.contains(ext)) {
-            ViewFont * vf = new ViewFont(this);
-            vf->ShowFont(filepath);
-            vf->show();
-            vf->raise();
+            m_vf->show();
+            m_vf->raise();
+            m_vf->activateWindow();
+            m_vf->ShowFont(filepath);
+            break;
         } else {
             qDebug() << "attempted to show a binary file " << apath;
         }

@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2011-2025 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -37,9 +38,11 @@ class TempFolder
 public:
 
     /**
-     * Constructor.
+     * Constructors.
      */
     TempFolder();
+
+    TempFolder(const QString base_path);
 
     /**
      * Destructor. Deletes the temp folder on disk
@@ -77,6 +80,7 @@ private:
      * @return Absolute path to a new temp folder template.
      */
     static QString GetNewTempFolderTemplate();
+    static QString GetNewTempFolderTemplateFromBasePath(const QString base_path);
 
     /**
      * Deletes the folder specified and all the files

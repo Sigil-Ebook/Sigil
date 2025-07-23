@@ -228,7 +228,7 @@ MainWindow::MainWindow(const QString &openfilepath,
     m_IndexEditor(new IndexEditor(this)),
     m_SpellcheckEditor(new SpellcheckEditor(this)),
     m_SelectCharacter(new SelectCharacter(this)),
-    m_ViewImage(new ViewImage(this, false)),
+    m_ViewImage(new ViewImage(this)),
     m_Reports(new Reports(this)),
     m_preserveHeadingAttributes(true),
     m_LinkOrStyleBookmark(new LocationBookmark()),
@@ -957,6 +957,7 @@ bool MainWindow::RepoCommit()
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
     // make sure that the Sigil-Preferences directory has a "repo" folder
+    // and a tempwork folder inside of it
     QString localRepo = Utility::DefinePrefsDir() + "/repo";
     QDir repoDir(localRepo);
     if (!repoDir.exists()) {
@@ -1132,6 +1133,11 @@ void MainWindow::RepoDiff(QString bookid)
         ShowMessageOnStatusBar(tr("Diff Failed. No checkpoints found"));
         return;
     }
+    QString workRepo = localRepo + "/tempwork";
+    QDir repoWorkDir(workRepo);
+    if (!repoWorkDir.exists()) {
+        repoWorkDir.mkpath(workRepo);
+    }
     if (bookid.isEmpty()) {
         // use current epub's bookid and create one if needed
         bookid = m_Book->GetOPF()->GetUUIDIdentifierValue();
@@ -1174,7 +1180,7 @@ void MainWindow::RepoDiff(QString bookid)
     }
 
     // checkout this tag version and copy it to a tempfolder
-    TempFolder destdir;
+    TempFolder destdir(workRepo);
     QApplication::setOverrideCursor(Qt::WaitCursor);
     QFuture<QString> cfuture = QtConcurrent::run(&PythonRoutines::CopyTagToDestDirInPython, &pr,
                                                  localRepo, bookid, chkpoint1, destdir.GetPath() );

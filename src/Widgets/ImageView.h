@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2020 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2019-2025 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2013 Dave Heiland
 **
 **  This file is part of Sigil.
@@ -38,14 +38,20 @@ public:
     ImageView(QWidget *parent = 0);
     ~ImageView();
 
+    // bool isReady();
+
 public slots:
     void ShowImage(QString path);
     void ReloadViewer();
+    // void LoadIsFinished(bool okay);
+    // void LoadIsStarted();
+    // void LoadIsProgressing(int progress);
 
 private:
     QString m_path;
     QWebEngineView *m_WebView;
     QVBoxLayout* m_layout;
+    // bool m_ready;
 };
 
 #endif // IMAGEVIEW_H

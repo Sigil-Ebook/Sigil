@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2020-2024 Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2020-2025 Kevin B. Hendricks, Stratford Ontario Canada
  **
  **  This file is part of Sigil.
  **
@@ -24,12 +24,19 @@
 
 #include <QString>
 #include <QStringList>
+#include <QPointer>
+#include <QList>
 #include <QWidget>
 #include <QDialog>
 
 class QToolButton;
 class QVBoxLayout;
 class ListSelector;
+
+class ViewImage;
+class SourceViewer;
+class ViewAV;
+class ViewFont;
 
 class CPCompare : public QDialog
 
@@ -71,5 +78,8 @@ private:
     ListSelector* m_alist;
     ListSelector* m_mlist;
     QVBoxLayout*  m_layout;
+    ViewImage*    m_vi;
+    ViewAV*       m_av;
+    ViewFont*     m_vf;
 };
 #endif
