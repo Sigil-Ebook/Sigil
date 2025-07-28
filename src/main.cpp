@@ -372,10 +372,11 @@ int main(int argc, char *argv[])
 
     // register the our own url scheme (this is required since Qt 5.12)
     QWebEngineUrlScheme sigilScheme("sigil");
-    sigilScheme.setFlags(QWebEngineUrlScheme::SecureScheme |
-                         QWebEngineUrlScheme::LocalScheme |
-                         QWebEngineUrlScheme::LocalAccessAllowed |
-                         QWebEngineUrlScheme::ContentSecurityPolicyIgnored);
+    sigilScheme.setFlags( QWebEngineUrlScheme::SecureScheme |
+                          QWebEngineUrlScheme::LocalScheme |
+                          QWebEngineUrlScheme::LocalAccessAllowed |
+                          QWebEngineUrlScheme::ContentSecurityPolicyIgnored |
+                          QWebEngineUrlScheme::FetchApiAllowed  );
     // sigilScheme.setSyntax(QWebEngineUrlScheme::Syntax::Host);
     sigilScheme.setSyntax(QWebEngineUrlScheme::Syntax::Path);
     QWebEngineUrlScheme::registerScheme(sigilScheme);
