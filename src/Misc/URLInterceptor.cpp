@@ -147,7 +147,7 @@ void URLInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
         qDebug() << "    from " << info.firstPartyUrl();
         return;
     }
-    qDebug() << "URLInterceptor: allow others to proceed";
+    DBG qDebug() << "URLInterceptor: allow others to proceed";
     // allow others to proceed
     info.block(false);
     return;
