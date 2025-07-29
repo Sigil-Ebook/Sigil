@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford, ON
+**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford, ON
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **
@@ -333,10 +333,7 @@ void HTMLFilesWidget::Save()
     QString filter_string = "*.csv;;*.txt;;*.*";
     QString default_filter = "";
     QString save_path = m_LastDirSaved + "/" + m_LastFileSaved;
-    QFileDialog::Options options = QFileDialog::Options();
-#ifdef Q_OS_MAC
-    options = options | QFileDialog::DontUseNativeDialog;
-#endif
+    QFileDialog::Options options = Utility::DlgOptions();
 
     QString destination = QFileDialog::getSaveFileName(this,
                                                        tr("Save Report As Comma Separated File"),

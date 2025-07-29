@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **
@@ -292,10 +292,7 @@ void IndexEditor::Open()
 {
     // Get the filename to open
     QString filter_string = tr("Index files: *.ini *.txt (*.ini *.txt)");
-    QFileDialog::Options options = QFileDialog::Options();
-#ifdef Q_OS_MAC
-    options = options | QFileDialog::DontUseNativeDialog;
-#endif
+    QFileDialog::Options options = Utility::DlgOptions();
 
     QString filename = QFileDialog::getOpenFileName(this,
                        tr("Load Entries From File"),
@@ -332,10 +329,7 @@ void IndexEditor::SaveAs()
     // Get the filename to use
     QString filter_string = "*." % FILE_EXTENSION;
     QString default_filter = "*";
-    QFileDialog::Options options = QFileDialog::Options();
-#ifdef Q_OS_MAC
-    options = options | QFileDialog::DontUseNativeDialog;
-#endif
+    QFileDialog::Options options = Utility::DlgOptions();
 
     QString filename = QFileDialog::getSaveFileName(this,
                        tr("Save Entries to File"),

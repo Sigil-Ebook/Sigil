@@ -1590,3 +1590,25 @@ QString Utility::CleanFileName(const QString &name)
         return result;
     }
 }
+
+// to be used in place of QFileDialog::Options() to initialize them
+QFileDialog::Options Utility::DlgOptions(const QString special_case)
+{
+    QFileDialog::Options options = QFileDialog::Options();
+    if (qEnvironmentVariableIsSet("SIGIL_FORCE_NATIVE_FILE_DIALOG")) {
+        return options;
+    }
+#if defined(Q_OS_MAC)
+    options = options | QFileDialog::DontUseNativeDialog;
+#elif defined(Q_OS_WIN32)
+    if (special_case.contains("Win32UseNonNative")) {
+        options = options | QFileDialog::DontUseNativeDialog;
+    }
+#else
+    // Linux and other Unix Platforms
+    if (special_case.contains("LinuxUseNonNative")) {
+        options = options | QFileDialog::DontUseNativeDialog;
+    }
+#endif
+    return options;
+}

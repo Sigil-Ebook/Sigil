@@ -33,6 +33,7 @@
 #include <QSet>
 #include <QStringList>
 #include <QImage>
+#include <QFileDialog>
 
 class QStringView;
 class QWidget;
@@ -282,6 +283,8 @@ public:
     static QString UseNFC(const QString& text);
 
     static QString CleanFileName(const QString &name);
+
+    static QFileDialog::Options DlgOptions(const QString special_case = QString());
 };
 #endif // UTILITY_H
 

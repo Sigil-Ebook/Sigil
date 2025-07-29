@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-**  Copyright (C) 2019-2024 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2025 Kevin B. Hendricks, Stratford Ontario Canada
 **
 **  This file is part of Sigil.
 **
@@ -216,10 +216,8 @@ bool EmptyLayout::cleanEpubRoot()
 
 void EmptyLayout::loadDesign()
 {
-    QFileDialog::Options options = QFileDialog::Options();
-#ifdef Q_OS_MAC
-    options = options | QFileDialog::DontUseNativeDialog;
-#endif
+    QFileDialog::Options options = Utility::DlgOptions();
+
     QString inipath = QFileDialog::getOpenFileName(this, 
                                                    tr("Select previously saved layout design ini File"), 
                                                    m_LastDirSaved, 
@@ -320,10 +318,7 @@ void EmptyLayout::saveDesign()
     QString default_filter = "ini";
     QString save_path = m_LastDirSaved + "/" + m_LastFileSaved;
 
-    QFileDialog::Options options = QFileDialog::Options();
-#ifdef Q_OS_MAC
-    options = options | QFileDialog::DontUseNativeDialog;
-#endif
+    QFileDialog::Options options = Utility::DlgOptions();
 
     QString destination = QFileDialog::getSaveFileName(this,
                                                        tr("Save current design to an ini File"),

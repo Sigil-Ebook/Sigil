@@ -1953,10 +1953,8 @@ void MainWindow::Open()
             filter_string += filter + ";;";
         }
         QString default_filter = c_LoadFilters.value("epub");
-        QFileDialog::Options options = QFileDialog::Options();
-#ifdef Q_OS_MAC
-        options = options | QFileDialog::DontUseNativeDialog;
-#endif
+        QFileDialog::Options options = Utility::DlgOptions();
+
         QString filename = QFileDialog::getOpenFileName(this,
                            tr("Open File"),
                            m_LastFolderOpen,
@@ -2078,11 +2076,7 @@ bool MainWindow::SaveAs()
         save_path       = m_LastFolderOpen + "/" + QFileInfo(proposed_name).completeBaseName() + ".epub";
         default_filter  = c_SaveFilters.value("epub");
     }
-    QFileDialog::Options options = QFileDialog::Options();
-#if !defined(Q_OS_WIN32)
-    options = options | QFileDialog::DontUseNativeDialog;
-#endif
-
+    QFileDialog::Options options = Utility::DlgOptions("LinuxUseNonNative");
 
     QString filename = QFileDialog::getSaveFileName(this,
                        tr("Save File"),
@@ -2138,10 +2132,8 @@ bool MainWindow::SaveACopy()
     filters.removeDuplicates();
     QString filter_string = "*.epub";
     QString default_filter  = "*.epub";
-    QFileDialog::Options options = QFileDialog::Options();
-#if !defined(Q_OS_WIN32)
-    options = options | QFileDialog::DontUseNativeDialog;
-#endif
+    QFileDialog::Options options = Utility::DlgOptions("LinuxUseNonNative");
+
     QString filename = QFileDialog::getSaveFileName(this,
                        tr("Save a Copy"),
                        m_SaveACopyFilename,

@@ -112,10 +112,7 @@ void ValidationResultsView::ExportAll()
     }
     QString default_filter = file_filters.value("csv");
 
-    QFileDialog::Options options = QFileDialog::Options();
-#ifdef Q_OS_MAC
-    options = options | QFileDialog::DontUseNativeDialog;
-#endif
+    QFileDialog::Options options = Utility::DlgOptions();
 
     QString filename = QFileDialog::getSaveFileName(this,
                                                     tr("Export Validation Results"),

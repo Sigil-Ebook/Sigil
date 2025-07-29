@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2022-2024 Kevin B. Hendricks, Stratford, Ontario
+**  Copyright (C) 2022-2025 Kevin B. Hendricks, Stratford, Ontario
 **
 **  This file is part of Sigil.
 **
@@ -247,10 +247,7 @@ void CountsReport::Save()
     QString filter_string = "*.csv;;*.txt;;*.*";
     QString default_filter = "";
     QString save_path = m_LastDirSaved + "/" + m_LastFileSaved;
-    QFileDialog::Options options = QFileDialog::Options();
-#ifdef Q_OS_MAC
-    options = options | QFileDialog::DontUseNativeDialog;
-#endif
+    QFileDialog::Options options = Utility::DlgOptions();
 
     QString destination = QFileDialog::getSaveFileName(this,
                                                        tr("Save Report As Comma Separated File"),

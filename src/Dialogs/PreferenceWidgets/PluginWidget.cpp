@@ -202,10 +202,8 @@ void PluginWidget::pluginSelected(int row, int col)
 
 void PluginWidget::addPlugin()
 {
-    QFileDialog::Options options = QFileDialog::Options();
-#ifdef Q_OS_MAC
-    options = options | QFileDialog::DontUseNativeDialog;
-#endif
+    QFileDialog::Options options = Utility::DlgOptions();
+
     QString zippath = QFileDialog::getOpenFileName(this, 
                                                    tr("Select Plugin Zip Archive"), 
                                                    m_LastFolderOpen, 
@@ -375,10 +373,8 @@ void PluginWidget::AutoFindPy3()
 
 void PluginWidget::SetPy3()
 {
-    QFileDialog::Options options = QFileDialog::Options();
-#ifdef Q_OS_MAC
-    options = options | QFileDialog::DontUseNativeDialog;
-#endif
+    QFileDialog::Options options = Utility::DlgOptions();
+
     QString name = QFileDialog::getOpenFileName(this, 
                                                 tr("Select Interpreter"),
                                                 QString(),

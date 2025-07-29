@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2023 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2019-2025 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2019-2023 Doug Massay
 **  Copyright (C) 2011      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
@@ -195,10 +195,9 @@ void GeneralSettingsWidget::setXEditorPath()
 #endif
       ;
 
-#ifdef Q_OS_MAC
-    QFileDialog::Options options = QFileDialog::Options() | QFileDialog::ReadOnly;
-#else
-    QFileDialog::Options options = QFileDialog::Options() | QFileDialog::ReadOnly | QFileDialog::HideNameFilterDetails;
+    QFileDialog::Options options = Utility::DlgOptions() | QFileDialog::ReadOnly;
+#ifndef Q_OS_MAC
+    options = options | QFileDialog::HideNameFilterDetails;
 #endif
 
     // Qt Bug - you must use a native FileDialog on macOS otherwise it treats .app as a normal directory
@@ -235,10 +234,7 @@ void GeneralSettingsWidget::autoTempFolder()
 
 void GeneralSettingsWidget::setTempFolder()
 {
-    QFileDialog::Options options = QFileDialog::Options() | QFileDialog::ShowDirsOnly;
-#ifdef Q_OS_MAC
-    options = options | QFileDialog::DontUseNativeDialog;
-#endif
+    QFileDialog::Options options = Utility::DlgOptions() | QFileDialog::ShowDirsOnly;
 
     QString name = QFileDialog::getExistingDirectory(this, 
                                                      tr("Select Folder for Temporary Files"),

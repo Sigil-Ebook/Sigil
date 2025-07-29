@@ -777,10 +777,7 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
         m_LastFolderOpen = "";
     }
 
-    QFileDialog::Options options = QFileDialog::Options();
-#if defined(Q_OS_WIN32) || defined(Q_OS_MAC)
-    options = options | QFileDialog::DontUseNativeDialog;
-#endif
+    QFileDialog::Options options = Utility::DlgOptions("Win32UseNonNative");
     
     // filepaths are full absolute file paths to the files to be added
     QStringList filepaths = QFileDialog::getOpenFileNames(this,
@@ -1005,10 +1002,7 @@ void BookBrowser::SaveAsFile(Resource *resource)
     QString save_path = m_LastFolderSaveAs + "/" + filename;
     QString filter_string = "";
     QString default_filter = "";
-    QFileDialog::Options options = QFileDialog::Options();
-#ifdef Q_OS_MAC
-    options = options | QFileDialog::DontUseNativeDialog;
-#endif
+    QFileDialog::Options options = Utility::DlgOptions();
     
     QString destination = QFileDialog::getSaveFileName(this,
                           tr("Save As File"),
@@ -1041,10 +1035,7 @@ void BookBrowser::SaveAsFile(Resource *resource)
 void BookBrowser::SaveAsFiles()
 {
     QList <Resource *> resources = ValidSelectedResources();
-    QFileDialog::Options options = QFileDialog::Options() | QFileDialog::ShowDirsOnly;
-#ifdef Q_OS_MAC
-    options = options | QFileDialog::DontUseNativeDialog;
-#endif
+    QFileDialog::Options options = Utility::DlgOptions() | QFileDialog::ShowDirsOnly;
 
     QString dirname = QFileDialog::getExistingDirectory(
                       this,

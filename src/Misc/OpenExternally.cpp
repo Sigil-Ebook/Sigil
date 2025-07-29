@@ -353,9 +353,9 @@ const QString OpenExternally::selectEditorForResourceType(const Resource::Resour
 #endif
                                        ;
 #ifdef Q_OS_MAC
-    QFileDialog::Options options = QFileDialog::Options() | QFileDialog::ReadOnly;
+    QFileDialog::Options options = Utility::DlgOptions() | QFileDialog::ReadOnly;
 #else
-    QFileDialog::Options options = QFileDialog::Options() | QFileDialog::ReadOnly | QFileDialog::HideNameFilterDetails;
+    QFileDialog::Options options = Utility::DlgOptions | QFileDialog::ReadOnly | QFileDialog::HideNameFilterDetails;
 #endif
 
     // Qt Bug, must use native FileDialog here otherwise treats .app as normal directory
