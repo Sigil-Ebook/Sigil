@@ -63,6 +63,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Sigil-AppImage-artifact
-          path: /reporoot/build/Sigil-*.AppImage*
+          path: /reporoot/Sigil-*.AppImage*
           retention-days: 5
           
