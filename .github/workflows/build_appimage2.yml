@@ -1,4 +1,4 @@
-name: Test container stuff
+name: Build Sigil AppImage the Sequel
 
 on:
   #push:
