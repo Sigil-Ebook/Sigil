@@ -78,3 +78,9 @@ OpenCandy
 tags
 build
 
+# Appimage created archives
+*.tar.xz
+
+#AppImage builds
+*.AppImage
+*.zsync
