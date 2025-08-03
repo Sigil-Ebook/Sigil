@@ -1,0 +1,68 @@
+name: Build Sigil AppImage the Sequel
+
+on:
+  #push:
+
+  workflow_dispatch:
+    inputs:
+      vers_info:
+        description: 'Version for file name'
+        required: true
+        default: ''
+
+jobs:
+  gather-info:
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    runs-on: ubuntu-latest
+    outputs:
+      commitish: ${{ steps.set_output.outputs.commitish_value }}
+
+    steps:
+    - name: Get Short SHA
+      if: ${{ github.event_name != 'workflow_dispatch' }}
+      id: get_short_sha
+      run: echo "SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7)" >> $GITHUB_ENV
+
+    - name: Get Dispatch Input
+      if: ${{ github.event_name == 'workflow_dispatch' }}
+      id: get_dispatch_input
+      run: echo "DISP_INPUT=${{ github.event.inputs.vers_info }}" >> $GITHUB_ENV
+
+    - name: Get Tag Name
+      if: startswith( github.ref, 'refs/tags/')
+      id: get_tag_name
+      run: echo "TAG_NAME=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
+
+    - name: Set Job Output
+      id: set_output
+      run: |
+        if [[ -v DISP_INPUT ]]; then
+          echo "commitish_value=$DISP_INPUT" >> "$GITHUB_OUTPUT"
+        elif [[ -v TAG_NAME ]]; then
+          echo "commitish_value=$TAG_NAME" >> "$GITHUB_OUTPUT"
+        else
+          echo "commitish_value=$SHORT_SHA" >> "$GITHUB_OUTPUT"
+        fi
+
+  make-appimage:  
+    name: Make AppImage
+    runs-on: ubuntu-latest
+    needs: gather-info
+
+    container:
+      image: ubuntu:22.04
+      options: --privileged
+      volumes:
+        - ${{ github.workspace }}:/reporoot
+      
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash /reporoot/.github/workflows/build_sigil_appimage.sh ${{ needs.gather-info.outputs.commitish }}
+      - name: Upload Artifact
+        if: contains(github.event.head_commit.message, '[deploy]') || startswith( github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch'
+        uses: actions/upload-artifact@v4
+        with:
+          name: Sigil-AppImage-artifact
+          path: /reporoot/Sigil-*.AppImage*
+          retention-days: 5
+          
