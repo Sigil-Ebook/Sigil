@@ -8,31 +8,31 @@
 #include "Dialogs/PreviewFileDialog.h"
 
 PreviewFileDialog::PreviewFileDialog(
-	QWidget* parent,
-	const QString & caption,
-	const QString & directory,
-	const QString & filter,
+    QWidget* parent,
+    const QString & caption,
+    const QString & directory,
+    const QString & filter,
     QString * selectedFilter,
     QFileDialog::Options options
 ) :
     QFileDialog(parent, caption, directory, filter)
 {
     setOptions(options);
-	setObjectName("PreviewFileDialog");
-	QVBoxLayout* box = new QVBoxLayout(this);
-	mpPreview = new QLabel(tr("Preview"), this);
+    setObjectName("PreviewFileDialog");
+    QVBoxLayout* box = new QVBoxLayout(this);
+    mpPreview = new QLabel(tr("Preview"), this);
     mpPreview->setFixedSize(300, 300);
-	mpPreview->setAlignment(Qt::AlignCenter);
-	mpPreview->setObjectName("labelPreview");
-	box->addWidget(mpPreview);
-	
-	box->addStretch();
-	
-	// add to QFileDialog layout
-	{
-		QGridLayout *layout = (QGridLayout*)this->layout();
-		layout->addLayout(box, 1, 3, 3, 1);
-	}
+    mpPreview->setAlignment(Qt::AlignCenter);
+    mpPreview->setObjectName("labelPreview");
+    box->addWidget(mpPreview);
+    
+    box->addStretch();
+    
+    // add to QFileDialog layout
+    {
+        QGridLayout *layout = (QGridLayout*)this->layout();
+        layout->addLayout(box, 1, 3, 3, 1);
+    }
     adjustSize();
     connect(this, SIGNAL(currentChanged(const QString&)), this, SLOT(OnCurrentChanged(const QString&)));
     connect(this, SIGNAL(fileSelected(const QString&)), this, SLOT(OnFileSelected(const QString&)));
@@ -62,16 +62,16 @@ void PreviewFileDialog::OnCurrentChanged(const QString & path)
         painter.setPen(Qt::black);
         doc.drawContents(&painter);
         QPixmap pixmap = QPixmap::fromImage(image);
-	    mpPreview->setPixmap(pixmap.scaled(mpPreview->width(), mpPreview->height(),
+        mpPreview->setPixmap(pixmap.scaled(mpPreview->width(), mpPreview->height(),
                                            Qt::KeepAspectRatio, Qt::SmoothTransformation));
     } else if (mt.startsWith("image/")) {
-	    QPixmap pixmap = QPixmap(path);
-	    if (pixmap.isNull()) {
-		    mpPreview->setText("not an image");
-	    } else {
-		    mpPreview->setPixmap(pixmap.scaled(mpPreview->width(), mpPreview->height(),
+        QPixmap pixmap = QPixmap(path);
+        if (pixmap.isNull()) {
+            mpPreview->setText("not an image");
+        } else {
+            mpPreview->setPixmap(pixmap.scaled(mpPreview->width(), mpPreview->height(),
                                  Qt::KeepAspectRatio, Qt::SmoothTransformation));
-	    }
+        }
     } else {
         mpPreview->setText("no preview available");
     }
