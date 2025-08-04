@@ -1599,6 +1599,9 @@ QFileDialog::Options Utility::DlgOptions(const QString special_case)
         return options;
     }
 #if defined(Q_OS_MAC)
+    if (special_case.contains("MacUseNative")) {
+        return options;
+    }
     options = options | QFileDialog::DontUseNativeDialog;
 #elif defined(Q_OS_WIN32)
     if (special_case.contains("Win32UseNonNative")) {

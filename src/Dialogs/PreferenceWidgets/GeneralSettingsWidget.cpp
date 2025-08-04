@@ -195,7 +195,7 @@ void GeneralSettingsWidget::setXEditorPath()
 #endif
       ;
 
-    QFileDialog::Options options = Utility::DlgOptions() | QFileDialog::ReadOnly;
+    QFileDialog::Options options = Utility::DlgOptions("MacUseNative") | QFileDialog::ReadOnly;
 #ifndef Q_OS_MAC
     options = options | QFileDialog::HideNameFilterDetails;
 #endif
