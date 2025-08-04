@@ -32,14 +32,14 @@
 #include "Parsers/QuickParser.h"
 #include "Misc/MediaTypes.h"
 
-const QStringList IMAGE_EXTENSIONS     = QStringList() << "jpg"   << "jpeg" << "png" << "gif"  << "tif"  << "tiff"  << "bm"
-                                                                  << "bmp" << "webp";
+const QStringList IMAGE_EXTENSIONS     = QStringList() << "jpg"   << "jpeg" << "png" << "gif"  << "tif"
+                                                       << "tiff"  << "bm"   << "bmp" << "webp";
 const QStringList SVG_EXTENSIONS       = QStringList() << "svg";
 const QStringList SMIL_EXTENSIONS      = QStringList() << "smil";
 const QStringList JPG_EXTENSIONS       = QStringList() << "jpg"   << "jpeg";
 const QStringList TIFF_EXTENSIONS      = QStringList() << "tif"   << "tiff";
 const QStringList MISC_TEXT_EXTENSIONS = QStringList() << "txt"   << "js";
-const QStringList MISC_XML_EXTENSIONS  = QStringList() << "smil"  << "xpgt" << "pls" "xml";
+const QStringList MISC_XML_EXTENSIONS  = QStringList() << "smil"  << "xpgt" << "pls" << "xml";
 const QStringList FONT_EXTENSIONS      = QStringList() << "ttf"   << "ttc"  << "otf" << "woff" << "woff2";
 const QStringList TEXT_EXTENSIONS      = QStringList() << "xhtml" << "html" << "htm";
 const QStringList STYLE_EXTENSIONS     = QStringList() << "css";
