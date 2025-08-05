@@ -1,4 +1,5 @@
 #include <QLabel>
+#include <QPointer>
 #include <QImage>
 #include <QPixmap>
 #include <QPainter>
@@ -46,7 +47,7 @@ void PreviewFileDialog::OnCurrentChanged(const QString & path)
     if (mt.endsWith("+xml") || mt.endsWith("/xml")  || mt.endsWith("html") || mt.startsWith("text/")) {
         QFile file(path);
         if (!file.open(QFile::ReadOnly)) {
-            mpPreview->setText("no preview available");
+            mpPreview->setText(tr("no preview available"));
             return;
         }
         QTextStream in(&file);
@@ -67,22 +68,106 @@ void PreviewFileDialog::OnCurrentChanged(const QString & path)
     } else if (mt.startsWith("image/")) {
         QPixmap pixmap = QPixmap(path);
         if (pixmap.isNull()) {
-            mpPreview->setText("not an image");
+            mpPreview->setText(tr("not an image"));
         } else {
             mpPreview->setPixmap(pixmap.scaled(mpPreview->width(), mpPreview->height(),
                                  Qt::KeepAspectRatio, Qt::SmoothTransformation));
         }
     } else {
-        mpPreview->setText("no preview available");
+        mpPreview->setText(tr("no preview available"));
     }
 }
+
 
 void PreviewFileDialog::OnFileSelected(const QString& file)
 {
     m_file_selected = file;
 }
 
+
 void PreviewFileDialog::OnFilesSelected(const QStringList& files)
 {
     m_files_selected = files;
+}
+
+
+QString PreviewFileDialog::getOpenFileName(QWidget *parent, const QString &caption, const QString &dir,
+                                           const QString &filter, QString *selectedFilter, Options options)
+{
+    options = options | QFileDialog::DontUseNativeDialog;
+    if (!(options & QFileDialog::DontUseNativeDialog)) {
+        return QFileDialog::getOpenFileName(parent, caption, dir, filter, selectedFilter, options);
+    }
+    QPointer<PreviewFileDialog> dialog(new PreviewFileDialog(parent, caption, dir, filter, selectedFilter, options));
+    dialog->setFileMode(QFileDialog::ExistingFile);
+    if (selectedFilter && !selectedFilter->isEmpty())
+        dialog->selectNameFilter(*selectedFilter);
+    const int execResult = dialog->exec();
+    if (bool(dialog) && execResult == QDialog::Accepted) {
+        if (selectedFilter)
+            *selectedFilter = dialog->selectedNameFilter();
+        return dialog->selectedFiles().value(0);
+    }
+    return QString();
+}
+
+
+
+QStringList PreviewFileDialog::getOpenFileNames(QWidget *parent, const QString &caption, const QString &dir,
+                                                const QString &filter, QString *selectedFilter, Options options)
+{
+    options = options | QFileDialog::DontUseNativeDialog;
+    if (!(options & QFileDialog::DontUseNativeDialog)) {
+        return QFileDialog::getOpenFileNames(parent, caption, dir, filter, selectedFilter, options);
+    }
+    QPointer<PreviewFileDialog> dialog(new PreviewFileDialog(parent, caption, dir, filter, selectedFilter, options));
+    dialog->setFileMode(QFileDialog::ExistingFiles);
+    if (selectedFilter && !selectedFilter->isEmpty())
+        dialog->selectNameFilter(*selectedFilter);
+    const int execResult = dialog->exec();
+    if (bool(dialog) && execResult == QDialog::Accepted) {
+        if (selectedFilter)
+            *selectedFilter = dialog->selectedNameFilter();
+        return dialog->selectedFiles();
+    }
+    return QStringList();
+}
+
+
+QString  PreviewFileDialog::getSaveFileName(QWidget *parent, const QString &caption, const QString &dir,
+                                            const QString &filter, QString *selectedFilter, Options options)
+{
+    options = options | QFileDialog::DontUseNativeDialog;
+    if (!(options & QFileDialog::DontUseNativeDialog)) {
+        return QFileDialog::getSaveFileName(parent, caption, dir, filter, selectedFilter, options);
+    }
+    QPointer<PreviewFileDialog> dialog(new PreviewFileDialog(parent, caption, dir, filter, selectedFilter, options));
+    dialog->setFileMode(QFileDialog::AnyFile);
+    if (selectedFilter && !selectedFilter->isEmpty())
+        dialog->selectNameFilter(*selectedFilter);
+    const int execResult = dialog->exec();
+    if (bool(dialog) && execResult == QDialog::Accepted) {
+        if (selectedFilter)
+            *selectedFilter = dialog->selectedNameFilter();
+        return dialog->selectedFiles().value(0);
+    }
+    return QString();
+}
+
+
+QString PreviewFileDialog::getExistingDirectory(QWidget *parent, const QString &caption,
+                                                const QString &dir, Options options)
+{
+    options = options | QFileDialog::DontUseNativeDialog;
+    if (!(options & QFileDialog::DontUseNativeDialog)) {
+        return QFileDialog::getExistingDirectory(parent, caption, dir, options);
+    }
+    QPointer<PreviewFileDialog> dialog(new PreviewFileDialog(parent, caption, dir, QString(), nullptr, options));
+    dialog->setFileMode(QFileDialog::Directory);
+    const int execResult = dialog->exec();
+    if (bool(dialog) && execResult == QDialog::Accepted) {
+        return dialog->selectedFiles().value(0);
+    }
+    return QString();
+
 }

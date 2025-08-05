@@ -22,6 +22,32 @@ class PreviewFileDialog : public QFileDialog
         QStringList getFilesSelected() { return m_files_selected; };
         QString getFileSelected() { return m_file_selected; };
 
+        static QString getOpenFileName(QWidget *parent = nullptr,
+                                       const QString &caption = QString(),
+                                       const QString &dir = QString(),
+                                       const QString &filter = QString(),
+                                       QString *selectedFilter = nullptr,
+                                       Options options = Options());
+
+        static QStringList getOpenFileNames(QWidget *parent = nullptr,
+                                            const QString &caption = QString(),
+                                            const QString &dir = QString(),
+                                            const QString &filter = QString(),
+                                            QString *selectedFilter = nullptr,
+                                            Options options = Options());
+    
+        static QString getSaveFileName(QWidget *parent = nullptr,
+                                       const QString &caption = QString(),
+                                       const QString &dir = QString(),
+                                       const QString &filter = QString(),
+                                       QString *selectedFilter = nullptr,
+                                       Options options = Options());
+
+        static QString getExistingDirectory(QWidget *parent = nullptr,
+                                            const QString &caption = QString(),
+                                            const QString &dir = QString(),
+                                            Options options = ShowDirsOnly);
+                                                             
     protected slots:
         void OnCurrentChanged(const QString & path);
         void OnFileSelected(const QString& file);
