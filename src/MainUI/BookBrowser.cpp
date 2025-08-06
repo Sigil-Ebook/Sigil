@@ -44,6 +44,7 @@
 #include "Dialogs/SelectFolder.h"
 #include "Dialogs/RERenamer.h"
 #include "Dialogs/RETable.h"
+#include "Dialogs/PreviewFileDialog.h"
 #include "Importers/ImportHTML.h"
 #include "MainUI/BookBrowser.h"
 #include "MainUI/MainWindow.h"
@@ -778,7 +779,7 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
     }
 
     QFileDialog::Options options = Utility::DlgOptions("Win32UseNonNative");
-    
+#if 0
     // filepaths are full absolute file paths to the files to be added
     QStringList filepaths = QFileDialog::getOpenFileNames(this,
                                                           tr("Add Existing Files"),
@@ -786,6 +787,14 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
                                                           filter_string,
                                                           NULL,
                                                           options);
+#else
+    QStringList filepaths = PreviewFileDialog::getOpenFileNames(this,
+                                                                tr("Add Existing Files"),
+                                                                m_LastFolderOpen,
+                                                                filter_string,
+                                                                nullptr,
+                                                                options);
+#endif
 
     if (filepaths.isEmpty()) {
         return added_book_paths;

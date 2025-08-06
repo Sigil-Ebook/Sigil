@@ -19,23 +19,23 @@ PreviewFileDialog::PreviewFileDialog(
     QFileDialog(parent, caption, directory, filter)
 {
     setOptions(options);
-    setObjectName("PreviewFileDialog");
-    QVBoxLayout* box = new QVBoxLayout(this);
-    mpPreview = new QLabel(tr("Preview"), this);
-    mpPreview->setFixedSize(300, 300);
-    mpPreview->setAlignment(Qt::AlignCenter);
-    mpPreview->setObjectName("labelPreview");
-    box->addWidget(mpPreview);
-    
-    box->addStretch();
-    
-    // add to QFileDialog layout
-    {
-        QGridLayout *layout = (QGridLayout*)this->layout();
-        layout->addLayout(box, 1, 3, 3, 1);
+    if (testOption(QFileDialog::DontUseNativeDialog)) {
+        setObjectName("PreviewFileDialog");
+        QVBoxLayout* box = new QVBoxLayout(this);
+        mpPreview = new QLabel(tr("Preview"), this);
+        mpPreview->setFixedSize(300, 300);
+        mpPreview->setAlignment(Qt::AlignCenter);
+        mpPreview->setObjectName("labelPreview");
+        box->addWidget(mpPreview);
+        box->addStretch();
+        // add to QFileDialog layout
+        {
+            QGridLayout *layout = (QGridLayout*)this->layout();
+            layout->addLayout(box, 1, 3, 3, 1);
+        }
+        adjustSize();
+        connect(this, SIGNAL(currentChanged(const QString&)), this, SLOT(OnCurrentChanged(const QString&)));
     }
-    adjustSize();
-    connect(this, SIGNAL(currentChanged(const QString&)), this, SLOT(OnCurrentChanged(const QString&)));
     connect(this, SIGNAL(fileSelected(const QString&)), this, SLOT(OnFileSelected(const QString&)));
     connect(this, SIGNAL(filesSelected(const QStringList&)), this, SLOT(OnFilesSelected(const QStringList&)));
 }
@@ -78,18 +78,15 @@ void PreviewFileDialog::OnCurrentChanged(const QString & path)
     }
 }
 
-
 void PreviewFileDialog::OnFileSelected(const QString& file)
 {
     m_file_selected = file;
 }
 
-
 void PreviewFileDialog::OnFilesSelected(const QStringList& files)
 {
     m_files_selected = files;
 }
-
 
 QString PreviewFileDialog::getOpenFileName(QWidget *parent, const QString &caption, const QString &dir,
                                            const QString &filter, QString *selectedFilter, Options options)
@@ -111,8 +108,6 @@ QString PreviewFileDialog::getOpenFileName(QWidget *parent, const QString &capti
     return QString();
 }
 
-
-
 QStringList PreviewFileDialog::getOpenFileNames(QWidget *parent, const QString &caption, const QString &dir,
                                                 const QString &filter, QString *selectedFilter, Options options)
 {
@@ -133,7 +128,6 @@ QStringList PreviewFileDialog::getOpenFileNames(QWidget *parent, const QString &
     return QStringList();
 }
 
-
 QString  PreviewFileDialog::getSaveFileName(QWidget *parent, const QString &caption, const QString &dir,
                                             const QString &filter, QString *selectedFilter, Options options)
 {
@@ -153,7 +147,6 @@ QString  PreviewFileDialog::getSaveFileName(QWidget *parent, const QString &capt
     }
     return QString();
 }
-
 
 QString PreviewFileDialog::getExistingDirectory(QWidget *parent, const QString &caption,
                                                 const QString &dir, Options options)

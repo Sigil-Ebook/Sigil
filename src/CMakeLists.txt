@@ -110,6 +110,8 @@ set( DIALOG_FILES
     Dialogs/RepoLog.h
     Dialogs/ChgViewer.cpp
     Dialogs/ChgViewer.h
+    Dialogs/PreviewFileDialog.cpp
+    Dialogs/PreviewFileDialog.h
     Dialogs/SourceViewer.cpp
     Dialogs/SourceViewer.h
     Dialogs/ListSelector.h
@@ -170,6 +172,8 @@ set( DIALOG_FILES
     Dialogs/PreferenceWidgets/PreserveEntitiesWidget.h
     Dialogs/PreferenceWidgets/PluginWidget.cpp
     Dialogs/PreferenceWidgets/PluginWidget.h
+    Dialogs/PreviewFileDialog.cpp
+    Dialogs/PreviewFileDialog.h
     Dialogs/RenameTemplate.cpp
     Dialogs/RenameTemplate.h
     Dialogs/Reports.cpp
