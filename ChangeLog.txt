@@ -1,3 +1,15 @@
+pre-2.6.2
+   Bug Fixes
+     - work around bad Qt WebEngine bug when created dynamically and used inside a QDialog
+     - fix minor bug in MediaTypes due to typo with append
+     - fix bug in Checkpoints Diff routine when viewing images that used to exist but no longer do
+
+   New Features
+     - enable use of the fetch api in Sigil internal sigil: scheme
+     - create PreviewFileDialog to append thumbnail previews for images and selected text files
+         when used in non-native dialog mode.  Leave native dialog mode untouched.
+     
+   
 Sigil-2.6.0
    Bug Fixes
      - prevent crash on Windows when hand typing in an external url in Add Existing files
