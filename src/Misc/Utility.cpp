@@ -1595,6 +1595,9 @@ QString Utility::CleanFileName(const QString &name)
 QFileDialog::Options Utility::DlgOptions(const QString special_case)
 {
     QFileDialog::Options options = QFileDialog::Options();
+    if (qEnvironmentVariableIsSet("SIGIL_NO_CUSTOM_DIRECTORY_ICONS")) {
+        options = options | QFileDialog::DontUseCustomDirectoryIcons;
+    }
     if (qEnvironmentVariableIsSet("SIGIL_FORCE_NATIVE_FILE_DIALOG")) {
         return options;
     }
