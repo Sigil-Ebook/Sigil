@@ -43,8 +43,20 @@ PreviewFileDialog::PreviewFileDialog(
 void PreviewFileDialog::OnCurrentChanged(const QString & path)
 {
     QString mt = MediaTypes::instance()->GetFileDataMimeType(path, "application/octet-stream");
-    // qDebug() << "media type is: " << mt;
-    if (mt.endsWith("+xml") || mt.endsWith("/xml")  || mt.endsWith("html") || mt.startsWith("text/")) {
+    qDebug() << "media type is: " << mt;
+    if (mt.startsWith("image/")) {
+        QPixmap pixmap = QPixmap(path);
+        if (pixmap.isNull()) {
+            mpPreview->setText(tr("not an image"));
+        } else {
+            if ((pixmap.width() <= mpPreview->width()) && (pixmap.height() <= mpPreview->height())) {
+                mpPreview->setPixmap(pixmap);
+            } else {
+                mpPreview->setPixmap(pixmap.scaled(mpPreview->width(), mpPreview->height(),
+                                     Qt::KeepAspectRatio, Qt::SmoothTransformation));
+            }
+        }
+    } else if (mt.endsWith("+xml") || mt.endsWith("/xml")  || mt.endsWith("html") || mt.startsWith("text/")) {
         QFile file(path);
         if (!file.open(QFile::ReadOnly)) {
             mpPreview->setText(tr("no preview available"));
@@ -65,14 +77,6 @@ void PreviewFileDialog::OnCurrentChanged(const QString & path)
         QPixmap pixmap = QPixmap::fromImage(image);
         mpPreview->setPixmap(pixmap.scaled(mpPreview->width(), mpPreview->height(),
                                            Qt::KeepAspectRatio, Qt::SmoothTransformation));
-    } else if (mt.startsWith("image/")) {
-        QPixmap pixmap = QPixmap(path);
-        if (pixmap.isNull()) {
-            mpPreview->setText(tr("not an image"));
-        } else {
-            mpPreview->setPixmap(pixmap.scaled(mpPreview->width(), mpPreview->height(),
-                                 Qt::KeepAspectRatio, Qt::SmoothTransformation));
-        }
     } else {
         mpPreview->setText(tr("no preview available"));
     }
@@ -137,6 +141,7 @@ QString  PreviewFileDialog::getSaveFileName(QWidget *parent, const QString &capt
     }
     QPointer<PreviewFileDialog> dialog(new PreviewFileDialog(parent, caption, dir, filter, selectedFilter, options));
     dialog->setFileMode(QFileDialog::AnyFile);
+    dialog->setAcceptMode(QFileDialog::AcceptSave);
     if (selectedFilter && !selectedFilter->isEmpty())
         dialog->selectNameFilter(*selectedFilter);
     const int execResult = dialog->exec();
