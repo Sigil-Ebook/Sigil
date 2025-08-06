@@ -69,7 +69,7 @@ void PreviewFileDialog::OnCurrentChanged(const QString & path)
         txtdata.replace("\x0D\x0A", "\x0A").replace("\x0D", "\x0A");
         QTextDocument doc;
         doc.setPlainText(txtdata);
-        QImage image(800, 600, QImage::Format_ARGB32); 
+        QImage image(400, 400, QImage::Format_ARGB32); 
         image.fill(Qt::white);
         QPainter painter(&image);
         painter.setPen(Qt::black);
@@ -95,7 +95,7 @@ void PreviewFileDialog::OnFilesSelected(const QStringList& files)
 QString PreviewFileDialog::getOpenFileName(QWidget *parent, const QString &caption, const QString &dir,
                                            const QString &filter, QString *selectedFilter, Options options)
 {
-    options = options | QFileDialog::DontUseNativeDialog;
+    // options = options | QFileDialog::DontUseNativeDialog;
     if (!(options & QFileDialog::DontUseNativeDialog)) {
         return QFileDialog::getOpenFileName(parent, caption, dir, filter, selectedFilter, options);
     }
@@ -115,7 +115,7 @@ QString PreviewFileDialog::getOpenFileName(QWidget *parent, const QString &capti
 QStringList PreviewFileDialog::getOpenFileNames(QWidget *parent, const QString &caption, const QString &dir,
                                                 const QString &filter, QString *selectedFilter, Options options)
 {
-    options = options | QFileDialog::DontUseNativeDialog;
+    // options = options | QFileDialog::DontUseNativeDialog;
     if (!(options & QFileDialog::DontUseNativeDialog)) {
         return QFileDialog::getOpenFileNames(parent, caption, dir, filter, selectedFilter, options);
     }
@@ -135,7 +135,7 @@ QStringList PreviewFileDialog::getOpenFileNames(QWidget *parent, const QString &
 QString  PreviewFileDialog::getSaveFileName(QWidget *parent, const QString &caption, const QString &dir,
                                             const QString &filter, QString *selectedFilter, Options options)
 {
-    options = options | QFileDialog::DontUseNativeDialog;
+    // options = options | QFileDialog::DontUseNativeDialog;
     if (!(options & QFileDialog::DontUseNativeDialog)) {
         return QFileDialog::getSaveFileName(parent, caption, dir, filter, selectedFilter, options);
     }
@@ -156,7 +156,7 @@ QString  PreviewFileDialog::getSaveFileName(QWidget *parent, const QString &capt
 QString PreviewFileDialog::getExistingDirectory(QWidget *parent, const QString &caption,
                                                 const QString &dir, Options options)
 {
-    options = options | QFileDialog::DontUseNativeDialog;
+    // options = options | QFileDialog::DontUseNativeDialog;
     if (!(options & QFileDialog::DontUseNativeDialog)) {
         return QFileDialog::getExistingDirectory(parent, caption, dir, options);
     }
