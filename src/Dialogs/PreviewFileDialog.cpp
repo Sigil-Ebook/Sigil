@@ -5,6 +5,8 @@
 #include <QPainter>
 #include <QGridLayout>
 #include <QTextDocument>
+#include <QTextOption>
+#include <QPalette>
 #include "Misc/MediaTypes.h"
 #include "Dialogs/PreviewFileDialog.h"
 
@@ -64,15 +66,21 @@ void PreviewFileDialog::OnCurrentChanged(const QString & path)
         }
         QTextStream in(&file);
         in.setAutoDetectUnicode(true);
-        QString txtdata = in.readAll();
+        QString txtdata = in.read(4096);
         file.close();
         txtdata.replace("\x0D\x0A", "\x0A").replace("\x0D", "\x0A");
         QTextDocument doc;
         doc.setPlainText(txtdata);
-        QImage image(400, 400, QImage::Format_ARGB32); 
-        image.fill(Qt::white);
+        QTextOption textOption;
+        textOption.setWrapMode(QTextOption::WordWrap);
+        doc.setDefaultTextOption(textOption);
+        doc.setTextWidth(350);
+        QImage image(350, 350, QImage::Format_ARGB32);
+        // image.fill(Qt::white);
+        image.fill(palette().color(QPalette::Base));
         QPainter painter(&image);
-        painter.setPen(Qt::black);
+        // painter.setPen(Qt::black);
+        painter.setPen(palette().color(QPalette::Text));
         doc.drawContents(&painter);
         QPixmap pixmap = QPixmap::fromImage(image);
         mpPreview->setPixmap(pixmap.scaled(mpPreview->width(), mpPreview->height(),
@@ -95,7 +103,6 @@ void PreviewFileDialog::OnFilesSelected(const QStringList& files)
 QString PreviewFileDialog::getOpenFileName(QWidget *parent, const QString &caption, const QString &dir,
                                            const QString &filter, QString *selectedFilter, Options options)
 {
-    // options = options | QFileDialog::DontUseNativeDialog;
     if (!(options & QFileDialog::DontUseNativeDialog)) {
         return QFileDialog::getOpenFileName(parent, caption, dir, filter, selectedFilter, options);
     }
@@ -115,7 +122,6 @@ QString PreviewFileDialog::getOpenFileName(QWidget *parent, const QString &capti
 QStringList PreviewFileDialog::getOpenFileNames(QWidget *parent, const QString &caption, const QString &dir,
                                                 const QString &filter, QString *selectedFilter, Options options)
 {
-    // options = options | QFileDialog::DontUseNativeDialog;
     if (!(options & QFileDialog::DontUseNativeDialog)) {
         return QFileDialog::getOpenFileNames(parent, caption, dir, filter, selectedFilter, options);
     }
@@ -135,7 +141,6 @@ QStringList PreviewFileDialog::getOpenFileNames(QWidget *parent, const QString &
 QString  PreviewFileDialog::getSaveFileName(QWidget *parent, const QString &caption, const QString &dir,
                                             const QString &filter, QString *selectedFilter, Options options)
 {
-    // options = options | QFileDialog::DontUseNativeDialog;
     if (!(options & QFileDialog::DontUseNativeDialog)) {
         return QFileDialog::getSaveFileName(parent, caption, dir, filter, selectedFilter, options);
     }
@@ -156,7 +161,6 @@ QString  PreviewFileDialog::getSaveFileName(QWidget *parent, const QString &capt
 QString PreviewFileDialog::getExistingDirectory(QWidget *parent, const QString &caption,
                                                 const QString &dir, Options options)
 {
-    // options = options | QFileDialog::DontUseNativeDialog;
     if (!(options & QFileDialog::DontUseNativeDialog)) {
         return QFileDialog::getExistingDirectory(parent, caption, dir, options);
     }
@@ -167,5 +171,4 @@ QString PreviewFileDialog::getExistingDirectory(QWidget *parent, const QString &
         return dialog->selectedFiles().value(0);
     }
     return QString();
-
 }
