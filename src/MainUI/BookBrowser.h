@@ -186,6 +186,7 @@ public slots:
     void CopyHTML();
     void CopyCSS();
     void AddNewHTML();
+    void ViewImage();
     void AddNewCSS();
     void AddNewJS();
     void AddNewSVG();
@@ -231,6 +232,14 @@ signals:
      * @param resource The selected resource.
      */
     void ResourceActivated(Resource *resource);
+
+    /**
+     * Emitted when the user wants to view an image in the browser.
+     *
+     * @param book:/// url to the image resource
+     */
+    
+    void ViewImageRequest(const QUrl& url);
 
     /**
      * Emitted when merging to force open tabs to close
@@ -547,6 +556,7 @@ private:
     QAction *m_GetInfo;
     QAction *m_SaveAs;
     QAction *m_ValidateWithW3C;
+    QAction *m_ViewImage;
 
     QMenu *m_OpenWithContextMenu;
     QAction *m_OpenWithOtherApp;

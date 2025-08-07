@@ -1909,6 +1909,8 @@ void CodeViewEditor::GoToLinkOrStyle()
 
         if (IMAGE_EXTENSIONS.contains(extension)) {
             emit ViewImage(QUrl(url_name));
+        } else if (SVG_EXTENSIONS.contains(extension)) {
+            emit ViewImage(QUrl(url_name));
         } else {
             emit LinkClicked(QUrl(url_name));
         }

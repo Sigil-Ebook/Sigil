@@ -6652,6 +6652,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(m_BookBrowser, SIGNAL(LinkJavascriptsToResourcesRequest(QList<Resource *>)), this, SLOT(LinkJavascriptsToResources(QList<Resource *>)));
     connect(m_BookBrowser, SIGNAL(RemoveResourcesRequest()), this, SLOT(RemoveResources()));
     connect(m_BookBrowser, SIGNAL(OpenFileRequest(QString, int, int)), this, SLOT(OpenFile(QString, int, int)));
+    connect(m_BookBrowser, SIGNAL(ViewImageRequest(const QUrl&)), this, SLOT(ViewImageDialog(const QUrl&)));
     connect(m_TableOfContents, SIGNAL(OpenResourceRequest(Resource *, int, int, const QString &, const QUrl &)),
             this,     SLOT(OpenResource(Resource *, int, int, const QString &, const QUrl &)));
     connect(m_ValidationResultsView, SIGNAL(OpenResourceRequest(Resource *, int, int, const QString &)),

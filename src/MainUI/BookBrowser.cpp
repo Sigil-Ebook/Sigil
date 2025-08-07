@@ -24,6 +24,7 @@
 #include <QSignalMapper>
 #include <QFileDialog>
 #include <QMenu>
+#include <QUrl>
 #include <QMessageBox>
 #include <QTreeView>
 #include <QProgressDialog>
@@ -747,6 +748,23 @@ void BookBrowser::AddNewSVG()
     emit ResourceActivated(new_resource);
     emit BookContentModified();
     Refresh();
+}
+
+void BookBrowser::ViewImage()
+{
+    Resource *current_resource = GetCurrentResource();
+
+    if (!current_resource) {
+        return;
+    }
+
+    ImageResource *current_image_resource = qobject_cast<ImageResource *>(current_resource);
+    SVGResource *current_svg_resource = qobject_cast<SVGResource *>(current_resource);
+    if (current_image_resource || current_svg_resource) {
+        QString book_path = current_resource->GetRelativePath();
+        QString url_string = "book:///" + Utility::URLEncodePath(book_path);
+        emit ViewImageRequest(QUrl(url_string));
+    }
 }
 
 CSSResource* BookBrowser::CreateHTMLTOCCSSFile()
@@ -2101,6 +2119,7 @@ void BookBrowser::CreateContextMenuActions()
     m_AddNewCSS               = new QAction(tr("Add Blank Stylesheet"),     this);
     m_AddNewJS                = new QAction(tr("Add Blank Javascript"),     this);
     m_AddNewSVG               = new QAction(tr("Add Blank SVG Image"),      this);
+    m_ViewImage               = new QAction(tr("View Image"),               this);
     m_AddExisting             = new QAction(tr("Add Existing Files..."),    this);
     m_CopyHTML                = new QAction(tr("Add Copy"),                 this);
     m_CopyCSS                 = new QAction(tr("Add Copy"),                 this);
@@ -2331,6 +2350,7 @@ bool BookBrowser::SuccessfullySetupContextMenu(const QPoint &point)
             m_ContextMenu->addAction(m_AddNewJS);
         }
     } else if (m_LastContextMenuType == Resource::ImageResourceType || m_LastContextMenuType == Resource::SVGResourceType) {
+        m_ContextMenu->addAction(m_ViewImage);
         m_ContextMenu->addAction(m_AddNewSVG);
     }
 
@@ -2418,6 +2438,7 @@ void BookBrowser::ConnectSignalsToSlots()
     connect(m_AddNewCSS,               SIGNAL(triggered()), this, SLOT(AddNewCSS()));
     connect(m_AddNewJS,                SIGNAL(triggered()), this, SLOT(AddNewJS()));
     connect(m_AddNewSVG,               SIGNAL(triggered()), this, SLOT(AddNewSVG()));
+    connect(m_ViewImage,               SIGNAL(triggered()), this, SLOT(ViewImage()));
     connect(m_AddExisting,             SIGNAL(triggered()), this, SLOT(AddExisting()));
     connect(m_Rename,                  SIGNAL(triggered()), this, SLOT(Rename()));
     connect(m_RERename,                SIGNAL(triggered()), this, SLOT(REXRename()));
