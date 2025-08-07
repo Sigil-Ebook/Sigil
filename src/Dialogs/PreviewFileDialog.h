@@ -52,11 +52,13 @@ class PreviewFileDialog : public QFileDialog
         void OnCurrentChanged(const QString & path);
         void OnFileSelected(const QString& file);
         void OnFilesSelected(const QStringList& files);
+        void OnThemeChanged();
 
     protected:
         QLabel* mpPreview;
         QString m_file_selected;
         QStringList m_files_selected;
+        QString m_path;
 
 };
 

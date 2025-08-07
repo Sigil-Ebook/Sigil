@@ -7,6 +7,7 @@
 #include <QTextDocument>
 #include <QTextOption>
 #include <QPalette>
+#include "MainUI/MainApplication.h"
 #include "Misc/MediaTypes.h"
 #include "Dialogs/PreviewFileDialog.h"
 
@@ -37,6 +38,8 @@ PreviewFileDialog::PreviewFileDialog(
         }
         adjustSize();
         connect(this, SIGNAL(currentChanged(const QString&)), this, SLOT(OnCurrentChanged(const QString&)));
+        MainApplication *mainApplication = qobject_cast<MainApplication *>(qApp);
+        connect(mainApplication, SIGNAL(applicationPaletteChanged()), this, SLOT(OnThemeChanged()));
     }
     connect(this, SIGNAL(fileSelected(const QString&)), this, SLOT(OnFileSelected(const QString&)));
     connect(this, SIGNAL(filesSelected(const QStringList&)), this, SLOT(OnFilesSelected(const QStringList&)));
@@ -44,6 +47,7 @@ PreviewFileDialog::PreviewFileDialog(
 
 void PreviewFileDialog::OnCurrentChanged(const QString & path)
 {
+    m_path = path;
     QString mt = MediaTypes::instance()->GetFileDataMimeType(path, "application/octet-stream");
     qDebug() << "media type is: " << mt;
     if (mt.startsWith("image/")) {
@@ -88,6 +92,11 @@ void PreviewFileDialog::OnCurrentChanged(const QString & path)
     } else {
         mpPreview->setText(tr("no preview available"));
     }
+}
+
+void PreviewFileDialog::OnThemeChanged()
+{
+    OnCurrentChanged(m_path);
 }
 
 void PreviewFileDialog::OnFileSelected(const QString& file)
