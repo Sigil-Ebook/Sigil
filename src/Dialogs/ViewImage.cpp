@@ -45,6 +45,7 @@ ViewImage::ViewImage(QWidget *parent)
     m_bp(new QToolButton(this)),
     m_layout(new QVBoxLayout(this))
 {
+    setMinimumSize(200,200);
     m_layout->addWidget(m_iv);
     m_bp->setToolTip(tr("Close this window"));
     m_bp->setText(tr("Done"));
@@ -86,8 +87,6 @@ void ViewImage::ReadSettings()
     QByteArray geometry = settings.value("geometry").toByteArray();
     if (!geometry.isNull()) {
         restoreGeometry(geometry);
-    } else {
-        resize(sizeHint());
     }
     settings.endGroup();
 }
