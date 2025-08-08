@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -41,6 +41,7 @@ TextTab::TextTab(TextResource *resource,
     m_LineToScrollTo(line_to_scroll_to),
     m_PositionToScrollTo(position_to_scroll_to)
 {
+    m_wCodeView->SetContentMediaType(resource->GetMediaType());
     m_Layout->addWidget(m_wCodeView);
     setFocusProxy(m_wCodeView);
     ConnectSignalsToSlots();

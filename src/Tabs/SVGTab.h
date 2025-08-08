@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -35,6 +36,20 @@ class SVGTab : public TextTab
 
 public:
     SVGTab(SVGResource *resource, int line_to_scroll_to = -1, int position_to_scroll_to = -1, QWidget *parent = 0);
+
+public slots:
+    void HandleViewImage(const QUrl &url);
+
+signals:
+
+    /**
+     * Emitted when CV wants to View Images
+     * 
+     * @param url The URL of the Image using our book:/// scheme.
+     */
+
+    void ViewImageRequest(const QUrl &url);
+
 };
 
 #endif // SVGTAB_H

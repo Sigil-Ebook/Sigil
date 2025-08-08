@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks Stratford, ON Canada 
+**  Copyright (C) 2015-2025 Kevin B. Hendricks Stratford, ON Canada 
 **  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -385,6 +385,8 @@ public:
      */
     bool ReformatCSSEnabled();
     void SetReformatCSSEnabled(bool value);
+
+    void SetContentMediaType(const QString& mt) { m_mediatype = mt; };
 
     /**
      * Control wheter the Reformat (clean) HTML submenu is avaliable on the context menu.
@@ -866,6 +868,8 @@ private:
 
     TagLister m_TagList;
     bool m_regen_taglist;
+
+    QString m_mediatype;
 };
 
 #endif // CODEVIEWEDITOR_H

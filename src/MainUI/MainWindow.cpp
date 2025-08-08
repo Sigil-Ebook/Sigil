@@ -6754,6 +6754,7 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
         connect(tab,   SIGNAL(SelectionChanged()),           this,          SLOT(UpdateUIOnTabChanges()));
     }
 
+
     if (rType == Resource::HTMLResourceType ||
         rType == Resource::ImageResourceType ||
         rType == Resource::SVGResourceType) {
@@ -6763,6 +6764,11 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
 
     if (rType == Resource::CSSResourceType) {
         connect(tab,   SIGNAL(CSSUpdated()), this, SLOT(UpdatePreviewCSSRequest()));
+    }
+
+    if (rType == Resource::SVGResourceType) {
+        connect(tab,   SIGNAL(ViewImageRequest(const QUrl &)),
+                this,  SLOT(ViewImageDialog(const QUrl &)));
     }
 
     if (rType == Resource::HTMLResourceType ||

@@ -1863,7 +1863,10 @@ bool CodeViewEditor::InViewableImage()
         // We do not know what namespace may have been used
         url_name = GetAttribute("xlink:href", IMAGE_TAGS, true);
     }
-
+    // check if CV is editing an SVGTab and allow it
+    if (url_name.isEmpty()) {
+        if (m_mediatype == "image/svg+xml") return true;
+    }
     return !url_name.isEmpty();
 }
 
@@ -1902,6 +1905,10 @@ void CodeViewEditor::GoToLinkOrStyle()
         url_name = GetAttribute("xlink:href", IMAGE_TAGS, true);
     }
 
+    if (url_name.isEmpty() && m_mediatype == "image/svg+xml") {
+        url_name = "./SVGTab.svg";
+    }
+    
     if (!url_name.isEmpty()) {
         
         QUrl url = QUrl(url_name);

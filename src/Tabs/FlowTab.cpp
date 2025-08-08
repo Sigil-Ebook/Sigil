@@ -72,6 +72,7 @@ FlowTab::FlowTab(HTMLResource *resource,
     m_LastPosition(-1)
 {
     CreateCodeViewIfRequired(false);
+    m_wCodeView->SetContentMediaType(resource->GetMediaType());
     m_Layout->addWidget(m_wCodeView);
     LoadSettings();
     setFocusProxy(m_wCodeView);
