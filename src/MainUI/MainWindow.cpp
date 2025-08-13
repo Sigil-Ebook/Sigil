@@ -3269,7 +3269,7 @@ void MainWindow::InsertClip()
     QString book_lang;
     if (html_resource) book_lang = html_resource->GetLanguageAttribute();
     if (book_lang.isEmpty()) {
-        m_Book->GetOPF()->GetPrimaryBookLanguage();
+        book_lang = m_Book->GetOPF()->GetPrimaryBookLanguage();
     }
     
     QString selected_text = flow_tab->GetSelectedText();
