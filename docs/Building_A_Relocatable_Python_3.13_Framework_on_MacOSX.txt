@@ -1,6 +1,6 @@
 # *** IMPORTANT ***
 
-# Build Prerequisite requirements for Python 3.13.1 on macOS 11.0 and later users:
+# Build Prerequisite requirements for Python 3.13.1 on macOS 12.0 and later users:
 #
 #     First make sure you are using the latest XCode for your version of Mac OSX
 #     Then make sure you have the command line tools (CLT) installed (via xcode-select --install)
@@ -19,7 +19,7 @@ mkdir ndevpython
 cd ndevpython
 
 
-# If you are using XCode 10.X on MacOSX 10.14.X, remember to install the command line tools 
+# If you are using XCode 10.X on MacOSX remember to install the command line tools 
 # and their headers!  The headers are now not installed by default.  An installer package
 # for the headers can be found here:
 # 
@@ -27,8 +27,8 @@ cd ndevpython
 
 # First build the main prerequisites
 # Download openssl-3.0.15.tar.gz or later into sources from https://www.openssl.org/source
-export MACOSX_DEPLOYMENT_TARGET=11.0
-export LDFLAGS="-Wl,-macos_version_min,11.0"
+export MACOSX_DEPLOYMENT_TARGET=12.0
+export LDFLAGS="-Wl,-macos_version_min,12.0"
 tar -zxvf support/openssl-3.0.15.tar.gz
 cd openssl-3.0.15
 ./config no-shared --prefix=/usr/local
@@ -40,9 +40,9 @@ cd ..
 
 # Download xz-5.2.3.tar.gz or later into sources from https://tukaani.org/xz/  (via sourceforge)
 
-export MACOSX_DEPLOYMENT_TARGET=11.0
-export LDFLAGS="-Wl,-macos_version_min,11.0"
-export CFLAGS="-mmacos-version-min=11.0 -Werror=partial-availability"
+export MACOSX_DEPLOYMENT_TARGET=12.0
+export LDFLAGS="-Wl,-macos_version_min,12.0"
+export CFLAGS="-mmacos-version-min=12.0 -Werror=partial-availability"
 
 tar -zxvf support/xz-5.2.3.tar.gz
 cd xz-5.2.3
@@ -57,9 +57,9 @@ cd ..
 # Download sqlite-autoconf-3450300.tar.gz into sources from 
 # https://sqlite.org/2021/sqlite-autoconf-3450300.tar.gz"
 
-export MACOSX_DEPLOYMENT_TARGET=11.0
-export LDFLAGS="-Wl,-macos_version_min,11.0"
-export CFLAGS="-mmacos-version-min=11.0 -Werror=partial-availability -Os -DSQLITE_ENABLE_FTS5 \
+export MACOSX_DEPLOYMENT_TARGET=12.0
+export LDFLAGS="-Wl,-macos_version_min,12.0"
+export CFLAGS="-mmacos-version-min=12.0 -Werror=partial-availability -Os -DSQLITE_ENABLE_FTS5 \
             -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_JSON1 \
             -DSQLITE_ENABLE_RTREE -DSQLITE_TCL=0 "
 tar -zxvf support/sqlite-autoconf-3450300.tar.gz
@@ -75,7 +75,7 @@ cd ..
 # Download mpdecimal-4.0.0.tar.gz from:
 # https://www.bytereef.org/software/mpdecimal/releases/mpdecimal-4.0.0.tar.gz
 
-export MACOSX_DEPLOYMENT_TARGET=11.0
+export MACOSX_DEPLOYMENT_TARGET=12.0
 tar -zxvf support/mpdecimal-4.0.0.tar.gz
 cd mpdecimal-4.0.0
 ./configure --prefix=/usr/local --disable-cxx MACHINE=universal
@@ -111,8 +111,8 @@ For this version - no backport patches are needed.
 
 # Note: TCL_LIBRARY and TK_LIBRARY and libdir are appended to DESTDIR to get actual paths
 
-export MACOSX_DEPLOYMENT_TARGET=11.0
-export CFLAGS="-arch arm64 -mmacos-version-min=11.0"
+export MACOSX_DEPLOYMENT_TARGET=12.0
+export CFLAGS="-arch arm64 -mmacos-version-min=12.0"
 cd tcl8.6.15/unix
 ./configure --enable-shared --enable-threads --libdir=/Frameworks/Python.framework/Versions/3.13/lib
 make TCL_LIBRARY=/Frameworks/Python.framework/Versions/3.13/lib/tcl8.6 DESTDIR=${MYLIBS}
@@ -140,7 +140,7 @@ install_name_tool -id ${MYDEST}/Python.framework/Versions/3.13/lib/libtcl8.6.dyl
 install_name_tool -id ${MYDEST}/Python.framework/Versions/3.13/lib/libtk8.6.dylib ./libtk8.6.dylib
 
 
-# Building Python 3.13.1 to be fully relocatable for macOS 11.0 and later
+# Building Python 3.13.1 to be fully relocatable for macOS 12.0 and later
 
 # Before building remember to rename any /Applications/Python 3.13.app to save it and 
 # replace it afterwards as the damn python installation from source always overwrites
@@ -151,7 +151,7 @@ install_name_tool -id ${MYDEST}/Python.framework/Versions/3.13/lib/libtk8.6.dyli
 cd ${MYDEST}
 cd ../../
 
-export MACOSX_DEPLOYMENT_TARGET=11.0
+export MACOSX_DEPLOYMENT_TARGET=12.0
 
 # now build Python 3.13.1 as a framework
 # no need to worry about what symbols exist in what version of 
@@ -160,8 +160,8 @@ export MACOSX_DEPLOYMENT_TARGET=11.0
 tar -zxvf support/Python-3.13.1.tgz
 cd Python-3.13.1
 
-export LDFLAGS="-Wl,-macos_version_min,11.0" 
-export CFLAGS="-mmacos-version-min=11.0" 
+export LDFLAGS="-Wl,-macos_version_min,12.0" 
+export CFLAGS="-mmacos-version-min=12.0" 
 ./configure --prefix=${MYDEST} --enable-framework=${MYDEST} --with-ensurepip \
     TCLTK_CFLAGS="-I${MYLIBS}/usr/local/include" \
     TCLTK_LIBS="-L${MYDEST}/Python.framework/Versions/3.13/lib -ltcl8.6 -ltk8.6"

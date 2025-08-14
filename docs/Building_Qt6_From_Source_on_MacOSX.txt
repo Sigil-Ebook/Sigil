@@ -9,7 +9,7 @@ On Ventura you need XCode 14.3.1 or later
 # These instructions will lead you through building from source
 # set the deployment target (this is minimum needed)
 
-export MACOSX_DEPLOYMENT_TARGET=11.0  # now set to 11.0
+export MACOSX_DEPLOYMENT_TARGET=12.0  # now set to 12.0 because of Qt 6.9 minimum
 
 # cd to a location to store your src tree then do
 export MYQTSRC=`pwd`
@@ -39,8 +39,8 @@ cd ..
 
 
 # Download libpng 1.6.46 or later from png's sourceforge site: http://www.libpng.org/pub/png/libpng.html
-export LDFLAGS="-Wl,-macos_version_min,11.0"
-export CFLAGS="-mmacos-version-min=11.0 -Werror=partial-availability"
+export LDFLAGS="-Wl,-macos_version_min,12.0"
+export CFLAGS="-mmacos-version-min=12.0 -Werror=partial-availability"
 tar -jxvf support/libpng-1.6.46.tar.xz
 cd libpng-1.6.46
 ./configure --enable-static=yes --enable-shared=no --prefix=/opt/support
@@ -72,16 +72,16 @@ cd ..
 tar -zxvf support/libjpeg-turbo-3.1.0.tar.gz
 mkdir buildjt3
 cd buildjt3
-cmake -G"Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/opt/support -DENABLE_SHARED=0 -DCMAKE_OSX_DEPLOYMENT_TARGET=11.0 \
-  -DWITH_JPEG8=1 -DCMAKE_C_FLAGS_RELEASE="-O3 -mmacosx-version-min=11.0 -Werror=partial-availability" ../libjpeg-turbo-3.1.0/
+cmake -G"Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/opt/support -DENABLE_SHARED=0 -DCMAKE_OSX_DEPLOYMENT_TARGET=12.0 \
+  -DWITH_JPEG8=1 -DCMAKE_C_FLAGS_RELEASE="-O3 -mmacosx-version-min=12.0 -Werror=partial-availability" ../libjpeg-turbo-3.1.0/
 make -j4
 sudo make install
 cd ..
 
 
 # Download openssl-3.0.15.tar.gz or later into sources from https://www.openssl.org/source
-export MACOSX_DEPLOYMENT_TARGET=11.0
-export LDFLAGS="-Wl,-macos_version_min,11.0"
+export MACOSX_DEPLOYMENT_TARGET=12.0
+export LDFLAGS="-Wl,-macos_version_min,12.0"
 tar -zxvf support/openssl-3.0.15.tar.gz
 cd openssl-3.0.15
 ./config no-shared --prefix=/opt/support
@@ -93,7 +93,7 @@ cd ..
 
 # To enable qt's internal freetype to handle woff2 fonts
 # Download brotli-1.1.0.tar.gz from https://github.com/google/brotli/releases download
-export MACOSX_DEPLOYMENT_TARGET=11.0
+export MACOSX_DEPLOYMENT_TARGET=12.0
 tar -zxvf support/brotli-1.1.0.tar.gz
 cd brotli-1.1.0
 # to build static libraries
@@ -102,13 +102,13 @@ cd brotli-1.1.0
 # with
 #     option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 mkdir out && cd out
-cmake -DCMAKE_OSX_DEPLOYMENT_TARGET="11.0" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/opt/support ..
+cmake -DCMAKE_OSX_DEPLOYMENT_TARGET="12.0" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/opt/support ..
 sudo cmake --build . --config Release --target install
 cd ../../
 
 
 # Add a static version of the ICU libs needed QStringConverter classes to work properly
-export MACOSX_DEPLOYMENT_TARGET=11.0
+export MACOSX_DEPLOYMENT_TARGET=12.0
 tar -zxvf support/icu4c-76_1-src.tgz
 cd icu
 cd source
@@ -138,7 +138,7 @@ cd ../../
 # heads.  This creates the potential to miss late cherry-picked bug fix 
 # commits made to the branch after first creation
 
-export MACOSX_DEPLOYMENT_TARGET=11.0
+export MACOSX_DEPLOYMENT_TARGET=12.0
 export MYDEST=/Users/kbhend/ndevpython/libraries/Frameworks
 export PATH=${MYDEST}/Python.framework/Versions/3.13/bin:${PATH}
 
@@ -179,7 +179,7 @@ cd buildqt682
 # Remember to include the -webengine-proprietary-codecs configure switch
 # and add -feature-optimize_full to use -O3 (note _full not -full)
 
-../qt-everywhere-src-6.8.2/configure --prefix=/Users/${USER}/Qt682 -webengine-proprietary-codecs -feature-optimize_full -icu -- -DCMAKE_OSX_DEPLOYMENT_TARGET="11.0" -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=/opt/support 
+../qt-everywhere-src-6.8.2/configure --prefix=/Users/${USER}/Qt682 -webengine-proprietary-codecs -feature-optimize_full -icu -- -DCMAKE_OSX_DEPLOYMENT_TARGET="12.0" -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=/opt/support 
 
 # note the build itself can take a couple of hours depending on memory available, disk and cpus used
 cmake --build . --parallel

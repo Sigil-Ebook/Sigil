@@ -8,8 +8,8 @@
 #
 #         You will need to have CMake 3.22.1 or later installed and in your path
 
-# standard deployment target
-export MACOSX_DEPLOYMENT_TARGET=11.0
+# standard deployment target Qt 6.8.X requires 12
+export MACOSX_DEPLOYMENT_TARGET=12.0 
 
 # Set the location of where the relocatable Python framework was installed
 # See "Building_A_Relocatable_Python_3.13_Framework_on_MacOSX.txt
@@ -34,7 +34,7 @@ export PATH=${PATH}:${MYQTHOME}/bin
 # Make sure the newly created relocatable python framework is found first
 # **before** any system version of Python3
 
-export PATH=${MYDEST}/Python.framework/Versions/3.113/bin:${PATH}
+export PATH=${MYDEST}/Python.framework/Versions/3.13/bin:${PATH}
 
 mkdir build
 cd build
@@ -44,7 +44,7 @@ cd build
 
 # Mac OS Ventura use the following with XCode 14
 cmake -DPKG_SYSTEM_PYTHON=1 \
-      -DCMAKE_OSX_DEPLOYMENT_TARGET=11.0 \
+      -DCMAKE_OSX_DEPLOYMENT_TARGET=12.0 \
       -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_CXX_FLAGS=-Wno-inconsistent-missing-override \
       -DCMAKE_PREFIX_PATH=${MYQTHOME}/lib/cmake \
