@@ -118,7 +118,7 @@ def replace_swapcase_ignore_tags(match, number, file_name, metadata, data, *args
 
 
 def replace_debug_log(message):
-    logfile = os.environ.get('SIGIL_FUNCTION_REPLACE_LOG_FILE', None);
+    logfile = os.environ.get('SIGIL_FUNCTION_REPLACE_LOGFILE', None);
     if logfile:
         with open(logfile, "a", encoding="utf-8") as f:
             f.write(message)
