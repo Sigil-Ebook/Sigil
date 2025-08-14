@@ -184,7 +184,7 @@ tr("Aside: Sidebar") << "sidebar" << "<aside aria-label=\"LABEL_FOR_SIDEBAR\">\n
 
 tr("Aside: Tip") << "tip" << "<aside role=\"doc-tip\" epub:type=\"tip\" aria-label=\"LABEL_FOR_TIP\">\n  \\1\n</aside>\n" <<
 
-tr("Backlink from Footnote") << "fn_backlink" << "<a href=\"ref_fn_N_\" epub:type=\"backlink\" role=\"doc-backlink\">LABEL_FOR_FOOTNOTE_BACKLINK [_N_]</a>" <<
+tr("Backlink from Footnote") << "fn_backlink" << "<a href=\"#ref_fn_N_\" epub:type=\"backlink\" role=\"doc-backlink\">LABEL_FOR_FOOTNOTE_BACKLINK [_N_]</a>" <<
 
 tr("Backlink from Endnote") << "endnote_backlink" << "<a href=\"HREF_RETURN_FROM_ENDNOTE#en_N_\" epub:type=\"backlink\" role=\"doc-backlink\">LABEL_FOR_ENDNOTE_BACKLINK [_N_]</a>" <<
 
