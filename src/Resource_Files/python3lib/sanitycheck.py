@@ -51,8 +51,8 @@ class SanityCheck(object):
         self.doctype = 0
 
         # to track tag nesting
-        self.tagpath = []
-        self.tagpositions = []
+        self.tagpath = ["None"]
+        self.tagpositions = [-1]
 
         # error reporting
         self.has_error = False
@@ -333,7 +333,7 @@ class SanityCheck(object):
                     last_begin = self.tagpath[-1]
                     last_pos = self.tagpositions[-1]
                     if last_begin != tname:
-                        error_msg = 'Improperly nested tags: parsing end tag "' + tname + '" but current parse path is "' + tp + '". See line %d col %d' % last_pos
+                        error_msg = 'Improperly nested tags: parsing end tag "' + tname + '" but current parse path is "' + tp + '". See line %d col %d' % (self.line, self.col)
                         self.errors.append((self.tag_start[0], self.tag_start[1], error_msg))
                         self.has_error = True
                         break
