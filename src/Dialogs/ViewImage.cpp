@@ -38,14 +38,15 @@
 
 static QString SETTINGS_GROUP = "view_image";
 
-ViewImage::ViewImage(QWidget *parent)
+ViewImage::ViewImage(QWidget *parent, bool delete_on_close)
     :
     QDialog(parent),
     m_iv(new ImageView(this)),
     m_bp(new QToolButton(this)),
     m_layout(new QVBoxLayout(this))
 {
-    setMinimumSize(200,200);
+    if (delete_on_close) setAttribute(Qt::WA_DeleteOnClose, true);
+    setMinimumSize(200, 200);
     m_layout->addWidget(m_iv);
     m_bp->setToolTip(tr("Close this window"));
     m_bp->setText(tr("Done"));

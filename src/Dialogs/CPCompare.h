@@ -24,19 +24,14 @@
 
 #include <QString>
 #include <QStringList>
-#include <QPointer>
-#include <QList>
 #include <QWidget>
 #include <QDialog>
 
 class QToolButton;
 class QVBoxLayout;
 class ListSelector;
-
 class ViewImage;
-class SourceViewer;
-class ViewAV;
-class ViewFont;
+class QEventLoop;
 
 class CPCompare : public QDialog
 
@@ -78,8 +73,13 @@ private:
     ListSelector* m_alist;
     ListSelector* m_mlist;
     QVBoxLayout*  m_layout;
+    // create own exec that creates its QEventLoop on the heap, and
+    // create an unused QWebEngineView and do a setUrl() on it.
+    // horrible hack to deal with QTBUG-138687, QTBUG-135002, QTBUG-139109
+    // this forces any reparenting for QWebEngine to happen early before exec
+    // and before any non webengine widget is dynamically created to prevent
+    // parent child loss from reparenting impacting QDialog modality
+    QEventLoop*   m_loop;
     ViewImage*    m_vi;
-    ViewAV*       m_av;
-    ViewFont*     m_vf;
 };
 #endif

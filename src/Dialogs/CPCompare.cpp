@@ -21,7 +21,6 @@
 #include <QString>
 #include <QList>
 #include <QDialog>
-#include <QPointer>
 #include <QWidget>
 #include <QKeySequence>
 #include <QKeyEvent>
@@ -33,7 +32,6 @@
 #include <QFuture>
 #include <QFileInfo>
 #include <QMessageBox>
-
 #include <QDebug>
 
 #include "Dialogs/ListSelector.h"
@@ -77,11 +75,13 @@ CPCompare::CPCompare(const QString& bookroot,
     : QDialog(parent),
       m_bookroot(bookroot),
       m_cpdir(cpdir),
-      m_bp(new QToolButton),
+      m_bp(new QToolButton(this)),
       m_layout(new QVBoxLayout(this)),
-      m_vi(new ViewImage(this)),
-      m_av(new ViewAV(this)),
-      m_vf(new ViewFont(this))
+      // horrible hack to deal with QTBUG-138687, QTBUG-135002, QTBUG-139109
+      // this forces any reparenting for QWebEngine to happen early before exec
+      // and before any non webengine widget is dynamically created to prevent
+      // parent child loss from reparenting impacting QDialog modality
+      m_vi(new ViewImage(this))
 {
     m_dlist = new ListSelector(tr("Files Only in Checkpoint"), tr("View"), dlist, this);
     m_alist = new ListSelector(tr("Files Only in Current ePub"), tr("View"), alist, this);
@@ -116,24 +116,25 @@ void CPCompare::handle_del_request()
             SourceViewer* sv = new SourceViewer(apath, data, this);
             sv->show();
             sv->raise();
+            sv->activateWindow();
         } else if (IMAGE_EXTENSIONS.contains(ext)) {
-            m_vi->show();
-            m_vi->raise();
-            m_vi->activateWindow();
-            m_vi->ShowImage(filepath);
-            break;
+            ViewImage * vi = new ViewImage(this, true);
+            vi->ShowImage(filepath);
+            vi->show();
+            vi->raise();
+            vi->activateWindow();
         } else if (AUDIO_EXTENSIONS.contains(ext) || VIDEO_EXTENSIONS.contains(ext)) {
-            m_av->show();
-            m_av->raise();
-            m_av->activateWindow();
-            m_av->ShowAV(filepath);
-            break;
+            ViewAV * av = new ViewAV(this);
+            av->ShowAV(filepath);
+            av->show();
+            av->raise();
+            av->activateWindow();
         } else if (FONT_EXTENSIONS.contains(ext)) {
-            m_vf->show();
-            m_vf->raise();
-            m_vf->activateWindow();
-            m_vf->ShowFont(filepath);
-            break;
+            ViewFont * vf = new ViewFont(this);
+            vf->ShowFont(filepath);
+            vf->show();
+            vf->raise();
+            vf->activateWindow();
         } else {
             qDebug() << "attempted to show a binary file " << apath;
         }
@@ -153,24 +154,25 @@ void CPCompare::handle_add_request()
             SourceViewer* sv = new SourceViewer(apath, data, this);
             sv->show();
             sv->raise();
+            sv->activateWindow();
         } else if (IMAGE_EXTENSIONS.contains(ext)) {
-            m_vi->show();
-            m_vi->raise();
-            m_vi->activateWindow();
-            m_vi->ShowImage(filepath);
-            break;
+            ViewImage * vi = new ViewImage(this, true);
+            vi->ShowImage(filepath);
+            vi->show();
+            vi->raise();
+            vi->activateWindow();
         } else if (AUDIO_EXTENSIONS.contains(ext) || VIDEO_EXTENSIONS.contains(ext)) {
-            m_av->show();
-            m_av->raise();
-            m_av->activateWindow();
-            m_av->ShowAV(filepath);
-            break;
+            ViewAV * av = new ViewAV(this);
+            av->ShowAV(filepath);
+            av->show();
+            av->raise();
+            av->activateWindow();
         } else if (FONT_EXTENSIONS.contains(ext)) {
-            m_vf->show();
-            m_vf->raise();
-            m_vf->activateWindow();
-            m_vf->ShowFont(filepath);
-            break;
+            ViewFont * vf = new ViewFont(this);
+            vf->ShowFont(filepath);
+            vf->show();
+            vf->raise();
+            vf->activateWindow();
         } else {
             qDebug() << "attempted to show a binary file " << apath;
         }
@@ -246,7 +248,26 @@ void CPCompare::WriteSettings()
 
 int CPCompare::exec()
 {
-    return QDialog::exec();
+    // was return QDialog::exec();
+    // horrible hack to deal with QTBUG-138687, QTBUG-135002, QTBUG-139109
+    // this forces any reparenting for QWebEngine to happen early before exec
+    // and before any non webengine widget is dynamically created to prevent
+    // parent child loss from reparenting impacting QDialog modality
+    bool deleteOnClose = testAttribute(Qt::WA_DeleteOnClose);
+    setAttribute(Qt::WA_DeleteOnClose, false);
+    bool wasShowModal = testAttribute(Qt::WA_ShowModal);
+    setAttribute(Qt::WA_ShowModal, true);
+    setResult(0);
+    QPointer<CPCompare> guard = this;
+    m_loop = new QEventLoop();
+    connect(this,SIGNAL(finished(int)), m_loop, SLOT(exit(int)));
+    show();
+    m_loop->exec(QEventLoop::DialogExec);
+    if (guard.isNull()) return QDialog::Rejected;
+    setAttribute(Qt::WA_ShowModal, wasShowModal);
+    int res = result();
+    if (deleteOnClose) delete this;
+    return res;
 }
 
 // should cover both escape key use and using x to close the runner dialog
