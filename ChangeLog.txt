@@ -20,10 +20,11 @@ preSigil-2.6.2
               SIGIL_NO_CUSTOM_DIRECTORY_ICONS=1
      - BookBrowser now has a "View Image" pop-up menu item that allows users to see
           what any image (SVG included) without having to open a full Tab
-     - Make CV understand the media-types of the file it is editing so that it can better
+     - make CV understand the media-types of the file it is editing so that it can better
           create pop-up menu items like "View Image" when editing an SVG
-                                                          ~
-   
+     - add support for macos-env.txt in Sigil Prefs folder, uses VARIABLE=VALUE one per line
+
+
 Sigil-2.6.0
    Bug Fixes
      - prevent crash on Windows when hand typing in an external url in Add Existing files
