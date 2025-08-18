@@ -330,6 +330,34 @@ void update_ini_file_if_needed(const QString oldfile, const QString newfile)
     }
 }
 
+void set_env_vars_if_needed(const QString env_path)
+{
+    QFile evfile(env_path);
+    QString envdata;
+    if (evfile.exists()) {
+        if (evfile.open(QFile::ReadOnly)) {
+            QTextStream in(&evfile);
+            in.setAutoDetectUnicode(true);
+            envdata = in.readAll();
+            evfile.close();
+        }
+    }
+    // assumes NAME=VALUE and one per line
+    if (!envdata.isEmpty()) {
+        QStringList evpairs = envdata.split('\n');
+        foreach(QString apair, evpairs) {
+            if (apair.contains('=')) {
+                QStringList nv = apair.split('=');
+                QString evname = nv.value(0).trimmed();
+                QString evval = nv.value(1).trimmed();
+                if (!evname.isEmpty() && !evval.isEmpty()) {
+                    qputenv(evname.toUtf8(), evval.toUtf8());
+                }
+            }
+        }
+    }
+}
+
 
 // Application entry point
 int main(int argc, char *argv[])
@@ -344,6 +372,12 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationDomain("sigil-ebook.com");
     QCoreApplication::setApplicationName("sigil");
     QCoreApplication::setApplicationVersion(SIGIL_VERSION);
+
+#if defined(Q_OS_MAC)
+    // handle macos-env.txt if present in Sigil Prefs Folder
+    QString mac_env_path = Utility::DefinePrefsDir() + "/macos-env.txt";
+    set_env_vars_if_needed(mac_env_path);
+#endif
 
     // make sure the default Sigil workspace folder has been created
     QString workspace_path = Utility::DefinePrefsDir() + "/workspace";
