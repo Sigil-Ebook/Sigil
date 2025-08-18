@@ -1,14 +1,28 @@
-pre-2.6.2
+preSigil-2.6.2
    Bug Fixes
-     - work around bad Qt WebEngine bug when created dynamically and used inside a QDialog
+     - work around bad Qt WebEngine bug when created dynamically and used inside a QDialog for Checkpoints
      - fix minor bug in MediaTypes due to typo with append
      - fix bug in Checkpoints Diff routine when viewing images that used to exist but no longer do
+     - fix bug in sanitycheck.py when spurious close tag is found before html tag
+     - fix bug in Aria Clips where the book language was not properly set (Thank you BeckyEbook)
+     - fix bug in Aria Clips where a # fragment was missing (Thank you BeckEbook)
+     - document that Qt 6.8.X now requires Mac OS 12 as the new minimum
+     - rename the environment variable: "SIGIL_FUNCTION_REPLACE_LOG_FILE" to now be:
+         "SIGIL_FUNCTION_REPLACE_LOGFILE" to better match with other Sigil environment variables
+         (Thank you BeckyEbook)
 
    New Features
-     - enable use of the fetch api in Sigil internal sigil: scheme
+     - enable use of the fetch api in Sigil internal "sigil:" scheme
      - create PreviewFileDialog to append thumbnail previews for images and selected text files
          when used in non-native dialog mode.  Leave native dialog mode untouched.
-     
+     - added environment variable to turn off use of custom filedialogs to make
+         "Add Existing ..." work better over networked storage with lots of files:
+              SIGIL_NO_CUSTOM_DIRECTORY_ICONS=1
+     - BookBrowser now has a "View Image" pop-up menu item that allows users to see
+          what any image (SVG included) without having to open a full Tab
+     - Make CV understand the media-types of the file it is editing so that it can better
+          create pop-up menu items like "View Image" when editing an SVG
+                                                          ~
    
 Sigil-2.6.0
    Bug Fixes
