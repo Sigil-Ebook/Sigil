@@ -1,6 +1,9 @@
 name: Build Sigil on Windows
 
 on:
+
+  workflow_dispatch:
+  
   push:
     branches: [ master ]
     tags-ignore:
@@ -107,7 +110,7 @@ jobs:
     - name: Build Installer
       shell: cmd
       working-directory: ${{runner.workspace}}\build
-      if: "contains(github.event.head_commit.message, '[deploy]')"
+      if: contains(github.event.head_commit.message, '[deploy]') || github.event_name == 'workflow_dispatch'
       run: |
         set PATH=C:\%PYTHON%;%INNO%;${{runner.workspace}}\%QT%\bin;%PATH%
         call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
@@ -123,7 +126,7 @@ jobs:
     #    python %GITHUB_WORKSPACE%\ci_scripts\newgddeploy.py
 
     - uses: actions/upload-artifact@v4
-      if: "contains(github.event.head_commit.message, '[deploy]')"
+      if: contains(github.event.head_commit.message, '[deploy]') || github.event_name == 'workflow_dispatch'
       with:
         name: sigil-installer
         path: ${{runner.workspace}}\build\installer\*.exe
