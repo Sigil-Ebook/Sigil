@@ -18026,12 +18026,12 @@ Line: %1 Column %2 - %3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="675"/>
+        <location filename="../../Misc/Utility.cpp" line="678"/>
         <source>Sigil has encountered a problem.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="676"/>
+        <location filename="../../Misc/Utility.cpp" line="679"/>
         <source>Sigil may need to close.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -18057,28 +18057,34 @@ Line: %1 Column %2 - %3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="852"/>
-        <location filename="../../main.cpp" line="900"/>
+        <location filename="../../main.cpp" line="844"/>
+        <location filename="../../main.cpp" line="892"/>
+        <location filename="../../main.cpp~" line="852"/>
+        <location filename="../../main.cpp~" line="900"/>
         <source>Quit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="862"/>
+        <location filename="../../main.cpp" line="854"/>
+        <location filename="../../main.cpp~" line="862"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="871"/>
+        <location filename="../../main.cpp" line="863"/>
+        <location filename="../../main.cpp~" line="871"/>
         <source>Preferences</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="882"/>
+        <location filename="../../main.cpp" line="874"/>
+        <location filename="../../main.cpp~" line="882"/>
         <source>New</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="891"/>
+        <location filename="../../main.cpp" line="883"/>
+        <location filename="../../main.cpp~" line="891"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20819,12 +20825,12 @@ Use if you edit any HTML files while Spellcheck is open.</source>
 <context>
     <name>Utility</name>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="821"/>
+        <location filename="../../Misc/Utility.cpp" line="824"/>
         <source>Sigil</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="822"/>
+        <location filename="../../Misc/Utility.cpp" line="825"/>
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>
