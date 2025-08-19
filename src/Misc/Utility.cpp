@@ -509,7 +509,7 @@ QString Utility::ReadUnicodeTextFile(const QString &fullfilepath, bool canthrow)
         if (canthrow) {
             throw(CannotOpenFile(msg));
         }
-        qDebug() << msg;
+        qDebug() << QString::fromStdString(msg);
         return QString();
     }
     QTextStream in(&file);
