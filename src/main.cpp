@@ -42,6 +42,8 @@
 #include <QtWebEngineWidgets>
 #include <QtWebEngineCore>
 #include <QWebEngineUrlScheme>
+#include <QByteArray>
+#include <QByteArrayView>
 
 #include "Misc/PluginDB.h"
 #include "Misc/UILanguage.h"
@@ -344,8 +346,10 @@ void set_env_vars_if_needed(const QString& env_path)
                 QStringList nv = apair.split('=');
                 QString evname = nv.value(0).trimmed();
                 QString evval = nv.value(1).trimmed();
+                // This is defined as: bool qputenv(const char * varName, QByteArrayView raw);
                 if (!evname.isEmpty() && !evval.isEmpty()) {
-                    qputenv(evname.toUtf8(), evval.toUtf8());
+                    qputenv(evname.toLocal8Bit().data(), evval.toLocal8Bit());
+                    // qDebug() << "setting ev: " << evname << " to: " << evval;
                 }
             }
         }
