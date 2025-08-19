@@ -22,7 +22,7 @@ preSigil-2.6.2
           what any image (SVG included) without having to open a full Tab
      - make CV understand the media-types of the file it is editing so that it can better
           create pop-up menu items like "View Image" when editing an SVG
-     - add support for macos-env.txt in Sigil Prefs folder, uses VARIABLE=VALUE one per line
+     - add support for "env-vars.txt" in Sigil Prefs folder, uses VARIABLE=VALUE one per line
 
 
 Sigil-2.6.0
