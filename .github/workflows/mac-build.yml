@@ -1,6 +1,9 @@
 name: Build Sigil on macOS x86_64
 
 on:
+
+  workflow_dispatch:
+
   push:
     branches: [ master ]
     tags-ignore:
@@ -103,7 +106,7 @@ jobs:
     - name: Build Installer
       working-directory: ${{runner.workspace}}/build
       shell: bash
-      if: "contains(github.event.head_commit.message, '[deploy]')"
+      if: contains(github.event.head_commit.message, '[deploy]') || github.event_name == 'workflow_dispatch'
       run: |
         echo 'Deploying App'
         make addframeworks
@@ -121,7 +124,7 @@ jobs:
     #    python3 $GITHUB_WORKSPACE/ci_scripts/newgddeploy.py
 
     - uses: actions/upload-artifact@v4
-      if: "contains(github.event.head_commit.message, '[deploy]')"
+      if: contains(github.event.head_commit.message, '[deploy]') || github.event_name == 'workflow_dispatch'
       with:
         name: sigil-installer
         path: ${{runner.workspace}}/build/bin/Sigil.tar.xz
