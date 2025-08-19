@@ -1553,7 +1553,7 @@ QString Utility::UseNFC(const QString& text)
 {
     QString txt;
     MainApplication *mainApplication = qobject_cast<MainApplication *>(qApp);
-    if (mainApplication->AlwaysUseNFC()) {
+    if (mainApplication && mainApplication->AlwaysUseNFC()) {
         txt = text.normalized(QString::NormalizationForm_C);
     } else {
         txt = text;
