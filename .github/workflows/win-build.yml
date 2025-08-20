@@ -40,7 +40,7 @@ env:
 jobs:
   build:
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
-    runs-on: windows-2025
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v4
@@ -61,9 +61,10 @@ jobs:
       run: |
         if not exist ${{runner.workspace}}\%QT% cd ${{runner.workspace}} & curl -L -o qt.7z "%DOWNLOADQT%" & 7z x qt.7z -y
 
-    - name: install InnoSetup
-      shell: cmd
-      run: choco install innosetup -y
+    # Add this after windows-latest migrates to windows-2025
+    #- name: install InnoSetup
+    #  shell: cmd
+    #  run: choco install innosetup -y --no-progress
 
     - uses: lukka/get-cmake@latest
 
