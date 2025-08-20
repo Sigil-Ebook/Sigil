@@ -62,9 +62,10 @@ jobs:
         if not exist ${{runner.workspace}}\%QT% cd ${{runner.workspace}} & curl -L -o qt.7z "%DOWNLOADQT%" & 7z x qt.7z -y
 
     # Add this after windows-latest migrates to windows-2025
-    #- name: install InnoSetup
-    #  shell: cmd
-    #  run: choco install innosetup -y --no-progress
+    - name: install InnoSetup
+      shell: cmd
+      # Install if not already installed otherwise do nothing if already latest
+      run: choco upgrade innosetup -y --no-progress
 
     - uses: lukka/get-cmake@latest
 
