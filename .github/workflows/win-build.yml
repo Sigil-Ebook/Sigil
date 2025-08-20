@@ -61,6 +61,9 @@ jobs:
       run: |
         if not exist ${{runner.workspace}}\%QT% cd ${{runner.workspace}} & curl -L -o qt.7z "%DOWNLOADQT%" & 7z x qt.7z -y
 
+    - name: install InnoSetup
+      shell: cmd
+      run: choco install innosetup -y
 
     - uses: lukka/get-cmake@latest
 
