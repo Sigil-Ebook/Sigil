@@ -754,7 +754,8 @@ int main(int argc, char *argv[])
         // Needs to be created on the heap so that
         // the reply has time to return.
         // Skip if compile-time define or runtime env var is set.
-        if ((!DONT_CHECK_FOR_UPDATES) && (!qEnvironmentVariableIsSet("SKIP_SIGIL_UPDATE_CHECK"))) {
+        if ((!DONT_CHECK_FOR_UPDATES) && !qEnvironmentVariableIsSet("SKIP_SIGIL_UPDATE_CHECK")
+	    && !qEnvironmentVariableIsSet("SIGIL_SKIP_UPDATE_CHECK")) {
             UpdateChecker *checker = new UpdateChecker(&app);
             checker->CheckForUpdate();
         }

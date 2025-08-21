@@ -10,6 +10,8 @@ preSigil-2.6.2
      - rename the environment variable: "SIGIL_FUNCTION_REPLACE_LOG_FILE" to now be:
          "SIGIL_FUNCTION_REPLACE_LOGFILE" to better match with other Sigil environment variables
          (Thank you BeckyEbook)
+     - rename the environment variable "SKIP_SIGIL_UPDATE_CHECK" to now be:
+         "SIGIL_SKIP_UPDATE_CHECK" to keep all Sigil specific environment variables better in sync.
 
    New Features
      - enable use of the fetch api in Sigil internal "sigil:" scheme
