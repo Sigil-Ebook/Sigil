@@ -236,7 +236,7 @@ build_sigil() {
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DCMAKE_INSTALL_LIBDIR=lib \
     -DCMAKE_SKIP_RPATH=ON
-  ninja
+  ninja -j$(getconf _NPROCESSORS_ONLN)
   DESTDIR=sigil.AppDir ninja install
 }
 
