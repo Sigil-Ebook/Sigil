@@ -299,6 +299,6 @@ FORCE_SIGIL_DARKMODE_PALETTE - If this variable is set at runtime, it tells Sigi
 
 SIGIL_ICON_SCALE_FACTOR - Valid values: 1.0 to 3.0. The default value (with no variable set) is 1.8. Sigil scales its menu icons based on font-size. This can sometimes result in icons being a bit too large (or too small) depending on the system Qt theme. Use this variable to tweak the icon size if deemed necessary. **(Only works with Sigil v0.9.7 and earlier; v0.9.8 has a preference setting to adjust icons)**
 
-SKIP_SIGIL_UPDATE_CHECK - Defining this variable (to any value) will cause Sigil to skip its online check for a newer version.
+SIGIL_SKIP_UPDATE_CHECK - Defining this variable (to any value) will cause Sigil to skip its online check for a newer version.
 
 The Sigil launch script also sets a SIGIL_SHARE_PREFIX environment variable, but it is automatically set to be the same as the cmake SHARE_INSTALL_PREFIX build-time option. It would be unwise to change this environment variable. Use the SIGIL_EXTRA_ROOT environment variable instead, if you need to alter the location of Sigil's support files after building Sigil.
