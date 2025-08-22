@@ -508,8 +508,11 @@ void TabManager::CloseTab(int tab_index, bool force)
 void TabManager::UpdateTabName(ContentTab *renamed_tab)
 {
     Q_ASSERT(renamed_tab);
-    setTabText(indexOf(renamed_tab), renamed_tab->GetShortPathName());
-    setTabToolTip(indexOf(renamed_tab), renamed_tab->GetShortPathName());
+    int idx = indexOf(renamed_tab);
+    QString rawName = renamed_tab->GetShortPathName();
+    setTabToolTip(idx, rawName);
+    QString safeName = rawName.replace("&", "&&");
+    setTabText(idx, safeName);
 }
 
 void TabManager::SetFocusInTab()
@@ -742,6 +745,9 @@ bool TabManager::AddNewContentTab(ContentTab *new_tab, bool precede_current_tab)
     m_LastContentTab = old_tab;
 
     int idx = -1;
+    QString rawName = new_tab->GetShortPathName();
+    QString safeName = rawName.replace("&", "&&");
+
     if (!precede_current_tab) {
 
 #if defined(Q_OS_MAC)
@@ -749,9 +755,9 @@ bool TabManager::AddNewContentTab(ContentTab *new_tab, bool precede_current_tab)
         // This is still broken in Qt 5.12.2 
         // elided text is wrong when icon image present (hides most of elided text)
         // icon image still overlaps with name of tab if ElideNone is used
-        idx = addTab(new_tab, new_tab->GetShortPathName());
+        idx = addTab(new_tab, safeName);
 #else
-        idx = addTab(new_tab, new_tab->GetIcon(), new_tab->GetShortPathName());
+        idx = addTab(new_tab, new_tab->GetIcon(), safeName);
 #endif
 
         setCurrentWidget(new_tab);
@@ -765,9 +771,9 @@ bool TabManager::AddNewContentTab(ContentTab *new_tab, bool precede_current_tab)
         // This is still broken in Qt 5.12.2
         // elided text is wrong when icon image present image (hides most of elided text)
         // icon image still overlaps with name of tab if ElideNone is used
-        idx = insertTab(currentIndex(), new_tab, new_tab->GetShortPathName());
+        idx = insertTab(currentIndex(), new_tab, safeName);
 #else
-        idx = insertTab(currentIndex(), new_tab, new_tab->GetIcon(), new_tab->GetShortPathName());
+        idx = insertTab(currentIndex(), new_tab, new_tab->GetIcon(), safeName);
 #endif
 
     }
