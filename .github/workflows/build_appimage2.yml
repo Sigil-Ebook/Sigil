@@ -1,7 +1,8 @@
 name: Build Sigil AppImage the Sequel
 
 on:
-  #push:
+
+  push:
 
   workflow_dispatch:
     inputs:
