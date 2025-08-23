@@ -558,6 +558,8 @@ if( UNIX AND NOT APPLE )
         else()
             set( APPIMAGE_FULL_VERSION "${SIGIL_FULL_VERSION}" )
         endif()
+        # Write file that the appimage build process can use for naming the image
+        file(WRITE "${CMAKE_BINARY_DIR}/appimage_version.txt" "${APPIMAGE_FULL_VERSION}")
     endif()
 
     if ( NOT SHARE_INSTALL_PREFIX )

@@ -2,10 +2,7 @@
 
 # This script is for building the sigil appimage
 # Please run this script in docker image: ubuntu:22.04
-# E.g: docker run --rm -v `git rev-parse --show-toplevel`:/reporoot ubuntu:22.04 /reporoot/.github/workflows/build_sigil_appimage.sh <short_sha or tag>
-# If you need keep store build cache in docker volume, just like:
-#   $ docker volume create appimage-tools
-#   $ docker run --rm -v `git rev-parse --show-toplevel`:/reporoot -v appimage-tools:/var/cache/apt -v appimage-tools:/usr/src ubuntu:22.04 /reporoot/.github/workflows/build_sigil_appimage.sh <short_sha or tag>
+# E.g: docker run --rm -v `git rev-parse --show-toplevel`:/reporoot ubuntu:22.04 /reporoot/.github/workflows/build_sigil_appimage.sh
 # Artifacts will copy to the same directory.
 
 set -o pipefail
@@ -221,11 +218,7 @@ get_appimage_tools() {
 }
 
 build_sigil() {
-  #cd /Sigil
-  #git checkout "${COMMITISH}"
-  #mkdir build
   cd /build
-  #mkdir sigil.AppDir
   cmake /reporoot \
     -G "Ninja" \
     -DCMAKE_PREFIX_PATH="/opt/sigiltools/Qt/${QT6_VER_FULL}/gcc_64/lib/cmake" \
@@ -241,9 +234,17 @@ build_sigil() {
 }
 
 build_appimage() {
+  cd /build
+  # If COMMITISH not provided as a parameter, try to pick
+  # up the Sigil version from cmake-created version file.
+  if [ -z "$COMMITISH" ]; then
+    if [ -f appimage_version.txt ]; then
+      COMMITISH=$(cat appimage_version.txt | tr -d '\n')
+      echo "Using COMMITISH of ${COMMITISH} for OUTPUT_APP_NAME"
+    fi
+  fi
   export LINUXDEPLOY_OUTPUT_APP_NAME="Sigil-${COMMITISH}"
   export APPIMAGE_EXTRACT_AND_RUN=1
-  cd /build
   DEPLOY_PLATFORM_THEMES=1 \
   DISABLE_COPYRIGHT_FILES_DEPLOYMENT=1 \
   LD_LIBRARY_PATH=lib:sigil.AppDir/usr/lib/python$PY_SHORT_VER/site-packages/pillow.libs:$LD_LIBRARY_PATH \

@@ -1,0 +1,9 @@
+# Suggested use: docker compose run --rm build_appimage from root of repository (or source bundle)
+services:
+  build_appimage:
+    image: "ubuntu:22.04"
+    volumes:
+      - ./:/reporoot
+
+    command: ["/usr/bin/bash", "/reporoot/.github/workflows/build_sigil_appimage.sh"]
+    restart: "no"
