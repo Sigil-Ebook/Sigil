@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
+# WARNING!!  Do not attempt to run this script outside of a docker container. Doing so can damage your system!!
+
 # This script is for building qtwebengine for sigil appimage
 # Please run this script in docker image: ubuntu:22.04
 # E.g: docker run --rm -v `git rev-parse --show-toplevel`:/reporoot ubuntu:22.04 /reporoot/.github/workflows/build_sigilwebengine.sh

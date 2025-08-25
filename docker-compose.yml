@@ -1,4 +1,5 @@
-# Suggested use: docker compose run --rm build_appimage from root of repository (or source bundle)
+# Suggested use: docker compose run --rm build_appimage
+# from root of repository (or source bundle)
 services:
   build_appimage:
     image: "ubuntu:22.04"
