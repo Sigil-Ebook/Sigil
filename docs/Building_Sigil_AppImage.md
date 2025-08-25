@@ -2,7 +2,7 @@
 
 ## General Overview
 
-The only requirement for building the Sigil Linux AppImage is having Docker installed and configured. How to get Docker installed and configured on your system is beyond the scope of this document. Evbery distro is different, so you're on your own there. Everything after this assumes that Docker is ready to go. Typing `docker info` in a terminal should verify everything is ready.
+The only requirement for building the Sigil Linux AppImage is having Docker installed/configured and having an internet connection. How to get Docker installed and configured on your system is beyond the scope of this document. Evbery distro is different, so you're on your own there. Everything after this assumes that Docker is ready to go. Typing `docker info` in a terminal should verify everything is ready.
 
 There are two separate pieces that are needed for building the AppImage. These are a custom build of Python and a custom build of QtWebEngine. The AppImage build process will automatically download these pieces from my [personal github repository](https://github.com/dougmassay/win-qtwebkit-5.212/releases/tag/v5.212-1). The files used from there are sigilpython3.\*.\*.tar.gz and appimagewebengine6\*.tar.gz. These two pieces can also be fairly easily built if you wish. Should you desire to build everything from scratch, the instructions to do so will be at the end of this document.
 
