@@ -18057,34 +18057,28 @@ Line: %1 Column %2 - %3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="844"/>
-        <location filename="../../main.cpp" line="892"/>
-        <location filename="../../main.cpp~" line="852"/>
-        <location filename="../../main.cpp~" line="900"/>
+        <location filename="../../main.cpp" line="849"/>
+        <location filename="../../main.cpp" line="897"/>
         <source>Quit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="854"/>
-        <location filename="../../main.cpp~" line="862"/>
+        <location filename="../../main.cpp" line="859"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="863"/>
-        <location filename="../../main.cpp~" line="871"/>
+        <location filename="../../main.cpp" line="868"/>
         <source>Preferences</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="874"/>
-        <location filename="../../main.cpp~" line="882"/>
+        <location filename="../../main.cpp" line="879"/>
         <source>New</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="883"/>
-        <location filename="../../main.cpp~" line="891"/>
+        <location filename="../../main.cpp" line="888"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>
