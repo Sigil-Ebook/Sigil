@@ -2053,12 +2053,12 @@ bool MainWindow::SaveAs()
     QString sanitized_title = Utility::CleanFileName(main_title);
 
     QString proposed_name;
-    if (m_CurrentFileName == DEFAULT_FILENAME && !sanitized_title.isEmpty() && sanitized_title[0] != '[') {
+    if ((m_CurrentFileName.isEmpty() || m_CurrentFileName == DEFAULT_FILENAME) && !sanitized_title.isEmpty() && sanitized_title[0] != '[') {
         proposed_name = sanitized_title + ".epub";
     } else {
         proposed_name = QFileInfo(m_CurrentFilePath).fileName();
         if (proposed_name.isEmpty()) {
-            proposed_name = DEFAULT_FILENAME;
+            proposed_name = (m_CurrentFileName.isEmpty())?DEFAULT_FILENAME:m_CurrentFileName;
         }
     }
 
