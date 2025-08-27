@@ -2058,7 +2058,7 @@ bool MainWindow::SaveAs()
     } else {
         proposed_name = QFileInfo(m_CurrentFilePath).fileName();
         if (proposed_name.isEmpty()) {
-            proposed_name = DEFAULT_FILENAME;
+            proposed_name = (m_CurrentFileName.isEmpty())?DEFAULT_FILENAME:m_CurrentFileName;
         }
     }
 
