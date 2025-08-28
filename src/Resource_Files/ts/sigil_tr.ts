@@ -232,47 +232,47 @@
         <translation><numerusform>%n dosya(lar)</numerusform><numerusform>%n dosya(lar)</numerusform></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="264"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="261"/>
         <source>Save Report As Comma Separated File</source>
         <translation>Raporu Virgülle Ayrılmış Dosya Olarak Kaydet</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="277"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="274"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="277"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="274"/>
         <source>Cannot save report file.</source>
         <translation>Rapor dosyası kaydedilemiyor.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="302"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="299"/>
         <source>Image</source>
         <translation>Görüntü</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="307"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="304"/>
         <source>Audio</source>
         <translation>Ses</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="312"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="309"/>
         <source>Video</source>
         <translation>Video</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="317"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="314"/>
         <source>PDF</source>
         <translation>PDF</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="322"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="319"/>
         <source>Font</source>
         <translation>Yazı Tipi</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="349"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="346"/>
         <source>Unknown</source>
         <translation>Bilinmeyen</translation>
     </message>
@@ -1478,66 +1478,67 @@ CSS&apos;nizde bir sans-serif yazı tipi ailesi belirtilmişse</translation>
 <context>
     <name>BookBrowser</name>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="83"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="113"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="85"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="115"/>
         <source>Book Browser</source>
         <translation>Kitap Tarayıcı</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="95"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="97"/>
         <source>Font Obfuscation</source>
         <translation>Yazı Tipi Gizleme</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="96"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2264"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="98"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2283"/>
         <source>Open With</source>
         <translation>Birlikte Aç</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/BookBrowser.cpp" line="190"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="192"/>
         <source>%n file(s)</source>
         <translation><numerusform>%n dosya(lar)</numerusform><numerusform>%n dosya(lar)</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="301"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="729"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="868"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="900"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="960"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1073"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1384"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1489"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="303"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="731"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="892"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="924"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="984"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1091"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1402"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1507"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="302"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="304"/>
         <source>Are you sure you want to sort the selected files alphanumerically?</source>
         <translation>Seçili dosyaları alfanümerik olarak sıralamak istediğinizden emin misiniz?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="303"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="305"/>
         <source>This action cannot be reversed.</source>
         <translation>Bu eylem tersine çevrilemez.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="346"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="348"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>&quot;%1&quot; dosyası yok.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="729"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="731"/>
         <source>Javascript is not supported on epub2.</source>
         <translation>Javascript, epub2&apos;de desteklenmez.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="787"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="803"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="810"/>
         <source>Add Existing Files</source>
         <translation>Mevcut Dosyaları Ekle</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="838"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="862"/>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
@@ -1546,7 +1547,7 @@ CSS&apos;nizde bir sans-serif yazı tipi ailesi belirtilmişse</translation>
 &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="847"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="871"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
@@ -1555,7 +1556,7 @@ CSS&apos;nizde bir sans-serif yazı tipi ailesi belirtilmişse</translation>
 &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="869"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="893"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
@@ -1564,12 +1565,12 @@ OK to replace?</source>
 Değiştirmek için uygun mu?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="895"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="919"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
         <translation>&quot;%1&quot; dosyası silinemiyor veya değiştirilemiyor.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="900"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="924"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
@@ -1578,7 +1579,7 @@ A file with this name already exists in the book.</source>
 Bu isimde bir dosya kitapta zaten var.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="961"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="985"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
@@ -1587,363 +1588,368 @@ Bu isimde bir dosya kitapta zaten var.</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="974"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="998"/>
         <source>File(s) added or replaced.</source>
         <translation>Dosya(lar) eklendi veya değiştirildi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1014"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1035"/>
         <source>Save As File</source>
         <translation>Dosya Olarak Kaydet</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1037"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1058"/>
         <source>Unable to save the file.</source>
         <translation>Dosya kaydedilemiyor.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1051"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1069"/>
         <source>Choose the directory to save the files to</source>
         <translation>Dosyaların kaydedileceği dizini seçin</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1073"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1091"/>
         <source>One or more files already exists.  OK to overwrite?</source>
         <translation>Bir veya daha fazla dosya zaten var. Üzerine yazılsın mı?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1090"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1108"/>
         <source>Unable to save files.  Destination may be a directory.</source>
         <translation>Dosyalar kaydedilemiyor. Hedef bir dizin olabilir.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1098"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1116"/>
         <source>Unable to save files.</source>
         <translation>Dosyalar kaydedilemiyor.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1322"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1340"/>
         <source>Filenames cannot contain these characters: &quot;%1&quot;.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1384"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1402"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
         <translation>Yinelenen dosya adlarına neden olacağından dosyalar yeniden adlandırılamaz.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1455"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1473"/>
         <source>Destination Folder has invalid path &quot;%1&quot;</source>
         <translation>Hedef Klasörde geçersiz &quot;%1&quot; yolu var</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1489"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1507"/>
         <source>Cannot move files since this would result in duplicate filenames.</source>
         <translation>Yinelenen dosya adlarına neden olacağından dosyalar taşınamaz.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1536"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1554"/>
         <source>The Nav document cannot be removed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1544"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1562"/>
         <source>The NCX cannot be removed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1551"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1569"/>
         <source>The OPF is required for epub and cannot be removed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1560"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1578"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>Tüm html dosyalarını kaldıramazsınız.
 Her zaman en az bir tane olmalıdır.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1708"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1726"/>
         <source>Unable to set file as cover image.</source>
         <translation>Dosya kapak resmi olarak ayarlanamıyor.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1745"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1763"/>
         <source>(root folder)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1755"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1773"/>
         <source>FileName</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1758"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1776"/>
         <source>Folder</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1761"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1779"/>
         <source>Media Type</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1764"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1782"/>
         <source>File Size(kb)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1767"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1785"/>
         <source>Epub Version</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1784"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1802"/>
         <source>Word Count</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1787"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1805"/>
         <source>Primary Language</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1794"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1812"/>
         <source>WellFormed</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1796"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1814"/>
         <source>Yes</source>
         <translation>Evet</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1798"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1816"/>
         <source>No</source>
         <translation>Hayır</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1801"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1819"/>
         <source>Linked Stylesheets</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1804"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1822"/>
         <source>Linked Javascripts</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1807"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1825"/>
         <source>Linked Images</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1810"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1828"/>
         <source>Linked Audio</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1813"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1831"/>
         <source>Linked Video</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1840"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1858"/>
         <source>Semantics OPF Guide or Nav Landmarks</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1849"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1867"/>
         <source>Manifest Properties</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1852"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1870"/>
         <source>Defined Ids</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1859"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1871"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1877"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1889"/>
         <source>Description</source>
         <translation>Açıklama</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1862"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1880"/>
         <source>Obfuscation Algorithm</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1864"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2113"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1882"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2132"/>
         <source>None</source>
         <translation>Hiçbiri</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2099"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2117"/>
         <source>Select All</source>
         <translation>Tümünü Seç</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2100"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2118"/>
         <source>Add Blank HTML File</source>
         <translation>Boş HTML Dosyası Ekle</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2101"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2119"/>
         <source>Add Blank Stylesheet</source>
         <translation>Boş Stil Sayfası Ekle</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2102"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2120"/>
         <source>Add Blank Javascript</source>
         <translation>Boş Javascript Ekle</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2103"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2121"/>
         <source>Add Blank SVG Image</source>
         <translation>Boş SVG Resmi Ekle</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2104"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2122"/>
+        <source>View Image</source>
+        <translation>Resmi görüntüle</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2123"/>
         <source>Add Existing Files...</source>
         <translation>Mevcut Dosyaları Ekle...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2105"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2106"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2124"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2125"/>
         <source>Add Copy</source>
         <translation>Kopya Ekle</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2107"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2126"/>
         <source>Rename</source>
         <translation>Yeniden Adlandır</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2108"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2127"/>
         <source>RegEx Rename</source>
         <translation>RegEx Yeniden Adlandır</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2109"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2128"/>
         <source>Move</source>
         <translation>Taşı</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2110"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2129"/>
         <source>Delete</source>
         <translation>Sil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2111"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2130"/>
         <source>Cover Image</source>
         <translation>Kapak resmi</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2112"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2131"/>
         <source>Merge</source>
         <translation>Birleştir</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2114"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2133"/>
         <source>Use Adobe&apos;s Method</source>
         <translation>Adobe&apos;nin Yöntemini Kullanın</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2115"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2134"/>
         <source>Use IDPF&apos;s Method</source>
         <translation>IDPF Yöntemini Kullanın</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2116"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2135"/>
         <source>Sort</source>
         <translation>Sırala</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2117"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2136"/>
         <source>Renumber TOC Entries</source>
         <translation>TOC Girişlerini Yeniden Numaralandır</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2118"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2137"/>
         <source>Link Stylesheets...</source>
         <translation>Stil Sayfalarını Bağla...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2119"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2138"/>
         <source>Link Javascripts...</source>
         <translation>Javascript&apos;i bağla...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2120"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2139"/>
         <source>Add Semantics...</source>
         <translation>Anlambilim Ekle...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2121"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2140"/>
         <source>Get Info...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2122"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2141"/>
         <source>Validate with W3C</source>
         <translation>W3C ile doğrula</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2123"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2142"/>
         <source>Save As</source>
         <translation>Farklı kaydet</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2129"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2304"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2148"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2323"/>
         <source>Other Application</source>
         <translation>Diğer Uygulamalar</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2130"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2149"/>
         <source>Clear Editor List</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2139"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2158"/>
         <source>Merge with previous file, or merge multiple files into one.</source>
         <translation>Önceki dosyayla birleştirin veya birden çok dosyayı tek bir dosyada birleştirin.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2142"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2161"/>
         <source>Rename selected file(s)</source>
         <translation>Seçili dosya(ları) yeniden adlandırın</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2144"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2163"/>
         <source>Use Regular Expressions to Rename selected file(s)</source>
         <translation>Seçili dosya(ları) yeniden adlandırmak için Normal İfadeler Kullanın</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2147"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2166"/>
         <source>Move selected file(s) to a new folder</source>
         <translation>Seçili dosya(ları) yeni bir klasöre taşı</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2149"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2168"/>
         <source>Link Stylesheets to selected file(s).</source>
         <translation>Stil Sayfalarını seçili dosya(lara) bağlayın.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2151"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2170"/>
         <source>Link Javascripts to selected file(s).</source>
         <translation>Dosyaları seçmek için Javascript&apos;i bağlayın().</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2153"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2172"/>
         <source>Add Semantics to selected file(s).</source>
         <translation>Seçili dosya(lara) Anlamsallık ekleyin.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2155"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2174"/>
         <source>Show Information about selected file.</source>
         <translation type="unfinished"/>
     </message>
@@ -1951,58 +1957,58 @@ Her zaman en az bir tane olmalıdır.</translation>
 <context>
     <name>CPCompare</name>
     <message>
-        <location filename="../../Dialogs/CPCompare.cpp" line="81"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="86"/>
         <source>Files Only in Checkpoint</source>
         <translation>Yalnızca Kontrol Noktasındaki Dosyalar</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/CPCompare.cpp" line="81"/>
-        <location filename="../../Dialogs/CPCompare.cpp" line="82"/>
-        <location filename="../../Dialogs/CPCompare.cpp" line="83"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="86"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="87"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="88"/>
         <source>View</source>
         <translation>Görünüm</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/CPCompare.cpp" line="82"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="87"/>
         <source>Files Only in Current ePub</source>
         <translation>Yalnızca Geçerli ePub&apos;daki Dosyalar</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/CPCompare.cpp" line="83"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="88"/>
         <source>Modified since Checkpoint</source>
         <translation>Kontrol noktasından beri değiştirildi</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/CPCompare.cpp" line="84"/>
-        <location filename="../../Dialogs/CPCompare.cpp" line="194"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="89"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="207"/>
         <source>Results of Comparison</source>
         <translation>Karşılaştırma Sonuçları</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/CPCompare.cpp" line="85"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="90"/>
         <source>Done</source>
         <translation>Bitti</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/CPCompare.cpp" line="188"/>
-        <location filename="../../Dialogs/CPCompare.cpp" line="197"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="201"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="210"/>
         <source>Checkpoint:</source>
         <translation>Kontrol noktası:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/CPCompare.cpp" line="188"/>
-        <location filename="../../Dialogs/CPCompare.cpp" line="198"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="201"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="211"/>
         <source>Current:</source>
         <translation>Geçerli:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/CPCompare.cpp" line="196"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="209"/>
         <source>These binary files differ in content:</source>
         <translation>Bu ikili dosyalar içerik olarak farklılık gösterir:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/CPCompare.cpp" line="197"/>
-        <location filename="../../Dialogs/CPCompare.cpp" line="198"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="210"/>
+        <location filename="../../Dialogs/CPCompare.cpp" line="211"/>
         <source>bytes</source>
         <translation>bayt</translation>
     </message>
@@ -2045,22 +2051,22 @@ Her zaman en az bir tane olmalıdır.</translation>
         <translation><numerusform>%n dosya(lar)</numerusform><numerusform>%n dosya(lar)</numerusform></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="278"/>
+        <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="275"/>
         <source>Save Report As Comma Separated File</source>
         <translation>Raporu Virgülle Ayrılmış Dosya Olarak Kaydet</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="291"/>
+        <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="288"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="291"/>
+        <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="288"/>
         <source>Cannot save report file.</source>
         <translation>Rapor dosyası kaydedilemiyor.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="301"/>
+        <location filename="../../Dialogs/ReportsWidgets/CSSFilesWidget.cpp" line="298"/>
         <source>Delete From Book</source>
         <translation>Kitaptan Sil</translation>
     </message>
@@ -2136,17 +2142,17 @@ Her zaman en az bir tane olmalıdır.</translation>
         <translation>&lt;p&gt;Bu, tüm HTML dosyalarında kullanılan karakterlerin listesidir.&lt;p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="269"/>
+        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="266"/>
         <source>Save Report As Comma Separated File</source>
         <translation>Raporu Virgülle Ayrılmış Dosya Olarak Kaydet</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="282"/>
+        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="279"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="282"/>
+        <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="279"/>
         <source>Cannot save report file.</source>
         <translation>Rapor dosyası kaydedilemiyor.</translation>
     </message>
@@ -2209,17 +2215,17 @@ Her zaman en az bir tane olmalıdır.</translation>
         <translation>&lt;p&gt;CSS&apos;nin karmaşıklığı nedeniyle, bir stilin kullanılıp kullanılmadığından emin olmak için kodunuzu manuel olarak kontrol etmeniz gerekir.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="232"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="229"/>
         <source>Save Report As Comma Separated File</source>
         <translation>Raporu Virgülle Ayrılmış Dosya Olarak Kaydet</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="245"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="242"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="245"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="242"/>
         <source>Cannot save report file.</source>
         <translation>Rapor dosyası kaydedilemiyor.</translation>
     </message>
@@ -2228,7 +2234,7 @@ Her zaman en az bir tane olmalıdır.</translation>
     <name>ClipEditor</name>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="14"/>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="539"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="533"/>
         <source>Clip Editor</source>
         <translation>Klip Düzenleyici</translation>
     </message>
@@ -2259,13 +2265,13 @@ Her zaman en az bir tane olmalıdır.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="100"/>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="650"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="644"/>
         <source>Add Entry</source>
         <translation>Giriş Ekle</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="110"/>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="651"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="645"/>
         <source>Add Group</source>
         <translation>Grup ekle</translation>
     </message>
@@ -2373,92 +2379,92 @@ Her zaman en az bir tane olmalıdır.</translation>
         <translation>Tüm girişleri yeniden yüklemek istediğinizden emin misiniz?  Bu, kaydedilmemiş değişikliklerin üzerine yazacaktır.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="378"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="375"/>
         <source>Import Entries</source>
         <translation>Girişleri İçe Aktar</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="458"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="452"/>
         <source>Export Selected Entries</source>
         <translation>Seçili Girişleri Dışa Aktar</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../Dialogs/ClipEditor.cpp" line="539"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="533"/>
         <source>CSS entries added: %n</source>
         <translation><numerusform>CSS girişleri eklendi: %n</numerusform><numerusform>CSS girişleri eklendi: %n</numerusform></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="652"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="646"/>
         <source>Edit</source>
         <translation>Düzenle</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="653"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="647"/>
         <source>Cut</source>
         <translation>Kes</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="654"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="648"/>
         <source>Copy</source>
         <translation>Kopyala</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="655"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="649"/>
         <source>Paste</source>
         <translation>Yapıştır</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="656"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="650"/>
         <source>Delete</source>
         <translation>Sil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="657"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="651"/>
         <source>Import</source>
         <translation>İçe Aktar</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="658"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="652"/>
         <source>Reload</source>
         <translation>Yeniden Yükle</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="659"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="653"/>
         <source>Export</source>
         <translation>Dışarı Aktar</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="660"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="654"/>
         <source>Export All</source>
         <translation>Tümünü Dışa Aktar</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="661"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="655"/>
         <source>Collapse All</source>
         <translation>Hepsini Daralt</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="662"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="656"/>
         <source>Expand All</source>
         <translation>Tümünü Genişlet</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="663"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="657"/>
         <source>Autofill</source>
         <translation>Otomatik doldur</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="745"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="739"/>
         <source>Clip entries saved.</source>
         <translation>Klip girişleri kaydedildi.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="774"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="768"/>
         <source>Sigil: Clip Editor</source>
         <translation>Sigil: Klip Düzenleyici</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="775"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="769"/>
         <source>The Clip entries may have been modified.
 Do you want to save your changes?</source>
         <translation>Klip girişleri değiştirilmiş olabilir.
@@ -2637,37 +2643,37 @@ Değişikliklerinizi kaydetmek istiyor musunuz?</translation>
         <translation>Kliplere Ekle</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1918"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1927"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
         <translation>Bu özelliği kullanmak için bir açılış HTML etiketinde olmanız gerekir.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1928"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1937"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
         <translation>Bu özelliği kullanmak için bir açılış HTML etiketinin içinde olmanız gerekir.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1992"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2001"/>
         <source>Selected Text is not a valid class name.</source>
         <translation>Seçili Metin geçerli bir sınıf adı değil.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1999"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2008"/>
         <source>Rename Class</source>
         <translation>Sınıfı Yeniden Adlandır</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2000"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2009"/>
         <source>Enter new class name</source>
         <translation>Yeni sınıf adını girin</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2020"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2029"/>
         <source>Class renamed.</source>
         <translation>Sınıf yeniden adlandırıldı.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2022"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2031"/>
         <source>Class rename aborted.</source>
         <translation>Sınıf yeniden adlandırma iptal edildi.</translation>
     </message>
@@ -3103,17 +3109,17 @@ aramaya devam etmek için diğer uç.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/CountsReport.cpp" line="256"/>
+        <location filename="../../Dialogs/CountsReport.cpp" line="253"/>
         <source>Save Report As Comma Separated File</source>
         <translation>Raporu Virgülle Ayrılmış Dosya Olarak Kaydet</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/CountsReport.cpp" line="269"/>
+        <location filename="../../Dialogs/CountsReport.cpp" line="266"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/CountsReport.cpp" line="269"/>
+        <location filename="../../Dialogs/CountsReport.cpp" line="266"/>
         <source>Cannot save report file.</source>
         <translation>Rapor dosyası kaydedilemiyor.</translation>
     </message>
@@ -3523,97 +3529,97 @@ OPF, NCX ve / veya Nav için yerler ve isimler.</translation>
         <translation>Nav dosyası</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="224"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="222"/>
         <source>Select previously saved layout design ini File</source>
         <translation>Önceden kaydedilmiş yerleşim tasarımını seçin Dosya</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="226"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="224"/>
         <source>Settings Files (*.ini)</source>
         <translation>Ayarlar Dosyaları (*.ini)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="329"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="324"/>
         <source>Save current design to an ini File</source>
         <translation>Mevcut tasarımı bir ini dosyasına kaydedin</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="361"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="356"/>
         <source>Add a Folder</source>
         <translation>Klasör Ekle</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="361"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="356"/>
         <source>New Folder Name?</source>
         <translation>Yeni Klasör Adı?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="361"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="356"/>
         <source>untitled_folder</source>
         <translation>başlıksız_klasör</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="398"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="393"/>
         <source>Rename a Folder</source>
         <translation>Bir Klasörü Yeniden Adlandırma</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="398"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="393"/>
         <source>New Name for Folder?</source>
         <translation>Klasör için Yeni İsim?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="409"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="404"/>
         <source>Rename a File</source>
         <translation>Dosyayı Yeniden Adlandırma</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="409"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="404"/>
         <source>New Name for File?</source>
         <translation>Dosya için Yeni İsim?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="467"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="462"/>
         <source>A single OPF file is required.</source>
         <translation>Tek bir OPF dosyası gereklidir.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="468"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="463"/>
         <source>At least one xhtml marker must exist.</source>
         <translation>En az bir xhtml işaretçisi bulunmalıdır.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="469"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="464"/>
         <source>At least one image marker must exist.</source>
         <translation>En az bir resim işaretçisi bulunmalıdır.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="470"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="465"/>
         <source>At least one css marker must exist.</source>
         <translation>En az bir css işaretçisi bulunmalıdır.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="472"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="467"/>
         <source>A single NCX file is required.</source>
         <translation>Tek bir NCX dosyası gereklidir.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="474"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="469"/>
         <source>A single NAV file is required.</source>
         <translation>Tek bir NAV dosyası gereklidir.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="478"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="473"/>
         <source>Errors Detected</source>
         <translation>Tespit Edilen Hatalar</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="484"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="479"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="485"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="480"/>
         <source>Do you want to set this layout as the default empty Epub layout for Sigil?
 
 </source>
@@ -4181,7 +4187,7 @@ Yalnızca HTML dosyaları aranırken geçerlidir.</translation>
 <context>
     <name>FlowTab</name>
     <message>
-        <location filename="../../Tabs/FlowTab.cpp" line="889"/>
+        <location filename="../../Tabs/FlowTab.cpp" line="890"/>
         <source>Print %1</source>
         <translation>%1 yazdır</translation>
     </message>
@@ -4495,17 +4501,17 @@ tamir edildi.</translation>
         <translation>Yazdırma Ölçeği DPI:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="224"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="223"/>
         <source>Incorrect Path for External Xhtml Editor selected</source>
         <translation>Harici Xhtml Düzenleyicisi için Yanlış Yol seçildi</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="244"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="240"/>
         <source>Select Folder for Temporary Files</source>
         <translation>Geçici Dosyalar İçin Klasör Seç</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="261"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="257"/>
         <source>Incorrect Folder for Temporary Files selected</source>
         <translation>Geçici Dosyalar için Yanlış Klasör seçildi</translation>
     </message>
@@ -4951,22 +4957,22 @@ tamir edildi.</translation>
         <translation><numerusform>%n dosya(lar)</numerusform><numerusform>%n dosya(lar)</numerusform></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="342"/>
+        <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="339"/>
         <source>Save Report As Comma Separated File</source>
         <translation>Raporu Virgülle Ayrılmış Dosya Olarak Kaydet</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="355"/>
+        <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="352"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="355"/>
+        <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="352"/>
         <source>Cannot save report file.</source>
         <translation>Rapor dosyası kaydedilemiyor.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="380"/>
+        <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="377"/>
         <source>Delete From Book</source>
         <translation>Kitaptan Sil</translation>
     </message>
@@ -5145,22 +5151,22 @@ Daha sonra yukarıdaki listeden tek tek başlıkları işaretleyebilir veya bunl
         <translation><numerusform>%n dosya(lar)</numerusform><numerusform>%n dosya(lar)</numerusform></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="336"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="333"/>
         <source>Save Report As Comma Separated File</source>
         <translation>Raporu Virgülle Ayrılmış Dosya Olarak Kaydet</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="349"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="346"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="349"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="346"/>
         <source>Cannot save report file.</source>
         <translation>Rapor dosyası kaydedilemiyor.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="423"/>
+        <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="420"/>
         <source>Delete From Book</source>
         <translation>Kitaptan Sil</translation>
     </message>
@@ -5236,22 +5242,22 @@ Daha sonra yukarıdaki listeden tek tek başlıkları işaretleyebilir veya bunl
 <context>
     <name>ImageView</name>
     <message>
-        <location filename="../../Widgets/ImageView.cpp" line="88"/>
+        <location filename="../../Widgets/ImageView.cpp" line="118"/>
         <source>shades</source>
         <translation>gölgeler</translation>
     </message>
     <message>
-        <location filename="../../Widgets/ImageView.cpp" line="88"/>
+        <location filename="../../Widgets/ImageView.cpp" line="118"/>
         <source>colors</source>
         <translation>renkler</translation>
     </message>
     <message>
-        <location filename="../../Widgets/ImageView.cpp" line="89"/>
+        <location filename="../../Widgets/ImageView.cpp" line="119"/>
         <source>Grayscale</source>
         <translation>Gri Tonlama</translation>
     </message>
     <message>
-        <location filename="../../Widgets/ImageView.cpp" line="89"/>
+        <location filename="../../Widgets/ImageView.cpp" line="119"/>
         <source>Color</source>
         <translation>Renk</translation>
     </message>
@@ -5299,7 +5305,7 @@ Daha sonra yukarıdaki listeden tek tek başlıkları işaretleyebilir veya bunl
     </message>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="58"/>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="433"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="427"/>
         <source>Add Entry</source>
         <translation>Giriş Ekle</translation>
     </message>
@@ -5369,87 +5375,87 @@ Daha sonra yukarıdaki listeden tek tek başlıkları işaretleyebilir veya bunl
         <translation>Dizin dosyaları: *.ini *.txt (*.ini *.txt)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="301"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="298"/>
         <source>Load Entries From File</source>
         <translation>Girişleri Dosyadan Yükle</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="318"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="315"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="318"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="315"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
         <translation>Tüm girişleri yeniden yüklemek istediğinizden emin misiniz?  Bu, kaydedilmemiş değişikliklerin üzerine yazacaktır.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="341"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="335"/>
         <source>Save Entries to File</source>
         <translation>Girişleri Dosyaya Kaydet</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="434"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="428"/>
         <source>Edit</source>
         <translation>Düzenle</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="435"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="429"/>
         <source>Cut</source>
         <translation>Kes</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="436"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="430"/>
         <source>Copy</source>
         <translation>Kopyala</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="437"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="431"/>
         <source>Paste</source>
         <translation>Yapıştır</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="438"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="432"/>
         <source>Delete</source>
         <translation>Sil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="439"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="433"/>
         <source>Autofill</source>
         <translation>Otomatik doldur</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="440"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="434"/>
         <source>Open</source>
         <translation>Aç</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="441"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="435"/>
         <source>Reload</source>
         <translation>Yeniden Yükle</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="442"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="436"/>
         <source>Save As</source>
         <translation>Farklı Kaydet</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="443"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="437"/>
         <source>Select All</source>
         <translation>Tümünü Seç</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="520"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="514"/>
         <source>Index entries saved.</source>
         <translation>Dizin girişleri kaydedildi.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="549"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="543"/>
         <source>Sigil: Index Editor</source>
         <translation>Sigil: Dizin Düzenleyici</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="550"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="544"/>
         <source>The Index entries may have been modified.
 Do you want to save your changes?</source>
         <translation>Dizin girişleri değiştirilmiş olabilir.
@@ -9202,17 +9208,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation>evet</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="343"/>
+        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="340"/>
         <source>Save Report As Comma Separated File</source>
         <translation>Raporu Virgülle Ayrılmış Dosya Olarak Kaydet</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="356"/>
+        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="353"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="356"/>
+        <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="353"/>
         <source>Cannot save report file.</source>
         <translation>Rapor dosyası kaydedilemiyor.</translation>
     </message>
@@ -9367,7 +9373,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="459"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1716"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1722"/>
         <source>File</source>
         <translation>Dosya</translation>
     </message>
@@ -12159,45 +12165,45 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../MainUI/MainWindow.cpp" line="796"/>
         <location filename="../../MainUI/MainWindow.cpp" line="805"/>
         <location filename="../../MainUI/MainWindow.cpp" line="886"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1680"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1996"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2244"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2409"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2929"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3025"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3079"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3089"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3113"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3127"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3233"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3249"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3254"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3267"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3286"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3300"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3315"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3319"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3335"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3348"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3353"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3365"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3375"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3380"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3544"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3551"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3567"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3626"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3658"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3857"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5010"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5051"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5057"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5063"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5287"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5307"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5355"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5619"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5825"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1686"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2000"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2242"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2407"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2927"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3023"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3077"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3087"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3111"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3125"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3231"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3247"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3252"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3265"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3284"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3298"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3313"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3317"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3333"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3346"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3351"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3363"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3373"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3378"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3542"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3549"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3565"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3624"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3656"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3855"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5008"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5049"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5055"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5061"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5285"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5305"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5353"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5617"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5823"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -12218,17 +12224,17 @@ Bu eylem tersine çevrilemez.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="777"/>
         <location filename="../../MainUI/MainWindow.cpp" line="779"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5351"/>
         <location filename="../../MainUI/MainWindow.cpp" line="5353"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5355"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5821"/>
         <location filename="../../MainUI/MainWindow.cpp" line="5823"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5825"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] - epub%2 - %3</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="777"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5353"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5823"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5351"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5821"/>
         <source>Sigil [std]</source>
         <translation>Sigil [std]</translation>
     </message>
@@ -12263,154 +12269,154 @@ Bu eylem tersine çevrilemez.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1004"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1005"/>
         <source>Checkpoint generation failed.</source>
         <translation>Denetim noktası oluşturma başarısız oldu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1010"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1011"/>
         <source>Checkpoint saved.</source>
         <translation>Kontrol noktası kaydedildi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1047"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1048"/>
         <source>Checkout Failed. No checkpoints found</source>
         <translation>Kontrol Başarısız. Kontrol noktası bulunamadı</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1064"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1065"/>
         <source>Checkout Failed. No checkpoint selected</source>
         <translation>Kontrol Başarısız. Kontrol noktası seçilmedi</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1088"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1089"/>
         <source>Epub Generate from Tag Failed.</source>
         <translation>Etiketten Epub Oluşturulamadı.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1093"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1094"/>
         <source>Epub Generation succeeded</source>
         <translation>Epub Generation başarılı oldu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1107"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1108"/>
         <source>Repository Checkout</source>
         <translation>Depo Kontrolü</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1108"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1109"/>
         <source>Your current book will be replaced losing any unsaved changes ... Are you sure you want to proceed?</source>
         <translation>Mevcut kitabınız, kaydedilmemiş değişiklikleri kaybederek değiştirilecek ... Devam etmek istediğinizden emin misiniz?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1132"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1156"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1133"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1162"/>
         <source>Diff Failed. No checkpoints found</source>
         <translation>Fark Başarısız. Kontrol noktası bulunamadı</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1172"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1178"/>
         <source>Diff Failed. No checkpoint selected for comparison</source>
         <translation>Fark Başarısız. Karşılaştırma için kontrol noktası seçilmedi</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1203"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1209"/>
         <source>Results of Comparison</source>
         <translation>Karşılaştırma Sonuçları</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1203"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1209"/>
         <source>No differences were found.</source>
         <translation>Fark bulunamadı.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1224"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1239"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1230"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1245"/>
         <source>Description Edit Failed. No checkpoints found</source>
         <translation>Açıklama Düzenleme Başarısız. Kontrol noktası bulunamadı</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1256"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1262"/>
         <source>Description Edit Failed. No checkpoint selected to edit</source>
         <translation>Açıklama Düzenleme Başarısız. Düzenlenecek kontrol noktası seçilmedi</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1273"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1279"/>
         <source>Edit checkpoint Description</source>
         <translation>Kontrol noktası Açıklamasını düzenle</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1274"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1280"/>
         <source>New Checkpoint Description:</source>
         <translation>Yeni Kontrol Noktası Açıklaması:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1285"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1291"/>
         <source>Description Edit Failed for unknown reason</source>
         <translation>Açıklama Düzenleme bilinmeyen bir nedenle başarısız oldu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1291"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1297"/>
         <source>Description edit cancelled or empty</source>
         <translation>Açıklama düzenleme iptal edildi veya boş</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1294"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1300"/>
         <source>Description successfully updated</source>
         <translation>Açıklama başarıyla güncellendi</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1318"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1324"/>
         <source>Repository Log</source>
         <translation>Depo Günlüğü</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1349"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1355"/>
         <source>No External Xhtml Editor has been specified:  See Preferences</source>
         <translation>Harici Xhtml Düzenleyicisi belirtilmedi:  Tercihlere Bakın</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1356"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1362"/>
         <source>Specified External Xhtml Editor path does not exist</source>
         <translation>Belirtilen Harici Xhtml Düzenleyici yolu mevcut değil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1366"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1372"/>
         <source>PageEdit XHtml Editor works only on Html/OPF Resources</source>
         <translation>Sayfa Düzenleme XHtml Düzenleyicisi yalnızca Html/OPF Kaynaklarında çalışır</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1372"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1378"/>
         <source>External XHtml Editor works only on Html Resources</source>
         <translation>Harici XHtml Düzenleyici yalnızca Html Kaynaklarında çalışır</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1413"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1419"/>
         <source>Executing PageEdit Xhtml Editor</source>
         <translation>SayfaDüzenleme Xhtml Düzenleyicisini Çalıştırma</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1426"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1432"/>
         <source>Executing External Xhtml Editor</source>
         <translation>Harici Xhtml Düzenleyiciyi Çalıştırma</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1430"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1436"/>
         <source>Failed to Launch External Xhtml Editor</source>
         <translation>Harici Xhtml Düzenleyicisi Başlatılamadı</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1598"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1604"/>
         <source>Navigation cancelled as location no longer exists.</source>
         <translation>Konum artık mevcut olmadığından gezinme iptal edildi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1615"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1621"/>
         <source>Location bookmarked.</source>
         <translation>Yer işaretlendi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1680"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1686"/>
         <source>Are you sure you want to open this external link?
 
 %1</source>
@@ -12419,42 +12425,42 @@ Bu eylem tersine çevrilemez.</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1716"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1722"/>
         <source>was updated</source>
         <translation>güncellenmişti</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1723"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1729"/>
         <source>Warning</source>
         <translation>Uyarı</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1723"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1729"/>
         <source>The file was NOT well formed and may be corrupted.</source>
         <translation>Dosya düzgün OLMADI ve bozulmuş olabilir.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1766"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1772"/>
         <source>Warning: </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1863"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1869"/>
         <source>Sigil is closing...</source>
         <translation>Sigil kapanıyor...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1930"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1936"/>
         <source>New file created.</source>
         <translation>Yeni dosya oluşturuldu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1955"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1959"/>
         <source>Open File</source>
         <translation>Dosya Aç</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1995"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1999"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
         <translation>Bu dosya artık mevcut değil. Menüden kaldırmak için Tamam&apos;ı tıklayın.
@@ -12466,412 +12472,412 @@ Bu eylem tersine çevrilemez.</translation>
         <translation>Dosyayı Kaydet</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2140"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2138"/>
         <source>Save a Copy</source>
         <translation>Bir kopyasını kaydet</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2179"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2177"/>
         <source>Epub layout discarded.</source>
         <translation>Epub düzeni atıldı.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2186"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2184"/>
         <source>New epub created.</source>
         <translation>Yeni epub oluşturuldu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2221"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2219"/>
         <source>Go To Line</source>
         <translation>Satıra Git</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2221"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2219"/>
         <source>Line #</source>
         <translation>Satır #</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2244"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2242"/>
         <source>Image does not exist: </source>
         <translation>Görüntü mevcut değil: </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2324"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2322"/>
         <source>or</source>
         <translation>yada</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2332"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2330"/>
         <source>No CSS styles named</source>
         <translation>Adlandırılmış CSS stili yok</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2332"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2330"/>
         <source>found, or stylesheet not linked.</source>
         <translation>bulundu veya stil sayfası bağlantılı değil.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2405"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2403"/>
         <source>&lt;html&gt;&lt;p&gt;The href &lt;b&gt;%1&lt;/b&gt; found in &lt;b&gt;%2&lt;/b&gt; does not exist (and there may be more). Splitting or merging under these conditions can result in broken links.&lt;/p&gt;&lt;p&gt;Do you still wish to continue?&lt;/p&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;p&gt;&lt;b&gt;%2&lt;/b&gt;içinde bulunan href &lt;b&gt;%1&lt;/b&gt; mevcut değil (ve daha fazlası olabilir). Bu koşullar altında bölmek veya birleştirme, bağlantıların kopmasına neden olabilir.&lt;/p&gt;&lt;p&gt;Yine de devam etmek istiyor musunuz?&lt;/p&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2429"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2427"/>
         <source>Add Cover</source>
         <translation>Kapak Ekle</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2478"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2476"/>
         <source>An existing Cover file has been found.</source>
         <translation>Mevcut bir Kapak dosyası bulundu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2541"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2539"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
         <translation>Beklenmeyen hata. Kapak için yalnızca resim dosyaları kullanılabilir.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2560"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2558"/>
         <source>Cover added.</source>
         <translation>Kapak eklendi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2576"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2574"/>
         <source>OPF Manifest Mimetypes Updated.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2585"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2603"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2635"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2583"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2601"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2633"/>
         <source>Not Available for epub2.</source>
         <translation>Epub2 için mevcut değildir.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2593"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2591"/>
         <source>OPF Manifest Properties Updated.</source>
         <translation>OPF Manifest Özellikleri Güncellendi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2625"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2623"/>
         <source>NCX and Guide removed.</source>
         <translation>NCX ve Kılavuz kaldırıldı.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2652"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2685"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2650"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2683"/>
         <source>NCX and Guide generation failed.</source>
         <translation>NCX ve Kılavuz oluşturma başarısız oldu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2721"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2719"/>
         <source>NCX and Guide generated.</source>
         <translation>NCX ve Kılavuz oluşturuldu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2818"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2816"/>
         <source>An existing Index file has been found.</source>
         <translation>Mevcut bir dizin dosyası bulundu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2910"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2908"/>
         <source>Styles deleted.</source>
         <translation>Stiller silindi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2918"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2916"/>
         <source>Reports Being Generated.</source>
         <translation>Oluşturulan Raporlar.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2929"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2927"/>
         <source>Reports cancelled due to XML not well formed.</source>
         <translation>XML iyi biçimlendirilmediğinden raporlar iptal edildi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3025"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3023"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
         <translation>Kullanılmayan Medya Dosyalarını Silme, XML&apos;nin düzgün biçimlendirilmemesi nedeniyle iptal edildi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3073"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3071"/>
         <source>Unused media files deleted.</source>
         <translation>Kullanılmayan medya dosyaları silindi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3076"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3079"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3074"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3077"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation>Silinecek kullanılmayan görüntü, video veya ses dosyası yok.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3089"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3087"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation>Kullanılmayan Stilleri Sil, XML&apos;nin iyi biçimlendirilmemesi nedeniyle iptal edildi.</translation>
     </message>
     <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="3109"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3111"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3113"/>
         <source>There are no unused stylesheet selectors to delete.</source>
         <translation>Silinecek kullanılmayan stil sayfası seçici yok.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3127"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3125"/>
         <source>You cannot insert a file at this position.</source>
         <translation>Bu konuma dosya ekleyemezsiniz.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3134"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3132"/>
         <source>Insert File</source>
         <translation>Dosya Ekle</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3187"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3185"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>&quot;%1&quot; dosyası yok.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3233"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3254"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3231"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3252"/>
         <source>You cannot insert an id at this position.</source>
         <translation>Bu konuma bir kimlik ekleyemezsiniz.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3249"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3247"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation>Kimlik geçersiz - bir harfle başlamalı ve ardından _: - veya harf numarası gelmelidir.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3267"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3265"/>
         <source>You can only insert an aria clips in xhtml files.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3286"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3284"/>
         <source>Inserting an aria clip failed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3300"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3319"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3298"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3317"/>
         <source>You cannot insert an aria role at this position.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3315"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3313"/>
         <source>The selected role cannot be used on this tag.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3335"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3353"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3333"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3351"/>
         <source>You cannot insert a link at this position.</source>
         <translation>Bu konuma bir bağlantı ekleyemezsiniz.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3348"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3346"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Bağlantı geçersiz - &apos;&lt;&apos; veya &apos;&gt;&apos; içeremez</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3365"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3363"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation>Bu konumda veya metin seçmeden bir dizini işaretleyemezsiniz.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3375"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3373"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Giriş geçersiz - &apos;&lt;&apos; veya &apos;&gt;&apos; içeremez</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3380"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3378"/>
         <source>You cannot mark an index at this position.</source>
         <translation>Bu konumda bir indeksi işaretleyemezsiniz.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3462"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3474"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3493"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3460"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3472"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3491"/>
         <source>Select the destination to paste into first.</source>
         <translation>Önce yapıştırılacak hedefi seçin.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3482"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3480"/>
         <source>Pasted clip entry %1.</source>
         <translation>%1 klibi girişi yapıştırıldı.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3544"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3542"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>Bir kaynak seçildi ve birleştirilecek daha önce kaynak yok.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3552"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3550"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>Seçili dosyaları birleştirmek istediğinizden emin misiniz?
 Bu eylem tersine çevrilemez.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3567"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3565"/>
         <source>Merge cancelled: XHTML files involved in merge are not well formed.</source>
         <translation>Birleştirme iptal edildi: Birleştirmeye katılan XHTML dosyaları düzgün biçimlendirilmemiş.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3626"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3624"/>
         <source>Cannot merge file %1</source>
         <translation>%1 dosyası birleştirilemiyor</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3640"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3638"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>Birleştirme tamamlandı. İçindekilerinizi yeniden oluşturmanız veya düzenlemeniz gerekebilir.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3658"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3656"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation>Bağlantı Stil Sayfaları iptal edildi: %1, XML iyi biçimlendirilmedi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3788"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3786"/>
         <source>Word updated.</source>
         <translation>Kelime güncellendi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3857"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3855"/>
         <source>Link Javascripts cancelled: %1, XML not well formed.</source>
         <translation>Bağlantı JavaScript&apos;leri iptal edildi: %1, XML iyi biçimlendirilmemiş.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3967"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3965"/>
         <source>File(s) deleted.</source>
         <translation>Dosya(lar) silindi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3978"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3976"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>İçindekiler Tablosunu Düzenleme iptal edildi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3983"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3981"/>
         <source>Table Of Contents edited.</source>
         <translation>İçindekiler Tablosu düzenlendi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4001"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3999"/>
         <source>Generate TOC cancelled.</source>
         <translation>TOC oluşturma iptal edildi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4026"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4024"/>
         <source>Table Of Contents generated.</source>
         <translation>İçindekiler Tablosu oluşturuldu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4028"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4026"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>İçindekiler Tablosu değişikliği gerekli değildi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4102"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4100"/>
         <source>An existing HTML Table of Contents file has been found.</source>
         <translation>Mevcut bir HTML İçindekiler dosyası bulundu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4186"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4184"/>
         <source>Text selection marked.</source>
         <translation>Metin seçimi işaretlendi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4188"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4206"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4186"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4204"/>
         <source>Text selection unmarked.</source>
         <translation>Metin seçimi işaretlenmemiş.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4255"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4253"/>
         <source>Metadata Editor cancelled.</source>
         <translation>Meta Veri Düzenleyicisi iptal edildi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4258"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4256"/>
         <source>Metadata edited.</source>
         <translation>Meta veriler düzenlendi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4366"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4364"/>
         <source>RunPlugin</source>
         <translation>Eklentiyi Çalıştır</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4392"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4390"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>Bu EPUB, doğrulanacak herhangi bir CSS stil sayfası içermiyor.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4423"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4421"/>
         <source>This EPUB does not contain any CSS stylesheets to reformat.</source>
         <translation>Bu EPUB, yeniden biçimlendirilecek herhangi bir CSS stil sayfası içermiyor.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4922"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4920"/>
         <source>Line: %1, Col: %2</source>
         <translation>Satır: %1, Sütun: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5010"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5008"/>
         <source>File cannot be split at this position.</source>
         <translation>Dosya bu konumda bölünemez.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5033"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5031"/>
         <source>Split completed.</source>
         <translation>Bölünme tamamlandı.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5051"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5049"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>En az bir dosya bir HTML dosyası olmadığı için bölünemez.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5057"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5055"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>Bölünemiyor: %1 XML doğru biçimlendirilmemiş</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5063"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5061"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>En az bir dosya HTML dosyası olamayacağı için bölünemez.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5096"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5094"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Bölünme tamamlandı. İçindekiler Tablosunu güncellemeniz gerekebilir.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5098"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5096"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>Bölünmüş dosya işaretçisi bulunamadı. Ekle-&gt; Bölünmüş İşaretleyiciyi kullanın.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5288"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5286"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>Belge değiştirildi.
 Değişikliklerinizi kaydetmek istiyor musunuz?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5309"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5307"/>
         <source>Should Sigil overwrite this file?</source>
         <translation>Sigil bu dosyanın üzerine yazmalı mı?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5495"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5493"/>
         <source>No importer for file type: %1</source>
         <translation>Dosya türü için içe aktarıcı yok: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5502"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5500"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -12884,44 +12890,44 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
 Temiz Kaynak tercihini, dosyayı Açarken ve yeniden yüklerken XHTML Kaynak Kodunu Düzelt olarak ayarlamayı deneyin.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5507"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5505"/>
         <source>Loading file...</source>
         <translation>Dosya yükleniyor...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5521"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5519"/>
         <source>File loaded.</source>
         <translation>Dosya yüklendi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5547"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5545"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Bu dosyanın yaratıcısı, dosyayı DRM ile şifreledi. Sigil bu tür dosyaları açamaz.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5555"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5553"/>
         <source>Cannot load EPUB: %1</source>
         <translation>EPUB yüklenemiyor: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5560"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5558"/>
         <source>Cannot load file %1: %2</source>
         <translation>%1 dosyası yüklenemiyor: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5587"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5585"/>
         <source>Saving EPUB...</source>
         <translation>EPUB kaydediliyor...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5596"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5594"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil, &quot;%1&quot; türündeki dosyaları kaydedemez.
 Lütfen farklı bir format seçin.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5620"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5618"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to mend on Save.
 
 Do you want to automatically mend the files before saving? Or cancel the Save?</source>
@@ -12929,96 +12935,96 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 Kaydetmeden önce dosyaları otomatik olarak düzeltmek istiyor musunuz?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5625"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5623"/>
         <source>Saving EPUB... cancelled</source>
         <translation>Bu EPUB, iyi biçimlendirilmemiş HTML dosyalarına sahip ve geçerli Temiz Kaynak tercihleriniz, Kaydetme işleminde otomatik olarak düzeltilecek şkilde ayarlanmış. 
 Kaydetmeden önce dosyları otomatik olarak onarmak istiyor musunuz?
 Kaydı iptal etmek ister misiniz?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5651"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5649"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>EPUB kaydedildi, ancak tüm HTML dosyaları düzgün biçimlendirilmedi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5653"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5651"/>
         <source>EPUB saved.</source>
         <translation>EPUB kaydedildi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5659"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5657"/>
         <source>Cannot save file %1: %2</source>
         <translation>%1: %2 dosyası kaydedilemiyor</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5792"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5790"/>
         <source>EPUB files (*.epub)</source>
         <translation>EPUB dosyaları (*.epub)</translation>
     </message>
     <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="5791"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5792"/>
         <location filename="../../MainUI/MainWindow.cpp" line="5793"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5794"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5795"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>HTML dosyaları (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5796"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5794"/>
         <source>Text files (*.txt)</source>
         <translation>Metin dosyaları (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5797"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5795"/>
         <source>All files (*.*)</source>
         <translation>Tüm dosyalar (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5805"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5803"/>
         <source>EPUB file (*.epub)</source>
         <translation>EPUB dosyası (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5907"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5905"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>Mevcut başlık özniteliklerini korumak artık:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5908"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5906"/>
         <source>ON</source>
         <translation>AÇIK</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5908"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5906"/>
         <source>OFF</source>
         <translation>KAPALI</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5933"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5931"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6909"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6914"/>
         <source>Focus changed to CodeView window.</source>
         <translation>Odaklama Kod Görünümüne değiştirildi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6918"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6923"/>
         <source>Focus changed to BookBrowser window.</source>
         <translation>Odaklama Kitap Gezgini görünümüne değiştirildi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6927"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6932"/>
         <source>Focus changed to Preview window.</source>
         <translation>Odaklama Önizleme görünümüne değiştirildi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6936"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6941"/>
         <source>Focus changed to Table Of Contents window.</source>
         <translation>Odaklama İçindekiler görünümüne değiştirildi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6945"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6950"/>
         <source>Focus changed to Clips window.</source>
         <translation>Odaklama Klip penceresi görünümüne değiştirildi.</translation>
     </message>
@@ -17774,57 +17780,57 @@ Devam etmek istediğine emin misin?</translation>
         <translation>Eklenti 10:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="210"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="208"/>
         <source>Select Plugin Zip Archive</source>
         <translation>Eklenti Zip Arşivi Seçin</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="212"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="210"/>
         <source>Plugin Files (*.zip)</source>
         <translation>Eklenti Dosyaları (*.zip)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="230"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="228"/>
         <source>Error: Plugin plugin.xml is invalid or not supported on your operating system.</source>
         <translation>Hata: Plugin plugin.xml geçersiz veya işletim sisteminizde desteklenmiyor.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="233"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="231"/>
         <source>Warning: A plugin by that name already exists</source>
         <translation>Uyarı: Bu isimde bir eklenti zaten mevcut</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="236"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="234"/>
         <source>Error: Plugin Could Not be Unzipped.</source>
         <translation>Hata: Eklenti Açılamadı.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="239"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="237"/>
         <source>Error: Plugin not a valid Sigil plugin.</source>
         <translation>Hata: Eklenti geçerli bir Sigil eklentisi değil.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="277"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="275"/>
         <source>Nothing is Selected.</source>
         <translation>Hiçbir Şey Seçilmedi.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="325"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="323"/>
         <source>Remove All Plugins</source>
         <translation>Tüm Eklentileri Kaldır</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="326"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="324"/>
         <source>Are you sure sure you want to remove all of your plugins?</source>
         <translation>Tüm eklentilerinizi kaldırmak istediğinizden emin misiniz?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="383"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="379"/>
         <source>Select Interpreter</source>
         <translation>Tercüman seçin</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="412"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="408"/>
         <source>Incorrect Interpreter Path selected</source>
         <translation>Yanlış Tercüman Yolu seçildi</translation>
     </message>
@@ -17895,6 +17901,25 @@ Varlıklar çizgiler, virgül veya boşluklarla ayrılabilir.</translation>
         <location filename="../../Dialogs/PreferenceWidgets/PreserveEntitiesWidget.cpp" line="67"/>
         <source>Entities:</source>
         <translation>Varlıklar:</translation>
+    </message>
+</context>
+<context>
+    <name>PreviewFileDialog</name>
+    <message>
+        <location filename="../../Dialogs/PreviewFileDialog.cpp" line="28"/>
+        <source>Preview</source>
+        <translation>Önizle</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreviewFileDialog.cpp" line="56"/>
+        <source>not an image</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/PreviewFileDialog.cpp" line="68"/>
+        <location filename="../../Dialogs/PreviewFileDialog.cpp" line="93"/>
+        <source>no preview available</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -18021,7 +18046,7 @@ Varlıklar çizgiler, virgül veya boşluklarla ayrılabilir.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="91"/>
-        <location filename="../../Dialogs/EmptyLayout.cpp" line="292"/>
+        <location filename="../../Dialogs/EmptyLayout.cpp" line="290"/>
         <source>Custom Epub Layout Designer</source>
         <translation>Özel Epub Düzen Tasarımcısı</translation>
     </message>
@@ -18032,7 +18057,7 @@ Varlıklar çizgiler, virgül veya boşluklarla ayrılabilir.</translation>
         <translation>Uygulamalar</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="206"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="205"/>
         <source>Select External Xhtml Editor</source>
         <translation>Harici Xhtml Düzenleyiciyi Seçin</translation>
     </message>
@@ -18157,12 +18182,12 @@ Satır: %1 Sütun %2 - %3</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="813"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="837"/>
         <source>Adding Existing Files..</source>
         <translation>Mevcut Dosyaları Ekleme..</translation>
     </message>
     <message>
-        <location filename="../../Misc/OpenExternally.cpp" line="364"/>
+        <location filename="../../Misc/OpenExternally.cpp" line="363"/>
         <source>Open With</source>
         <translation>Birlikte Aç</translation>
     </message>
@@ -18195,12 +18220,12 @@ Satır: %1 Sütun %2 - %3</translation>
 %2.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="675"/>
+        <location filename="../../Misc/Utility.cpp" line="678"/>
         <source>Sigil has encountered a problem.</source>
         <translation>Sigil bir sorunla karşılaştı.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="676"/>
+        <location filename="../../Misc/Utility.cpp" line="679"/>
         <source>Sigil may need to close.</source>
         <translation>Sigil&apos;in kapatılması gerekebilir.</translation>
     </message>
@@ -18226,28 +18251,28 @@ Satır: %1 Sütun %2 - %3</translation>
         <translation>Geçersiz NCX dosyası: %1</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="808"/>
-        <location filename="../../main.cpp" line="856"/>
+        <location filename="../../main.cpp" line="849"/>
+        <location filename="../../main.cpp" line="897"/>
         <source>Quit</source>
         <translation>Çıkış</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="818"/>
+        <location filename="../../main.cpp" line="859"/>
         <source>About</source>
         <translation>Hakkında</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="827"/>
+        <location filename="../../main.cpp" line="868"/>
         <source>Preferences</source>
         <translation>Tercihler</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="838"/>
+        <location filename="../../main.cpp" line="879"/>
         <source>New</source>
         <translation>Yeni</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="847"/>
+        <location filename="../../main.cpp" line="888"/>
         <source>Open</source>
         <translation>Aç</translation>
     </message>
@@ -18809,114 +18834,114 @@ seçilen gruplardaki girişler dahil.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="571"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="670"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="668"/>
         <source>Sigil INI files (*.ini)</source>
         <translation>Sigil INI dosyaları (*.ini)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="572"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="671"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="669"/>
         <source>CSV files (*.csv)</source>
         <translation>CSV dosyaları (*.csv)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="573"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="672"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="670"/>
         <source>Text files (*.txt)</source>
         <translation>Metin dosyaları (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="586"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="584"/>
         <source>Import Search Entries</source>
         <translation>Arama Girişlerini İçe Aktar</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="686"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="681"/>
         <source>Export Selected Searches</source>
         <translation>Seçili Aramaları Dışa Aktar</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="876"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="871"/>
         <source>Add Entry</source>
         <translation>Giriş Ekle</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="877"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="872"/>
         <source>Add Group</source>
         <translation>Grup ekle</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="878"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="873"/>
         <source>Edit</source>
         <translation>Düzenle</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="879"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="874"/>
         <source>Cut</source>
         <translation>Kes</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="880"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="875"/>
         <source>Copy</source>
         <translation>Kopyala</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="881"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="876"/>
         <source>Paste</source>
         <translation>Yapıştır</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="882"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="877"/>
         <source>Delete</source>
         <translation>Sil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="883"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="878"/>
         <source>Import</source>
         <translation>İçe Aktar</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="884"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="879"/>
         <source>Reload</source>
         <translation>Yeniden Yükle</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="885"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="880"/>
         <source>Export</source>
         <translation>Dışarı Aktar</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="886"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="881"/>
         <source>Export All</source>
         <translation>Tümünü Dışa Aktar</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="887"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="882"/>
         <source>Collapse All</source>
         <translation>Hepsini Daralt</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="888"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="883"/>
         <source>Expand All</source>
         <translation>Tümünü Genişlet</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="889"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="884"/>
         <source>Fill Controls</source>
         <translation>Doldurma Denetimleri</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="970"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="965"/>
         <source>Search entries saved.</source>
         <translation>Arama girişleri kaydedildi.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="999"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="994"/>
         <source>Sigil: Saved Searches</source>
         <translation>Sigil: Kaydedilmiş Aramalar</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="1000"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="995"/>
         <source>The Search entries may have been modified.
 Do you want to save your changes?</source>
         <translation>Arama girişleri değiştirilmiş olabilir.
@@ -20963,22 +20988,22 @@ Yazım Denetimi açıkken herhangi bir HTML dosyasını düzenlerseniz kullanın
         <translation>&lt;p&gt;Not: Birçok olası eşleşme arasında yalnızca bir HTML Dosyası listelenir.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="243"/>
+        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="240"/>
         <source>Save Report As Comma Separated File</source>
         <translation>Raporu Virgülle Ayrılmış Dosya Olarak Kaydet</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="256"/>
+        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="253"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="256"/>
+        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="253"/>
         <source>Cannot save report file.</source>
         <translation>Rapor dosyası kaydedilemiyor.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="266"/>
+        <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="263"/>
         <source>Delete From Stylesheet</source>
         <translation>Stil Sayfasından Sil</translation>
     </message>
@@ -21025,7 +21050,7 @@ Yazım Denetimi açıkken herhangi bir HTML dosyasını düzenlerseniz kullanın
 <context>
     <name>TextTab</name>
     <message>
-        <location filename="../../Tabs/TextTab.cpp" line="322"/>
+        <location filename="../../Tabs/TextTab.cpp" line="323"/>
         <source>Print %1</source>
         <translation>%1 yazdır</translation>
     </message>
@@ -21033,12 +21058,12 @@ Yazım Denetimi açıkken herhangi bir HTML dosyasını düzenlerseniz kullanın
 <context>
     <name>Utility</name>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="821"/>
+        <location filename="../../Misc/Utility.cpp" line="824"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="822"/>
+        <location filename="../../Misc/Utility.cpp" line="825"/>
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>
@@ -21070,38 +21095,38 @@ Continue using the requested filename?</source>
         <translation>Metin dosyaları (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="121"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="118"/>
         <source>Export Validation Results</source>
         <translation>Doğrulama Sonuçlarını Dışa Aktar</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="154"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="151"/>
         <source>Export of Validation Results failed: </source>
         <translation>Doğrulama Sonuçlarının Dışa Aktarılması başarısız oldu:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="411"/>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="427"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="408"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="424"/>
         <source>Message</source>
         <translation>Mesaj</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="412"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="409"/>
         <source>No problems found!</source>
         <translation>Hiçbir sorun bulunamadı!</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="427"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="424"/>
         <source>File</source>
         <translation>Dosya</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="427"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="424"/>
         <source>Line</source>
         <translation>Satır</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="427"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="424"/>
         <source>Offset</source>
         <translation>Uzaklık</translation>
     </message>
@@ -21135,12 +21160,12 @@ Continue using the requested filename?</source>
 <context>
     <name>ViewImage</name>
     <message>
-        <location filename="../../Dialogs/ViewImage.cpp" line="50"/>
+        <location filename="../../Dialogs/ViewImage.cpp" line="51"/>
         <source>Close this window</source>
         <translation>Bu pencereyi kapat</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ViewImage.cpp" line="51"/>
+        <location filename="../../Dialogs/ViewImage.cpp" line="52"/>
         <source>Done</source>
         <translation>Bitti</translation>
     </message>
