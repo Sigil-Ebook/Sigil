@@ -1,4 +1,4 @@
-preSigil-2.6.2
+Sigil-2.6.2
    Bug Fixes
      - work around bad Qt WebEngine bug when created dynamically and used inside a QDialog for Checkpoints
      - fix minor bug in MediaTypes due to typo with append
@@ -12,6 +12,7 @@ preSigil-2.6.2
          (Thank you BeckyEbook)
      - rename the environment variable "SKIP_SIGIL_UPDATE_CHECK" to now be:
          "SIGIL_SKIP_UPDATE_CHECK" to keep all Sigil specific environment variables better in sync.
+     - fix bug in handling of epub filenames from input plugins
 
    New Features
      - enable use of the fetch api in Sigil internal "sigil:" scheme
@@ -25,6 +26,7 @@ preSigil-2.6.2
      - make CV understand the media-types of the file it is editing so that it can better
           create pop-up menu items like "View Image" when editing an SVG
      - add support for "env-vars.txt" in Sigil Prefs folder, uses VARIABLE=VALUE one per line
+     - completely revamped the AppImage CI builds to use Docker images
 
 
 Sigil-2.6.0
