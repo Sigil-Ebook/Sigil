@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2021 Doug Massay
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -64,7 +64,7 @@ QString PerformCSSUpdates::operator()()
     // Now parse the text once looking for keys and replacing them where needed
     QRegularExpression reference(
         "(?:(?:src|background|background-image|block|border|border-image|border-image-source|"
-        "content|cursor|list-style|list-style-image|mask|mask-image|(?:-webkit-)?shape-outside)\\s*:|"
+        "content|cursor|filter|list-style|list-style-image|mask|mask-image|(?:-webkit-)?shape-outside)\\s*:|"
         "@import)\\s*"
         "("
         "[^;\\}]*"
