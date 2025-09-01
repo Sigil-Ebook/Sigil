@@ -558,7 +558,7 @@ private slots:
     void SetStateActionsStaticView();
 
     void UpdatePreviewRequest();
-    void UpdatePreviewCSSRequest();
+    void UpdatePreviewTabRequest();
     void ScrollPreview();
     void UpdatePreview();
     void InspectHTML();
@@ -1069,7 +1069,7 @@ private:
     QAction *m_actionManagePlugins;
 
     QStringList m_pluginList;
-    bool m_SaveCSS;
+    bool m_SaveTab;
     bool m_IsClosing;
 
     QList<QAction*> m_qlactions;

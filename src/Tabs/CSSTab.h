@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -57,10 +57,10 @@ public slots:
     void TextDirectionDefault();
 
 signals:
-    void CSSUpdated();
+    void TabUpdated();
 
 private slots:
-    void EmitCSSUpdated();
+    void EmitTabUpdated();
 };
 
 #endif // CSSTAB_H

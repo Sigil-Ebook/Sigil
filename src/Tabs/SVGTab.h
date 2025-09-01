@@ -49,7 +49,10 @@ signals:
      */
 
     void ViewImageRequest(const QUrl &url);
+    void TabUpdated();
 
+private slots:
+    void EmitTabUpdated();
 };
 
 #endif // SVGTAB_H

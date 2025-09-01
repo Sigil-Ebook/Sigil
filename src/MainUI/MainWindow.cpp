@@ -245,7 +245,7 @@ MainWindow::MainWindow(const QString &openfilepath,
     m_menuPluginsEdit(NULL),
     m_menuPluginsValidation(NULL),
     m_pluginList(QStringList()),
-    m_SaveCSS(false),
+    m_SaveTab(false),
     m_IsClosing(false),
     m_headingActionGroup(new QActionGroup(this)),
     m_UsingAutomate(false)
@@ -4800,9 +4800,9 @@ void MainWindow::UpdatePreviewRequest()
     m_PreviewTimer.start();
 }
 
-void MainWindow::UpdatePreviewCSSRequest()
+void MainWindow::UpdatePreviewTabRequest()
 {
-    m_SaveCSS = true;
+    m_SaveTab = true;
     UpdatePreviewRequest();
 }
 
@@ -4850,8 +4850,8 @@ void MainWindow::UpdatePreview()
     if (tab != NULL) {
 
         // Save CSS if update requested from CSS tab
-        if (m_SaveCSS) {
-            m_SaveCSS = false;
+        if (m_SaveTab) {
+            m_SaveTab = false;
             tab->SaveTabContent();
         }
 
@@ -6763,12 +6763,13 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
     }
 
     if (rType == Resource::CSSResourceType) {
-        connect(tab,   SIGNAL(CSSUpdated()), this, SLOT(UpdatePreviewCSSRequest()));
+        connect(tab,   SIGNAL(TabUpdated()), this, SLOT(UpdatePreviewTabRequest()));
     }
 
     if (rType == Resource::SVGResourceType) {
         connect(tab,   SIGNAL(ViewImageRequest(const QUrl &)),
                 this,  SLOT(ViewImageDialog(const QUrl &)));
+        connect(tab,   SIGNAL(TabUpdated()), this, SLOT(UpdatePreviewTabRequest()));
     }
 
     if (rType == Resource::HTMLResourceType ||

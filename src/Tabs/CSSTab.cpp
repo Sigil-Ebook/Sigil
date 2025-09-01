@@ -28,7 +28,7 @@ CSSTab::CSSTab(CSSResource *resource, int line_to_scroll_to, int position_to_scr
     TextTab(resource, CodeViewEditor::Highlight_CSS, line_to_scroll_to, position_to_scroll_to, parent)
 {
     m_wCodeView->SetReformatCSSEnabled(true);
-    connect(m_wCodeView, SIGNAL(PageUpdated()), this, SLOT(EmitCSSUpdated()));
+    connect(m_wCodeView, SIGNAL(PageUpdated()), this, SLOT(EmitTabUpdated()));
 }
 
 bool CSSTab::PasteClipNumber(int clip_number)
@@ -41,9 +41,9 @@ bool CSSTab::PasteClipEntries(QList<ClipEditorModel::clipEntry *>clips)
     return m_wCodeView->PasteClipEntries(clips);
 }
 
-void CSSTab::EmitCSSUpdated()
+void CSSTab::EmitTabUpdated()
 {
-    emit CSSUpdated();
+    emit TabUpdated();
 }
 
 void CSSTab::Bold()

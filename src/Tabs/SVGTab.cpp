@@ -29,6 +29,7 @@ SVGTab::SVGTab(SVGResource *resource, int line_to_scroll_to, int position_to_scr
 {
     connect(m_wCodeView, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)), this, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)));
     connect(m_wCodeView, SIGNAL(ViewImage(const QUrl &)), this, SLOT(HandleViewImage(const QUrl &)));
+    connect(m_wCodeView, SIGNAL(PageUpdated()), this, SLOT(EmitTabUpdated()));
 }
 
 void SVGTab::HandleViewImage(const QUrl &url)
@@ -56,4 +57,9 @@ void SVGTab::HandleViewImage(const QUrl &url)
         url_string = "book:///" + Utility::URLEncodePath(dest_bookpath);
     }
     emit ViewImageRequest(QUrl(url_string));
+}
+
+void SVGTab::EmitTabUpdated()
+{
+    emit TabUpdated();
 }
