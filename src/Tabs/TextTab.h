@@ -120,6 +120,9 @@ public slots:
     void PrintPreview();
 
     void ThemeChangeRefresh();
+
+    void SaveTabContent();
+
     
 signals:
 
@@ -128,8 +131,6 @@ signals:
     void OpenClipEditorRequest(ClipEditorModel::clipEntry *clip);
 
 protected slots:
-
-    void SaveTabContent();
 
     void SaveTabContent(QWidget *editor);
 

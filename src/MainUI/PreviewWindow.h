@@ -61,6 +61,7 @@ public:
     bool eventFilter(QObject *object, QEvent *event);
     void setMathJaxURL(QString mathjaxurl) { m_mathjaxurl = mathjaxurl; };
     void setUserCSSURLs(const QStringList&  usercssurls);
+    void ForceFullWebCacheClear();
 
 public slots:
     bool UpdatePage(QString filename, QString text, QList<ElementIndex> location);

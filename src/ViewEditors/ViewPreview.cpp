@@ -572,14 +572,20 @@ void ViewPreview::ClearWebCache()
 #if QT_VERSION >= QT_VERSION_CHECK(6, 7, 0)
     m_CacheCleared = false;
 #endif
+    page()->profile()->clearAllVisitedLinks();
     page()->profile()->clearHttpCache();
     while(!m_CacheCleared && (!deadline.hasExpired())) {
         qApp->processEvents(QEventLoop::ExcludeUserInputEvents, 50);
     }
     if (deadline.hasExpired()) {
         DBG qDebug() << "View Preview Cache Clear failed - deadline expired";
+    } else {
+        DBG qDebug() << "View Preview Cache Cleared";
     }
     m_CacheCleared = true;
+    // to force a true fresh load (nothing cached or loeftover used)  we need to setUrl
+    // to QUrl("") first - but I have no idea why this is needed but
+    setUrl(QUrl(""));
 }
 
 

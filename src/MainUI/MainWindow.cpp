@@ -4849,10 +4849,11 @@ void MainWindow::UpdatePreview()
     ContentTab *tab = GetCurrentContentTab();
     if (tab != NULL) {
 
-        // Save CSS if update requested from CSS tab
+        // Save Tab if update requested from a TextTab tab like CSS or SVG tabs
         if (m_SaveTab) {
             m_SaveTab = false;
             tab->SaveTabContent();
+            m_PreviewWindow->ForceFullWebCacheClear();
         }
 
         html_resource = qobject_cast<HTMLResource *>(tab->GetLoadedResource());

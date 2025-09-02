@@ -74,6 +74,11 @@ bool WebEngPage::acceptNavigationRequest(const QUrl & url, QWebEnginePage::Navig
         DBG qDebug() << "acceptNavigationRequest from scheme handler redirect" << url.toString();
         return true;
     }
+    if (type == QWebEnginePage::NavigationTypeReload) {
+        DBG qDebug() << "acceptNavigationRequest for Reload" << url.toString();
+        return true;
+    }
+
     qDebug() << " Unhandled acceptNavigationRequest with type: " << type;
     return true;
 }

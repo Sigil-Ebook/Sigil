@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2024  Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2019-2023  Doug Massay
+**  Copyright (C) 2015-2025  Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2025  Doug Massay
 **  Copyright (C) 2012       Dave Heiland, John Schember
 **
 **  This file is part of Sigil.
@@ -712,14 +712,21 @@ void PreviewWindow::CopyPreview()
     m_Preview->triggerPageAction(QWebEnginePage::Copy);
 }
 
+void PreviewWindow::ForceFullWebCacheClear()
+{
+      m_Preview->ClearWebCache();
+}
+
 void PreviewWindow::ReloadPreview()
 {
+    // does *not* work as it still uses the cache even when it should not
     // m_Preview->triggerPageAction(QWebEnginePage::ReloadAndBypassCache);
-    // m_Preview->triggerPageAction(QWebEnginePage::Reload);
+
     //force reset m_updatingPage in case a signal is lost
     m_progress->reset();
     m_updatingPage = false;
-    // m_Preview->ClearWebCache();
+    DBG qDebug() << " in ReloadPreview and clearing cache";
+    m_Preview->ClearWebCache();
     emit RequestPreviewReload();
 }
 
