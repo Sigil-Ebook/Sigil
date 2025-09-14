@@ -1,0 +1,428 @@
+From 9dd5105673f30fa6e8dc9bb3ee5cf4f51cec6ed2 Mon Sep 17 00:00:00 2001
+From: Peter Varga <pvarga@inf.u-szeged.hu>
+Date: Thu, 31 Jul 2025 11:03:13 +0200
+Subject: [PATCH] Delete OpenGL textures in the same context where they were created
+
+Pick-to: 6.8
+Fixes: QTBUG-138641
+Change-Id: I97ee0964ea09080917f79f40adead61dd086442a
+Reviewed-by: Allan Sandfeld Jensen <allan.jensen@qt.io>
+(cherry picked from commit 092e42c0fc3708a1db1b254733603d7e2868a32b)
+Reviewed-by: Qt Cherry-pick Bot <cherrypick_bot@qt-project.org>
+(cherry picked from commit 1f119b3302aaaa54bc9241fd577b5837a77f4f4c)
+---
+
+diff --git a/src/core/compositor/compositor.h b/src/core/compositor/compositor.h
+index aebd8f4..b160ca0 100644
+--- a/src/core/compositor/compositor.h
++++ b/src/core/compositor/compositor.h
+@@ -131,6 +131,9 @@
+     // Is the texture produced upside down?
+     virtual bool textureIsFlipped();
+ 
++    // Are there resources to be released?
++    virtual bool hasResources() { return false; }
++
+     // Release resources created in texture()
+     virtual void releaseResources();
+ 
+diff --git a/src/core/compositor/native_skia_output_device.cpp b/src/core/compositor/native_skia_output_device.cpp
+index 95cf0b5..7d0c763 100644
+--- a/src/core/compositor/native_skia_output_device.cpp
++++ b/src/core/compositor/native_skia_output_device.cpp
+@@ -166,6 +166,11 @@
+     }
+ }
+ 
++bool NativeSkiaOutputDevice::hasResources()
++{
++    return m_frontBuffer && m_frontBuffer->textureCleanupCallback;
++}
++
+ void NativeSkiaOutputDevice::releaseResources()
+ {
+     if (m_frontBuffer)
+@@ -211,7 +216,10 @@
+ 
+ NativeSkiaOutputDevice::Buffer::~Buffer()
+ {
+-    DCHECK(!textureCleanupCallback);
++    // FIXME: Can't be called in case of threaded rendering with unexposed window.
++    //DCHECK(!textureCleanupCallback);
++    if (textureCleanupCallback)
++        qWarning("NativeSkiaOutputDevice: Leaking graphics resources.");
+ 
+     if (m_scopedSkiaWriteAccess)
+         endWriteSkia(false);
+diff --git a/src/core/compositor/native_skia_output_device.h b/src/core/compositor/native_skia_output_device.h
+index 9a57305..a405f66 100644
+--- a/src/core/compositor/native_skia_output_device.h
++++ b/src/core/compositor/native_skia_output_device.h
+@@ -74,6 +74,7 @@
+     void swapFrame() override;
+     void waitForTexture() override;
+     void releaseTexture() override;
++    bool hasResources() override;
+     void releaseResources() override;
+     bool textureIsFlipped() override;
+     QSize size() override;
+diff --git a/src/core/compositor/native_skia_output_device_opengl.cpp b/src/core/compositor/native_skia_output_device_opengl.cpp
+index 3e891ac..333320e 100644
+--- a/src/core/compositor/native_skia_output_device_opengl.cpp
++++ b/src/core/compositor/native_skia_output_device_opengl.cpp
+@@ -50,6 +50,56 @@
+ 
+ namespace QtWebEngineCore {
+ 
++class ScopedGLContextForCleanup
++{
++public:
++    ScopedGLContextForCleanup(QOpenGLContext *createContext, QSurface *createSurface)
++        : m_createContext(createContext), m_currentContext(QOpenGLContext::currentContext())
++    {
++        if (m_createContext == m_currentContext)
++            return;
++
++        if (!m_createContext->isValid()) {
++            skipCleanup = true;
++            return;
++        }
++
++        if (m_currentContext)
++            m_currentSurface = m_currentContext->surface();
++
++        if (!createContext->makeCurrent(createSurface)) {
++            skipCleanup = true;
++            qWarning("Failed to make OpenGL context current for clean-up, OpenGL resources will "
++                     "not be destroyed.");
++        }
++    }
++
++    ~ScopedGLContextForCleanup()
++    {
++        if (!m_currentContext || m_createContext == m_currentContext || skipCleanup)
++            return;
++
++        if (!m_currentContext->makeCurrent(m_currentSurface))
++            qFatal("Failed to restore OpenGL context after clean-up.");
++    }
++
++    void deleteTexture(GLuint glTexture)
++    {
++        if (skipCleanup)
++            return;
++
++        auto *glFun = m_createContext->functions();
++        Q_ASSERT(glFun->glGetError() == GL_NO_ERROR);
++        glFun->glDeleteTextures(1, &glTexture);
++    }
++
++private:
++    QOpenGLContext *m_createContext;
++    QOpenGLContext *m_currentContext;
++    QSurface *m_currentSurface = nullptr;
++    bool skipCleanup = false;
++};
++
+ NativeSkiaOutputDeviceOpenGL::NativeSkiaOutputDeviceOpenGL(
+         scoped_refptr<gpu::SharedContextState> contextState, bool requiresAlpha,
+         gpu::MemoryTracker *memoryTracker, viz::SkiaOutputSurfaceDependency *dependency,
+@@ -214,10 +264,12 @@
+             glxFun->glXBindTexImageEXT(display, glxPixmap, GLX_FRONT_LEFT_EXT, nullptr);
+             glFun->glBindTexture(GL_TEXTURE_2D, 0);
+ 
+-            m_frontBuffer->textureCleanupCallback = [glFun, glxFun, display, glxPixmap, glTexture,
+-                                                     glxHelper, pixmapId]() {
++            QSurface *createSurface = glContext->surface();
++            m_frontBuffer->textureCleanupCallback = [glContext, createSurface, glxFun, display,
++                                                     glxPixmap, glTexture, glxHelper, pixmapId]() {
++                ScopedGLContextForCleanup cleanupContext(glContext, createSurface);
+                 glxFun->glXReleaseTexImageEXT(display, glxPixmap, GLX_FRONT_LEFT_EXT);
+-                glFun->glDeleteTextures(1, &glTexture);
++                cleanupContext.deleteTexture(glTexture);
+                 glXDestroyGLXPixmap(display, glxPixmap);
+                 glxHelper->freePixmap(pixmapId);
+             };
+@@ -266,9 +318,11 @@
+             glExtFun->glEGLImageTargetTexture2DOES(GL_TEXTURE_2D, eglImage);
+             glFun->glBindTexture(GL_TEXTURE_2D, 0);
+ 
+-            m_frontBuffer->textureCleanupCallback = [glFun, eglFun, glTexture, eglDisplay,
+-                                                     eglImage]() {
+-                glFun->glDeleteTextures(1, &glTexture);
++            QSurface *createSurface = glContext->surface();
++            m_frontBuffer->textureCleanupCallback = [glContext, createSurface, eglFun, glTexture,
++                                                     eglDisplay, eglImage]() {
++                ScopedGLContextForCleanup cleanupContext(glContext, createSurface);
++                cleanupContext.deleteTexture(glTexture);
+                 eglFun->eglDestroyImage(eglDisplay, eglImage);
+             };
+         }
+@@ -321,11 +375,12 @@
+                                        glMemoryObject, 0);
+         glFun->glBindTexture(GL_TEXTURE_2D, 0);
+ 
+-        m_frontBuffer->textureCleanupCallback = [glFun, glExtFun, glTexture, glMemoryObject]() {
+-            Q_ASSERT(glFun->glGetError() == GL_NO_ERROR);
+-
++        QSurface *createSurface = glContext->surface();
++        m_frontBuffer->textureCleanupCallback = [glContext, createSurface, glExtFun, glTexture,
++                                                 glMemoryObject]() {
++            ScopedGLContextForCleanup cleanupContext(glContext, createSurface);
+             glExtFun->glDeleteMemoryObjectsEXT(1, &glMemoryObject);
+-            glFun->glDeleteTextures(1, &glTexture);
++            cleanupContext.deleteTexture(glTexture);
+         };
+ #else
+         Q_UNREACHABLE();
+@@ -377,12 +432,11 @@
+     uint32_t glTexture = makeCGLTexture(win, ioSurface.get(), size());
+     texture = QNativeInterface::QSGOpenGLTexture::fromNative(glTexture, win, size(), texOpts);
+ 
+-    m_frontBuffer->textureCleanupCallback = [glTexture]() {
+-        auto *glContext = QOpenGLContext::currentContext();
+-        if (!glContext)
+-            return;
+-        auto glFun = glContext->functions();
+-        glFun->glDeleteTextures(1, &glTexture);
++    QOpenGLContext *glContext = QOpenGLContext::currentContext();
++    QSurface *createSurface = glContext->surface();
++    m_frontBuffer->textureCleanupCallback = [glContext, createSurface, glTexture]() {
++        ScopedGLContextForCleanup cleanupContext(glContext, createSurface);
++        cleanupContext.deleteTexture(glTexture);
+     };
+ #endif // BUILDFLAG(IS_OZONE)
+ 
+diff --git a/src/core/compositor/wgl_helper.cpp b/src/core/compositor/wgl_helper.cpp
+index 85e6bb9..3c3a096 100644
+--- a/src/core/compositor/wgl_helper.cpp
++++ b/src/core/compositor/wgl_helper.cpp
+@@ -124,9 +124,10 @@
+     // for an already shared texture.
+     immediateContext->CopyResource(m_d3dTexture.Get(), srcTexture.Get());
+ 
+-    auto *glContext = QOpenGLContext::currentContext();
+-    Q_ASSERT(glContext);
+-    auto *glFun = glContext->functions();
++    m_createContext = QOpenGLContext::currentContext();
++    m_createSurface = m_createContext->surface();
++    Q_ASSERT(m_createContext);
++    auto *glFun = m_createContext->functions();
+ 
+     glFun->glGenTextures(1, &m_glTexture);
+ 
+@@ -148,10 +149,31 @@
+         m_wglFun->wglDXUnregisterObjectNV(m_interopDevice, m_glTextureHandle);
+     }
+ 
+-    auto *glContext = QOpenGLContext::currentContext();
+-    if (m_glTexture && glContext) {
+-        auto *glFun = glContext->functions();
++    if (m_glTexture) {
++        QOpenGLContext *currentContext = QOpenGLContext::currentContext();
++        QSurface *currentSurface = nullptr;
++
++        if (m_createContext != currentContext) {
++            if (currentContext)
++                currentSurface = currentContext->surface();
++
++            if (!m_createContext->makeCurrent(m_createSurface)) {
++                qWarning("Failed to make OpenGL context current for clean-up, OpenGL resources "
++                         "will not be destroyed.");
++                return;
++            }
++        }
++
++        if (!m_createContext->isValid())
++            return;
++
++        auto *glFun = m_createContext->functions();
+         glFun->glDeleteTextures(1, &m_glTexture);
++
++        if (currentSurface) {
++            if (!currentContext->makeCurrent(currentSurface))
++                qFatal("Failed to restore OpenGL context after clean-up.");
++        }
+     }
+ }
+ 
+diff --git a/src/core/compositor/wgl_helper.h b/src/core/compositor/wgl_helper.h
+index c726c23..1f94e07 100644
+--- a/src/core/compositor/wgl_helper.h
++++ b/src/core/compositor/wgl_helper.h
+@@ -20,6 +20,9 @@
+ 
+ QT_BEGIN_NAMESPACE
+ 
++class QOpenGLContext;
++class QSurface;
++
+ class WGLHelper
+ {
+ public:
+@@ -88,6 +91,8 @@
+     HANDLE m_interopDevice;
+     Microsoft::WRL::ComPtr<ID3D11Texture2D> m_d3dTexture;
+ 
++    QOpenGLContext *m_createContext = nullptr;
++    QSurface *m_createSurface = nullptr;
+     GLuint m_glTexture = 0;
+     HANDLE m_glTextureHandle = INVALID_HANDLE_VALUE;
+ 
+diff --git a/src/core/render_widget_host_view_qt_delegate_item.cpp b/src/core/render_widget_host_view_qt_delegate_item.cpp
+index e82dabb..7d7ae90 100644
+--- a/src/core/render_widget_host_view_qt_delegate_item.cpp
++++ b/src/core/render_widget_host_view_qt_delegate_item.cpp
+@@ -5,10 +5,13 @@
+ 
+ #include "render_widget_host_view_qt_delegate_client.h"
+ 
++#include <QtCore/qrunnable.h>
++#include <QtCore/qthread.h>
+ #include <QtGui/qevent.h>
+ #include <QtGui/qguiapplication.h>
+ #include <QtGui/qwindow.h>
+ #include <QtQuick/qsgimagenode.h>
++#include <rhi/qrhi.h>
+ 
+ #if QT_CONFIG(accessibility)
+ #include <QtGui/qaccessible.h>
+@@ -37,7 +40,9 @@
+ 
+ RenderWidgetHostViewQtDelegateItem::~RenderWidgetHostViewQtDelegateItem()
+ {
+-    releaseTextureResources();
++    if (QQuickItem::window())
++        releaseResources();
++
+     unbind(); // Compositor::Observer
+     if (m_widgetDelegate) {
+         m_widgetDelegate->Unbind();
+@@ -326,12 +331,6 @@
+             for (const QMetaObject::Connection &c : std::as_const(m_windowConnections))
+                 disconnect(c);
+             m_windowConnections.clear();
+-
+-            auto comp = compositor();
+-            if (comp && comp->type() == Compositor::Type::Native) {
+-                comp->releaseTexture();
+-                comp->releaseResources();
+-            }
+         }
+ 
+         if (value.window) {
+@@ -343,10 +342,12 @@
+             m_windowConnections.append(connect(value.window, SIGNAL(xChanged(int)), SLOT(onWindowPosChanged())));
+             m_windowConnections.append(
+                     connect(value.window, SIGNAL(yChanged(int)), SLOT(onWindowPosChanged())));
+-            m_windowConnections.append(
+-                    connect(value.window, &QQuickWindow::sceneGraphAboutToStop, this,
+-                            &RenderWidgetHostViewQtDelegateItem::releaseTextureResources,
+-                            Qt::DirectConnection));
++            m_windowConnections.append(connect(
++                    value.window, &QQuickWindow::sceneGraphAboutToStop, this,
++                    &RenderWidgetHostViewQtDelegateItem::releaseResources, Qt::DirectConnection));
++            m_windowConnections.append(connect(
++                    value.window, &QQuickWindow::sceneGraphInvalidated, this,
++                    &RenderWidgetHostViewQtDelegateItem::releaseResources, Qt::DirectConnection));
+             if (!m_isPopup)
+                 m_windowConnections.append(connect(value.window, SIGNAL(closing(QQuickCloseEvent*)), SLOT(onHide())));
+         }
+@@ -364,6 +365,61 @@
+     }
+ }
+ 
++class CleanupJob : public QRunnable
++{
++public:
++    CleanupJob(Compositor::Handle<Compositor> compositor) : m_compositor(std::move(compositor)) { }
++
++    ~CleanupJob()
++    {
++        if (m_compositor->hasResources()) {
++            qWarning("Failed to release graphics resources because the clean-up render job was "
++                     "deleted.");
++        }
++    }
++
++    void run() override { m_compositor->releaseResources(); }
++
++private:
++    Compositor::Handle<Compositor> m_compositor;
++};
++
++void RenderWidgetHostViewQtDelegateItem::releaseResources()
++{
++    auto comp = compositor();
++    if (!comp || comp->type() != Compositor::Type::Native || !comp->hasResources())
++        return;
++
++    comp->releaseTexture();
++
++    QQuickWindow *win = QQuickItem::window();
++    if (!win) {
++        qWarning("Failed to release graphics resources because QQuickWindow is not available.");
++        return;
++    }
++
++    QRhi *rhi = win->rhi();
++    if (!rhi) {
++        qWarning("Failed to release graphics resources because RHI is not available.");
++        return;
++    }
++
++    // Do not schedule clean-up if the resources were created on the current thread.
++    if (QThread::currentThread() == rhi->thread()) {
++        comp->releaseResources();
++        return;
++    }
++
++    if (win->isExposed())
++        win->scheduleRenderJob(new CleanupJob(std::move(comp)), QQuickWindow::NoStage);
++    else {
++        // TODO: Try to find a proper way to schedule job on the render thread if the window is
++        // not exposed.
++        // This is reproducible with ./tst_qquickwebengineviewgraphics simpleGraphics simpleGraphics
++        qWarning("Failed to release graphics resources because QQuickWindow is not exposed.");
++    }
++}
++
+ QSGNode *RenderWidgetHostViewQtDelegateItem::updatePaintNode(QSGNode *oldNode, UpdatePaintNodeData *)
+ {
+     auto comp = compositor();
+@@ -445,15 +501,6 @@
+     m_client->forwardEvent(&event);
+ }
+ 
+-void RenderWidgetHostViewQtDelegateItem::releaseTextureResources()
+-{
+-    auto comp = compositor();
+-    if (!comp || comp->type() != Compositor::Type::Native)
+-        return;
+-
+-    comp->releaseResources();
+-}
+-
+ void RenderWidgetHostViewQtDelegateItem::adapterClientChanged(WebContentsAdapterClient *client)
+ {
+     m_adapterClient = client;
+diff --git a/src/core/render_widget_host_view_qt_delegate_item.h b/src/core/render_widget_host_view_qt_delegate_item.h
+index 65fbeeb..f0351aa 100644
+--- a/src/core/render_widget_host_view_qt_delegate_item.h
++++ b/src/core/render_widget_host_view_qt_delegate_item.h
+@@ -95,6 +95,7 @@
+     void inputMethodEvent(QInputMethodEvent *event) override;
+     void geometryChange(const QRectF &newGeometry, const QRectF &oldGeometry) override;
+     void itemChange(ItemChange change, const ItemChangeData &value) override;
++    void releaseResources() override;
+     QSGNode *updatePaintNode(QSGNode *, UpdatePaintNodeData *) override;
+ 
+     void adapterClientChanged(WebContentsAdapterClient *client) override;
+@@ -104,7 +105,6 @@
+     void onBeforeRendering();
+     void onAfterFrameEnd();
+     void onWindowPosChanged();
+-    void releaseTextureResources();
+     void onHide();
+ 
+ private:

@@ -1,0 +1,181 @@
+From ddcd30454aa6338d898c9d20c8feb48f36632e16 Mon Sep 17 00:00:00 2001
+From: Peter Varga <pvarga@inf.u-szeged.hu>
+Date: Thu, 8 May 2025 14:08:48 +0200
+Subject: [PATCH] Create EGLImage with eglCreateDRMImageMESA() for exporting
+ dma_buf
+
+This simplifies the code because it is not needed to create OpenGL
+texture to allocate buffer. This way we can get rid of creating a
+temporary OpenGL context and swapping EGLSurface.
+
+Moreover, eglCreateImage() does not guarantee that the buffer is
+shareable thus certain GPU drivers may fail to export.
+
+Fixes: QTBUG-136257
+Done-with: Jan Palus
+Change-Id: Ie72d052a2a8b1a41bebf0eab8a4928d38c8fc864
+Reviewed-by: Allan Sandfeld Jensen <allan.jensen@qt.io>
+Reviewed-by: Jan Palus <jpalus@fastmail.com>
+(cherry picked from commit 2ed5f9632292c6e531f353dae800cb12274af91a)
+Reviewed-by: Qt Cherry-pick Bot <cherrypick_bot@qt-project.org>
+---
+ src/core/ozone/egl_helper.cpp | 105 +++++-----------------------------
+ src/core/ozone/egl_helper.h   |   2 +
+ 2 files changed, 16 insertions(+), 91 deletions(-)
+
+diff --git a/src/core/ozone/egl_helper.cpp b/src/core/ozone/egl_helper.cpp
+index d12280f2be4..1ed679d2390 100644
+--- a/src/core/ozone/egl_helper.cpp
++++ b/src/core/ozone/egl_helper.cpp
+@@ -58,90 +58,14 @@ static const char *getEGLErrorString(uint32_t error)
+ 
+ QT_BEGIN_NAMESPACE
+ 
+-class ScopedGLContext
+-{
+-public:
+-    ScopedGLContext(QOffscreenSurface *surface, EGLHelper::EGLFunctions *eglFun)
+-        : m_context(new QOpenGLContext()), m_eglFun(eglFun)
+-    {
+-        if ((m_previousEGLContext = m_eglFun->eglGetCurrentContext())) {
+-            m_previousEGLDrawSurface = m_eglFun->eglGetCurrentSurface(EGL_DRAW);
+-            m_previousEGLReadSurface = m_eglFun->eglGetCurrentSurface(EGL_READ);
+-            m_previousEGLDisplay = m_eglFun->eglGetCurrentDisplay();
+-        }
+-
+-        if (!m_context->create()) {
+-            qWarning("Failed to create OpenGL context.");
+-            return;
+-        }
+-
+-        Q_ASSERT(surface->isValid());
+-        if (!m_context->makeCurrent(surface)) {
+-            qWarning("Failed to make OpenGL context current.");
+-            return;
+-        }
+-    }
+-
+-    ~ScopedGLContext()
+-    {
+-        if (!m_textures.empty()) {
+-            auto *glFun = m_context->functions();
+-            glFun->glDeleteTextures(m_textures.size(), m_textures.data());
+-        }
+-
+-        if (m_previousEGLContext) {
+-            // Make sure the scoped context is not current when restoring the previous
+-            // EGL context otherwise the QOpenGLContext destructor resets the restored
+-            // current context.
+-            m_context->doneCurrent();
+-
+-            m_eglFun->eglMakeCurrent(m_previousEGLDisplay, m_previousEGLDrawSurface,
+-                                     m_previousEGLReadSurface, m_previousEGLContext);
+-            if (m_eglFun->eglGetError() != EGL_SUCCESS)
+-                qWarning("Failed to restore EGL context.");
+-        }
+-    }
+-
+-    bool isValid() const { return m_context->isValid() && (m_context->surface() != nullptr); }
+-
+-    EGLContext eglContext() const
+-    {
+-        QNativeInterface::QEGLContext *nativeInterface =
+-                m_context->nativeInterface<QNativeInterface::QEGLContext>();
+-        return nativeInterface->nativeContext();
+-    }
+-
+-    uint createTexture(int width, int height)
+-    {
+-        auto *glFun = m_context->functions();
+-
+-        uint glTexture;
+-        glFun->glGenTextures(1, &glTexture);
+-        glFun->glBindTexture(GL_TEXTURE_2D, glTexture);
+-        glFun->glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE,
+-                            NULL);
+-        glFun->glBindTexture(GL_TEXTURE_2D, 0);
+-
+-        m_textures.push_back(glTexture);
+-        return glTexture;
+-    }
+-
+-private:
+-    QScopedPointer<QOpenGLContext> m_context;
+-    EGLHelper::EGLFunctions *m_eglFun;
+-    EGLContext m_previousEGLContext = nullptr;
+-    EGLSurface m_previousEGLDrawSurface = nullptr;
+-    EGLSurface m_previousEGLReadSurface = nullptr;
+-    EGLDisplay m_previousEGLDisplay = nullptr;
+-    std::vector<uint> m_textures;
+-};
+-
+ EGLHelper::EGLFunctions::EGLFunctions()
+ {
+     QOpenGLContext *context = OzoneUtilQt::getQOpenGLContext();
+ 
+     eglCreateImage =
+             reinterpret_cast<PFNEGLCREATEIMAGEPROC>(context->getProcAddress("eglCreateImage"));
++    eglCreateDRMImageMESA = reinterpret_cast<PFNEGLCREATEDRMIMAGEMESAPROC>(
++            context->getProcAddress("eglCreateDRMImageMESA"));
+     eglDestroyImage =
+             reinterpret_cast<PFNEGLDESTROYIMAGEPROC>(context->getProcAddress("eglDestroyImage"));
+     eglExportDMABUFImageMESA = reinterpret_cast<PFNEGLEXPORTDMABUFIMAGEMESAPROC>(
+@@ -198,6 +122,7 @@ EGLHelper::EGLHelper()
+         const char *displayExtensions = m_functions->eglQueryString(m_eglDisplay, EGL_EXTENSIONS);
+         m_isDmaBufSupported = strstr(displayExtensions, "EGL_EXT_image_dma_buf_import")
+                 && strstr(displayExtensions, "EGL_EXT_image_dma_buf_import_modifiers")
++                && strstr(displayExtensions, "EGL_MESA_drm_image")
+                 && strstr(displayExtensions, "EGL_MESA_image_dma_buf_export");
+     }
+ 
+@@ -218,19 +143,17 @@ void EGLHelper::queryDmaBuf(const int width, const int height, int *fd, int *str
+     if (!m_isDmaBufSupported)
+         return;
+ 
+-    ScopedGLContext context(m_offscreenSurface.get(), m_functions.get());
+-    if (!context.isValid())
+-        return;
+-
+-    EGLContext eglContext = context.eglContext();
+-    if (!eglContext) {
+-        qWarning("EGL: No EGLContext.");
+-        return;
+-    }
+-
+-    uint64_t textureId = context.createTexture(width, height);
+-    EGLImage eglImage = m_functions->eglCreateImage(m_eglDisplay, eglContext, EGL_GL_TEXTURE_2D,
+-                                                    (EGLClientBuffer)textureId, NULL);
++    // clang-format off
++    EGLint attribs[] = {
++        EGL_WIDTH, width,
++        EGL_HEIGHT, height,
++        EGL_DRM_BUFFER_FORMAT_MESA, EGL_DRM_BUFFER_FORMAT_ARGB32_MESA,
++        EGL_DRM_BUFFER_USE_MESA, EGL_DRM_BUFFER_USE_SHARE_MESA,
++        EGL_NONE
++    };
++    // clang-format on
++
++    EGLImage eglImage = m_functions->eglCreateDRMImageMESA(m_eglDisplay, attribs);
+     if (eglImage == EGL_NO_IMAGE) {
+         qWarning("EGL: Failed to create EGLImage: %s", getLastEGLErrorString());
+         return;
+diff --git a/src/core/ozone/egl_helper.h b/src/core/ozone/egl_helper.h
+index a1a1aa0d667..7594e1f8469 100644
+--- a/src/core/ozone/egl_helper.h
++++ b/src/core/ozone/egl_helper.h
+@@ -11,6 +11,7 @@
+ #include <EGL/eglext.h>
+ 
+ #undef eglCreateImage
++#undef eglCreateDRMImageMESA
+ #undef eglDestroyImage
+ #undef eglExportDMABUFImageMESA
+ #undef eglExportDMABUFImageQueryMESA
+@@ -33,6 +34,7 @@ class EGLHelper
+         EGLFunctions();
+ 
+         PFNEGLCREATEIMAGEPROC eglCreateImage;
++        PFNEGLCREATEDRMIMAGEMESAPROC eglCreateDRMImageMESA;
+         PFNEGLDESTROYIMAGEPROC eglDestroyImage;
+         PFNEGLEXPORTDMABUFIMAGEMESAPROC eglExportDMABUFImageMESA;
+         PFNEGLEXPORTDMABUFIMAGEQUERYMESAPROC eglExportDMABUFImageQueryMESA;
