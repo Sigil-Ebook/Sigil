@@ -24,6 +24,9 @@
 #include <QStringList>
 #include <QWebEngineProfile>
 #include <QWebEngineSettings>
+#if QT_VERSION >= QT_VERSION_CHECK(6, 9, 0)
+#include <QWebEngineProfileBuilder>
+#endif
 
 #include "Misc/Utility.h"
 #include "Misc/SettingsStore.h"
@@ -49,6 +52,10 @@ void WebProfileMgr::FlushDiskCaches()
         m_preview_profile->removeAllUrlSchemeHandlers();
         m_preview_profile->deleteLater();
     }
+    if (m_inspector_profile) {
+        m_inspector_profile->removeAllUrlSchemeHandlers();
+        m_inspector_profile->deleteLater();
+    }
     if (m_onetime_profile) {
         m_onetime_profile->deleteLater();
     }
@@ -70,6 +77,11 @@ void WebProfileMgr::CleanUpForExit()
 QWebEngineProfile*  WebProfileMgr::GetPreviewProfile()
 {
     return m_preview_profile;
+}
+
+QWebEngineProfile*  WebProfileMgr::GetInspectorProfile()
+{
+    return m_inspector_profile;
 }
 
 QWebEngineProfile* WebProfileMgr::GetOneTimeProfile()
@@ -125,33 +137,51 @@ WebProfileMgr::WebProfileMgr()
         storageDir.mkpath(localStorePath);
     }
 
-#if 0
-    // create a place for Caches if needed
-    // disable as this is very broken
+    // create devtools storage path if needed
+    QString devToolsStorePath = Utility::DefinePrefsDir() + "/local-devtools/";
+    QDir devstorageDir(devToolsStorePath);
+    if (!devstorageDir.exists()) {
+        devstorageDir.mkpath(devToolsStorePath);
+    }
+
+#if QT_VERSION >= QT_VERSION_CHECK(6, 9, 0)
+    // create a place for Preview Caches if needed
     QString PreviewCachePath = Utility::DefinePrefsDir() + "/Preview-Cache/";
-    QDir cacheDir(PreviewCachePath);
-    if (!cacheDir.exists()) {
-        cacheDir.mkpath(PreviewCachePath);
+    QDir preview_cacheDir(PreviewCachePath);
+    if (!preview_cacheDir.exists()) {
+        preview_cacheDir.mkpath(PreviewCachePath);
+    }
+    // create a place for Inspector Caches if needed
+    QString InspectorCachePath = Utility::DefinePrefsDir() + "/Inspector-Cache/";
+    QDir inspector_cacheDir(InspectorCachePath);
+    if (!inspector_cacheDir.exists()) {
+        inspector_cacheDir.mkpath(InspectorCachePath);
     }
 #endif
 
     // Preview Profile
     // ---------------
     // create the profile for Preview
-
     // we may need to give this profile a unique storage name otherwise cache
     // is never cleared on Windows by a second or third instance of Sigil
-    
     // m_preview_profile = new QWebEngineProfile(QString("Preview-") + Utility::CreateUUID(), nullptr);
-    // m_preview_profile->setCachePath(PreviewCachePath);
-    // m_preview_profile->setHttpCacheType(QWebEngineProfile::DiskHttpCache);
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 9, 0)
     m_preview_profile = new QWebEngineProfile();
     m_preview_profile->setPersistentStoragePath(localStorePath);
-    // qDebug() << "WebProfileMgr - StorageName: " << m_preview_profile->storageName();
-    // qDebug() << "WebProfileMgr - CachePath: " << m_preview_profile->cachePath();
-    // m_disk_cache_path = m_preview_profile->cachePath();
-    // m_extra_cache_path = Utility::DefinePrefsDir() + "/QtWebEngine/" + m_preview_profile->storageName();
-    // m_preview_profile->setSpellCheckEnabled(false); // setting to false actually generates warnings!
+#else
+    QWebEngineProfileBuilder pb;
+    pb.setCachePath(PreviewCachePath);
+    pb.setHttpCacheMaximumSize(0); // 0 - means let Qt control it
+    pb.setHttpCacheType(QWebEngineProfile::DiskHttpCache);
+    pb.setPersistentCookiesPolicy(QWebEngineProfile::NoPersistentCookies);
+    pb.setPersistentPermissionsPolicy(QWebEngineProfile::PersistentPermissionsPolicy::StoreOnDisk);
+    pb.setPersistentStoragePath(localStorePath);
+    m_preview_profile = pb.createProfile("Preview", nullptr);
+#endif
+    
+    qDebug() << "WebProfileMgr Preview - StorageName: " << m_preview_profile->storageName();
+    qDebug() << "WebProfileMgr Preview - CachePath: " << m_preview_profile->cachePath();
     
     InitializeDefaultSettings(m_preview_profile->settings());
     m_preview_profile->settings()->setDefaultTextEncoding("UTF-8");  
@@ -169,11 +199,55 @@ WebProfileMgr::WebProfileMgr()
     m_preview_profile->installUrlSchemeHandler("sigil", m_URLhandler);
     m_preview_profile->setUrlRequestInterceptor(m_URLint);
 
+    // Inspector Profile
+    // ---------------
+    // create the profile for Dev Tools Inspector
+#if QT_VERSION < QT_VERSION_CHECK(6, 9, 0)
+    m_inspector_profile = new QWebEngineProfile();
+    m_inspector_profile->setPersistentStoragePath(devToolsStorePath);
+#else
+    QWebEngineProfileBuilder pb2;
+    pb2.setCachePath(InspectorCachePath);
+    pb2.setHttpCacheMaximumSize(0); // 0 - means let Qt control it
+    pb2.setHttpCacheType(QWebEngineProfile::DiskHttpCache);
+    pb2.setPersistentCookiesPolicy(QWebEngineProfile::NoPersistentCookies);
+    pb2.setPersistentPermissionsPolicy(QWebEngineProfile::PersistentPermissionsPolicy::StoreOnDisk);
+    pb2.setPersistentStoragePath(devToolsStorePath);
+    m_inspector_profile = pb2.createProfile("Inspector", nullptr);
+#endif
+    qDebug() << "WebProfileMgr Inspector - StorageName: " << m_inspector_profile->storageName();
+    qDebug() << "WebProfileMgr Inspector - CachePath: " << m_inspector_profile->cachePath();
+
+    InitializeDefaultSettings(m_inspector_profile->settings());
+    m_inspector_profile->settings()->setDefaultTextEncoding("UTF-8");  
+    m_inspector_profile->settings()->setAttribute(QWebEngineSettings::LocalStorageEnabled, true);
+    m_inspector_profile->settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessFileUrls, true);
+    m_inspector_profile->settings()->setAttribute(QWebEngineSettings::ErrorPageEnabled,true);
+    m_inspector_profile->settings()->setAttribute(QWebEngineSettings::PluginsEnabled, true);
+    m_inspector_profile->settings()->setAttribute(QWebEngineSettings::PdfViewerEnabled, true);
+    m_inspector_profile->settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, true);
+    m_inspector_profile->settings()->setAttribute(QWebEngineSettings::JavascriptCanOpenWindows, true);
+    m_inspector_profile->settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessRemoteUrls, true);
+    m_inspector_profile->settings()->setAttribute(QWebEngineSettings::FocusOnNavigationEnabled, false);
+    m_inspector_profile->settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, true);
+    m_inspector_profile->settings()->setAttribute(QWebEngineSettings::JavascriptCanOpenWindows, true);
+    m_inspector_profile->settings()->setAttribute(QWebEngineSettings::JavascriptCanAccessClipboard, true);
+    m_inspector_profile->settings()->setAttribute(QWebEngineSettings::AllowWindowActivationFromJavaScript, true);
+    m_inspector_profile->settings()->setAttribute(QWebEngineSettings::JavascriptCanPaste, true);
+    // Use both our URLInterceptor and our URLSchemeHandler
+    m_inspector_profile->installUrlSchemeHandler("sigil", m_URLhandler);
+    m_inspector_profile->setUrlRequestInterceptor(m_URLint);
+
 
     // OneTime Profile
     // ---------------
     // create the profile for OneTime
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 9, 0)
     m_onetime_profile = new QWebEngineProfile();
+#else
+    m_onetime_profile = QWebEngineProfileBuilder::createOffTheRecordProfile(nullptr);
+#endif
     InitializeDefaultSettings(m_onetime_profile->settings());
     // m_onetime_profile->setSpellCheckEnabled(false); // setting to false actually generates warnings!
     m_onetime_profile->settings()->setDefaultTextEncoding("UTF-8");  
@@ -195,7 +269,6 @@ WebProfileMgr::WebProfileMgr()
     // initialize the defaultProfile to be restrictive for security
     QWebEngineSettings *web_settings = QWebEngineProfile::defaultProfile()->settings();
     InitializeDefaultSettings(web_settings);
-    // QWebEngineProfile::defaultProfile()->setSpellCheckEnabled(false); // setting to false actually generates warnings!
     // Use URLInterceptor for protection
     QWebEngineProfile::defaultProfile()->setUrlRequestInterceptor(m_URLint);
 

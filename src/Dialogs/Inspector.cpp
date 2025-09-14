@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2019-2024 Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2019-2025 Kevin B. Hendricks, Stratford Ontario Canada
  **
  **  This file is part of Sigil.
  **
@@ -30,6 +30,7 @@
 #include <QApplication>
 #include <QDir>
 
+#include "Misc/WebProfileMgr.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "Dialogs/Inspector.h"
@@ -44,7 +45,6 @@ const float ZOOM_NORMAL             = 1.0f;
 Inspector::Inspector(QWidget *parent, Qt::WindowFlags flags) :
     QDialog(parent, flags),
     m_Layout(new QVBoxLayout(this)),
-    m_inspectView(new QWebEngineView(this)),
     m_view(nullptr),
     m_LoadingFinished(false),
     m_LoadOkay(false),
@@ -52,22 +52,13 @@ Inspector::Inspector(QWidget *parent, Qt::WindowFlags flags) :
     m_ZoomOut(new QShortcut(QKeySequence(Qt::CTRL | Qt::Key_Minus), this)),
     m_ZoomReset(new QShortcut(QKeySequence(Qt::CTRL | Qt::Key_0), this))
 {
+    m_inspectView = new QWebEngineView(WebProfileMgr::instance()->GetInspectorProfile(), this);
     setAttribute(Qt::WA_DeleteOnClose, false);
     setWindowTitle(tr("Inspect Page or Element"));
     setMinimumSize(QSize(200, 200));
     m_Layout->addWidget(m_inspectView);
     // QtWebEngine WebInspector needs to run javascript in MainWorld
-    // so override the app default but just for this inspector
-    m_inspectView->page()->settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, true);
-
-    // The Inspector also needs access to local-storage to save its dark mode settings between launches
-    m_inspectView->page()->settings()->setAttribute(QWebEngineSettings::LocalStorageEnabled, true);
-    QString inspectorStorePath = Utility::DefinePrefsDir() + "/local-devtools";
-    QDir storageDir(inspectorStorePath);
-    if (!storageDir.exists()) {
-        storageDir.mkpath(inspectorStorePath);
-    }
-    m_inspectView->page()->profile()->setPersistentStoragePath(inspectorStorePath);
+    // See WebProfileMgr for profile settings
 
     LoadSettings();
     connect(m_inspectView->page(), SIGNAL(loadFinished(bool)), this, SLOT(UpdateFinishedState(bool)));
