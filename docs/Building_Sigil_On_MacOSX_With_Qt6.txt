@@ -8,7 +8,7 @@
 #
 #         You will need to have CMake 3.22.1 or later installed and in your path
 
-# standard deployment target Qt 6.8.X requires 12
+# standard deployment target Qt 6.9.X requires 12
 export MACOSX_DEPLOYMENT_TARGET=12.0 
 
 # Set the location of where the relocatable Python framework was installed
@@ -16,10 +16,10 @@ export MACOSX_DEPLOYMENT_TARGET=12.0
 
 # Remember to stay away from /tmp locations as Mac OSX has a daemon that will delete 
 # files in tmp older than 3 days right out from underneath the user
-export MYDEST=/Users/$USER/devpython/libraries/Frameworks
+export MYDEST=/Users/$USER/ndevpython/libraries/Frameworks
 
 # Set the location of where Qt is installed
-export MYQTHOME=~/Qt682
+export MYQTHOME=~/Qt692
 
 # Set the location of where you want your Sigil repo to be stored
 export MYSIGILREPO=~/repo

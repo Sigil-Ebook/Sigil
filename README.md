@@ -55,6 +55,9 @@ detailed instructions for building/installing Sigil with Qt5 can be found in:
 
 An up-to-date version of Sigil is available via flatpak on Flathub. So if your distro can use Flatpak, you can always use [Sigil that way](https://flathub.org/apps/details/com.sigil_ebook.Sigil) if your distro's Sigil package seems to be lagging too far behind.
 
+An up-to-date version of Sigil is also available in our releases as an AppImage.
+
+
 For Building on Mac OS X
 ========================
 
@@ -68,7 +71,7 @@ Also because Sigil now embeds Python 3.13.2, see
 for detailed instructions on how to build a fully relocatable Python 3.13.2 framework before
 building Sigil.  
 
-For official releases Sigil uses Qt6.8.2 plus official local patches see:  
+For official releases Sigil uses Qt6.9.2 plus official local patches see:  
 
 > [docs/Building_Qt6_From_Source_on_MacOSX.txt](./docs/Building_Qt6_From_Source_on_MacOSX.txt)
 

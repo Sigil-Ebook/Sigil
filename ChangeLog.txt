@@ -1,3 +1,13 @@
+PreSigil- 2.6.x
+   Bug Fixes
+     - make validation of css via W3C network validator work more consistently
+
+   New Features
+     - Move to Qt 6.9.2 with some additional patches
+     - Update WebProfileMgr to use the new QWebEngneProfileBuilder to properly set up disk caches
+     
+
+
 Sigil-2.6.2
    Bug Fixes
      - work around bad Qt WebEngine bug when created dynamically and used inside a QDialog for Checkpoints

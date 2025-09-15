@@ -1,6 +1,6 @@
 # *** IMPORTANT ***
 
-# Build Prerequisite requirements for Python 3.13.1 on macOS 12.0 and later users:
+# Build Prerequisite requirements for Python 3.13.2 on macOS 12.0 and later users:
 #
 #     First make sure you are using the latest XCode for your version of Mac OSX
 #     Then make sure you have the command line tools (CLT) installed (via xcode-select --install)
@@ -140,25 +140,25 @@ install_name_tool -id ${MYDEST}/Python.framework/Versions/3.13/lib/libtcl8.6.dyl
 install_name_tool -id ${MYDEST}/Python.framework/Versions/3.13/lib/libtk8.6.dylib ./libtk8.6.dylib
 
 
-# Building Python 3.13.1 to be fully relocatable for macOS 12.0 and later
+# Building Python 3.13.2 to be fully relocatable for macOS 12.0 and later
 
 # Before building remember to rename any /Applications/Python 3.13.app to save it and 
 # replace it afterwards as the damn python installation from source always overwrites
 # it no matter the configure prefix used
 
-# Download Python-3.13.1.tgz into support from www.python.org
+# Download Python-3.13.2.tgz into support from www.python.org
 
 cd ${MYDEST}
 cd ../../
 
 export MACOSX_DEPLOYMENT_TARGET=12.0
 
-# now build Python 3.13.1 as a framework
+# now build Python 3.13.2 as a framework
 # no need to worry about what symbols exist in what version of 
 # macOS any longer, since Python 3.9.1 and later use and test for weak symbols
 
-tar -zxvf support/Python-3.13.1.tgz
-cd Python-3.13.1
+tar -zxvf support/Python-3.13.2.tgz
+cd Python-3.13.2
 
 export LDFLAGS="-Wl,-macos_version_min,12.0" 
 export CFLAGS="-mmacos-version-min=12.0" 
@@ -238,7 +238,7 @@ install_name_tool -change ${MYDEST}/Python.framework/Versions/3.13/Python @rpath
 install_name_tool -add_rpath @executable_path/../ ./python3.13
 
 
-# so that python3 can find the Qt Frameworks and proper plugins for PyQt5
+# so that python3 can find the Qt Frameworks and proper plugins for PySide6
 
 install_name_tool -add_rpath @executable_path/../../../../ ./python3.13
 
