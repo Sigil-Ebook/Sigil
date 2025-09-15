@@ -1,5 +1,6 @@
 /************************************************************************
 **
+**  Copyright (C) 2025 Kevin B. Hendricks, Stratford ON Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
 **  Copyright (C) 2012 Grant Drake
@@ -96,7 +97,7 @@ void CSSResource::ValidateStylesheetWithW3C()
     }
 
     const QString &post_form_html = W3C_HTML_FORM
-                                    .arg(tr("Sigil will send your stylesheet data to the <a href='http://jigsaw.w3.org/css-validator/'>W3C Validation Service</a>."))
+                                    .arg(tr("Sigil will send your stylesheet data to the <a href='https://jigsaw.w3.org/css-validator/'>W3C Validation Service</a>."))
                                     .arg(tr("This page should disappear once loaded after 3 seconds."))
                                     .arg(tr("If your browser does not have javascript enabled, click on the button below."))
                                     .arg(GetText())
