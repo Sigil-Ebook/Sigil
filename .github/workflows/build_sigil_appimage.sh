@@ -11,9 +11,9 @@ set -o pipefail
 
 export PY_SHORT_VER="3.13"
 export PYTHON_VER="3.13.2"
-export QT6_VER="6.8"
-export QT6_VER_FULL="6.8.2"
-export QT6_FN="682"
+export QT6_VER="6.9"
+export QT6_VER_FULL="6.9.2"
+export QT6_FN="692"
 export LC_ALL="C.UTF-8"
 export DEBIAN_FRONTEND=noninteractive
 export PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig

@@ -10,9 +10,9 @@
 set -o pipefail
 
 export PYTHON_VER="3.13.2"
-export QT6_VER="6.8"
-export QT6_VER_FULL="6.8.2"
-export QT6_FN="682"
+export QT6_VER="6.9"
+export QT6_VER_FULL="6.9.2"
+export QT6_FN="692"
 export LC_ALL="C.UTF-8"
 export DEBIAN_FRONTEND=noninteractive
 export PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig
@@ -179,6 +179,10 @@ setup_webengine_src() {
     retry curl -kLo "/usr/src/qtwebengine-everywhere-src-${QT6_VER_FULL}.tar.xz" "${webengine_url}"
   fi
   tar -xJf "/usr/src/qtwebengine-everywhere-src-${QT6_VER_FULL}.tar.xz" -C /opt/we_src --strip-components 1
+  cd /opt/we_src
+  patch -p1 < /reporoot/docs/Qt_Patches/qt672_fix_h6_insertParagraph.patch
+  patch -R -p1 < /reporoot/docs/Qt_Patches/qt692_ddcd304_reverse_me.patch
+  patch -p1 < /reporoot/docs/Qt_Patches/qt692_9dd5105_fix.patch
   mkdir /opt/we_src/build
   cd /opt/we_src/build
   qt-configure-module .. -list-features
