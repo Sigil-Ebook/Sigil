@@ -32,8 +32,8 @@ on:
 
 env:
   BUILD_TYPE: Release
-  DOWNLOADQT: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/Qt6.8.2ci_x64_VS2022.7z
-  QT: Qt6.8.2
+  DOWNLOADQT: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/Qt6.9.2ci_x64_VS2022.7z
+  QT: Qt6.9.2
   INNO: C:\Program Files (x86)\Inno Setup 6
   PYTHON: \hostedtoolcache\windows\Python\3.13.2\x64
 
@@ -85,8 +85,8 @@ jobs:
         pip install chardet==5.2.0
         pip install pillow==11.1.0
         pip install lxml==5.3.0
-        pip install shiboken6@https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/shiboken6-6.8.2.1-6.8.2-cp313-cp313-win_amd64.whl
-        pip install PySide6@https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/PySide6-6.8.2.1-6.8.2-cp313-cp313-win_amd64.whl
+        pip install shiboken6==6.9.2
+        pip install PySide6==6.9.2
 
     - name: Create Build Environment
       shell: cmd
