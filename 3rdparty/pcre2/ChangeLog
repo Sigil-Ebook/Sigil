@@ -7,6 +7,22 @@ there is also the log of commit messages.
 Internal changes which are not visible to clients of the library are mostly not
 listed here.
 
+Version 10.46 27-August-2025
+----------------------------
+
+1. (#771) (CVE-2025-58050) Security fix to prevent a read-past-the-end memory
+error, of arbitrary length. An attacker-controlled regex pattern is required,
+and it cannot be triggered by providing crafted subject (match) text. The
+(*ACCEPT) and (*scs:) pattern features must be used together.
+
+Release 10.44 and earlier are not affected.
+
+This could have implications of denial-of-service or information disclosure,
+and could potentially be used to escalate other vulnerabilities in a system
+(such as information disclosure being used to escalate the severity of an
+unrelated bug in another system).
+
+
 Version 10.45 05-February-2025
 ------------------------------
 

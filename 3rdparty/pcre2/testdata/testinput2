@@ -6672,6 +6672,12 @@ a)"xI
     abxyz
     efgxyz
 
+/(a)(*scs:(1)a(*ACCEPT))bbb/
+    abbb
+
+/(a)(b+)(*scs:(1)a(*ACCEPT))(\2)/
+    abbb
+
 # Tests for pcre2_set_optimize()
 
 /abc/I,optimization_none

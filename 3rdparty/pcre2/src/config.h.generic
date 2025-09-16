@@ -255,7 +255,7 @@ sure both macros are undefined; an emulation function will then be used. */
 #define PACKAGE_NAME "PCRE2"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "PCRE2 10.45"
+#define PACKAGE_STRING "PCRE2 10.46"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "pcre2"
@@ -264,7 +264,7 @@ sure both macros are undefined; an emulation function will then be used. */
 #define PACKAGE_URL ""
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "10.45"
+#define PACKAGE_VERSION "10.46"
 
 /* The value of PARENS_NEST_LIMIT specifies the maximum depth of nested
    parentheses (of any kind) in a pattern. This limits the amount of system
@@ -464,7 +464,7 @@ sure both macros are undefined; an emulation function will then be used. */
 #endif
 
 /* Version number of package */
-#define VERSION "10.45"
+#define VERSION "10.46"
 
 /* Number of bits in a file offset, on hosts where this is settable. */
 /* #undef _FILE_OFFSET_BITS */

@@ -1103,4 +1103,4 @@ REVISION
        Copyright (c) 1997-2023 University of Cambridge.
 
 
-PCRE2 10.45                    04 February 2025                   PCRE2GREP(1)
+PCRE2 10.46                    04 February 2025                   PCRE2GREP(1)

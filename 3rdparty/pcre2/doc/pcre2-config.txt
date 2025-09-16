@@ -81,4 +81,4 @@ REVISION
        Last updated: 28 September 2014
 
 
-PCRE2 10.45                    28 September 2014               PCRE2-CONFIG(1)
+PCRE2 10.46                    28 September 2014               PCRE2-CONFIG(1)
