@@ -1312,8 +1312,20 @@ void CodeViewEditor::mouseDoubleClickEvent(QMouseEvent *event)
     bool isAlt = QApplication::keyboardModifiers() & Qt::AltModifier;
     // qDebug() << "Modifiers: " << QApplication::keyboardModifiers();
 
-    if (!isShift && !isAlt) return;
-
+    if (!isShift && !isAlt) {
+        // standard select word - but workaround lack on intl support in that feature
+        QString standard_selection = cursor.selectedText();
+        QRegularExpression select_word("(\\w+)", QRegularExpression::UseUnicodePropertiesOption);
+        QRegularExpressionMatch match = select_word.match(standard_selection);
+        if (match.hasMatch()) {
+            int startOffset = match.capturedStart(1);
+            int endOffset = match.capturedEnd(1);
+            cursor.setPosition(pos + startOffset);
+            cursor.setPosition(pos + endOffset, QTextCursor::KeepAnchor);
+            setTextCursor(cursor);
+        }
+        return;
+    }
     if (!IsPositionInTag(pos)){
         return;
     }
