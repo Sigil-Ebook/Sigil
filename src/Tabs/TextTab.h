@@ -46,6 +46,9 @@ public:
 
     ~TextTab();
 
+    bool PasteClipNumber(int clip_number);
+    bool PasteClipEntries(QList<ClipEditorModel::clipEntry *>clips);
+    
     void ScrollToLine(int line);
 
     void ScrollToPosition(int cursor_position);

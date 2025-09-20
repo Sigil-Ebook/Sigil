@@ -220,6 +220,16 @@ void TextTab::ThemeChangeRefresh()
     }
 }
 
+bool TextTab::PasteClipNumber(int clip_number)
+{
+    return m_wCodeView->PasteClipNumber(clip_number);
+}
+
+bool TextTab::PasteClipEntries(QList<ClipEditorModel::clipEntry *>clips)
+{
+    return m_wCodeView->PasteClipEntries(clips);
+}
+
 void TextTab::SaveTabContent()
 {
     // We can't perform the document modified check

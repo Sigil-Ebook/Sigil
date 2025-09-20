@@ -122,6 +122,7 @@
 #include "Tabs/FlowTab.h"
 #include "Tabs/CSSTab.h"
 #include "Tabs/OPFTab.h"
+#include "Tabs/TextTab.h"
 #include "Tabs/TabManager.h"
 #include "MainUI/MainApplication.h"
 
@@ -3396,29 +3397,40 @@ void MainWindow::ApplicationFocusChanged(QWidget *old, QWidget *now)
 {
     DBG qDebug() << "focus changed: " << old << now;
     QWidget *window = QApplication::activeWindow();
-
+    DBG qDebug() << "active window is: " << window;
+    
     // sometimes QApplication::activeWindow() returns nullptr but
     // the destination for focus (now) exists.  What we really
     // need to know is the QMainWindow whose descendent is now
     if (!window) {
+        DBG qDebug() << "searching for active window";
         window = now;
         while(window && !(qobject_cast<QMainWindow *>(window))) {
             window = window->parentWidget();
         }
     }
+
+    DBG qDebug() << "final active window: " << window;
     
     if (!window || !now) {
+        DBG qDebug() << "returning since no active window or no new focus point";
         // Nothing to do - application is exiting
         return;
     }
 
     // We are only interested in focus events that take place in this MainWindow
     if (window != this) {
+        DBG qDebug() << "returning since active window is not this: " << window << this;
         return;
     }
 
-    m_LastPasteTarget = dynamic_cast<PasteTarget *>(now);
-
+    // only update the last paste target when a new one paste target is moved to
+    PasteTarget* npt = dynamic_cast<PasteTarget*>(now);
+    if (npt) {
+        m_LastPasteTarget = npt;
+        DBG qDebug() << "updating m_LastPasteTarget to: " << m_LastPasteTarget;
+    }
+    
     // Update the zoom target based on current window.
     if (m_PreviewWindow->HasFocus()) {
         m_ZoomPreview = true;
@@ -3510,6 +3522,15 @@ void MainWindow::PasteClipEntriesIntoCurrentTarget(const QList<ClipEditorModel::
 
 void MainWindow::PasteClipEntriesIntoPreviousTarget(const QList<ClipEditorModel::clipEntry *> &clips)
 {
+    if (m_LastPasteTarget) {
+        bool applied = m_LastPasteTarget->PasteClipEntries(clips);
+        if (applied) {
+            // Clear the statusbar afterwards but only if entries were pasted.
+            ShowMessageOnStatusBar();
+            return;
+        }
+    }
+    // default to the CV tab if it is editable
     ContentTab *tab = GetCurrentContentTab();
     if (tab == NULL)  return;
     FlowTab *flow_tab = qobject_cast<FlowTab *>(tab);
@@ -3518,9 +3539,9 @@ void MainWindow::PasteClipEntriesIntoPreviousTarget(const QList<ClipEditorModel:
         ShowMessageOnStatusBar();
         return;
     }
-    CSSTab * css_tab = qobject_cast<CSSTab *>(tab);
-    if (css_tab && css_tab->PasteClipEntries(clips)) {
-        css_tab->setFocus();
+    TextTab * txt_tab = qobject_cast<TextTab *>(tab);
+    if (txt_tab && txt_tab->PasteClipEntries(clips)) {
+        txt_tab->setFocus();
         ShowMessageOnStatusBar();
     }
 }
@@ -4445,11 +4466,23 @@ void MainWindow::UpdateMWState(bool set_tab_state)
     ContentTab *tab = GetCurrentContentTab();
 
     if (tab == NULL) {
+        m_LastPasteTarget = nullptr;
+        DBG qDebug() << "UpdateMWState had current tab Null so reset m_LastPasteTarget";
         return;
     }
 
     Resource::ResourceType type = tab->GetLoadedResource()->Type();
 
+    if (type == Resource::ImageResourceType ||
+        type == Resource::VideoResourceType ||
+        type == Resource::AudioResourceType ||
+        type == Resource::PdfResourceType ||
+        type == Resource::FontResourceType) {
+        // change to non-text based tab which in no PasteTarget
+        m_LastPasteTarget = nullptr;
+        DBG qDebug() << "UpdateMWState, tab changed to non-text tab so reset m_LastPasteTarget: ";
+    }
+    
     if (type == Resource::HTMLResourceType) {
         if (set_tab_state) {
             FlowTab *ftab = qobject_cast<FlowTab *>(tab);
