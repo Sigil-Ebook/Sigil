@@ -6,6 +6,7 @@ PreSigil- 2.6.x
      - Update to Qt 6.9.2 with some additional patches
      - Update to PCRE2 version 10.46
      - Update WebProfileMgr to use the new QWebEngneProfileBuilder to properly set up disk caches
+     - Modify HeadingChange and CaseChange ToolButtons to remember last used action
      
 
 

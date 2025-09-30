@@ -1,7 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2015-2024 Doug Massay
+**  Copyright (C) 2015-2025 Doug Massay
 **  Copyright (C) 2012-2015 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
@@ -6372,10 +6372,10 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionFocusClips,       "MainWindow.FocusOnClips");
     
     // Headings QToolButton
-    ui.tbHeadings->setPopupMode(QToolButton::InstantPopup);
+    ui.tbHeadings->setPopupMode(QToolButton::MenuButtonPopup);
 
     // Change Case QToolButton
-    ui.tbCase->setPopupMode(QToolButton::InstantPopup);
+    ui.tbCase->setPopupMode(QToolButton::MenuButtonPopup);
 
     // Automate QToolButtons - set to run on click but delay for menu
     ui.tbAutomate1->setPopupMode(QToolButton::DelayedPopup);
@@ -6622,12 +6622,14 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionDeleteUnusedMedia,    SIGNAL(triggered()), this, SLOT(DeleteUnusedMedia()));
     connect(ui.actionDeleteUnusedStyles,    SIGNAL(triggered()), this, SLOT(DeleteUnusedStyles()));
     // Change case
+    connect(ui.tbCase, &QToolButton::triggered, ui.tbCase, &QToolButton::setDefaultAction);
     connect(m_casingChangeGroup,    SIGNAL(triggered(QAction*)), this, SLOT(ChangeCasing(QAction*)));
     // View
     connect(ui.actionZoomIn,        SIGNAL(triggered()), this, SLOT(ZoomIn()));
     connect(ui.actionZoomOut,       SIGNAL(triggered()), this, SLOT(ZoomOut()));
     connect(ui.actionZoomReset,     SIGNAL(triggered()), this, SLOT(ZoomReset()));
     connect(ui.actionHeadingPreserveAttributes, SIGNAL(triggered(bool)), this, SLOT(SetPreserveHeadingAttributes(bool)));
+    connect(ui.tbHeadings, &QToolButton::triggered, ui.tbHeadings, &QToolButton::setDefaultAction);
     connect(m_headingActionGroup,   SIGNAL(triggered(QAction*)), this, SLOT(ApplyHeadingStyleToTab(QAction*)));
     // Window
     connect(ui.actionNextTab,       SIGNAL(triggered()), m_TabManager, SLOT(NextTab()));
