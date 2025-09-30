@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
-# Copyright (c) 2022 Kevin B. Hendricks, Stratford Ontario Canada
-# Copyright (c) 2022 Doug Massay
+# Copyright (c) 2025 Kevin B. Hendricks, Stratford Ontario Canada
+# Copyright (c) 2025 Doug Massay
 # All rights reserved.
 #
 # This file is part of Sigil.
@@ -757,7 +757,14 @@ def update_annotated_tag_message(localRepo, bookid, tagname, newmessage):
                     # delete the old tag from the object store refs dictionary
                     del r.refs[_make_tag_ref(tag_name)]
                     # remove the old annotated object itself from the object store
-                    r.object_store._remove_loose_object(old_id)
+                    # _remove_loose_object was renamed to delete_loose_object in dulwich 0.23 for some reason.
+                    loose_obj = getattr(r.object_store, "_remove_loose_object", None)
+                    if loose_obj is not None and callable(loose_obj):
+                        # Pre dulwich 0.23.0
+                        r.object_store._remove_loose_object(old_id)
+                    else:
+                        # Post dulwich 0.23.0
+                        r.object_store.delete_loose_object(old_id)
                     # add in the updated tag to the object store
                     r.object_store.add_object(nobj)
                     # create a ref in the refs dictionary for the updated tag

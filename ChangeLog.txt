@@ -1,6 +1,7 @@
 PreSigil- 2.6.x
    Bug Fixes
      - make validation of css via W3C network validator work more consistently
+     - make sure repomanager.py works with pre- and post-0.23 dulwich
 
    New Features
      - Update to Qt 6.9.2 with some additional patches
