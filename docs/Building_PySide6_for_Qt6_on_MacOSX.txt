@@ -1,22 +1,22 @@
 # ***** IF USING QT6 *****
 
-# Download pyside-setup-everywhere-src-6.9.2.tar.xz from 
+# Download pyside-setup-everywhere-src-6.9.3.tar.xz from 
 # https://download.qt.io/official_releases/QtForPython/
 
 # or
 
 # git clone https://github.com/qtproject/pyside-pyside-setup.git
 # cd pyside-pyside-setup
-# git checkout 6.9.2
+# git checkout 6.9.3
 
-# To update from 6.9 to a specific target version (say 6.9 to 6.9.2)
+# To update from 6.9 to a specific target version (say 6.9 to 6.9.3)
 # edit sources/pyside6/.cmake.conf to set version info
 # and edit sources/shiboken6/.cmake.conf to do the same
 
 export MACOSX_DEPLOYMENT_TARGET=12.0
 
 export MYDEST=/Users/${USER}/ndevpython/libraries/Frameworks
-export MYQTHOME=~/Qt692
+export MYQTHOME=~/Qt693
 export PATH=${PATH}:${MYQTHOME}/bin
 export PATH=${MYDEST}/Python.framework/Versions/3.13/bin:${PATH}
 
@@ -44,8 +44,8 @@ export CLANG_INSTALL_DIR=/opt/libclang
 
 # You should now be ready to build pyside6
 
-tar -jxf pyside-setup-everywhere-src-6.9.2.tar.xz
-cd pyside-setup-everywhere-src-6.9.2
+tar -jxf pyside-setup-everywhere-src-6.9.3.tar.xz
+cd pyside-setup-everywhere-src-6.9.3
 # or cd pyside-pyside-setup if checked out from git
 
 python3 setup.py install --parallel=6
@@ -55,15 +55,15 @@ python3 setup.py install --parallel=6
 cd /Users/kbhend/ndevpython/libraries/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/PySide6
 
 otool -l ./lupdate | grep LC_RPATH -A2
-install_name_tool -delete_rpath /Users/kbhend/Qt692/lib ./lupdate
+install_name_tool -delete_rpath /Users/kbhend/Qt693/lib ./lupdate
 
 otool -l ./lrelease | grep LC_RPATH -A2
-install_name_tool -delete_rpath /Users/kbhend/Qt692/lib ./lrelease
+install_name_tool -delete_rpath /Users/kbhend/Qt693/lib ./lrelease
 
 otool -l ./Qt/libexec/rcc | grep LC_RPATH -A2
-install_name_tool -delete_rpath /Users/kbhend/Qt692/lib ./Qt/libexec/rcc
+install_name_tool -delete_rpath /Users/kbhend/Qt693/lib ./Qt/libexec/rcc
 
 otool -l ./Qt/libexec/uic | grep LC_RPATH -A2
-install_name_tool -delete_rpath /Users/kbhend/Qt692/lib ./Qt/libexec/uic
+install_name_tool -delete_rpath /Users/kbhend/Qt693/lib ./Qt/libexec/uic
 
 

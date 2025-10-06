@@ -1,0 +1,28 @@
+From 886ff037b014cc3b141b9abc7847198c97f864fb Mon Sep 17 00:00:00 2001
+From: Moss Heim <moss.heim@qt.io>
+Date: Thu, 25 Sep 2025 15:01:50 +0200
+Subject: [PATCH] Delete stale accessibility QObjects
+
+These objects are often parented to the QWebEngineView, but not cleaned
+up when changing pages, resulting in increasing memory usage over time.
+It should be safe to delete them after the associated accessibility node
+is deleted.
+
+Fixes: QTBUG-140234
+Pick-to: 6.8 6.9 6.10
+Change-Id: I215ca01aca10873b5ce86224d98907d41e6c8991
+---
+
+diff --git a/src/core/browser_accessibility_qt.cpp b/src/core/browser_accessibility_qt.cpp
+index a3d0240..a30082c 100644
+--- a/src/core/browser_accessibility_qt.cpp
++++ b/src/core/browser_accessibility_qt.cpp
+@@ -270,6 +270,8 @@
+ 
+ BrowserAccessibilityInterface::~BrowserAccessibilityInterface()
+ {
++    if (m_object)
++        m_object->deleteLater();
+     q->interface = nullptr;
+ }
+ 

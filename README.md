@@ -71,7 +71,7 @@ Also because Sigil now embeds Python 3.13.2, see
 for detailed instructions on how to build a fully relocatable Python 3.13.2 framework before
 building Sigil.  
 
-For official releases Sigil uses Qt6.9.2 plus official local patches see:  
+For official releases Sigil uses Qt6.9.3 plus official local patches see:  
 
 > [docs/Building_Qt6_From_Source_on_MacOSX.txt](./docs/Building_Qt6_From_Source_on_MacOSX.txt)
 
