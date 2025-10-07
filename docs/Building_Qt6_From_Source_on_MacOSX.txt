@@ -157,6 +157,16 @@ patch -p0 < ../sources/qt672_fix_h6_insertParagraph.patch
 patch -p0 < ../sources/qt672_freetype_add_brotli_for_woff2.patch
 
 # Now Qt 6.9.2 and 6.9.3 QtWebEngine has a commit that needs to be reverted and an
+# extra memory leak bug fix has been added
+
+cd qtwebengine
+# first undo the change that broke things when mesa updated
+patch -p1 < ../../sources/qt693_fix_mesa_issues.path
+# next add in the bug fix for memory leak
+patch -p1 < ../../sources/qt693_memory_leak_fix_886ff03.patch
+cd ..
+
+# Now Qt 6.9.2 and 6.9.3 QtWebEngine has a commit that needs to be reverted and an
 # extra bug fix has been added
 
 cd qtwebengine
