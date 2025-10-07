@@ -1061,12 +1061,12 @@ private:
     /**
      * dynamically updated plugin menus and actions
      */
-    QMenu *m_menuPlugins;
-    QMenu *m_menuPluginsInput;
-    QMenu *m_menuPluginsOutput;
-    QMenu *m_menuPluginsEdit;
-    QMenu *m_menuPluginsValidation;
-    QAction *m_actionManagePlugins;
+    QMenu *m_menuPlugins = nullptr;
+    QMenu *m_menuPluginsInput = nullptr;
+    QMenu *m_menuPluginsOutput = nullptr;
+    QMenu *m_menuPluginsEdit = nullptr;
+    QMenu *m_menuPluginsValidation = nullptr;
+    QAction *m_actionManagePlugins = nullptr;
 
     QStringList m_pluginList;
     bool m_SaveTab;
