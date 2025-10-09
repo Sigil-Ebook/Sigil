@@ -51,7 +51,7 @@
 #include "ViewEditors/ElementIndex.h"
 #include "Dialogs/SearchEditor.h"
 
-const int MAX_RECENT_FILES = 5;
+const int MAX_RECENT_FILES = 9;
 const int STATUSBAR_MSG_DISPLAY_TIME = 7000;
 
 class QComboBox;
