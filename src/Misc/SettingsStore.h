@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2020-2024 Doug Massay
+**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2020-2025 Doug Massay
 **  Copyright (C) 2011-2013 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **
@@ -168,6 +168,10 @@ public:
     int cleanOn();
 
     QStringList pluginMap();
+
+    QStringList automateMap();
+
+    bool automateShowMenu();
 
     QString defaultVersion();
 
@@ -395,6 +399,10 @@ public slots:
     void setCleanOn(int on);
 
     void setPluginMap(const QStringList & map);
+
+    void setAutomateMap(const QStringList & map);
+
+    void setAutomateShowMenu(bool enabled);
 
     void setDefaultVersion(const QString &version);
 

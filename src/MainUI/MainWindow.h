@@ -280,15 +280,10 @@ public slots:
     void RepoEditTagDescription();
     void RepoShowLog();
 
-    void RunAutomate1();
-    void RunAutomate2();
-    void RunAutomate3();
+    void runAutomate(QAction *action);
     void RunAutomate(const QString &automatefile);
-
-    void EditAutomate1();
-    void EditAutomate2();
-    void EditAutomate3();
-    void EditAutomate(const QString &automatefile);
+    void UpdateAutomationMenu();
+    void ManageAutomateListsDialog();
     
     bool StandardizeEpub();
     bool UseStandardFileExtensions();
@@ -429,6 +424,8 @@ private slots:
      *  Quick Launch Plugins via icon button
      */
     void QuickLaunchPlugin(int i);
+
+    void QuickLaunchAutomate(int i);
 
     /**
      * Some controls (CodeView and combo boxes in F&R) inherit PasteTarget
@@ -709,6 +706,7 @@ private slots:
 
 private:
     void updateToolTipsOnPluginIcons();
+    void updateToolTipsOnAutomateIcons();
     void UpdateClipButton(QAction *ui_action);
     void InsertFiles(const QStringList &selected_images);
     void InsertFilesFromDisk();
@@ -1066,15 +1064,28 @@ private:
     QMenu *m_menuPluginsOutput = nullptr;
     QMenu *m_menuPluginsEdit = nullptr;
     QMenu *m_menuPluginsValidation = nullptr;
-    QAction *m_actionManagePlugins = nullptr;
+    QAction *m_actionManagePlugins = nullptr;;
 
     QStringList m_pluginList;
+
+    /**
+     * dynamically updated Automation menus and actions
+     */
+    QMenu *m_menuAutomate = nullptr;;
+    QMenu *m_menuAutomateRun = nullptr;
+    QAction *m_actionManageAutomate = nullptr;;
+
+    QStringList m_automateLists;
+
+
     bool m_SaveTab;
     bool m_IsClosing;
 
     QList<QAction*> m_qlactions;
 
     QList<QAction*> m_clactions;
+
+    QList<QAction*> m_auactions;
 
 
     /**

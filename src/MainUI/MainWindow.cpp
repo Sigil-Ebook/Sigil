@@ -49,6 +49,7 @@
 #include <QWindowStateChangeEvent>
 #include <QStyleFactory>
 #include <QStyle>
+#include <QDirIterator>
 #include <QDebug>
 
 #include "BookManipulation/CleanSource.h"
@@ -66,7 +67,7 @@
 #include "Dialogs/LinkStylesheets.h"
 #include "Dialogs/LinkJavascripts.h"
 #include "Dialogs/ManageRepos.h"
-#include "Dialogs/AutomateEditor.h"
+#include "Dialogs/ManageAutomation.h"
 #include "Dialogs/MetaEditor.h"
 #include "Dialogs/PluginRunner.h"
 #include "Dialogs/Preferences.h"
@@ -249,7 +250,8 @@ MainWindow::MainWindow(const QString &openfilepath,
     m_SaveTab(false),
     m_IsClosing(false),
     m_headingActionGroup(new QActionGroup(this)),
-    m_UsingAutomate(false)
+    m_UsingAutomate(false),
+    m_automateLists(QStringList())
 {
     ui.setupUi(this);
     // Telling Qt to delete this window
@@ -268,6 +270,7 @@ MainWindow::MainWindow(const QString &openfilepath,
     ChangeSignalsWhenTabChanges(NULL, m_TabManager->GetCurrentContentTab());
     LoadInitialFile(openfilepath, version, is_internal);
     loadPluginsMenu();
+    UpdateAutomationMenu();
 }
 
 MainWindow::~MainWindow()
@@ -305,53 +308,13 @@ MainWindow::~MainWindow()
     if (m_TabManager) delete m_TabManager;
     if (m_PreviewWindow) delete m_PreviewWindow;
 #endif
-
 }
 
-void MainWindow::RunAutomate1()
+void MainWindow::runAutomate(QAction *action)
 {
-    QString automatefile = Utility::DefinePrefsDir() + "/automate01.txt";
+    QString lname = action->text();
+    QString automatefile = Utility::DefinePrefsDir() + "/automate" + lname + ".txt";
     RunAutomate(automatefile);
-}
-
-void MainWindow::EditAutomate1()
-{
-    QString automatefile = Utility::DefinePrefsDir() + "/automate01.txt";
-    EditAutomate(automatefile);
-}
-
-void MainWindow::RunAutomate2()
-{
-    QString automatefile = Utility::DefinePrefsDir() + "/automate02.txt";
-    RunAutomate(automatefile);
-}
-
-void MainWindow::EditAutomate2()
-{
-    QString automatefile = Utility::DefinePrefsDir() + "/automate02.txt";
-    EditAutomate(automatefile);
-}
-
-void MainWindow::RunAutomate3()
-{
-    QString automatefile = Utility::DefinePrefsDir() + "/automate03.txt";
-    RunAutomate(automatefile);
-}
-
-void MainWindow::EditAutomate3()
-{
-    QString automatefile = Utility::DefinePrefsDir() + "/automate03.txt";
-    EditAutomate(automatefile);
-}
-
-void MainWindow::EditAutomate(const QString &automatefile)
-{
-    AutomateEditor aedit(automatefile, this);
-    if (aedit.exec() != QDialog::Accepted) {
-        ShowMessageOnStatusBar(tr("Automate List Editor cancelled."));
-        return;
-    }
-    ShowMessageOnStatusBar(tr("Automate List edited."));
 }
 
 void MainWindow::RunAutomate(const QString &automatefile)
@@ -380,6 +343,12 @@ void MainWindow::RunAutomate(const QString &automatefile)
     m_AutomatePluginParameter = "";
 }
 
+void MainWindow::ManageAutomateListsDialog()
+{
+    ManageAutomation ma(m_automateLists);
+    ma.exec();
+    UpdateAutomationMenu();
+}
 
 bool MainWindow::Automate(const QStringList &commands)
 {
@@ -662,6 +631,82 @@ void MainWindow::unloadPluginsMenu()
     foreach(QAction * pa, m_qlactions) {
         disconnect(pa, &QAction::triggered, this, nullptr);
     }
+}
+
+
+void MainWindow::UpdateAutomationMenu()
+{
+    m_menuAutomate = ui.menuAutomate;
+    QAction* automate_menu_action = ui.menuAutomate->menuAction();
+
+    m_actionManageAutomate = ui.actionManage_AutomateLists;
+
+    // first dismantle any existing Automation menus
+    if (m_menuAutomate != NULL) {
+        if (m_menuAutomateRun != NULL) {
+            disconnect(m_menuAutomateRun, SIGNAL(triggered(QAction *)), this, SLOT(runAutomate(QAction *)));
+            m_menuAutomateRun->clear();
+            m_menuAutomate->removeAction(m_menuAutomateRun->menuAction());
+            m_menuAutomateRun = NULL;
+        }
+        disconnect(m_actionManageAutomate, SIGNAL(triggered()), this, SLOT(ManageAutomateListsDialog()));
+        foreach(QAction * aa, m_auactions) {
+            if (aa) {
+                disconnect(aa, &QAction::triggered, this, nullptr);
+            }
+        }
+    }
+
+    // rebuild the Automation Lists menus
+    connect(m_actionManageAutomate, SIGNAL(triggered()), this, SLOT(ManageAutomateListsDialog()));
+
+    // Setup up for quick launch of automation lists
+    int i = 0;
+    foreach(QAction* aa, m_auactions){
+        // Use the new signal/slot syntax and use a lambda to
+        // eliminate the need for the obsoleted QSignalMapper.
+        // [captured variables]() {...anonymous processing to do...;}
+        connect(aa, &QAction::triggered, this, [this,i]() {
+            MainWindow::QuickLaunchAutomate(i);
+        });
+        i++;
+    }
+    
+    // build a current list of automation lists
+    QString directoryPath = Utility::DefinePrefsDir();
+    QStringList nameFilters = QStringList() << "automate*.txt";
+    m_automateLists.clear();
+    QDirIterator it(directoryPath, nameFilters, QDir::Files | QDir::NoDotAndDotDot);
+    while (it.hasNext()) {
+        it.next();
+        QString key = it.fileName();
+        if (key.startsWith("automate") && key.endsWith(".txt")) {
+            int nc = key.length() - 12; // 12 is length of "automate" + ".txt"
+            QString lname = key.sliced(8, nc);
+            if (!lname.isEmpty()) {
+                m_automateLists << lname;
+            }
+        }
+    }
+    QStringList keys = m_automateLists;
+    keys.sort(Qt::CaseInsensitive);
+
+    foreach(QString key, keys) {
+        if (!key.isEmpty()) {
+            // add it to run menu
+            if (m_menuAutomateRun == NULL) {
+                m_menuAutomateRun  = m_menuAutomate->addMenu(tr("Run"));
+                connect(m_menuAutomateRun,  SIGNAL(triggered(QAction *)), this, SLOT(runAutomate(QAction *)));
+            }
+            m_menuAutomateRun->addAction(key);
+        }
+    }
+    
+    updateToolTipsOnAutomateIcons();
+    
+    SettingsStore settings;
+    automate_menu_action->setVisible(settings.automateShowMenu());
+
 }
 
 bool MainWindow::StandardizeEpub()
@@ -3466,6 +3511,24 @@ void MainWindow::QuickLaunchPlugin(int i)
     }
 }
 
+void MainWindow::QuickLaunchAutomate(int i)
+{
+    SettingsStore ss;
+    QStringList namemap = ss.automateMap();
+    if ((i >= 0) && (namemap.count() > i)) {
+        QString lname = namemap.at(i);
+        if (m_automateLists.contains(lname)) {
+            // QApplication keeps a single modalWindowList across multiple main
+            // windows and this list is not updated until modal dialog is deleted
+            {
+                QString automatefile = Utility::DefinePrefsDir() + "/automate" + lname + ".txt";
+                RunAutomate(automatefile);
+            }
+            qApp->processEvents();
+        }
+    }
+}
+
 void MainWindow::PasteTextIntoCurrentTarget(const QString &text)
 {
     if (m_LastPasteTarget == NULL) {
@@ -4340,6 +4403,7 @@ void MainWindow::PreferencesDialog()
     }
 
     updateToolTipsOnPluginIcons();
+    UpdateAutomationMenu();
 }
 
 
@@ -4374,6 +4438,7 @@ void MainWindow::ManagePluginsDialog()
     }
 
     loadPluginsMenu();
+    UpdateAutomationMenu();
 }
 
 void MainWindow::updateToolTipsOnPluginIcons()
@@ -4385,6 +4450,19 @@ void MainWindow::updateToolTipsOnPluginIcons()
         QString pname = tr("RunPlugin") + QString::number(i+1);
         if (namemap.count() > i) pname = namemap.at(i);
         pa->setToolTip(pname);
+        i++;
+    }
+}
+
+void MainWindow::updateToolTipsOnAutomateIcons()
+{
+    SettingsStore ss;
+    QStringList namemap = ss.automateMap();
+    int i=0;
+    foreach(QAction* aa, m_auactions) {
+        QString lname = tr("RunAutomate") + QString::number(i+1);
+        if (namemap.count() > i) lname = namemap.at(i);
+        aa->setToolTip(lname);
         i++;
     }
 }
@@ -6037,6 +6115,11 @@ void MainWindow::ExtendUI()
     m_qlactions.append(ui.actionPlugin9);
     m_qlactions.append(ui.actionPlugin10);
 
+    // initialize list of quick launch automation actions
+    m_auactions.append(ui.actionAutomate1);
+    m_auactions.append(ui.actionAutomate2);
+    m_auactions.append(ui.actionAutomate3);
+    
     // initialize the first set of clip actions
     foreach(QAction * clipaction, ui.toolBarClips->actions()) {
         if (!clipaction->isSeparator()) {
@@ -6330,14 +6413,10 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionManageRepo,         "MainWindow.ManageCheckpointRepository");
     sm->registerAction(this, ui.actionEditCheckpointDesc, "MainWindow.EditCheckpointDescription");
     sm->registerAction(this, ui.actionLog,                "MainWindow.ShowCheckpointLog");
-
     // Automation Lists
     sm->registerAction(this, ui.actionAutomate1,   "MainWindow.RunAutomate1");
     sm->registerAction(this, ui.actionAutomate2,   "MainWindow.RunAutomate2");
     sm->registerAction(this, ui.actionAutomate3,   "MainWindow.RunAutomate3");
-    sm->registerAction(this, ui.actionAutomate1Editor,   "MainWindow.EditAutomate1");
-    sm->registerAction(this, ui.actionAutomate2Editor,   "MainWindow.EditAutomate2");
-    sm->registerAction(this, ui.actionAutomate3Editor,   "MainWindow.EditAutomate3");
     // Help
     sm->registerAction(this, ui.actionUserGuide, "MainWindow.UserGuide");
     sm->registerAction(this, ui.actionFAQ, "MainWindow.FAQ");
@@ -6377,21 +6456,10 @@ void MainWindow::ExtendUI()
     // Change Case QToolButton
     ui.tbCase->setPopupMode(QToolButton::MenuButtonPopup);
 
-    // Automate QToolButtons - set to run on click but delay for menu
-    ui.tbAutomate1->setPopupMode(QToolButton::DelayedPopup);
-    ui.tbAutomate2->setPopupMode(QToolButton::DelayedPopup);
-    ui.tbAutomate3->setPopupMode(QToolButton::DelayedPopup);
-    ui.tbAutomate1->setDefaultAction(ui.actionAutomate1);
-    ui.tbAutomate2->setDefaultAction(ui.actionAutomate2);
-    ui.tbAutomate3->setDefaultAction(ui.actionAutomate3);
-
     // use this code to disable any QToolButtons with pull down menus
     // from inadvertantly being on the tab to shift focus chain
     ui.tbHeadings->setFocusPolicy(Qt::NoFocus);
     ui.tbCase->setFocusPolicy(Qt::NoFocus);
-    ui.tbAutomate1->setFocusPolicy(Qt::NoFocus);
-    ui.tbAutomate2->setFocusPolicy(Qt::NoFocus);
-    ui.tbAutomate3->setFocusPolicy(Qt::NoFocus);
 
     UpdateClipsUI();
 }
@@ -6547,14 +6615,6 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionManageRepo,          SIGNAL(triggered()), this, SLOT(RepoManage()));
     connect(ui.actionEditCheckpointDesc,  SIGNAL(triggered()), this, SLOT(RepoEditTagDescription()));
     connect(ui.actionLog,                 SIGNAL(triggered()), this, SLOT(RepoShowLog()));
-
-    // Automation
-    connect(ui.actionAutomate1,        SIGNAL(triggered()), this, SLOT(RunAutomate1()));
-    connect(ui.actionAutomate2,        SIGNAL(triggered()), this, SLOT(RunAutomate2()));
-    connect(ui.actionAutomate3,        SIGNAL(triggered()), this, SLOT(RunAutomate3()));
-    connect(ui.actionAutomate1Editor,  SIGNAL(triggered()), this, SLOT(EditAutomate1()));
-    connect(ui.actionAutomate2Editor,  SIGNAL(triggered()), this, SLOT(EditAutomate2()));
-    connect(ui.actionAutomate3Editor,  SIGNAL(triggered()), this, SLOT(EditAutomate3()));
 
     // Edit
     connect(ui.actionXEditor,         SIGNAL(triggered()), this, SLOT(launchExternalXEditor()));

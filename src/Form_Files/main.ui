@@ -425,6 +425,12 @@
     <addaction name="actionEditCheckpointDesc"/>
     <addaction name="actionLog"/>
    </widget>
+   <widget class="QMenu" name="menuAutomate">
+    <property name="title">
+     <string>&amp;Automation</string>
+    </property>
+    <addaction name="actionManage_AutomateLists"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
    <addaction name="menuInsert"/>
@@ -435,6 +441,7 @@
    <addaction name="menuWindow"/>
    <addaction name="menuPlugins"/>
    <addaction name="menuCheckpoints"/>
+   <addaction name="menuAutomate"/>
    <addaction name="menuHelp"/>
   </widget>
 
@@ -670,39 +677,9 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <widget class="QToolButton" name="tbAutomate1">
-    <property name="icon">
-     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/automate_1.svg</normaloff>:/main/automate_1.svg</iconset>
-    </property>
-    <property name="toolTip">
-     <string>Automation List 1</string>
-    </property>
-    <addaction name="actionAutomate1"/>
-    <addaction name="actionAutomate1Editor"/>
-   </widget>
-   <widget class="QToolButton" name="tbAutomate2">
-    <property name="icon">
-     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/automate_2.svg</normaloff>:/main/automate_2.svg</iconset>
-    </property>
-    <property name="toolTip">
-     <string>Automation List 2</string>
-    </property>
-    <addaction name="actionAutomate2"/>
-    <addaction name="actionAutomate2Editor"/>
-   </widget>
-   <widget class="QToolButton" name="tbAutomate3">
-    <property name="icon">
-     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/automate_3.svg</normaloff>:/main/automate_3.svg</iconset>
-    </property>
-    <property name="toolTip">
-     <string>Automation List 3</string>
-    </property>
-    <addaction name="actionAutomate3"/>
-    <addaction name="actionAutomate3Editor"/>
-   </widget>
+   <addaction name="actionAutomate1"/>
+   <addaction name="actionAutomate2"/>
+   <addaction name="actionAutomate3"/>
   </widget>
   <widget class="QToolBar" name="toolBarHeadings">
    <property name="windowTitle">
@@ -3013,6 +2990,7 @@
     <string>Ctrl+D</string>
    </property>
   </action>
+
   <action name="actionAutomate1">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
@@ -3022,11 +3000,7 @@
     <string>Run Automate List 1</string>
    </property>
   </action>
-  <action name="actionAutomate1Editor">
-   <property name="text">
-    <string>Edit Automate List 1</string>
-   </property>
-  </action>
+  
   <action name="actionAutomate2">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
@@ -3036,11 +3010,7 @@
     <string>Run Automate List 2</string>
    </property>
   </action>
-  <action name="actionAutomate2Editor">
-   <property name="text">
-    <string>Edit Automate List 2</string>
-   </property>
-  </action>
+  
   <action name="actionAutomate3">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
@@ -3050,11 +3020,13 @@
     <string>Run Automate List 3</string>
    </property>
   </action>
-  <action name="actionAutomate3Editor">
+    
+  <action name="actionManage_AutomateLists">
    <property name="text">
-    <string>Edit Automate List 3</string>
+    <string>Manage Automation Lists</string>
    </property>
   </action>
+
   <action name="actionManage_Plugins">
    <property name="text">
     <string>Manage Plugins</string>

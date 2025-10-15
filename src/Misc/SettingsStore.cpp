@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2024  Kevin B. Hendricks, Stratford, ON
-**  Copyright (C) 2016-2024  Doug Massay
+**  Copyright (C) 2016-2025  Kevin B. Hendricks, Stratford, ON
+**  Copyright (C) 2016-2025  Doug Massay
 **  Copyright (C) 2011-2013  John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013  Dave Heiland
 **
@@ -59,6 +59,8 @@ static QString KEY_SPELL_CHECK_NUMBERS = SETTINGS_GROUP + "/" + "spell_check_num
 static QString KEY_DEFAULT_USER_DICTIONARY = SETTINGS_GROUP + "/" + "user_dictionary_name";
 static QString KEY_ENABLED_USER_DICTIONARIES = SETTINGS_GROUP + "/" + "enabled_user_dictionaries";
 static QString KEY_PLUGIN_USER_MAP = SETTINGS_GROUP + "/" + "plugin_user_map";
+static QString KEY_AUTOMATE_USER_MAP = SETTINGS_GROUP + "/" + "automate_user_map";
+static QString KEY_AUTOMATE_SHOW_MENU = SETTINGS_GROUP + "/" + "automate_show_menu";
 static QString KEY_CLEAN_ON = SETTINGS_GROUP + "/" + "clean_on";
 static QString KEY_REMOTE_ON = SETTINGS_GROUP + "/" + "remote_on";
 static QString KEY_JAVASCRIPT_ON = SETTINGS_GROUP + "/" + "javascript_on";
@@ -344,6 +346,22 @@ QStringList SettingsStore::pluginMap()
         EmptyMap.append("");
     }
     return value(KEY_PLUGIN_USER_MAP, EmptyMap).toStringList();
+}
+
+QStringList SettingsStore::automateMap()
+{
+    clearSettingsGroup();
+    QStringList EmptyMap = QStringList();
+    for (int i = 0; i < 3; i++) {
+        EmptyMap.append("");
+    }
+    return value(KEY_AUTOMATE_USER_MAP, EmptyMap).toStringList();
+}
+
+bool SettingsStore::automateShowMenu()
+{
+    clearSettingsGroup();
+    return value(KEY_AUTOMATE_SHOW_MENU, false).toBool();
 }
 
 QString SettingsStore::defaultVersion()
@@ -717,6 +735,18 @@ void SettingsStore::setPluginMap(const QStringList &map)
 {
     clearSettingsGroup();
     setValue(KEY_PLUGIN_USER_MAP, map);
+}
+
+void SettingsStore::setAutomateMap(const QStringList &map)
+{
+    clearSettingsGroup();
+    setValue(KEY_AUTOMATE_USER_MAP, map);
+}
+
+void SettingsStore::setAutomateShowMenu(bool enable)
+{
+    clearSettingsGroup();
+    setValue(KEY_AUTOMATE_SHOW_MENU, enable);
 }
 
 void SettingsStore::setDefaultVersion(const QString &version)

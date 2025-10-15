@@ -776,6 +776,28 @@ if a sans-serif font-family specified in your CSS</string>
         </widget>
        </item>
        <item>
+        <widget class="QGroupBox" name="groupAutomation">
+         <property name="title">
+          <string>Automation Menu (Advanced):</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_81">
+          <item>
+           <widget class="QCheckBox" name="chkShowAuto">
+            <property name="focusPolicy">
+             <enum>Qt::TabFocus</enum>
+            </property>
+            <property name="toolTip">
+             <string>Show top level Automation menu</string>
+            </property>
+            <property name="text">
+             <string>Show Automation menu.</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
         <layout class="QHBoxLayout" name="horizontalLayoutReset">
          <item>
           <widget class="QPushButton" name="resetAllButton">

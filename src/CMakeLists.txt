@@ -100,6 +100,8 @@ set( DIALOG_FILES
     Dialogs/EditTOC.h
     Dialogs/EmptyLayout.cpp
     Dialogs/EmptyLayout.h
+    Dialogs/ManageAutomation.cpp
+    Dialogs/ManageAutomation.h
     Dialogs/ManageRepos.cpp
     Dialogs/ManageRepos.h
     Dialogs/MDViewer.cpp
@@ -547,6 +549,7 @@ set( UI_FILES
     Form_Files/DeleteFiles.ui
     Form_Files/DeleteStyles.ui
     Form_Files/ManageRepos.ui
+    Form_Files/ManageAutomation.ui
     Form_Files/MDViewer.ui
     Form_Files/OpenWithName.ui
     Form_Files/RERenamer.ui

@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2024  Kevin B. Hendricks, Stratford, ON
-**  Copyright (C) 2016-2024  Doug Massay
+**  Copyright (C) 2016-2025  Kevin B. Hendricks, Stratford, ON
+**  Copyright (C) 2016-2025  Doug Massay
 **  Copyright (C) 2011-2013  John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013  Grant Drake
 **
@@ -125,6 +125,7 @@ PreferencesWidget::ResultActions AppearanceWidget::saveSettings()
     settings.setShowFullPathOn(ui.ShowFullPath->isChecked() ? 1 : 0);
     settings.setPreviewDark(ui.PreviewDarkInDM->isChecked() ? 1 : 0);
     settings.setUIHighlightFocusWidget(ui.chkFocusDec->isChecked() ? 1 : 0);
+    settings.setAutomateShowMenu(ui.chkShowAuto->isChecked() ? 1 : 0);
     settings.setUiDoubleWidthTextCursor(ui.chkDoubleWidthCursor->isChecked() ? 1 : 0);
     // This setting has no effect on other OSes, but it won't hurt to set it.
     settings.setUiUseCustomSigilDarkTheme(ui.chkDarkStyle->isChecked() ? 1 : 0);
@@ -255,6 +256,7 @@ SettingsStore::CodeViewAppearance AppearanceWidget::readSettings()
     ui.ShowFullPath->setChecked(settings.showFullPathOn());
     m_ShowWidgetFocus = settings.uiHighlightFocusWidgetEnabled();
     ui.chkFocusDec->setChecked(settings.uiHighlightFocusWidgetEnabled());
+    ui.chkShowAuto->setChecked(settings.automateShowMenu());
     m_DoubleWidthCursor = settings.uiDoubleWidthTextCursor();
     ui.chkDoubleWidthCursor->setChecked(settings.uiDoubleWidthTextCursor());
     // This setting has no effect on other OSes, but it won't hurt to read it.
