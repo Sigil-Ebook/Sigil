@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2021 Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2016-2025 Kevin B. Hendricks, Stratford, ON, Canada
 **  Copyright (C) 2011      John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -23,6 +23,7 @@
 #include <QtCore/QString>
 #include <QtCore/QStringList>
 
+#include "Misc/Utility.h"
 #include "Misc/Language.h"
 
 Language *Language::m_instance = 0;
@@ -73,6 +74,12 @@ void Language::SetLanguageMap()
 {
     if (!m_languageCodeMap.isEmpty()) {
         return;
+    }
+
+    QStringList used_codes;
+    QString code_list = Utility::GetEnvironmentVar("SIGIL_ONLY_USE_LANGCODES");
+    if (!code_list.isEmpty()) {
+        used_codes = code_list.split(",");
     }
 
     // Must be a 1 to 1 relationship between codes and names.
@@ -658,11 +665,22 @@ void Language::SetLanguageMap()
     for (int i = 0; i < data.count(); i++) {
         QString code = data.at(i++);
         QString name = data.at(i);
-        m_languageCodeMap.insert(code, name);
-        m_languageNameMap.insert(name, code);
-        DescriptiveInfo minfo;
-        minfo.name = name;
-        minfo.description = QString();
-        m_LangInfo.insert(code, minfo);
+        if (!code_list.isEmpty()) {
+            if (code_list.contains(code)) {
+                m_languageCodeMap.insert(code, name);
+                m_languageNameMap.insert(name, code);
+                DescriptiveInfo minfo;
+                minfo.name = name;
+                minfo.description = QString();
+                m_LangInfo.insert(code, minfo);
+            }
+        } else {
+            m_languageCodeMap.insert(code, name);
+            m_languageNameMap.insert(name, code);
+            DescriptiveInfo minfo;
+            minfo.name = name;
+            minfo.description = QString();
+            m_LangInfo.insert(code, minfo);
+        }
     }
 }
