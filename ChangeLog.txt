@@ -15,7 +15,8 @@ PreSigil- 2.7.0
      - add in a custom Windows manifest file so that Windows open-with works
      - create a new dynamic automation menu to replace the older toolbar only version (hideable by the user)
      - allow up top 9 most recent files in the Sigil File menu
-     
+     - use environment var "SIGIL_ONLY_USE_LANGCODES" to restrict long List of Language codes to user's choice
+
 Sigil-2.6.2
    Bug Fixes
      - work around bad Qt WebEngine bug when created dynamically and used inside a QDialog for Checkpoints
