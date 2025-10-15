@@ -1,16 +1,21 @@
-PreSigil- 2.6.x
+PreSigil- 2.7.0
    Bug Fixes
-     - make validation of css via W3C network validator work more consistently
+     - make validation of css via W3C network validator work more consistently (http: -> https:)
      - make sure repomanager.py works with pre- and post-0.23 dulwich
+     - fixes for potential crashes from using unitialized member pointers
+     - fix issues with ClipsWindow and m_LastPasteTarget
+     - remove QtPositioning from being needed in QtWebEngine builds on macOS
+     - fix bug with double-click to select "word" in CV not working the some for intl langauges
 
    New Features
-     - Update to Qt 6.9.2 with some additional patches
-     - Update to PCRE2 version 10.46
-     - Update WebProfileMgr to use the new QWebEngneProfileBuilder to properly set up disk caches
-     - Modify HeadingChange and CaseChange ToolButtons to remember last used action
+     - update to Qt 6.9.3 with some additional patches
+     - update to PCRE2 version 10.46
+     - update WebProfileMgr to use the new QWebEngneProfileBuilder to properly set up disk caches
+     - modify HeadingChange and CaseChange ToolButtons to remember last used action
+     - add in a custom Windows manifest file so that Windows open-with works
+     - create a new dynamic automation menu to replace the older toolbar only version (hideable by the user)
+     - allow up top 9 most recent files in the Sigil File menu
      
-
-
 Sigil-2.6.2
    Bug Fixes
      - work around bad Qt WebEngine bug when created dynamically and used inside a QDialog for Checkpoints
