@@ -77,9 +77,9 @@ void Language::SetLanguageMap()
     }
 
     QStringList used_codes;
-    QString code_list = Utility::GetEnvironmentVar("SIGIL_ONLY_USE_LANGCODES");
-    if (!code_list.isEmpty()) {
-        used_codes = code_list.split(",");
+    QString codes = Utility::GetEnvironmentVar("SIGIL_ONLY_USE_LANGCODES");
+    if (!codes.isEmpty()) {
+        used_codes = codes.split(",");
     }
 
     // Must be a 1 to 1 relationship between codes and names.
@@ -665,8 +665,8 @@ void Language::SetLanguageMap()
     for (int i = 0; i < data.count(); i++) {
         QString code = data.at(i++);
         QString name = data.at(i);
-        if (!code_list.isEmpty()) {
-            if (code_list.contains(code)) {
+        if (!used_codes.isEmpty()) {
+            if (used_codes.contains(code)) {
                 m_languageCodeMap.insert(code, name);
                 m_languageNameMap.insert(name, code);
                 DescriptiveInfo minfo;
