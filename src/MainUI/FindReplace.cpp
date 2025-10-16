@@ -1963,14 +1963,14 @@ void FindReplace::CountsReportCount(SearchEditorModel::searchEntry* entry, int& 
 }
 
 
-void FindReplace::ReplaceAllSearch()
+int FindReplace::ReplaceAllSearch()
 {
     // these entries are owned by the Search Editor who will clean up as needed
     QList<SearchEditorModel::searchEntry*> search_entries = m_MainWindow->SearchEditorGetCurrentEntries();
 
     if (search_entries.isEmpty()) {
         ShowMessage(tr("No searches selected"));
-        return;
+        return -1;
     }
 
     SetKeyModifiers();
@@ -1990,6 +1990,7 @@ void FindReplace::ReplaceAllSearch()
         ShowMessage(message);
     }
     ResetKeyModifiers();
+    return count;
 }
 
 

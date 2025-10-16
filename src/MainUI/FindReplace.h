@@ -116,7 +116,7 @@ public slots:
     void ReplaceCurrentSearch();
     void ReplaceSearch();
     void CountAllSearch();
-    void ReplaceAllSearch();
+    int  ReplaceAllSearch();
     void DoRestart();
     void SetReplace(const QString& text);
 

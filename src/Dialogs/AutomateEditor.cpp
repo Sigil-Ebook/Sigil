@@ -119,6 +119,12 @@ QString AutomateEditor::GetAutomateList()
             if (cmd.startsWith("RunSavedSearchReplaceAll")) {
                 value = cmd.mid(25,-1).trimmed();
                 cmd = "RunSavedSearchReplaceAll";
+            } else if (cmd.startsWith("OnFailedRunSavedSearchReplaceAll")) {
+                value = cmd.mid(33,-1).trimmed();
+                cmd = "OnFailedRunSavedSearchReplaceAll";
+            } else if (cmd.startsWith("OnSuccessRunSavedSearchReplaceAll")) {
+                value = cmd.mid(34,-1).trimmed();
+                cmd = "OnSuccessRunSavedSearchReplaceAll";
             } else if (cmd.startsWith("SetPluginParameter")) {
                 value = cmd.mid(19,-1).trimmed();
                 cmd = "SetPluginParameter";
@@ -177,6 +183,12 @@ void AutomateEditor::selectTool()
     }
     foreach(QString code, codes) {
         if (code == "RunSavedSearchReplaceAll") {
+            QString content = tr("[SavedSearch full name here]");
+            insertRow(code, code, content, "");
+        } else if (code == "OnFailedRunSavedSearchReplaceAll") {
+            QString content = tr("[SavedSearch full name here]");
+            insertRow(code, code, content, "");
+        } else if (code == "OnSuccessRunSavedSearchReplaceAll") {
             QString content = tr("[SavedSearch full name here]");
             insertRow(code, code, content, "");
         } else if (code == "SetPluginParameter") {
@@ -336,6 +348,8 @@ void AutomateEditor::loadToolElements()
          "GenerateTOC" << "GenerateTOC" << tr("Generate TOC from Heading Tags.") <<
          "MendPrettifyHTML" << "MendPrettifyHTML" << tr("Mend and Prettify all XHtml files.") <<
          "MendHTML" << "MendHTML"  << tr("Mend All XHtml files.") <<
+         "OnFailedRunSavedSearchReplaceAll" << "OnFailedRunSavedSearchReplaceAll" << tr("If previous search failed, run the named Saved Search.") <<
+         "OnSuccessRunSavedSearchReplaceAll" << "OnSuccessRunSavedSearchReplaceAll" << tr("If previous search had success, run the named Saved Search.") <<
          "ReformatCSSMultipleLines" << "ReformatCSSMultipleLines" << tr("Reformat All CSS to Multiple Lines format.") <<
          "ReformatCSSSingleLines" << "ReformatCSSSingleLines" << tr("Reformat All CSS to Single Lines format.") <<
          "RemoveNCXGuideFromEpub3" << "RemoveNCXGuideFromEpub3" << tr("Remove NCX and OPF Guide from Epub3.") <<

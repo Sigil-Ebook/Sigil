@@ -179,6 +179,8 @@ static const QStringList AUTOMATE_TOOLS = QStringList() <<
     "GenerateTOC" <<
     "MendPrettifyHTML" <<
     "MendHTML" <<
+    "OnFailedRunSavedSearchReplaceAll" <<
+    "OnSuccessRunSavedSearchReplaceAll" <<
     "ReformatCSSMultipleLines" <<
     "ReformatCSSSingleLines" <<
     "RemoveNCXGuideFromEpub3" <<
@@ -358,6 +360,7 @@ bool MainWindow::Automate(const QStringList &commands)
     QHash<QString, Plugin *> plugins = pdb->all_plugins();
     QStringList plugin_names = plugins.keys();
     bool has_error = false;
+    int countReplaced = -1;
     
     foreach(QString cmd , commands) {
         bool success = false;
@@ -445,13 +448,60 @@ bool MainWindow::Automate(const QStringList &commands)
                 // Temporarily reroute FindReplace Messages to the Status Bar so they are logged
                 connect(m_FindReplace, SIGNAL(ShowMessageRequest(const QString &)),
                         this, SLOT(ShowMessageOnStatusBar(const QString &)));
-                m_FindReplace->ReplaceAllSearch();
+                countReplaced = m_FindReplace->ReplaceAllSearch();
                 disconnect(m_FindReplace, SIGNAL(ShowMessageRequest(const QString &)),
                            this, SLOT(ShowMessageOnStatusBar(const QString &)));
                 success = true;
             } else {
                 ShowMessageOnStatusBar(tr("Missing or unknown Saved Search name") + ": " + cmd);
                 success = false;
+            }
+        // handle On Failed conditional saved search and its full name parameter     
+        } else if (cmd.startsWith("OnFailedRunSavedSearchReplaceAll")) {
+            if (countReplaced == 0) {
+                QString fullname = cmd.mid(33, -1).trimmed();
+                m_SearchEditor->SetCurrentEntriesFromFullName(fullname);
+
+                if (m_SearchEditor->GetCurrentEntriesCount() > 0) {
+                    // m_FindReplace handles deleting each searchEntry that was created with new
+                    // Temporarily reroute FindReplace Messages to the Status Bar so they are logged
+                    connect(m_FindReplace, SIGNAL(ShowMessageRequest(const QString &)),
+                            this, SLOT(ShowMessageOnStatusBar(const QString &)));
+                    countReplaced = m_FindReplace->ReplaceAllSearch();
+                    disconnect(m_FindReplace, SIGNAL(ShowMessageRequest(const QString &)),
+                            this, SLOT(ShowMessageOnStatusBar(const QString &)));
+                    success = true;
+                } else {
+                    ShowMessageOnStatusBar(tr("Missing or unknown Saved Search name") + ": " + cmd);
+                    success = false;
+                }
+            } else {
+                ShowMessageOnStatusBar(tr("Conditional search did not run.") + ": " + cmd);
+                success = true;
+            }
+            
+        // handle On Success conditional saved search and its full name parameter     
+        } else if (cmd.startsWith("OnSuccessRunSavedSearchReplaceAll")) {
+            if (countReplaced > 0) {
+                QString fullname = cmd.mid(34, -1).trimmed();
+                m_SearchEditor->SetCurrentEntriesFromFullName(fullname);
+
+                if (m_SearchEditor->GetCurrentEntriesCount() > 0) {
+                    // m_FindReplace handles deleting each searchEntry that was created with new
+                    // Temporarily reroute FindReplace Messages to the Status Bar so they are logged
+                    connect(m_FindReplace, SIGNAL(ShowMessageRequest(const QString &)),
+                            this, SLOT(ShowMessageOnStatusBar(const QString &)));
+                    countReplaced = m_FindReplace->ReplaceAllSearch();
+                    disconnect(m_FindReplace, SIGNAL(ShowMessageRequest(const QString &)),
+                            this, SLOT(ShowMessageOnStatusBar(const QString &)));
+                    success = true;
+                } else {
+                    ShowMessageOnStatusBar(tr("Missing or unknown Saved Search name") + ": " + cmd);
+                    success = false;
+                }
+            } else {
+                ShowMessageOnStatusBar(tr("Conditional Search did not run.") + ": " + cmd);
+                success = true;
             }
         } else {
             ShowMessageOnStatusBar(tr("Missing or unknown plugin or tool") + ": " + cmd);
