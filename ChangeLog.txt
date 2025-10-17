@@ -4,7 +4,7 @@ PreSigil- 2.7.0
      - make sure repomanager.py works with pre- and post-0.23 dulwich
      - fixes for potential crashes from using unitialized member pointers
      - fix issues with ClipsWindow and m_LastPasteTarget
-     - remove QtPositioning from being needed in QtWebEngine builds on macOS
+     - remove QtPositioning from being needed in QtWebEngine builds on MacOS
      - fix bug with double-click to select "word" in CV not working the some for intl langauges
 
    New Features
@@ -13,9 +13,16 @@ PreSigil- 2.7.0
      - update WebProfileMgr to use the new QWebEngneProfileBuilder to properly set up disk caches
      - modify HeadingChange and CaseChange ToolButtons to remember last used action
      - add in a custom Windows manifest file so that Windows open-with works
-     - create a new dynamic automation menu to replace the older toolbar only version (hideable by the user)
-     - allow up top 9 most recent files in the Sigil File menu
+     - create a new dynamic Automation menu to replace the older toolbar only version (hideable by the user)
+     - allow up to 9 most recent files in the Sigil File menu
      - use environment var "SIGIL_ONLY_USE_LANGCODES" to restrict long List of Language codes to user's choice
+     - the Metadata Editor now has a pop up context menu to make navigation easier
+     - the Metadata Editor will now respond as expected to right and left arrow keys for navigation
+     - added support for 2 additional Automation tools available for use in Automation Lists
+         - OnFailedRunSavedSearchReplaceAll
+             - conditionally run a saved search only if the previous saved search produced 0 replacements
+         - OnSuccessRunSavedSearchReplaceAll
+             - conditionally run a saved search if only if the previous saved search produced > 0 replacements
 
 Sigil-2.6.2
    Bug Fixes
