@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-**  Copyright (C) 2016-2024 Kevin B. Hendricks, Stratford, ON Canada
+**  Copyright (C) 2016-2025 Kevin B. Hendricks, Stratford, ON Canada
 **
 **  This file is part of Sigil.
 **
@@ -30,6 +30,7 @@
 #include <QShortcut>
 #include <QInputDialog>
 #include <QTimer>
+#include <QContextMenuEvent>
 #include <QDebug>
 #if QT_VERSION >= QT_VERSION_CHECK(6,5,0)
 #include <QTimeZone>
@@ -57,13 +58,15 @@ MetaEditor::MetaEditor(QWidget *parent)
   : QDialog(parent),
     m_mainWindow(qobject_cast<MainWindow *>(parent)),
     m_RemoveRow(new QShortcut(QKeySequence(Qt::ControlModifier | Qt::Key_Delete),this, 0, 0, Qt::WidgetWithChildrenShortcut)),
-    m_cbDelegate(new MetaEditorItemDelegate())
+    m_cbDelegate(new MetaEditorItemDelegate()),
+    m_ContextMenu(new QMenu(this))
 {
     setupUi(this);
-
+    CreateContextMenuActions();
     view->setTextElideMode(Qt::ElideNone);
     view->setUniformRowHeights(false);
     view->setWordWrap(true);
+    view->setContextMenuPolicy(Qt::CustomContextMenu);
     m_book = m_mainWindow->GetCurrentBook();
     m_version = m_book->GetConstOPF()->GetEpubVersion();
     m_opfdata = m_book->GetOPF()->GetText();
@@ -115,21 +118,29 @@ MetaEditor::MetaEditor(QWidget *parent)
             this, SLOT(updateActions()));
 
     connect(delButton, SIGNAL(clicked()), this, SLOT(removeRow()));
-    connect(tbMoveUp, SIGNAL(clicked()), this, SLOT(moveRowUp()));
-    connect(tbMoveDown, SIGNAL(clicked()), this, SLOT(moveRowDown()));
+    connect(m_Remove,  SIGNAL(triggered()), this, SLOT(removeRow()));
     connect(m_RemoveRow, SIGNAL(activated()), this, SLOT(removeRow()));
+    connect(tbMoveUp, SIGNAL(clicked()), this, SLOT(moveRowUp()));
+    connect(m_MoveUp,  SIGNAL(triggered()), this, SLOT(moveRowUp()));
+    connect(tbMoveDown, SIGNAL(clicked()), this, SLOT(moveRowDown()));
+    connect(m_MoveDown, SIGNAL(triggered()), this, SLOT(moveRowDown()));
 
     if (m_version.startsWith('3')) {
         connect(addMetaButton, SIGNAL(clicked()), this, SLOT(selectElement()));
+        connect(m_AddMetadata, SIGNAL(triggered()), this, SLOT(selectElement()));
         connect(addPropButton, SIGNAL(clicked()), this, SLOT(selectProperty()));
+        connect(m_AddProperty, SIGNAL(triggered()), this, SLOT(selectProperty()));
     } else {
         connect(addMetaButton, SIGNAL(clicked()), this, SLOT(selectE2Element()));
+        connect(m_AddMetadata, SIGNAL(triggered()), this, SLOT(selectE2Element()));
         connect(addPropButton, SIGNAL(clicked()), this, SLOT(selectE2Property()));
+        connect(m_AddProperty, SIGNAL(triggered()), this, SLOT(selectE2Property()));
     }
 
     connect(buttonBox, SIGNAL(accepted()), this, SLOT(saveData()));
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
-
+    connect(view, SIGNAL(customContextMenuRequested(const QPoint &)),
+            this, SLOT(OpenContextMenu(const QPoint &)));
     updateActions();
     setFocusPolicy(Qt::TabFocus);
     view->setFocusPolicy(Qt::StrongFocus);
@@ -151,6 +162,45 @@ MetaEditor::~MetaEditor()
         delete m_cbDelegate;
         m_cbDelegate = 0;
     }
+}
+
+
+void MetaEditor::CreateContextMenuActions()
+{
+    m_AddMetadata = new QAction(tr("Add Metadata element"), this);
+    m_AddProperty = new QAction(tr("Add Property to element"), this);
+    m_Remove      = new QAction(tr("Remove row"), this);
+    m_MoveUp      = new QAction(tr("Move row up"), this);
+    m_MoveDown    = new QAction(tr("Move row down"), this);
+}
+
+void MetaEditor::OpenContextMenu(const QPoint &point)
+{
+    SetupContextMenu(point);
+    m_ContextMenu->exec(view->viewport()->mapToGlobal(point));
+    if (!m_ContextMenu.isNull()) {
+        m_ContextMenu->clear();
+    }
+}
+
+
+void MetaEditor::SetupContextMenu(const QPoint &point)
+{
+    bool hasSelection = !view->selectionModel()->selection().isEmpty();
+    m_ContextMenu->addAction(m_AddMetadata);
+    m_AddMetadata->setEnabled(hasSelection);
+
+    m_ContextMenu->addAction(m_AddProperty);
+    m_AddProperty->setEnabled(hasSelection);
+
+    m_ContextMenu->addAction(m_Remove);
+    m_Remove->setEnabled(hasSelection);
+
+    m_ContextMenu->addAction(m_MoveUp);
+    m_MoveUp->setEnabled(hasSelection);
+
+    m_ContextMenu->addAction(m_MoveDown);
+    m_MoveDown->setEnabled(hasSelection);
 }
 
 

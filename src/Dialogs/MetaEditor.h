@@ -24,6 +24,8 @@
 
 #include <QString>
 #include <QDialog>
+#include <QMenu>
+#include <QPointer>
 #include <QModelIndex>
 #include <QHash>
 #include "Misc/DescriptiveInfo.h"
@@ -31,6 +33,7 @@
 #include "ui_MetaEditor.h"
 
 class QShortcut;
+class QPoint;
 class MainWindow;
 class Book;
 class MetaEditorItemDelegate;
@@ -78,6 +81,8 @@ private slots:
     void selectE2Property();
     void MakeDefaultFirstSelection();
 
+    void OpenContextMenu(const QPoint &point);
+
  private:
     void loadMetadataElements();
     void loadMetadataProperties();
@@ -98,6 +103,9 @@ private slots:
     QString GetOPFMetadata();
     QString SetNewOPFMetadata(QString& data);
 
+    void CreateContextMenuActions();
+    void SetupContextMenu(const QPoint &point);
+
     QHash<QString, DescriptiveInfo> m_ElementInfo;
     QHash<QString, QString> m_ElementCode;
 
@@ -108,16 +116,22 @@ private slots:
     QHash<QString, QString> m_XPropertyCode;
 
     QHash<QString, QStringList> m_Choices;
-
-    MainWindow * m_mainWindow;
-    QShortcut * m_RemoveRow;
-    MetaEditorItemDelegate * m_cbDelegate;
+    QAction * m_AddMetadata = nullptr;
+    QAction * m_AddProperty = nullptr;
+    QAction * m_Remove = nullptr;
+    QAction * m_MoveUp = nullptr;
+    QAction * m_MoveDown = nullptr;
+    
+    MainWindow * m_mainWindow = nullptr;;
+    QShortcut * m_RemoveRow = nullptr;;
+    MetaEditorItemDelegate * m_cbDelegate = nullptr;;
     QSharedPointer<Book> m_book;
     QString m_version;
     QString m_opfdata;
     QString m_otherxml;
     QString m_metatag;
     QStringList m_idlist;
+    QPointer<QMenu> m_ContextMenu;
     
 };
 
