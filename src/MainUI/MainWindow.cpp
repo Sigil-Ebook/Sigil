@@ -456,7 +456,7 @@ bool MainWindow::Automate(const QStringList &commands)
                 ShowMessageOnStatusBar(tr("Missing or unknown Saved Search name") + ": " + cmd);
                 success = false;
             }
-        // handle On Failed conditional saved search and its full name parameter     
+        // handle On Failed conditional saved search and its full name parameter
         } else if (cmd.startsWith("OnFailedRunSavedSearchReplaceAll")) {
             if (countReplaced == 0) {
                 QString fullname = cmd.mid(33, -1).trimmed();
@@ -479,8 +479,8 @@ bool MainWindow::Automate(const QStringList &commands)
                 ShowMessageOnStatusBar(tr("Conditional search did not run.") + ": " + cmd);
                 success = true;
             }
-            
-        // handle On Success conditional saved search and its full name parameter     
+
+        // handle On Success conditional saved search and its full name parameter
         } else if (cmd.startsWith("OnSuccessRunSavedSearchReplaceAll")) {
             if (countReplaced > 0) {
                 QString fullname = cmd.mid(34, -1).trimmed();
