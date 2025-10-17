@@ -1075,9 +1075,6 @@ private:
     QMenu *m_menuAutomateRun = nullptr;
     QAction *m_actionManageAutomate = nullptr;;
 
-    QStringList m_automateLists;
-
-
     bool m_SaveTab;
     bool m_IsClosing;
 
@@ -1100,6 +1097,7 @@ private:
     bool m_UsingAutomate;
     QStringList m_AutomateLog;
     QString m_AutomatePluginParameter;
+    QStringList m_automateLists;
 
     bool m_inShowLastOpenWarnings = false;
     
