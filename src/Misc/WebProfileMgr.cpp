@@ -178,10 +178,11 @@ WebProfileMgr::WebProfileMgr()
     pb.setPersistentPermissionsPolicy(QWebEngineProfile::PersistentPermissionsPolicy::StoreOnDisk);
     pb.setPersistentStoragePath(localStorePath);
     m_preview_profile = pb.createProfile("Preview", nullptr);
+    // handle possible nullptr return by creating a off the record profile
+    if (!m_preview_profile) {
+        m_preview_profile = QWebEngineProfileBuilder::createOffTheRecordProfile(nullptr);
+    }
 #endif
-    
-    qDebug() << "WebProfileMgr Preview - StorageName: " << m_preview_profile->storageName();
-    qDebug() << "WebProfileMgr Preview - CachePath: " << m_preview_profile->cachePath();
     
     InitializeDefaultSettings(m_preview_profile->settings());
     m_preview_profile->settings()->setDefaultTextEncoding("UTF-8");  
@@ -214,9 +215,11 @@ WebProfileMgr::WebProfileMgr()
     pb2.setPersistentPermissionsPolicy(QWebEngineProfile::PersistentPermissionsPolicy::StoreOnDisk);
     pb2.setPersistentStoragePath(devToolsStorePath);
     m_inspector_profile = pb2.createProfile("Inspector", nullptr);
+    // handle possible nullptr return by creating a off the record profile
+    if (!m_inspector_profile) {
+        m_inspector_profile = QWebEngineProfileBuilder::createOffTheRecordProfile(nullptr);
+    }
 #endif
-    qDebug() << "WebProfileMgr Inspector - StorageName: " << m_inspector_profile->storageName();
-    qDebug() << "WebProfileMgr Inspector - CachePath: " << m_inspector_profile->cachePath();
 
     InitializeDefaultSettings(m_inspector_profile->settings());
     m_inspector_profile->settings()->setDefaultTextEncoding("UTF-8");  
