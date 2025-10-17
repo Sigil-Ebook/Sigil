@@ -131,7 +131,7 @@
       </layout>
      </item>
      <item row="0" column="0">
-      <widget class="QTreeView" name="view">
+      <widget class="MetaEditorTreeView" name="view">
        <property name="enabled">
         <bool>true</bool>
        </property>
@@ -184,6 +184,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MetaEditorTreeView</class>
+   <extends>QTreeView</extends>
+   <header>MiscEditors/MetaEditorTreeView.h</header>
+  </customwidget>
+ </customwidgets>
  <tabstops>
   <tabstop>view</tabstop>
   <tabstop>addMetaButton</tabstop>

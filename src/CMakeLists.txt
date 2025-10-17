@@ -449,6 +449,8 @@ set( MISC_EDITORS_FILES
     MiscEditors/SearchEditorTreeView.h
     MiscEditors/SearchEditorModel.cpp
     MiscEditors/SearchEditorModel.h
+    MiscEditors/MetaEditorTreeView.cpp
+    MiscEditors/MetaEditorTreeView.h
     )
 
 set( SPCRE_FILES
