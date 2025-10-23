@@ -859,7 +859,6 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
                     id = new_id;
                     AddLoadWarning(load_warning);
                 }
-
                 m_Files[ id ] = apath;
                 m_FileMimetypes[ id ] = type;
                 m_ManifestFilePaths << file_path;
@@ -869,6 +868,13 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
                 if (properties.contains("nav")) {
                     m_NavId = id;
                     m_NavHref = apath;
+                }
+            } else {
+                if (!m_DuplicateFilePaths.contains(file_path)) {
+                    m_DuplicateFilePaths << file_path;
+                    const QString load_warning = QObject::tr("The OPF manifest contains duplicate file paths for: %1").arg(file_path) +
+                  " - " + QObject::tr("You should edit your OPF file's manifest to remove the duplication.");
+                    AddLoadWarning(load_warning);
                 }
             }
         } else {

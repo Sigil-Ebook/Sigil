@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2018-2021 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2018-2025 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -209,6 +209,7 @@ private:
      */
     QStringList m_ManifestFilePaths;
     QStringList m_ManifestMediaTypes;
+    QStringList m_DuplicateFilePaths;
 
     QSet<QString> m_ZipFilePaths;
 
