@@ -22,7 +22,7 @@ manner for some reason (a bug in Qt?)
 1. Make sure the Qt project "bin" directory is in your path so that
 the right version of "lconvert" can be found. For me this is:
 
-   export MYQTHOME=~/Qt682
+   export MYQTHOME=~/Qt693
    export PATH=${MYQTHOME}/bin:${PATH}
 
 2. Open a terminal and change to the Sigil/src/Resource_Files/ts directory.

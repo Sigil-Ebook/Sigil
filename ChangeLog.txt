@@ -1,4 +1,4 @@
-PreSigil- 2.7.0
+Sigil- 2.7.0
    Bug Fixes
      - make validation of css via W3C network validator work more consistently (http: -> https:)
      - make sure repomanager.py works with pre- and post-0.23 dulwich
@@ -6,6 +6,7 @@ PreSigil- 2.7.0
      - fix issues with ClipsWindow and m_LastPasteTarget
      - remove QtPositioning from being needed in QtWebEngine builds on MacOS
      - fix bug with double-click to select "word" in CV not working the some for intl langauges
+     - fix issues by alerting user to file path duplication during initial load of epub
 
    New Features
      - update to Qt 6.9.3 with some additional patches
