@@ -118,6 +118,8 @@ gnumake -j4
 sudo gnumake install
 cd ../../
 
+
+
 # Building Qt6.9.3 from source
 # -----------------------------
 
@@ -166,16 +168,6 @@ patch -p1 < ../../sources/qt693_fix_mesa_issues.patch
 patch -p1 < ../../sources/qt693_memory_leak_fix_886ff03.patch
 cd ..
 
-# Now Qt 6.9.2 and 6.9.3 QtWebEngine has a commit that needs to be reverted and an
-# extra bug fix has been added
-
-cd qtwebengine
-# first revert the 99cd304 commit
-patch -p1 -R < ../../sources/qt692_ddcd304_reverse_me.patch
-# next add in the bug fix for memory leak
-patch -p1 < ../../sources/qt693_memory_leak_fix_886ff03.patch
-cd ..
-
 # the remaining patches are ONLY important for Qt on macOS
 
 # apply workaround to prevent missing macos application menu items
@@ -204,6 +196,7 @@ cd buildqt693
 
 # note the build itself can take a couple of hours depending on memory available, disk and cpus used
 # need to allow a higher number of file descriptors to be open at one time
+
 ulimit -n 10240
 
 cmake --build . --parallel
