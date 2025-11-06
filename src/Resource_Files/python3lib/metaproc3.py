@@ -64,6 +64,7 @@ _recognized_meta = [
     "schema:accessMode",
     "schema:accessModeSufficient",
     "schema:accessibilityFeature",
+    "schema:accessibilityHazard",
     # "rendition:flow",
     # "rendition:layout",
     # "rendition:orientation",
