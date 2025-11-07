@@ -569,17 +569,17 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="781"/>
         <source>Automation Menu (Advanced):</source>
-        <translation type="unfinished"/>
+        <translation>Мени аутоматизације (напредно):</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="790"/>
         <source>Show top level Automation menu</source>
-        <translation type="unfinished"/>
+        <translation>Прикажи Мени аутоматизације као мени највишег нивоа</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="793"/>
         <source>Show Automation menu.</source>
-        <translation type="unfinished"/>
+        <translation>Приказује Мени аутоматизације.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="811"/>
@@ -1401,12 +1401,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="351"/>
         <source>If previous search failed, run the named Saved Search.</source>
-        <translation type="unfinished"/>
+        <translation>Ако претходна претрага није успела, покреће именовану Сачувану претрагу.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="352"/>
         <source>If previous search had success, run the named Saved Search.</source>
-        <translation type="unfinished"/>
+        <translation>Ако је претходна претрага успела, покреће именовану Сачувану претрагу.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="353"/>
@@ -2103,7 +2103,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="100"/>
         <source>Sigil will send your stylesheet data to the &lt;a href=&apos;https://jigsaw.w3.org/css-validator/&apos;&gt;W3C Validation Service&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>Сигил ће послати податке из вашег описа стилова &lt;a href=&apos;https://jigsaw.w3.org/css-validator/&apos;&gt;W3C сервису за проверу исправности&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="101"/>
@@ -9396,7 +9396,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="430"/>
         <source>&amp;Automation</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Аутоматизација</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="452"/>
@@ -11907,7 +11907,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="3026"/>
         <source>Manage Automation Lists</source>
-        <translation type="unfinished"/>
+        <translation>Управљање Листама аутоматизације</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3032"/>
@@ -12094,12 +12094,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="479"/>
         <source>Conditional search did not run.</source>
-        <translation type="unfinished"/>
+        <translation>Условна претрага се није покренула.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="503"/>
         <source>Conditional Search did not run.</source>
-        <translation type="unfinished"/>
+        <translation>Условна претрага се није покренула.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="507"/>
@@ -12174,7 +12174,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="748"/>
         <source>Run</source>
-        <translation type="unfinished"/>
+        <translation>Покрени</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="768"/>
@@ -12832,7 +12832,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4513"/>
         <source>RunAutomate</source>
-        <translation type="unfinished"/>
+        <translation>Покретање аутоматизације</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4539"/>
@@ -13058,17 +13058,17 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="14"/>
         <source>Manage Automation Lists</source>
-        <translation type="unfinished"/>
+        <translation>Управљање Листама аутоматизације</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="20"/>
         <source>Add New and Remove Automation Lists</source>
-        <translation type="unfinished"/>
+        <translation>Додавање нових и уклањање Листи аутоматизације</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="38"/>
         <source>Adds a new (empty) automation list.</source>
-        <translation type="unfinished"/>
+        <translation>Додаје нову (празну) листу аутоматизације.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="41"/>
@@ -13078,7 +13078,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="51"/>
         <source>Remove selected lists.</source>
-        <translation type="unfinished"/>
+        <translation>Уклања изабране листе.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="54"/>
@@ -13088,7 +13088,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="64"/>
         <source>Rename a selected list.</source>
-        <translation type="unfinished"/>
+        <translation>Мења име изабране листе.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="67"/>
@@ -13098,7 +13098,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="77"/>
         <source>Edit selected list</source>
-        <translation type="unfinished"/>
+        <translation>Уреди изабрану листу</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="80"/>
@@ -13108,38 +13108,38 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="112"/>
         <source>Assign Lists to Quick Launch Automation Icons</source>
-        <translation type="unfinished"/>
+        <translation>Додели Листе иконама за брзо покретање аутоматизације</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="122"/>
         <source>Icon 1:  </source>
-        <translation type="unfinished"/>
+        <translation>Икона 1:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="142"/>
         <source>Icon 2:  </source>
-        <translation type="unfinished"/>
+        <translation>Икона 2:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="162"/>
         <source>Icon 3:  </source>
-        <translation type="unfinished"/>
+        <translation>Икона 3:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ManageAutomation.cpp" line="56"/>
         <source>New List</source>
-        <translation type="unfinished"/>
+        <translation>Нова листа</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ManageAutomation.cpp" line="56"/>
         <location filename="../../Dialogs/ManageAutomation.cpp" line="83"/>
         <source>List Identifier</source>
-        <translation type="unfinished"/>
+        <translation>Идентификатор листе</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ManageAutomation.cpp" line="83"/>
         <source>New Name</source>
-        <translation type="unfinished"/>
+        <translation>Ново име</translation>
     </message>
 </context>
 <context>
@@ -15946,27 +15946,27 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="170"/>
         <source>Add Metadata element</source>
-        <translation type="unfinished"/>
+        <translation>Додај елемент Метаподатка</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="171"/>
         <source>Add Property to element</source>
-        <translation type="unfinished"/>
+        <translation>Додај Особину елементу</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="172"/>
         <source>Remove row</source>
-        <translation type="unfinished"/>
+        <translation>Уклони ред</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="173"/>
         <source>Move row up</source>
-        <translation type="unfinished"/>
+        <translation>Премести ред навише</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="174"/>
         <source>Move row down</source>
-        <translation type="unfinished"/>
+        <translation>Премести ред наниже</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="506"/>
@@ -18302,12 +18302,12 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="875"/>
         <source>The OPF manifest contains duplicate file paths for: %1</source>
-        <translation type="unfinished"/>
+        <translation>OPF манифест садржи дупликат путање фајлова за: %1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="876"/>
         <source>You should edit your OPF file&apos;s manifest to remove the duplication.</source>
-        <translation type="unfinished"/>
+        <translation>Требало би да уредите манифест OPF фајла и уклоните дупликат.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="958"/>
