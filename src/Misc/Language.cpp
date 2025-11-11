@@ -24,6 +24,7 @@
 #include <QtCore/QStringList>
 
 #include "Misc/Utility.h"
+#include "Misc/UILanguage.h"
 #include "Misc/Language.h"
 
 Language *Language::m_instance = 0;
@@ -79,7 +80,19 @@ void Language::SetLanguageMap()
     QStringList used_codes;
     QString codes = Utility::GetEnvironmentVar("SIGIL_ONLY_USE_LANGCODES");
     if (!codes.isEmpty()) {
-        used_codes = codes.split(",");
+        foreach(QString acode, codes.split(",")) {
+            if (!acode.isEmpty() && !acode.trimmed().isEmpty()) {
+                used_codes << acode.trimmed();
+            }
+        }
+        if (!used_codes.isEmpty()) {
+            foreach(QString uicode, UILanguage::GetUILanguages()) {
+                uicode = uicode.replace("_","-");
+                if (!used_codes.contains(uicode)) {
+                    used_codes << uicode;
+                }
+            }
+        }
     }
 
     // Must be a 1 to 1 relationship between codes and names.
