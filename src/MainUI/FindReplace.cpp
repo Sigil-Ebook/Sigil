@@ -82,6 +82,7 @@ FindReplace::FindReplace(MainWindow *main_window)
       m_RegexOptionDotAll(false),
       m_RegexOptionMinimalMatch(false),
       m_RegexOptionAutoTokenise(false),
+      m_RegexOptionUnicodeProperty(false),
       m_OptionWrap(true),
       m_RegexOptionTextOnly(false),
       m_SpellCheck(false),
