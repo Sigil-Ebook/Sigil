@@ -91,7 +91,6 @@ FindReplace::FindReplace(MainWindow *main_window)
       m_StartingResource(nullptr),
       m_StartingPos(-1),
       m_InRemainder(false),
-
       m_SearchRunning(false),
       m_DryRunRunning(false),
       m_ShiftUsed(false),
