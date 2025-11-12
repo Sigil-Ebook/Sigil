@@ -6095,1115 +6095,1102 @@ Haluatko tallentaa muutokset?</translation>
 <context>
     <name>Language</name>
     <message>
-        <location filename="../../Misc/Language.cpp" line="92"/>
+        <location filename="../../Misc/Language.cpp" line="105"/>
         <source>Abkhazian</source>
         <translation>abhaasi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="93"/>
+        <location filename="../../Misc/Language.cpp" line="106"/>
         <source>Afar</source>
         <translation>afar</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="94"/>
+        <location filename="../../Misc/Language.cpp" line="107"/>
         <source>Afrikaans</source>
         <translation>afrikaans</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="95"/>
+        <location filename="../../Misc/Language.cpp" line="108"/>
         <source>Akan</source>
         <translation>akan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="96"/>
+        <location filename="../../Misc/Language.cpp" line="109"/>
         <source>Albanian</source>
         <translation>albania</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="97"/>
+        <location filename="../../Misc/Language.cpp" line="110"/>
         <source>Amharic</source>
         <translation>amhara</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="98"/>
-        <location filename="../../Misc/Language.cpp" line="99"/>
-        <location filename="../../Misc/Language.cpp" line="100"/>
-        <location filename="../../Misc/Language.cpp" line="101"/>
-        <location filename="../../Misc/Language.cpp" line="102"/>
-        <location filename="../../Misc/Language.cpp" line="103"/>
-        <location filename="../../Misc/Language.cpp" line="104"/>
-        <location filename="../../Misc/Language.cpp" line="105"/>
-        <location filename="../../Misc/Language.cpp" line="106"/>
-        <location filename="../../Misc/Language.cpp" line="107"/>
-        <location filename="../../Misc/Language.cpp" line="108"/>
-        <location filename="../../Misc/Language.cpp" line="109"/>
-        <location filename="../../Misc/Language.cpp" line="110"/>
         <location filename="../../Misc/Language.cpp" line="111"/>
         <location filename="../../Misc/Language.cpp" line="112"/>
         <location filename="../../Misc/Language.cpp" line="113"/>
+        <location filename="../../Misc/Language.cpp" line="114"/>
+        <location filename="../../Misc/Language.cpp" line="115"/>
+        <location filename="../../Misc/Language.cpp" line="116"/>
+        <location filename="../../Misc/Language.cpp" line="117"/>
+        <location filename="../../Misc/Language.cpp" line="118"/>
+        <location filename="../../Misc/Language.cpp" line="119"/>
+        <location filename="../../Misc/Language.cpp" line="120"/>
+        <location filename="../../Misc/Language.cpp" line="121"/>
+        <location filename="../../Misc/Language.cpp" line="122"/>
+        <location filename="../../Misc/Language.cpp" line="123"/>
+        <location filename="../../Misc/Language.cpp" line="124"/>
+        <location filename="../../Misc/Language.cpp" line="125"/>
+        <location filename="../../Misc/Language.cpp" line="126"/>
         <source>Arabic</source>
         <translation>arabia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="99"/>
+        <location filename="../../Misc/Language.cpp" line="112"/>
         <source>Algeria</source>
         <translation>Algeria</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="100"/>
+        <location filename="../../Misc/Language.cpp" line="113"/>
         <source>Bahrain</source>
         <translation>Bahrain</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="101"/>
+        <location filename="../../Misc/Language.cpp" line="114"/>
         <source>Egypt</source>
         <translation>Egypti</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="102"/>
+        <location filename="../../Misc/Language.cpp" line="115"/>
         <source>Iraq</source>
         <translation>Irak</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="103"/>
+        <location filename="../../Misc/Language.cpp" line="116"/>
         <source>Jordan</source>
         <translation>Jordan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="104"/>
+        <location filename="../../Misc/Language.cpp" line="117"/>
         <source>Kuwait</source>
         <translation>Kuwait</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="105"/>
+        <location filename="../../Misc/Language.cpp" line="118"/>
         <source>Lebanon</source>
         <translation>Libanon</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="106"/>
+        <location filename="../../Misc/Language.cpp" line="119"/>
         <source>Libya</source>
         <translation>Libya</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="107"/>
+        <location filename="../../Misc/Language.cpp" line="120"/>
         <source>Morocco</source>
         <translation>Markko</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="108"/>
+        <location filename="../../Misc/Language.cpp" line="121"/>
         <source>Oman</source>
         <translation>Oman</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="109"/>
+        <location filename="../../Misc/Language.cpp" line="122"/>
         <source>Qatar</source>
         <translation>Qatar</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="110"/>
+        <location filename="../../Misc/Language.cpp" line="123"/>
         <source>Syria</source>
         <translation>Syyria</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="111"/>
+        <location filename="../../Misc/Language.cpp" line="124"/>
         <source>Tunisia</source>
         <translation>Tunisia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="112"/>
+        <location filename="../../Misc/Language.cpp" line="125"/>
         <source>United Arab Emirates</source>
         <translation>Arabiemiirikunnat</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="113"/>
+        <location filename="../../Misc/Language.cpp" line="126"/>
         <source>Yemen</source>
         <translation>Jemen</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="114"/>
+        <location filename="../../Misc/Language.cpp" line="127"/>
         <source>Aragonese</source>
         <translation>aragonia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="115"/>
+        <location filename="../../Misc/Language.cpp" line="128"/>
         <source>Armenian</source>
         <translation>armenia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="116"/>
+        <location filename="../../Misc/Language.cpp" line="129"/>
         <source>Assamese</source>
         <translation>assami</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="117"/>
+        <location filename="../../Misc/Language.cpp" line="130"/>
         <source>Avaric</source>
         <translation>avaari</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="118"/>
+        <location filename="../../Misc/Language.cpp" line="131"/>
         <source>Avestan</source>
         <translation>avesta</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="119"/>
+        <location filename="../../Misc/Language.cpp" line="132"/>
         <source>Aymara</source>
         <translation>aimara</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="120"/>
-        <location filename="../../Misc/Language.cpp" line="121"/>
+        <location filename="../../Misc/Language.cpp" line="133"/>
+        <location filename="../../Misc/Language.cpp" line="134"/>
         <source>Azerbaijani</source>
         <translation>azeri</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="121"/>
+        <location filename="../../Misc/Language.cpp" line="134"/>
         <source>Azerbaijan</source>
         <translation>Azerbaidžan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="122"/>
+        <location filename="../../Misc/Language.cpp" line="135"/>
         <source>Bambara</source>
         <translation>bambara</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="123"/>
+        <location filename="../../Misc/Language.cpp" line="136"/>
         <source>Bashkir</source>
         <translation>baškiiri</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="124"/>
+        <location filename="../../Misc/Language.cpp" line="137"/>
         <source>Basque</source>
         <translation>baski</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="125"/>
+        <location filename="../../Misc/Language.cpp" line="138"/>
         <source>Belarusian</source>
         <translation>valkovenäjä</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="126"/>
+        <location filename="../../Misc/Language.cpp" line="139"/>
         <source>Bengali</source>
         <translation>bengali</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="127"/>
+        <location filename="../../Misc/Language.cpp" line="140"/>
         <source>Bihari</source>
         <translation>bihari</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="128"/>
+        <location filename="../../Misc/Language.cpp" line="141"/>
         <source>Bislama</source>
         <translation>bislama</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="129"/>
+        <location filename="../../Misc/Language.cpp" line="142"/>
         <source>Bosnian</source>
         <translation>Bosnia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="130"/>
+        <location filename="../../Misc/Language.cpp" line="143"/>
         <source>Breton</source>
         <translation>Breton</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="131"/>
+        <location filename="../../Misc/Language.cpp" line="144"/>
         <source>Bulgarian</source>
         <translation>bulgaria</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="132"/>
+        <location filename="../../Misc/Language.cpp" line="145"/>
         <source>Burmese</source>
         <translation>burma</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="133"/>
-        <location filename="../../Misc/Language.cpp" line="134"/>
+        <location filename="../../Misc/Language.cpp" line="146"/>
+        <location filename="../../Misc/Language.cpp" line="147"/>
         <source>Catalan</source>
         <translation>katalaani</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="134"/>
-        <location filename="../../Misc/Language.cpp" line="319"/>
+        <location filename="../../Misc/Language.cpp" line="147"/>
+        <location filename="../../Misc/Language.cpp" line="332"/>
         <source>Spain</source>
         <translation>Espanja</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="135"/>
+        <location filename="../../Misc/Language.cpp" line="148"/>
         <source>Central Khmer</source>
         <translation>keskikhmer</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="136"/>
+        <location filename="../../Misc/Language.cpp" line="149"/>
         <source>Chamorro</source>
         <translation>tshamorro, tšamorro</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="137"/>
+        <location filename="../../Misc/Language.cpp" line="150"/>
         <source>Chechen</source>
         <translation>tshetsheeni, tšetšeeni</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="138"/>
-        <location filename="../../Misc/Language.cpp" line="139"/>
-        <location filename="../../Misc/Language.cpp" line="140"/>
-        <location filename="../../Misc/Language.cpp" line="141"/>
-        <location filename="../../Misc/Language.cpp" line="142"/>
-        <location filename="../../Misc/Language.cpp" line="143"/>
+        <location filename="../../Misc/Language.cpp" line="151"/>
+        <location filename="../../Misc/Language.cpp" line="152"/>
+        <location filename="../../Misc/Language.cpp" line="153"/>
+        <location filename="../../Misc/Language.cpp" line="154"/>
+        <location filename="../../Misc/Language.cpp" line="155"/>
+        <location filename="../../Misc/Language.cpp" line="156"/>
         <source>Chinese</source>
         <translation>kiina</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="139"/>
+        <location filename="../../Misc/Language.cpp" line="152"/>
         <source>China</source>
         <translation>Kiina</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="140"/>
+        <location filename="../../Misc/Language.cpp" line="153"/>
         <source>Hong Kong</source>
         <translation>Hongkong</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="141"/>
+        <location filename="../../Misc/Language.cpp" line="154"/>
         <source>Macau</source>
         <translation>Macao</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="142"/>
+        <location filename="../../Misc/Language.cpp" line="155"/>
         <source>Singapore</source>
         <translation>Singapore</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="143"/>
+        <location filename="../../Misc/Language.cpp" line="156"/>
         <source>Taiwan</source>
         <translation>Taiwan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="144"/>
+        <location filename="../../Misc/Language.cpp" line="157"/>
         <source>Church Slavic</source>
         <translation>kirkkoslaavi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="145"/>
+        <location filename="../../Misc/Language.cpp" line="158"/>
         <source>Chuvash</source>
         <translation>tshuvassi, tšuvassi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="146"/>
+        <location filename="../../Misc/Language.cpp" line="159"/>
         <source>Cornish</source>
         <translation>korni</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="147"/>
+        <location filename="../../Misc/Language.cpp" line="160"/>
         <source>Corsican</source>
         <translation>korsika</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="148"/>
+        <location filename="../../Misc/Language.cpp" line="161"/>
         <source>Cree</source>
         <translation>cree</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="149"/>
+        <location filename="../../Misc/Language.cpp" line="162"/>
         <source>Croatian</source>
         <translation>kroatia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="150"/>
+        <location filename="../../Misc/Language.cpp" line="163"/>
         <source>Czech</source>
         <translation>tshekki, tšekki</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="151"/>
-        <location filename="../../Misc/Language.cpp" line="152"/>
+        <location filename="../../Misc/Language.cpp" line="164"/>
+        <location filename="../../Misc/Language.cpp" line="165"/>
         <source>Danish</source>
         <translation>tanska</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="152"/>
+        <location filename="../../Misc/Language.cpp" line="165"/>
         <source>Denmark</source>
         <translation>Tanska</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="153"/>
+        <location filename="../../Misc/Language.cpp" line="166"/>
         <source>Dhivehi</source>
         <translation>dhivehi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="154"/>
-        <location filename="../../Misc/Language.cpp" line="155"/>
-        <location filename="../../Misc/Language.cpp" line="156"/>
+        <location filename="../../Misc/Language.cpp" line="167"/>
+        <location filename="../../Misc/Language.cpp" line="168"/>
+        <location filename="../../Misc/Language.cpp" line="169"/>
         <source>Dutch</source>
         <translation>hollanti</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="155"/>
-        <location filename="../../Misc/Language.cpp" line="178"/>
+        <location filename="../../Misc/Language.cpp" line="168"/>
+        <location filename="../../Misc/Language.cpp" line="191"/>
         <source>Belgium</source>
         <translation>Belgia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="156"/>
+        <location filename="../../Misc/Language.cpp" line="169"/>
         <source>Netherlands</source>
         <translation>Alankomaat</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="157"/>
+        <location filename="../../Misc/Language.cpp" line="170"/>
         <source>Dzongkha</source>
         <translation>dzongkha</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="158"/>
-        <location filename="../../Misc/Language.cpp" line="159"/>
-        <location filename="../../Misc/Language.cpp" line="160"/>
-        <location filename="../../Misc/Language.cpp" line="161"/>
-        <location filename="../../Misc/Language.cpp" line="162"/>
-        <location filename="../../Misc/Language.cpp" line="163"/>
-        <location filename="../../Misc/Language.cpp" line="164"/>
-        <location filename="../../Misc/Language.cpp" line="165"/>
-        <location filename="../../Misc/Language.cpp" line="166"/>
-        <location filename="../../Misc/Language.cpp" line="167"/>
-        <location filename="../../Misc/Language.cpp" line="168"/>
-        <location filename="../../Misc/Language.cpp" line="169"/>
-        <location filename="../../Misc/Language.cpp" line="170"/>
-        <source>English</source>
-        <translation>englanti</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="159"/>
-        <source>Australia</source>
-        <translation>Australia</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="160"/>
-        <source>Belize</source>
-        <translation>Belize</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="161"/>
-        <location filename="../../Misc/Language.cpp" line="179"/>
-        <source>Canada</source>
-        <translation>Kanada</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="162"/>
-        <source>Caribbean</source>
-        <translation>Karibia</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="163"/>
-        <source>Great Britain</source>
-        <translation>Britannia</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="164"/>
-        <source>India</source>
-        <translation>Intia</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="165"/>
-        <location filename="../../Misc/Language.cpp" line="185"/>
-        <source>Ireland</source>
-        <translation>Irlanti</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="166"/>
-        <source>Jamaica</source>
-        <translation>Jamaika</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="167"/>
-        <source>Philippines</source>
-        <translation>Filippiinit</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="168"/>
-        <source>Trinidad</source>
-        <translation>Trinidad</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="169"/>
-        <source>South Africa</source>
-        <translation>Etelä-Afrikka</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="170"/>
-        <source>United States</source>
-        <translation>Yhdysvallat</translation>
-    </message>
-    <message>
         <location filename="../../Misc/Language.cpp" line="171"/>
-        <source>Esperanto</source>
-        <translation>esperanto</translation>
-    </message>
-    <message>
         <location filename="../../Misc/Language.cpp" line="172"/>
-        <source>Estonian</source>
-        <translation>viro</translation>
-    </message>
-    <message>
         <location filename="../../Misc/Language.cpp" line="173"/>
-        <source>Ewe</source>
-        <translation>ewe</translation>
-    </message>
-    <message>
         <location filename="../../Misc/Language.cpp" line="174"/>
-        <source>Faroese</source>
-        <translation>fääri</translation>
-    </message>
-    <message>
         <location filename="../../Misc/Language.cpp" line="175"/>
-        <source>Fijian</source>
-        <translation>fidži</translation>
-    </message>
-    <message>
         <location filename="../../Misc/Language.cpp" line="176"/>
-        <source>Finnish</source>
-        <translation>suomi</translation>
-    </message>
-    <message>
         <location filename="../../Misc/Language.cpp" line="177"/>
         <location filename="../../Misc/Language.cpp" line="178"/>
         <location filename="../../Misc/Language.cpp" line="179"/>
         <location filename="../../Misc/Language.cpp" line="180"/>
         <location filename="../../Misc/Language.cpp" line="181"/>
         <location filename="../../Misc/Language.cpp" line="182"/>
+        <location filename="../../Misc/Language.cpp" line="183"/>
+        <source>English</source>
+        <translation>englanti</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="172"/>
+        <source>Australia</source>
+        <translation>Australia</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="173"/>
+        <source>Belize</source>
+        <translation>Belize</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="174"/>
+        <location filename="../../Misc/Language.cpp" line="192"/>
+        <source>Canada</source>
+        <translation>Kanada</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="175"/>
+        <source>Caribbean</source>
+        <translation>Karibia</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="176"/>
+        <source>Great Britain</source>
+        <translation>Britannia</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="177"/>
+        <source>India</source>
+        <translation>Intia</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="178"/>
+        <location filename="../../Misc/Language.cpp" line="198"/>
+        <source>Ireland</source>
+        <translation>Irlanti</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="179"/>
+        <source>Jamaica</source>
+        <translation>Jamaika</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="180"/>
+        <source>Philippines</source>
+        <translation>Filippiinit</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="181"/>
+        <source>Trinidad</source>
+        <translation>Trinidad</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="182"/>
+        <source>South Africa</source>
+        <translation>Etelä-Afrikka</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="183"/>
+        <source>United States</source>
+        <translation>Yhdysvallat</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="184"/>
+        <source>Esperanto</source>
+        <translation>esperanto</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="185"/>
+        <source>Estonian</source>
+        <translation>viro</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="186"/>
+        <source>Ewe</source>
+        <translation>ewe</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="187"/>
+        <source>Faroese</source>
+        <translation>fääri</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="188"/>
+        <source>Fijian</source>
+        <translation>fidži</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="189"/>
+        <source>Finnish</source>
+        <translation>suomi</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="190"/>
+        <location filename="../../Misc/Language.cpp" line="191"/>
+        <location filename="../../Misc/Language.cpp" line="192"/>
+        <location filename="../../Misc/Language.cpp" line="193"/>
+        <location filename="../../Misc/Language.cpp" line="194"/>
+        <location filename="../../Misc/Language.cpp" line="195"/>
         <source>French</source>
         <translation>ranska</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="180"/>
+        <location filename="../../Misc/Language.cpp" line="193"/>
         <source>France</source>
         <translation>Ranska</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="181"/>
-        <location filename="../../Misc/Language.cpp" line="193"/>
+        <location filename="../../Misc/Language.cpp" line="194"/>
+        <location filename="../../Misc/Language.cpp" line="206"/>
         <source>Luxembourg</source>
         <translation>Luxemburg</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="182"/>
-        <location filename="../../Misc/Language.cpp" line="194"/>
-        <location filename="../../Misc/Language.cpp" line="219"/>
+        <location filename="../../Misc/Language.cpp" line="195"/>
+        <location filename="../../Misc/Language.cpp" line="207"/>
+        <location filename="../../Misc/Language.cpp" line="232"/>
         <source>Switzerland</source>
         <translation>Sveitsi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="183"/>
+        <location filename="../../Misc/Language.cpp" line="196"/>
         <source>Fulah</source>
         <translation>fulani</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="184"/>
-        <location filename="../../Misc/Language.cpp" line="185"/>
+        <location filename="../../Misc/Language.cpp" line="197"/>
+        <location filename="../../Misc/Language.cpp" line="198"/>
         <source>Gaelic</source>
         <translation>gaeli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="184"/>
+        <location filename="../../Misc/Language.cpp" line="197"/>
         <source>Scotland</source>
         <translation>Skotlanti</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="186"/>
+        <location filename="../../Misc/Language.cpp" line="199"/>
         <source>Galician</source>
         <translation>galicia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="187"/>
+        <location filename="../../Misc/Language.cpp" line="200"/>
         <source>Ganda</source>
         <translation>ganda</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="188"/>
+        <location filename="../../Misc/Language.cpp" line="201"/>
         <source>Georgian</source>
         <translation>georgia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="189"/>
-        <location filename="../../Misc/Language.cpp" line="190"/>
-        <location filename="../../Misc/Language.cpp" line="191"/>
-        <location filename="../../Misc/Language.cpp" line="192"/>
-        <location filename="../../Misc/Language.cpp" line="193"/>
-        <location filename="../../Misc/Language.cpp" line="194"/>
+        <location filename="../../Misc/Language.cpp" line="202"/>
+        <location filename="../../Misc/Language.cpp" line="203"/>
+        <location filename="../../Misc/Language.cpp" line="204"/>
+        <location filename="../../Misc/Language.cpp" line="205"/>
+        <location filename="../../Misc/Language.cpp" line="206"/>
+        <location filename="../../Misc/Language.cpp" line="207"/>
         <source>German</source>
         <translation>saksa</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="190"/>
+        <location filename="../../Misc/Language.cpp" line="203"/>
         <source>Austria</source>
         <translation>Itävalta</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="191"/>
+        <location filename="../../Misc/Language.cpp" line="204"/>
         <source>Germany</source>
         <translation>Saksa</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="192"/>
+        <location filename="../../Misc/Language.cpp" line="205"/>
         <source>Liechtenstein</source>
         <translation>Liechtenstein</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="195"/>
+        <location filename="../../Misc/Language.cpp" line="208"/>
         <source>Greek, Modern</source>
         <translation>kreikka, nyky-</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="196"/>
+        <location filename="../../Misc/Language.cpp" line="209"/>
         <source>Greek</source>
         <translation>kreikka</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="197"/>
+        <location filename="../../Misc/Language.cpp" line="210"/>
         <source>Guarani</source>
         <translation>guarani</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="198"/>
+        <location filename="../../Misc/Language.cpp" line="211"/>
         <source>Gujarati</source>
         <translation>gudžarati</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="199"/>
+        <location filename="../../Misc/Language.cpp" line="212"/>
         <source>Haitian</source>
         <translation>haiti</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="200"/>
+        <location filename="../../Misc/Language.cpp" line="213"/>
         <source>Hausa</source>
         <translation>hausa</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="201"/>
+        <location filename="../../Misc/Language.cpp" line="214"/>
         <source>Hebrew</source>
         <translation>heprea</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="202"/>
+        <location filename="../../Misc/Language.cpp" line="215"/>
         <source>Herero</source>
         <translation>herero</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="203"/>
+        <location filename="../../Misc/Language.cpp" line="216"/>
         <source>Hindi</source>
         <translation>hindi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="204"/>
+        <location filename="../../Misc/Language.cpp" line="217"/>
         <source>Hiri Motu</source>
         <translation>hiri-motu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="205"/>
-        <location filename="../../Misc/Language.cpp" line="206"/>
+        <location filename="../../Misc/Language.cpp" line="218"/>
+        <location filename="../../Misc/Language.cpp" line="219"/>
         <source>Hungarian</source>
         <translation>unkari</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="206"/>
+        <location filename="../../Misc/Language.cpp" line="219"/>
         <source>Hungary</source>
         <translation>Unkari</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="207"/>
+        <location filename="../../Misc/Language.cpp" line="220"/>
         <source>Icelandic</source>
         <translation>islanti</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="208"/>
+        <location filename="../../Misc/Language.cpp" line="221"/>
         <source>Ido</source>
         <translation>ido</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="209"/>
+        <location filename="../../Misc/Language.cpp" line="222"/>
         <source>Igbo</source>
         <translation>igbo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="210"/>
+        <location filename="../../Misc/Language.cpp" line="223"/>
         <source>Indonesian</source>
         <translation>indonesia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="211"/>
+        <location filename="../../Misc/Language.cpp" line="224"/>
         <source>Indonesian - Indonesia</source>
         <translation>indonesia - Indonesia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="212"/>
+        <location filename="../../Misc/Language.cpp" line="225"/>
         <source>Interlingua</source>
         <translation>interlingua</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="213"/>
+        <location filename="../../Misc/Language.cpp" line="226"/>
         <source>Interlingue</source>
         <translation>interlingue</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="214"/>
+        <location filename="../../Misc/Language.cpp" line="227"/>
         <source>Inuktitut</source>
         <translation>inuktitut</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="215"/>
+        <location filename="../../Misc/Language.cpp" line="228"/>
         <source>Inupiaq</source>
         <translation>inupiaq</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="216"/>
+        <location filename="../../Misc/Language.cpp" line="229"/>
         <source>Irish</source>
         <translation>iiri</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="217"/>
-        <location filename="../../Misc/Language.cpp" line="218"/>
-        <location filename="../../Misc/Language.cpp" line="219"/>
+        <location filename="../../Misc/Language.cpp" line="230"/>
+        <location filename="../../Misc/Language.cpp" line="231"/>
+        <location filename="../../Misc/Language.cpp" line="232"/>
         <source>Italian</source>
         <translation>italia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="218"/>
+        <location filename="../../Misc/Language.cpp" line="231"/>
         <source>Italy</source>
         <translation>Italia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="220"/>
+        <location filename="../../Misc/Language.cpp" line="233"/>
         <source>Japanese</source>
         <translation>japani</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="221"/>
+        <location filename="../../Misc/Language.cpp" line="234"/>
         <source>Javanese</source>
         <translation>jaava</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="222"/>
+        <location filename="../../Misc/Language.cpp" line="235"/>
         <source>Kalaallisut</source>
         <translation>kalaallisut</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="223"/>
+        <location filename="../../Misc/Language.cpp" line="236"/>
         <source>Kannada</source>
         <translation>kannada</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="224"/>
+        <location filename="../../Misc/Language.cpp" line="237"/>
         <source>Kanuri</source>
         <translation>kanuri</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="225"/>
+        <location filename="../../Misc/Language.cpp" line="238"/>
         <source>Kashmiri</source>
         <translation>kashmiri, kašmiri</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="226"/>
+        <location filename="../../Misc/Language.cpp" line="239"/>
         <source>Kazakh</source>
         <translation>kazakki</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="227"/>
+        <location filename="../../Misc/Language.cpp" line="240"/>
         <source>Kikuyu</source>
         <translation>kikuju</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="228"/>
+        <location filename="../../Misc/Language.cpp" line="241"/>
         <source>Kinyarwanda</source>
         <translation>ruanda</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="229"/>
+        <location filename="../../Misc/Language.cpp" line="242"/>
         <source>Kirghiz</source>
         <translation>kirgiisi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="230"/>
+        <location filename="../../Misc/Language.cpp" line="243"/>
         <source>Komi</source>
         <translation>komi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="231"/>
+        <location filename="../../Misc/Language.cpp" line="244"/>
         <source>Kongo</source>
         <translation>kongo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="232"/>
+        <location filename="../../Misc/Language.cpp" line="245"/>
         <source>Korean</source>
         <translation>korea</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="233"/>
+        <location filename="../../Misc/Language.cpp" line="246"/>
         <source>Kuanyama</source>
         <translation>kuanjama</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="234"/>
+        <location filename="../../Misc/Language.cpp" line="247"/>
         <source>Kurdish</source>
         <translation>kurdi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="235"/>
+        <location filename="../../Misc/Language.cpp" line="248"/>
         <source>Lao</source>
         <translation>lao</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="236"/>
+        <location filename="../../Misc/Language.cpp" line="249"/>
         <source>Latin</source>
         <translation>latina</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="237"/>
-        <location filename="../../Misc/Language.cpp" line="238"/>
+        <location filename="../../Misc/Language.cpp" line="250"/>
+        <location filename="../../Misc/Language.cpp" line="251"/>
         <source>Latvian</source>
         <translation>latvia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="238"/>
+        <location filename="../../Misc/Language.cpp" line="251"/>
         <source>Latvia</source>
         <translation>Latvia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="239"/>
+        <location filename="../../Misc/Language.cpp" line="252"/>
         <source>Limburgan</source>
         <translation>limburg</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="240"/>
+        <location filename="../../Misc/Language.cpp" line="253"/>
         <source>Lingala</source>
         <translation>lingala</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="241"/>
+        <location filename="../../Misc/Language.cpp" line="254"/>
         <source>Lithuanian</source>
         <translation>liettua</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="242"/>
+        <location filename="../../Misc/Language.cpp" line="255"/>
         <source>Luba-Katanga</source>
         <translation>katanganluba</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="243"/>
+        <location filename="../../Misc/Language.cpp" line="256"/>
         <source>Luxembourgish</source>
         <translation>luxemburg</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="244"/>
+        <location filename="../../Misc/Language.cpp" line="257"/>
         <source>Macedonian</source>
         <translation>makedonia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="245"/>
+        <location filename="../../Misc/Language.cpp" line="258"/>
         <source>Malagasy</source>
         <translation>malagassi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="246"/>
+        <location filename="../../Misc/Language.cpp" line="259"/>
         <source>Malayalam</source>
         <translation>malajalam</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="247"/>
-        <location filename="../../Misc/Language.cpp" line="248"/>
-        <location filename="../../Misc/Language.cpp" line="249"/>
+        <location filename="../../Misc/Language.cpp" line="260"/>
+        <location filename="../../Misc/Language.cpp" line="261"/>
+        <location filename="../../Misc/Language.cpp" line="262"/>
         <source>Malay</source>
         <translation>malaiji</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="248"/>
+        <location filename="../../Misc/Language.cpp" line="261"/>
         <source>Brunei</source>
         <translation>Brunei</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="249"/>
+        <location filename="../../Misc/Language.cpp" line="262"/>
         <source>Malaysia</source>
         <translation>Malesia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="250"/>
+        <location filename="../../Misc/Language.cpp" line="263"/>
         <source>Maltese</source>
         <translation>malta</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="251"/>
+        <location filename="../../Misc/Language.cpp" line="264"/>
         <source>Manx</source>
         <translation>manksi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="252"/>
+        <location filename="../../Misc/Language.cpp" line="265"/>
         <source>Maori</source>
         <translation>maori</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="253"/>
+        <location filename="../../Misc/Language.cpp" line="266"/>
         <source>Marathi</source>
         <translation>marathi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="254"/>
+        <location filename="../../Misc/Language.cpp" line="267"/>
         <source>Marshallese</source>
         <translation>marshall</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="255"/>
+        <location filename="../../Misc/Language.cpp" line="268"/>
         <source>Mongolian</source>
         <translation>mongolia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="256"/>
+        <location filename="../../Misc/Language.cpp" line="269"/>
         <source>Nauru</source>
         <translation>nauru</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="257"/>
+        <location filename="../../Misc/Language.cpp" line="270"/>
         <source>Navajo</source>
         <translation>navajo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="258"/>
-        <location filename="../../Misc/Language.cpp" line="259"/>
+        <location filename="../../Misc/Language.cpp" line="271"/>
+        <location filename="../../Misc/Language.cpp" line="272"/>
         <source>Ndebele</source>
         <translation>ndebele</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="258"/>
+        <location filename="../../Misc/Language.cpp" line="271"/>
         <source>North</source>
         <translation>pohjois</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="259"/>
+        <location filename="../../Misc/Language.cpp" line="272"/>
         <source>South</source>
         <translation>etelä</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="260"/>
+        <location filename="../../Misc/Language.cpp" line="273"/>
         <source>Ndonga</source>
         <translation>ndonga</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="261"/>
+        <location filename="../../Misc/Language.cpp" line="274"/>
         <source>Nepali</source>
         <translation>nepali</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="262"/>
+        <location filename="../../Misc/Language.cpp" line="275"/>
         <source>Northern, Sami</source>
         <translation>pohjoissaame</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="263"/>
-        <location filename="../../Misc/Language.cpp" line="264"/>
-        <location filename="../../Misc/Language.cpp" line="265"/>
-        <source>Norwegian</source>
-        <translation>norja</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="264"/>
-        <source>Bokmal</source>
-        <translation>bokmål</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="265"/>
-        <source>Nynorsk</source>
-        <translation>nynorsk</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="266"/>
-        <source>Nyanja</source>
-        <translation>njandža</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="267"/>
-        <source>Occitan</source>
-        <translation>oksitaani</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="268"/>
-        <source>Ojibwa</source>
-        <translation>odžibwa</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="269"/>
-        <source>Oriya</source>
-        <translation>orija</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="270"/>
-        <source>Oromo</source>
-        <translation>oromo</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="271"/>
-        <source>Ossetian</source>
-        <translation>osseetti</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="272"/>
-        <source>Pali</source>
-        <translation>paali</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="273"/>
-        <source>Panjabi</source>
-        <translation>pandžabi</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="274"/>
-        <source>Persian</source>
-        <translation>farsi</translation>
-    </message>
-    <message>
-        <location filename="../../Misc/Language.cpp" line="275"/>
-        <source>Polish</source>
-        <translation>puola</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="276"/>
         <location filename="../../Misc/Language.cpp" line="277"/>
         <location filename="../../Misc/Language.cpp" line="278"/>
+        <source>Norwegian</source>
+        <translation>norja</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="277"/>
+        <source>Bokmal</source>
+        <translation>bokmål</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="278"/>
+        <source>Nynorsk</source>
+        <translation>nynorsk</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="279"/>
+        <source>Nyanja</source>
+        <translation>njandža</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="280"/>
+        <source>Occitan</source>
+        <translation>oksitaani</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="281"/>
+        <source>Ojibwa</source>
+        <translation>odžibwa</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="282"/>
+        <source>Oriya</source>
+        <translation>orija</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="283"/>
+        <source>Oromo</source>
+        <translation>oromo</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="284"/>
+        <source>Ossetian</source>
+        <translation>osseetti</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="285"/>
+        <source>Pali</source>
+        <translation>paali</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="286"/>
+        <source>Panjabi</source>
+        <translation>pandžabi</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="287"/>
+        <source>Persian</source>
+        <translation>farsi</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="288"/>
+        <source>Polish</source>
+        <translation>puola</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="289"/>
+        <location filename="../../Misc/Language.cpp" line="290"/>
+        <location filename="../../Misc/Language.cpp" line="291"/>
         <source>Portuguese</source>
         <translation>portugali</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="277"/>
+        <location filename="../../Misc/Language.cpp" line="290"/>
         <source>Brazil</source>
         <translation>Brasilia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="278"/>
+        <location filename="../../Misc/Language.cpp" line="291"/>
         <source>Portugal</source>
         <translation>Portugal</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="279"/>
+        <location filename="../../Misc/Language.cpp" line="292"/>
         <source>Pushto</source>
         <translation>paštu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="280"/>
+        <location filename="../../Misc/Language.cpp" line="293"/>
         <source>Quechua</source>
         <translation>ketšua</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="281"/>
-        <location filename="../../Misc/Language.cpp" line="282"/>
-        <location filename="../../Misc/Language.cpp" line="283"/>
+        <location filename="../../Misc/Language.cpp" line="294"/>
+        <location filename="../../Misc/Language.cpp" line="295"/>
+        <location filename="../../Misc/Language.cpp" line="296"/>
         <source>Romanian</source>
         <translation>romania</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="282"/>
-        <location filename="../../Misc/Language.cpp" line="287"/>
+        <location filename="../../Misc/Language.cpp" line="295"/>
+        <location filename="../../Misc/Language.cpp" line="300"/>
         <source>Moldova</source>
         <translation>Moldova</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="283"/>
+        <location filename="../../Misc/Language.cpp" line="296"/>
         <source>Romania</source>
         <translation>Romania</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="284"/>
+        <location filename="../../Misc/Language.cpp" line="297"/>
         <source>Romansh</source>
         <translation>retoromaani</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="285"/>
+        <location filename="../../Misc/Language.cpp" line="298"/>
         <source>Rundi</source>
         <translation>rundi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="286"/>
-        <location filename="../../Misc/Language.cpp" line="287"/>
+        <location filename="../../Misc/Language.cpp" line="299"/>
+        <location filename="../../Misc/Language.cpp" line="300"/>
         <source>Russian</source>
         <translation>venäjä</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="288"/>
+        <location filename="../../Misc/Language.cpp" line="301"/>
         <source>Samoan</source>
         <translation>samoa</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="289"/>
+        <location filename="../../Misc/Language.cpp" line="302"/>
         <source>Sango</source>
         <translation>sango</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="290"/>
+        <location filename="../../Misc/Language.cpp" line="303"/>
         <source>Sanskrit</source>
         <translation>sanskrit</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="291"/>
+        <location filename="../../Misc/Language.cpp" line="304"/>
         <source>Sardinian</source>
         <translation>sardi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="292"/>
-        <location filename="../../Misc/Language.cpp" line="293"/>
+        <location filename="../../Misc/Language.cpp" line="305"/>
+        <location filename="../../Misc/Language.cpp" line="306"/>
         <source>Serbian</source>
         <translation>serbia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="293"/>
+        <location filename="../../Misc/Language.cpp" line="306"/>
         <source>Serbia</source>
         <translation>Serbia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="294"/>
+        <location filename="../../Misc/Language.cpp" line="307"/>
         <source>Shona</source>
         <translation>shona, šona</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="295"/>
+        <location filename="../../Misc/Language.cpp" line="308"/>
         <source>Sichuan Yi</source>
         <translation>sichuanin-yi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="296"/>
+        <location filename="../../Misc/Language.cpp" line="309"/>
         <source>Sindhi</source>
         <translation>sindhi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="297"/>
+        <location filename="../../Misc/Language.cpp" line="310"/>
         <source>Sinhala</source>
         <translation>sinhala</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="298"/>
+        <location filename="../../Misc/Language.cpp" line="311"/>
         <source>Slovak</source>
         <translation>slovakki</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="299"/>
+        <location filename="../../Misc/Language.cpp" line="312"/>
         <source>Slovenian</source>
         <translation>sloveeni</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="300"/>
+        <location filename="../../Misc/Language.cpp" line="313"/>
         <source>Somali</source>
         <translation>somali</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="301"/>
+        <location filename="../../Misc/Language.cpp" line="314"/>
         <source>Sotho, Southern</source>
         <translation>sotho, etelä-</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="302"/>
-        <location filename="../../Misc/Language.cpp" line="303"/>
-        <location filename="../../Misc/Language.cpp" line="304"/>
-        <location filename="../../Misc/Language.cpp" line="305"/>
-        <location filename="../../Misc/Language.cpp" line="306"/>
-        <location filename="../../Misc/Language.cpp" line="307"/>
-        <location filename="../../Misc/Language.cpp" line="308"/>
-        <location filename="../../Misc/Language.cpp" line="309"/>
-        <location filename="../../Misc/Language.cpp" line="310"/>
-        <location filename="../../Misc/Language.cpp" line="311"/>
-        <location filename="../../Misc/Language.cpp" line="312"/>
-        <location filename="../../Misc/Language.cpp" line="313"/>
-        <location filename="../../Misc/Language.cpp" line="314"/>
         <location filename="../../Misc/Language.cpp" line="315"/>
         <location filename="../../Misc/Language.cpp" line="316"/>
         <location filename="../../Misc/Language.cpp" line="317"/>
@@ -7211,1811 +7198,1824 @@ Haluatko tallentaa muutokset?</translation>
         <location filename="../../Misc/Language.cpp" line="319"/>
         <location filename="../../Misc/Language.cpp" line="320"/>
         <location filename="../../Misc/Language.cpp" line="321"/>
+        <location filename="../../Misc/Language.cpp" line="322"/>
+        <location filename="../../Misc/Language.cpp" line="323"/>
+        <location filename="../../Misc/Language.cpp" line="324"/>
+        <location filename="../../Misc/Language.cpp" line="325"/>
+        <location filename="../../Misc/Language.cpp" line="326"/>
+        <location filename="../../Misc/Language.cpp" line="327"/>
+        <location filename="../../Misc/Language.cpp" line="328"/>
+        <location filename="../../Misc/Language.cpp" line="329"/>
+        <location filename="../../Misc/Language.cpp" line="330"/>
+        <location filename="../../Misc/Language.cpp" line="331"/>
+        <location filename="../../Misc/Language.cpp" line="332"/>
+        <location filename="../../Misc/Language.cpp" line="333"/>
+        <location filename="../../Misc/Language.cpp" line="334"/>
         <source>Spanish</source>
         <translation>espanja</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="303"/>
+        <location filename="../../Misc/Language.cpp" line="316"/>
         <source>Argentina</source>
         <translation>Argentiina</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="304"/>
+        <location filename="../../Misc/Language.cpp" line="317"/>
         <source>Bolivia</source>
         <translation>Bolivia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="305"/>
+        <location filename="../../Misc/Language.cpp" line="318"/>
         <source>Chile</source>
         <translation>Chile</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="306"/>
+        <location filename="../../Misc/Language.cpp" line="319"/>
         <source>Colombia</source>
         <translation>Kolumbia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="307"/>
+        <location filename="../../Misc/Language.cpp" line="320"/>
         <source>Costa Rica</source>
         <translation>Costa Rica</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="308"/>
+        <location filename="../../Misc/Language.cpp" line="321"/>
         <source>Dominican Republic</source>
         <translation>Dominikaaninen tasavalta</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="309"/>
+        <location filename="../../Misc/Language.cpp" line="322"/>
         <source>Ecuador</source>
         <translation>Ecuador</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="310"/>
+        <location filename="../../Misc/Language.cpp" line="323"/>
         <source>El Salvador</source>
         <translation>El Salvador</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="311"/>
+        <location filename="../../Misc/Language.cpp" line="324"/>
         <source>Guatemala</source>
         <translation>Guatemala</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="312"/>
+        <location filename="../../Misc/Language.cpp" line="325"/>
         <source>Honduras</source>
         <translation>Honduras</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="313"/>
+        <location filename="../../Misc/Language.cpp" line="326"/>
         <source>Mexico</source>
         <translation>Meksiko</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="314"/>
+        <location filename="../../Misc/Language.cpp" line="327"/>
         <source>Nicaragua</source>
         <translation>Nicaragua</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="315"/>
+        <location filename="../../Misc/Language.cpp" line="328"/>
         <source>Panama</source>
         <translation>Panama</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="316"/>
+        <location filename="../../Misc/Language.cpp" line="329"/>
         <source>Paraguay</source>
         <translation>Paraguay</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="317"/>
+        <location filename="../../Misc/Language.cpp" line="330"/>
         <source>Peru</source>
         <translation>Peru</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="318"/>
+        <location filename="../../Misc/Language.cpp" line="331"/>
         <source>Puerto Rico</source>
         <translation>Puerto Rico</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="320"/>
+        <location filename="../../Misc/Language.cpp" line="333"/>
         <source>Uruguay</source>
         <translation>Uruguay</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="321"/>
+        <location filename="../../Misc/Language.cpp" line="334"/>
         <source>Venezuela</source>
         <translation>Venezuela</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="322"/>
+        <location filename="../../Misc/Language.cpp" line="335"/>
         <source>Sundanese</source>
         <translation>sunda</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="323"/>
+        <location filename="../../Misc/Language.cpp" line="336"/>
         <source>Swahili</source>
         <translation>swahili</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="324"/>
+        <location filename="../../Misc/Language.cpp" line="337"/>
         <source>Swati</source>
         <translation>swazi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="325"/>
-        <location filename="../../Misc/Language.cpp" line="326"/>
-        <location filename="../../Misc/Language.cpp" line="327"/>
+        <location filename="../../Misc/Language.cpp" line="338"/>
+        <location filename="../../Misc/Language.cpp" line="339"/>
+        <location filename="../../Misc/Language.cpp" line="340"/>
         <source>Swedish</source>
         <translation>ruotsi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="326"/>
+        <location filename="../../Misc/Language.cpp" line="339"/>
         <source>Finland</source>
         <translation>Suomi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="327"/>
+        <location filename="../../Misc/Language.cpp" line="340"/>
         <source>Sweden</source>
         <translation>Ruotsi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="328"/>
+        <location filename="../../Misc/Language.cpp" line="341"/>
         <source>Tagalog</source>
         <translation>tagalog</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="329"/>
+        <location filename="../../Misc/Language.cpp" line="342"/>
         <source>Tahitian</source>
         <translation>tahiti</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="330"/>
+        <location filename="../../Misc/Language.cpp" line="343"/>
         <source>Tajik</source>
         <translation>tadžikki</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="331"/>
+        <location filename="../../Misc/Language.cpp" line="344"/>
         <source>Tamil</source>
         <translation>tamili</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="332"/>
+        <location filename="../../Misc/Language.cpp" line="345"/>
         <source>Tatar</source>
         <translation>tataari</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="333"/>
+        <location filename="../../Misc/Language.cpp" line="346"/>
         <source>Telugu</source>
         <translation>telugu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="334"/>
+        <location filename="../../Misc/Language.cpp" line="347"/>
         <source>Thai</source>
         <translation>thai</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="335"/>
+        <location filename="../../Misc/Language.cpp" line="348"/>
         <source>Tibetan</source>
         <translation>tiibet</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="336"/>
+        <location filename="../../Misc/Language.cpp" line="349"/>
         <source>Tigrinya</source>
         <translation>tigrinja</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="337"/>
+        <location filename="../../Misc/Language.cpp" line="350"/>
         <source>Tonga</source>
         <translation>tonga</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="338"/>
+        <location filename="../../Misc/Language.cpp" line="351"/>
         <source>Tsonga</source>
         <translation>tsonga</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="339"/>
+        <location filename="../../Misc/Language.cpp" line="352"/>
         <source>Tswana</source>
         <translation>tswana</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="340"/>
-        <location filename="../../Misc/Language.cpp" line="341"/>
+        <location filename="../../Misc/Language.cpp" line="353"/>
+        <location filename="../../Misc/Language.cpp" line="354"/>
         <source>Turkish</source>
         <translation>turkki</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="341"/>
+        <location filename="../../Misc/Language.cpp" line="354"/>
         <source>Turkey</source>
         <translation>Turkki</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="342"/>
+        <location filename="../../Misc/Language.cpp" line="355"/>
         <source>Turkmen</source>
         <translation>turkmeeni</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="343"/>
+        <location filename="../../Misc/Language.cpp" line="356"/>
         <source>Twi</source>
         <translation>twi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="344"/>
+        <location filename="../../Misc/Language.cpp" line="357"/>
         <source>Uighur</source>
         <translation>uiguuri</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="345"/>
-        <location filename="../../Misc/Language.cpp" line="346"/>
+        <location filename="../../Misc/Language.cpp" line="358"/>
+        <location filename="../../Misc/Language.cpp" line="359"/>
         <source>Ukrainian</source>
         <translation>ukraina</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="346"/>
+        <location filename="../../Misc/Language.cpp" line="359"/>
         <source>Ukraine</source>
         <translation>Ukraina</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="347"/>
+        <location filename="../../Misc/Language.cpp" line="360"/>
         <source>Urdu</source>
         <translation>urdu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="348"/>
-        <location filename="../../Misc/Language.cpp" line="349"/>
+        <location filename="../../Misc/Language.cpp" line="361"/>
+        <location filename="../../Misc/Language.cpp" line="362"/>
         <source>Uzbek</source>
         <translation>uzbekki</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="349"/>
+        <location filename="../../Misc/Language.cpp" line="362"/>
         <source>Uzbekistan</source>
         <translation>Uzbekistan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="350"/>
+        <location filename="../../Misc/Language.cpp" line="363"/>
         <source>Venda</source>
         <translation>venda</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="351"/>
+        <location filename="../../Misc/Language.cpp" line="364"/>
         <source>Vietnamese</source>
         <translation>vietnam</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="352"/>
+        <location filename="../../Misc/Language.cpp" line="365"/>
         <source>Volapuk</source>
         <translation>volapük</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="353"/>
+        <location filename="../../Misc/Language.cpp" line="366"/>
         <source>Walloon</source>
         <translation>valloni</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="354"/>
+        <location filename="../../Misc/Language.cpp" line="367"/>
         <source>Welsh</source>
         <translation>kymri</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="355"/>
+        <location filename="../../Misc/Language.cpp" line="368"/>
         <source>Western Frisian</source>
         <translation>friisi, länsi-</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="356"/>
+        <location filename="../../Misc/Language.cpp" line="369"/>
         <source>Wolof</source>
         <translation>wolof</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="357"/>
+        <location filename="../../Misc/Language.cpp" line="370"/>
         <source>Xhosa</source>
         <translation>xhosa</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="358"/>
+        <location filename="../../Misc/Language.cpp" line="371"/>
         <source>Yiddish</source>
         <translation>jiddiš</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="359"/>
+        <location filename="../../Misc/Language.cpp" line="372"/>
         <source>Yoruba</source>
         <translation>joruba</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="360"/>
+        <location filename="../../Misc/Language.cpp" line="373"/>
         <source>Zhuang</source>
         <translation>zhuang</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="361"/>
+        <location filename="../../Misc/Language.cpp" line="374"/>
         <source>Zulu</source>
         <translation>zulu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="362"/>
+        <location filename="../../Misc/Language.cpp" line="375"/>
         <source>Achinese</source>
         <translation>atšeh</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="363"/>
+        <location filename="../../Misc/Language.cpp" line="376"/>
         <source>Acoli</source>
         <translation>atšoli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="364"/>
+        <location filename="../../Misc/Language.cpp" line="377"/>
         <source>Adangme</source>
         <translation>adangme</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="365"/>
+        <location filename="../../Misc/Language.cpp" line="378"/>
         <source>Adygei, Adyghe</source>
         <translation>adyge</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="366"/>
+        <location filename="../../Misc/Language.cpp" line="379"/>
         <source>Afrihili</source>
         <translation>afrihili</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="367"/>
+        <location filename="../../Misc/Language.cpp" line="380"/>
         <source>Afro-Asiatic languages</source>
         <translation>afroaasialainen kieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="368"/>
+        <location filename="../../Misc/Language.cpp" line="381"/>
         <source>Ainu</source>
         <translation>ainu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="369"/>
+        <location filename="../../Misc/Language.cpp" line="382"/>
         <source>Akkadian</source>
         <translation>akkadi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="370"/>
+        <location filename="../../Misc/Language.cpp" line="383"/>
         <source>Aleut</source>
         <translation>aleutti</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="371"/>
+        <location filename="../../Misc/Language.cpp" line="384"/>
         <source>Algonquian languages</source>
         <translation>algonkikieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="372"/>
+        <location filename="../../Misc/Language.cpp" line="385"/>
         <source>Altaic languages</source>
         <translation>altailainen kieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="373"/>
+        <location filename="../../Misc/Language.cpp" line="386"/>
         <source>Angika</source>
         <translation>angika</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="374"/>
+        <location filename="../../Misc/Language.cpp" line="387"/>
         <source>Apache languages</source>
         <translation>apaššikieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="375"/>
+        <location filename="../../Misc/Language.cpp" line="388"/>
         <source>Arapaho</source>
         <translation>arapaho</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="376"/>
+        <location filename="../../Misc/Language.cpp" line="389"/>
         <source>Arawak</source>
         <translation>arawak</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="377"/>
+        <location filename="../../Misc/Language.cpp" line="390"/>
         <source>Aromanian, Arumanian, Macedo-Romanian</source>
         <translation>aromania</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="378"/>
+        <location filename="../../Misc/Language.cpp" line="391"/>
         <source>Artificial languages</source>
         <translation>tekokieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="379"/>
+        <location filename="../../Misc/Language.cpp" line="392"/>
         <source>Asturian, Asturleonese, Bable, Leonese</source>
         <translation>asturia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="380"/>
+        <location filename="../../Misc/Language.cpp" line="393"/>
         <source>Athapascan languages</source>
         <translation>athabascakieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="381"/>
+        <location filename="../../Misc/Language.cpp" line="394"/>
         <source>Australian languages</source>
         <translation>australialainen kieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="382"/>
+        <location filename="../../Misc/Language.cpp" line="395"/>
         <source>Austronesian languages</source>
         <translation>austronesialainen kieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="383"/>
+        <location filename="../../Misc/Language.cpp" line="396"/>
         <source>Awadhi</source>
         <translation>awadhi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="384"/>
+        <location filename="../../Misc/Language.cpp" line="397"/>
         <source>Balinese</source>
         <translation>bali</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="385"/>
+        <location filename="../../Misc/Language.cpp" line="398"/>
         <source>Baltic languages</source>
         <translation>balttilainen kieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="386"/>
+        <location filename="../../Misc/Language.cpp" line="399"/>
         <source>Baluchi</source>
         <translation>belutši</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="387"/>
+        <location filename="../../Misc/Language.cpp" line="400"/>
         <source>Bamileke languages</source>
         <translation>bamilekekieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="388"/>
+        <location filename="../../Misc/Language.cpp" line="401"/>
         <source>Banda languages</source>
         <translation>banda</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="389"/>
+        <location filename="../../Misc/Language.cpp" line="402"/>
         <source>Bantu languages</source>
         <translation>bantukieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="390"/>
+        <location filename="../../Misc/Language.cpp" line="403"/>
         <source>Basa</source>
         <translation>basaa</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="391"/>
+        <location filename="../../Misc/Language.cpp" line="404"/>
         <source>Batak languages</source>
         <translation>batakkieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="392"/>
+        <location filename="../../Misc/Language.cpp" line="405"/>
         <source>Bedawiyet, Beja</source>
         <translation>bedža</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="393"/>
+        <location filename="../../Misc/Language.cpp" line="406"/>
         <source>Bemba</source>
         <translation>bemba</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="394"/>
+        <location filename="../../Misc/Language.cpp" line="407"/>
         <source>Berber languages</source>
         <translation>berberikieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="395"/>
+        <location filename="../../Misc/Language.cpp" line="408"/>
         <source>Bhojpuri</source>
         <translation>bhodžpuri</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="396"/>
+        <location filename="../../Misc/Language.cpp" line="409"/>
         <source>Bikol</source>
         <translation>bikol</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="397"/>
+        <location filename="../../Misc/Language.cpp" line="410"/>
         <source>Bilin, Blin</source>
         <translation>bilin</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="398"/>
+        <location filename="../../Misc/Language.cpp" line="411"/>
         <source>Bini, Edo</source>
         <translation>bini</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="399"/>
+        <location filename="../../Misc/Language.cpp" line="412"/>
         <source>Bliss, Blissymbols, Blissymbolics</source>
         <translation>blisskieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="400"/>
+        <location filename="../../Misc/Language.cpp" line="413"/>
         <source>Braj</source>
         <translation>bradž</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="401"/>
+        <location filename="../../Misc/Language.cpp" line="414"/>
         <source>Buginese</source>
         <translation>bugi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="402"/>
+        <location filename="../../Misc/Language.cpp" line="415"/>
         <source>Buriat</source>
         <translation>burjaatti</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="403"/>
+        <location filename="../../Misc/Language.cpp" line="416"/>
         <source>Caddo</source>
         <translation>caddo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="404"/>
+        <location filename="../../Misc/Language.cpp" line="417"/>
         <source>Caucasian languages</source>
         <translation>kaukasialainen kieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="405"/>
+        <location filename="../../Misc/Language.cpp" line="418"/>
         <source>Cebuano</source>
         <translation>cebuano</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="406"/>
+        <location filename="../../Misc/Language.cpp" line="419"/>
         <source>Celtic languages</source>
         <translation>kelttiläinen kieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="407"/>
+        <location filename="../../Misc/Language.cpp" line="420"/>
         <source>Central American Indian languages</source>
         <translation>keskiamerikkalainen intiaanikieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="408"/>
+        <location filename="../../Misc/Language.cpp" line="421"/>
         <source>Chagatai</source>
         <translation>tshagatai, tšagatai</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="409"/>
+        <location filename="../../Misc/Language.cpp" line="422"/>
         <source>Chamic languages</source>
         <translation>tshamkieli, tšamkieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="410"/>
+        <location filename="../../Misc/Language.cpp" line="423"/>
         <source>Cherokee</source>
         <translation>cherokee</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="411"/>
+        <location filename="../../Misc/Language.cpp" line="424"/>
         <source>Cheyenne</source>
         <translation>cheyenne</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="412"/>
+        <location filename="../../Misc/Language.cpp" line="425"/>
         <source>Chibcha</source>
         <translation>tshibtsha, tšibtša</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="413"/>
+        <location filename="../../Misc/Language.cpp" line="426"/>
         <source>Chinook jargon</source>
         <translation>chinook-jargon</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="414"/>
+        <location filename="../../Misc/Language.cpp" line="427"/>
         <source>Chipewyan, Dene Suline</source>
         <translation>chipewyan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="415"/>
+        <location filename="../../Misc/Language.cpp" line="428"/>
         <source>Choctaw</source>
         <translation>choctaw</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="416"/>
+        <location filename="../../Misc/Language.cpp" line="429"/>
         <source>Chuukese</source>
         <translation>chuuk</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="417"/>
+        <location filename="../../Misc/Language.cpp" line="430"/>
         <source>Classical Nepal Bhasa/Newari, Old Newari</source>
         <translation>klassinen newari</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="418"/>
+        <location filename="../../Misc/Language.cpp" line="431"/>
         <source>Classical Syriac</source>
         <translation>muinaissyyria</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="419"/>
+        <location filename="../../Misc/Language.cpp" line="432"/>
         <source>Coptic</source>
         <translation>kopti</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="420"/>
+        <location filename="../../Misc/Language.cpp" line="433"/>
         <source>Creek</source>
         <translation>creek</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="421"/>
+        <location filename="../../Misc/Language.cpp" line="434"/>
         <source>Creoles and pidgins</source>
         <translation>kreoli- tai pidgin-kieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="422"/>
+        <location filename="../../Misc/Language.cpp" line="435"/>
         <source>Creoles and pidgins- English based</source>
         <translation>kreoli tai pidgin, englantiin perustuva</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="423"/>
+        <location filename="../../Misc/Language.cpp" line="436"/>
         <source>Creoles and pidgins- French-based</source>
         <translation>kreoli tai pidgin, ranskaan perustuva</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="424"/>
+        <location filename="../../Misc/Language.cpp" line="437"/>
         <source>Creoles and pidgins- Portuguese-based</source>
         <translation>kreoli tai pidgin, portugaliin perustuva</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="425"/>
+        <location filename="../../Misc/Language.cpp" line="438"/>
         <source>Crimean Tatar/Turkish</source>
         <translation>krimintataari</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="426"/>
+        <location filename="../../Misc/Language.cpp" line="439"/>
         <source>Cushitic languages</source>
         <translation>kuušilainen kieli	</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="427"/>
+        <location filename="../../Misc/Language.cpp" line="440"/>
         <source>Dakota</source>
         <translation>dakota</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="428"/>
+        <location filename="../../Misc/Language.cpp" line="441"/>
         <source>Dargwa</source>
         <translation>dargi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="429"/>
+        <location filename="../../Misc/Language.cpp" line="442"/>
         <source>Delaware</source>
         <translation>delaware</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="430"/>
+        <location filename="../../Misc/Language.cpp" line="443"/>
         <source>Dimili, Dimli, Zaza, Zazaki, Kirdki, Kirmanjki</source>
         <translation>zaza</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="431"/>
+        <location filename="../../Misc/Language.cpp" line="444"/>
         <source>Dinka</source>
         <translation>dinka</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="432"/>
+        <location filename="../../Misc/Language.cpp" line="445"/>
         <source>Dogri</source>
         <translation>dogri</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="433"/>
+        <location filename="../../Misc/Language.cpp" line="446"/>
         <source>Dogrib</source>
         <translation>dogrib</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="434"/>
+        <location filename="../../Misc/Language.cpp" line="447"/>
         <source>Dravidian languages</source>
         <translation>dravidakieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="435"/>
+        <location filename="../../Misc/Language.cpp" line="448"/>
         <source>Duala</source>
         <translation>duala</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="436"/>
+        <location filename="../../Misc/Language.cpp" line="449"/>
         <source>Dutch- Middle (ca.1050-1350)</source>
         <translation>keskihollanti</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="437"/>
+        <location filename="../../Misc/Language.cpp" line="450"/>
         <source>Dyula</source>
         <translation>djula</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="438"/>
+        <location filename="../../Misc/Language.cpp" line="451"/>
         <source>Eastern Frisian</source>
         <translation>friisi, itä-</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="439"/>
+        <location filename="../../Misc/Language.cpp" line="452"/>
         <source>Efik</source>
         <translation>efik</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="440"/>
+        <location filename="../../Misc/Language.cpp" line="453"/>
         <source>Egyptian (Ancient)</source>
         <translation>egypti, muinais-</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="441"/>
+        <location filename="../../Misc/Language.cpp" line="454"/>
         <source>Ekajuk</source>
         <translation>ekajuk</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="442"/>
+        <location filename="../../Misc/Language.cpp" line="455"/>
         <source>Elamite</source>
         <translation>elami</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="443"/>
+        <location filename="../../Misc/Language.cpp" line="456"/>
         <source>English- Middle (1100-1500)</source>
         <translation>keskienglanti</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="444"/>
+        <location filename="../../Misc/Language.cpp" line="457"/>
         <source>English- Old (ca.450-1100)</source>
         <translation>muinaisenglanti</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="445"/>
+        <location filename="../../Misc/Language.cpp" line="458"/>
         <source>Erzya</source>
         <translation>ersä</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="446"/>
+        <location filename="../../Misc/Language.cpp" line="459"/>
         <source>Ewondo</source>
         <translation>ewondo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="447"/>
+        <location filename="../../Misc/Language.cpp" line="460"/>
         <source>Fang</source>
         <translation>fang</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="448"/>
+        <location filename="../../Misc/Language.cpp" line="461"/>
         <source>Fanti</source>
         <translation>fanti</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="449"/>
+        <location filename="../../Misc/Language.cpp" line="462"/>
         <source>Filipino, Pilipino</source>
         <translation>filipino</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="450"/>
+        <location filename="../../Misc/Language.cpp" line="463"/>
         <source>Finno-Ugrian languages</source>
         <translation>suomalais-ugrilainen kieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="451"/>
+        <location filename="../../Misc/Language.cpp" line="464"/>
         <source>Fon</source>
         <translation>fon</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="452"/>
+        <location filename="../../Misc/Language.cpp" line="465"/>
         <source>French- Middle (ca.1400-1600)</source>
         <translation>keskiranska</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="453"/>
+        <location filename="../../Misc/Language.cpp" line="466"/>
         <source>French- Old (842-ca.1400)</source>
         <translation>muinaisranska</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="454"/>
+        <location filename="../../Misc/Language.cpp" line="467"/>
         <source>Friulian</source>
         <translation>friuli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="455"/>
+        <location filename="../../Misc/Language.cpp" line="468"/>
         <source>Ga</source>
         <translation>ga</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="456"/>
+        <location filename="../../Misc/Language.cpp" line="469"/>
         <source>Galibi Carib</source>
         <translation>karibi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="457"/>
+        <location filename="../../Misc/Language.cpp" line="470"/>
         <source>Gayo</source>
         <translation>gajo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="458"/>
+        <location filename="../../Misc/Language.cpp" line="471"/>
         <source>Gbaya</source>
         <translation>gbaja</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="459"/>
+        <location filename="../../Misc/Language.cpp" line="472"/>
         <source>Geez</source>
         <translation>ge’ez</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="460"/>
+        <location filename="../../Misc/Language.cpp" line="473"/>
         <source>German- Middle High (ca.1050-1500)</source>
         <translation>keskiyläsaksa</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="461"/>
+        <location filename="../../Misc/Language.cpp" line="474"/>
         <source>German- Old High (ca.750-1050)</source>
         <translation>muinaisyläsaksa</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="462"/>
+        <location filename="../../Misc/Language.cpp" line="475"/>
         <source>Germanic languages</source>
         <translation>germaaninen kieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="463"/>
+        <location filename="../../Misc/Language.cpp" line="476"/>
         <source>Gilbertese</source>
         <translation>kiribati</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="464"/>
+        <location filename="../../Misc/Language.cpp" line="477"/>
         <source>Gondi</source>
         <translation>gondi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="465"/>
+        <location filename="../../Misc/Language.cpp" line="478"/>
         <source>Gorontalo</source>
         <translation>gorontalo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="466"/>
+        <location filename="../../Misc/Language.cpp" line="479"/>
         <source>Gothic</source>
         <translation>gootti</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="467"/>
+        <location filename="../../Misc/Language.cpp" line="480"/>
         <source>Grebo</source>
         <translation>grebo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="468"/>
+        <location filename="../../Misc/Language.cpp" line="481"/>
         <source>Greek- Ancient (to 1453)</source>
         <translation>muinaiskreikka</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="469"/>
+        <location filename="../../Misc/Language.cpp" line="482"/>
         <source>Gwich&apos;in</source>
         <translation>gwitšin</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="470"/>
+        <location filename="../../Misc/Language.cpp" line="483"/>
         <source>Haida</source>
         <translation>haida</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="471"/>
+        <location filename="../../Misc/Language.cpp" line="484"/>
         <source>Hawaiian</source>
         <translation>havaiji</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="472"/>
+        <location filename="../../Misc/Language.cpp" line="485"/>
         <source>Hiligaynon</source>
         <translation>hiligaino</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="473"/>
+        <location filename="../../Misc/Language.cpp" line="486"/>
         <source>Himachali, Western Pahari languages</source>
         <translation>himatšali</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="474"/>
+        <location filename="../../Misc/Language.cpp" line="487"/>
         <source>Hittite</source>
         <translation>heetti</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="475"/>
+        <location filename="../../Misc/Language.cpp" line="488"/>
         <source>Hmong, Mong</source>
         <translation>hmong</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="476"/>
+        <location filename="../../Misc/Language.cpp" line="489"/>
         <source>Hupa</source>
         <translation>hupa</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="477"/>
+        <location filename="../../Misc/Language.cpp" line="490"/>
         <source>Iban</source>
         <translation>iban</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="478"/>
+        <location filename="../../Misc/Language.cpp" line="491"/>
         <source>Ijo languages</source>
         <translation>idžokieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="479"/>
+        <location filename="../../Misc/Language.cpp" line="492"/>
         <source>Iloko</source>
         <translation>iloko</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="480"/>
+        <location filename="../../Misc/Language.cpp" line="493"/>
         <source>Inari Sami</source>
         <translation>inarinsaame</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="481"/>
+        <location filename="../../Misc/Language.cpp" line="494"/>
         <source>Indic languages</source>
         <translation>indoarjalainen kieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="482"/>
+        <location filename="../../Misc/Language.cpp" line="495"/>
         <source>Indo-European languages</source>
         <translation>indoeurooppalainen kieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="483"/>
+        <location filename="../../Misc/Language.cpp" line="496"/>
         <source>Ingush</source>
         <translation>inguuši</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="484"/>
+        <location filename="../../Misc/Language.cpp" line="497"/>
         <source>Iranian languages</source>
         <translation>iranilainen kieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="485"/>
+        <location filename="../../Misc/Language.cpp" line="498"/>
         <source>Irish- Middle (900-1200)</source>
         <translation>keski-iiri</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="486"/>
+        <location filename="../../Misc/Language.cpp" line="499"/>
         <source>Irish- Old (to 900)</source>
         <translation>muinaisiiri</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="487"/>
+        <location filename="../../Misc/Language.cpp" line="500"/>
         <source>Iroquoian languages</source>
         <translation>irokeesikieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="488"/>
+        <location filename="../../Misc/Language.cpp" line="501"/>
         <source>Jingpho, Kachin</source>
         <translation>katšin</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="489"/>
+        <location filename="../../Misc/Language.cpp" line="502"/>
         <source>Judeo-Arabic</source>
         <translation>juutalaisarabia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="490"/>
+        <location filename="../../Misc/Language.cpp" line="503"/>
         <source>Judeo-Persian</source>
         <translation>juutalaispersia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="491"/>
+        <location filename="../../Misc/Language.cpp" line="504"/>
         <source>Kabardian</source>
         <translation>kabardi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="492"/>
+        <location filename="../../Misc/Language.cpp" line="505"/>
         <source>Kabyle</source>
         <translation>kabyyli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="493"/>
+        <location filename="../../Misc/Language.cpp" line="506"/>
         <source>Kalmyk, Oirat</source>
         <translation>kalmukki</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="494"/>
+        <location filename="../../Misc/Language.cpp" line="507"/>
         <source>Kamba</source>
         <translation>kamba</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="495"/>
+        <location filename="../../Misc/Language.cpp" line="508"/>
         <source>Kapampangan, Pampanga</source>
         <translation>pampanga</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="496"/>
+        <location filename="../../Misc/Language.cpp" line="509"/>
         <source>Kara-Kalpak</source>
         <translation>karakalpakki</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="497"/>
+        <location filename="../../Misc/Language.cpp" line="510"/>
         <source>Karachay-Balkar</source>
         <translation>karatšai-balkaari</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="498"/>
+        <location filename="../../Misc/Language.cpp" line="511"/>
         <source>Karelian</source>
         <translation>karjala</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="499"/>
+        <location filename="../../Misc/Language.cpp" line="512"/>
         <source>Karen languages</source>
         <translation>karen</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="500"/>
+        <location filename="../../Misc/Language.cpp" line="513"/>
         <source>Kashubian</source>
         <translation>kashubi, kašubi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="501"/>
+        <location filename="../../Misc/Language.cpp" line="514"/>
         <source>Kawi</source>
         <translation>kavi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="502"/>
+        <location filename="../../Misc/Language.cpp" line="515"/>
         <source>Khasi</source>
         <translation>khasi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="503"/>
+        <location filename="../../Misc/Language.cpp" line="516"/>
         <source>Khoisan languages</source>
         <translation>khoisankieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="504"/>
+        <location filename="../../Misc/Language.cpp" line="517"/>
         <source>Khotanese, Sakan</source>
         <translation>khotani</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="505"/>
+        <location filename="../../Misc/Language.cpp" line="518"/>
         <source>Kimbundu</source>
         <translation>kimbundu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="506"/>
+        <location filename="../../Misc/Language.cpp" line="519"/>
         <source>Klingon, tlhIngan-Hol</source>
         <translation>klingon</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="507"/>
+        <location filename="../../Misc/Language.cpp" line="520"/>
         <source>Konkani</source>
         <translation>konkani</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="508"/>
+        <location filename="../../Misc/Language.cpp" line="521"/>
         <source>Kosraean</source>
         <translation>kosrae</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="509"/>
+        <location filename="../../Misc/Language.cpp" line="522"/>
         <source>Kpelle</source>
         <translation>kpelle</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="510"/>
+        <location filename="../../Misc/Language.cpp" line="523"/>
         <source>Kru languages</source>
         <translation>kru-kieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="511"/>
+        <location filename="../../Misc/Language.cpp" line="524"/>
         <source>Kumyk</source>
         <translation>kumykki</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="512"/>
+        <location filename="../../Misc/Language.cpp" line="525"/>
         <source>Kurukh</source>
         <translation>kurukh</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="513"/>
+        <location filename="../../Misc/Language.cpp" line="526"/>
         <source>Kutenai</source>
         <translation>kutenai</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="514"/>
+        <location filename="../../Misc/Language.cpp" line="527"/>
         <source>Ladino</source>
         <translation>ladino</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="515"/>
+        <location filename="../../Misc/Language.cpp" line="528"/>
         <source>Lahnda</source>
         <translation>lahnda</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="516"/>
+        <location filename="../../Misc/Language.cpp" line="529"/>
         <source>Lamba</source>
         <translation>lamba</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="517"/>
+        <location filename="../../Misc/Language.cpp" line="530"/>
         <source>Land Dayak languages</source>
         <translation>land-dajakki-kieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="518"/>
+        <location filename="../../Misc/Language.cpp" line="531"/>
         <source>Lezghian</source>
         <translation>lezgi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="519"/>
+        <location filename="../../Misc/Language.cpp" line="532"/>
         <source>Lojban</source>
         <translation>lojban</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="520"/>
+        <location filename="../../Misc/Language.cpp" line="533"/>
         <source>German-Low, Low Saxon</source>
         <translation>alasaksa</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="521"/>
+        <location filename="../../Misc/Language.cpp" line="534"/>
         <source>Lower Sorbian</source>
         <translation>alasorbi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="522"/>
+        <location filename="../../Misc/Language.cpp" line="535"/>
         <source>Lozi</source>
         <translation>lozi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="523"/>
+        <location filename="../../Misc/Language.cpp" line="536"/>
         <source>Luba-Lulua</source>
         <translation>luluanluba</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="524"/>
+        <location filename="../../Misc/Language.cpp" line="537"/>
         <source>Luiseno</source>
         <translation>luiseño</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="525"/>
+        <location filename="../../Misc/Language.cpp" line="538"/>
         <source>Lule Sami</source>
         <translation>luulajansaame</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="526"/>
+        <location filename="../../Misc/Language.cpp" line="539"/>
         <source>Lunda</source>
         <translation>lunda</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="527"/>
+        <location filename="../../Misc/Language.cpp" line="540"/>
         <source>Luo (Kenya and Tanzania)</source>
         <translation>luo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="528"/>
+        <location filename="../../Misc/Language.cpp" line="541"/>
         <source>Lushai</source>
         <translation>lusai</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="529"/>
+        <location filename="../../Misc/Language.cpp" line="542"/>
         <source>Madurese</source>
         <translation>madura</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="530"/>
+        <location filename="../../Misc/Language.cpp" line="543"/>
         <source>Magahi</source>
         <translation>magahi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="531"/>
+        <location filename="../../Misc/Language.cpp" line="544"/>
         <source>Maithili</source>
         <translation>maithili</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="532"/>
+        <location filename="../../Misc/Language.cpp" line="545"/>
         <source>Makasar</source>
         <translation>makassar</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="533"/>
+        <location filename="../../Misc/Language.cpp" line="546"/>
         <source>Manchu</source>
         <translation>mantšu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="534"/>
+        <location filename="../../Misc/Language.cpp" line="547"/>
         <source>Mandar</source>
         <translation>mandar</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="535"/>
+        <location filename="../../Misc/Language.cpp" line="548"/>
         <source>Mandingo</source>
         <translation>mandingo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="536"/>
+        <location filename="../../Misc/Language.cpp" line="549"/>
         <source>Manipuri</source>
         <translation>manipuri</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="537"/>
+        <location filename="../../Misc/Language.cpp" line="550"/>
         <source>Manobo languages</source>
         <translation>manobokieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="538"/>
+        <location filename="../../Misc/Language.cpp" line="551"/>
         <source>Mapuche/Mapudungun</source>
         <translation>mapudungun</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="539"/>
+        <location filename="../../Misc/Language.cpp" line="552"/>
         <source>Mari</source>
         <translation>mari</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="540"/>
+        <location filename="../../Misc/Language.cpp" line="553"/>
         <source>Marwari</source>
         <translation>marwari</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="541"/>
+        <location filename="../../Misc/Language.cpp" line="554"/>
         <source>Masai</source>
         <translation>maasai</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="542"/>
+        <location filename="../../Misc/Language.cpp" line="555"/>
         <source>Mayan languages</source>
         <translation>mayakieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="543"/>
+        <location filename="../../Misc/Language.cpp" line="556"/>
         <source>Mende</source>
         <translation>mende</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="544"/>
+        <location filename="../../Misc/Language.cpp" line="557"/>
         <source>Mi&apos;kmaq, Micmac</source>
         <translation>micmac</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="545"/>
+        <location filename="../../Misc/Language.cpp" line="558"/>
         <source>Minangkabau</source>
         <translation>minangkabau</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="546"/>
+        <location filename="../../Misc/Language.cpp" line="559"/>
         <source>Mirandese</source>
         <translation>mirandeesi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="547"/>
+        <location filename="../../Misc/Language.cpp" line="560"/>
         <source>Mohawk</source>
         <translation>mohawk</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="548"/>
+        <location filename="../../Misc/Language.cpp" line="561"/>
         <source>Moksha</source>
         <translation>mokša</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="549"/>
+        <location filename="../../Misc/Language.cpp" line="562"/>
         <source>Mon-Khmer languages</source>
         <translation>mon-khmer-kieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="550"/>
+        <location filename="../../Misc/Language.cpp" line="563"/>
         <source>Mongo</source>
         <translation>mongo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="551"/>
+        <location filename="../../Misc/Language.cpp" line="564"/>
         <source>Mossi</source>
         <translation>mossi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="552"/>
+        <location filename="../../Misc/Language.cpp" line="565"/>
         <source>Multiple languages</source>
         <translation>monikielinen</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="553"/>
+        <location filename="../../Misc/Language.cpp" line="566"/>
         <source>Munda languages</source>
         <translation>mundakieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="554"/>
+        <location filename="../../Misc/Language.cpp" line="567"/>
         <source>N&apos;Ko</source>
         <translation>n’ko</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="555"/>
+        <location filename="../../Misc/Language.cpp" line="568"/>
         <source>Nahuatl languages</source>
         <translation>nahuatlkieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="556"/>
+        <location filename="../../Misc/Language.cpp" line="569"/>
         <source>Neapolitan</source>
         <translation>napoli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="557"/>
+        <location filename="../../Misc/Language.cpp" line="570"/>
         <source>Nepal Bhasa/Newari</source>
         <translation>newari</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="558"/>
+        <location filename="../../Misc/Language.cpp" line="571"/>
         <source>Nias</source>
         <translation>nias</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="559"/>
+        <location filename="../../Misc/Language.cpp" line="572"/>
         <source>Niger-Kordofanian languages</source>
         <translation>nigeriläis-kongolainen kieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="560"/>
+        <location filename="../../Misc/Language.cpp" line="573"/>
         <source>Nilo-Saharan languages</source>
         <translation>niililäis-saharalainen kieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="561"/>
+        <location filename="../../Misc/Language.cpp" line="574"/>
         <source>Niuean</source>
         <translation>niue</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="562"/>
+        <location filename="../../Misc/Language.cpp" line="575"/>
         <source>No linguistic content/Not applicable</source>
         <translation>ei kielellistä sisältöä</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="563"/>
+        <location filename="../../Misc/Language.cpp" line="576"/>
         <source>Nogai</source>
         <translation>nogai</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="564"/>
+        <location filename="../../Misc/Language.cpp" line="577"/>
         <source>Norse- Old</source>
         <translation>muinaisnorja</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="565"/>
+        <location filename="../../Misc/Language.cpp" line="578"/>
         <source>North American Indian languages</source>
         <translation>pohjoisamerikkalainen intiaanikieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="566"/>
+        <location filename="../../Misc/Language.cpp" line="579"/>
         <source>Northern Frisian</source>
         <translation>friisi, pohjois</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="567"/>
+        <location filename="../../Misc/Language.cpp" line="580"/>
         <source>Northern Sotho, Sepedi, Pedi</source>
         <translation>pohjoissotho</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="568"/>
+        <location filename="../../Misc/Language.cpp" line="581"/>
         <source>Nubian languages</source>
         <translation>nubialainen kieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="569"/>
+        <location filename="../../Misc/Language.cpp" line="582"/>
         <source>Nyamwezi</source>
         <translation>nyamwezi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="570"/>
+        <location filename="../../Misc/Language.cpp" line="583"/>
         <source>Nyankole</source>
         <translation>nyankole</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="571"/>
+        <location filename="../../Misc/Language.cpp" line="584"/>
         <source>Nyoro</source>
         <translation>nyoro</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="572"/>
+        <location filename="../../Misc/Language.cpp" line="585"/>
         <source>Nzima</source>
         <translation>nzima</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="573"/>
+        <location filename="../../Misc/Language.cpp" line="586"/>
         <source>Occitan/Provencal- Old (to 1500)</source>
         <translation>muinaisprovensaali (vuoteen 1500 asti)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="574"/>
+        <location filename="../../Misc/Language.cpp" line="587"/>
         <source>Official/Imperial Aramaic (700-300 BCE)</source>
         <translation>valtakunnanaramea</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="575"/>
+        <location filename="../../Misc/Language.cpp" line="588"/>
         <source>Osage</source>
         <translation>osage</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="576"/>
+        <location filename="../../Misc/Language.cpp" line="589"/>
         <source>Otomian languages</source>
         <translation>otomikieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="577"/>
+        <location filename="../../Misc/Language.cpp" line="590"/>
         <source>Pahlavi</source>
         <translation>pahlavi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="578"/>
+        <location filename="../../Misc/Language.cpp" line="591"/>
         <source>Palauan</source>
         <translation>palau</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="579"/>
+        <location filename="../../Misc/Language.cpp" line="592"/>
         <source>Pangasinan</source>
         <translation>pangasinan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="580"/>
+        <location filename="../../Misc/Language.cpp" line="593"/>
         <source>Papiamento</source>
         <translation>papiamentu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="581"/>
+        <location filename="../../Misc/Language.cpp" line="594"/>
         <source>Papuan languages</source>
         <translation>papualaiskieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="582"/>
+        <location filename="../../Misc/Language.cpp" line="595"/>
         <source>Paraguayan Guaraní</source>
         <translation>paraguayn-guarani</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="583"/>
+        <location filename="../../Misc/Language.cpp" line="596"/>
         <source>Persian- Old (ca.600-400 B.C.)</source>
         <translation>muinaispersia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="584"/>
+        <location filename="../../Misc/Language.cpp" line="597"/>
         <source>Philippine languages</source>
         <translation>filippiiniläiskieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="585"/>
+        <location filename="../../Misc/Language.cpp" line="598"/>
         <source>Phoenician</source>
         <translation>foinikia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="586"/>
+        <location filename="../../Misc/Language.cpp" line="599"/>
         <source>Pohnpeian</source>
         <translation>pohnpei</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="587"/>
+        <location filename="../../Misc/Language.cpp" line="600"/>
         <source>Prakrit languages</source>
         <translation>prakritkieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="588"/>
+        <location filename="../../Misc/Language.cpp" line="601"/>
         <source>Rajasthani</source>
         <translation>radžastani</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="589"/>
+        <location filename="../../Misc/Language.cpp" line="602"/>
         <source>Rapanui</source>
         <translation>rapanui</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="590"/>
+        <location filename="../../Misc/Language.cpp" line="603"/>
         <source>Rarotongan, Cook Islands Maori</source>
         <translation>rarotonga</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="591"/>
+        <location filename="../../Misc/Language.cpp" line="604"/>
         <source>Reserved for local use</source>
         <translation>erikseen määritelty kieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="592"/>
+        <location filename="../../Misc/Language.cpp" line="605"/>
         <source>Romance languages</source>
         <translation>romaaninen kieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="593"/>
+        <location filename="../../Misc/Language.cpp" line="606"/>
         <source>Romany</source>
         <translation>romani</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="594"/>
+        <location filename="../../Misc/Language.cpp" line="607"/>
         <source>Salishan languages</source>
         <translation>sališilainen kieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="595"/>
+        <location filename="../../Misc/Language.cpp" line="608"/>
         <source>Samaritan Aramaic</source>
         <translation>samarianaramea</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="596"/>
+        <location filename="../../Misc/Language.cpp" line="609"/>
         <source>Sami languages</source>
         <translation>saamelaiskieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="597"/>
+        <location filename="../../Misc/Language.cpp" line="610"/>
         <source>Sandawe</source>
         <translation>sandawe</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="598"/>
+        <location filename="../../Misc/Language.cpp" line="611"/>
         <source>Santali</source>
         <translation>santali</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="599"/>
+        <location filename="../../Misc/Language.cpp" line="612"/>
         <source>Sasak</source>
         <translation>sasak</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="600"/>
+        <location filename="../../Misc/Language.cpp" line="613"/>
         <source>Scots</source>
         <translation>skotti</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="601"/>
+        <location filename="../../Misc/Language.cpp" line="614"/>
         <source>Selkup</source>
         <translation>selkuppi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="602"/>
+        <location filename="../../Misc/Language.cpp" line="615"/>
         <source>Semitic languages</source>
         <translation>seemiläinen kieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="603"/>
+        <location filename="../../Misc/Language.cpp" line="616"/>
         <source>Serer</source>
         <translation>serer</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="604"/>
+        <location filename="../../Misc/Language.cpp" line="617"/>
         <source>Shan</source>
         <translation>shan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="605"/>
+        <location filename="../../Misc/Language.cpp" line="618"/>
         <source>Sicilian</source>
         <translation>sisilia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="606"/>
+        <location filename="../../Misc/Language.cpp" line="619"/>
         <source>Sidamo</source>
         <translation>sidamo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="607"/>
+        <location filename="../../Misc/Language.cpp" line="620"/>
         <source>Sign Languages</source>
         <translation>viittomakieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="608"/>
+        <location filename="../../Misc/Language.cpp" line="621"/>
         <source>Siksika</source>
         <translation>siksika</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="609"/>
+        <location filename="../../Misc/Language.cpp" line="622"/>
         <source>Sino-Tibetan languages</source>
         <translation>sinotiibetiläinen kieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="610"/>
+        <location filename="../../Misc/Language.cpp" line="623"/>
         <source>Siouan languages</source>
         <translation>siouxkieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="611"/>
+        <location filename="../../Misc/Language.cpp" line="624"/>
         <source>Skolt Sami</source>
         <translation>koltansaame</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="612"/>
+        <location filename="../../Misc/Language.cpp" line="625"/>
         <source>Slave (Athapascan)</source>
         <translation>slevi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="613"/>
+        <location filename="../../Misc/Language.cpp" line="626"/>
         <source>Slavic languages</source>
         <translation>slaavilainen kieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="614"/>
+        <location filename="../../Misc/Language.cpp" line="627"/>
         <source>Sogdian</source>
         <translation>sogdi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="615"/>
+        <location filename="../../Misc/Language.cpp" line="628"/>
         <source>Songhai languages</source>
         <translation>songhaikieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="616"/>
+        <location filename="../../Misc/Language.cpp" line="629"/>
         <source>Soninke</source>
         <translation>soninke</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="617"/>
+        <location filename="../../Misc/Language.cpp" line="630"/>
         <source>Sorbian languages</source>
         <translation>sorbikieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="618"/>
+        <location filename="../../Misc/Language.cpp" line="631"/>
         <source>South American Indian languages</source>
         <translation>eteläamerikkalainen intiaanikieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="619"/>
+        <location filename="../../Misc/Language.cpp" line="632"/>
         <source>Southern Altai</source>
         <translation>altai</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="620"/>
+        <location filename="../../Misc/Language.cpp" line="633"/>
         <source>Southern Sami</source>
         <translation>eteläsaame</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="621"/>
+        <location filename="../../Misc/Language.cpp" line="634"/>
         <source>Sranan Tongo</source>
         <translation>sranan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="622"/>
+        <location filename="../../Misc/Language.cpp" line="635"/>
         <source>Sukuma</source>
         <translation>sukuma</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="623"/>
+        <location filename="../../Misc/Language.cpp" line="636"/>
         <source>Sumerian</source>
         <translation>sumeri</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="624"/>
+        <location filename="../../Misc/Language.cpp" line="637"/>
         <source>Susu</source>
         <translation>susu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="625"/>
+        <location filename="../../Misc/Language.cpp" line="638"/>
         <source>Alsatian, Swiss German, Alemannic</source>
         <translation>sveitsinsaksa</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="626"/>
+        <location filename="../../Misc/Language.cpp" line="639"/>
         <source>Syriac</source>
         <translation>syyria</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="627"/>
+        <location filename="../../Misc/Language.cpp" line="640"/>
         <source>Tai languages</source>
         <translation>thaikieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="628"/>
+        <location filename="../../Misc/Language.cpp" line="641"/>
         <source>Tamashek</source>
         <translation>tamašek</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="629"/>
+        <location filename="../../Misc/Language.cpp" line="642"/>
         <source>Tereno</source>
         <translation>tereno</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="630"/>
+        <location filename="../../Misc/Language.cpp" line="643"/>
         <source>Tetum</source>
         <translation>tetum</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="631"/>
+        <location filename="../../Misc/Language.cpp" line="644"/>
         <source>Tigre</source>
         <translation>tigre</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="632"/>
+        <location filename="../../Misc/Language.cpp" line="645"/>
         <source>Timne</source>
         <translation>temne</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="633"/>
+        <location filename="../../Misc/Language.cpp" line="646"/>
         <source>Tiv</source>
         <translation>tiv</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="634"/>
+        <location filename="../../Misc/Language.cpp" line="647"/>
         <source>Tlingit</source>
         <translation>tlingit</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="635"/>
+        <location filename="../../Misc/Language.cpp" line="648"/>
         <source>Tok Pisin</source>
         <translation>tok-pisin</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="636"/>
+        <location filename="../../Misc/Language.cpp" line="649"/>
         <source>Tokelau</source>
         <translation>tokelau</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="637"/>
+        <location filename="../../Misc/Language.cpp" line="650"/>
         <source>Tonga (Nyasa)</source>
         <translation>malawintonga</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="638"/>
+        <location filename="../../Misc/Language.cpp" line="651"/>
         <source>Tsimshian</source>
         <translation>tsimši</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="639"/>
+        <location filename="../../Misc/Language.cpp" line="652"/>
         <source>Tumbuka</source>
         <translation>tumbuka</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="640"/>
+        <location filename="../../Misc/Language.cpp" line="653"/>
         <source>Tupi languages</source>
         <translation>tupikieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="641"/>
+        <location filename="../../Misc/Language.cpp" line="654"/>
         <source>Turkish- Ottoman (1500-1928)</source>
         <translation>osmani</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="642"/>
+        <location filename="../../Misc/Language.cpp" line="655"/>
         <source>Tuvalu</source>
         <translation>tuvalu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="643"/>
+        <location filename="../../Misc/Language.cpp" line="656"/>
         <source>Tuvinian</source>
         <translation>tuva</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="644"/>
+        <location filename="../../Misc/Language.cpp" line="657"/>
         <source>Udmurt</source>
         <translation>udmurtti</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="645"/>
+        <location filename="../../Misc/Language.cpp" line="658"/>
         <source>Ugaritic</source>
         <translation>ugarit</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="646"/>
+        <location filename="../../Misc/Language.cpp" line="659"/>
         <source>Umbundu</source>
         <translation>mbundu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="647"/>
+        <location filename="../../Misc/Language.cpp" line="660"/>
         <source>Uncoded languages</source>
         <translation>kieli, jolle ei ole koodia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="648"/>
+        <location filename="../../Misc/Language.cpp" line="661"/>
         <source>Undetermined</source>
         <translation>määrittämätön kieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="649"/>
+        <location filename="../../Misc/Language.cpp" line="662"/>
         <source>Upper Sorbian</source>
         <translation>yläsorbi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="650"/>
+        <location filename="../../Misc/Language.cpp" line="663"/>
         <source>Vai</source>
         <translation>vai</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="651"/>
+        <location filename="../../Misc/Language.cpp" line="664"/>
         <source>Votic</source>
         <translation>vatja</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="652"/>
+        <location filename="../../Misc/Language.cpp" line="665"/>
         <source>Wakashan languages</source>
         <translation>wakashkieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="653"/>
+        <location filename="../../Misc/Language.cpp" line="666"/>
         <source>Waray</source>
         <translation>waray</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="654"/>
+        <location filename="../../Misc/Language.cpp" line="667"/>
         <source>Washo</source>
         <translation>washo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="655"/>
+        <location filename="../../Misc/Language.cpp" line="668"/>
         <source>Wolaitta, Wolaytta</source>
         <translation>wolaitta</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="656"/>
+        <location filename="../../Misc/Language.cpp" line="669"/>
         <source>Yakut</source>
         <translation>jakuutti</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="657"/>
+        <location filename="../../Misc/Language.cpp" line="670"/>
         <source>Yao</source>
         <translation>jao</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="658"/>
+        <location filename="../../Misc/Language.cpp" line="671"/>
         <source>Yapese</source>
         <translation>japi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="659"/>
+        <location filename="../../Misc/Language.cpp" line="672"/>
         <source>Yupik languages</source>
         <translation>jupikkikieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="660"/>
+        <location filename="../../Misc/Language.cpp" line="673"/>
         <source>Zande languages</source>
         <translation>zandekieli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="661"/>
+        <location filename="../../Misc/Language.cpp" line="674"/>
         <source>Zapotec</source>
         <translation>zapoteekki</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="662"/>
+        <location filename="../../Misc/Language.cpp" line="675"/>
         <source>Zenaga</source>
         <translation>zenaga</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="663"/>
+        <location filename="../../Misc/Language.cpp" line="676"/>
         <source>Zuni</source>
         <translation>zuni</translation>
     </message>
