@@ -17,7 +17,7 @@ export QT6_FN="693"
 export LC_ALL="C.UTF-8"
 export DEBIAN_FRONTEND=noninteractive
 export PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig
-SELF_DIR="$(dirname "$(readlink -f "${0}")")"
+SELF_DIR="$(readlink -f "$(dirname "$0")")"
 COMMITISH="${1}"
 
 retry() {
@@ -252,9 +252,9 @@ build_appimage() {
   LD_LIBRARY_PATH=lib:sigil.AppDir/usr/lib/python$PY_SHORT_VER/site-packages/pillow.libs:$LD_LIBRARY_PATH \
   EXTRA_PLATFORM_PLUGINS=libqwayland-generic.so \
   EXTRA_QT_MODULES="waylandcompositor" \
-  ./linuxdeploy-x86_64.AppImage --appdir sigil.AppDir --plugin qt
+  ./linuxdeploy-x86_64.AppImage --appdir sigil.AppDir --custom-apprun=${SELF_DIR}/AppRun --plugin qt
   python3 "${SELF_DIR}/appimg_cleanup.py" /build/sigil.AppDir/usr/lib $PY_SHORT_VER
-  cp -fv "${SELF_DIR}/AppRun" /build/sigil.AppDir/
+  #cp -fv "${SELF_DIR}/AppRun" /build/sigil.AppDir/
   LDAI_UPDATE_INFORMATION="gh-releases-zsync|Sigil-Ebook|Sigil|latest|Sigil-*x86_64.AppImage.zsync" \
   LDAI_VERBOSE=1 \
   ./linuxdeploy-plugin-appimage-x86_64.AppImage --appdir=sigil.AppDir
