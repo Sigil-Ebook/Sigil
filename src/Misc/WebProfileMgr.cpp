@@ -22,17 +22,20 @@
 #include <QDir>
 #include <QString>
 #include <QStringList>
+#include <QApplication>
 #include <QWebEngineProfile>
 #include <QWebEngineSettings>
 #if QT_VERSION >= QT_VERSION_CHECK(6, 9, 0)
 #include <QWebEngineProfileBuilder>
 #endif
 
+#include "MainUI/MainApplication.h"
 #include "Misc/Utility.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/URLSchemeHandler.h"
 #include "Misc/URLInterceptor.h"
 #include "Misc/WebProfileMgr.h"
+
 
 WebProfileMgr *WebProfileMgr::m_instance = 0;
 
@@ -144,6 +147,12 @@ WebProfileMgr::WebProfileMgr()
         devstorageDir.mkpath(devToolsStorePath);
     }
 
+    // determine if another instance of Sigil is already running
+    bool first_instance = false;
+    MainApplication *mainApplication = qobject_cast<MainApplication *>(qApp);
+    if (mainApplication) first_instance = mainApplication->isFirstInstance();
+    qDebug() << "WebProfileMgr:: first instance of Sigil:" << first_instance;
+    
 #if QT_VERSION >= QT_VERSION_CHECK(6, 9, 0)
     // create a place for Preview Caches if needed
     QString PreviewCachePath = Utility::DefinePrefsDir() + "/Preview-Cache/";
@@ -173,15 +182,20 @@ WebProfileMgr::WebProfileMgr()
     QWebEngineProfileBuilder pb;
     pb.setCachePath(PreviewCachePath);
     pb.setHttpCacheMaximumSize(0); // 0 - means let Qt control it
-    // pb.setHttpCacheType(QWebEngineProfile::DiskHttpCache);
-    pb.setHttpCacheType(QWebEngineProfile::MemoryHttpCache);
+    pb.setHttpCacheType(QWebEngineProfile::DiskHttpCache);
     pb.setPersistentCookiesPolicy(QWebEngineProfile::NoPersistentCookies);
     pb.setPersistentPermissionsPolicy(QWebEngineProfile::PersistentPermissionsPolicy::StoreOnDisk);
     pb.setPersistentStoragePath(localStorePath);
-    m_preview_profile = pb.createProfile("Preview", nullptr);
-
+    if (first_instance) {
+        m_preview_profile = pb.createProfile("Preview", nullptr);
+        qDebug() << "first instance Preview profile: " << m_preview_profile;
+    } else {
+        m_preview_profile = QWebEngineProfileBuilder::createOffTheRecordProfile(nullptr);
+        qDebug() << "NOT first instance Preview profile: " << m_preview_profile;
+    }
     // handle possible nullptr return by creating a off the record profile
     if (!m_preview_profile) {
+        qDebug() << "Handle no preview profile return value";
         m_preview_profile = QWebEngineProfileBuilder::createOffTheRecordProfile(nullptr);
     }
 #endif
@@ -212,14 +226,20 @@ WebProfileMgr::WebProfileMgr()
     QWebEngineProfileBuilder pb2;
     pb2.setCachePath(InspectorCachePath);
     pb2.setHttpCacheMaximumSize(0); // 0 - means let Qt control it
-    // pb2.setHttpCacheType(QWebEngineProfile::DiskHttpCache);
-    pb2.setHttpCacheType(QWebEngineProfile::MemoryHttpCache);
+    pb2.setHttpCacheType(QWebEngineProfile::DiskHttpCache);
     pb2.setPersistentCookiesPolicy(QWebEngineProfile::NoPersistentCookies);
     pb2.setPersistentPermissionsPolicy(QWebEngineProfile::PersistentPermissionsPolicy::StoreOnDisk);
     pb2.setPersistentStoragePath(devToolsStorePath);
-    m_inspector_profile = pb2.createProfile("Inspector", nullptr);
+    if (first_instance) {
+        m_inspector_profile = pb2.createProfile("Inspector", nullptr);
+        qDebug() << "first instance Inspector profile: " << m_inspector_profile;
+    } else {
+        m_inspector_profile = QWebEngineProfileBuilder::createOffTheRecordProfile(nullptr);
+        qDebug() << "NOT first instance Inspector profile: " << m_inspector_profile;
+    }
     // handle possible nullptr return by creating a off the record profile
     if (!m_inspector_profile) {
+        qDebug() << "Handle no inspector profile return value";
         m_inspector_profile = QWebEngineProfileBuilder::createOffTheRecordProfile(nullptr);
     }
 #endif

@@ -46,6 +46,8 @@ public:
     QString loadFromPreviewCache(const QString &key);
     void updateAccumulatedQss(QString &qss) const;
     bool AlwaysUseNFC(){ return m_AlwaysUseNFC; };
+    void setFirstInstance(bool val) { m_first_instance = val; };
+    bool isFirstInstance() { return m_first_instance; };
     
 signals:
     void applicationActivated();
@@ -68,6 +70,7 @@ private:
     QTimer * m_PaletteChangeTimer;
     bool m_AlwaysUseNFC = true;
     bool m_UseAppPaletteEvent = false;
+    bool m_first_instance = false;
 };
 
 #endif // MAINAPPLICATION_H

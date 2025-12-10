@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2018-2024  Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2019-2024  Doug Massay
+**  Copyright (C) 2018-2025  Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2025  Doug Massay
 **  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -44,6 +44,7 @@
 #include <QWebEngineUrlScheme>
 #include <QByteArray>
 #include <QByteArrayView>
+#include <QSharedMemory>
 
 #include "Misc/PluginDB.h"
 #include "Misc/UILanguage.h"
@@ -539,6 +540,18 @@ int main(int argc, char *argv[])
     removeMacosSpecificMenuItems();
 #endif
 
+    // Test to see if there is another instance of Sigil already running
+    QString memorykey = qgetenv("USER");
+    if (memorykey.isEmpty()) memorykey = qgetenv("USERNAME");
+    memorykey = "SIGIL-EBOOK-SIGIL" + memorykey; 
+    QSharedMemory sharedMemory(memorykey);
+    if (!sharedMemory.create(128)) {
+        // another version of Sigil is already running
+        app.setFirstInstance(false);
+    } else {
+        app.setFirstInstance(true);
+    }
+    
     // Install an event filter for the application
     // so we can catch OS X's file open events
     // This needs to be done upfront to prevent events from
