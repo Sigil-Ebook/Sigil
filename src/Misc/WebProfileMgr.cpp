@@ -177,7 +177,9 @@ WebProfileMgr::WebProfileMgr()
     pb.setPersistentCookiesPolicy(QWebEngineProfile::NoPersistentCookies);
     pb.setPersistentPermissionsPolicy(QWebEngineProfile::PersistentPermissionsPolicy::StoreOnDisk);
     pb.setPersistentStoragePath(localStorePath);
-    m_preview_profile = pb.createProfile("Preview", nullptr);
+    // m_preview_profile = pb.createProfile("Preview", nullptr);
+    m_preview_profile = QWebEngineProfileBuilder::createOffTheRecordProfile(nullptr);
+
     // handle possible nullptr return by creating a off the record profile
     if (!m_preview_profile) {
         m_preview_profile = QWebEngineProfileBuilder::createOffTheRecordProfile(nullptr);
@@ -214,7 +216,8 @@ WebProfileMgr::WebProfileMgr()
     pb2.setPersistentCookiesPolicy(QWebEngineProfile::NoPersistentCookies);
     pb2.setPersistentPermissionsPolicy(QWebEngineProfile::PersistentPermissionsPolicy::StoreOnDisk);
     pb2.setPersistentStoragePath(devToolsStorePath);
-    m_inspector_profile = pb2.createProfile("Inspector", nullptr);
+    // m_inspector_profile = pb2.createProfile("Inspector", nullptr);
+    m_inspector_profile = QWebEngineProfileBuilder::createOffTheRecordProfile(nullptr);
     // handle possible nullptr return by creating a off the record profile
     if (!m_inspector_profile) {
         m_inspector_profile = QWebEngineProfileBuilder::createOffTheRecordProfile(nullptr);
