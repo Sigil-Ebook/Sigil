@@ -173,12 +173,12 @@ WebProfileMgr::WebProfileMgr()
     QWebEngineProfileBuilder pb;
     pb.setCachePath(PreviewCachePath);
     pb.setHttpCacheMaximumSize(0); // 0 - means let Qt control it
-    pb.setHttpCacheType(QWebEngineProfile::DiskHttpCache);
+    // pb.setHttpCacheType(QWebEngineProfile::DiskHttpCache);
+    pb.setHttpCacheType(QWebEngineProfile::MemoryHttpCache);
     pb.setPersistentCookiesPolicy(QWebEngineProfile::NoPersistentCookies);
     pb.setPersistentPermissionsPolicy(QWebEngineProfile::PersistentPermissionsPolicy::StoreOnDisk);
     pb.setPersistentStoragePath(localStorePath);
-    // m_preview_profile = pb.createProfile("Preview", nullptr);
-    m_preview_profile = QWebEngineProfileBuilder::createOffTheRecordProfile(nullptr);
+    m_preview_profile = pb.createProfile("Preview", nullptr);
 
     // handle possible nullptr return by creating a off the record profile
     if (!m_preview_profile) {
@@ -212,12 +212,12 @@ WebProfileMgr::WebProfileMgr()
     QWebEngineProfileBuilder pb2;
     pb2.setCachePath(InspectorCachePath);
     pb2.setHttpCacheMaximumSize(0); // 0 - means let Qt control it
-    pb2.setHttpCacheType(QWebEngineProfile::DiskHttpCache);
+    // pb2.setHttpCacheType(QWebEngineProfile::DiskHttpCache);
+    pb2.setHttpCacheType(QWebEngineProfile::MemoryHttpCache);
     pb2.setPersistentCookiesPolicy(QWebEngineProfile::NoPersistentCookies);
     pb2.setPersistentPermissionsPolicy(QWebEngineProfile::PersistentPermissionsPolicy::StoreOnDisk);
     pb2.setPersistentStoragePath(devToolsStorePath);
-    // m_inspector_profile = pb2.createProfile("Inspector", nullptr);
-    m_inspector_profile = QWebEngineProfileBuilder::createOffTheRecordProfile(nullptr);
+    m_inspector_profile = pb2.createProfile("Inspector", nullptr);
     // handle possible nullptr return by creating a off the record profile
     if (!m_inspector_profile) {
         m_inspector_profile = QWebEngineProfileBuilder::createOffTheRecordProfile(nullptr);
