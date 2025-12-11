@@ -151,7 +151,6 @@ WebProfileMgr::WebProfileMgr()
     bool first_instance = false;
     MainApplication *mainApplication = qobject_cast<MainApplication *>(qApp);
     if (mainApplication) first_instance = mainApplication->isFirstInstance();
-    qDebug() << "WebProfileMgr:: first instance of Sigil:" << first_instance;
     
 #if QT_VERSION >= QT_VERSION_CHECK(6, 9, 0)
     // create a place for Preview Caches if needed
@@ -188,14 +187,11 @@ WebProfileMgr::WebProfileMgr()
     pb.setPersistentStoragePath(localStorePath);
     if (first_instance) {
         m_preview_profile = pb.createProfile("Preview", nullptr);
-        qDebug() << "first instance Preview profile: " << m_preview_profile;
     } else {
         m_preview_profile = QWebEngineProfileBuilder::createOffTheRecordProfile(nullptr);
-        qDebug() << "NOT first instance Preview profile: " << m_preview_profile;
     }
     // handle possible nullptr return by creating a off the record profile
     if (!m_preview_profile) {
-        qDebug() << "Handle no preview profile return value";
         m_preview_profile = QWebEngineProfileBuilder::createOffTheRecordProfile(nullptr);
     }
 #endif
@@ -232,14 +228,11 @@ WebProfileMgr::WebProfileMgr()
     pb2.setPersistentStoragePath(devToolsStorePath);
     if (first_instance) {
         m_inspector_profile = pb2.createProfile("Inspector", nullptr);
-        qDebug() << "first instance Inspector profile: " << m_inspector_profile;
     } else {
         m_inspector_profile = QWebEngineProfileBuilder::createOffTheRecordProfile(nullptr);
-        qDebug() << "NOT first instance Inspector profile: " << m_inspector_profile;
     }
     // handle possible nullptr return by creating a off the record profile
     if (!m_inspector_profile) {
-        qDebug() << "Handle no inspector profile return value";
         m_inspector_profile = QWebEngineProfileBuilder::createOffTheRecordProfile(nullptr);
     }
 #endif
