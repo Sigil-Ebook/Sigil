@@ -1569,29 +1569,25 @@ QString Utility::CleanFileName(const QString &name)
     result.replace("\"", "_");
     result.replace("+", "_");
     result.replace(" ", "_");
+    result.replace(",", "_");
+    result.replace(";", "_");
     result = result.trimmed();
 
-    QRegularExpression only_dots("\\.+");
+    QRegularExpression only_dots("^\\.+$");
     if (result == "." || result == ".." || only_dots.match(result).hasMatch()) {
         return "_";
     }
 
-    result.replace("..", "_");
+    result.replace(QRegularExpression("\\.{2,}"), "_");
 
-    if (result.endsWith(".")) {
-        result.chop(1);
-        result.append("_");
-    }
+    result.replace('.', '_');
 
-    if (!result.isEmpty() && result.startsWith(".")) {
-        result.prepend("_");
-    }
+    result.replace(QRegularExpression("_+"), "_");
 
     if (result.isEmpty()) {
         return "_";
-    } else {
-        return result;
     }
+    return result;
 }
 
 // to be used in place of QFileDialog::Options() to initialize them
