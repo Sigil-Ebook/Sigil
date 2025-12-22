@@ -7,7 +7,7 @@ If you're looking for instructions on how to build on systems that don't provide
 
 ## General Overview
 
-The requirements for building Sigil on newer Linux systems Arch Linux, Debian 12, or Ubuntu 23.04, should be able to be installed entirely from your system's software repositories.
+The requirements for building Sigil on newer Linux systems Arch Linux, Debian 12, Ubuntu 23.04 or Alpine 3.20 should be able to be installed entirely from your system's software repositories.
 
 To build Sigil on newer Linux systems, you need to get/do the following things:
 
@@ -126,7 +126,7 @@ If you want to make use of them on Alpine, `sudo apk add` the following packages
 + pcre2-dev
 + minizip-dev
 
-The following command can be copied and pasted for convenience on Debian-based systems:
+The following command can be copied and pasted for convenience on Alpine-based systems:
 
 `sudo apk add hunspell-dev pcre2-dev minizip-dev`
 
@@ -167,7 +167,7 @@ On Alpine `sudo apk add` the following packages:
 + py3-css-parser
 + py3-dulwich
 
-The following command can be copied and pasted for convenience on Debian-based systems:
+The following command can be copied and pasted for convenience on Alpine-based systems:
 
 `sudo apk add python3-dev py3-pip py3-lxml py3-six py3-css-parser py3-dulwich`
 
@@ -202,9 +202,6 @@ The following command can be copied and pasted for convenience on Debian-based s
 
 `sudo apt-get install python3-pil.imagetk python3-html5lib python3-regex python3-pillow python3-cssselect python3-chardet`
 
-The PySide6 requirement for many 3rd-party plugins is not available via distro-maintained packages on Debian-based systems at the time of this writing).
-It can installed via PyPi.org with pip (or pip3) if your distro still allows using pip to install packages into the system-maintained Python environment. You may need to learn how to work with (or get around) the newer PEP 668 rules that distros are adopting. If you run into this issue, have a look at the [instructions](./Linux_Virtual_Plugin_Environment.md) for creating a virtual Python environment to run Sigil plugins.
-
 On Alpine-based systems, these should all be able to be installed with `sudo apk add`.
 
 + python3-tkinter
@@ -217,7 +214,10 @@ On Alpine-based systems, these should all be able to be installed with `sudo apk
  
 The following command can be copied and pasted for convenience on Alpine-based systems:
 
-`sudo apk add py3-html5lib py3-regex py3-chardet py3-cssselect python3-tkinter`
+`sudo apk add py3-html5lib py3-regex py3-chardet py3-cssselect python3-tkinter py3-pyside6 py3-pillow`
+
+The PySide6 requirement for many 3rd-party plugins is not available via distro-maintained packages on Debian-based systems at the time of this writing).
+It can installed via PyPi.org with pip (or pip3) if your distro still allows using pip to install packages into the system-maintained Python environment. You may need to learn how to work with (or get around) the newer PEP 668 rules that distros are adopting. If you run into this issue, have a look at the [instructions](./Linux_Virtual_Plugin_Environment.md) for creating a virtual Python environment to run Sigil plugins
 
 If you run into any that won't install with `sudo pacman -S` (or `sudo apt-get install` or `sudo apk add`) you may be able to use `pip install` to install them.
 
