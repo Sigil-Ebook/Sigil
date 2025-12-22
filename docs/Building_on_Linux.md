@@ -215,7 +215,7 @@ On Alpine-based systems, these should all be able to be installed with `sudo apk
 + py3-pillow
 + py3-pyside6 
  
-he following command can be copied and pasted for convenience on Debian-based systems:
+The following command can be copied and pasted for convenience on Alpine-based systems:
 
 `sudo apk add py3-html5lib py3-regex py3-chardet py3-cssselect python3-tkinter`
 
