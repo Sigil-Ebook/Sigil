@@ -1,12 +1,13 @@
 # <center>Building Sigil on Linux with Qt6</center>
 ## <center>Systems like Arch (and its derivatives) or newer</center>
 ## <center>Systems like Debian 12 or Ubuntu 23.04 or newer</center>
+## <center>Systems like Alpine 3.20 or newer</center>
 
 If you're looking for instructions on how to build on systems that don't provide Qt6, you should look at the [Building_on_Linux_older](./Building_on_Linux_older.md) documentation.
 
 ## General Overview
 
-The requirements for building Sigil on newer Linux systems Arch Linux, Debian 12, or Ubuntu 23.04, should be able to be installed entirely from your system's software repositories.
+The requirements for building Sigil on newer Linux systems Arch Linux, Debian 12, Ubuntu 23.04 or Alpine 3.20 should be able to be installed entirely from your system's software repositories.
 
 To build Sigil on newer Linux systems, you need to get/do the following things:
 
@@ -28,6 +29,10 @@ While users of Debian-based distros should use the apt-get commands
 
  >`sudo apt-get install`
 
+While users of Alpine-based distros should use the apk commands
+
+ >`sudo apk add`
+
 You'll have to forgive me for not knowing all the yum/emerge equivalents. It's not a slight–I can assure you.
 
 ## <a name="gcc"/>Linux Build Environment
@@ -39,6 +44,10 @@ On Debian-type systems you can use:
 
 >`sudo apt-get install build-essential git`
 
+On Alpine-type systems you can use:
+
+>`sudo apk add build-base git`
+
 to get pretty-much everything you need to configure/compile/install C++ projects. On other flavors of Linux you need to basically make sure that you have gcc/g++ and "make" installed.
 
 ## <a name="cmake"/>Getting CMake
@@ -46,6 +55,7 @@ Once again: `sudo pacman -S cmake` will get you what you need on Arch-type syste
 
 and `sudo apt-get install cmake` will get you what you need on Debian-type systems.
 
+and `sudo apk add cmake` will get you what you need on Alpine-type systems.
 
 ## <a name="qt6"/>Getting Qt6
 **If your repos don't provide at least Qt6.4+ use the [Building_on_Linux_older](./Building_on_Linux_older.md) documentation for Qt5.**
@@ -79,6 +89,16 @@ The following command can be copied and pasted for convenience on Debian-based s
 
 **Note:** On Debian-based systems, you may need to also install the libgl1-mesa-dev package if cmake complains of missing OpenGL headers and/or includes
 
+On Alpine-based systems `sudo apk add` the following packages.
+
++ qt6-qtbase-dev
++ qt6-qttools-dev
++ qt6-qtwebengine-dev
++ qt6-qtsvg-dev
++ qt6-qt5compat-dev
+
+`sudo apk add qt6-qtbase-dev qt6-qttools-dev qt6-qtwebengine-dev qt6-qtsvg-dev qt6-qt5compat-dev`
+
 ## <a name="thirdparty"/>3rd-Party Dependencies (optional step)
 Sigil will provide the extra third-party libs if you do nothing, but most (if not all) of Sigil's third-party dependencies should be available in your software repos. If you want to make use of them on Arch, `sudo pacman -S` the following packages.
 
@@ -100,6 +120,16 @@ The following command can be copied and pasted for convenience on Debian-based s
 
 `sudo apt-get install libhunspell-dev libpcre2-dev libminizip-dev`
 
+If you want to make use of them on Alpine, `sudo apk add` the following packages.
+
++ hunspell-dev
++ pcre2-dev
++ minizip-dev
+
+The following command can be copied and pasted for convenience on Alpine-based systems:
+
+`sudo apk add hunspell-dev pcre2-dev minizip-dev`
+
 If you do install them, remember to use use the -DUSE_SYSTEM_LIBS=1 option when configuring Sigil with cmake later on. Otherwise, the build process will ignore them and provide/build its own.
 
 ## <a name="python"/>Getting Python 3.9+
@@ -115,7 +145,7 @@ The following command can be copied and pasted for convenience on Arch-based sys
 
 `sudo pacman -S python python-lxml python-six python-css-parser python-dulwich`
 
-On Debian 'sudo apt-get install` the following packages:
+On Debian `sudo apt-get install` the following packages:
 
 + python3-dev
 + python3-pip
@@ -127,6 +157,19 @@ On Debian 'sudo apt-get install` the following packages:
 The following command can be copied and pasted for convenience on Debian-based systems:
 
 `sudo apt-get install python3-dev python3-pip python3-lxml python3-six python3-css-parser python3-dulwich`
+
+On Alpine `sudo apk add` the following packages:
+
++ python3-dev
++ py3-pip
++ py3-lxml
++ py3-six
++ py3-css-parser
++ py3-dulwich
+
+The following command can be copied and pasted for convenience on Alpine-based systems:
+
+`sudo apk add python3-dev py3-pip py3-lxml py3-six py3-css-parser py3-dulwich`
 
 That's all the Python stuff you will need to get Sigil "up and running", but if you want to make use of Sigil plugins that people are developing, you will also want to install the "standard" modules that ship with the binary version of Sigil on Windows and OS X.
 
@@ -159,10 +202,24 @@ The following command can be copied and pasted for convenience on Debian-based s
 
 `sudo apt-get install python3-pil.imagetk python3-html5lib python3-regex python3-pillow python3-cssselect python3-chardet`
 
-The PySide6 requirement for many 3rd-party plugins is not available via distro-maintained packages on Debian-based systems at the time of this writing).
-It can installed via PyPi.org with pip (or pip3) if your distro still allows using pip to install packages into the system-maintained Python environment. You may need to learn how to work with (or get around) the newer PEP 668 rules that distros are adopting. If you run into this issue, have a look at the [instructions](./Linux_Virtual_Plugin_Environment.md) for creating a virtual Python environment to run Sigil plugins.
+On Alpine-based systems, these should all be able to be installed with `sudo apk add`.
 
-If you run into any that won't install with `sudo pacman -S` (or `sudo apt-get install`) you may be able to use pip to install them.
++ python3-tkinter
++ py3-html5lib
++ py3-regex
++ py3-cssselect
++ py3-chardet
++ py3-pillow
++ py3-pyside6 
+ 
+The following command can be copied and pasted for convenience on Alpine-based systems:
+
+`sudo apk add py3-html5lib py3-regex py3-chardet py3-cssselect python3-tkinter py3-pyside6 py3-pillow`
+
+The PySide6 requirement for many 3rd-party plugins is not available via distro-maintained packages on Debian-based systems at the time of this writing).
+It can installed via PyPi.org with pip (or pip3) if your distro still allows using pip to install packages into the system-maintained Python environment. You may need to learn how to work with (or get around) the newer PEP 668 rules that distros are adopting. If you run into this issue, have a look at the [instructions](./Linux_Virtual_Plugin_Environment.md) for creating a virtual Python environment to run Sigil plugins
+
+If you run into any that won't install with `sudo pacman -S` (or `sudo apt-get install` or `sudo apk add`) you may be able to use `pip install` to install them.
 
 ## <a name="sigil"/>Getting Sigil's Source Code
 
@@ -178,7 +235,7 @@ Unzip/untar the source code. Rename the uppermost directory ("Sigil-0.X.X" if yo
 
 ## <a name="build"/>Building Sigil
 
-First off ... you don't build IN the Sigil source directory. You do all the building in a separate "build" directory. So at the same directory level as the Sigil source code directory, create a new directory called "sigil-build". The rest of the instructions will assume that both your Sigil source directory (I renamed it "sigil-src" in the previous step; adjust accordingly if you didn't) and your Sigil build directory ("sigil-build) are at the root of your user's home (~) directory.
+First off ... you don't build IN the Sigil source directory. You do all the building in a separate "build" directory. So at the same directory level as the Sigil source code directory, create a new directory called `"sigil-build"`. The rest of the instructions will assume that both your Sigil source directory (I renamed it `"sigil-src"` in the previous step; adjust accordingly if you didn't) and your Sigil build directory (`"sigil-build"`) are at the root of your user's home (~) directory.
 
 So first off, open a terminal and cd into your sigil-build directory
 
