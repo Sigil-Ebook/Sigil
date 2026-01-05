@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -242,8 +242,11 @@ public:
     QHash<QString, QStringList> GetAudioInHTMLFiles();
     QHash< QString, std::pair<int,int> > GetSpellWordCountsInHTMLFiles();
     QHash<QString, QStringList> GetHTMLFilesUsingMedia();
+    QHash<QString, QStringList> GetHTMLFilesUsingMediaInStyleUrls();
+    QHash<QString, QStringList> GetCSSFilesUsingUrls();
     QHash<QString, QStringList> GetHTMLFilesUsingImages();
 
+    static std::tuple<QString, QStringList> GetUrlsInCSSFileMapped(CSSResource *css_resource);
     static std::tuple<QString, QStringList> GetMediaInHTMLFileMapped(HTMLResource *html_resource);
     static std::tuple<QString, QStringList> GetImagesInHTMLFileMapped(HTMLResource *html_resource);
     static std::tuple<QString, QStringList> GetVideoInHTMLFileMapped(HTMLResource *html_resource);

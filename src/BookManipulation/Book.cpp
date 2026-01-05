@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2024  Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2015-2026  Kevin B. Hendricks Stratford, ON, Canada
 **  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -996,8 +996,44 @@ QHash<QString, QStringList> Book::GetHTMLFilesUsingMedia()
             html_files[media_bookpath].append(html_bookpath);
         }
     }
-
     return html_files;
+}
+
+QHash<QString, QStringList> Book::GetHTMLFilesUsingMediaInStyleUrls()
+{
+    QHash<QString, QStringList> html_files;
+    const QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(false);
+
+    QFuture<std::tuple<QString, QStringList>> future = QtConcurrent::mapped(html_resources, GetStyleUrlsInHTMLFileMapped);
+
+    for (int i = 0; i < future.results().count(); i++) {
+        QString html_bookpath;
+        QStringList url_bookpaths;
+        std::tie(html_bookpath, url_bookpaths) = future.resultAt(i);
+        foreach(QString url_bookpath, url_bookpaths) {
+            html_files[url_bookpath].append(html_bookpath);
+        }
+    }
+    return html_files;
+}
+
+QHash<QString, QStringList> Book::GetCSSFilesUsingUrls()
+{
+    QHash<QString, QStringList> css_files;
+    const QList<CSSResource*> css_resources = m_Mainfolder->GetResourceTypeList<CSSResource>(false);
+
+    QFuture<std::tuple<QString, QStringList>> future = QtConcurrent::mapped(css_resources, GetUrlsInCSSFileMapped);
+
+    for (int i = 0; i < future.results().count(); i++) {
+        QString css_bookpath;
+        QStringList url_bookpaths;
+        std::tie(css_bookpath, url_bookpaths) = future.resultAt(i);
+        foreach(QString url_bookpath, url_bookpaths) {
+            css_files[url_bookpath].append(css_bookpath);
+        }
+    }
+
+    return css_files;
 }
 
 QHash<QString, QStringList> Book::GetHTMLFilesUsingImages()
@@ -1033,6 +1069,27 @@ std::tuple<QString, QStringList> Book::GetMediaInHTMLFileMapped(HTMLResource *ht
         }
     }
     return std::make_tuple(html_bookpath, media_bookpaths);
+}
+
+std::tuple<QString, QStringList> Book::GetUrlsInCSSFileMapped(CSSResource *css_resource)
+{
+    QString css_bookpath = css_resource->GetRelativePath();
+    QString startdir = css_resource->GetFolder();
+    QRegularExpression url_file_search("url\\s*\\(\\s*['\"]?([^\\(\\)'\"]*)[\"']?\\)");
+
+    QStringList url_bookpaths;
+    CSSInfo css_info(css_resource->GetText());
+    QStringList urllist = css_info.getAllPropertyValues("");
+    foreach (QString url, urllist) {
+        QRegularExpressionMatch match = url_file_search.match(url);
+        if (match.hasMatch()) {
+            QString ahref = match.captured(1);
+            if (ahref.indexOf(":") == -1) {
+                url_bookpaths << Utility::buildBookPath(ahref, startdir);
+            }
+        }
+    }
+    return std::make_tuple(css_bookpath, url_bookpaths);
 }
 
 std::tuple<QString, QStringList> Book::GetImagesInHTMLFileMapped(HTMLResource *html_resource)

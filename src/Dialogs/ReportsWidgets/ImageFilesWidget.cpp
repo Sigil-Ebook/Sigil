@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2025 Kevin Hendricks, Statford, ON 
+**  Copyright (C) 2015-2026 Kevin Hendricks, Statford, ON
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **
@@ -108,6 +108,8 @@ void ImageFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     double total_size = 0;
     int total_links = 0;
     QHash<QString, QStringList> image_html_files_hash = m_Book->GetHTMLFilesUsingImages();
+    QHash<QString, QStringList> image_html2_files_hash = m_Book->GetHTMLFilesUsingMediaInStyleUrls();
+    QHash<QString, QStringList> image_css_files_hash = m_Book->GetCSSFilesUsingUrls();
     foreach(Resource * resource, m_AllImageResources) {
         QString filepath = resource->GetRelativePath();
         QString path = resource->GetFullPath();
@@ -133,13 +135,16 @@ void ImageFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         size_item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
         rowItems << size_item;
         // Times Used
-        QStringList image_html_files = image_html_files_hash[filepath];
-        total_links += image_html_files.count();
+        QStringList image_usage = image_html_files_hash.value(filepath, QStringList());
+        image_usage << image_html2_files_hash.value(filepath, QStringList());
+        image_usage << image_css_files_hash.value(filepath, QStringList());
+        int use_count = image_usage.count();
+        total_links += use_count;
         NumericItem *link_item = new NumericItem();
-        link_item->setText(QString::number(image_html_files.count()));
+        link_item->setText(QString::number(use_count));
         link_item->setTextAlignment(Qt::AlignRight | Qt::AlignVCenter);
-        if (!image_html_files.isEmpty()) {
-            link_item->setToolTip(image_html_files.join("\n"));
+        if (!image_usage.isEmpty()) {
+            link_item->setToolTip(image_usage.join("\n"));
         }
 
         rowItems << link_item;
