@@ -85,13 +85,13 @@ class SigilMatch(object):
     def __init__(self, text, groupslist):
         self.string = text
         self.groupslist = groupslist
-        self.beg, self.end = groupslist[0]
+        self.mtchbeg, self.mtchend = groupslist[0]
 
     def start(self):
-        return self.beg
+        return self.mtchbeg
 
     def end(self):
-        return self.end
+        return self.mtchend
 
     def span(self, i):
         if i < 0 or i >= len(self.groupslist):
