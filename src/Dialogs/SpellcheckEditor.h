@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012-2013 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **
@@ -80,6 +80,7 @@ private slots:
     void Ignore();
     void Add();
     void SelectAll();
+    void Save();
     void ChangeAll();
 
     void toggleShowAllWords();
@@ -117,6 +118,7 @@ private:
     QAction *m_Add;
     QAction *m_Find;
     QAction *m_SelectAll;
+    QAction *m_SaveSelected;
 
     QSharedPointer<Book> m_Book;
 
@@ -132,6 +134,8 @@ private:
     QShortcut * m_ShowAllSC;
     QShortcut * m_AwareSC;
     QShortcut * m_RefreshSC;
+    QString m_LastDirSaved;
+    QString m_LastFileSaved;
 
     Ui::SpellcheckEditor ui;
 };

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012-2013 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **
@@ -27,6 +27,7 @@
 #include <QContextMenuEvent>
 #include <QMessageBox>
 #include <QPushButton>
+#include <QFileDialog>
 #include <QDebug>
 
 #include "Dialogs/SpellcheckEditor.h"
@@ -38,6 +39,7 @@
 #include "Misc/HTMLSpellCheckML.h"
 #include "Misc/Language.h"
 #include "ResourceObjects/Resource.h"
+#include "sigil_exception.h"
 
 static const QString SETTINGS_GROUP = "spellcheck_editor";
 static const QString SELECTED_DICTIONARY = "selected_dictionary";
@@ -46,6 +48,7 @@ static const QString LOCALE_AWARE_SORT = "locale_aware_sort";
 static const QString SORT_COLUMN = "sort_column";
 static const QString SORT_ORDER = "sort_order";
 static const QString FILE_EXTENSION = "ini";
+static const QString DEFAULT_REPORT_FILE = "SpellcheckWords.csv";
 
 SpellcheckEditor::SpellcheckEditor(QWidget *parent)
     :
@@ -58,7 +61,10 @@ SpellcheckEditor::SpellcheckEditor(QWidget *parent)
     m_FilterSC(new QShortcut(QKeySequence(tr("f", "Filter")), this)),
     m_ShowAllSC(new QShortcut(QKeySequence(tr("s", "ShowAllWords")), this)),
     m_AwareSC(new QShortcut(QKeySequence(tr("a", "Locale-AwareSort")), this)),
-    m_RefreshSC(new QShortcut(QKeySequence(tr("r", "Refresh")), this))
+    m_RefreshSC(new QShortcut(QKeySequence(tr("r", "Refresh")), this)),
+    m_LastDirSaved(QString()),
+    m_LastFileSaved(QString())
+
 {
     ui.setupUi(this);
     ui.FilterText->installEventFilter(this);
@@ -541,6 +547,12 @@ void SpellcheckEditor::ReadSettings()
         // connect(ui.SpellcheckEditorTree->header(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(Sort(int, Qt::SortOrder)));
     }
 
+    // Last file open
+    m_LastDirSaved = settings.value("last_dir_saved").toString();
+    m_LastFileSaved = settings.value("last_file_saved_spellcheckeditor").toString();
+    if (m_LastFileSaved.isEmpty()) {
+        m_LastFileSaved = DEFAULT_REPORT_FILE;
+    }
     settings.endGroup();
 }
 
@@ -559,7 +571,8 @@ void SpellcheckEditor::WriteSettings()
     settings.setValue(LOCALE_AWARE_SORT, ui.LocaleAwareSort->checkState() == Qt::Checked);
     settings.setValue(SORT_COLUMN, ui.SpellcheckEditorTree->header()->sortIndicatorSection());
     settings.setValue(SORT_ORDER, ui.SpellcheckEditorTree->header()->sortIndicatorOrder() == Qt::AscendingOrder);
-
+    settings.setValue("last_dir_saved", m_LastDirSaved);
+    settings.setValue("last_file_saved_spellcheckeditor", m_LastFileSaved);
     settings.endGroup();
 }
 
@@ -569,6 +582,7 @@ void SpellcheckEditor::CreateContextMenuActions()
     m_Add       = new QAction(tr("Add to Dictionary"), this);
     m_Find      = new QAction(tr("Find in Text"),      this);
     m_SelectAll = new QAction(tr("Select All"),        this);
+    m_SaveSelected = new QAction(tr("Save Selected Data") + "...", this);
     m_Ignore->setShortcut(QKeySequence(Qt::Key_F1));
     m_Add->setShortcut(QKeySequence(Qt::Key_F2));
     m_Find->setShortcut(QKeySequence(Qt::Key_F3));
@@ -576,6 +590,7 @@ void SpellcheckEditor::CreateContextMenuActions()
     addAction(m_Ignore);
     addAction(m_Add);
     addAction(m_Find);
+    addAction(m_SaveSelected);
 }
 
 void SpellcheckEditor::OpenContextMenu(const QPoint &point)
@@ -589,6 +604,7 @@ void SpellcheckEditor::OpenContextMenu(const QPoint &point)
         m_Add->setEnabled(true);
         m_Find->setEnabled(true);
         m_SelectAll->setEnabled(true);
+        m_SaveSelected->setEnabled(ui.SpellcheckEditorTree->selectionModel()->selectedRows().count() > 0);
     }
 }
 
@@ -603,7 +619,75 @@ void SpellcheckEditor::SetupContextMenu(const QPoint &point)
     m_Find->setEnabled(selected_rows_count > 0);
     m_ContextMenu->addSeparator();
     m_ContextMenu->addAction(m_SelectAll);
+    m_Find->setEnabled(selected_rows_count > 0);
+    m_ContextMenu->addAction(m_SaveSelected);
+    m_SaveSelected->setEnabled(ui.SpellcheckEditorTree->selectionModel()->selectedRows().count() > 0);
 }
+
+void SpellcheckEditor::Save()
+{
+    QModelIndexList selected_indexes = ui.SpellcheckEditorTree->selectionModel()->selectedRows(0);
+    if (selected_indexes.count() == 0) return;
+
+    QStringList report_info;
+    QStringList heading_row;
+
+    // Get headings
+    for (int col = 0; col < ui.SpellcheckEditorTree->header()->count(); col++) {
+        QStandardItem *item = m_SpellcheckEditorModel->horizontalHeaderItem(col);
+        QString text = "";
+        if (item) {
+            text = item->text();
+        }
+        heading_row << text;
+    }
+    report_info << Utility::createCSVLine(heading_row);
+
+    // Get selected data from table
+    foreach(QModelIndex index, selected_indexes) {
+        int row = index.row();
+        QStringList data_row;
+        for (int col = 0; col < ui.SpellcheckEditorTree->header()->count(); col++) {
+            QStandardItem *item = m_SpellcheckEditorModel->item(row, col);
+            QString text = "";
+            if (item) {
+                text = item->text();
+            }
+            data_row << text;
+        }
+        report_info << Utility::createCSVLine(data_row);
+    }
+
+    QString data = report_info.join('\n') + '\n';
+    // Save the file
+    ReadSettings();
+    QString filter_string = "*.csv;;*.txt;;*.*";
+    QString default_filter = "";
+    QString save_path = m_LastDirSaved + "/" + m_LastFileSaved;
+    QFileDialog::Options options = Utility::DlgOptions();
+
+    QString destination = QFileDialog::getSaveFileName(this,
+                                                       tr("Save Selected Data As Comma Separated File"),
+                                                       save_path,
+                                                       filter_string,
+                                                       &default_filter,
+                                                       options);
+
+    if (destination.isEmpty()) {
+        return;
+    }
+
+    try {
+        Utility::WriteUnicodeTextFile(data, destination);
+    } catch (CannotOpenFile&) {
+        Utility::warning(this, tr("Sigil"), tr("Cannot save data file."));
+    }
+
+    m_LastDirSaved = QFileInfo(destination).absolutePath();
+    m_LastFileSaved = QFileInfo(destination).fileName();
+    WriteSettings();
+}
+
 
 void SpellcheckEditor::ForceClose()
 {
@@ -632,6 +716,7 @@ void SpellcheckEditor::ConnectSignalsSlots()
     connect(m_Add,       SIGNAL(triggered()), this, SLOT(Add()));
     connect(m_Find,      SIGNAL(triggered()), this, SLOT(FindSelectedWord()));
     connect(m_SelectAll, SIGNAL(triggered()), this, SLOT(SelectAll()));
+    connect(m_SaveSelected, SIGNAL(triggered()), this, SLOT(Save()));
     connect(ui.SpellcheckEditorTree, SIGNAL(doubleClicked(const QModelIndex &)),
             this,         SLOT(FindSelectedWord()));
     connect(ui.ShowAllWords,  SIGNAL(stateChanged(int)),
