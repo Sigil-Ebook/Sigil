@@ -111,6 +111,17 @@ class SigilMatch(object):
         return results 
 
 
+def create_sigilmatch_copy(m):
+    grouplist = []
+    n = len(m.groups())
+    if  n > 0: n = n + 1
+    s = m.start()
+    for i in range(n):
+        grouplist.append([m.span(i)[0] - s, m.span(i)[1] - s])
+    nm = SigilMatch(m.group(0), grouplist)
+    return nm
+
+
 class FunctionSearch(object):
 
     def __init__(self, metadataxml, function_name, repfuncs):
