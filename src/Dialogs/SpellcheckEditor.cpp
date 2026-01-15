@@ -67,6 +67,7 @@ SpellcheckEditor::SpellcheckEditor(QWidget *parent)
 
 {
     ui.setupUi(this);
+    setWindowFlags(windowFlags() | Qt::WindowMinimizeButtonHint | Qt::WindowMaximizeButtonHint);    
     ui.FilterText->installEventFilter(this);
     SetupSpellcheckEditorTree();
     CreateContextMenuActions();

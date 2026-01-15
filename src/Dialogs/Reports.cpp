@@ -59,7 +59,7 @@ Reports::Reports(QWidget *parent)
       m_CharactersInHTMLFilesWidget(new CharactersInHTMLFilesWidget())
 {
     ui.setupUi(this);
-
+    setWindowFlags(windowFlags() | Qt::WindowMinimizeButtonHint | Qt::WindowMaximizeButtonHint);
     appendReportsWidget(m_AllFilesWidget);
     appendReportsWidget(m_HTMLFilesWidget);
     appendReportsWidget(m_ImageFilesWidget);
