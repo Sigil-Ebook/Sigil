@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2025 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2016-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2016-2022 Doug Massay
 **
 **  This file is part of Sigil.
@@ -118,6 +118,8 @@ public:
                                            const QList<std::pair<int,int>>capture_groups);
 
     bool CreateUserJsonFileInPython();
+
+    QString GetNameOfCurrentCodepointInPython(int cp);
 
 private:
 

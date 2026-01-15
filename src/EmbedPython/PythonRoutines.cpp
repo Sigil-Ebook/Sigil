@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2025 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2016-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2016-2022 Doug Massay
 **
 **  This file is part of Sigil.
@@ -556,4 +556,22 @@ bool PythonRoutines::CreateUserJsonFileInPython()
     args.clear();
     if (v) return true;
     return false;
+}
+
+QString PythonRoutines::GetNameOfCurrentCodepointInPython(int cp)
+{
+    int rv = 0;
+    QString traceback;
+    QString charname = "";
+    QString module = "getcodepointname";
+    QList<QVariant> args;
+    args.append(QVariant(cp));
+    EmbeddedPython* epp = EmbeddedPython::instance();
+    QVariant res = epp->runInPython(module, QString("getname"), args, &rv, traceback, true);
+    if (rv) {
+        fprintf(stderr, "getcodepointname error %d traceback %s\n",rv, traceback.toStdString().c_str());
+        return charname;
+    }
+    charname = res.toString();
+    return charname;
 }

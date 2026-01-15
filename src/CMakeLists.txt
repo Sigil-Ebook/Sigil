@@ -430,6 +430,8 @@ set( MISC_FILES
     Misc/WebProfileMgr.h
     Misc/webviewprinter.cpp
     Misc/webviewprinter.h
+    Misc/CodepointNames.cpp
+    Misc/CodepointNames.h
     )
 
 set( MISC_EDITORS_FILES

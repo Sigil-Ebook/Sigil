@@ -360,7 +360,7 @@ void FlowTab::EmitScrollPreviewImmediately()
 void FlowTab::EmitUpdateCursorPosition()
 {
     DBG qDebug() << "FlowTab emiting UpdateCursorPosition from EmitUpdateCursorPosition";
-    emit UpdateCursorPosition(GetCursorLine(), GetCursorColumn());
+    emit UpdateCursorPosition(GetCursorLine(), GetCursorColumn(), GetCursorCodepoint());
 }
 
 void FlowTab::HighlightWord(QString word, int pos)
@@ -555,6 +555,14 @@ int FlowTab::GetCursorColumn() const
 {
     if (m_wCodeView) {
         return m_wCodeView->GetCursorColumn();
+    }
+    return -1;
+}
+
+int FlowTab::GetCursorCodepoint() const
+{
+    if (m_wCodeView) {
+        return m_wCodeView->GetCursorCodepoint();
     }
     return -1;
 }

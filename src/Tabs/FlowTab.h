@@ -111,7 +111,8 @@ public:
     int GetCursorPosition() const;
     int GetCursorLine() const;
     int GetCursorColumn() const;
-
+    int GetCursorCodepoint() const;
+  
     float GetZoomFactor() const;
 
     void SetZoomFactor(float new_zoom_factor);

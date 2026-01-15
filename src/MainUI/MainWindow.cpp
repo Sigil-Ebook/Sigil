@@ -101,6 +101,7 @@
 #include "Misc/OpenExternally.h"
 #include "Misc/Plugin.h"
 #include "Misc/PluginDB.h"
+#include "Misc/CodepointNames.h"
 #include "EmbedPython/PythonRoutines.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/SleepFunctions.h"
@@ -4671,7 +4672,7 @@ void MainWindow::UpdateUIOnTabChanges()
     float zoom_factor = GetZoomFactor();
     UpdateZoomLabel(zoom_factor);
     UpdateZoomSlider(zoom_factor);
-    UpdateCursorPositionLabel(tab->GetCursorLine(), tab->GetCursorColumn());
+    UpdateCursorPositionLabel(tab->GetCursorLine(), tab->GetCursorColumn(), tab->GetCursorCodepoint());
     SelectEntryOnHeadingToolbar(tab->GetCaretElementName());
 }
 
@@ -5074,12 +5075,14 @@ void MainWindow::InspectHTML()
     UpdatePreview();
 }
 
-void MainWindow::UpdateCursorPositionLabel(int line, int column)
+void MainWindow::UpdateCursorPositionLabel(int line, int column, int codepoint)
 {
+    QString name = "";
     if (line > 0 && column > 0) {
+        name = CodepointNames::instance()->GetName(codepoint);
         const QString l = QString::number(line);
         const QString c = QString::number(column);
-        m_lbCursorPosition->setText(tr("Line: %1, Col: %2").arg(l).arg(c));
+        m_lbCursorPosition->setText(tr("Line: %1, Col: %2 - %3").arg(l).arg(c).arg(name));
         m_lbCursorPosition->show();
     } else {
         m_lbCursorPosition->clear();
@@ -6290,7 +6293,7 @@ void MainWindow::ExtendUI()
     ui.toolBarClips->setVisible(false);
     m_lbCursorPosition = new QLabel(QString(""), statusBar());
     statusBar()->addPermanentWidget(m_lbCursorPosition);
-    UpdateCursorPositionLabel(0, 0);
+    UpdateCursorPositionLabel(0, 0, -1);
     // Creating the zoom controls in the status bar
     m_slZoomSlider = new QSlider(Qt::Horizontal, statusBar());
     m_slZoomSlider->setTracking(false);
@@ -6974,8 +6977,8 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
         rType != Resource::FontResourceType) {
         connect(ui.actionPrintPreview,             SIGNAL(triggered()),  tab,   SLOT(PrintPreview()));
         connect(ui.actionPrint,                    SIGNAL(triggered()),  tab,   SLOT(Print()));
-        connect(tab,   SIGNAL(ContentChanged()),             m_Book.data(), SLOT(SetModified()));
-        connect(tab,   SIGNAL(UpdateCursorPosition(int, int)), this,          SLOT(UpdateCursorPositionLabel(int, int)));
+        connect(tab,   SIGNAL(ContentChanged()),                    m_Book.data(), SLOT(SetModified()));
+        connect(tab,   SIGNAL(UpdateCursorPosition(int, int, int)), this, SLOT(UpdateCursorPositionLabel(int, int, int)));
         connect(tab,   SIGNAL(ZoomFactorChanged(float)),   this,          SLOT(UpdateZoomLabel(float)));
         connect(tab,   SIGNAL(ZoomFactorChanged(float)),   this,          SLOT(UpdateZoomSlider(float)));
         connect(tab,   SIGNAL(ShowStatusMessageRequest(const QString &)), this, SLOT(ShowMessageOnStatusBar(const QString &)));

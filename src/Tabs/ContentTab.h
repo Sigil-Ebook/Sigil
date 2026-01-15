@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -191,6 +191,9 @@ public:
     }
     virtual int GetCursorColumn() const {
         return 0;
+    }
+    virtual int GetCursorCodepoint() const {
+      return 0;
     }
 
     virtual float GetZoomFactor() const {
@@ -405,7 +408,7 @@ signals:
      * @param line The line the cursor is at.
      * @param column The column the cursor is at.
      */
-    void UpdateCursorPosition(int line, int column);
+     void UpdateCursorPosition(int line, int column, int codepoint);
 
     /**
      * Emitted when we want to do some operations with the clipboard

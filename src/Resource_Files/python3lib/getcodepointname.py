@@ -1,0 +1,43 @@
+import sys
+import unicodedata
+
+CONTROL_NAMES = [ 
+ "NULL",
+ "START OF HEADING",
+ "START OF TEXT",
+ "END OF TEXT",
+ "END OF TRANSMISSION",
+ "ENQUIRY",
+ "ACKNOWLEDGE",
+ "BELL",
+ "BACKSPACE",
+ "TAB",
+ "NEW LINE",
+ "VERTICAL TAB",
+ "FORM FEED",
+ "CARRIAGE RETURN",
+ "SHIFT OUT",
+ "SHIFT IN",
+ "DATA LINK ESCAPE",
+ "DEVICE CONTROL ONE",
+ "DEVICE CONTROL TWO",
+ "DEVICE CONTROL THREE",
+ "DEVICE CONTROL FOUR",
+ "NEGATIVE ACKNOWLEDGE",
+ "SYNCHRONOUS IDLE",
+ "END OF TRANSMISSION BLOCK",
+ "CANCEL",
+ "END OF MEDIUM",
+ "SUBSTITUTE",
+ "ESCAPE",
+ "FILE SEPARATOR (FS)",
+ "GROUP SEPARATOR (GS)",
+ "RECORD SEPARATOR (RS)",
+ "UNIT SEPARATOR (US)"
+ ]
+
+def getname(cp):
+    if cp < 0: return ""
+    if cp > 31: return unicodedata.name(chr(cp), "Unknown");
+    return CONTROL_NAMES[cp]   
+ 

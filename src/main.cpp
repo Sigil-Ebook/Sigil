@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2018-2025  Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2018-2026  Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2019-2025  Doug Massay
 **  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -57,6 +57,7 @@
 #include "Misc/UpdateChecker.h"
 #include "Misc/Utility.h"
 #include "Misc/WebProfileMgr.h"
+#include "Misc/CodepointNames.h"
 #include "Widgets/CaretStyle.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
@@ -763,7 +764,12 @@ int main(int argc, char *argv[])
         // to bypass 2mb url limit (singleton)
         WebProfileMgr* profile_mgr = WebProfileMgr::instance();
         Q_UNUSED(profile_mgr);
-        
+
+	// Initialize the CodepintNames cache
+        // just once
+        CodepointNames* cpnames = CodepointNames::instance();
+        Q_UNUSED(cpnames);
+
         // Needs to be created on the heap so that
         // the reply has time to return.
         // Skip if compile-time define or runtime env var is set.

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2015-2022 Doug Massay
 **  Copyright (C) 2012-2015 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
@@ -569,7 +569,7 @@ private slots:
      * @param line The line the currsor is currently at.
      * @param column The column within the line that the cursor is currently at.
      */
-    void UpdateCursorPositionLabel(int line, int column);
+     void UpdateCursorPositionLabel(int line, int column, int codepoint);
 
     /**
      * Zooms the current view with the new zoom slider value.

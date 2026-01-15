@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -119,6 +119,11 @@ int TextTab::GetCursorPosition() const
 int TextTab::GetCursorColumn() const
 {
     return m_wCodeView->GetCursorColumn();
+}
+
+int TextTab::GetCursorCodepoint() const
+{
+    return m_wCodeView->GetCursorCodepoint();
 }
 
 
@@ -286,7 +291,7 @@ void TextTab::LoadTabContent(QWidget *editor)
 
 void TextTab::EmitUpdateCursorPosition()
 {
-    emit UpdateCursorPosition(GetCursorLine(), GetCursorColumn());
+  emit UpdateCursorPosition(GetCursorLine(), GetCursorColumn(), GetCursorCodepoint());
 }
 
 void TextTab::DelayedInitialization()

@@ -28,7 +28,6 @@ def apply_func_to_match_groups(match, func=toUpper, handle_entities=handle_entit
         i = 1
         while i < ngroups:
             start, end = match.span(i)
-            print(start, end)
             if start > -1:
                 parts.append(match.string[pos:start])
                 parts.append(f(match.string[start:end]))

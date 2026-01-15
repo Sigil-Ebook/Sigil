@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2025 Doug Massay
-**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2026 Doug Massay
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **  Copyright (C) 2012      Grant Drake
@@ -865,6 +865,36 @@ int CodeViewEditor::GetCursorColumn() const
     const QTextBlock block = cursor.block();
     const int column = cursor.position() - block.position() + 1;
     return column;
+}
+
+int CodeViewEditor::GetCursorCodepoint() const
+{
+    int pos = GetCursorPosition();
+    QString src = toPlainText();
+    if ((pos >= 0) && (pos < src.length())) {
+        QChar c = src.at(pos);
+	if (!c.isSurrogate()) {
+	    return (int) c.unicode();
+	}
+        if (c.isHighSurrogate()) {
+	    if (pos + 1 < src.length()) {
+	        QChar c2 = src.at(pos+1);
+		if (c2.isLowSurrogate()) {
+		    return (int) QChar::surrogateToUcs4(c, c2);
+		}
+	    }
+	    return -1;
+	} else if (c.isLowSurrogate()) {
+	    if (pos - 1 >= 0) {
+	        QChar c2 = src.at(pos-1);
+		if (c2.isHighSurrogate()) {
+		    return (int) QChar::surrogateToUcs4(c2, c);
+		}
+	    }
+	    return -1;
+	}
+    }
+    return -1;
 }
 
 

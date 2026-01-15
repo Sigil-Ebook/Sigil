@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2025 Kevin B. Hendricks Stratford, ON Canada 
-**  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2026 Kevin B. Hendricks Stratford, ON Canada 
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -239,7 +239,8 @@ public:
     int GetCursorPosition() const;
     int GetCursorLine() const;
     int GetCursorColumn() const;
-
+    int GetCursorCodepoint() const;
+  
     void SetZoomFactor(float factor);
 
     float GetZoomFactor() const;
