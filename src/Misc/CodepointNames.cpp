@@ -25,7 +25,11 @@
 #include "EmbedPython/PythonRoutines.h"
 #include "Misc/CodepointNames.h"
 
-static const QString XHTML_CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_-+={}[]:;\"'<>,.?/|\\";
+static const QString XHTML_CHARS =
+    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    "1234567890!@#$%^&*()_-+={}[]:;\"'<>,.?/|\\…„”“’»«"
+    "ąćęłńóśżźĄĆĘŁŃÓŚŻŹáàâäãåÁÀÂÄÃÅéèêëÉÈÊËíìîïÍÌÎÏ"
+    "òôöõøÓÒÔÖÕØúùûüÚÙÛÜýÿÝŸçÇñÑšžŠŽđĐœæŒÆß";
 
 CodepointNames *CodepointNames::m_instance = 0;
 
