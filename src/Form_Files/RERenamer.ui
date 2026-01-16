@@ -47,6 +47,8 @@
     <rect>
      <x>20</x>
      <y>20</y>
+     <width>450</width>
+     <height>16</height>
     </rect>
    </property>
    <property name="text">
@@ -58,6 +60,8 @@
     <rect>
      <x>20</x>
      <y>70</y>
+     <width>450</width>
+     <height>16</height>
     </rect>
    </property>
    <property name="text">
