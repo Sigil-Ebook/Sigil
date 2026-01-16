@@ -35,6 +35,7 @@ RERenamer::RERenamer(const QString &retext, const QString& replacetext, QWidget 
     ui.repLineEdit->setText(replacetext);
     connectSignalsSlots();
     ReadSettings();
+    ui.rexLineEdit->setFocus(Qt::OtherFocusReason);
 }
 
 QString RERenamer::GetREText()
