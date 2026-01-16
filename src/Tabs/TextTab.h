@@ -83,6 +83,8 @@ public:
 
     Searchable *GetSearchableContent();
 
+    bool IsLoadingFinished();
+
 public slots:
 
     /**

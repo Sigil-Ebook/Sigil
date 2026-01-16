@@ -150,6 +150,16 @@ Searchable *TextTab::GetSearchableContent()
     return m_wCodeView;
 }
 
+bool TextTab::IsLoadingFinished()
+{
+    bool is_finished = false;
+
+    if (m_wCodeView) {
+        is_finished = m_wCodeView->IsLoadingFinished();
+    }
+
+    return is_finished;
+}
 
 void TextTab::Undo()
 {
