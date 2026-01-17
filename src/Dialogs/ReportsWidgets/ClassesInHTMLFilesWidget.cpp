@@ -131,12 +131,14 @@ void ClassesInHTMLFilesWidget::AddTableData(const QList<BookReports::StyleData *
         // Selector
         QStandardItem *selector_text_item = new QStandardItem();
         selector_text_item->setText(class_usage->css_selector_text);
+        selector_text_item->setData(class_usage->css_selector_position);
         rowItems << selector_text_item;
         // Found in
         QStandardItem *found_in_item = new QStandardItem();
         QString css_short_filename = class_usage->css_filename;
         css_short_filename = css_short_filename.right(css_short_filename.length() - css_short_filename.lastIndexOf('/') - 1);
         found_in_item->setText(css_short_filename);
+        found_in_item->setData(class_usage->css_filename);
         found_in_item->setToolTip(class_usage->css_filename);
         rowItems << found_in_item;
 
@@ -183,8 +185,13 @@ void ClassesInHTMLFilesWidget::FilterEditTextChangedSlot(const QString &text)
 void ClassesInHTMLFilesWidget::DoubleClick()
 {
     QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
-    QString bookpath = m_ItemModel->itemFromIndex(index)->data().toString();
-    emit OpenFileRequest(bookpath, 1, -1);
+    // target bookpath is found in found_in_tem in its data field (currently in column 4)
+    // target position is found in selector_text_item in its data field (current in column 3)
+    QString found_bookpath = m_ItemModel->itemFromIndex(index.sibling(index.row(), 4))->data().toString();
+    int pos = m_ItemModel->itemFromIndex(index.sibling(index.row(), 3))->data().toInt();
+    if (pos >= 0) {
+        emit OpenFileRequest(found_bookpath, -1, pos);
+    }
 }
 
 void ClassesInHTMLFilesWidget::Save()
