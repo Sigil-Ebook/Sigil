@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2023 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **
@@ -106,10 +106,13 @@ QList<BookReports::StyleData *> BookReports::ClassesUsedInHTMLFileMapped(HTMLRes
             linked_stylesheets.append(Utility::buildBookPath(parts.first, html_folder));
         }
     }
-    
-    // Look at each class from the HTML file
+
+    // parse for class defintions inside this HTML file in style tags
+    HTMLStyleInfo hp(html_resource->GetText());
+
+    // Look at each class used in the HTML file
     foreach(QString class_name, classes_in_file) {
-        QString found_location;
+        bool foundit = false;
         QString selector_text;
         QString element_part = class_name.split(".").at(0);
         QString class_part = class_name.split(".").at(1);
@@ -118,19 +121,32 @@ QList<BookReports::StyleData *> BookReports::ClassesUsedInHTMLFileMapped(HTMLRes
         class_usage->html_filename = html_resource->GetRelativePath();
         class_usage->html_element_name = element_part;
         class_usage->html_class_name = class_part;
-        // Look in each stylesheet
-        // css_filename here is a bookpath as used above
-        foreach(QString css_filename, linked_stylesheets) {
-            if (css_parsers.contains(css_filename)) {
-                CSSInfo * css_info = css_parsers[css_filename];
-                CSSInfo::CSSSelector *selector = css_info->getCSSSelectorForElementClass(element_part, class_part);
-                // If class matched a selector in a linked stylesheet, we're done
-                if (selector && (!selector->className.isEmpty())) {
-                    // css_filename is a book path
-                    class_usage->css_filename = css_filename;
-                    class_usage->css_selector_text = selector->text;
-                    class_usage->css_selector_position = selector->pos;
-                    break;
+        // Look first at styles defined inside the html file
+        if (hp.hasStyles()) {
+            CSSInfo::CSSSelector *selector = hp.getCSSSelectorForElementClass(element_part, class_part);
+            if (selector && (!selector->className.isEmpty())) {
+                class_usage->css_filename = html_resource->GetRelativePath();
+                class_usage->css_selector_text = selector->text;
+                class_usage->css_selector_position = selector->pos;
+                foundit = true;
+            }
+        }
+        if (!foundit) {
+            // Look in each stylesheet
+            // css_filename here is a bookpath as used above
+            foreach(QString css_filename, linked_stylesheets) {
+                if (css_parsers.contains(css_filename)) {
+                    CSSInfo * css_info = css_parsers[css_filename];
+                    CSSInfo::CSSSelector *selector = css_info->getCSSSelectorForElementClass(element_part, class_part);
+                    // If class matched a selector in a linked stylesheet, we're done
+                    if (selector && (!selector->className.isEmpty())) {
+                        // css_filename is a book path
+                        class_usage->css_filename = css_filename;
+                        class_usage->css_selector_text = selector->text;
+                        class_usage->css_selector_position = selector->pos;
+                        foundit = true;
+                        break;
+                    }
                 }
             }
         }
