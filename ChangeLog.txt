@@ -1,3 +1,26 @@
+pre-2.7.x
+   Bug Fixes
+     - WebProfileMgr will now detect multiple instances of Sigil and choose the right profile cache type
+     - removed leftover debug output from WebProfileMgr to prevent confusion
+     - handles multiple dots in a row when deveoping a file name from a string (Thank you BeckyEbook)
+     - corrected Image Report usage counts by including use in CSS and html style tags
+     - fixed possible label truncation in RERenamer dialog
+     - fixed for having to repeat Find when search starts in html but is searching css, js, etc
+     - fixed Class Used Report to look inside xhtml file style tags too
+     - fixed AddMetadata dialog by providng a clarifying title string
+     - updated Building_on_Linux to include Apline Linux supprt (#839)
+     
+   New Features
+     - added Save Selected Data to CSV in SpellcheckEditor dialog via pop-up menu
+     - added possible shortcut id number to the ClipEditor to make assigning clip shortcuts easier
+     - made Classes Used Report doubleclick open the class defintion in CodeView if found
+     - set initial focus in the Regex Rename dialog to the regex field on launch
+     - added min and max buttons to titlebar in Reports and Spellcheck Editor to ease use with small screens
+     - extended Python Function Replace to allow easier creation of a SigilMatch object
+     - added Unicode Codepoint name to the status bar for the character after the cursor to CodeView
+     - extended the Codepoint name to include the codepoint itself (Thank you BeckyEbook)
+
+
 Sigil- 2.7.0
    Bug Fixes
      - make validation of css via W3C network validator work more consistently (http: -> https:)
