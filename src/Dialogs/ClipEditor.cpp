@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2025 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2019-2026 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2012      Grant Drake
@@ -74,6 +74,7 @@ void ClipEditor::SetupClipEditorTree()
         "<p>" + tr("You can also right click in your document to select an entry.") + "</p>" +
         "<dl>" +
         "<dt><b>" + tr("Name") + "</b><dd>" + tr("Name of your entry or group.") + "</dd>" +
+        "<dt><b>" + tr("Number") + "</b><dd>" + tr("Assignable Shortcut Id.") + "</dd>" +
         "<dt><b>" + tr("Text") + "</b><dd>" + tr("The text to insert. The text is treated like a Regex replacement expression so \\1 can be used to insert the text selected in Code View when you paste the clip.") + "</dd>" +
         "</dl>");
     ui.buttonBox->setToolTip(QString() +
@@ -230,6 +231,7 @@ QStandardItem *ClipEditor::AddEntry(bool is_group, ClipEditorModel::clipEntry *c
     }
 
     new_item = m_ClipEditorModel->AddEntryToModel(clip_entry, is_group, parent_item, row);
+    m_ClipEditorModel->UpdateNumber();
     QModelIndex new_index = new_item->index();
     // Select the added item and set it for editing
     ui.ClipEditorTree->selectionModel()->clear();
@@ -349,6 +351,7 @@ void ClipEditor::Delete()
             ui.ClipEditorTree->selectionModel()->select(select_index, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
         }
     }
+    m_ClipEditorModel->UpdateNumber();
 }
 
 void ClipEditor::Reload()
@@ -391,6 +394,7 @@ void ClipEditor::Import()
             WriteSettings();
         }
     }
+    m_ClipEditorModel->UpdateNumber();
 }
 
 void ClipEditor::ExportAll()
@@ -529,7 +533,7 @@ void ClipEditor::AutoFill()
         entry->text = "<" + element + " class=\"" + class_name + "\">" + "\\1" + "</" + element + ">";
         m_ClipEditorModel->AddEntryToModel(entry, false, group_item);
     }
-
+    m_ClipEditorModel->UpdateNumber();
     QMessageBox::information(this, tr("Clip Editor"), tr("CSS entries added: %n", "",css_list.count()));
 }
 
@@ -866,6 +870,7 @@ void ClipEditor::MoveVertical(bool move_down)
     // Make sure the path to the item is updated
     QStandardItem *destination_item = m_ClipEditorModel->itemFromIndex(destination_index);
     m_ClipEditorModel->UpdateFullName(destination_item);
+    m_ClipEditorModel->UpdateNumber();
     // Select the item row again
     ui.ClipEditorTree->selectionModel()->clear();
     ui.ClipEditorTree->setCurrentIndex(destination_index);
@@ -959,6 +964,7 @@ void ClipEditor::MoveHorizontal(bool move_left)
     // Make sure the path to the item is updated
     QStandardItem *destination_item = m_ClipEditorModel->itemFromIndex(destination_index);
     m_ClipEditorModel->UpdateFullName(destination_item);
+    m_ClipEditorModel->UpdateNumber();
     // Select the item row again
     ui.ClipEditorTree->selectionModel()->clear();
     ui.ClipEditorTree->setCurrentIndex(destination_index);

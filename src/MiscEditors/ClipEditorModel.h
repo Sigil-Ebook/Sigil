@@ -84,6 +84,9 @@ public:
 
     QVariant data(const QModelIndex &index, int role) const;
 
+public slots:
+    void UpdateNumber();
+
 signals:
     void SettingsFileUpdated() const;
     void ItemDropped(const QModelIndex &) const;
@@ -96,6 +99,7 @@ private slots:
     void SettingsFileChanged(const QString &path) const;
 
 private:
+    void BlankOutClipNumber(QStandardItem *item);
     void SetDataModified(bool modified);
     bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent);
     Qt::DropActions supportedDropActions() const;
