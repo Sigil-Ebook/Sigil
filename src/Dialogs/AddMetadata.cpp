@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2021 Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2016-2026 Kevin B. Hendricks, Stratford, ON, Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -29,12 +29,13 @@
 
 static const QString SETTINGS_GROUP = "add_metadata";
 
-AddMetadata::AddMetadata(const QHash<QString, DescriptiveInfo> &metainfo, QWidget *parent)
+AddMetadata::AddMetadata(const QString& title, const QHash<QString, DescriptiveInfo> &metainfo, QWidget *parent)
     :
     QDialog(parent),
     m_MetaInfo(metainfo)
 {
     ui.setupUi(this);
+    setWindowTitle(title);
     connect(ui.lwProperties, SIGNAL(currentItemChanged(QListWidgetItem *, QListWidgetItem *)),
             this, SLOT(UpdateDescription(QListWidgetItem *)));
     connect(this, SIGNAL(accepted()), this, SLOT(WriteSettings()));

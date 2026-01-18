@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-**  Copyright (C) 2016-2025 Kevin B. Hendricks, Stratford, ON Canada
+**  Copyright (C) 2016-2026 Kevin B. Hendricks, Stratford, ON Canada
 **
 **  This file is part of Sigil.
 **
@@ -485,7 +485,8 @@ void MetaEditor::selectElement()
 {
     QStringList codes;
     {
-         AddMetadata addelement(m_ElementInfo, this);
+         QString title = tr("Add Metadata Element");
+         AddMetadata addelement(title, m_ElementInfo, this);
          if (addelement.exec() == QDialog::Accepted) {
             codes = addelement.GetSelectedEntries();
          }
@@ -493,7 +494,8 @@ void MetaEditor::selectElement()
     foreach(QString code, codes) {
         if (code == "dc:language") {
             QStringList langcodes;
-            AddMetadata addvalue(Language::instance()->GetLangMap(), this);
+            QString title = tr("Select Language");
+            AddMetadata addvalue(title, Language::instance()->GetLangMap(), this);
             if (addvalue.exec() == QDialog::Accepted) {
                  langcodes = addvalue.GetSelectedEntries();
             }
@@ -574,7 +576,8 @@ void MetaEditor::selectE2Element()
 {
     QStringList codes;
     {
-         AddMetadata addelement(m_ElementInfo, this);
+         QString title = tr("Add Metadata Element");
+         AddMetadata addelement(title, m_ElementInfo, this);
          if (addelement.exec() == QDialog::Accepted) {
             codes = addelement.GetSelectedEntries();
          }
@@ -582,7 +585,8 @@ void MetaEditor::selectE2Element()
     foreach(QString code, codes) {
         if (code == "dc:language") {
             QStringList langcodes;
-            AddMetadata addvalue(Language::instance()->GetLangMap(), this);
+            QString title = tr("Select Language");
+            AddMetadata addvalue(title, Language::instance()->GetLangMap(), this);
             if (addvalue.exec() == QDialog::Accepted) {
                  langcodes = addvalue.GetSelectedEntries();
             }
@@ -656,7 +660,8 @@ void MetaEditor::selectProperty()
 {
     QStringList codes;
     {
-        AddMetadata addproperty(m_PropertyInfo, this);
+        QString title = tr("Add Propety to Element");
+        AddMetadata addproperty(title, m_PropertyInfo, this);
         if (addproperty.exec() == QDialog::Accepted) {
             codes = addproperty.GetSelectedEntries();
         }
@@ -688,7 +693,8 @@ void MetaEditor::selectProperty()
         } else if (code == "alternate-script") {
                 insertChild(PName(code), code, "", "");
                 QStringList langcodes;
-                AddMetadata addvalue(Language::instance()->GetLangMap(), this);
+                QString title = tr("Select Language");
+                AddMetadata addvalue(title, Language::instance()->GetLangMap(), this);
                 if (addvalue.exec() == QDialog::Accepted) {
                     langcodes = addvalue.GetSelectedEntries();
                 }
@@ -700,7 +706,8 @@ void MetaEditor::selectProperty()
                 insertChild(PName(code), code, LName(lang), lang);
         } else if ((code == "xml:lang") || (code == "altlang")) {
             QStringList langcodes;
-            AddMetadata addvalue(Language::instance()->GetLangMap(), this);
+            QString title = tr("Select Language");
+            AddMetadata addvalue(title, Language::instance()->GetLangMap(), this);
             if (addvalue.exec() == QDialog::Accepted) {
                 langcodes = addvalue.GetSelectedEntries();
             }
@@ -711,7 +718,8 @@ void MetaEditor::selectProperty()
             insertChild(PName(code), code, LName(lang), lang);
         } else if (code == "role") {
             QStringList rolecodes;
-            AddMetadata addrole(MarcRelators::instance()->GetCodeMap(), this);
+            QString title = tr("Select Role");
+            AddMetadata addrole(title, MarcRelators::instance()->GetCodeMap(), this);
             if (addrole.exec() == QDialog::Accepted) {
                 rolecodes = addrole.GetSelectedEntries();
             }
@@ -741,7 +749,8 @@ void MetaEditor::selectE2Property()
 {
     QStringList codes;
     {
-        AddMetadata addproperty(m_PropertyInfo, this);
+        QString	title =	tr("Add Propety to Element");
+        AddMetadata addproperty(title, m_PropertyInfo, this);
         if (addproperty.exec() == QDialog::Accepted) {
             codes = addproperty.GetSelectedEntries();
         }
@@ -751,7 +760,8 @@ void MetaEditor::selectE2Property()
             insertChild(PName(code), code, "", "");
         } else if (code == "xml:lang") {
             QStringList langcodes;
-            AddMetadata addvalue(Language::instance()->GetLangMap(), this);
+            QString title = tr("Select Language");
+            AddMetadata addvalue(title, Language::instance()->GetLangMap(), this);
             if (addvalue.exec() == QDialog::Accepted) {
                 langcodes = addvalue.GetSelectedEntries();
             }
@@ -762,7 +772,8 @@ void MetaEditor::selectE2Property()
             insertChild(PName(code), code, LName(lang), lang);
         } else if (code == "opf:role") {
             QStringList rolecodes;
-            AddMetadata addrole(MarcRelators::instance()->GetCodeMap(), this);
+            QString title = tr("Select Role");
+            AddMetadata addrole(title, MarcRelators::instance()->GetCodeMap(), this);
             if (addrole.exec() == QDialog::Accepted) {
                 rolecodes = addrole.GetSelectedEntries();
             }

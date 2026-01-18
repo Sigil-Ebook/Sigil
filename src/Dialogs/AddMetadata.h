@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2016 Kevin B. Hendricks, Stratford, ON, Canada
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2016-2026 Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -50,7 +50,7 @@ public:
      * @param metadata The metadata list that this dialog displays. \see Metadata
      * @param parent The dialog's parent.
      */
-  AddMetadata(const QHash<QString, DescriptiveInfo> & metainfo, QWidget *parent = 0);
+    AddMetadata(const QString& title, const QHash<QString, DescriptiveInfo> & metainfo, QWidget *parent = 0);
 
     /**
      * Returns the list of names selected by user.
