@@ -50,6 +50,7 @@ CodepointNames::CodepointNames()
 
 QString CodepointNames::GetName(int cp)
 {
+    if (cp == -1) return QString("EOF");
     if (cp < 0) return QString("");
     QString name = m_NameCache.value(cp, QString());
     if (name.isEmpty()) {
