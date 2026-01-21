@@ -1,4 +1,4 @@
-pre-2.7.x
+pre-2.7.2
    Bug Fixes
      - WebProfileMgr will now detect multiple instances of Sigil and choose the right profile cache type
      - removed leftover debug output from WebProfileMgr to prevent confusion
