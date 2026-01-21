@@ -28,6 +28,8 @@
 #include <QMessageBox>
 #include <QPushButton>
 #include <QFileDialog>
+#include <QClipboard>
+#include <QApplication>
 #include <QDebug>
 
 #include "Dialogs/SpellcheckEditor.h"
@@ -584,14 +586,17 @@ void SpellcheckEditor::CreateContextMenuActions()
     m_Find      = new QAction(tr("Find in Text"),      this);
     m_SelectAll = new QAction(tr("Select All"),        this);
     m_SaveSelected = new QAction(tr("Save Selected Data") + "...", this);
+    m_CopySelected = new QAction(tr("Copy Selected Data to Clipboard") + "...", this);
     m_Ignore->setShortcut(QKeySequence(Qt::Key_F1));
     m_Add->setShortcut(QKeySequence(Qt::Key_F2));
     m_Find->setShortcut(QKeySequence(Qt::Key_F3));
+    m_CopySelected->setShortcut(QKeySequence::Copy);                   
     // Has to be added to the dialog itself for the keyboard shortcut to work.
     addAction(m_Ignore);
     addAction(m_Add);
     addAction(m_Find);
     addAction(m_SaveSelected);
+    addAction(m_CopySelected);
 }
 
 void SpellcheckEditor::OpenContextMenu(const QPoint &point)
@@ -606,6 +611,7 @@ void SpellcheckEditor::OpenContextMenu(const QPoint &point)
         m_Find->setEnabled(true);
         m_SelectAll->setEnabled(true);
         m_SaveSelected->setEnabled(ui.SpellcheckEditorTree->selectionModel()->selectedRows().count() > 0);
+        m_CopySelected->setEnabled(ui.SpellcheckEditorTree->selectionModel()->selectedRows().count() > 0);
     }
 }
 
@@ -623,12 +629,16 @@ void SpellcheckEditor::SetupContextMenu(const QPoint &point)
     m_Find->setEnabled(selected_rows_count > 0);
     m_ContextMenu->addAction(m_SaveSelected);
     m_SaveSelected->setEnabled(ui.SpellcheckEditorTree->selectionModel()->selectedRows().count() > 0);
+    m_ContextMenu->addAction(m_CopySelected);
+    m_CopySelected->setEnabled(ui.SpellcheckEditorTree->selectionModel()->selectedRows().count() > 0);
 }
 
 void SpellcheckEditor::Save()
 {
     QModelIndexList selected_indexes = ui.SpellcheckEditorTree->selectionModel()->selectedRows(0);
     if (selected_indexes.count() == 0) return;
+    // sort the selection to ensure correct row/column order
+    std::sort(selected_indexes.begin(), selected_indexes.end());
 
     QStringList report_info;
     QStringList heading_row;
@@ -658,8 +668,8 @@ void SpellcheckEditor::Save()
         }
         report_info << Utility::createCSVLine(data_row);
     }
-
     QString data = report_info.join('\n') + '\n';
+
     // Save the file
     ReadSettings();
     QString filter_string = "*.csv;;*.txt;;*.*";
@@ -695,6 +705,47 @@ void SpellcheckEditor::ForceClose()
     close();
 }
 
+void SpellcheckEditor::CopySelected()
+{
+    QModelIndexList selected_indexes = ui.SpellcheckEditorTree->selectionModel()->selectedRows(0);
+    if (selected_indexes.count() == 0) return;
+    // sort the selection to ensure correct row/column order
+    std::sort(selected_indexes.begin(), selected_indexes.end());
+
+    QStringList report_info;
+    QStringList heading_row;
+    QStringList data;
+
+    // Get headings
+    for (int col = 0; col < ui.SpellcheckEditorTree->header()->count(); col++) {
+        QStandardItem *item = m_SpellcheckEditorModel->horizontalHeaderItem(col);
+        QString text = "";
+        if (item) {
+            text = item->text();
+        }
+        heading_row << text;
+    }
+    data << heading_row.join('\t');
+    
+    // Get selected data from table
+    foreach(QModelIndex index, selected_indexes) {
+        int row = index.row();
+        QStringList data_row;
+        for (int col = 0; col < ui.SpellcheckEditorTree->header()->count(); col++) {
+            QStandardItem *item = m_SpellcheckEditorModel->item(row, col);
+            QString text = "";
+            if (item) {
+                text = item->text();
+            }
+            data_row << text;
+        }
+        data << data_row.join('\t');
+    }
+    QString cliptext  = data.join('\n') + '\n';
+    QApplication::clipboard()->setText(cliptext);
+}
+
+
 void SpellcheckEditor::ConnectSignalsSlots()
 {
     QItemSelectionModel *selectionModel = ui.SpellcheckEditorTree->selectionModel();
@@ -718,6 +769,7 @@ void SpellcheckEditor::ConnectSignalsSlots()
     connect(m_Find,      SIGNAL(triggered()), this, SLOT(FindSelectedWord()));
     connect(m_SelectAll, SIGNAL(triggered()), this, SLOT(SelectAll()));
     connect(m_SaveSelected, SIGNAL(triggered()), this, SLOT(Save()));
+    connect(m_CopySelected, SIGNAL(triggered()), this, SLOT(CopySelected()));
     connect(ui.SpellcheckEditorTree, SIGNAL(doubleClicked(const QModelIndex &)),
             this,         SLOT(FindSelectedWord()));
     connect(ui.ShowAllWords,  SIGNAL(stateChanged(int)),

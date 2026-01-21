@@ -81,6 +81,7 @@ private slots:
     void Add();
     void SelectAll();
     void Save();
+    void CopySelected();
     void ChangeAll();
 
     void toggleShowAllWords();
@@ -119,6 +120,7 @@ private:
     QAction *m_Find;
     QAction *m_SelectAll;
     QAction *m_SaveSelected;
+    QAction *m_CopySelected;
 
     QSharedPointer<Book> m_Book;
 
