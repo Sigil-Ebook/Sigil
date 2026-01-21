@@ -310,9 +310,10 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
     sigil_log_file = Utility::GetEnvironmentVar("SIGIL_DEBUG_LOGFILE");
     if (!sigil_log_file.isEmpty()) {
         QFile outFile(sigil_log_file);
-        outFile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text);
-        QTextStream ts(&outFile);
-        ts << qt_debug_message << Qt::endl;
+        if (outFile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
+            QTextStream ts(&outFile);
+            ts << qt_debug_message << Qt::endl;
+	}
     }
 }
 
