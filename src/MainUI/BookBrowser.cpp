@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -1752,150 +1752,153 @@ void BookBrowser::GetInfo()
     QList <Resource *> resources = ValidSelectedResources();
     int scrollY = m_TreeView->verticalScrollBar()->value();
 
-    if (resources.count()!= 1) {
+    if (resources.count()== 0) {
         return;
     }
 
-    Resource * resource = resources.first();
+    foreach(Resource* resource, resources) {
 
-    QString bookpath = resource->GetRelativePath();
-    QString folder_path = resource->GetFolder();
-    if (folder_path == ".") folder_path = tr("(root folder)");
+        QString bookpath = resource->GetRelativePath();
+        QString folder_path = resource->GetFolder();
+        if (folder_path == ".") folder_path = tr("(root folder)");
     
-    QString fullfilepath = resource->GetFullPath();
-    QString version = resource->GetEpubVersion();
-    double ffsize = QFile(fullfilepath).size() / 1024.0;
-    QString fsize = QLocale().toString(ffsize, 'f', 2);
+        QString fullfilepath = resource->GetFullPath();
+        QString version = resource->GetEpubVersion();
+        double ffsize = QFile(fullfilepath).size() / 1024.0;
+        QString fsize = QLocale().toString(ffsize, 'f', 2);
     
-    QStringList mdlst;
-    mdlst << "# "+ bookpath + "\n";
+        QStringList mdlst;
+        mdlst << "# "+ bookpath + "\n";
 
-    mdlst << tr("FileName");
-    mdlst << "- " +  resource->Filename() + "\n";
+        mdlst << tr("FileName");
+        mdlst << "- " +  resource->Filename() + "\n";
 
-    mdlst <<  tr("Folder");
-    mdlst << "- " + folder_path + "\n";
+        mdlst <<  tr("Folder");
+        mdlst << "- " + folder_path + "\n";
 
-    mdlst << tr("Media Type");
-    mdlst << "- " + resource->GetMediaType() + "\n";
+        mdlst << tr("Media Type");
+        mdlst << "- " + resource->GetMediaType() + "\n";
 
-    mdlst << tr("File Size(kb)");
-    mdlst << "- " + fsize + "\n";
+        mdlst << tr("File Size(kb)");
+        mdlst << "- " + fsize + "\n";
 
-    mdlst << tr("Epub Version");
-    mdlst << "- " + version + " \n";
+        mdlst << tr("Epub Version");
+        mdlst << "- " + version + " \n";
 
-    if (resource->Type() == Resource::HTMLResourceType) {
-        HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
-        if (html_resource) {
+        if (resource->Type() == Resource::HTMLResourceType) {
+            HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
+            if (html_resource) {
 
-            QString source = html_resource->GetText();
+                QString source = html_resource->GetText();
 
-            QString primary_lang = html_resource->GetLanguageAttribute();
-            // fallback to the primary language specified in the OPF metadata
-            if (primary_lang.isEmpty()) {
-                primary_lang = m_Book->GetOPF()->GetPrimaryBookLanguage();
-            }
+                QString primary_lang = html_resource->GetLanguageAttribute();
+                // fallback to the primary language specified in the OPF metadata
+                if (primary_lang.isEmpty()) {
+                    primary_lang = m_Book->GetOPF()->GetPrimaryBookLanguage();
+                }
 
-            int word_count = HTMLSpellCheckML::GetAllWords(source, primary_lang).size();
+                int word_count = HTMLSpellCheckML::GetAllWords(source, primary_lang).size();
 
-            mdlst << tr("Word Count");
-            mdlst << "- " + QString::number(word_count) + "\n";
+                mdlst << tr("Word Count");
+                mdlst << "- " + QString::number(word_count) + "\n";
     
-            mdlst << tr("Primary Language");
-            if (!primary_lang.isEmpty()) {
-                mdlst << "- " + primary_lang +  "\n";
-            } else {
-                mdlst << QString(" \n");
-            }
+                mdlst << tr("Primary Language");
+                if (!primary_lang.isEmpty()) {
+                    mdlst << "- " + primary_lang +  "\n";
+                } else {
+                    mdlst << QString(" \n");
+                }
 
-            mdlst << tr("WellFormed");
-            if (html_resource->FileIsWellFormed()) {
-                mdlst << "- " + tr("Yes") + "\n";
-            } else {
-                mdlst << "- " + tr("No") + "\n";
-            }
+                mdlst << tr("WellFormed");
+                if (html_resource->FileIsWellFormed()) {
+                    mdlst << "- " + tr("Yes") + "\n";
+                } else {
+                    mdlst << "- " + tr("No") + "\n";
+                }
 
-            mdlst << tr("Linked Stylesheets");
-            mdlst << BuildListMD(XhtmlDoc::GetLinkedStylesheets(source)) + "\n";
+                mdlst << tr("Linked Stylesheets");
+                mdlst << BuildListMD(XhtmlDoc::GetLinkedStylesheets(source)) + "\n";
 
-            mdlst << tr("Linked Javascripts");
-            mdlst << BuildListMD(XhtmlDoc::GetLinkedJavascripts(source)) + "\n";
+                mdlst << tr("Linked Javascripts");
+                mdlst << BuildListMD(XhtmlDoc::GetLinkedJavascripts(source)) + "\n";
 
-            mdlst << tr("Linked Images");
-            mdlst << BuildListMD(XhtmlDoc::GetAllMediaPathsFromMediaChildren(source, GIMAGE_TAGS)) + "\n";
+                mdlst << tr("Linked Images");
+                mdlst << BuildListMD(XhtmlDoc::GetAllMediaPathsFromMediaChildren(source, GIMAGE_TAGS)) + "\n";
 
-            mdlst << tr("Linked Audio");
-            mdlst << BuildListMD(XhtmlDoc::GetAllMediaPathsFromMediaChildren(source, GAUDIO_TAGS)) + "\n";
+                mdlst << tr("Linked Audio");
+                mdlst << BuildListMD(XhtmlDoc::GetAllMediaPathsFromMediaChildren(source, GAUDIO_TAGS)) + "\n";
 
-            mdlst << tr("Linked Video");
-            mdlst << BuildListMD( XhtmlDoc::GetAllMediaPathsFromMediaChildren(source, GVIDEO_TAGS)) + "\n";
+                mdlst << tr("Linked Video");
+                mdlst << BuildListMD( XhtmlDoc::GetAllMediaPathsFromMediaChildren(source, GVIDEO_TAGS)) + "\n";
 
-            // semantics
-            HTMLResource * nav_resource = nullptr;
-            if (version.startsWith('3')) {
-                nav_resource = m_Book->GetConstOPF()->GetNavResource();
-            }
-            QStringList full_semantic_info;
-            QStringList semantics;
-            if (version.startsWith("3")) {
-                NavProcessor navproc(nav_resource);
-                full_semantic_info = navproc.GetAllLandmarkInfoByBookPath();
-            } else {
-                full_semantic_info = m_Book->GetOPF()->GetAllGuideInfoByBookPath();
-            }
-            foreach(QString rec, full_semantic_info) {
-                QStringList parts = rec.split(QChar(30), Qt::KeepEmptyParts);
-                qDebug() << parts.at(0) << parts.at(1) << parts.at(2) << parts.at(3);
-                if (parts.at(0) == bookpath) {
-                    if (parts.at(1).isEmpty()) {
-                        semantics << parts.at(2) + ": " + parts.at(3);
-                    } else {
-                        semantics << parts.at(2) + ": " + parts.at(3) + " id=\"" + parts.at(1) + "\"";
+                // semantics
+                HTMLResource * nav_resource = nullptr;
+                if (version.startsWith('3')) {
+                    nav_resource = m_Book->GetConstOPF()->GetNavResource();
+                }
+                QStringList full_semantic_info;
+                QStringList semantics;
+                if (version.startsWith("3")) {
+                    NavProcessor navproc(nav_resource);
+                    full_semantic_info = navproc.GetAllLandmarkInfoByBookPath();
+                } else {
+                    full_semantic_info = m_Book->GetOPF()->GetAllGuideInfoByBookPath();
+                }
+                foreach(QString rec, full_semantic_info) {
+                    QStringList parts = rec.split(QChar(30), Qt::KeepEmptyParts);
+                    // qDebug() << parts.at(0) << parts.at(1) << parts.at(2) << parts.at(3);
+                    if (parts.at(0) == bookpath) {
+                        if (parts.at(1).isEmpty()) {
+                            semantics << parts.at(2) + ": " + parts.at(3);
+                        } else {
+                            semantics << parts.at(2) + ": " + parts.at(3) + " id=\"" + parts.at(1) + "\"";
+                        }
                     }
                 }
+                mdlst <<  tr("Semantics OPF Guide or Nav Landmarks");
+                mdlst << BuildListMD(semantics) + "\n";
+
+                // manifest properties
+                QStringList properties;
+                if (version.startsWith('3')) {
+                    properties = html_resource->GetManifestProperties();
+                    if (html_resource == nav_resource) properties << "nav";
+                }
+                mdlst <<  tr("Manifest Properties");
+                mdlst << BuildListMD(properties) + "\n";
+
+                mdlst << tr("Defined Ids");
+                mdlst << BuildListMD(XhtmlDoc::GetAllDescendantIDs(source)) + "\n";
             }
-            mdlst <<  tr("Semantics OPF Guide or Nav Landmarks");
-            mdlst << BuildListMD(semantics) + "\n";
+        }
+        if (resource->Type() == Resource::FontResourceType) {
+            FontResource *font_resource = qobject_cast<FontResource *>(resource);
+            if (font_resource) {
+                mdlst << tr("Description");
+                mdlst << "- " + font_resource->GetDescription() + "\n";
 
-            // manifest properties
-            QStringList properties;
-            if (version.startsWith('3')) {
-                properties = html_resource->GetManifestProperties();
-                if (html_resource == nav_resource) properties << "nav";
+                mdlst << tr("Obfuscation Algorithm");
+                QString obfuscate = font_resource->GetObfuscationAlgorithm();
+                if (obfuscate.isEmpty()) obfuscate = tr("None");
+                mdlst << "- " + obfuscate + "\n";
             }
-            mdlst <<  tr("Manifest Properties");
-            mdlst << BuildListMD(properties) + "\n";
-
-            mdlst << tr("Defined Ids");
-            mdlst << BuildListMD(XhtmlDoc::GetAllDescendantIDs(source)) + "\n";
         }
-    }
-    if (resource->Type() == Resource::FontResourceType) {
-        FontResource *font_resource = qobject_cast<FontResource *>(resource);
-        if (font_resource) {
-            mdlst << tr("Description");
-            mdlst << "- " + font_resource->GetDescription() + "\n";
-
-            mdlst << tr("Obfuscation Algorithm");
-            QString obfuscate = font_resource->GetObfuscationAlgorithm();
-            if (obfuscate.isEmpty()) obfuscate = tr("None");
-            mdlst << "- " + obfuscate + "\n";
+        if (resource->Type() == Resource::ImageResourceType) {
+            ImageResource *image_resource = qobject_cast<ImageResource *>(resource);
+            if (image_resource) {
+                mdlst << tr("Description");
+                mdlst << "- " + image_resource->GetDescription() + "\n";
+            }
         }
-    }
-    if (resource->Type() == Resource::ImageResourceType) {
-        ImageResource *image_resource = qobject_cast<ImageResource *>(resource);
-        if (image_resource) {
-            mdlst << tr("Description");
-            mdlst << "- " + image_resource->GetDescription() + "\n";
-        }
-    }
         
 
-    QString mdsrc = mdlst.join("\n");
+        QString mdsrc = mdlst.join("\n");
 
-    MDViewer mdv(mdsrc);
-    mdv.exec();
+        MDViewer* mdv = new MDViewer(mdsrc, this);
+        mdv -> show();
+        mdv->raise();
+        mdv->activateWindow();
+    }
 
     SelectResources(resources);
     m_TreeView->verticalScrollBar()->setSliderPosition(scrollY);
@@ -2171,7 +2174,7 @@ void BookBrowser::CreateContextMenuActions()
     sm->registerAction(this, m_LinkJavascripts, "MainWindow.BookBrowser.LinkJavascripts");
     m_AddSemantics->setToolTip(tr("Add Semantics to selected file(s)."));
     sm->registerAction(this, m_AddSemantics, "MainWindow.BookBrowser.AddSemantics");
-    m_GetInfo->setToolTip(tr("Show Information about selected file."));
+    m_GetInfo->setToolTip(tr("Show Information about selected files."));
     sm->registerAction(this, m_GetInfo, "MainWindow.BookBrowser.GetInfo");
     // Has to be added to the book browser itself as well
     // for the keyboard shortcut to work.

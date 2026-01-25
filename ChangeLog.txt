@@ -20,6 +20,7 @@ pre-2.7.2
      - added Unicode Codepoint name to the status bar for the character after the cursor to CodeView
      - extended the Codepoint name to include the codepoint itself (Thank you BeckyEbook)
      - converted ClipboardHistorySelector dialog to be non-modal, auto updating, with min button
+     - converted MDViewer (GetInfo) to be non-modal and work with multiple BookBrowser selections
 
 
 Sigil- 2.7.0

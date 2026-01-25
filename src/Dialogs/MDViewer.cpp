@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2024 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2024-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **
 **  This file is part of Sigil.
 **
@@ -32,6 +32,7 @@ MDViewer::MDViewer(const QString & mdsrc, QWidget *parent)
     QDialog(parent)
 {
     ui.setupUi(this);
+    setAttribute(Qt::WA_DeleteOnClose,true);
     connectSignalsSlots();
     ReadSettings();
     ui.viewer->setMarkdown(mdsrc);
