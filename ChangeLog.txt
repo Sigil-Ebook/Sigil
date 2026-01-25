@@ -2,7 +2,7 @@ pre-2.7.2
    Bug Fixes
      - WebProfileMgr will now detect multiple instances of Sigil and choose the right profile cache type
      - removed leftover debug output from WebProfileMgr to prevent confusion
-     - handles multiple dots in a row when deveoping a file name from a string (Thank you BeckyEbook)
+     - handle multiple dots in a row when developing a file name from a string (Thank you BeckyEbook)
      - corrected Image Report usage counts by including use in CSS and html style tags
      - fixed possible label truncation in RERenamer dialog
      - fixed for having to repeat Find when search starts in html but is searching css, js, etc
@@ -19,6 +19,7 @@ pre-2.7.2
      - extended Python Function Replace to allow easier creation of a SigilMatch object
      - added Unicode Codepoint name to the status bar for the character after the cursor to CodeView
      - extended the Codepoint name to include the codepoint itself (Thank you BeckyEbook)
+     - converted ClipboardHistorySelector dialog to be non-modal, auto updating, with min button
 
 
 Sigil- 2.7.0

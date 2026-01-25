@@ -5272,8 +5272,10 @@ void MainWindow::ShowPasteClipboardHistoryDialog()
     if (m_LastPasteTarget == NULL) {
         return;
     }
-
-    m_ClipboardHistorySelector->exec();
+    // make it non-modal
+    m_ClipboardHistorySelector->show();
+    m_ClipboardHistorySelector->raise();
+    m_ClipboardHistorySelector->activateWindow();
 }
 
 // Change the selected/highlighted resource to match the current tab
