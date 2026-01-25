@@ -5083,7 +5083,8 @@ void MainWindow::UpdateCursorPositionLabel(int line, int column, int codepoint)
 	const QString cp = QString("U+%1").arg(codepoint, 4, 16, QLatin1Char('0')).toUpper();
         const QString l = QString::number(line);
         const QString c = QString::number(column);
-        m_lbCursorPosition->setText(tr("Line: %1, Col: %2 - %3 (%4)").arg(l).arg(c).arg(name).arg(cp));
+        // m_lbCursorPosition->setText(tr("Line: %1, Col: %2 - %3 (%4)").arg(l).arg(c).arg(name).arg(cp));
+        m_lbCursorPosition->setText(tr("%1 (%2) - Line: %3, Col: %4").arg(name).arg(cp).arg(l).arg(c));
         m_lbCursorPosition->show();
     } else {
         m_lbCursorPosition->clear();
