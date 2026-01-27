@@ -6810,6 +6810,8 @@ void MainWindow::ConnectSignalsToSlots()
             this,     SLOT(OpenResource(Resource *, int, int, const QString &, const QUrl &)));
     connect(m_ValidationResultsView, SIGNAL(OpenResourceRequest(Resource *, int, int, const QString &)),
             this,     SLOT(OpenResource(Resource *, int, int, const QString &)));
+    connect(m_ValidationResultsView, SIGNAL(ShowMessageRequest(const QString &)),
+            this,     SLOT(ShowMessageOnStatusBar(const QString &)));
     connect(m_TabManager, SIGNAL(OpenUrlRequest(const QUrl &)),
             this, SLOT(OpenUrl(const QUrl &)));
     connect(m_TabManager, SIGNAL(OldTabRequest(QString, HTMLResource *)),

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -331,6 +331,7 @@ void ValidationResultsView::SetUpTable()
 
 void ValidationResultsView::DisplayResults(const QList<ValidationResult> &results)
 {
+    emit ShowMessageRequest(tr("Updating Validation Results"));
     m_ResultTable->clear();
     m_NoProblems = false;
 

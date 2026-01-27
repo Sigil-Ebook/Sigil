@@ -21,6 +21,7 @@ pre-2.7.2
      - extended the Codepoint name to include the codepoint itself (Thank you BeckyEbook)
      - converted ClipboardHistorySelector dialog to be non-modal, auto updating, with min button
      - converted MDViewer (GetInfo) to be non-modal and work with multiple BookBrowser selections
+     - add status message when updating Validation result
 
 
 Sigil- 2.7.0
