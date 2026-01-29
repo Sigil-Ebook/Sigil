@@ -660,7 +660,7 @@ void MetaEditor::selectProperty()
 {
     QStringList codes;
     {
-        QString title = tr("Add Propety to Element");
+        QString title = tr("Add Property to Element");
         AddMetadata addproperty(title, m_PropertyInfo, this);
         if (addproperty.exec() == QDialog::Accepted) {
             codes = addproperty.GetSelectedEntries();
