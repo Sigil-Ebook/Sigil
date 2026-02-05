@@ -16119,9 +16119,8 @@ Deseja corrigir automaticamente os arquivos antes de salvar? Ou cancelar o salva
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="663"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="752"/>
-        <source>Add Propety to Element</source>
-        <translation>Adicionar Propriedade a Elemento</translation>
+        <source>Add Property to Element</source>
+        <translation>Adicionar Propriedade a um Elemento</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="721"/>
@@ -16149,6 +16148,11 @@ Deseja corrigir automaticamente os arquivos antes de salvar? Ou cancelar o salva
         <location filename="../../Dialogs/MetaEditor.cpp" line="739"/>
         <source>[Custom property/attribute]</source>
         <translation>[Propriedade/atributo customizado]</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="752"/>
+        <source>Add Propety to Element</source>
+        <translation>Adicionar Propriedade a Elemento</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="786"/>

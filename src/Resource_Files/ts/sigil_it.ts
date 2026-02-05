@@ -16040,8 +16040,7 @@ eseguito il fac-simile.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="663"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="752"/>
-        <source>Add Propety to Element</source>
+        <source>Add Property to Element</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -16070,6 +16069,11 @@ eseguito il fac-simile.</translation>
         <location filename="../../Dialogs/MetaEditor.cpp" line="739"/>
         <source>[Custom property/attribute]</source>
         <translation>[Proprietà/Attributo personalizzati]</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="752"/>
+        <source>Add Propety to Element</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="786"/>

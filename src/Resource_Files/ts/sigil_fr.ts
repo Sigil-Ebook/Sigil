@@ -16068,8 +16068,7 @@ propriété</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="663"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="752"/>
-        <source>Add Propety to Element</source>
+        <source>Add Property to Element</source>
         <translation>Ajouter une Propriété à l&apos;Élément</translation>
     </message>
     <message>
@@ -16098,6 +16097,11 @@ propriété</translation>
         <location filename="../../Dialogs/MetaEditor.cpp" line="739"/>
         <source>[Custom property/attribute]</source>
         <translation>[Propriété/Attribue personnalisée]</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="752"/>
+        <source>Add Propety to Element</source>
+        <translation>Ajouter une Propriété à l&apos;Élément</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="786"/>

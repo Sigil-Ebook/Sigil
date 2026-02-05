@@ -1979,7 +1979,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2177"/>
         <source>Show Information about selected files.</source>
-        <translation type="unfinished"/>
+        <translation>显示所选文件的信息</translation>
     </message>
 </context>
 <context>
@@ -2354,12 +2354,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
         <source>Number</source>
-        <translation type="unfinished"/>
+        <translation>编号</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
         <source>Assignable Shortcut Id.</source>
-        <translation type="unfinished"/>
+        <translation>可分配的快捷方式 id</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="78"/>
@@ -2519,7 +2519,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="74"/>
         <source>Number</source>
-        <translation type="unfinished"/>
+        <translation>编号</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="75"/>
@@ -12870,7 +12870,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5087"/>
         <source>%1 (%2) - Line: %3, Col: %4</source>
-        <translation type="unfinished"/>
+        <translation>%1 (%2) - 行: %3, 列: %4</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5175"/>
@@ -15996,7 +15996,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
         <location filename="../../Dialogs/MetaEditor.cpp" line="488"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="579"/>
         <source>Add Metadata Element</source>
-        <translation type="unfinished"/>
+        <translation>添加元数据元素</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="497"/>
@@ -16086,15 +16086,14 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="663"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="752"/>
-        <source>Add Propety to Element</source>
+        <source>Add Property to Element</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="721"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="775"/>
         <source>Select Role</source>
-        <translation type="unfinished"/>
+        <translation>选择角色</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="735"/>
@@ -16116,6 +16115,11 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
         <location filename="../../Dialogs/MetaEditor.cpp" line="739"/>
         <source>[Custom property/attribute]</source>
         <translation>[此处填写自定义属性/特性]</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="752"/>
+        <source>Add Propety to Element</source>
+        <translation>添加属性到元素</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="786"/>
@@ -21136,17 +21140,17 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="588"/>
         <source>Save Selected Data</source>
-        <translation type="unfinished"/>
+        <translation>保存所选数据</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="589"/>
         <source>Copy Selected Data to Clipboard</source>
-        <translation type="unfinished"/>
+        <translation>复制所选数据到剪贴板</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="681"/>
         <source>Save Selected Data As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>将所选数据保存为逗号隔开的文件</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="694"/>
@@ -21156,7 +21160,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="694"/>
         <source>Cannot save data file.</source>
-        <translation type="unfinished"/>
+        <translation>无法保存数据文件</translation>
     </message>
 </context>
 <context>
@@ -21331,7 +21335,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="334"/>
         <source>Updating Validation Results</source>
-        <translation type="unfinished"/>
+        <translation>正在更新验证结果</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="409"/>

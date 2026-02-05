@@ -1978,7 +1978,7 @@ Zawsze musi być przynajmniej jeden.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2177"/>
         <source>Show Information about selected files.</source>
-        <translation type="unfinished"/>
+        <translation>Pokaż informacje o wybranych plikach.</translation>
     </message>
 </context>
 <context>
@@ -2353,12 +2353,12 @@ Zawsze musi być przynajmniej jeden.</translation>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
         <source>Number</source>
-        <translation type="unfinished"/>
+        <translation>Numer</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
         <source>Assignable Shortcut Id.</source>
-        <translation type="unfinished"/>
+        <translation>Przypisywany identyfikator skrótu.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="78"/>
@@ -2519,7 +2519,7 @@ Czy chcesz zapisać zmiany?</translation>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="74"/>
         <source>Number</source>
-        <translation type="unfinished"/>
+        <translation>Numer</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="75"/>
@@ -12870,7 +12870,7 @@ Tej akcji nie można cofnąć.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5087"/>
         <source>%1 (%2) - Line: %3, Col: %4</source>
-        <translation type="unfinished"/>
+        <translation>%1 (%2) - Linia: %3 Kolumna: %4</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5175"/>
@@ -15995,7 +15995,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
         <location filename="../../Dialogs/MetaEditor.cpp" line="488"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="579"/>
         <source>Add Metadata Element</source>
-        <translation type="unfinished"/>
+        <translation>Dodaj element metadanych</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="497"/>
@@ -16085,15 +16085,14 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="663"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="752"/>
-        <source>Add Propety to Element</source>
-        <translation type="unfinished"/>
+        <source>Add Property to Element</source>
+        <translation>Dodaj właściwości do elementu</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="721"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="775"/>
         <source>Select Role</source>
-        <translation type="unfinished"/>
+        <translation>Wybierz rolę</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="735"/>
@@ -16115,6 +16114,11 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
         <location filename="../../Dialogs/MetaEditor.cpp" line="739"/>
         <source>[Custom property/attribute]</source>
         <translation>[Niestandardowa właściwość/atrybut]</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="752"/>
+        <source>Add Propety to Element</source>
+        <translation>Dodaj właściwości do elementu</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="786"/>
@@ -21138,17 +21142,17 @@ Użyj, jeśli edytowałeś jakieś pliki HTML podczas sprawdzania pisowni.</tran
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="588"/>
         <source>Save Selected Data</source>
-        <translation type="unfinished"/>
+        <translation>Zapisz zaznaczone dane</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="589"/>
         <source>Copy Selected Data to Clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Kopiuj zaznaczone dane do schowka</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="681"/>
         <source>Save Selected Data As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Zapisz zaznaczone dane jako plik CSV</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="694"/>
@@ -21158,7 +21162,7 @@ Użyj, jeśli edytowałeś jakieś pliki HTML podczas sprawdzania pisowni.</tran
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="694"/>
         <source>Cannot save data file.</source>
-        <translation type="unfinished"/>
+        <translation>Nie można zapisać pliku z danymi.</translation>
     </message>
 </context>
 <context>
@@ -21333,7 +21337,7 @@ Czy kontynuować przy użyciu żądanej nazwy pliku?</translation>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="334"/>
         <source>Updating Validation Results</source>
-        <translation type="unfinished"/>
+        <translation>Aktualizacja wyników sprawdzania</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="409"/>
