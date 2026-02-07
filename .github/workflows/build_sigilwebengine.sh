@@ -9,10 +9,10 @@
 
 set -o pipefail
 
-export PYTHON_VER="3.13.2"
-export QT6_VER="6.9"
-export QT6_VER_FULL="6.9.3"
-export QT6_FN="693"
+export PYTHON_VER="3.14.2"
+export QT6_VER="6.10"
+export QT6_VER_FULL="6.10.2"
+export QT6_FN="6102"
 export LC_ALL="C.UTF-8"
 export DEBIAN_FRONTEND=noninteractive
 export PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig
@@ -79,6 +79,7 @@ prepare_baseenv() {
     libxcb-dri3-dev \
     libxdamage-dev \
     zip \
+    p7zip-full \
     zlib1g-dev
 
 
@@ -159,7 +160,7 @@ setup_nodejs() {
 
 setup_qt6() {
   python3 -m pip install --root-user-action ignore aqtinstall
-  python3 -m aqt install-qt --outputdir /opt/sigiltools/qt linux desktop "${QT6_VER_FULL}" linux_gcc_64 -m qtpositioning qtpdf qtwebchannel qtserialport qtimageformats
+  python3 -m aqt install-qt --outputdir /opt/sigiltools/qt linux desktop "${QT6_VER_FULL}" linux_gcc_64 -m qtpositioning qtpdf qtwebchannel qtserialport qtimageformats qtwaylandcompositor
   export PATH=/opt/sigiltools/qt/$QT6_VER_FULL/gcc_64/bin:$PATH
   echo "Qt version $(qmake -v)"
 }
@@ -181,8 +182,8 @@ setup_webengine_src() {
   tar -xJf "/usr/src/qtwebengine-everywhere-src-${QT6_VER_FULL}.tar.xz" -C /opt/we_src --strip-components 1
   cd /opt/we_src
   patch -p1 < /reporoot/docs/Qt_Patches/qt672_fix_h6_insertParagraph.patch
-  patch -p1 < /reporoot/docs/Qt_Patches/qt693_fix_mesa_issues.patch
-  patch -p1 < /reporoot/docs/Qt_Patches/qt693_memory_leak_fix_886ff03.patch
+  #patch -p1 < /reporoot/docs/Qt_Patches/qt693_fix_mesa_issues.patch
+  #patch -p1 < /reporoot/docs/Qt_Patches/qt693_memory_leak_fix_886ff03.patch
   mkdir /opt/we_src/build
   cd /opt/we_src/build
   qt-configure-module .. -list-features

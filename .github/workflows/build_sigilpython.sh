@@ -9,7 +9,7 @@
 
 set -o pipefail
 
-export PYTHON_VER="3.13.2"
+export PYTHON_VER="3.14.2"
 export OPENSSL_VER="3.0.16"
 export LC_ALL="C.UTF-8"
 export DEBIAN_FRONTEND=noninteractive
@@ -66,6 +66,7 @@ prepare_baseenv() {
     libssl-dev \
     libgdbm-dev \
     libgdbm-compat-dev \
+    libzstd-dev \
     liblzma-dev \
     libbz2-dev \
     libsqlite3-dev \

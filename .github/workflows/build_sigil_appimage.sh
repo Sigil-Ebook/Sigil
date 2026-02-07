@@ -9,11 +9,11 @@
 
 set -o pipefail
 
-export PY_SHORT_VER="3.13"
-export PYTHON_VER="3.13.2"
-export QT6_VER="6.9"
-export QT6_VER_FULL="6.9.3"
-export QT6_FN="693"
+export PY_SHORT_VER="3.14"
+export PYTHON_VER="3.14.2"
+export QT6_VER="6.10"
+export QT6_VER_FULL="6.10.2"
+export QT6_FN="6102"
 export LC_ALL="C.UTF-8"
 export DEBIAN_FRONTEND=noninteractive
 export PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig
@@ -95,6 +95,7 @@ prepare_baseenv() {
     zlib1g-dev \
     tk-dev \
     zip \
+    p7zip-full \
     zstd \
     zsync \
 
@@ -168,7 +169,7 @@ setup_python() {
 
 setup_qt6() {
   python3 -m pip install --root-user-action ignore aqtinstall
-  python3 -m aqt install-qt --outputdir /opt/sigiltools/Qt linux desktop "${QT6_VER_FULL}" linux_gcc_64 -m qtpositioning qtpdf qtwebchannel qtserialport qtimageformats
+  python3 -m aqt install-qt --outputdir /opt/sigiltools/Qt linux desktop "${QT6_VER_FULL}" linux_gcc_64 -m qtpositioning qtpdf qtwebchannel qtserialport qtimageformats qtwaylandcompositor
   export PATH=/opt/sigiltools/Qt/$QT6_VER_FULL/gcc_64/bin:$PATH
   export LD_LIBRARY_PATH=/opt/sigiltools/Qt/${QT6_VER_FULL}/gcc_64/lib:$LD_LIBRARY_PATH
   echo "Qt version $(qmake -v)"
@@ -247,11 +248,12 @@ build_appimage() {
   fi
   export LINUXDEPLOY_OUTPUT_APP_NAME="Sigil-${COMMITISH}"
   export APPIMAGE_EXTRACT_AND_RUN=1
-  DEPLOY_PLATFORM_THEMES=1 \
-  DISABLE_COPYRIGHT_FILES_DEPLOYMENT=1 \
-  LD_LIBRARY_PATH=lib:sigil.AppDir/usr/lib/python$PY_SHORT_VER/site-packages/pillow.libs:$LD_LIBRARY_PATH \
-  EXTRA_PLATFORM_PLUGINS=libqwayland-generic.so \
-  EXTRA_QT_MODULES="waylandcompositor" \
+  export DEPLOY_PLATFORM_THEMES=1
+  export DISABLE_COPYRIGHT_FILES_DEPLOYMENT=1
+  export LD_LIBRARY_PATH=lib:sigil.AppDir/usr/lib/python$PY_SHORT_VER/site-packages/pillow.libs:$LD_LIBRARY_PATH
+  #EXTRA_PLATFORM_PLUGINS=libqwayland-generic.so
+  export EXTRA_PLATFORM_PLUGINS=libqwayland.so
+  export EXTRA_QT_MODULES="waylandcompositor"
   ./linuxdeploy-x86_64.AppImage --appdir sigil.AppDir --custom-apprun=${SELF_DIR}/AppRun --plugin qt
   python3 "${SELF_DIR}/appimg_cleanup.py" /build/sigil.AppDir/usr/lib $PY_SHORT_VER
   #cp -fv "${SELF_DIR}/AppRun" /build/sigil.AppDir/
