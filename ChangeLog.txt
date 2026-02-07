@@ -1,4 +1,4 @@
-pre-2.7.2
+pre-2.7.5
    Bug Fixes
      - WebProfileMgr will now detect multiple instances of Sigil and choose the right profile cache type
      - removed leftover debug output from WebProfileMgr to prevent confusion
@@ -11,6 +11,8 @@ pre-2.7.2
      - updated Building_on_Linux to include Apline Linux supprt (#839)
      
    New Features
+     - updated to the very latest Qt 6.10.2 (minimum MacOS supported version is now 10.13)
+     - updated to the very latest Python 3.14.2
      - added Save Selected Data to CSV in SpellcheckEditor dialog via pop-up menu
      - added possible shortcut id number to the ClipEditor to make assigning clip shortcuts easier
      - made Classes Used Report doubleclick open the class defintion in CodeView if found
