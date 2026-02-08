@@ -32,23 +32,23 @@ on:
 
 env:
   BUILD_TYPE: Release
-  DOWNLOADQT: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/Qt6.9.3ci_x64_VS2022.7z
-  QT: Qt6.9.3
+  DOWNLOADQT: https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/Qt6.10.2ci_x64_VS2026.7z
+  QT: Qt6.10.2
   INNO: C:\Program Files (x86)\Inno Setup 6
-  PYTHON: \hostedtoolcache\windows\Python\3.13.2\x64
+  PYTHON: \hostedtoolcache\windows\Python\3.14.2\x64
 
 jobs:
   build:
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
-    runs-on: windows-latest
+    runs-on: windows-latest-vs2026
 
     steps:
     - uses: actions/checkout@v4
 
-    - name: Set up Python 3.13.2
+    - name: Set up Python 3.14.2
       uses: actions/setup-python@v5
       with:
-        python-version: 3.13.2
+        python-version: 3.14.2
 
     - name: Cache Custom Qt
       uses: actions/cache@v4
@@ -76,17 +76,17 @@ jobs:
         python -m pip install --upgrade pip
         pip install six==1.17.0
         pip install html5lib==1.1
-        pip install regex==2024.11.6
+        pip install regex==2025.11.3
         pip install css-parser==1.0.10
-        pip install cssselect==1.2.0
-        pip install urllib3==2.3.0
-        pip install certifi==2025.1.31
-        pip install dulwich==0.22.7
+        pip install cssselect==1.3.0
+        pip install urllib3==2.6.3
+        pip install certifi==2025.11.12
+        pip install dulwich==0.25.0
         pip install chardet==5.2.0
-        pip install pillow==11.1.0
-        pip install lxml==5.3.0
-        pip install shiboken6==6.9.3
-        pip install PySide6==6.9.3
+        pip install pillow==12.0.0
+        pip install lxml==6.0.2
+        pip install shiboken6==6.10.2
+        pip install PySide6==6.10.2
 
     - name: Create Build Environment
       shell: cmd
@@ -103,7 +103,7 @@ jobs:
       working-directory: ${{runner.workspace}}\build
       run: |
         set PATH=C:\%PYTHON%;${{runner.workspace}}\%QT%\bin;%PATH%
-        call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
+        call "C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
         cmake %GITHUB_WORKSPACE% ^
         -G "Ninja" ^
         -DTRY_NEWER_FINDPYTHON3=1 ^
@@ -118,7 +118,7 @@ jobs:
       if: contains(github.event.head_commit.message, '[deploy]') || github.event_name == 'workflow_dispatch'
       run: |
         set PATH=C:\%PYTHON%;%INNO%;${{runner.workspace}}\%QT%\bin;%PATH%
-        call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
+        call "C:\Program Files\Microsoft Visual Studio\8\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
         ninja -j2 makeinstaller
 
     # RIP gdrive
