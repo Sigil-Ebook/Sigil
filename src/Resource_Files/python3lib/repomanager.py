@@ -38,9 +38,14 @@ from sdifflibparser import DiffCode, DifflibParser
 import dulwich
 from dulwich import porcelain
 from dulwich.repo import Repo
-from dulwich.porcelain import open_repo_closing, show_object, print_commit, commit_decode, _make_tag_ref
+from dulwich.porcelain import open_repo_closing, show_object, print_commit, commit_decode
+
+try:
+    from dulwich.porcelain.tag import _make_tag_ref
+except ImportError:
+    from dulwich.porcelain import _make_tag_ref
+
 from dulwich.objects import Tag, Commit, Blob, check_hexsha, ShaFile, Tree, format_timezone
-from dulwich.refs import ANNOTATED_TAG_SUFFIX
 from dulwich.patch import write_tree_diff
 
 import zlib
@@ -287,7 +292,12 @@ def checkout_tag(repo_path, tagname):
         # if annotated tag get the commit it pointed to
         if isinstance(r[tagkey], Tag):
             refkey = r[tagkey].object[1]
-        r.reset_index(r[refkey].tree)
+        can_reset_index_directly = getattr(r, "reset_index", None)
+        if can_reset_index_directly:
+            r.reset_index(r[refkey].tree)
+        else:
+            # >= dulwich 0.25.0
+            r.get_worktree().reset_index(r[refkey].tree)
         # use this to reset HEAD to this tag (ie. revert)
         # r.refs.set_symbolic_ref(b"HEAD", tagkey)
         # cd out **before** the repo closes
@@ -308,7 +318,12 @@ def checkout_head(repo_path):
         return result
     os.chdir(repo_path)
     with open_repo_closing(".") as r:
-        r.reset_index(r[b"HEAD"].tree)
+        can_reset_index_directly = getattr(r, "reset_index", None)
+        if can_reset_index_directly:
+            r.reset_index(r[b"HEAD"].tree)
+        else:
+            # >= dulwich 0.25.0
+            r.get_worktree().reset_index(r[b"HEAD"].tree)
         # cd out **before** the repo closes
         os.chdir(cdir)
     os.chdir(cdir)
@@ -343,7 +358,12 @@ def clone_repo_and_checkout_tag(localRepo, bookid, tagname, filename, dest_path)
             # if annotated tag get the commit id it pointed to instead
             if isinstance(r[tagkey], Tag):
                 refkey = r[tagkey].object[1]
-            r.reset_index(r[refkey].tree)
+            can_reset_index_directly = getattr(r, "reset_index", None)
+            if can_reset_index_directly:
+                r.reset_index(r[refkey].tree)
+            else:
+                # >= dulwich 0.25.0
+                r.get_worktree().reset_index(r[refkey].tree)
             r.refs.set_symbolic_ref(b"HEAD", tagkey)
             # cd out **before** the repo closes
             os.chdir(cdir)
