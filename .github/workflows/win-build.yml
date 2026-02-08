@@ -40,7 +40,7 @@ env:
 jobs:
   build:
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
-    runs-on: windows-latest-vs2026
+    runs-on: windows-2025-vs2026
 
     steps:
     - uses: actions/checkout@v4
@@ -118,7 +118,7 @@ jobs:
       if: contains(github.event.head_commit.message, '[deploy]') || github.event_name == 'workflow_dispatch'
       run: |
         set PATH=C:\%PYTHON%;%INNO%;${{runner.workspace}}\%QT%\bin;%PATH%
-        call "C:\Program Files\Microsoft Visual Studio\8\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
+        call "C:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x64
         ninja -j2 makeinstaller
 
     # RIP gdrive
