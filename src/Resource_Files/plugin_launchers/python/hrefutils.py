@@ -187,7 +187,7 @@ def getRelativeHREF(apath, afragment):
         afragment = afragment.decode('utf-8')
     href = urlencodepart(apath)
     if afragment:
-        href = href + "#" + urlencodepart(fragment)
+        href = href + "#" + urlencodepart(afragment)
     return href
 
 
