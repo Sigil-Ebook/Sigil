@@ -84,7 +84,6 @@ mime_group_map = {
     'application/font-otf'                    : 'Fonts',  # deprecated
     'application/font-woff'                   : 'Fonts',  # deprecated
     'application/font-woff2'                  : 'Fonts',  # deprecated
-    'application/x-font-ttf'                  : 'Fonts',  # deprecated
     'application/x-truetype-font'             : 'Fonts',  # deprecated
     'application/x-opentype-font'             : 'Fonts',  # deprecated
     'application/x-font-ttf'                  : 'Fonts',  # deprecated
