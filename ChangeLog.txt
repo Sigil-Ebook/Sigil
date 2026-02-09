@@ -1,4 +1,4 @@
-pre-2.7.5
+Sigil-2.7.5
    Bug Fixes
      - WebProfileMgr will now detect multiple instances of Sigil and choose the right profile cache type
      - removed leftover debug output from WebProfileMgr to prevent confusion
@@ -9,6 +9,10 @@ pre-2.7.5
      - fixed Class Used Report to look inside xhtml file style tags too
      - fixed AddMetadata dialog by providng a clarifying title string
      - updated Building_on_Linux to include Apline Linux supprt (#839)
+     - fix typo and duplication in plugin support routine hrefutils.py
+     - fix bug in media-type assignment for smil files in PluginRunner
+     - adapt python3lib/repomanagercode.py to recent changes in dulwich that broke backwards compatibility
+
      
    New Features
      - updated to the very latest Qt 6.10.2 (minimum MacOS supported version is now 10.13)
