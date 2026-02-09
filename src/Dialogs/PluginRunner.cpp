@@ -776,10 +776,12 @@ bool PluginRunner::checkIsWellFormed()
             // auto repair any xml file changes to be safe
             QString filePath = m_outputDir + "/" + href;
             ui.statusLbl->setText(tr("Status: checking") + " " + href);
-            QString mtype = "application/oebs-page-map+xml";
+            QString mtype = "application/xml";
             if (href.endsWith(".opf")) mtype = "application/oebps-package+xml";
             if (href.endsWith(".ncx")) mtype = "application/x-dtbncx+xml";
-            if (href.endsWith(".smil")) mtype = "application/oebps-package+xml";
+            if (href.endsWith(".smil")) mtype = "application/smil+xml";
+            if (href.endsWith(".pls")) mtype = "application/pls+xml";
+            if (href.endsWith(".ttml")) mtype = "application/ttml+xml";
             QString data = Utility::ReadUnicodeTextFile(filePath);
             QString newdata = CleanSource::ProcessXML(data, mtype);
             Utility::WriteUnicodeTextFile(newdata, filePath);
