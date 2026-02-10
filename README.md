@@ -12,7 +12,7 @@ Links
 
 * Its current code repository is located at https://github.com/Sigil-Ebook/Sigil
 
-* Translations are located at https://www.transifex.com/projects/p/sigil/
+* Translations are located at https://app.transifex.com/zdpo/sigil
 
 * Support forums are located at http://www.mobileread.com/forums
     Select Sigil from the list of main forums
@@ -53,9 +53,7 @@ detailed instructions for building/installing Sigil with Qt5 can be found in:
 
 > [docs/Building_on_Linux_older.md](./docs/Building_on_Linux.md)
 
-An up-to-date version of Sigil is available via flatpak on Flathub. So if your distro can use Flatpak, you can always use [Sigil that way](https://flathub.org/apps/details/com.sigil_ebook.Sigil) if your distro's Sigil package seems to be lagging too far behind.
-
-An up-to-date version of Sigil is also available in our releases as an AppImage.
+If your distro's Sigil package seems to be lagging too far behind. An up-to-date version of Sigil built by us is now part of our releases as an AppImage. 
 
 
 For Building on Mac OS X
@@ -64,14 +62,14 @@ For Building on Mac OS X
 Building using purely XCode is no longer supported on Mac OS X.  The easiest 
 way to build Sigil on Mac OS X is to use cmake 3.X and the XCode CommandLineTools.   
 
-Also because Sigil now embeds Python 3.13.2, see  
+Also because Sigil now embeds Python 3.14.2, see  
 
-> [docs/Building_A_Relocatable_Python_3.13_Framework_on_MacOSX.txt](./docs/Building_A_Relocatable_Python_3.13_Framework_on_MacOSX.txt)
+> [docs/Building_A_Relocatable_Python_3.14_Framework_on_MacOSX.txt](./docs/Building_A_Relocatable_Python_3.14_Framework_on_MacOSX.txt)
 
-for detailed instructions on how to build a fully relocatable Python 3.13.2 framework before
+for detailed instructions on how to build a fully relocatable Python 3.14.2 framework before
 building Sigil.  
 
-For official releases Sigil uses Qt6.9.3 plus official local patches see:  
+For official releases Sigil uses Qt6.10.2 plus official local patches see:  
 
 > [docs/Building_Qt6_From_Source_on_MacOSX.txt](./docs/Building_Qt6_From_Source_on_MacOSX.txt)
 
