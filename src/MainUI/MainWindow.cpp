@@ -5483,6 +5483,15 @@ void MainWindow::SetNewBook(QSharedPointer<Book> new_book)
 {
     m_TabManager->CloseOtherTabs();
     m_TabManager->CloseAllTabs(true);
+#ifndef Q_OS_MAC
+    // close out any open minimized non-modal dialogs that relate to old book
+    if (m_SpellcheckEditor && m_SpellcheckEditor->isVisible()) {
+        m_SpellcheckEditor->ForceClose();
+    }
+    if (m_Reports && m_Reports->isVisible()) {
+        m_Reports->accept();
+    }
+#endif
     m_Book = new_book;
     m_BookBrowser->SetBook(m_Book);
     m_TableOfContents->SetBook(m_Book);
