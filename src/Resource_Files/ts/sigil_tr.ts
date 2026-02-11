@@ -12235,9 +12235,9 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../MainUI/MainWindow.cpp" line="5228"/>
         <location filename="../../MainUI/MainWindow.cpp" line="5454"/>
         <location filename="../../MainUI/MainWindow.cpp" line="5474"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5522"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5786"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5992"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5531"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5795"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6001"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -12258,17 +12258,17 @@ Bu eylem tersine çevrilemez.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="874"/>
         <location filename="../../MainUI/MainWindow.cpp" line="876"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5520"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5522"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5990"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5992"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5529"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5531"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5999"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6001"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] - epub%2 - %3</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="874"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5520"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5990"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5529"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5999"/>
         <source>Sigil [std]</source>
         <translation>Sigil [std]</translation>
     </message>
@@ -12911,12 +12911,12 @@ Değişikliklerinizi kaydetmek istiyor musunuz?</translation>
         <translation>Sigil bu dosyanın üzerine yazmalı mı?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5662"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5671"/>
         <source>No importer for file type: %1</source>
         <translation>Dosya türü için içe aktarıcı yok: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5669"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5678"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -12929,44 +12929,44 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
 Temiz Kaynak tercihini, dosyayı Açarken ve yeniden yüklerken XHTML Kaynak Kodunu Düzelt olarak ayarlamayı deneyin.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5674"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5683"/>
         <source>Loading file...</source>
         <translation>Dosya yükleniyor...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5688"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5697"/>
         <source>File loaded.</source>
         <translation>Dosya yüklendi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5714"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5723"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Bu dosyanın yaratıcısı, dosyayı DRM ile şifreledi. Sigil bu tür dosyaları açamaz.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5722"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5731"/>
         <source>Cannot load EPUB: %1</source>
         <translation>EPUB yüklenemiyor: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5727"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5736"/>
         <source>Cannot load file %1: %2</source>
         <translation>%1 dosyası yüklenemiyor: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5754"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5763"/>
         <source>Saving EPUB...</source>
         <translation>EPUB kaydediliyor...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5763"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5772"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil, &quot;%1&quot; türündeki dosyaları kaydedemez.
 Lütfen farklı bir format seçin.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5787"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5796"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to mend on Save.
 
 Do you want to automatically mend the files before saving? Or cancel the Save?</source>
@@ -12974,96 +12974,96 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 Kaydetmeden önce dosyaları otomatik olarak düzeltmek istiyor musunuz?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5792"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5801"/>
         <source>Saving EPUB... cancelled</source>
         <translation>Bu EPUB, iyi biçimlendirilmemiş HTML dosyalarına sahip ve geçerli Temiz Kaynak tercihleriniz, Kaydetme işleminde otomatik olarak düzeltilecek şkilde ayarlanmış. 
 Kaydetmeden önce dosyları otomatik olarak onarmak istiyor musunuz?
 Kaydı iptal etmek ister misiniz?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5818"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5827"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>EPUB kaydedildi, ancak tüm HTML dosyaları düzgün biçimlendirilmedi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5820"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5829"/>
         <source>EPUB saved.</source>
         <translation>EPUB kaydedildi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5826"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5835"/>
         <source>Cannot save file %1: %2</source>
         <translation>%1: %2 dosyası kaydedilemiyor</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5959"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5968"/>
         <source>EPUB files (*.epub)</source>
         <translation>EPUB dosyaları (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5960"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5961"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5962"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5969"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5970"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5971"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>HTML dosyaları (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5963"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5972"/>
         <source>Text files (*.txt)</source>
         <translation>Metin dosyaları (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5964"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5973"/>
         <source>All files (*.*)</source>
         <translation>Tüm dosyalar (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5972"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5981"/>
         <source>EPUB file (*.epub)</source>
         <translation>EPUB dosyası (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6074"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6083"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>Mevcut başlık özniteliklerini korumak artık:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6075"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6084"/>
         <source>ON</source>
         <translation>AÇIK</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6075"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6084"/>
         <source>OFF</source>
         <translation>KAPALI</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6100"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6109"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7070"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7079"/>
         <source>Focus changed to CodeView window.</source>
         <translation>Odaklama Kod Görünümüne değiştirildi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7079"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7088"/>
         <source>Focus changed to BookBrowser window.</source>
         <translation>Odaklama Kitap Gezgini görünümüne değiştirildi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7088"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7097"/>
         <source>Focus changed to Preview window.</source>
         <translation>Odaklama Önizleme görünümüne değiştirildi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7097"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7106"/>
         <source>Focus changed to Table Of Contents window.</source>
         <translation>Odaklama İçindekiler görünümüne değiştirildi.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7106"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7115"/>
         <source>Focus changed to Clips window.</source>
         <translation>Odaklama Klip penceresi görünümüne değiştirildi.</translation>
     </message>
@@ -17767,55 +17767,55 @@ Kaydı iptal etmek ister misiniz?</translation>
         <translation>Satır / Sütun</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="794"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="796"/>
         <source>Check Report</source>
         <translation>Raporu Kontrol Et</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="795"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="797"/>
         <source>Incorrect XHTML/XML Detected
 Are you Sure You Want to Continue?</source>
         <translation>Yanlış XHTML / XML Algılandı
 Devam etmek istediğine emin misin?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="813"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="815"/>
         <source>Status: cleaning up - deleting files</source>
         <translation>Durum: temizleniyor - dosyalar siliniyor</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="846"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="848"/>
         <source>Status: deleting</source>
         <translation>Durum: siliniyor</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="885"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="887"/>
         <source>Status: Loading</source>
         <translation>Durum: Yükleniyor</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="893"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="895"/>
         <source>Input Plugin</source>
         <translation>Giriş Eklentisi</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="894"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="896"/>
         <source>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</source>
         <translation>Mevcut kitabınız, kaydedilmemiş değişiklikleri kaybederek tamamen değiştirilecek ...  Devam etmek istediğinizden emin misiniz</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="922"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="936"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="924"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="938"/>
         <source>Status: adding</source>
         <translation>Durum: ekleniyor</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="974"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="976"/>
         <source>Status: cleaning up - modifying files</source>
         <translation>Durum: temizleme - dosyaları değiştirme</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="1011"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="1013"/>
         <source>Status: modifying</source>
         <translation>Durum: değiştiriliyor</translation>
     </message>

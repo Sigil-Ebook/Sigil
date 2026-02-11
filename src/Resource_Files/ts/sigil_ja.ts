@@ -118,7 +118,7 @@
     <message>
         <location filename="../../Form_Files/AddClips.ui" line="14"/>
         <source>Add Aria Clips</source>
-        <translation type="unfinished"/>
+        <translation>Aria Clipを追加(WAI-ARIA)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddClips.ui" line="56"/>
@@ -144,7 +144,7 @@
     <message>
         <location filename="../../Form_Files/AddRoles.ui" line="14"/>
         <source>Add Aria Roles</source>
-        <translation type="unfinished"/>
+        <translation>Aria Rolesを追加(WAI-ARIA)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddRoles.ui" line="56"/>
@@ -171,7 +171,7 @@
         <location filename="../../Widgets/AlertBox.cpp" line="102"/>
         <location filename="../../Widgets/AlertBox.cpp" line="108"/>
         <source>Show Details...</source>
-        <translation type="unfinished"/>
+        <translation>詳細を表示...</translation>
     </message>
     <message>
         <location filename="../../Widgets/AlertBox.cpp" line="108"/>
@@ -569,17 +569,17 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="781"/>
         <source>Automation Menu (Advanced):</source>
-        <translation type="unfinished"/>
+        <translation>自動化メニュー (詳細設定):</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="790"/>
         <source>Show top level Automation menu</source>
-        <translation type="unfinished"/>
+        <translation>最上位の自動化メニューを表示</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="793"/>
         <source>Show Automation menu.</source>
-        <translation type="unfinished"/>
+        <translation>自動化メニューを表示します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="811"/>
@@ -712,7 +712,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="38"/>
         <source>Tip</source>
-        <translation type="unfinished"/>
+        <translation>ヒント</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="39"/>
@@ -742,27 +742,27 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="181"/>
         <source>Aside</source>
-        <translation type="unfinished"/>
+        <translation>補足</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="183"/>
         <source>Aside: Sidebar</source>
-        <translation type="unfinished"/>
+        <translation>補足: サイドバー</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="185"/>
         <source>Aside: Tip</source>
-        <translation type="unfinished"/>
+        <translation>補足: ヒント</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="187"/>
         <source>Backlink from Footnote</source>
-        <translation type="unfinished"/>
+        <translation>脚注から戻るリンク</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="189"/>
         <source>Backlink from Endnote</source>
-        <translation type="unfinished"/>
+        <translation>巻末注から戻るリンク</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="191"/>
@@ -772,17 +772,17 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="193"/>
         <source>Footnote in aside</source>
-        <translation type="unfinished"/>
+        <translation>aside要素の脚注</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="195"/>
         <source>Footnote in div</source>
-        <translation type="unfinished"/>
+        <translation>div要素の脚注</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="197"/>
         <source>Footnote in p</source>
-        <translation type="unfinished"/>
+        <translation>p要素の脚注</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="199"/>
@@ -830,12 +830,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="184"/>
         <source>Abstract</source>
-        <translation type="unfinished"/>
+        <translation>要約</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="184"/>
         <source>A short summary of the principle ideas, concepts and conclusions of the work, or of section or excerpt within it.</source>
-        <translation type="unfinished"/>
+        <translation>本稿、あるいはその一部または抜粋における主要な考え方、概念、結論の簡潔な要約です。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="185"/>
@@ -845,7 +845,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="185"/>
         <source>A section or statement that acknowledges significant contributions by persons, organizations, governments, and other entities to the realization of the work.</source>
-        <translation type="unfinished"/>
+        <translation>本作品の実現に際し、個人、組織、政府、その他の団体による重要な貢献を認める項目または声明です。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="186"/>
@@ -855,7 +855,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="186"/>
         <source>A closing statement from the author or a person of importance, typically providing insight into how the content came to be written, its significance or related events that have transpired since its timeline.</source>
-        <translation type="unfinished"/>
+        <translation>著者または重要人物による締めくくりの言葉で、通常、その内容がどのようにして書かれたのか、その意義、あるいは執筆後の関連する出来事についての洞察を提供します。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="187"/>
@@ -865,7 +865,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="187"/>
         <source>A section of supplemental information located after the primary content that informs the content but is not central to it.</source>
-        <translation type="unfinished"/>
+        <translation>主要コンテンツの後に位置する補足情報の章で、コンテンツを補足するが核心をなさない部分です。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="188"/>
@@ -885,17 +885,17 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="189"/>
         <source>A list of external references cited in the work, which may be to print or digital sources.</source>
-        <translation type="unfinished"/>
+        <translation>本著作で引用された外部文献の一覧で、印刷物またはデジタル資料への引用を含みます。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="190"/>
         <source>Bibliography Entry</source>
-        <translation type="unfinished"/>
+        <translation>参考文献項目</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="190"/>
         <source>A single reference to an external source in a bibliography. [epub:type ONLY]</source>
-        <translation type="unfinished"/>
+        <translation>参考文献における外部情報源への単一の参照です。[epub:typeのみ]</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="191"/>
@@ -915,7 +915,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="192"/>
         <source>A major thematic section of content in a work.</source>
-        <translation type="unfinished"/>
+        <translation>作品内の主要なテーマを成す内容の章です。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="193"/>
@@ -925,7 +925,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="193"/>
         <source>A short section of production notes particular to the edition (e.g., describing the typeface used), often located at the end of a work.</source>
-        <translation type="unfinished"/>
+        <translation>版ごとに固有の制作に関する短い注記(例:使用された書体の説明など)で、通常は作品の末尾に記載されます。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="194"/>
@@ -935,7 +935,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="194"/>
         <source>A concluding section or statement that summarizes the work or wraps up the narrative.</source>
-        <translation type="unfinished"/>
+        <translation>作品を要約したり、物語を締めくくる結末部分または声明です。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="195"/>
@@ -950,22 +950,22 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="196"/>
         <source>Credit</source>
-        <translation type="unfinished"/>
+        <translation>クレジット</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="196"/>
         <source>An acknowledgement of the source of integrated content from third-party sources, such as photos.  Typically identifies the creator, copyright, and any restrictions on reuse.</source>
-        <translation type="unfinished"/>
+        <translation>第三者提供の写真など統合コンテンツの出典を明示します。通常、作成者、著作権、および再利用に関する制限事項を特定します。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="197"/>
         <source>Credits</source>
-        <translation type="unfinished"/>
+        <translation>クレジット</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="197"/>
         <source>A collection of credits.</source>
-        <translation type="unfinished"/>
+        <translation>クレジット集です。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="198"/>
@@ -975,27 +975,27 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="198"/>
         <source>An inscription at the front of the work, typically addressed in tribute to one or more persons close to the author.</source>
-        <translation type="unfinished"/>
+        <translation>作品の冒頭にある献辞で、通常は作者と親しい一人または複数の人物への賛辞として記されます。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="199"/>
         <source>Endnote</source>
-        <translation type="unfinished"/>
+        <translation>巻末注</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="199"/>
         <source>One of a collection of notes that occur at the end of a work, or a section within it that provides additional context to a referenced passage of text. [epub:type ONLY]</source>
-        <translation type="unfinished"/>
+        <translation>作品の末尾、または作品内のセクションに付随する注釈群の一つで、参照された本文の文脈を補足するものです。[epub:typeのみ]</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="200"/>
         <source>Endnotes</source>
-        <translation type="unfinished"/>
+        <translation>巻末注</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="200"/>
         <source>A collection of notes at the end of a work or a section within it.</source>
-        <translation type="unfinished"/>
+        <translation>作品またはその章の末尾に置かれた注釈集です。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="201"/>
@@ -1005,7 +1005,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="201"/>
         <source>A quotation set at the start of the work or a section that establishes the theme or sets the mood.</source>
-        <translation type="unfinished"/>
+        <translation>作品の冒頭や節の冒頭に置かれる引用文で、主題を確立したり雰囲気を醸し出すものです。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="202"/>
@@ -1015,7 +1015,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="202"/>
         <source>A concluding section of narrative that wraps up or comments on the actions and events of the work, typically from a future perspective.</source>
-        <translation type="unfinished"/>
+        <translation>物語の結末部分に作品の行動や出来事をまとめたり、コメントを加えたりする部分で、通常は未来の視点から語られます。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="203"/>
@@ -1025,27 +1025,27 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="203"/>
         <source>A set of corrections discovered after initial publication of the work, sometimes referred to as corrigenda.</source>
-        <translation type="unfinished"/>
+        <translation>著作物の初版刊行後に発見された一連の訂正事項で、「訂正事項」とも呼ばれることもあります。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="204"/>
         <source>Example</source>
-        <translation type="unfinished"/>
+        <translation>例</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="204"/>
         <source>An illustration of a key concept of the work, such as a code listing, case study or problem. [aria role ONLY]</source>
-        <translation type="unfinished"/>
+        <translation>作品の主要概念を示す図解で、コードリスト、事例研究、問題などを含みます。[aria roleのみ]</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="205"/>
         <source>Footnote</source>
-        <translation type="unfinished"/>
+        <translation>脚注</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="205"/>
         <source>Ancillary information, such as a citation or commentary, that provides additional context to a referenced passage of text.</source>
-        <translation type="unfinished"/>
+        <translation>引用箇所や注釈など、参照されたテキストの文脈を補足する付随情報です。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="206"/>
@@ -1055,7 +1055,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="206"/>
         <source>A collection of footnotes. [epub:type ONLY]</source>
-        <translation type="unfinished"/>
+        <translation>脚注集です。 [epub:typeのみ]</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="207"/>
@@ -1065,7 +1065,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="207"/>
         <source>An introductory section that precedes the work, typically not written by the author of the work.</source>
-        <translation type="unfinished"/>
+        <translation>作品に先行する序文で、通常は作品の著者によって書かれたものではありません。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="208"/>
@@ -1075,7 +1075,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="208"/>
         <source>A brief dictionary of new, uncommon, or specialized terms used in the content.</source>
-        <translation type="unfinished"/>
+        <translation>本コンテンツ内で使用される新語、難解語、専門用語を簡潔に解説した用語集です。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="209"/>
@@ -1090,12 +1090,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="210"/>
         <source>Index</source>
-        <translation>インデックス（索引）</translation>
+        <translation>インデックス (索引)</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="210"/>
         <source>A navigational aid that provides a detailed list of links to key subjects, names and other important topics covered in the work.</source>
-        <translation type="unfinished"/>
+        <translation>作品内で扱われる主要な主題、名前、その他の重要なトピックへのリンクを詳細に一覧表示するナビゲーション支援です。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="211"/>
@@ -1105,7 +1105,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="211"/>
         <source>A preliminary section that typically introduces the scope or nature of the work.</source>
-        <translation type="unfinished"/>
+        <translation>通常、作品の範囲または性質を紹介する序論部分です。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="212"/>
@@ -1125,7 +1125,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="213"/>
         <source>Notifies the user of consequences that might arise from an action or event.  Examples include warnings, cautions and dangers.</source>
-        <translation type="unfinished"/>
+        <translation>ユーザーに、行動や出来事から生じうる結果を通知します。例としては警告、注意、危険などがあります。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="214"/>
@@ -1140,22 +1140,22 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="215"/>
         <source>Page Footer</source>
-        <translation type="unfinished"/>
+        <translation>ページフッター</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="215"/>
         <source>A section of text appearing at the bottom of a page that provides context about the current work and location within it. The page footer is distinct from the body text and normally follows a repeating template that contains (possibly truncated) items such as the document title, current section, author name(s), and page number.</source>
-        <translation type="unfinished"/>
+        <translation>ページ下部に表示されるテキスト領域で、現在の作品内容とその位置に関する文脈情報を提供します。ページフッターは本文とは区別され、通常は文書タイトル、現在のセクション、著者名、ページ番号などの項目(一部省略される場合あり)を含む繰り返しテンプレートに従います。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="216"/>
         <source>Page Header</source>
-        <translation type="unfinished"/>
+        <translation>ページヘッダー</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="216"/>
         <source>A section of text appearing at the top of a page that provides context about the current work and location within it. The page header is distinct from the body text and normally follows a repeating template that contains (possibly truncated) items such as the document title, current section, author name(s), and page number.</source>
-        <translation type="unfinished"/>
+        <translation>ページ上部に表示されるテキストの一部で、現在の作業内容とその位置に関する文脈を提供します。ページヘッダーは本文とは区別され、通常は文書タイトル、現在のセクション、著者名、ページ番号などの項目(一部省略される場合あり)を含む繰り返しテンプレートに従います。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="217"/>
@@ -1165,7 +1165,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="217"/>
         <source>A navigational aid that provides a list of links to the page breaks in the content.</source>
-        <translation type="unfinished"/>
+        <translation>コンテンツ内の改ページ箇所へのリンクを一覧表示するナビゲーション支援です。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="218"/>
@@ -1175,7 +1175,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="218"/>
         <source>A major structural division in a work that contains a set of related sections dealing with a particular subject, narrative arc, or similar encapsulated theme.</source>
-        <translation type="unfinished"/>
+        <translation>特定の主題、物語の展開、または類似の完結したテーマを扱う一連の関連セクションを含む作品における主要な構造的区分です。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="219"/>
@@ -1185,7 +1185,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="219"/>
         <source>A section at the beginning of a work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content. [epub:type ONLY]</source>
-        <translation type="unfinished"/>
+        <translation>作品の冒頭にあるセクションで、通常は作品の内容の範囲や性質に関する導入的および/または説明的な文章を含ます。[epub:typeのみ]</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="220"/>
@@ -1195,27 +1195,27 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="220"/>
         <source>An introductory section that precedes the work, typically written by the author of the work.</source>
-        <translation type="unfinished"/>
+        <translation>作品に先行する序文で、通常は作品の作者によって書かれます。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="221"/>
         <source>Prologue</source>
-        <translation>プロローグ（序幕）</translation>
+        <translation>プロローグ (序幕)</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="221"/>
         <source>An introductory section that sets the background to a work, typically part of the narrative.</source>
-        <translation type="unfinished"/>
+        <translation>作品の背景を説明する導入部で、通常、物語の一部を構成します。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="222"/>
         <source>Pull Quote</source>
-        <translation type="unfinished"/>
+        <translation>引用文</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="222"/>
         <source>A distinctively placed or highlighted quotation from the current content designed to draw attention to a topic or highlight a key point.</source>
-        <translation type="unfinished"/>
+        <translation>現在のコンテンツから特に目立つ位置に配置されたり強調されたりした引用文で、特定のトピックへの注意を引くため、または重要なポイントを強調するために設計されたものです。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="223"/>
@@ -1225,7 +1225,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="223"/>
         <source>A section of content structured as a series of questions and answers, such as an interview or list of frequently asked questions.</source>
-        <translation type="unfinished"/>
+        <translation>インタビューやよくある質問のリストなど、一連の質問と回答で構成されたコンテンツの章。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="224"/>
@@ -1240,12 +1240,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="225"/>
         <source>Tip</source>
-        <translation type="unfinished"/>
+        <translation>ヒント</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="225"/>
         <source>Helpful information that clarifies some aspect of the content or assists in comprehension.</source>
-        <translation type="unfinished"/>
+        <translation>コンテンツの特定の側面を明らかにしたり、理解を助ける有用な情報です。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="226"/>
@@ -1255,7 +1255,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="226"/>
         <source>A navigational aid that provides an ordered list of links to the major sectional headings in the content.  A table of contents may cover an entire work, or only a smaller section of it.</source>
-        <translation type="unfinished"/>
+        <translation>コンテンツ内の主要なセクション見出しへのリンクを順序付き一覧表示するナビゲーション支援です。目次は作品全体を網羅する場合もあれば、その一部のみを扱う場合もあります。</translation>
     </message>
 </context>
 <context>
@@ -1401,12 +1401,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="351"/>
         <source>If previous search failed, run the named Saved Search.</source>
-        <translation type="unfinished"/>
+        <translation>前回の検索が失敗した場合、指定された保存済み検索を実行します。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="352"/>
         <source>If previous search had success, run the named Saved Search.</source>
-        <translation type="unfinished"/>
+        <translation>前回の検索が成功した場合、指定された保存済み検索を実行します。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="353"/>
@@ -1476,7 +1476,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="367"/>
         <source>Rename files to use standard file extensions for their media type.</source>
-        <translation type="unfinished"/>
+        <translation>ファイルをメディアタイプに応じた標準のファイル拡張子に名前を変更します。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="368"/>
@@ -3524,7 +3524,7 @@ locations and names for the OPF, NCX and/or Nav.</source>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="146"/>
         <source>Xhtml files</source>
-        <translation>Xhtmlファイル</translation>
+        <translation>XHTMLファイル</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="146"/>
@@ -3696,7 +3696,7 @@ locations and names for the OPF, NCX and/or Nav.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="90"/>
         <source>Python Function Replace</source>
-        <translation type="unfinished"/>
+        <translation>Python関数置換</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="96"/>
@@ -4156,7 +4156,7 @@ HTMLファイルを検索する場合にのみ有効です。</translation>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2244"/>
         <source>Dot All</source>
-        <translation>Dot All</translation>
+        <translation>ドットを改行にもマッチ</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2247"/>
@@ -4219,7 +4219,7 @@ HTMLファイルを検索する場合にのみ有効です。</translation>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="72"/>
         <source>Python Function Replace</source>
-        <translation type="unfinished"/>
+        <translation>Python関数置換</translation>
     </message>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="85"/>
@@ -4545,7 +4545,7 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="642"/>
         <source>Print DPI:</source>
-        <translation>Print DPI:</translation>
+        <translation>印刷DPI:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="223"/>
@@ -4853,7 +4853,7 @@ mended.</source>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="194"/>
         <source>A collection of notes. It can be used to identify footnotes, rear notes, marginal notes, inline notes, and similar when legacy naming conventions are not desired. Status: Deprecated - Replaced by: &apos;footnotes&apos;, &apos;rearnotes&apos;</source>
-        <translation>ノート（メモや備考）のコレクション。従来の命名規則が不要な場合、脚注、リアノート（背面のメモ）、マージンノート（欄外のメモ）、インラインノート（文中のメモ）などを識別するために使用できます。ステータス: 非推奨 - 代替: &quot;脚注 (footnotes)&quot;、&quot;リアノート (rearnotes)&quot;。</translation>
+        <translation>ノート(メモや備考)のコレクション。従来の命名規則が不要な場合、脚注、リアノート(背面のメモ)、マージンノート(欄外のメモ)、インラインノート(文中のメモ)などを識別するために使用できます。ステータス: 非推奨 - 代替: &quot;脚注 (footnotes)&quot;、&quot;リアノート (rearnotes)&quot;。</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="195"/>
@@ -5784,12 +5784,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="180"/>
         <source>Endnotes</source>
-        <translation type="unfinished"/>
+        <translation>巻末注</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="180"/>
         <source>A collection of notes at the end of a work or a section within it.</source>
-        <translation type="unfinished"/>
+        <translation>作品またはその章の末尾に置かれた注釈集です。</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="181"/>
@@ -9416,7 +9416,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="430"/>
         <source>&amp;Automation</source>
-        <translation type="unfinished"/>
+        <translation>自動化(&amp;A)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="452"/>
@@ -10051,26 +10051,30 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1375"/>
         <source>Aria Clip...</source>
-        <translation type="unfinished"/>
+        <translation>Aria Clip...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1378"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Aria Clip&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert a Aria code clip.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Aria Clipを挿入&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Aria code clipを挿入します。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1389"/>
         <source>Role...</source>
-        <translation type="unfinished"/>
+        <translation>Aria Role (役割)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1392"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Aria Role&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert an Aria role and any associated epub:type.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Aria Roleを挿入&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Aria Roleと関連するepub:typeを挿入します。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1403"/>
@@ -10210,12 +10214,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1547"/>
         <source>Use Standard File Extensions</source>
-        <translation type="unfinished"/>
+        <translation>標準ファイル拡張子を使用</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1550"/>
         <source>Rename all files to use standard file extensions</source>
-        <translation type="unfinished"/>
+        <translation>すべてのファイルを標準ファイル拡張子を使用するように名前を変更</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1555"/>
@@ -10279,14 +10283,16 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1610"/>
         <source>&amp;Hide Find &amp;&amp; Replace...</source>
-        <translation type="unfinished"/>
+        <translation>検索と置換を隠す(&amp;H)...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1613"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Hide Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Hide the Find and Replace Window.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;検索と置換を隠す&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;検索と置換ウィンドウを隠します。&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1624"/>
@@ -10843,7 +10849,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2086"/>
         <source>Restart Current Search</source>
-        <translation type="unfinished"/>
+        <translation>現在の検索をやり直し</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2091"/>
@@ -11687,7 +11693,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2802"/>
         <source>&amp;Normal</source>
-        <translation>通常(&amp;N)</translation>
+        <translation>段落(&amp;N)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2805"/>
@@ -11921,7 +11927,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="3026"/>
         <source>Manage Automation Lists</source>
-        <translation type="unfinished"/>
+        <translation>自動化リストを管理</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3032"/>
@@ -12006,7 +12012,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="3154"/>
         <source>Update OPF Manifest Media Types</source>
-        <translation type="unfinished"/>
+        <translation>OPFマニフェストメディアタイプを更新</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3159"/>
@@ -12188,7 +12194,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="749"/>
         <source>Run</source>
-        <translation type="unfinished"/>
+        <translation>実行</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="769"/>
@@ -12235,9 +12241,9 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../MainUI/MainWindow.cpp" line="5228"/>
         <location filename="../../MainUI/MainWindow.cpp" line="5454"/>
         <location filename="../../MainUI/MainWindow.cpp" line="5474"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5522"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5786"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5992"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5531"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5795"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6001"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -12258,17 +12264,17 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="874"/>
         <location filename="../../MainUI/MainWindow.cpp" line="876"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5520"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5522"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5990"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5992"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5529"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5531"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5999"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6001"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] - epub%2 - %3</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="874"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5520"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5990"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5529"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5999"/>
         <source>Sigil [std]</source>
         <translation>Sigil [std]</translation>
     </message>
@@ -12280,17 +12286,17 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="894"/>
         <source>Bulk rename cancelled: %1, XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>一括リネームがキャンセルされました: %1、XMLが整形式ではありません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="903"/>
         <source>Bulk rename cancelled: %1, OPF not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>一括リネームがキャンセルされました: %1、OPFが整形式ではありません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="972"/>
         <source>Bulk rename completed.</source>
-        <translation type="unfinished"/>
+        <translation>一括リネームが完了しました。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="984"/>
@@ -12543,12 +12549,12 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2427"/>
         <source>No CSS styles named</source>
-        <translation>という名前のCSSスタイルが</translation>
+        <translation>CSS スタイルの名前</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2427"/>
         <source>found, or stylesheet not linked.</source>
-        <translation>見つからないか、スタイルシートがリンクされていません。</translation>
+        <translation>は見つからないか、スタイルシートがリンクされていません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2500"/>
@@ -12578,7 +12584,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2671"/>
         <source>OPF Manifest Mimetypes Updated.</source>
-        <translation type="unfinished"/>
+        <translation>OPFマニフェストMIMEタイプが更新されました。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2680"/>
@@ -12658,7 +12664,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3222"/>
         <source>You cannot insert a file at this position.</source>
-        <translation>この位置にはファイルを挿入できません。</translation>
+        <translation>この位置にファイルを挿入できません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3229"/>
@@ -12695,7 +12701,7 @@ This action cannot be reversed.</source>
         <location filename="../../MainUI/MainWindow.cpp" line="3395"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3414"/>
         <source>You cannot insert an aria role at this position.</source>
-        <translation type="unfinished"/>
+        <translation>この位置にAria Roleを挿入できません。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3410"/>
@@ -12911,12 +12917,12 @@ Do you want to save your changes?</source>
         <translation>Sigilがこのファイルを上書きしてもよいですか?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5662"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5671"/>
         <source>No importer for file type: %1</source>
         <translation>ファイルタイプ %1 のインポーターがありません</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5669"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5678"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -12929,44 +12935,44 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
 [XHTMLソースコードを修繕するタイミング]の設定で、&quot;開く&quot;を指定して、ファイルを再読み込みしてください。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5674"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5683"/>
         <source>Loading file...</source>
         <translation>ファイルを読み込んでいます...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5688"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5697"/>
         <source>File loaded.</source>
         <translation>ファイルを読み込みました。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5714"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5723"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>このファイルの作者はDRMでの暗号化を行っています。Sigilはこういったファイルは開けません。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5722"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5731"/>
         <source>Cannot load EPUB: %1</source>
         <translation>EPUBをロードできません: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5727"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5736"/>
         <source>Cannot load file %1: %2</source>
         <translation>ファイル %1 を読み込めません: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5754"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5763"/>
         <source>Saving EPUB...</source>
         <translation>EPUBを保存しています...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5763"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5772"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigilは、タイプ &quot;%1&quot; のファイルを保存できません。
 別の形式を選択してください。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5787"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5796"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to mend on Save.
 
 Do you want to automatically mend the files before saving? Or cancel the Save?</source>
@@ -12975,94 +12981,94 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 保存する前に自動的にファイルを修正しますか？それとも保存をキャンセルしますか？</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5792"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5801"/>
         <source>Saving EPUB... cancelled</source>
         <translation>EPUBを保存 ... キャンセルされました</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5818"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5827"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>EPUBは保存されましたが、すべてのHTMLファイルが整形式とは限りません。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5820"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5829"/>
         <source>EPUB saved.</source>
         <translation>EPUBを保存しました。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5826"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5835"/>
         <source>Cannot save file %1: %2</source>
         <translation>ファイル %1 を保存できません: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5959"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5968"/>
         <source>EPUB files (*.epub)</source>
         <translation>EPUBファイル (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5960"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5961"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5962"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5969"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5970"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5971"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>HTMLファイル (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5963"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5972"/>
         <source>Text files (*.txt)</source>
         <translation>テキストファイル (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5964"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5973"/>
         <source>All files (*.*)</source>
         <translation>すべてのファイル (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5972"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5981"/>
         <source>EPUB file (*.epub)</source>
         <translation>EPUBファイル (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6074"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6083"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>既存の見出し属性を保持するようになりました。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6075"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6084"/>
         <source>ON</source>
         <translation>ON</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6075"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6084"/>
         <source>OFF</source>
         <translation>オフ</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6100"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6109"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7070"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7079"/>
         <source>Focus changed to CodeView window.</source>
         <translation>コードビューウィンドウにフォーカスを変更</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7079"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7088"/>
         <source>Focus changed to BookBrowser window.</source>
         <translation>ブックブラウザーウィンドウにフォーカスを変更</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7088"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7097"/>
         <source>Focus changed to Preview window.</source>
         <translation>プレビューウィンドウにフォーカスを変更</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7097"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7106"/>
         <source>Focus changed to Table Of Contents window.</source>
         <translation>目次ウィンドウにフォーカスを変更</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7106"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7115"/>
         <source>Focus changed to Clips window.</source>
         <translation>クリップウィンドウにフォーカスを変更</translation>
     </message>
@@ -13072,17 +13078,17 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="14"/>
         <source>Manage Automation Lists</source>
-        <translation type="unfinished"/>
+        <translation>自動化リストを管理</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="20"/>
         <source>Add New and Remove Automation Lists</source>
-        <translation type="unfinished"/>
+        <translation>自動化リストの新規追加と削除</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="38"/>
         <source>Adds a new (empty) automation list.</source>
-        <translation type="unfinished"/>
+        <translation>新規(空の)自動化リストを追加します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="41"/>
@@ -13092,7 +13098,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="51"/>
         <source>Remove selected lists.</source>
-        <translation type="unfinished"/>
+        <translation>選択したリストを削除します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="54"/>
@@ -13102,7 +13108,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="64"/>
         <source>Rename a selected list.</source>
-        <translation type="unfinished"/>
+        <translation>選択したリストの名前を変更します。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="67"/>
@@ -13112,7 +13118,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="77"/>
         <source>Edit selected list</source>
-        <translation type="unfinished"/>
+        <translation>選択したリストを編集</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="80"/>
@@ -13122,38 +13128,38 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="112"/>
         <source>Assign Lists to Quick Launch Automation Icons</source>
-        <translation type="unfinished"/>
+        <translation>クイック起動自動化アイコンにリストを割り当て</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="122"/>
         <source>Icon 1:  </source>
-        <translation type="unfinished"/>
+        <translation>アイコン 1:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="142"/>
         <source>Icon 2:  </source>
-        <translation type="unfinished"/>
+        <translation>アイコン 2:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="162"/>
         <source>Icon 3:  </source>
-        <translation type="unfinished"/>
+        <translation>アイコン 3:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ManageAutomation.cpp" line="56"/>
         <source>New List</source>
-        <translation type="unfinished"/>
+        <translation>新規リスト</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ManageAutomation.cpp" line="56"/>
         <location filename="../../Dialogs/ManageAutomation.cpp" line="83"/>
         <source>List Identifier</source>
-        <translation type="unfinished"/>
+        <translation>リスト識別子</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ManageAutomation.cpp" line="83"/>
         <source>New Name</source>
-        <translation type="unfinished"/>
+        <translation>新しい名前</translation>
     </message>
 </context>
 <context>
@@ -15960,27 +15966,27 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="170"/>
         <source>Add Metadata element</source>
-        <translation type="unfinished"/>
+        <translation>メタデータ要素を追加</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="171"/>
         <source>Add Property to element</source>
-        <translation type="unfinished"/>
+        <translation>要素のプロパティを追加</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="172"/>
         <source>Remove row</source>
-        <translation type="unfinished"/>
+        <translation>行の削除</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="173"/>
         <source>Move row up</source>
-        <translation type="unfinished"/>
+        <translation>行を上に移動</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="174"/>
         <source>Move row down</source>
-        <translation type="unfinished"/>
+        <translation>行を下に移動</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="488"/>
@@ -17766,55 +17772,55 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
         <translation>行/列</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="794"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="796"/>
         <source>Check Report</source>
         <translation>確認レポート</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="795"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="797"/>
         <source>Incorrect XHTML/XML Detected
 Are you Sure You Want to Continue?</source>
         <translation>誤った XHTML/XML が検出されました。
 続行しますか?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="813"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="815"/>
         <source>Status: cleaning up - deleting files</source>
         <translation>状態: クリーンアップ - ファイルを削除中</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="846"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="848"/>
         <source>Status: deleting</source>
         <translation>状態: 削除中</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="885"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="887"/>
         <source>Status: Loading</source>
         <translation>状態: 読み込み中</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="893"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="895"/>
         <source>Input Plugin</source>
         <translation>プラグインの入力</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="894"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="896"/>
         <source>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</source>
         <translation>現在のブックは完全に置き換えられ、保存されていない変更は失われます ... 続行してもよろしいですか?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="922"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="936"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="924"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="938"/>
         <source>Status: adding</source>
         <translation>状態: 追加中</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="974"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="976"/>
         <source>Status: cleaning up - modifying files</source>
         <translation>状態: クリーンアップ - ファイルを変更中</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="1011"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="1013"/>
         <source>Status: modifying</source>
         <translation>状態: 変更中</translation>
     </message>
@@ -18172,7 +18178,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="88"/>
         <source>Python Function Replace</source>
-        <translation type="unfinished"/>
+        <translation>Python関数置換</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="118"/>
@@ -18573,7 +18579,7 @@ valid for all selected files.
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="14"/>
         <source>Replacements (Select Desired Replacements)</source>
-        <translation type="unfinished"/>
+        <translation>置換 (希望の置換の選択)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="37"/>

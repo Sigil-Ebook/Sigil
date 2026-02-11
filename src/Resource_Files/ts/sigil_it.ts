@@ -118,7 +118,7 @@
     <message>
         <location filename="../../Form_Files/AddClips.ui" line="14"/>
         <source>Add Aria Clips</source>
-        <translation type="unfinished"/>
+        <translation>Aggiungi clip Aria</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AddClips.ui" line="56"/>
@@ -569,17 +569,17 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="781"/>
         <source>Automation Menu (Advanced):</source>
-        <translation type="unfinished"/>
+        <translation>Menu Automazione (Avanzato):</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="790"/>
         <source>Show top level Automation menu</source>
-        <translation type="unfinished"/>
+        <translation>Mostra menu Automazione di primo livello</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="793"/>
         <source>Show Automation menu.</source>
-        <translation type="unfinished"/>
+        <translation>Mostra il menu Automazione.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="811"/>
@@ -697,12 +697,12 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="34"/>
         <source>HREF_TO_ENDNOTE</source>
-        <translation type="unfinished"/>
+        <translation>HREF_TO_ENDNOTE</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="35"/>
         <source>HREF_RETURN_FROM_ENDNOTE</source>
-        <translation type="unfinished"/>
+        <translation>HREF_RETURN_FROM_ENDNOTE</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="37"/>
@@ -712,7 +712,7 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="38"/>
         <source>Tip</source>
-        <translation type="unfinished"/>
+        <translation>Suggerimento</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="39"/>
@@ -757,52 +757,52 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="187"/>
         <source>Backlink from Footnote</source>
-        <translation type="unfinished"/>
+        <translation>Link di ritorno da una Nota a piè di pagina</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="189"/>
         <source>Backlink from Endnote</source>
-        <translation type="unfinished"/>
+        <translation>Link di ritorno da una Nota Finale</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="191"/>
         <source>Endnote in li</source>
-        <translation type="unfinished"/>
+        <translation>Nota finale in li</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="193"/>
         <source>Footnote in aside</source>
-        <translation type="unfinished"/>
+        <translation>Nota a piè di pagina a margine</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="195"/>
         <source>Footnote in div</source>
-        <translation type="unfinished"/>
+        <translation>Nota a piè di pagina in div</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="197"/>
         <source>Footnote in p</source>
-        <translation type="unfinished"/>
+        <translation>Nota a piè di pagina in p</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="199"/>
         <source>PageBreak in hr</source>
-        <translation type="unfinished"/>
+        <translation>Interruzione di pagina in hr</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="201"/>
         <source>PageBreak in span</source>
-        <translation type="unfinished"/>
+        <translation>Interruzione di pagina in span</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="203"/>
         <source>Reference to Footnote</source>
-        <translation type="unfinished"/>
+        <translation>Riferimento alla nota a piè di pagina</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="205"/>
         <source>Reference to Endnote</source>
-        <translation type="unfinished"/>
+        <translation>Riferimento alla Nota Finale</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="207"/>
@@ -875,7 +875,7 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="188"/>
         <source>A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary definition to where a term is used.)</source>
-        <translation type="unfinished"/>
+        <translation>Un link che consente all&apos;utente di tornare a una posizione correlata nel contenuto (ad esempio, da una nota a piè di pagina ai relativi riferimenti o da una definizione del glossario al punto in cui viene utilizzato un termine).</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="189"/>
@@ -885,27 +885,27 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="189"/>
         <source>A list of external references cited in the work, which may be to print or digital sources.</source>
-        <translation type="unfinished"/>
+        <translation>Elenco dei riferimenti esterni citati nell&apos;opera, che possono essere fonti cartacee o digitali.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="190"/>
         <source>Bibliography Entry</source>
-        <translation type="unfinished"/>
+        <translation>Voce bibliografica</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="190"/>
         <source>A single reference to an external source in a bibliography. [epub:type ONLY]</source>
-        <translation type="unfinished"/>
+        <translation>Un singolo riferimento a una fonte esterna in una bibliografia. [SOLO epub:type]</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="191"/>
         <source>Bibliography Reference</source>
-        <translation type="unfinished"/>
+        <translation>Bibliografia di riferimento</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="191"/>
         <source>A reference to a bibliography entry.</source>
-        <translation type="unfinished"/>
+        <translation>Riferimento a una voce bibliografica.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="192"/>
@@ -915,7 +915,7 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="192"/>
         <source>A major thematic section of content in a work.</source>
-        <translation type="unfinished"/>
+        <translation>Una sezione tematica importante del contenuto di un&apos;opera.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="193"/>
@@ -925,7 +925,7 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="193"/>
         <source>A short section of production notes particular to the edition (e.g., describing the typeface used), often located at the end of a work.</source>
-        <translation type="unfinished"/>
+        <translation>Una breve sezione di note di produzione specifiche dell&apos;edizione (ad esempio, che descrivono il carattere tipografico utilizzato), spesso collocata alla fine di un&apos;opera.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="194"/>
@@ -935,7 +935,7 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="194"/>
         <source>A concluding section or statement that summarizes the work or wraps up the narrative.</source>
-        <translation type="unfinished"/>
+        <translation>Una sezione conclusiva o una dichiarazione che riassume il lavoro o conclude la narrazione.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="195"/>
@@ -945,27 +945,27 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="195"/>
         <source>An image that sets the mood or tone for the work and typically includes the title and author.</source>
-        <translation type="unfinished"/>
+        <translation>Un&apos;immagine che definisce l&apos;atmosfera o il tono dell&apos;opera e che solitamente include il titolo e l&apos;autore.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="196"/>
         <source>Credit</source>
-        <translation type="unfinished"/>
+        <translation>Credito</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="196"/>
         <source>An acknowledgement of the source of integrated content from third-party sources, such as photos.  Typically identifies the creator, copyright, and any restrictions on reuse.</source>
-        <translation type="unfinished"/>
+        <translation>Riconoscimento della fonte dei contenuti integrati provenienti da fonti terze, come le foto. In genere identifica il creatore, il copyright ed eventuali restrizioni sul riutilizzo.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="197"/>
         <source>Credits</source>
-        <translation type="unfinished"/>
+        <translation>Crediti</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="197"/>
         <source>A collection of credits.</source>
-        <translation type="unfinished"/>
+        <translation>Una raccolta di crediti.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="198"/>
@@ -975,27 +975,27 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="198"/>
         <source>An inscription at the front of the work, typically addressed in tribute to one or more persons close to the author.</source>
-        <translation type="unfinished"/>
+        <translation>Una dedica riportata all&apos;inizio dell&apos;opera, solitamente indirizzata a una o più persone care all&apos;autore.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="199"/>
         <source>Endnote</source>
-        <translation type="unfinished"/>
+        <translation>Nota finale</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="199"/>
         <source>One of a collection of notes that occur at the end of a work, or a section within it that provides additional context to a referenced passage of text. [epub:type ONLY]</source>
-        <translation type="unfinished"/>
+        <translation>Una delle note che compaiono alla fine di un&apos;opera, o una sezione al suo interno che fornisce un contesto aggiuntivo a un passaggio di testo citato. [SOLO epub:type]</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="200"/>
         <source>Endnotes</source>
-        <translation type="unfinished"/>
+        <translation>Note finali</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="200"/>
         <source>A collection of notes at the end of a work or a section within it.</source>
-        <translation type="unfinished"/>
+        <translation>Una raccolta di note alla fine di un&apos;opera o di una sezione al suo interno.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="201"/>
@@ -1005,7 +1005,7 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="201"/>
         <source>A quotation set at the start of the work or a section that establishes the theme or sets the mood.</source>
-        <translation type="unfinished"/>
+        <translation>Una citazione posta all&apos;inizio dell&apos;opera o una sezione che definisce il tema o crea l&apos;atmosfera.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="202"/>
@@ -1015,7 +1015,7 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="202"/>
         <source>A concluding section of narrative that wraps up or comments on the actions and events of the work, typically from a future perspective.</source>
-        <translation type="unfinished"/>
+        <translation>Una sezione conclusiva della narrazione che riassume o commenta le azioni e gli eventi dell&apos;opera, tipicamente da una prospettiva futura.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="203"/>
@@ -1025,27 +1025,27 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="203"/>
         <source>A set of corrections discovered after initial publication of the work, sometimes referred to as corrigenda.</source>
-        <translation type="unfinished"/>
+        <translation>Una serie di correzioni scoperte dopo la pubblicazione iniziale dell&apos;opera, talvolta denominate corrigenda.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="204"/>
         <source>Example</source>
-        <translation type="unfinished"/>
+        <translation>Esempio</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="204"/>
         <source>An illustration of a key concept of the work, such as a code listing, case study or problem. [aria role ONLY]</source>
-        <translation type="unfinished"/>
+        <translation>Illustrazione di un concetto chiave dell&apos;opera, come un elenco di codici, un caso di studio o un problema. [SOLO ruolo aria]</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="205"/>
         <source>Footnote</source>
-        <translation type="unfinished"/>
+        <translation>Nota a piè di pagina</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="205"/>
         <source>Ancillary information, such as a citation or commentary, that provides additional context to a referenced passage of text.</source>
-        <translation type="unfinished"/>
+        <translation>Informazioni aggiuntive, come citazioni o commenti, che forniscono un contesto supplementare al passaggio di testo a cui si fa riferimento.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="206"/>
@@ -1055,7 +1055,7 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="206"/>
         <source>A collection of footnotes. [epub:type ONLY]</source>
-        <translation type="unfinished"/>
+        <translation>Una raccolta di note a piè di pagina. [SOLO epub:type]</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="207"/>
@@ -1065,7 +1065,7 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="207"/>
         <source>An introductory section that precedes the work, typically not written by the author of the work.</source>
-        <translation type="unfinished"/>
+        <translation>Una sezione introduttiva che precede l&apos;opera, solitamente non scritta dall&apos;autore dell&apos;opera stessa.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="208"/>
@@ -1075,17 +1075,17 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="208"/>
         <source>A brief dictionary of new, uncommon, or specialized terms used in the content.</source>
-        <translation type="unfinished"/>
+        <translation>Breve glossario dei termini nuovi, poco comuni o specialistici utilizzati nel contenuto.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="209"/>
         <source>Glossary Reference</source>
-        <translation type="unfinished"/>
+        <translation>Riferimento al Glossario</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="209"/>
         <source>A reference to a glossary definition.</source>
-        <translation type="unfinished"/>
+        <translation>Riferimento a una definizione del glossario.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="210"/>
@@ -1095,7 +1095,7 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="210"/>
         <source>A navigational aid that provides a detailed list of links to key subjects, names and other important topics covered in the work.</source>
-        <translation type="unfinished"/>
+        <translation>Uno strumento di navigazione che fornisce un elenco dettagliato di link a argomenti chiave, nomi e altri temi importanti trattati nell&apos;opera.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="211"/>
@@ -1105,17 +1105,17 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="211"/>
         <source>A preliminary section that typically introduces the scope or nature of the work.</source>
-        <translation type="unfinished"/>
+        <translation>Una sezione preliminare che solitamente introduce l&apos;ambito o la natura del lavoro.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="212"/>
         <source>Note Reference</source>
-        <translation type="unfinished"/>
+        <translation>Riferimento alla Nota</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="212"/>
         <source>A reference to a footnote or endnote, typically appearing as a superscripted number or symbol in the main body of the text.</source>
-        <translation type="unfinished"/>
+        <translation>Riferimento a una nota a piè di pagina o ad una nota finale, che solitamente appare come numero o simbolo in apice nel corpo principale del testo.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="213"/>
@@ -1125,37 +1125,37 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="213"/>
         <source>Notifies the user of consequences that might arise from an action or event.  Examples include warnings, cautions and dangers.</source>
-        <translation type="unfinished"/>
+        <translation>Avvisa l&apos;utente delle conseguenze che potrebbero derivare da un&apos;azione o da un evento. Esempi includono avvertimenti, precauzioni e pericoli.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="214"/>
         <source>Pagebreak</source>
-        <translation type="unfinished"/>
+        <translation>Interruzione di pagina</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="214"/>
         <source>A separator denoting the position before which a break occurs between contiguous pages in a statically paginated version of the content.</source>
-        <translation type="unfinished"/>
+        <translation>Un separatore che indica la posizione prima della quale si verifica un&apos;interruzione tra pagine contigue in una versione impaginata staticamente del contenuto.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="215"/>
         <source>Page Footer</source>
-        <translation type="unfinished"/>
+        <translation>Piè di pagina</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="215"/>
         <source>A section of text appearing at the bottom of a page that provides context about the current work and location within it. The page footer is distinct from the body text and normally follows a repeating template that contains (possibly truncated) items such as the document title, current section, author name(s), and page number.</source>
-        <translation type="unfinished"/>
+        <translation>Una sezione di testo che appare nella parte inferiore di una pagina e che fornisce informazioni sul contesto del lavoro corrente e sulla posizione all&apos;interno di esso. Il piè di pagina è distinto dal corpo del testo e normalmente segue un modello ripetitivo che contiene elementi (possibilmente troncati) quali il titolo del documento, la sezione corrente, il nome dell&apos;autore o degli autori e il numero di pagina.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="216"/>
         <source>Page Header</source>
-        <translation type="unfinished"/>
+        <translation>Intestazione pagina</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="216"/>
         <source>A section of text appearing at the top of a page that provides context about the current work and location within it. The page header is distinct from the body text and normally follows a repeating template that contains (possibly truncated) items such as the document title, current section, author name(s), and page number.</source>
-        <translation type="unfinished"/>
+        <translation>Una sezione di testo che appare nella parte superiore di una pagina e fornisce informazioni sul contesto del lavoro corrente e sulla posizione all&apos;interno di esso. L&apos;intestazione della pagina è distinta dal corpo del testo e normalmente segue un modello ripetitivo che contiene elementi (possibilmente troncati) quali il titolo del documento, la sezione corrente, il nome dell&apos;autore o degli autori e il numero di pagina.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="217"/>
@@ -1165,7 +1165,7 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="217"/>
         <source>A navigational aid that provides a list of links to the page breaks in the content.</source>
-        <translation type="unfinished"/>
+        <translation>Un aiuto alla navigazione che fornisce un elenco di collegamenti alle interruzioni di pagina nel contenuto.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="218"/>
@@ -1175,7 +1175,7 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="218"/>
         <source>A major structural division in a work that contains a set of related sections dealing with a particular subject, narrative arc, or similar encapsulated theme.</source>
-        <translation type="unfinished"/>
+        <translation>Una divisione strutturale importante in un&apos;opera che contiene una serie di sezioni correlate che trattano un argomento particolare, un arco narrativo o un tema simile racchiuso in sé stesso.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="219"/>
@@ -1185,7 +1185,7 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="219"/>
         <source>A section at the beginning of a work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content. [epub:type ONLY]</source>
-        <translation type="unfinished"/>
+        <translation>Sezione all&apos;inizio di un&apos;opera, che contiene solitamente una prosa introduttiva e/o esplicativa riguardante l&apos;ambito o la natura del contenuto dell&apos;opera. [SOLO epub:type]</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="220"/>
@@ -1195,7 +1195,7 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="220"/>
         <source>An introductory section that precedes the work, typically written by the author of the work.</source>
-        <translation type="unfinished"/>
+        <translation>Una sezione introduttiva che precede l&apos;opera, solitamente scritta dall&apos;autore dell&apos;opera stessa.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="221"/>
@@ -1205,17 +1205,17 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="221"/>
         <source>An introductory section that sets the background to a work, typically part of the narrative.</source>
-        <translation type="unfinished"/>
+        <translation>Una sezione introduttiva che descrive il contesto di un&apos;opera, solitamente parte della narrazione.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="222"/>
         <source>Pull Quote</source>
-        <translation type="unfinished"/>
+        <translation>Citazione</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="222"/>
         <source>A distinctively placed or highlighted quotation from the current content designed to draw attention to a topic or highlight a key point.</source>
-        <translation type="unfinished"/>
+        <translation>Una citazione posizionata in modo distintivo o evidenziata dal contenuto corrente, pensata per attirare l&apos;attenzione su un argomento o sottolineare un punto chiave.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="223"/>
@@ -1225,27 +1225,27 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="223"/>
         <source>A section of content structured as a series of questions and answers, such as an interview or list of frequently asked questions.</source>
-        <translation type="unfinished"/>
+        <translation>Una sezione di contenuti strutturata come una serie di domande e risposte, ad esempio un&apos;intervista o un elenco di domande frequenti.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="224"/>
         <source>Subtitle</source>
-        <translation type="unfinished"/>
+        <translation>Sottotitolo</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="224"/>
         <source>An explanatory or alternate title for the work, or a section or components within it.</source>
-        <translation type="unfinished"/>
+        <translation>Titolo esplicativo o alternativo dell&apos;opera, di una sezione o di parti di essa.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="225"/>
         <source>Tip</source>
-        <translation type="unfinished"/>
+        <translation>Suggerimento</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="225"/>
         <source>Helpful information that clarifies some aspect of the content or assists in comprehension.</source>
-        <translation type="unfinished"/>
+        <translation>Informazioni utili che chiariscono alcuni aspetti del contenuto o aiutano nella comprensione.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="226"/>
@@ -1255,7 +1255,7 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="226"/>
         <source>A navigational aid that provides an ordered list of links to the major sectional headings in the content.  A table of contents may cover an entire work, or only a smaller section of it.</source>
-        <translation type="unfinished"/>
+        <translation>Uno strumento di navigazione che fornisce un elenco ordinato di collegamenti alle principali sezioni del contenuto. Un sommario può coprire l&apos;intera opera o solo una sua parte.</translation>
     </message>
 </context>
 <context>
@@ -1331,7 +1331,7 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
         <location filename="../../Dialogs/AutomateEditor.cpp" line="189"/>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="192"/>
         <source>[SavedSearch full name here]</source>
-        <translation type="unfinished"/>
+        <translation>[Nome completo della Ricerca Salvata qui]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="195"/>
@@ -1346,7 +1346,7 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="227"/>
         <source>Cannot save an empty automation list.</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile salvare un elenco di automazioni vuoto.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="239"/>
@@ -1356,7 +1356,7 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="239"/>
         <source>Failed to save automation list to %1</source>
-        <translation type="unfinished"/>
+        <translation>Impossibile salvare l&apos;elenco delle automazioni in %1</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="343"/>
@@ -1401,12 +1401,12 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="351"/>
         <source>If previous search failed, run the named Saved Search.</source>
-        <translation type="unfinished"/>
+        <translation>Se la ricerca precedente non ha dato risultati, esegui la Ricerca Salvata con il nome specificato.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="352"/>
         <source>If previous search had success, run the named Saved Search.</source>
-        <translation type="unfinished"/>
+        <translation>Se la ricerca precedente ha avuto esito positivo, esegui la Ricerca Salvata con il nome specificato.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="353"/>
@@ -1431,7 +1431,7 @@ se c&apos;è una famiglia di caratteri senza grazie specificata nel CSS</transla
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="357"/>
         <source>Run the named Saved Search with Replace All.</source>
-        <translation type="unfinished"/>
+        <translation>Esegui la Ricerca Salvata nominata con &quot;Sostituisci tutto&quot;.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="358"/>
@@ -1652,7 +1652,7 @@ Un file con questo nome esiste già nel libro.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1340"/>
         <source>Filenames cannot contain these characters: &quot;%1&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>I nomi dei file non possono contenere questi caratteri: &quot;%1&quot;.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1402"/>
@@ -1672,17 +1672,17 @@ Un file con questo nome esiste già nel libro.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1554"/>
         <source>The Nav document cannot be removed.</source>
-        <translation type="unfinished"/>
+        <translation>Il documento Nav non può essere rimosso.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1562"/>
         <source>The NCX cannot be removed.</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;NCX non può essere rimosso.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1569"/>
         <source>The OPF is required for epub and cannot be removed.</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;OPF è necessario per l&apos;epub e non può essere rimosso.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1578"/>
@@ -1779,7 +1779,7 @@ Ce ne deve essere sempre almeno uno.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1858"/>
         <source>Semantics OPF Guide or Nav Landmarks</source>
-        <translation type="unfinished"/>
+        <translation>Guida Semantica OPF o Punti di riferimento di Navigazione</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1867"/>
@@ -1978,7 +1978,7 @@ Ce ne deve essere sempre almeno uno.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2177"/>
         <source>Show Information about selected files.</source>
-        <translation type="unfinished"/>
+        <translation>Mostra informazioni sui file selezionati.</translation>
     </message>
 </context>
 <context>
@@ -2103,7 +2103,7 @@ Ce ne deve essere sempre almeno uno.</translation>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="100"/>
         <source>Sigil will send your stylesheet data to the &lt;a href=&apos;https://jigsaw.w3.org/css-validator/&apos;&gt;W3C Validation Service&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>Sigil invierà i dati dei tuoi fogli di stile al &lt;a href=&apos;https://jigsaw.w3.org/css-validator/&apos;&gt;W3C Validation Service&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="101"/>
@@ -2353,12 +2353,12 @@ Ce ne deve essere sempre almeno uno.</translation>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
         <source>Number</source>
-        <translation type="unfinished"/>
+        <translation>Numero</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
         <source>Assignable Shortcut Id.</source>
-        <translation type="unfinished"/>
+        <translation>ID scorciatoia assegnabile.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="78"/>
@@ -2518,7 +2518,7 @@ Vuoi salvare le modifiche?</translation>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="74"/>
         <source>Number</source>
-        <translation type="unfinished"/>
+        <translation>Numero</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="75"/>
@@ -2793,7 +2793,7 @@ Vuoi salvare le modifiche?</translation>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="190"/>
         <source>For Regex searches, set the Unicode Property flag.</source>
-        <translation type="unfinished"/>
+        <translation>Per le ricerche Regex, impostare il flag Proprietà Unicode.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="196"/>
@@ -2805,7 +2805,9 @@ Vuoi salvare le modifiche?</translation>
         <source>Search from current position to top or end of the 
 current file and then wrap to the
 other end to continue searching.</source>
-        <translation type="unfinished"/>
+        <translation>Cerca dalla posizione corrente all&apos;inizio o alla fine del 
+file corrente, quindi passa all&apos;
+altra estremità per continuare la ricerca.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="218"/>
@@ -2816,7 +2818,8 @@ other end to continue searching.</source>
         <location filename="../../Form_Files/Controls.ui" line="235"/>
         <source>Search only in text (outside tags).
               Valid only when searching HTML files.</source>
-        <translation type="unfinished"/>
+        <translation>Cerca solo nel testo (al di fuori dei tag).
+Valido solo durante la ricerca nei file HTML.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="239"/>
@@ -2831,7 +2834,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="310"/>
         <source>Ignore current settings and return an empty Controls value. </source>
-        <translation type="unfinished"/>
+        <translation>Ignora le impostazioni correnti e restituisce un valore Controls vuoto. </translation>
     </message>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="313"/>
@@ -2999,7 +3002,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="349"/>
         <source>Restrict the find or replace to the SVG files selected in the Book Browser in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Limita il trova o sostituisci ai file SVG selezionati nel Navigatore del Libro nella Vista Codice.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="351"/>
@@ -3014,7 +3017,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="352"/>
         <source>Restrict the find or replace to the JS files selected in the Book Browser in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Limita il trova o sostituisci ai file JS selezionati nel Navigatore del Libro nella Vista Codice.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="354"/>
@@ -3025,7 +3028,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="355"/>
         <source>Restrict the find or replace to other XML files selected in the Book Browser under the Misc Folder in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Limita la ricerca o la sostituzione ad altri file XML selezionati nel Navigatore del Libro nella cartella Misc nella vista Codice.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="361"/>
@@ -3065,12 +3068,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/CountsReport.ui" line="14"/>
         <source>Counts Report</source>
-        <translation type="unfinished"/>
+        <translation>Rapporto sui conteggi</translation>
     </message>
     <message>
         <location filename="../../Form_Files/CountsReport.ui" line="34"/>
         <source>List only the table rows which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Elenca solo le righe della tabella che contengono il testo inserito.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/CountsReport.ui" line="37"/>
@@ -3150,7 +3153,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="111"/>
         <source>Selected Other XML Files</source>
-        <translation type="unfinished"/>
+        <translation>Altri file XML selezionati</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="253"/>
@@ -3239,7 +3242,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="34"/>
         <source>List only the table rows which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Elenca solo le righe della tabella che contengono il testo inserito.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="37"/>
@@ -3249,7 +3252,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="60"/>
         <source>Select the amount of context before and after the match in characters</source>
-        <translation type="unfinished"/>
+        <translation>Seleziona la quantità di contesto prima e dopo la corrispondenza in caratteri</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="63"/>
@@ -3274,7 +3277,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="135"/>
         <source>Perform the dry run ReplaceAll again and rebuild the table</source>
-        <translation type="unfinished"/>
+        <translation>Eseguire nuovamente la prova di funzionamento di SostituisciTutto e ricostruire la tabella.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="138"/>
@@ -3408,12 +3411,12 @@ You can also use the right arrow key.</source>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="488"/>
         <source>Move Up</source>
-        <translation>Muovi su</translation>
+        <translation>Sposta verso l&apos;alto</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="489"/>
         <source>Move Down</source>
-        <translation>Muovi giu</translation>
+        <translation>Sposta verso il basso</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="495"/>
@@ -3692,7 +3695,7 @@ posizioni e nomi per OPF, NCX e/o Nav.</translation>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="90"/>
         <source>Python Function Replace</source>
-        <translation type="unfinished"/>
+        <translation>Funzione Python Replace</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="96"/>
@@ -3709,7 +3712,9 @@ posizioni e nomi per OPF, NCX e/o Nav.</translation>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find next match.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Trova&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Trova la corrispondenza successiva.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="200"/>
@@ -3721,7 +3726,9 @@ posizioni e nomi per OPF, NCX e/o Nav.</translation>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Replace highlighted match (if any) in Code View.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Sostituisci&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Sostituisce la corrispondenza evidenziata (se c&apos;è) in Vista Codice.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="234"/>
@@ -3733,7 +3740,9 @@ posizioni e nomi per OPF, NCX e/o Nav.</translation>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Restart&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restart current search from beginning.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Riavvia&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Riavvia la ricerca attuale dall&apos;inizio.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="268"/>
@@ -3751,7 +3760,10 @@ posizioni e nomi per OPF, NCX e/o Nav.</translation>
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Replace highlighted match (if any),
 then find the Next match in Code View.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Sostituisci e Trova&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Sostituisce la corrispondenza evidenziata (se c&apos;è),
+quindi cerca la corrispondenza successiva in Vista Codice.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="332"/>
@@ -3802,7 +3814,7 @@ then find the Next match in Code View.&lt;/p&gt;</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="492"/>
         <source>Set advanced Regex search flags / options.</source>
-        <translation type="unfinished"/>
+        <translation>Imposta flag/opzioni avanzate per la ricerca Regex.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="495"/>
@@ -3814,7 +3826,9 @@ then find the Next match in Code View.&lt;/p&gt;</source>
         <source>Search from current position to top or end of the
 current file and then wrap to the
 other end to continue searching.</source>
-        <translation type="unfinished"/>
+        <translation>Cerca dalla posizione corrente all&apos;inizio o alla fine del
+file corrente, quindi passa all&apos;
+altra estremità per continuare la ricerca.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="517"/>
@@ -3825,7 +3839,8 @@ other end to continue searching.</source>
         <location filename="../../Form_Files/FindReplace.ui" line="534"/>
         <source>Search only in text (outside tags).
 Valid only when searching HTML files.</source>
-        <translation type="unfinished"/>
+        <translation>Cerca solo nel testo (al di fuori dei tag).
+Valido solo durante la ricerca nei file HTML.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="538"/>
@@ -3879,8 +3894,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="971"/>
         <source>No matches found</source>
-        <translation>
-        </translation>
+        <translation>Nessuna corrispondenza trovata</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="1741"/>
@@ -3914,7 +3928,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2039"/>
         <source>Are you sure you want to clear your Find and Replace current values and history?</source>
-        <translation type="unfinished"/>
+        <translation>Sei sicuro di voler cancellare i valori attuali e la cronologia di Trova e Sostituisci?</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2172"/>
@@ -4061,7 +4075,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2214"/>
         <source>Restrict the find or replace to the SVG files selected in the Book Browser in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Limita il trova o sostituisci ai file SVG selezionati nel Navigatore del Libro nella Vista Codice.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2216"/>
@@ -4076,7 +4090,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2217"/>
         <source>Restrict the find or replace to the JS files selected in the Book Browser in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Limita il trova o sostituisci ai file JS selezionati nel Navigatore del Libro nella Vista Codice.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2219"/>
@@ -4087,7 +4101,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2220"/>
         <source>Restrict the find or replace to the XML files selected in the Misc folder of the Book Browser in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Limita il trova o sostituisci ai file XML selezionati nella cartella Misc del Navigatore del Libro nella Vista Codice.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2223"/>
@@ -4135,7 +4149,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2244"/>
         <source>Dot All</source>
-        <translation type="unfinished"/>
+        <translation>Punteggia tutto</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2247"/>
@@ -4170,7 +4184,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2268"/>
         <source>For Regex searches, set the Unicode Property flag.</source>
-        <translation type="unfinished"/>
+        <translation>Per le ricerche Regex, impostare il flag Proprietà Unicode.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2294"/>
@@ -4198,7 +4212,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="72"/>
         <source>Python Function Replace</source>
-        <translation type="unfinished"/>
+        <translation>Funzione Python Replace</translation>
     </message>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="85"/>
@@ -5764,12 +5778,12 @@ Vuoi salvare le tue modifiche?</translation>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="180"/>
         <source>Endnotes</source>
-        <translation type="unfinished"/>
+        <translation>Note finali</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="180"/>
         <source>A collection of notes at the end of a work or a section within it.</source>
-        <translation type="unfinished"/>
+        <translation>Una raccolta di note alla fine di un&apos;opera o di una sezione al suo interno.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="181"/>
@@ -9394,7 +9408,7 @@ I fogli di stile che vengono elencati per primi hanno la precedenza sui successi
     <message>
         <location filename="../../Form_Files/main.ui" line="430"/>
         <source>&amp;Automation</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Automazione</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="452"/>
@@ -10023,7 +10037,7 @@ I fogli di stile che vengono elencati per primi hanno la precedenza sui successi
     <message>
         <location filename="../../Form_Files/main.ui" line="1375"/>
         <source>Aria Clip...</source>
-        <translation type="unfinished"/>
+        <translation>Appunto Aria...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1378"/>
@@ -10035,7 +10049,7 @@ I fogli di stile che vengono elencati per primi hanno la precedenza sui successi
     <message>
         <location filename="../../Form_Files/main.ui" line="1389"/>
         <source>Role...</source>
-        <translation type="unfinished"/>
+        <translation>Ruolo...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1392"/>
@@ -11886,7 +11900,7 @@ I fogli di stile che vengono elencati per primi hanno la precedenza sui successi
     <message>
         <location filename="../../Form_Files/main.ui" line="3026"/>
         <source>Manage Automation Lists</source>
-        <translation type="unfinished"/>
+        <translation>Gestisci le Liste di Automazione</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3032"/>
@@ -12011,7 +12025,7 @@ I fogli di stile che vengono elencati per primi hanno la precedenza sui successi
     <message>
         <location filename="../../Form_Files/main.ui" line="3210"/>
         <source>Edit Checkpoint Descriptions</source>
-        <translation type="unfinished"/>
+        <translation>Modifica Descrizioni dei Checkpoint</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3215"/>
@@ -12073,17 +12087,17 @@ I fogli di stile che vengono elencati per primi hanno la precedenza sui successi
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="480"/>
         <source>Conditional search did not run.</source>
-        <translation type="unfinished"/>
+        <translation>La ricerca condizionale non è stata eseguita.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="504"/>
         <source>Conditional Search did not run.</source>
-        <translation type="unfinished"/>
+        <translation>La Ricerca Condizionale non è stata eseguita.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="508"/>
         <source>Missing or unknown plugin or tool</source>
-        <translation type="unfinished"/>
+        <translation>Plugin o strumento mancante o sconosciuto</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="513"/>
@@ -12103,7 +12117,7 @@ I fogli di stile che vengono elencati per primi hanno la precedenza sui successi
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="525"/>
         <source>Validation tool found errors - Abort or Ignore?</source>
-        <translation type="unfinished"/>
+        <translation>Lo strumento di convalida ha rilevato degli errori: interrompere o ignorare?</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="534"/>
@@ -12118,12 +12132,12 @@ I fogli di stile che vengono elencati per primi hanno la precedenza sui successi
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="540"/>
         <source>Validation Tool Reported No Problems Found</source>
-        <translation type="unfinished"/>
+        <translation>Lo strumento di convalida non ha segnalato alcun problema.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="547"/>
         <source>Automation List Failed</source>
-        <translation type="unfinished"/>
+        <translation>Lista di Automazione Fallita</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="549"/>
@@ -12200,9 +12214,9 @@ I fogli di stile che vengono elencati per primi hanno la precedenza sui successi
         <location filename="../../MainUI/MainWindow.cpp" line="5228"/>
         <location filename="../../MainUI/MainWindow.cpp" line="5454"/>
         <location filename="../../MainUI/MainWindow.cpp" line="5474"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5522"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5786"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5992"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5531"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5795"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6001"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -12223,17 +12237,17 @@ Questa azione non può essere annullata.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="874"/>
         <location filename="../../MainUI/MainWindow.cpp" line="876"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5520"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5522"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5990"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5992"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5529"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5531"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5999"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6001"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] - epub%2 - %3</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="874"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5520"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5990"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5529"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5999"/>
         <source>Sigil [std]</source>
         <translation>Sigil [std]</translation>
     </message>
@@ -12342,12 +12356,12 @@ Questa azione non può essere annullata.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1376"/>
         <source>Edit checkpoint Description</source>
-        <translation type="unfinished"/>
+        <translation>Modifica Descrizioni dei checkpoint</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1377"/>
         <source>New Checkpoint Description:</source>
-        <translation type="unfinished"/>
+        <translation>Descrizione del Nuovo Checkpoint</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1388"/>
@@ -12362,7 +12376,7 @@ Questa azione non può essere annullata.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1397"/>
         <source>Description successfully updated</source>
-        <translation type="unfinished"/>
+        <translation>Descrizione aggiornata con successo</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1421"/>
@@ -12660,12 +12674,12 @@ Questa azione non può essere annullata.</translation>
         <location filename="../../MainUI/MainWindow.cpp" line="3395"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3414"/>
         <source>You cannot insert an aria role at this position.</source>
-        <translation type="unfinished"/>
+        <translation>Non è possibile inserire un ruolo aria in questa posizione.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3410"/>
         <source>The selected role cannot be used on this tag.</source>
-        <translation type="unfinished"/>
+        <translation>Il ruolo selezionato non può essere utilizzato su questo tag.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3430"/>
@@ -12720,7 +12734,7 @@ Questa azione non può essere annullata.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3700"/>
         <source>Merge cancelled: XHTML files involved in merge are not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Unione annullata: i file XHTML coinvolti nell&apos;unione non sono ben formati.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3759"/>
@@ -12826,7 +12840,7 @@ Questa azione non può essere annullata.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5087"/>
         <source>%1 (%2) - Line: %3, Col: %4</source>
-        <translation type="unfinished"/>
+        <translation>%1 (%2) - Riga: %3, Col: %4</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5175"/>
@@ -12876,12 +12890,12 @@ Vuoi salvare le modifiche?</translation>
         <translation>Sigil deve sovrascrivere questo file?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5662"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5671"/>
         <source>No importer for file type: %1</source>
         <translation>Nessun tipo di importatore per il file: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5669"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5678"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -12894,138 +12908,140 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
 Prova ad impostare le preferenze di Pulizia Sorgente per Riparare il Codice Sorgente XHTML all&apos;Apertura e ricarica il file.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5674"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5683"/>
         <source>Loading file...</source>
         <translation>Caricamento file...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5688"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5697"/>
         <source>File loaded.</source>
         <translation>File caricato.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5714"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5723"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Il creatore di questo file lo ha protetto con il DRM. Sigil non può aprire questi file.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5722"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5731"/>
         <source>Cannot load EPUB: %1</source>
         <translation>Impossibile caricare l&apos;EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5727"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5736"/>
         <source>Cannot load file %1: %2</source>
         <translation>Impossibile caricare il file %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5754"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5763"/>
         <source>Saving EPUB...</source>
         <translation>Salvataggio EPUB...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5763"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5772"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil non può salvare i file di tipo &quot;%1&quot;.
 Scegli un formato differente.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5787"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5796"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to mend on Save.
 
 Do you want to automatically mend the files before saving? Or cancel the Save?</source>
-        <translation type="unfinished"/>
+        <translation>Questo EPUB contiene file HTML non correttamente formattati e le attuali preferenze di Pulisci il Sorgente sono impostate su &quot;Correggi al salvataggio&quot;.
+
+Desideri correggere automaticamente i file prima di salvarli? Oppure annullare il salvataggio?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5792"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5801"/>
         <source>Saving EPUB... cancelled</source>
         <translation>Salvataggio EPUB... annullato</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5818"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5827"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>EPUB salvato, ma non tutti i file HTML sono ben formati.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5820"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5829"/>
         <source>EPUB saved.</source>
         <translation>EPUB salvato.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5826"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5835"/>
         <source>Cannot save file %1: %2</source>
         <translation>Impossibile salvare il file %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5959"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5968"/>
         <source>EPUB files (*.epub)</source>
         <translation>File EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5960"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5961"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5962"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5969"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5970"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5971"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>File HTML (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5963"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5972"/>
         <source>Text files (*.txt)</source>
         <translation>File di testo (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5964"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5973"/>
         <source>All files (*.*)</source>
         <translation>Tutti i file (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5972"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5981"/>
         <source>EPUB file (*.epub)</source>
         <translation>File EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6074"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6083"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>Mantieni gli attuali attributi del titolo è ora:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6075"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6084"/>
         <source>ON</source>
         <translation>ON</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6075"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6084"/>
         <source>OFF</source>
         <translation>OFF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6100"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6109"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7070"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7079"/>
         <source>Focus changed to CodeView window.</source>
         <translation>Fuoco cambiato sulla finestra vista codice</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7079"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7088"/>
         <source>Focus changed to BookBrowser window.</source>
         <translation>Fuoco cambiato sulla finestra di esplorazione del libro</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7088"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7097"/>
         <source>Focus changed to Preview window.</source>
         <translation>Fuoco sulla finestra dell&apos;anteprima</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7097"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7106"/>
         <source>Focus changed to Table Of Contents window.</source>
         <translation> Fuoco cambiato sulla finestra dell&apos;indice dei contenuti</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7106"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7115"/>
         <source>Focus changed to Clips window.</source>
         <translation>Fuoco cambiato sulla finestra degli appunti</translation>
     </message>
@@ -13035,17 +13051,17 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="14"/>
         <source>Manage Automation Lists</source>
-        <translation type="unfinished"/>
+        <translation>Gestisci le Liste di Automazione</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="20"/>
         <source>Add New and Remove Automation Lists</source>
-        <translation type="unfinished"/>
+        <translation>Aggiungi nuovo ed elimina elenchi di automazione</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="38"/>
         <source>Adds a new (empty) automation list.</source>
-        <translation type="unfinished"/>
+        <translation>Aggiunge un nuovo elenco di automazioni (vuoto).</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="41"/>
@@ -13055,7 +13071,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="51"/>
         <source>Remove selected lists.</source>
-        <translation type="unfinished"/>
+        <translation>Rimuove gli elenchi selezionati.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="54"/>
@@ -13075,7 +13091,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="77"/>
         <source>Edit selected list</source>
-        <translation type="unfinished"/>
+        <translation>Modifica elenco selezionato</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="80"/>
@@ -13090,33 +13106,33 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="122"/>
         <source>Icon 1:  </source>
-        <translation type="unfinished"/>
+        <translation>Icona 1:  </translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="142"/>
         <source>Icon 2:  </source>
-        <translation type="unfinished"/>
+        <translation>Icona 2:  </translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="162"/>
         <source>Icon 3:  </source>
-        <translation type="unfinished"/>
+        <translation>Icona 3:  </translation>
     </message>
     <message>
         <location filename="../../Dialogs/ManageAutomation.cpp" line="56"/>
         <source>New List</source>
-        <translation type="unfinished"/>
+        <translation>Nuova Lista</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ManageAutomation.cpp" line="56"/>
         <location filename="../../Dialogs/ManageAutomation.cpp" line="83"/>
         <source>List Identifier</source>
-        <translation type="unfinished"/>
+        <translation>Identificatore della Lista</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ManageAutomation.cpp" line="83"/>
         <source>New Name</source>
-        <translation type="unfinished"/>
+        <translation>Nuovo Nome</translation>
     </message>
 </context>
 <context>
@@ -15934,17 +15950,17 @@ eseguito il fac-simile.</translation>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="172"/>
         <source>Remove row</source>
-        <translation type="unfinished"/>
+        <translation>Rimuovi riga</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="173"/>
         <source>Move row up</source>
-        <translation type="unfinished"/>
+        <translation>Sposta riga verso l&apos;alto</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="174"/>
         <source>Move row down</source>
-        <translation type="unfinished"/>
+        <translation>Sposta la riga verso il basso</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="488"/>
@@ -16047,7 +16063,7 @@ eseguito il fac-simile.</translation>
         <location filename="../../Dialogs/MetaEditor.cpp" line="721"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="775"/>
         <source>Select Role</source>
-        <translation type="unfinished"/>
+        <translation>Seleziona Ruolo</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="735"/>
@@ -16855,12 +16871,12 @@ eseguito il fac-simile.</translation>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1173"/>
         <source>This attribute is typically added to dc:identifier to indicate the type of identifier being used: DOI, ISBN, ISSN, UUID, or AMAZON.</source>
-        <translation type="unfinished"/>
+        <translation>Questo attributo è tipicamente aggiunto a dc:identifier  per indicare il tipo di identificatore usato: DOI, ISBN, ISSN,  UUID o AMAZON.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1174"/>
         <source>Custom Scheme</source>
-        <translation type="unfinished"/>
+        <translation>Schema Personalizzato</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1174"/>
@@ -17491,7 +17507,7 @@ eseguito il fac-simile.</translation>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="177"/>
         <source>using \C is disabled in this PCRE2 library</source>
-        <translation type="unfinished"/>
+        <translation>l&apos;utilizzo di \C è disabilitato in questa libreria PCRE2</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="178"/>
@@ -17541,7 +17557,7 @@ eseguito il fac-simile.</translation>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="191"/>
         <source>(*alpha_assertion) not recognized</source>
-        <translation type="unfinished"/>
+        <translation>(*alpha_assertion) non riconosciuto</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="192"/>
@@ -17649,7 +17665,7 @@ eseguito il fac-simile.</translation>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="274"/>
         <source>Error: plugin cannot start</source>
-        <translation type="unfinished"/>
+        <translation>Errore: il plugin non può avviarsi</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="423"/>
@@ -17730,55 +17746,55 @@ eseguito il fac-simile.</translation>
         <translation>Riga/Col</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="794"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="796"/>
         <source>Check Report</source>
         <translation>Controllo del Rapporto</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="795"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="797"/>
         <source>Incorrect XHTML/XML Detected
 Are you Sure You Want to Continue?</source>
         <translation>Trovato XHTML/XML Non Corretto
 Sei Sicuro di Voler Continuare?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="813"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="815"/>
         <source>Status: cleaning up - deleting files</source>
         <translation>Stato: sto pulendo - cancellando i  file</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="846"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="848"/>
         <source>Status: deleting</source>
         <translation>Stato: in cancellazione</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="885"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="887"/>
         <source>Status: Loading</source>
         <translation>Stato: Caricamento</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="893"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="895"/>
         <source>Input Plugin</source>
         <translation>Plugin di Input </translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="894"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="896"/>
         <source>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</source>
         <translation>Il tuo Libro corrente sarà completamente sostituito perdendo ogni cambiamento non salvato ...  Sei sicuro di voler proseguire</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="922"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="936"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="924"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="938"/>
         <source>Status: adding</source>
         <translation>Stato: in aggiunta</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="974"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="976"/>
         <source>Status: cleaning up - modifying files</source>
         <translation>Stato: sto pulendo - modificando i  file</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="1011"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="1013"/>
         <source>Status: modifying</source>
         <translation>Stato: in modifica</translation>
     </message>
@@ -18060,13 +18076,13 @@ Le entità possono essere separate da linee, virgole o spazi.</translation>
     <message>
         <location filename="../../Dialogs/PreviewFileDialog.cpp" line="56"/>
         <source>not an image</source>
-        <translation type="unfinished"/>
+        <translation>non è un&apos;immagine</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreviewFileDialog.cpp" line="68"/>
         <location filename="../../Dialogs/PreviewFileDialog.cpp" line="93"/>
         <source>no preview available</source>
-        <translation type="unfinished"/>
+        <translation>nessuna anteprima disponibile</translation>
     </message>
 </context>
 <context>
@@ -18115,7 +18131,7 @@ Le entità possono essere separate da linee, virgole o spazi.</translation>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="61"/>
         <source>Function</source>
-        <translation type="unfinished"/>
+        <translation>Funzione</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="67"/>
@@ -18130,12 +18146,12 @@ Le entità possono essere separate da linee, virgole o spazi.</translation>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="71"/>
         <source>Use</source>
-        <translation type="unfinished"/>
+        <translation>Uso</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="88"/>
         <source>Python Function Replace</source>
-        <translation type="unfinished"/>
+        <translation>Funzione Python Replace</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="118"/>
@@ -18156,12 +18172,12 @@ Le entità possono essere separate da linee, virgole o spazi.</translation>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="124"/>
         <source>Name cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Il nome non può essere vuoto.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="126"/>
         <source>Name cannot be duplicate</source>
-        <translation type="unfinished"/>
+        <translation>Il nome non può essere duplicato.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="141"/>
@@ -18316,7 +18332,7 @@ Linea: %1 Colonna %2 - %3</translation>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="876"/>
         <source>You should edit your OPF file&apos;s manifest to remove the duplication.</source>
-        <translation type="unfinished"/>
+        <translation>È necessario modificare il manifesto del file OPF per rimuovere la duplicazione.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="958"/>
@@ -18672,7 +18688,7 @@ quindi se non lo trova cerca la seconda voce della lista, ecc.</translation>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="108"/>
         <source>Alt+F</source>
-        <translation type="unfinished"/>
+        <translation>Alt+F</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="118"/>
@@ -18736,7 +18752,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="212"/>
         <source>Counts Report</source>
-        <translation type="unfinished"/>
+        <translation>Rapporto sui conteggi</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="240"/>
@@ -19233,7 +19249,7 @@ Sei sicuro di voler salvare le modifiche?</translation>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="532"/>
         <source>Option: Text Only</source>
-        <translation type="unfinished"/>
+        <translation>Opzione: Solo Testo</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="827"/>
@@ -19251,7 +19267,7 @@ Sei sicuro di voler salvare le modifiche?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="85"/>
         <source>non-breaking space</source>
-        <translation type="unfinished"/>
+        <translation>spazio senza interruzione</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="86"/>
@@ -19276,7 +19292,7 @@ Sei sicuro di voler salvare le modifiche?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="90"/>
         <source>narrow non-breaking space</source>
-        <translation type="unfinished"/>
+        <translation>spazio senza interruzione stretto</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="94"/>
@@ -19716,7 +19732,7 @@ Sei sicuro di voler salvare le modifiche?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="181"/>
         <source>small sharp s</source>
-        <translation type="unfinished"/>
+        <translation>s acuta minuscola</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="182"/>
@@ -21257,7 +21273,7 @@ Continuare usando il nome del file richiesto?</translation>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="54"/>
         <source>Validation Results</source>
-        <translation>Risultati della Validazione</translation>
+        <translation>Risultati della Convalida</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="63"/>
@@ -21277,17 +21293,17 @@ Continuare usando il nome del file richiesto?</translation>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="118"/>
         <source>Export Validation Results</source>
-        <translation>Esporta i Risultati della Validazione</translation>
+        <translation>Esporta i Risultati della Convalida</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="151"/>
         <source>Export of Validation Results failed: </source>
-        <translation type="unfinished"/>
+        <translation>Esportazione dei Risultati della Convalida fallita:</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="334"/>
         <source>Updating Validation Results</source>
-        <translation type="unfinished"/>
+        <translation>Aggiornamento dei Risultati della Convalida</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="409"/>

@@ -12231,9 +12231,9 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../MainUI/MainWindow.cpp" line="5228"/>
         <location filename="../../MainUI/MainWindow.cpp" line="5454"/>
         <location filename="../../MainUI/MainWindow.cpp" line="5474"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5522"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5786"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5992"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5531"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5795"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6001"/>
         <source>Sigil</source>
         <translation>سيغل</translation>
     </message>
@@ -12254,17 +12254,17 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="874"/>
         <location filename="../../MainUI/MainWindow.cpp" line="876"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5520"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5522"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5990"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5992"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5529"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5531"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5999"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6001"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] - epub%2 - %3</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="874"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5520"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5990"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5529"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5999"/>
         <source>Sigil [std]</source>
         <translation>سيغل [std]</translation>
     </message>
@@ -12907,12 +12907,12 @@ Do you want to save your changes?</source>
         <translation>أينبغي على سيغل الكتابة على هذا الملف؟</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5662"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5671"/>
         <source>No importer for file type: %1</source>
         <translation>لم يعثر على مستورد لنوع الملف: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5669"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5678"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -12925,44 +12925,44 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
 جرّب ضبط تفضيل تنظيف المصدر إلى ترميم شفرة مصدر XHTML عند الفتح وأعد تحميل الملف.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5674"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5683"/>
         <source>Loading file...</source>
         <translation>يحمّل الملف...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5688"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5697"/>
         <source>File loaded.</source>
         <translation>حُمّل الملف.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5714"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5723"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>مُنشيء هذا الملف قد شفّره بـ DRM. لا يمكن لسيغل فتح هكذا ملفات.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5722"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5731"/>
         <source>Cannot load EPUB: %1</source>
         <translation>يتعذّر تحميل الكتاب: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5727"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5736"/>
         <source>Cannot load file %1: %2</source>
         <translation>لا يمكن تحميل الملف %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5754"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5763"/>
         <source>Saving EPUB...</source>
         <translation>يحفظ الكتاب...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5763"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5772"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>لا يمكن لسيغل فتح ملفات من نوع &quot;%1&quot;.
 لطفاً اختر نسقًا مختلفًا.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5787"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5796"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to mend on Save.
 
 Do you want to automatically mend the files before saving? Or cancel the Save?</source>
@@ -12971,94 +12971,94 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 أتريد ترميم الملفات تلقائيا قبل الحفظ؟ أم تريد إلغاء الحفظ؟</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5792"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5801"/>
         <source>Saving EPUB... cancelled</source>
         <translation>حفظ الكتاب... أُلغي</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5818"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5827"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>حُفظ الكتاب لكن ليس كل ملفات HTML حسنة التنسيق.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5820"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5829"/>
         <source>EPUB saved.</source>
         <translation>حُفظ الكتاب.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5826"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5835"/>
         <source>Cannot save file %1: %2</source>
         <translation>لا يمكن حفظ الملف %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5959"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5968"/>
         <source>EPUB files (*.epub)</source>
         <translation>ملفات EPUB (‎*.epub‏)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5960"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5961"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5962"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5969"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5970"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5971"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>ملفات HTML انترنت (‎*.htm *.html *.xhtml‏)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5963"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5972"/>
         <source>Text files (*.txt)</source>
         <translation>ملفات نص (‎*.txt‏)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5964"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5973"/>
         <source>All files (*.*)</source>
         <translation>كل الملفات (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5972"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5981"/>
         <source>EPUB file (*.epub)</source>
         <translation>ملف EPUB (‎*.epub‏)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6074"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6083"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>الإبقاء على سِمات الترويس الموجود هو الآن:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6075"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6084"/>
         <source>ON</source>
         <translation>مشتغل</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6075"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6084"/>
         <source>OFF</source>
         <translation>معطّل</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6100"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6109"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7070"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7079"/>
         <source>Focus changed to CodeView window.</source>
         <translation>تغير الاستحواذ إلى نافذة معاينة الشفرة.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7079"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7088"/>
         <source>Focus changed to BookBrowser window.</source>
         <translation>تغير الاستحواذ إلى نافذة متصفح الكتب.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7088"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7097"/>
         <source>Focus changed to Preview window.</source>
         <translation>تغير الاستحواذ إلى نافذة المعاينة.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7097"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7106"/>
         <source>Focus changed to Table Of Contents window.</source>
         <translation>تغير الاستحواذ إلى نافذة جدول المحتويات.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7106"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7115"/>
         <source>Focus changed to Clips window.</source>
         <translation>تغير الاستحواذ إلى نافذة المقاطع.</translation>
     </message>
@@ -17762,55 +17762,55 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
         <translation>سطر\عمود</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="794"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="796"/>
         <source>Check Report</source>
         <translation>تقرير الفحص</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="795"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="797"/>
         <source>Incorrect XHTML/XML Detected
 Are you Sure You Want to Continue?</source>
         <translation>كُشف عن XHTML‏\XML غير صحيح
 أأنت متأكد أنك تريد الاستمرار؟</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="813"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="815"/>
         <source>Status: cleaning up - deleting files</source>
         <translation>الحالة: ينظف - يحذف ملفات</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="846"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="848"/>
         <source>Status: deleting</source>
         <translation>الحالة: يحذف</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="885"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="887"/>
         <source>Status: Loading</source>
         <translation>الحالة: يحمّل</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="893"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="895"/>
         <source>Input Plugin</source>
         <translation>أدخل إضافة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="894"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="896"/>
         <source>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</source>
         <translation>سيُستبدل كتابك الحالي بالكلية فاقداً أية تغييرات غير محفوظة ... أأنت متأكد أنك تريد المواصلة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="922"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="936"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="924"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="938"/>
         <source>Status: adding</source>
         <translation>الحالة: يضيف</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="974"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="976"/>
         <source>Status: cleaning up - modifying files</source>
         <translation>الحالة: ينظف - يعدّل ملفات</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="1011"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="1013"/>
         <source>Status: modifying</source>
         <translation>الحالة: يعدّل</translation>
     </message>
