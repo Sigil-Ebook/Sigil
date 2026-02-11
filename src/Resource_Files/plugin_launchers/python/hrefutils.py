@@ -358,6 +358,14 @@ def main():
     print('"' + startingDir(p1) + '"')
     print('    ')
 
+    p1 = 'OEBPS/Text/book1/chapter 1.xhtml'
+    f1 = 'page#015'
+    print('Testing getRelativeHREF(apath, afragment)')
+    print('    apath:     ', p1)
+    print('    afragment: ', f1)
+    print(getRelativeHREF(p1, f1))
+    print('    ')
+
     bookpaths = []
     bookpaths.append('OEBPS/book1/text/chapter1.xhtml')
     bookpaths.append('OEBPS/book1/html/chapter2.xhtml')
