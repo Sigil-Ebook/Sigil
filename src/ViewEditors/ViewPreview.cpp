@@ -567,6 +567,10 @@ bool ViewPreview::ExecuteCaretUpdate(const QString &caret_update)
 
 void ViewPreview::ClearWebCache()
 {
+    // to force a true fresh load (nothing cached or leftover used)  we need to setUrl
+    // to QUrl("") first - but I have no idea why this is needed but
+    setUrl(QUrl(""));
+
     QDeadlineTimer deadline(3000);  // in milliseconds                                                                      
     DBG qDebug() <<  "clearing Preview's httpcache";
 #if QT_VERSION >= QT_VERSION_CHECK(6, 7, 0)
@@ -583,9 +587,6 @@ void ViewPreview::ClearWebCache()
         DBG qDebug() << "View Preview Cache Cleared";
     }
     m_CacheCleared = true;
-    // to force a true fresh load (nothing cached or loeftover used)  we need to setUrl
-    // to QUrl("") first - but I have no idea why this is needed but
-    setUrl(QUrl(""));
 }
 
 
