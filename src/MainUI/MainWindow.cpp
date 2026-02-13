@@ -5015,7 +5015,7 @@ void MainWindow::UpdatePreview()
         if (m_SaveTab) {
             m_SaveTab = false;
             tab->SaveTabContent();
-            m_PreviewWindow->ForceFullWebCacheClear();
+            // m_PreviewWindow->ForceFullWebCacheClear();
         }
 
         html_resource = qobject_cast<HTMLResource *>(tab->GetLoadedResource());
