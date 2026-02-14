@@ -5050,7 +5050,10 @@ void MainWindow::UpdatePreview()
                 text = m_PreviousHTMLText;
                 if (m_PreviousHTMLResource) {
                     location = m_PreviewWindow->GetCaretLocation();
-                    if (location.isEmpty()) location = m_PreviousHTMLLocation;
+                    if (location.isEmpty()) {
+                        location = m_PreviousHTMLLocation;
+                        qDebug() << " *** call to GetCaretLocation returned as empty ***";
+                    }
                     qDebug() << "MW: UpdatePreview using current PreviewWindow location";
                 } else {
                     location = m_PreviousHTMLLocation;
@@ -5067,7 +5070,7 @@ void MainWindow::UpdatePreview()
                 foreach(ElementIndex ei, m_PreviousHTMLLocation) {
                     qDebug()<< "     name: " << ei.name << " index: " << ei.index;
                 }
-	        }
+	    }
 
             qDebug() << "MW: Invoking UpdatePage with: " << html_resource->GetRelativePath();
             foreach(ElementIndex ei, location) {

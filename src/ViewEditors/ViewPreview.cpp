@@ -47,7 +47,7 @@
 #include "ViewEditors/ViewPreview.h"
 #include "ViewEditors/Overlay.h"
 
-#define DBG if(0)
+#define DBG if(1)
 
 const QString SET_CURSOR_JS2 =
     "var range = document.createRange();"
@@ -364,7 +364,7 @@ QString ViewPreview::GetHTML() const
 
 QVariant ViewPreview::EvaluateJavascript(const QString &javascript)
 {
-    // DBG qDebug() << "EvaluateJavascript: " << m_isLoadFinished;
+    qDebug() << "EvaluateJavascript: " << m_isLoadFinished;
 
     // do not try to evaluate javascripts with the page not loaded yet
     if (!m_isLoadFinished) return QVariant();
