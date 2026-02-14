@@ -5345,16 +5345,18 @@ void MainWindow::ReadSettings()
     // Check for existing custom Preview stylesheets in Prefs dir and tell Preview about them
     QStringList usercssurls;
     QFileInfo CustomPreviewStylesheetInfo(QDir(Utility::DefinePrefsDir()).filePath(CUSTOM_PREVIEW_STYLE_FILENAME));
-    if (CustomPreviewStylesheetInfo.exists() && 
-        CustomPreviewStylesheetInfo.isFile() && 
+    if (CustomPreviewStylesheetInfo.exists() && CustomPreviewStylesheetInfo.isFile() &&
         CustomPreviewStylesheetInfo.isReadable()) {
-        usercssurls << QUrl::fromLocalFile(CustomPreviewStylesheetInfo.absoluteFilePath()).toString();
+        QString acustom_css = QUrl::fromLocalFile(CustomPreviewStylesheetInfo.absoluteFilePath()).toString();
+        if (acustom_css.startsWith("file:")) acustom_css = "sigil:" + acustom_css.mid(5,-1);
+        usercssurls << acustom_css;
     }
     QFileInfo CustomPreviewAltStylesheetInfo(QDir(Utility::DefinePrefsDir()).filePath(CUSTOM_PREVIEW_STYLE_ALT_FILENAME));
-    if (CustomPreviewAltStylesheetInfo.exists() && 
-        CustomPreviewAltStylesheetInfo.isFile() && 
+    if (CustomPreviewAltStylesheetInfo.exists() && CustomPreviewAltStylesheetInfo.isFile() &&
         CustomPreviewAltStylesheetInfo.isReadable()) {
-        usercssurls << QUrl::fromLocalFile(CustomPreviewAltStylesheetInfo.absoluteFilePath()).toString();
+        QString acustom_css = QUrl::fromLocalFile(CustomPreviewAltStylesheetInfo.absoluteFilePath()).toString();
+        if (acustom_css.startsWith("file:")) acustom_css = "sigil:" + acustom_css.mid(5,-1);
+        usercssurls << acustom_css;
     }
     m_PreviewWindow->setUserCSSURLs(usercssurls);
 
@@ -5394,6 +5396,7 @@ void MainWindow::ReadSettings()
     m_mathjaxfolder = mathjaxurl;
     mathjaxurl = mathjaxurl + mathjaxscript;
     mathjaxurl = QUrl::fromLocalFile(mathjaxurl).toString();
+    if (mathjaxurl.startsWith("file:")) mathjaxurl = "sigil:" + mathjaxurl.mid(5,-1);
     m_PreviewWindow->setMathJaxURL(mathjaxurl);
 }
 
