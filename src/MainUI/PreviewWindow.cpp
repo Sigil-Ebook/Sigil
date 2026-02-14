@@ -598,7 +598,7 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
           const QMouseEvent *mouseEvent(static_cast<QMouseEvent*>(event));
           if (mouseEvent) {
               if (mouseEvent->button() == Qt::LeftButton) {
-                  DBG qDebug() << "Detected Left Mouse Button Press Event";
+                  qDebug() << "Detected Left Mouse Button Press Event";
                   QString hoverurl = m_Preview->GetHoverUrl();
                   if (hoverurl.isEmpty()) {
                        DBG qDebug() << "emitting GoToPreviewLocationRequest";
@@ -639,7 +639,7 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
           const QMouseEvent *mouseEvent(static_cast<QMouseEvent*>(event));
           if (mouseEvent) {
               if (mouseEvent->button() == Qt::LeftButton) {
-                  DBG qDebug() << "Detected Left Mouse Button Release Event";
+                  qDebug() << "Detected Left Mouse Button Release Event";
               }
           }
       }

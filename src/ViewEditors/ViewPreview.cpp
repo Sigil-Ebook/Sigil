@@ -474,7 +474,7 @@ QList<ElementIndex> ViewPreview::GetCaretLocation()
 {
     // The location element hierarchy encoded in a string
     QString location_string = EvaluateJavascript(c_GetCaretLocation).toString();
-    DBG qDebug() << "GetCaretLocation: " << location_string;
+    qDebug() << "ViewPreview GetCaretLocation: " << location_string;
     return ConvertQWebPathToHierarchy(location_string);
 }
 
@@ -567,24 +567,25 @@ bool ViewPreview::ExecuteCaretUpdate(const QString &caret_update)
 
 void ViewPreview::ClearWebCache()
 {
+    qDebug() <<  "clearing Preview's httpcache";
+    
     // to force a true fresh load (nothing cached or leftover used)  we need to setUrl
     // to QUrl("") first - but I have no idea why this is needed but
     setUrl(QUrl(""));
 
     QDeadlineTimer deadline(3000);  // in milliseconds                                                                      
-    DBG qDebug() <<  "clearing Preview's httpcache";
 #if QT_VERSION >= QT_VERSION_CHECK(6, 7, 0)
     m_CacheCleared = false;
 #endif
     page()->profile()->clearAllVisitedLinks();
     page()->profile()->clearHttpCache();
     while(!m_CacheCleared && (!deadline.hasExpired())) {
-        qApp->processEvents(QEventLoop::ExcludeUserInputEvents, 50);
+        qApp->processEvents(QEventLoop::ExcludeUserInputEvents | QEventLoop::ExcludeSocketNotifiers, 50);
     }
     if (deadline.hasExpired()) {
-        DBG qDebug() << "View Preview Cache Clear failed - deadline expired";
+        qDebug() << "ViewPreview Cache Clear failed - deadline expired";
     } else {
-        DBG qDebug() << "View Preview Cache Cleared";
+        qDebug() << "ViewPreview Cache Cleared";
     }
     m_CacheCleared = true;
 }
