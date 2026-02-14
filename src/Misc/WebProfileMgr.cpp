@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2023-2025 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2023-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **
 **  This file is part of Sigil.
 **
@@ -179,9 +179,9 @@ WebProfileMgr::WebProfileMgr()
     m_preview_profile->setPersistentStoragePath(localStorePath);
 #else
     QWebEngineProfileBuilder pb;
-    pb.setCachePath(PreviewCachePath);
-    pb.setHttpCacheMaximumSize(0); // 0 - means let Qt control it
-    pb.setHttpCacheType(QWebEngineProfile::DiskHttpCache);
+    // pb.setCachePath(PreviewCachePath);
+    pb.setHttpCacheMaximumSize(500000); // 0 - means let Qt control it
+    pb.setHttpCacheType(QWebEngineProfile::MemoryHttpCache);
     pb.setPersistentCookiesPolicy(QWebEngineProfile::NoPersistentCookies);
     pb.setPersistentPermissionsPolicy(QWebEngineProfile::PersistentPermissionsPolicy::StoreOnDisk);
     pb.setPersistentStoragePath(localStorePath);
@@ -195,7 +195,6 @@ WebProfileMgr::WebProfileMgr()
         m_preview_profile = QWebEngineProfileBuilder::createOffTheRecordProfile(nullptr);
     }
 #endif
-    
     InitializeDefaultSettings(m_preview_profile->settings());
     m_preview_profile->settings()->setDefaultTextEncoding("UTF-8");  
     m_preview_profile->settings()->setAttribute(QWebEngineSettings::LocalStorageEnabled, true);
@@ -211,6 +210,7 @@ WebProfileMgr::WebProfileMgr()
     // Use both our URLInterceptor and our URLSchemeHandler
     m_preview_profile->installUrlSchemeHandler("sigil", m_URLhandler);
     m_preview_profile->setUrlRequestInterceptor(m_URLint);
+    m_preview_profile->clearHttpCache();
 
     // Inspector Profile
     // ---------------
