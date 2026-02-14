@@ -472,10 +472,12 @@ QString ViewPreview::GetElementSelectingJS_NoTextNodes(const QList<ElementIndex>
 
 QList<ElementIndex> ViewPreview::GetCaretLocation()
 {
+#if 0
     QDeadlineTimer deadline(1000);
     while(!IsLoadingFinished() && (!deadline.hasExpired())) {
         qApp->processEvents(QEventLoop::ExcludeUserInputEvents, 75);
     }
+#endif
     // The location element hierarchy encoded in a string
     QString location_string = EvaluateJavascript(c_GetCaretLocation).toString();
     qDebug() << "ViewPreview GetCaretLocation: " << location_string;

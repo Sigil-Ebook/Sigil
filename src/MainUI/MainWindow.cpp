@@ -5050,6 +5050,7 @@ void MainWindow::UpdatePreview()
                 text = m_PreviousHTMLText;
                 if (m_PreviousHTMLResource) {
                     location = m_PreviewWindow->GetCaretLocation();
+                    if (location.isEmpty()) location = m_PreviousHTMLLocation;
                     qDebug() << "MW: UpdatePreview using current PreviewWindow location";
                 } else {
                     location = m_PreviousHTMLLocation;
