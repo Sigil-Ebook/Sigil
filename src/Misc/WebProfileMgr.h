@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2023-2025  Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2023-2026  Kevin B. Hendricks, Stratford, ON, Canada
 **
 **  This file is part of Sigil.
 **
@@ -54,11 +54,8 @@ private:
     URLInterceptor* m_URLint;
     URLSchemeHandler* m_URLhandler;
 
-    QWebEngineProfile* m_preview_profile;
-    QWebEngineProfile* m_onetime_profile;
-    QWebEngineProfile* m_inspector_profile;
-    // QString m_disk_cache_path;
-    // QString m_extra_cache_path;
+    QString m_local_storage_path;
+    QString m_devtools_storage_path;
     static WebProfileMgr *m_instance;
 };
 

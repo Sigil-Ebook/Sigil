@@ -115,7 +115,7 @@ public slots:
     void ShowOverlay();
     void HideOverlay();
     QString GetHTML() const;
-    void CacheCleared();
+    void ContinueCustomLoadAfterClear();
     void ClearWebCache();
 
 signals:
@@ -246,6 +246,9 @@ private:
     QString m_hoverUrl;
 
     LoadingOverlay* m_overlay;
+
+    QString m_xhtml_to_load;
+    QString m_xhtml_path;
 };
 
 #endif // VIEWPREVIEW_H

@@ -138,10 +138,6 @@ ViewPreview::~ViewPreview()
     }
 }
 
-void ViewPreview::CacheCleared()
-{
-    m_CacheCleared = true;
-}
 
 QString ViewPreview::GetCaretLocationUpdate()
 {
@@ -153,64 +149,6 @@ QString ViewPreview::GetCaretLocationUpdate()
 QSize ViewPreview::sizeHint() const
 {
     return QSize(200, 400);
-}
-
-
-void ViewPreview::CustomSetDocument(const QString &path, const QString &html)
-{
-    if (html.isEmpty()) {
-        return;
-    }
-
-    m_CustomSetDocumentInProgress = true;
-
-    if (!url().isEmpty()) {
-
-        // Storing the Caret Location here causes problems as it happens to interfere with later loading
-        // StoreCurrentCaretLocation();
-
-        // To keep memory footprint small, clear any caches when a new page loads
-        // But in Qt 6.7.0 and later cache clearing became asynchronous requiring a callback
-        // *before* trying to load anything after a cache clear, otherwise loading
-        // remote resources fails
-
-        // Note: toLocalFile() fails with any custom scheme (ie. our sigil: scheme)
-        // So convert url to file: scheme to extract the local file
-        // QUrl localurl(url());
-        // localurl.setScheme("file");
-        // localurl.setHost("");
-        // if (localurl.toLocalFile() != path) {
-        ClearWebCache();
-        // }
-    }
-
-    m_isLoadFinished = false;
-
-    // Sigil may explode if there is no xmlns
-    // on the <html> element. So we will silently add it if needed to ensure
-    // no errors occur, to allow loading of html documents created outside of
-    // Sigil as well as catering for section splits etc.
-    QString replaced_html = html;
-    replaced_html = replaced_html.replace("<html>", "<html xmlns=\"http://www.w3.org/1999/xhtml\">");
-
-    // Because of Chrome's silly 2MB url (GURL) size limit, we must create our own
-    // URL Scheme: (sigil) and then use our own scheme handler to directly load
-    // local files thereby avoiding the 2mb data url limit from using:
-    // setContent(replaced_html.toUtf8(),
-    //            "application/xhtml+xml;charset=UTF-8",
-    //            QUrl::fromLocalFile(path));
-
-    // Since the replaced html has possibly been modified by injections for
-    // dark mode, mathml, and etc., there is no original file that matches
-    // this exact xhtml, so store it in an application level cache so that
-    // our sigil URLSchemeHandler can find it. 
-    MainApplication *mainApplication = qobject_cast<MainApplication *>(qApp);
-    QUrl tgturl = QUrl::fromLocalFile(path);
-    tgturl.setScheme("sigil");
-    tgturl.setHost("");
-    QString key = tgturl.toString();
-    mainApplication->saveInPreviewCache(key, replaced_html);
-    page()->load(tgturl);
 }
 
 bool ViewPreview::IsLoadingFinished()
@@ -570,43 +508,102 @@ bool ViewPreview::ExecuteCaretUpdate(const QString &caret_update)
     return false;
 }
 
+void ViewPreview::CustomSetDocument(const QString &path, const QString &html)
+{
+    if (html.isEmpty()) {
+        return;
+    }
+    m_CustomSetDocumentInProgress = true;
+    m_isLoadFinished = false;
+    m_xhtml_to_load = html;
+    m_xhtml_path = path;
+    ClearWebCache();
+}
 
 void ViewPreview::ClearWebCache()
 {
-    qDebug() <<  "clearing Preview's httpcache";
-    
-    // to force a true fresh load (nothing cached or leftover used)  we need to setUrl
-    // to QUrl("") first - but I have no idea why this is needed but
-    setUrl(QUrl(""));
 
-    QDeadlineTimer deadline(3000);  // in milliseconds                                                                      
+    disconnect(page(), SIGNAL(loadStarted()), this, SLOT(LoadingStarted()));
+    disconnect(page(), SIGNAL(loadProgress(int)), this, SLOT(LoadingProgress(int)));
+    disconnect(page(), SIGNAL(loadFinished(bool)), this, SLOT(UpdateFinishedState(bool)));
+    disconnect(page(), SIGNAL(loadFinished(bool)), this, SLOT(WebPageJavascriptOnLoad()));
+    disconnect(page(), SIGNAL(LinkClicked(const QUrl &)), this, SIGNAL(LinkClicked(const QUrl &)));
+    disconnect(page(), SIGNAL(linkHovered(const QString &)), this, SLOT(LinkHovered(const QString &)));
+    // to force a true fresh load (nothing cached or leftover used)  we need to setUrl
+    // to QUrl("") first before the clear - but I have no idea why this is needed
+    // but all tests show it is needed!
+    setUrl(QUrl(""));
+    
+    // tried the following but the entire cache did not clear
+    // QString html = "<html><head><title>blank<title></head><body></body></html>";
+    // setHtml(html);
+
+    qDebug() <<  "clearing Preview's httpcache";
+
 #if QT_VERSION >= QT_VERSION_CHECK(6, 7, 0)
     m_CacheCleared = false;
-#endif
     page()->profile()->clearAllVisitedLinks();
     page()->profile()->clearHttpCache();
-    while(!m_CacheCleared && (!deadline.hasExpired())) {
-        qApp->processEvents(QEventLoop::ExcludeUserInputEvents | QEventLoop::ExcludeSocketNotifiers, 50);
-    }
-    if (deadline.hasExpired()) {
-        qDebug() << "ViewPreview Cache Clear failed - deadline expired";
-    } else {
-        qDebug() << "ViewPreview Cache Cleared";
-    }
+    
+#else
+    page()->profile()->clearAllVisitedLinks();
+    page()->profile()->clearHttpCache();
+    ContinueCustomLoadAfterClear();
+#endif
+}
+
+
+void ViewPreview::ContinueCustomLoadAfterClear()
+{
     m_CacheCleared = true;
+    qDebug() <<  "Preview's httpcache was cleared";
+
+    connect(page(), SIGNAL(loadStarted()), this, SLOT(LoadingStarted()));
+    connect(page(), SIGNAL(loadProgress(int)), this, SLOT(LoadingProgress(int)));
+    connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(UpdateFinishedState(bool)));
+    connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(WebPageJavascriptOnLoad()));
+    connect(page(), SIGNAL(LinkClicked(const QUrl &)), this, SIGNAL(LinkClicked(const QUrl &)));
+    connect(page(), SIGNAL(linkHovered(const QString &)), this, SLOT(LinkHovered(const QString &)));
+    
+    // Sigil may explode if there is no xmlns
+    // on the <html> element. So we will silently add it if needed to ensure
+    // no errors occur, to allow loading of html documents created outside of
+    // Sigil as well as catering for section splits etc.
+    QString replaced_html = m_xhtml_to_load;
+    replaced_html = replaced_html.replace("<html>", "<html xmlns=\"http://www.w3.org/1999/xhtml\">");
+
+    // Because of Chrome's silly 2MB url (GURL) size limit, we must create our own
+    // URL Scheme: (sigil) and then use our own scheme handler to directly load
+    // local files thereby avoiding the 2mb data url limit from using:
+    // setContent(replaced_html.toUtf8(),
+    //            "application/xhtml+xml;charset=UTF-8",
+    //            QUrl::fromLocalFile(path));
+
+    // Since the replaced html has possibly been modified by injections for
+    // dark mode, mathml, and etc., there is no original file that matches
+    // this exact xhtml, so store it in an application level cache so that
+    // our sigil URLSchemeHandler can find it. 
+    MainApplication *mainApplication = qobject_cast<MainApplication *>(qApp);
+    QUrl tgturl = QUrl::fromLocalFile(m_xhtml_path);
+    tgturl.setScheme("sigil");
+    tgturl.setHost("");
+    QString key = tgturl.toString();
+    mainApplication->saveInPreviewCache(key, replaced_html);
+    page()->load(tgturl);
 }
 
 
 void ViewPreview::ConnectSignalsToSlots()
 {
+    qDebug() << "In ViewPreview ConnectSignalsToSlots";
     connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(UpdateFinishedState(bool)));
     connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(WebPageJavascriptOnLoad()));
     connect(page(), SIGNAL(loadStarted()), this, SLOT(LoadingStarted()));
-    connect(page(), SIGNAL(LinkClicked(const QUrl &)), this, SIGNAL(LinkClicked(const QUrl &)));
     connect(page(), SIGNAL(loadProgress(int)), this, SLOT(LoadingProgress(int)));
+    connect(page(), SIGNAL(LinkClicked(const QUrl &)), this, SIGNAL(LinkClicked(const QUrl &)));
     connect(page(), SIGNAL(linkHovered(const QString &)), this, SLOT(LinkHovered(const QString &)));
 #if QT_VERSION >= QT_VERSION_CHECK(6, 7, 0)
-    connect(page()->profile(), SIGNAL(clearHttpCacheCompleted()), this, SLOT(CacheCleared()));
+    connect(page()->profile(), SIGNAL(clearHttpCacheCompleted()), this, SLOT(ContinueCustomLoadAfterClear()));
 #endif
 }
 
