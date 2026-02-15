@@ -108,7 +108,6 @@ ViewPreview::ViewPreview(QWidget *parent, bool setbackground)
       m_CustomSetDocumentInProgress(false),
       m_pendingScrollToFragment(QString()),
       m_LoadOkay(false),
-      m_CacheCleared(true),
       m_overlay(new LoadingOverlay(this))
 {
     QWebEngineProfile* profile = WebProfileMgr::instance()->GetPreviewProfile();
@@ -508,7 +507,7 @@ bool ViewPreview::ExecuteCaretUpdate(const QString &caret_update)
     return false;
 }
 
-void ViewPreview::CustomSetDocument(const QString &path, const QString &html)
+void ViewPreview::CustomSetDocument(const QString &path, const QString &html, bool clear_the_cache)
 {
     if (html.isEmpty()) {
         return;
@@ -517,12 +516,16 @@ void ViewPreview::CustomSetDocument(const QString &path, const QString &html)
     m_isLoadFinished = false;
     m_xhtml_to_load = html;
     m_xhtml_path = path;
-    ClearWebCache();
+    m_using_cache_clear = clear_the_cache;
+    if (m_using_cache_clear) {
+        ClearWebCache();
+    } else {
+        ContinueCustomLoadAfterClear();
+    }
 }
 
 void ViewPreview::ClearWebCache()
 {
-
     disconnect(page(), SIGNAL(loadStarted()), this, SLOT(LoadingStarted()));
     disconnect(page(), SIGNAL(loadProgress(int)), this, SLOT(LoadingProgress(int)));
     disconnect(page(), SIGNAL(loadFinished(bool)), this, SLOT(UpdateFinishedState(bool)));
@@ -552,10 +555,8 @@ void ViewPreview::ClearWebCache()
     qDebug() <<  "clearing Preview's httpcache";
 
 #if QT_VERSION >= QT_VERSION_CHECK(6, 7, 0)
-    m_CacheCleared = false;
     page()->profile()->clearAllVisitedLinks();
     page()->profile()->clearHttpCache();
-    
 #else
     page()->profile()->clearAllVisitedLinks();
     page()->profile()->clearHttpCache();
@@ -566,8 +567,10 @@ void ViewPreview::ClearWebCache()
 
 void ViewPreview::ContinueCustomLoadAfterClear()
 {
-    m_CacheCleared = true;
-    qDebug() <<  "Preview's httpcache was cleared";
+    if (m_using_cache_clear) {
+        qDebug() <<  "Preview's httpcache was cleared";
+        m_using_cache_clear = false;
+    }
 
     // Sigil may explode if there is no xmlns
     // on the <html> element. So we will silently add it if needed to ensure

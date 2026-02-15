@@ -5016,7 +5016,7 @@ void MainWindow::UpdatePreview()
             m_SaveTab = false;
             tab->SaveTabContent();
             qDebug() << "MW: UpdatePreview requested from CSS or SVG - saving tab content";
-            // m_PreviewWindow->ForceFullWebCacheClear();
+            m_PreviewWindow->setCacheClearNeeded();
         }
 
         html_resource = qobject_cast<HTMLResource *>(tab->GetLoadedResource());

@@ -61,7 +61,7 @@ public:
     bool eventFilter(QObject *object, QEvent *event);
     void setMathJaxURL(QString mathjaxurl) { m_mathjaxurl = mathjaxurl; };
     void setUserCSSURLs(const QStringList&  usercssurls);
-    void ForceFullWebCacheClear();
+    void setCacheClearNeeded();
 
 public slots:
     bool UpdatePage(QString filename, QString text, QList<ElementIndex> location);
@@ -169,6 +169,7 @@ private:
     bool m_skipPrintPreview;
     WebViewPrinter *m_WebViewPrinter;
     bool m_use_focus_highlight;
+    bool m_cache_clear_needed = false;
 
 };
 

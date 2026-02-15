@@ -49,7 +49,7 @@ public:
 
     QSize sizeHint() const;
 
-    void CustomSetDocument(const QString &path, const QString &html);
+    void CustomSetDocument(const QString &path, const QString &html, bool clear_the_cache = false);
 
     bool IsLoadingFinished();
 
@@ -241,14 +241,13 @@ private:
     bool m_LoadOkay;
     // QAction *m_InspectElement;
 
-    bool m_CacheCleared;
-
     QString m_hoverUrl;
 
     LoadingOverlay* m_overlay;
 
     QString m_xhtml_to_load;
     QString m_xhtml_path;
+    bool m_using_cache_clear = false;
 };
 
 #endif // VIEWPREVIEW_H

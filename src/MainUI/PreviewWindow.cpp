@@ -411,7 +411,7 @@ bool PreviewWindow::UpdatePage(QString filename_url, QString text, QList<Element
     }
 
     m_Filepath = filename_url;
-    m_Preview->CustomSetDocument(filename_url, text);
+    m_Preview->CustomSetDocument(filename_url, text, m_cache_clear_needed);
 
     m_progress->setValue(10);
     return true;
@@ -423,9 +423,10 @@ void PreviewWindow::UpdatePageDone()
     if (!m_updatingPage) return;
 
     if (!m_Preview->WasLoadOkay()) qDebug() << "PV loadFinished with okay set to false!";
- 
+    
     DBG qDebug() << "PreviewWindow UpdatePage load is Finished";
     DBG qDebug() << "PreviewWindow UpdatePage final step scroll to location";
+    m_cache_clear_needed = false;
 
     // Zoom is handled internally to mPreview just before this is called
     UpdateWindowTitle();
@@ -712,9 +713,9 @@ void PreviewWindow::CopyPreview()
     m_Preview->triggerPageAction(QWebEnginePage::Copy);
 }
 
-void PreviewWindow::ForceFullWebCacheClear()
+void PreviewWindow::setCacheClearNeeded()
 {
-      m_Preview->ClearWebCache();
+    m_cache_clear_needed = true;
 }
 
 void PreviewWindow::ReloadPreview()
@@ -725,8 +726,8 @@ void PreviewWindow::ReloadPreview()
     //force reset m_updatingPage in case a signal is lost
     m_progress->reset();
     m_updatingPage = false;
+    m_cache_clear_needed = true;
     DBG qDebug() << " in ReloadPreview and clearing cache";
-    m_Preview->ClearWebCache();
     emit RequestPreviewReload();
 }
 
