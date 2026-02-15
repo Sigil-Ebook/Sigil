@@ -57,6 +57,8 @@ private:
     QString m_local_storage_path;
     QString m_devtools_storage_path;
     QString m_onetime_storage_path;
+    QWebEngineProfile * m_inspector_profile = nullptr;
+    QWebEngineProfile * m_onetime_profile = nullptr;
     static WebProfileMgr *m_instance;
 };
 

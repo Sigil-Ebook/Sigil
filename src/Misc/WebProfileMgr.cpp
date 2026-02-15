@@ -50,36 +50,18 @@ WebProfileMgr *WebProfileMgr::instance()
 
 QWebEngineProfile*  WebProfileMgr::GetPreviewProfile()
 {
-    // Preview Profile
+    // Create Dynamic Preview Profile - Off The Record
     // ---------------
-    // create the profile for Preview
     QWebEngineProfile * preview_profile = nullptr; 
     SettingsStore ss;
 
-    // determine if another instance of Sigil is already running
-    bool first_instance = false;
-    MainApplication *mainApplication = qobject_cast<MainApplication *>(qApp);
-    if (mainApplication) first_instance = mainApplication->isFirstInstance();
-    
 #if QT_VERSION < QT_VERSION_CHECK(6, 9, 0)
     preview_profile = new QWebEngineProfile();
     preview_profile->setPersistentStoragePath(m_local_storage_path);
 #else
-    QWebEngineProfileBuilder pb;
-    pb.setHttpCacheMaximumSize(100000); // 0 - means let Qt control it
-    pb.setHttpCacheType(QWebEngineProfile::MemoryHttpCache);
-    pb.setPersistentCookiesPolicy(QWebEngineProfile::NoPersistentCookies);
-    pb.setPersistentPermissionsPolicy(QWebEngineProfile::PersistentPermissionsPolicy::StoreOnDisk);
-    pb.setPersistentStoragePath(m_local_storage_path);
-    if (first_instance) {
-        preview_profile = pb.createProfile("Preview" + Utility::CreateUUID(), nullptr);
-    } else {
-        preview_profile = QWebEngineProfileBuilder::createOffTheRecordProfile(nullptr);
-    }
-    // handle possible nullptr return by creating a off the record profile
-    if (!preview_profile) {
-        preview_profile = QWebEngineProfileBuilder::createOffTheRecordProfile(nullptr);
-    }
+    preview_profile = QWebEngineProfileBuilder::createOffTheRecordProfile(nullptr);
+    preview_profile->setHttpCacheMaximumSize(0);
+    preview_profile->setHttpCacheType(QWebEngineProfile::MemoryHttpCache);
 #endif
     InitializeDefaultSettings(preview_profile->settings());
     preview_profile->settings()->setDefaultTextEncoding("UTF-8");  
@@ -103,90 +85,12 @@ QWebEngineProfile*  WebProfileMgr::GetPreviewProfile()
 
 QWebEngineProfile*  WebProfileMgr::GetInspectorProfile()
 {
-    // Inspector Profile
-    // ---------------
-    // create the profile for Dev Tools Inspector
-    QWebEngineProfile * inspector_profile = nullptr;
-
-    // determine if another instance of Sigil is already running
-    bool first_instance = false;
-    MainApplication *mainApplication = qobject_cast<MainApplication *>(qApp);
-    if (mainApplication) first_instance = mainApplication->isFirstInstance();
-    
-#if QT_VERSION < QT_VERSION_CHECK(6, 9, 0)
-    inspector_profile = new QWebEngineProfile();
-    inspector_profile->setPersistentStoragePath(m_devtools_storage_path);
-#else
-    QWebEngineProfileBuilder pb2;
-    pb2.setHttpCacheMaximumSize(100000); // 0 - means let Qt control it
-    pb2.setHttpCacheType(QWebEngineProfile::MemoryHttpCache);
-    pb2.setPersistentCookiesPolicy(QWebEngineProfile::NoPersistentCookies);
-    pb2.setPersistentPermissionsPolicy(QWebEngineProfile::PersistentPermissionsPolicy::StoreOnDisk);
-    pb2.setPersistentStoragePath(m_devtools_storage_path);
-    if (first_instance) {
-        inspector_profile = pb2.createProfile("Inspector"+Utility::CreateUUID(), nullptr);
-    } else {
-        inspector_profile = QWebEngineProfileBuilder::createOffTheRecordProfile(nullptr);
-    }
-    // handle possible nullptr return by creating a off the record profile
-    if (!inspector_profile) {
-        inspector_profile = QWebEngineProfileBuilder::createOffTheRecordProfile(nullptr);
-    }
-#endif
-
-    InitializeDefaultSettings(inspector_profile->settings());
-    inspector_profile->settings()->setDefaultTextEncoding("UTF-8");  
-    inspector_profile->settings()->setAttribute(QWebEngineSettings::LocalStorageEnabled, true);
-    inspector_profile->settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessFileUrls, true);
-    inspector_profile->settings()->setAttribute(QWebEngineSettings::ErrorPageEnabled,true);
-    inspector_profile->settings()->setAttribute(QWebEngineSettings::PluginsEnabled, true);
-    inspector_profile->settings()->setAttribute(QWebEngineSettings::PdfViewerEnabled, true);
-    inspector_profile->settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, true);
-    inspector_profile->settings()->setAttribute(QWebEngineSettings::JavascriptCanOpenWindows, true);
-    inspector_profile->settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessRemoteUrls, true);
-    inspector_profile->settings()->setAttribute(QWebEngineSettings::FocusOnNavigationEnabled, false);
-    inspector_profile->settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, true);
-    inspector_profile->settings()->setAttribute(QWebEngineSettings::JavascriptCanOpenWindows, true);
-    inspector_profile->settings()->setAttribute(QWebEngineSettings::JavascriptCanAccessClipboard, true);
-    inspector_profile->settings()->setAttribute(QWebEngineSettings::AllowWindowActivationFromJavaScript, true);
-    inspector_profile->settings()->setAttribute(QWebEngineSettings::JavascriptCanPaste, true);
-    // Use both our URLInterceptor and our URLSchemeHandler
-    inspector_profile->installUrlSchemeHandler("sigil", m_URLhandler);
-    inspector_profile->setUrlRequestInterceptor(m_URLint);
-    inspector_profile->clearHttpCache();
-
-    return inspector_profile;
+    return m_inspector_profile;
 }
 
 QWebEngineProfile* WebProfileMgr::GetOneTimeProfile()
 {
-    // OneTime Profile
-    // ---------------
-    // create the profile for OneTime
-    QWebEngineProfile * onetime_profile = nullptr;
-    SettingsStore ss;
-
-#if QT_VERSION < QT_VERSION_CHECK(6, 9, 0)
-    onetime_profile = new QWebEngineProfile();
-#else
-    onetime_profile = QWebEngineProfileBuilder::createOffTheRecordProfile(nullptr);
-#endif
-    InitializeDefaultSettings(onetime_profile->settings());
-    // onetime_profile->setSpellCheckEnabled(false); // setting to false actually generates warnings!
-    onetime_profile->settings()->setDefaultTextEncoding("UTF-8");  
-    onetime_profile->settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessFileUrls, true);
-    onetime_profile->settings()->setAttribute(QWebEngineSettings::PluginsEnabled, true);
-    onetime_profile->settings()->setAttribute(QWebEngineSettings::PdfViewerEnabled, true);
-    
-    // Unfortunately the PdfView used for PdfTab now requires both java and LocalStorage work
-    onetime_profile->settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, (ss.javascriptOn() == 1));
-    onetime_profile->settings()->setAttribute(QWebEngineSettings::LocalStorageEnabled, true);
-    onetime_profile->setPersistentStoragePath(m_onetime_storage_path);
-
-    // Use URLInterceptor for protection
-    onetime_profile->setUrlRequestInterceptor(m_URLint);
-
-    return onetime_profile;
+    return m_onetime_profile;
 }
 
 
@@ -228,33 +132,100 @@ WebProfileMgr::WebProfileMgr()
     m_URLhandler = new URLSchemeHandler();
     m_URLint = new URLInterceptor();
 
+    // determine if another instance of Sigil is already running
+    bool first_instance = false;
+    MainApplication *mainApplication = qobject_cast<MainApplication *>(qApp);
+    if (mainApplication) first_instance = mainApplication->isFirstInstance();
+    
     SettingsStore ss;
-
-    // create local storage path for preview if needed
-    m_local_storage_path = Utility::DefinePrefsDir() + "/local-storage/";
-    QDir storageDir(m_local_storage_path);
-    if (!storageDir.exists()) {
-        storageDir.mkpath(m_local_storage_path);
-    }
+    
     // create devtools storage path if needed
     m_devtools_storage_path = Utility::DefinePrefsDir() + "/local-devtools/";
     QDir devstorageDir(m_devtools_storage_path);
     if (!devstorageDir.exists()) {
         devstorageDir.mkpath(m_devtools_storage_path);
     }
-    // create onetime storage path if needed
-    QString m_onetime_storage_path = Utility::DefinePrefsDir() + "/local-onetime/";
-    QDir onestorageDir(m_onetime_storage_path);
-    if (!onestorageDir.exists()) {
-        onestorageDir.mkpath(m_onetime_storage_path);
+
+    // create a place for Inspector Disk Cache if needed
+    QString InspectorCachePath = Utility::DefinePrefsDir() + "/Inspector-Cache/";
+    QDir inspector_cacheDir(InspectorCachePath);
+    if (!inspector_cacheDir.exists()) {
+        inspector_cacheDir.mkpath(InspectorCachePath);
     }
-    
-    // Default Profile
-    // ---------------
+
+    // Create Shared Default Profile
+    // -----------------------------
     // initialize the defaultProfile to be restrictive for security
     QWebEngineSettings *web_settings = QWebEngineProfile::defaultProfile()->settings();
     InitializeDefaultSettings(web_settings);
     // Use URLInterceptor for protection
     QWebEngineProfile::defaultProfile()->setUrlRequestInterceptor(m_URLint);
-}
 
+
+    // Create Shared OneTime Profile
+    // -----------------------------
+#if QT_VERSION < QT_VERSION_CHECK(6, 9, 0)
+    m_onetime_profile = new QWebEngineProfile();
+#else
+    m_onetime_profile = QWebEngineProfileBuilder::createOffTheRecordProfile(nullptr);
+#endif
+    InitializeDefaultSettings(m_onetime_profile->settings());
+    // onetime_profile->setSpellCheckEnabled(false); // setting to false actually generates warnings!
+    m_onetime_profile->settings()->setDefaultTextEncoding("UTF-8");  
+    m_onetime_profile->settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessFileUrls, true);
+    m_onetime_profile->settings()->setAttribute(QWebEngineSettings::PluginsEnabled, true);
+    m_onetime_profile->settings()->setAttribute(QWebEngineSettings::PdfViewerEnabled, true);
+    
+    // Unfortunately the PdfView used for PdfTab now requires both java and LocalStorage work
+    m_onetime_profile->settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, (ss.javascriptOn() == 1));
+    m_onetime_profile->settings()->setAttribute(QWebEngineSettings::LocalStorageEnabled, true);
+
+    // Use URLInterceptor for protection
+    m_onetime_profile->setUrlRequestInterceptor(m_URLint);
+
+
+    // Create Shared Inspector Profile
+    // -------------------------------
+#if QT_VERSION < QT_VERSION_CHECK(6, 9, 0)
+    m_inspector_profile = new QWebEngineProfile();
+    m_inspector_profile->setPersistentStoragePath(m_devtools_storage_path);
+#else
+    QWebEngineProfileBuilder pb2;
+    pb2.setCachePath(InspectorCachePath);
+    pb2.setHttpCacheMaximumSize(0); // 0 - means let Qt control it
+    pb2.setHttpCacheType(QWebEngineProfile::DiskHttpCache);
+    pb2.setPersistentCookiesPolicy(QWebEngineProfile::NoPersistentCookies);
+    pb2.setPersistentPermissionsPolicy(QWebEngineProfile::PersistentPermissionsPolicy::StoreOnDisk);
+    pb2.setPersistentStoragePath(m_devtools_storage_path);
+    if (first_instance) {
+        m_inspector_profile = pb2.createProfile("Inspector", nullptr);
+    } else {
+        m_inspector_profile = QWebEngineProfileBuilder::createOffTheRecordProfile(nullptr);
+    }
+    // handle possible nullptr return by creating a off the record profile
+    if (!m_inspector_profile) {
+        m_inspector_profile = QWebEngineProfileBuilder::createOffTheRecordProfile(nullptr);
+    }
+#endif
+
+    InitializeDefaultSettings(m_inspector_profile->settings());
+    m_inspector_profile->settings()->setDefaultTextEncoding("UTF-8");  
+    m_inspector_profile->settings()->setAttribute(QWebEngineSettings::LocalStorageEnabled, true);
+    m_inspector_profile->settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessFileUrls, true);
+    m_inspector_profile->settings()->setAttribute(QWebEngineSettings::ErrorPageEnabled,true);
+    m_inspector_profile->settings()->setAttribute(QWebEngineSettings::PluginsEnabled, true);
+    m_inspector_profile->settings()->setAttribute(QWebEngineSettings::PdfViewerEnabled, true);
+    m_inspector_profile->settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, true);
+    m_inspector_profile->settings()->setAttribute(QWebEngineSettings::JavascriptCanOpenWindows, true);
+    m_inspector_profile->settings()->setAttribute(QWebEngineSettings::LocalContentCanAccessRemoteUrls, true);
+    m_inspector_profile->settings()->setAttribute(QWebEngineSettings::FocusOnNavigationEnabled, false);
+    m_inspector_profile->settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, true);
+    m_inspector_profile->settings()->setAttribute(QWebEngineSettings::JavascriptCanOpenWindows, true);
+    m_inspector_profile->settings()->setAttribute(QWebEngineSettings::JavascriptCanAccessClipboard, true);
+    m_inspector_profile->settings()->setAttribute(QWebEngineSettings::AllowWindowActivationFromJavaScript, true);
+    m_inspector_profile->settings()->setAttribute(QWebEngineSettings::JavascriptCanPaste, true);
+    // Use both our URLInterceptor and our URLSchemeHandler
+    m_inspector_profile->installUrlSchemeHandler("sigil", m_URLhandler);
+    m_inspector_profile->setUrlRequestInterceptor(m_URLint);
+    m_inspector_profile->clearHttpCache();
+}
