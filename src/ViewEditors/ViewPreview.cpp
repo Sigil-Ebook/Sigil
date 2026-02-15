@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2025 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2019-2023 Doug Massay
 **
 **  This file is part of Sigil.
@@ -47,7 +47,7 @@
 #include "ViewEditors/ViewPreview.h"
 #include "ViewEditors/Overlay.h"
 
-#define DBG if(1)
+#define DBG if(0)
 
 const QString SET_CURSOR_JS2 =
     "var range = document.createRange();"
@@ -301,7 +301,7 @@ QString ViewPreview::GetHTML() const
 
 QVariant ViewPreview::EvaluateJavascript(const QString &javascript)
 {
-    qDebug() << "EvaluateJavascript: " << m_isLoadFinished;
+    DBG qDebug() << "EvaluateJavascript: " << m_isLoadFinished;
 
     // do not try to evaluate javascripts with the page not loaded yet
     if (!m_isLoadFinished) return QVariant();
@@ -417,7 +417,7 @@ QList<ElementIndex> ViewPreview::GetCaretLocation()
 #endif
     // The location element hierarchy encoded in a string
     QString location_string = EvaluateJavascript(c_GetCaretLocation).toString();
-    qDebug() << "ViewPreview GetCaretLocation: " << location_string;
+    DBG qDebug() << "ViewPreview GetCaretLocation: " << location_string;
     return ConvertQWebPathToHierarchy(location_string);
 }
 
@@ -552,7 +552,7 @@ void ViewPreview::ClearWebCache()
     // QString html = "<html><head><title>blank<title></head><body></body></html>";
     // setHtml(html);
 
-    qDebug() <<  "clearing Preview's httpcache";
+    DBG qDebug() <<  "clearing Preview's httpcache";
 
 #if QT_VERSION >= QT_VERSION_CHECK(6, 7, 0)
     page()->profile()->clearAllVisitedLinks();
@@ -568,7 +568,7 @@ void ViewPreview::ClearWebCache()
 void ViewPreview::ContinueCustomLoadAfterClear()
 {
     if (m_using_cache_clear) {
-        qDebug() <<  "Preview's httpcache was cleared";
+        DBG qDebug() <<  "Preview's httpcache was cleared";
         m_using_cache_clear = false;
     }
 
@@ -602,7 +602,7 @@ void ViewPreview::ContinueCustomLoadAfterClear()
 
 void ViewPreview::ConnectSignalsToSlots()
 {
-    qDebug() << "In ViewPreview ConnectSignalsToSlots";
+    DBG qDebug() << "In ViewPreview ConnectSignalsToSlots";
     connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(UpdateFinishedState(bool)));
     connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(WebPageJavascriptOnLoad()));
     connect(page(), SIGNAL(loadStarted()), this, SLOT(LoadingStarted()));

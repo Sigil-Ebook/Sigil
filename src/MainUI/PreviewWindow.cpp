@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2025  Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2019-2025  Doug Massay
+**  Copyright (C) 2015-2026  Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2019-2026  Doug Massay
 **  Copyright (C) 2012       Dave Heiland, John Schember
 **
 **  This file is part of Sigil.
@@ -599,7 +599,7 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
           const QMouseEvent *mouseEvent(static_cast<QMouseEvent*>(event));
           if (mouseEvent) {
               if (mouseEvent->button() == Qt::LeftButton) {
-                  qDebug() << "Detected Left Mouse Button Press Event";
+                  DBG qDebug() << "Detected Left Mouse Button Press Event";
                   QString hoverurl = m_Preview->GetHoverUrl();
                   if (hoverurl.isEmpty()) {
                        DBG qDebug() << "emitting GoToPreviewLocationRequest";
@@ -640,7 +640,7 @@ bool PreviewWindow::eventFilter(QObject *object, QEvent *event)
           const QMouseEvent *mouseEvent(static_cast<QMouseEvent*>(event));
           if (mouseEvent) {
               if (mouseEvent->button() == Qt::LeftButton) {
-                  qDebug() << "Detected Left Mouse Button Release Event";
+                  DBG qDebug() << "Detected Left Mouse Button Release Event";
               }
           }
       }

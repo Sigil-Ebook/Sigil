@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2015-2025 Doug Massay
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2026 Doug Massay
 **  Copyright (C) 2012-2015 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
@@ -5002,7 +5002,7 @@ void MainWindow::UpdatePreview()
 
     m_PreviewTimer.stop();
 
-    qDebug() << "MW: UpdatePreview()";
+    DBG qDebug() << "MW: UpdatePreview()";
 
     QString text;
     QList<ElementIndex> location;
@@ -5015,7 +5015,7 @@ void MainWindow::UpdatePreview()
         if (m_SaveTab) {
             m_SaveTab = false;
             tab->SaveTabContent();
-            qDebug() << "MW: UpdatePreview requested from CSS or SVG - saving tab content";
+            DBG qDebug() << "MW: UpdatePreview requested from CSS or SVG - saving tab content";
             m_PreviewWindow->setCacheClearNeeded();
         }
 
@@ -5025,7 +5025,7 @@ void MainWindow::UpdatePreview()
 
         // handles all cases of non-html resource in front tab
         if (!html_resource) {
-            qDebug() << "MW: UpdatePreview to non-html resource, using Previous";
+            DBG qDebug() << "MW: UpdatePreview to non-html resource, using Previous";
             // note: must handle case of m_PreviousHTMLResource being deleted by user
             // see RemoveResources()
             html_resource = m_PreviousHTMLResource;
@@ -5040,24 +5040,24 @@ void MainWindow::UpdatePreview()
                 // signals are sent that it has changed which requests Preview to update
                 // so these need to be ignored.  Once the document is loaded it signals again.
                 if (!flow_tab->IsLoadingFinished()) {
-                    qDebug() << "Flow Tab IsLoadingFinished returned false";
+                    DBG qDebug() << "Flow Tab IsLoadingFinished returned false";
                     return;
                 }
                 text = flow_tab->GetText();
                 location = flow_tab->GetCaretLocation();
-                qDebug() << "MW: UpdatePreview using flow_tab Caret Location";
+                DBG qDebug() << "MW: UpdatePreview using flow_tab Caret Location";
             } else {
                 text = m_PreviousHTMLText;
                 if (m_PreviousHTMLResource) {
                     location = m_PreviewWindow->GetCaretLocation();
                     if (location.isEmpty()) {
                         location = m_PreviousHTMLLocation;
-                        qDebug() << " *** call to GetCaretLocation returned as empty ***";
+                        DBG qDebug() << " *** call to GetCaretLocation returned as empty ***";
                     }
-                    qDebug() << "MW: UpdatePreview using current PreviewWindow location";
+                    DBG qDebug() << "MW: UpdatePreview using current PreviewWindow location";
                 } else {
                     location = m_PreviousHTMLLocation;
-                    qDebug() << "MW: UpdatePreview using m_PreviousHTMLLocation location";
+                    DBG qDebug() << "MW: UpdatePreview using m_PreviousHTMLLocation location";
                 }
 
             }
@@ -5065,21 +5065,12 @@ void MainWindow::UpdatePreview()
             m_PreviousHTMLText = text;
             m_PreviousHTMLLocation = location;
 
-            if (m_PreviousHTMLResource) {
-	            qDebug() << "Caching: " << m_PreviousHTMLResource->GetRelativePath();
-                foreach(ElementIndex ei, m_PreviousHTMLLocation) {
-                    qDebug()<< "     name: " << ei.name << " index: " << ei.index;
-                }
-	    }
-
-            qDebug() << "MW: Invoking UpdatePage with: " << html_resource->GetRelativePath();
-            foreach(ElementIndex ei, location) {
-                qDebug()<< "     name: " << ei.name << " index: " << ei.index;
-            }
+            DBG qDebug() << "MW: Invoking UpdatePage with: " << html_resource->GetRelativePath();
+            DBG { foreach(ElementIndex ei, location) qDebug()<< "     name: " << ei.name << " index: " << ei.index;}
 
             bool res = m_PreviewWindow->UpdatePage(html_resource->GetFullPath(), text, location);
             if (!res) {
-                qDebug() << "UpdatePage returned false! - retry";
+                DBG qDebug() << "UpdatePage returned false! - retry";
                 m_PreviewTimer.start();
             }
         }
