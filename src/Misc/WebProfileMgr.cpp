@@ -66,7 +66,7 @@ QWebEngineProfile*  WebProfileMgr::GetPreviewProfile()
     preview_profile->setPersistentStoragePath(m_local_storage_path);
 #else
     QWebEngineProfileBuilder pb;
-    pb.setHttpCacheMaximumSize(500000); // 0 - means let Qt control it
+    pb.setHttpCacheMaximumSize(100000); // 0 - means let Qt control it
     pb.setHttpCacheType(QWebEngineProfile::MemoryHttpCache);
     pb.setPersistentCookiesPolicy(QWebEngineProfile::NoPersistentCookies);
     pb.setPersistentPermissionsPolicy(QWebEngineProfile::PersistentPermissionsPolicy::StoreOnDisk);
@@ -118,7 +118,7 @@ QWebEngineProfile*  WebProfileMgr::GetInspectorProfile()
     inspector_profile->setPersistentStoragePath(m_devtools_storage_path);
 #else
     QWebEngineProfileBuilder pb2;
-    pb2.setHttpCacheMaximumSize(500000); // 0 - means let Qt control it
+    pb2.setHttpCacheMaximumSize(100000); // 0 - means let Qt control it
     pb2.setHttpCacheType(QWebEngineProfile::MemoryHttpCache);
     pb2.setPersistentCookiesPolicy(QWebEngineProfile::NoPersistentCookies);
     pb2.setPersistentPermissionsPolicy(QWebEngineProfile::PersistentPermissionsPolicy::StoreOnDisk);
@@ -153,6 +153,7 @@ QWebEngineProfile*  WebProfileMgr::GetInspectorProfile()
     // Use both our URLInterceptor and our URLSchemeHandler
     inspector_profile->installUrlSchemeHandler("sigil", m_URLhandler);
     inspector_profile->setUrlRequestInterceptor(m_URLint);
+    inspector_profile->clearHttpCache();
 
     return inspector_profile;
 }
@@ -180,7 +181,7 @@ QWebEngineProfile* WebProfileMgr::GetOneTimeProfile()
     // Unfortunately the PdfView used for PdfTab now requires both java and LocalStorage work
     onetime_profile->settings()->setAttribute(QWebEngineSettings::JavascriptEnabled, (ss.javascriptOn() == 1));
     onetime_profile->settings()->setAttribute(QWebEngineSettings::LocalStorageEnabled, true);
-    // onetime_profile->setPersistentStoragePath(m_local_storage_path);
+    onetime_profile->setPersistentStoragePath(m_onetime_storage_path);
 
     // Use URLInterceptor for protection
     onetime_profile->setUrlRequestInterceptor(m_URLint);
@@ -229,21 +230,24 @@ WebProfileMgr::WebProfileMgr()
 
     SettingsStore ss;
 
-    // create local storage path if needed
-    QString localStorePath = Utility::DefinePrefsDir() + "/local-storage/";
-    QDir storageDir(localStorePath);
+    // create local storage path for preview if needed
+    m_local_storage_path = Utility::DefinePrefsDir() + "/local-storage/";
+    QDir storageDir(m_local_storage_path);
     if (!storageDir.exists()) {
-        storageDir.mkpath(localStorePath);
+        storageDir.mkpath(m_local_storage_path);
     }
-    m_local_storage_path = localStorePath;
-    
     // create devtools storage path if needed
-    QString devToolsStorePath = Utility::DefinePrefsDir() + "/local-devtools/";
-    QDir devstorageDir(devToolsStorePath);
+    m_devtools_storage_path = Utility::DefinePrefsDir() + "/local-devtools/";
+    QDir devstorageDir(m_devtools_storage_path);
     if (!devstorageDir.exists()) {
-        devstorageDir.mkpath(devToolsStorePath);
+        devstorageDir.mkpath(m_devtools_storage_path);
     }
-    m_devtools_storage_path = devToolsStorePath;
+    // create onetime storage path if needed
+    QString m_onetime_storage_path = Utility::DefinePrefsDir() + "/local-onetime/";
+    QDir onestorageDir(m_onetime_storage_path);
+    if (!onestorageDir.exists()) {
+        onestorageDir.mkpath(m_onetime_storage_path);
+    }
     
     // Default Profile
     // ---------------

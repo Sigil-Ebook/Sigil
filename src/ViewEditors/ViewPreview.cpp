@@ -529,12 +529,23 @@ void ViewPreview::ClearWebCache()
     disconnect(page(), SIGNAL(loadFinished(bool)), this, SLOT(WebPageJavascriptOnLoad()));
     disconnect(page(), SIGNAL(LinkClicked(const QUrl &)), this, SIGNAL(LinkClicked(const QUrl &)));
     disconnect(page(), SIGNAL(linkHovered(const QString &)), this, SLOT(LinkHovered(const QString &)));
-    // to force a true fresh load (nothing cached or leftover used)  we need to setUrl
-    // to QUrl("") first before the clear - but I have no idea why this is needed
-    // but all tests show it is needed!
-    setUrl(QUrl(""));
+    { 
+        // to force a true fresh load (absolutely nothing cached or leftover used)  we need to
+        // setUrl(QUrl("")) first before the cache clear - but I have no idea why this is needed!
+        // Do this safely without messing up the remainder of ViewPreview's load tracking logic
+        QEventLoop loop;
+        connect(page(), &QWebEnginePage::loadFinished, &loop, &QEventLoop::quit, Qt::QueuedConnection);
+        setUrl(QUrl(""));
+        loop.exec(QEventLoop::ExcludeUserInputEvents);
+    }
+    connect(page(), SIGNAL(loadStarted()), this, SLOT(LoadingStarted()));
+    connect(page(), SIGNAL(loadProgress(int)), this, SLOT(LoadingProgress(int)));
+    connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(UpdateFinishedState(bool)));
+    connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(WebPageJavascriptOnLoad()));
+    connect(page(), SIGNAL(LinkClicked(const QUrl &)), this, SIGNAL(LinkClicked(const QUrl &)));
+    connect(page(), SIGNAL(linkHovered(const QString &)), this, SLOT(LinkHovered(const QString &)));
     
-    // tried the following but the entire cache did not clear
+    // tried the following but the entire cache still did not clear
     // QString html = "<html><head><title>blank<title></head><body></body></html>";
     // setHtml(html);
 
@@ -558,13 +569,6 @@ void ViewPreview::ContinueCustomLoadAfterClear()
     m_CacheCleared = true;
     qDebug() <<  "Preview's httpcache was cleared";
 
-    connect(page(), SIGNAL(loadStarted()), this, SLOT(LoadingStarted()));
-    connect(page(), SIGNAL(loadProgress(int)), this, SLOT(LoadingProgress(int)));
-    connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(UpdateFinishedState(bool)));
-    connect(page(), SIGNAL(loadFinished(bool)), this, SLOT(WebPageJavascriptOnLoad()));
-    connect(page(), SIGNAL(LinkClicked(const QUrl &)), this, SIGNAL(LinkClicked(const QUrl &)));
-    connect(page(), SIGNAL(linkHovered(const QString &)), this, SLOT(LinkHovered(const QString &)));
-    
     // Sigil may explode if there is no xmlns
     // on the <html> element. So we will silently add it if needed to ensure
     // no errors occur, to allow loading of html documents created outside of

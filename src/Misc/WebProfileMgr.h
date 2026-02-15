@@ -56,6 +56,7 @@ private:
 
     QString m_local_storage_path;
     QString m_devtools_storage_path;
+    QString m_onetime_storage_path;
     static WebProfileMgr *m_instance;
 };
 
