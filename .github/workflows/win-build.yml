@@ -76,14 +76,14 @@ jobs:
         python -m pip install --upgrade pip
         pip install six==1.17.0
         pip install html5lib==1.1
-        pip install regex==2025.11.3
+        pip install regex==2026.1.15
         pip install css-parser==1.0.10
-        pip install cssselect==1.3.0
+        pip install cssselect==1.4.0
         pip install urllib3==2.6.3
-        pip install certifi==2025.11.12
-        pip install dulwich==0.25.0
+        pip install certifi==2026.1.4
+        pip install dulwich==1.0.0
         pip install chardet==5.2.0
-        pip install pillow==12.0.0
+        pip install pillow==12.1.0
         pip install lxml==6.0.2
         pip install shiboken6==6.10.2
         pip install PySide6==6.10.2
