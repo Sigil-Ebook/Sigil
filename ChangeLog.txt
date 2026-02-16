@@ -12,6 +12,7 @@ Sigil-2.7.5
      - fix typo and duplication in plugin support routine hrefutils.py
      - fix bug in media-type assignment for smil files in PluginRunner
      - adapt python3lib/repomanagercode.py to recent changes in dulwich that broke backwards compatibility
+     - fix Preview sync to location bug when actively editing svg, css, js
 
      
    New Features
@@ -28,6 +29,7 @@ Sigil-2.7.5
      - converted ClipboardHistorySelector dialog to be non-modal, auto updating, with min button
      - converted MDViewer (GetInfo) to be non-modal and work with multiple BookBrowser selections
      - add status message when updating Validation result
+     - redesign how web cache profiles are used and cleared to improve stability and speed
 
 
 Sigil- 2.7.0
