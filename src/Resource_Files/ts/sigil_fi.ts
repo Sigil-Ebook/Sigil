@@ -12229,15 +12229,15 @@ Ensimmäiseksi mainituilla tyyliohjeilla on suurempi prioriteetti kuin myöhemmi
         <location filename="../../MainUI/MainWindow.cpp" line="3759"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3791"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3990"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5175"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5216"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5222"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5228"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5454"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5474"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5531"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5795"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6001"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5184"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5225"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5231"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5237"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5466"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5486"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5543"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5807"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6013"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -12258,17 +12258,17 @@ Tätä toimenpidettä ei voi peruuttaa.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="874"/>
         <location filename="../../MainUI/MainWindow.cpp" line="876"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5529"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5531"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5999"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6001"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5541"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5543"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6011"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6013"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] - epub%2 - %3</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="874"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5529"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5999"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5541"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6011"/>
         <source>Sigil [std]</source>
         <translation>Sigil [std]</translation>
     </message>
@@ -12859,64 +12859,64 @@ Tätä toimenpidettä ei voi peruuttaa.</translation>
         <translation>Tämä EPUB ei sisällä CSS-tyylitaulukoita, jotka pitäisi muotoilla uudelleen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5087"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5096"/>
         <source>%1 (%2) - Line: %3, Col: %4</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5175"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5184"/>
         <source>File cannot be split at this position.</source>
         <translation>Tiedostoa ei voida jakaa tästä kohdasta.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5198"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5207"/>
         <source>Split completed.</source>
         <translation>Jako suoritettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5216"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5225"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>Ei voi jakaa, koska ainakin yksi tiedoista ei ole HTML-tiedosto.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5222"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5231"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>Ei voi jakaa: %1 XML ei ole oikeamuotoista</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5228"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5237"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>Ei voi jakaa, koska ainakin yksi tiedoista ei ehkä ole HTML-tiedosto.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5261"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5270"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Jako tehty. Sisällysluettelon uudelleen luominen voi olla tarpeellista.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5263"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5272"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>Jakokohtamerkintöjä ei löytynyt. Käytä komentoa Lisää → Jakokohta.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5455"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5467"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>Dokumenttia on muutettu.
 Haluatko tallentaa muutoksesi?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5476"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5488"/>
         <source>Should Sigil overwrite this file?</source>
         <translation>Pitäisikö Sigilin korvata tämä tiedosto?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5671"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5683"/>
         <source>No importer for file type: %1</source>
         <translation>Ei tuontiohjelmaa tyyppiä ”%1” olevalle tiedostolle</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5678"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5690"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -12929,44 +12929,44 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
 Kokeile, auttaako tähän se, että teet yleisissä asetuksissa asetuksen ”Korjaa XHTML-lähdekoodi, kun toiminto on Avaa” ja avaat tiedoston uudestaan.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5683"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5695"/>
         <source>Loading file...</source>
         <translation>Ladataan tiedostoa...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5697"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5709"/>
         <source>File loaded.</source>
         <translation>Tiedosto ladattu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5723"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5735"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Tämän tiedoston tuottaja on salannut sen DRM:llä. Sigil ei voi avata sellaisia tiedostoja.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5731"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5743"/>
         <source>Cannot load EPUB: %1</source>
         <translation>Kirjaa ei voi ladata: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5736"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5748"/>
         <source>Cannot load file %1: %2</source>
         <translation>Ei voi ladata tiedostoa %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5763"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5775"/>
         <source>Saving EPUB...</source>
         <translation>Kirjaa tallennetaan...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5772"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5784"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil ei voi tallentaa tyyppiä ”%1” olevia tiedostoja.
 Valitse toinen muoto.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5796"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5808"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to mend on Save.
 
 Do you want to automatically mend the files before saving? Or cancel the Save?</source>
@@ -12975,94 +12975,94 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 Haluatko korjata tiedostot automaattisesti ennen tallentamista? Tai peruuttaa Tallennuksen?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5801"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5813"/>
         <source>Saving EPUB... cancelled</source>
         <translation>EPUB tallennus... peruutettu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5827"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5839"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>Kirja on tallennettu, mutta kaikki HTML-tiedostot eivät ole oikeamuotoisia.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5829"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5841"/>
         <source>EPUB saved.</source>
         <translation>Kirja tallennettu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5835"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5847"/>
         <source>Cannot save file %1: %2</source>
         <translation>Ei voi tallentaa tiedostoa %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5968"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5980"/>
         <source>EPUB files (*.epub)</source>
         <translation>Epub-tiedostot (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5969"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5970"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5971"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5981"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5982"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5983"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>HTML-tiedostot (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5972"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5984"/>
         <source>Text files (*.txt)</source>
         <translation>Tekstitiedostot (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5973"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5985"/>
         <source>All files (*.*)</source>
         <translation>Kaikki tiedostot (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5981"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5993"/>
         <source>EPUB file (*.epub)</source>
         <translation>Epub-tiedosto (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6083"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6095"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>Säilytä olemassaolevat otsikoiden määritteet on nyt:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6084"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6096"/>
         <source>ON</source>
         <translation>ON</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6084"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6096"/>
         <source>OFF</source>
         <translation>EI</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6109"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6121"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7079"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7091"/>
         <source>Focus changed to CodeView window.</source>
         <translation>Keskitys vaihdettiin koodi-ikkunaan.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7088"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7100"/>
         <source>Focus changed to BookBrowser window.</source>
         <translation>Keskitys vaihdettiin kirjan selainikkunaan.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7097"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7109"/>
         <source>Focus changed to Preview window.</source>
         <translation>Keskitys vaihdettiin esikatselu-ikkunaan.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7106"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7118"/>
         <source>Focus changed to Table Of Contents window.</source>
         <translation>Keskitys vaihdettiin sisällysluettelo-ikkunaan.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7115"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7127"/>
         <source>Focus changed to Clips window.</source>
         <translation>Keskitys vaihdettiin leikeikkunaan.</translation>
     </message>
@@ -18112,8 +18112,8 @@ Viittaukset voidaan erottaa rivinvaihdoilla, pilkuilla tai välilyönneillä.</t
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="73"/>
         <location filename="../../MainUI/PreviewWindow.cpp" line="99"/>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="471"/>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="479"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="472"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="480"/>
         <source>Preview</source>
         <translation>Esikatselu</translation>
     </message>

@@ -12208,15 +12208,15 @@ I fogli di stile che vengono elencati per primi hanno la precedenza sui successi
         <location filename="../../MainUI/MainWindow.cpp" line="3759"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3791"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3990"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5175"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5216"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5222"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5228"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5454"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5474"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5531"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5795"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6001"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5184"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5225"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5231"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5237"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5466"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5486"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5543"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5807"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6013"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -12237,17 +12237,17 @@ Questa azione non può essere annullata.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="874"/>
         <location filename="../../MainUI/MainWindow.cpp" line="876"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5529"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5531"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5999"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6001"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5541"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5543"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6011"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6013"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] - epub%2 - %3</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="874"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5529"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5999"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5541"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6011"/>
         <source>Sigil [std]</source>
         <translation>Sigil [std]</translation>
     </message>
@@ -12259,17 +12259,17 @@ Questa azione non può essere annullata.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="894"/>
         <source>Bulk rename cancelled: %1, XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Rinominazione in blocco annullata: %1, XML non ben formato.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="903"/>
         <source>Bulk rename cancelled: %1, OPF not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Rinominazione in blocco annullata: %1, OPF non ben formato.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="972"/>
         <source>Bulk rename completed.</source>
-        <translation type="unfinished"/>
+        <translation>Rinominazione in blocco completata.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="984"/>
@@ -12366,7 +12366,7 @@ Questa azione non può essere annullata.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1388"/>
         <source>Description Edit Failed for unknown reason</source>
-        <translation type="unfinished"/>
+        <translation>Modifica della Descrizione non riuscita per motivi sconosciuti</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1394"/>
@@ -12557,7 +12557,7 @@ Questa azione non può essere annullata.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2671"/>
         <source>OPF Manifest Mimetypes Updated.</source>
-        <translation type="unfinished"/>
+        <translation>Mimetypes del Manifesto OPF Aggiornate.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2680"/>
@@ -12838,64 +12838,64 @@ Questa azione non può essere annullata.</translation>
         <translation>Questo EPUB non contiene alcun foglio di stile CSS da riformattare.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5087"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5096"/>
         <source>%1 (%2) - Line: %3, Col: %4</source>
         <translation>%1 (%2) - Riga: %3, Col: %4</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5175"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5184"/>
         <source>File cannot be split at this position.</source>
         <translation>Il file non può essere diviso in questa posizione.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5198"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5207"/>
         <source>Split completed.</source>
         <translation>Divisione completata.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5216"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5225"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>Impossibile dividere perché almeno un file non è un file HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5222"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5231"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>Impossibile dividere: %1 XML non è ben formato</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5228"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5237"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>Impossibile dividere perché almeno un file potrebbe non essere un file HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5261"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5270"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Divisione completata. Bisogna aggiornare la Tavola dei Contenuti (TOC).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5263"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5272"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>Nessun marcatore di divisione trovato. Utilizza Inserisci-&gt;Marcatore di Divisione.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5455"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5467"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>Il documento è stato modificato.
 Vuoi salvare le modifiche?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5476"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5488"/>
         <source>Should Sigil overwrite this file?</source>
         <translation>Sigil deve sovrascrivere questo file?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5671"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5683"/>
         <source>No importer for file type: %1</source>
         <translation>Nessun tipo di importatore per il file: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5678"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5690"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -12908,44 +12908,44 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
 Prova ad impostare le preferenze di Pulizia Sorgente per Riparare il Codice Sorgente XHTML all&apos;Apertura e ricarica il file.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5683"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5695"/>
         <source>Loading file...</source>
         <translation>Caricamento file...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5697"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5709"/>
         <source>File loaded.</source>
         <translation>File caricato.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5723"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5735"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Il creatore di questo file lo ha protetto con il DRM. Sigil non può aprire questi file.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5731"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5743"/>
         <source>Cannot load EPUB: %1</source>
         <translation>Impossibile caricare l&apos;EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5736"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5748"/>
         <source>Cannot load file %1: %2</source>
         <translation>Impossibile caricare il file %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5763"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5775"/>
         <source>Saving EPUB...</source>
         <translation>Salvataggio EPUB...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5772"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5784"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil non può salvare i file di tipo &quot;%1&quot;.
 Scegli un formato differente.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5796"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5808"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to mend on Save.
 
 Do you want to automatically mend the files before saving? Or cancel the Save?</source>
@@ -12954,94 +12954,94 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 Desideri correggere automaticamente i file prima di salvarli? Oppure annullare il salvataggio?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5801"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5813"/>
         <source>Saving EPUB... cancelled</source>
         <translation>Salvataggio EPUB... annullato</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5827"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5839"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>EPUB salvato, ma non tutti i file HTML sono ben formati.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5829"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5841"/>
         <source>EPUB saved.</source>
         <translation>EPUB salvato.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5835"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5847"/>
         <source>Cannot save file %1: %2</source>
         <translation>Impossibile salvare il file %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5968"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5980"/>
         <source>EPUB files (*.epub)</source>
         <translation>File EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5969"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5970"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5971"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5981"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5982"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5983"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>File HTML (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5972"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5984"/>
         <source>Text files (*.txt)</source>
         <translation>File di testo (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5973"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5985"/>
         <source>All files (*.*)</source>
         <translation>Tutti i file (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5981"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5993"/>
         <source>EPUB file (*.epub)</source>
         <translation>File EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6083"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6095"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>Mantieni gli attuali attributi del titolo è ora:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6084"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6096"/>
         <source>ON</source>
         <translation>ON</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6084"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6096"/>
         <source>OFF</source>
         <translation>OFF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6109"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6121"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7079"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7091"/>
         <source>Focus changed to CodeView window.</source>
         <translation>Fuoco cambiato sulla finestra vista codice</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7088"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7100"/>
         <source>Focus changed to BookBrowser window.</source>
         <translation>Fuoco cambiato sulla finestra di esplorazione del libro</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7097"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7109"/>
         <source>Focus changed to Preview window.</source>
         <translation>Fuoco sulla finestra dell&apos;anteprima</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7106"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7118"/>
         <source>Focus changed to Table Of Contents window.</source>
         <translation> Fuoco cambiato sulla finestra dell&apos;indice dei contenuti</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7115"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7127"/>
         <source>Focus changed to Clips window.</source>
         <translation>Fuoco cambiato sulla finestra degli appunti</translation>
     </message>
@@ -13081,7 +13081,7 @@ Desideri correggere automaticamente i file prima di salvarli? Oppure annullare i
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="64"/>
         <source>Rename a selected list.</source>
-        <translation type="unfinished"/>
+        <translation>Rinomina un elenco selezionato.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="67"/>
@@ -15945,7 +15945,7 @@ eseguito il fac-simile.</translation>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="171"/>
         <source>Add Property to element</source>
-        <translation type="unfinished"/>
+        <translation>Aggiungi Proprietà all&apos;elemento</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="172"/>
@@ -15966,7 +15966,7 @@ eseguito il fac-simile.</translation>
         <location filename="../../Dialogs/MetaEditor.cpp" line="488"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="579"/>
         <source>Add Metadata Element</source>
-        <translation type="unfinished"/>
+        <translation>Aggiungi Metadati all&apos;elemento</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="497"/>
@@ -16057,7 +16057,7 @@ eseguito il fac-simile.</translation>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="663"/>
         <source>Add Property to Element</source>
-        <translation type="unfinished"/>
+        <translation>Aggiungi Proprietà all&apos;Elemento</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="721"/>
@@ -16089,7 +16089,7 @@ eseguito il fac-simile.</translation>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="752"/>
         <source>Add Propety to Element</source>
-        <translation type="unfinished"/>
+        <translation>Aggiungi Proprietà all&apos;Elemento</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="786"/>
@@ -16715,7 +16715,7 @@ eseguito il fac-simile.</translation>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1084"/>
         <source>Identifier Scheme: International Standard Book Number</source>
-        <translation type="unfinished"/>
+        <translation>Schema di identificazione: International Standard Book Number - ISBN</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1085"/>
@@ -16726,7 +16726,7 @@ eseguito il fac-simile.</translation>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1085"/>
         <source>Identifier Scheme: International Standard Serial Number</source>
-        <translation type="unfinished"/>
+        <translation>Schema di identificazione: International Standard Book Number - ISBN</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1086"/>
@@ -16737,7 +16737,7 @@ eseguito il fac-simile.</translation>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1086"/>
         <source>Identifier Scheme: Universally Unique Identifier</source>
-        <translation type="unfinished"/>
+        <translation>Schema d&apos;identificazione: Identificatore Unico Universale (UUI)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1087"/>
@@ -16747,7 +16747,7 @@ eseguito il fac-simile.</translation>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1087"/>
         <source>Identifier Scheme: Amazon Unique Identifier</source>
-        <translation type="unfinished"/>
+        <translation>Schema d&apos;identificazione: Amazon Unique Identifier</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1116"/>
@@ -18090,8 +18090,8 @@ Le entità possono essere separate da linee, virgole o spazi.</translation>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="73"/>
         <location filename="../../MainUI/PreviewWindow.cpp" line="99"/>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="471"/>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="479"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="472"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="480"/>
         <source>Preview</source>
         <translation>Anteprima</translation>
     </message>
