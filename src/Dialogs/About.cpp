@@ -38,7 +38,6 @@ About::About(QWidget *parent)
     : QDialog(parent)
 {
     ui.setupUi(this);
-    setWindowFlags(windowFlags() & ~Qt::WindowMinimizeButtonHint);
     ui.lbHomepageDisplay->setText("<a href=\"" % SIGIL_HOMEPAGE % "\">" % SIGIL_HOMEPAGE % "</a>");
     ui.lbLicenseDisplay->setText("<a href=\"" % GNU_LICENSE % "\">" % tr("GNU General Public License v3") % "</a>");
     ui.lbBuildTimeDisplay->setText(GetUTCBuildTime().toString("yyyy.MM.dd HH:mm:ss") + " UTC");
