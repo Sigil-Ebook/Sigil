@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2009, 2010, 2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
 **
@@ -37,6 +38,7 @@ About::About(QWidget *parent)
     : QDialog(parent)
 {
     ui.setupUi(this);
+    setWindowFlags(windowFlags() & ~Qt::WindowMinimizeButtonHint);
     ui.lbHomepageDisplay->setText("<a href=\"" % SIGIL_HOMEPAGE % "\">" % SIGIL_HOMEPAGE % "</a>");
     ui.lbLicenseDisplay->setText("<a href=\"" % GNU_LICENSE % "\">" % tr("GNU General Public License v3") % "</a>");
     ui.lbBuildTimeDisplay->setText(GetUTCBuildTime().toString("yyyy.MM.dd HH:mm:ss") + " UTC");
@@ -48,17 +50,18 @@ About::About(QWidget *parent)
                            .arg(mo.captured(2).toInt())
                            .arg(mo.captured(3).toInt());
     ui.lbVersionDisplay->setText(version_text);
-    QString credits = "<h4>" + tr("Maintainer(s)") + "</h4>" +
+    QString credits = "<h4>" + tr("Developers(s)") + "</h4>" +
                       "<ul>" +
                       "<li>Kevin Hendricks</li>" +
                       "<li>Doug Massay</li>" +
                       "</ul>" +
-                      "<h4>" + tr("Previous Maintainer(s)") + "</h4>" +
+                      "<h4>" + tr("Previous Developer(s)") + "</h4>" +
                       "<ul>" +
                       "<li>John Schember</li>" +
                       "</ul>" +
                       "<h4>" + tr("Code Contributors") + "</h4>" +
                       "<ul>" +
+                      "<li>BeckyEbook</li>" +
                       "<li>Grant Drake</li>" +
                       "<li>Dave Heiland</li>" +
                       "<li>Charles King</li>" +
