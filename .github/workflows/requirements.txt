@@ -6,7 +6,6 @@ cssselect==1.4.0
 certifi==2026.1.4
 dulwich==1.0.0
 chardet==5.2.0
-pillow==12.2.0
+pillow==12.1.0
 lxml==6.0.2
 PySide6==6.10.2
-
