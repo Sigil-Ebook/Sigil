@@ -1818,7 +1818,6 @@ void MainWindow::ResourceUpdatedFromDisk(Resource *resource)
     SettingsStore ss;
     QString message = QString(tr("File")) + " " + resource->ShortPathName() + " " + tr("was updated") + ".";
     int duration = 10000;
-
     if (resource->Type() == Resource::HTMLResourceType) {
         HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
         if (!m_Book->IsDataOnDiskWellFormed(html_resource)) {
@@ -1827,7 +1826,8 @@ void MainWindow::ResourceUpdatedFromDisk(Resource *resource)
             duration = 20000;
         }
     }
-
+    // we should force a cache clear so that the external file changes appear
+    if (m_PreviewWindow) m_PreviewWindow->setCacheClearNeeded();
     ShowMessageOnStatusBar(message, duration);
 }
 
