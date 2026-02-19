@@ -5,7 +5,6 @@ except ImportError as e:
 import sys
 from collections import OrderedDict
 
-from pdb import set_trace
 import re
 import warnings
 from sigil_bs4.dammit import EntitySubstitution

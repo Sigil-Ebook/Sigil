@@ -5,7 +5,6 @@ __all__ = [
     'HTML5TreeBuilder',
     ]
 
-from pdb import set_trace
 import warnings
 from sigil_bs4.builder import (
     PERMISSIVE,

@@ -8,7 +8,6 @@ XML or HTML to reflect a new encoding; that's the tree builder's job.
 """
 
 import sys
-from pdb import set_trace
 import codecs
 from html.entities import codepoint2name
 import re
