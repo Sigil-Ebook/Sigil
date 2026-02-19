@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **
@@ -31,6 +31,7 @@
 #include "sigil_constants.h"
 #include "sigil_exception.h"
 #include "BookManipulation/FolderKeeper.h"
+#include "BookManipulation/XhtmlDoc.h"
 #include "Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.h"
 #include "Parsers/CSSInfo.h"
 #include "Misc/NumericItem.h"
@@ -181,10 +182,10 @@ void ClassesInHTMLFilesWidget::FilterEditTextChangedSlot(const QString &text)
         ui.fileTree->setCurrentIndex(QModelIndex());
     }
 }
-
 void ClassesInHTMLFilesWidget::DoubleClick()
 {
     QModelIndex index = ui.fileTree->selectionModel()->selectedRows(0).first();
+#if 0
     // target bookpath is found in found_in_tem in its data field (currently in column 4)
     // target position is found in selector_text_item in its data field (current in column 3)
     QString found_bookpath = m_ItemModel->itemFromIndex(index.sibling(index.row(), 4))->data().toString();
@@ -192,7 +193,26 @@ void ClassesInHTMLFilesWidget::DoubleClick()
     if (pos >= 0) {
         emit OpenFileRequest(found_bookpath, -1, pos);
     }
+#else
+    QString source;
+    // target bookpath is found in filename item in its data field (currently in column 0)
+    // target class_name is found class name item in its text field (current in column 3)
+    QString bookpath = m_ItemModel->itemFromIndex(index.sibling(index.row(), 0))->data().toString();
+    QString class_name = m_ItemModel->itemFromIndex(index.sibling(index.row(), 2))->text();
+    Resource * res = m_Book->GetFolderKeeper()->GetResourceByBookPathNoThrow(bookpath);
+    if (res) {
+        HTMLResource *htmlresource = qobject_cast<HTMLResource *>(res);
+        if (htmlresource) {
+            source = htmlresource->GetText();
+        }
+    }
+    int lineno = XhtmlDoc::GetFirstUseOfClass(source, class_name);
+    if (lineno >= 0) {
+        emit OpenFileRequest(bookpath, lineno, -1);
+    }
+#endif
 }
+
 
 void ClassesInHTMLFilesWidget::Save()
 {

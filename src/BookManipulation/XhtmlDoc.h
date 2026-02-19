@@ -78,6 +78,7 @@ public:
     static QList<QString> GetAllDescendantHrefs(const QString & source);
     static QList<QString> GetAllDescendantIDs(const QString & );
     static QList<QString> GetAllDescendantClasses(const QString & source);
+    static int GetFirstUseOfClass(const QString& source, const QString& class_name_to_find);
 
     struct WellFormedError {
         int line;

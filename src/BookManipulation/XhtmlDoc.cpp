@@ -200,6 +200,30 @@ QList<QString> XhtmlDoc::GetAllDescendantClasses(const QString & source)
 }
 
 
+int XhtmlDoc::GetFirstUseOfClass(const QString& source, const QString& class_name_to_find)
+{
+    QString version = "any_version";
+    int line_no = -1;
+    GumboInterface gi = GumboInterface(source, version);
+    QList<GumboNode*> nodes = gi.get_all_nodes_with_attribute(QString("class"));
+    foreach(GumboNode * node, nodes) {
+        QString element_name = QString::fromStdString(gi.get_tag_name(node));
+        GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "class");
+        if (attr) {
+            QString class_values = QString::fromUtf8(attr->value);
+            foreach(QString class_name, class_values.split(" ")) {
+                if (class_name_to_find == class_name) {
+                    // need to compensate for stripped xml header line
+                    line_no = node->v.element.start_pos.line + 1;
+                    return line_no;
+                }
+            }
+        }
+    }
+    return line_no;
+}
+
+
 QList<QString> XhtmlDoc::GetAllDescendantStyleUrls(const QString & source)
 {
     QString version = "any_version";
