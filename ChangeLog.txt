@@ -8,7 +8,7 @@ Sigil-2.7.5
      - fixed for having to repeat Find when search starts in html but is searching css, js, etc
      - fixed Class Used Report to look inside xhtml file style tags too
      - fixed AddMetadata dialog by providng a clarifying title string
-     - updated Building_on_Linux to include Apline Linux supprt (#839)
+     - updated Building_on_Linux to include Alpine Linux supprt (#839)
      - fix typo and duplication in plugin support routine hrefutils.py
      - fix bug in media-type assignment for smil files in PluginRunner
      - adapt python3lib/repomanagercode.py to recent changes in dulwich that broke backwards compatibility
@@ -16,7 +16,7 @@ Sigil-2.7.5
 
      
    New Features
-     - updated to the very latest Qt 6.10.2 (minimum MacOS supported version is now 10.13)
+     - updated to the very latest Qt 6.10.2 (minimum MacOS supported version is MacOS 13)
      - updated to the very latest Python 3.14.2
      - added Save Selected Data to CSV in SpellcheckEditor dialog via pop-up menu
      - added possible shortcut id number to the ClipEditor to make assigning clip shortcuts easier
