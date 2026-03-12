@@ -52,37 +52,37 @@
         <translation>Autors</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="41"/>
+        <location filename="../../Dialogs/About.cpp" line="42"/>
         <source>GNU General Public License v3</source>
         <translation>Llicència Pública General GNU v3</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="51"/>
-        <source>Maintainer(s)</source>
-        <translation>Mantenidors/s</translation>
+        <location filename="../../Dialogs/About.cpp" line="52"/>
+        <source>Developers(s)</source>
+        <translation>Desenvolupador(s)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="56"/>
-        <source>Previous Maintainer(s)</source>
-        <translation>Mantenidors anteriors</translation>
+        <location filename="../../Dialogs/About.cpp" line="57"/>
+        <source>Previous Developer(s)</source>
+        <translation>Desenvolupador(s) anterior</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="60"/>
+        <location filename="../../Dialogs/About.cpp" line="61"/>
         <source>Code Contributors</source>
         <translation>Programadors contribuïdors</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="68"/>
+        <location filename="../../Dialogs/About.cpp" line="70"/>
         <source>Translators</source>
         <translation>Traductor</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="70"/>
+        <location filename="../../Dialogs/About.cpp" line="72"/>
         <source>Original Creator</source>
         <translation>Autor original</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="71"/>
+        <location filename="../../Dialogs/About.cpp" line="73"/>
         <source>retired</source>
         <translation>retirat</translation>
     </message>
@@ -494,7 +494,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="637"/>
         <source>When using a Windows dark style, use the classic Sigil dark style instead of the built in Qt one</source>
-        <translation type="unfinished"/>
+        <translation>Quan facis servir un estil fosc de Windows, utilitza l&apos;estil fosc clàssic de Sigil en lloc del que incorpora Qt.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="640"/>
@@ -549,17 +549,17 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="755"/>
         <source>Show colored border around Widgets when they have focus</source>
-        <translation type="unfinished"/>
+        <translation>Mostra una vora de color al voltant dels ginys quan tinguin el focus.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="758"/>
         <source>Highlight Widgets with Focus (Needs Sigil Restart)</source>
-        <translation type="unfinished"/>
+        <translation>Ressalta els ginys amb el focus (cal reiniciar Sigil)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="768"/>
         <source>Make insertion cursor more visible</source>
-        <translation type="unfinished"/>
+        <translation>Fes més visible el cursor d&apos;inserció.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="771"/>
@@ -692,7 +692,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="32"/>
         <source>CHAPTER_TITLE_HERE</source>
-        <translation type="unfinished"/>
+        <translation>TÍTOL_DEL_CAPÍTOL_AQUÍ</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="34"/>
@@ -717,7 +717,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="39"/>
         <source>Sidebar</source>
-        <translation type="unfinished"/>
+        <translation>Barra lateral</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="40"/>
@@ -732,12 +732,12 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="44"/>
         <source>To footnote</source>
-        <translation type="unfinished"/>
+        <translation>A nota al peu</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="45"/>
         <source>To endnote</source>
-        <translation type="unfinished"/>
+        <translation>A nota final</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="181"/>
@@ -757,17 +757,17 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="187"/>
         <source>Backlink from Footnote</source>
-        <translation type="unfinished"/>
+        <translation>Enllaç de retorn des de la nota al peu</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="189"/>
         <source>Backlink from Endnote</source>
-        <translation type="unfinished"/>
+        <translation>Enllaç de retorn des de la nota al final</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="191"/>
         <source>Endnote in li</source>
-        <translation type="unfinished"/>
+        <translation>Nota final dins d&apos;un li</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="193"/>
@@ -777,7 +777,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="195"/>
         <source>Footnote in div</source>
-        <translation type="unfinished"/>
+        <translation>Nota al peu dins d&apos;un div</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="197"/>
@@ -787,22 +787,22 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="199"/>
         <source>PageBreak in hr</source>
-        <translation type="unfinished"/>
+        <translation>Salt de pàgina en hr</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="201"/>
         <source>PageBreak in span</source>
-        <translation type="unfinished"/>
+        <translation>Salt de pàgina en span</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="203"/>
         <source>Reference to Footnote</source>
-        <translation type="unfinished"/>
+        <translation>Referència a la nota al peu</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="205"/>
         <source>Reference to Endnote</source>
-        <translation type="unfinished"/>
+        <translation>Referència a la nota al peu</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="207"/>
@@ -835,7 +835,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="184"/>
         <source>A short summary of the principle ideas, concepts and conclusions of the work, or of section or excerpt within it.</source>
-        <translation type="unfinished"/>
+        <translation>Un resum breu de les idees, conceptes i conclusions principals de l&apos;obra, o d&apos;una secció o fragment d&apos;aquesta.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="185"/>
@@ -845,7 +845,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="185"/>
         <source>A section or statement that acknowledges significant contributions by persons, organizations, governments, and other entities to the realization of the work.</source>
-        <translation type="unfinished"/>
+        <translation>Una secció o declaració que reconeix contribucions significatives de persones, organitzacions, governs i altres entitats a la realització de l&apos;obra.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="186"/>
@@ -855,7 +855,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="186"/>
         <source>A closing statement from the author or a person of importance, typically providing insight into how the content came to be written, its significance or related events that have transpired since its timeline.</source>
-        <translation type="unfinished"/>
+        <translation>Una declaració de cloenda de l&apos;autor o d&apos;una persona rellevant, que normalment ofereix informació sobre com es va escriure el contingut, la seva significació o esdeveniments relacionats que han tingut lloc des del seu marc temporal.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="187"/>
@@ -865,17 +865,17 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="187"/>
         <source>A section of supplemental information located after the primary content that informs the content but is not central to it.</source>
-        <translation type="unfinished"/>
+        <translation>Una secció d&apos;informació suplementària situada després del contingut principal que l&apos;informa, però que no n&apos;és central.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="188"/>
         <source>Back Link</source>
-        <translation type="unfinished"/>
+        <translation>Enllaç de retorn</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="188"/>
         <source>A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary definition to where a term is used.)</source>
-        <translation type="unfinished"/>
+        <translation>Un enllaç que permet a l&apos;usuari tornar a una ubicació relacionada del contingut (p. ex., d&apos;una nota al peu a les seves referències o d’una definició del glossari al lloc on s&apos;utilitza un terme).</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="189"/>
@@ -885,7 +885,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="189"/>
         <source>A list of external references cited in the work, which may be to print or digital sources.</source>
-        <translation type="unfinished"/>
+        <translation>Una llista de referències externes citades a l&apos;obra, que poden ser fonts impreses o digitals.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="190"/>
@@ -895,7 +895,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="190"/>
         <source>A single reference to an external source in a bibliography. [epub:type ONLY]</source>
-        <translation type="unfinished"/>
+        <translation>Una referència única a una font externa dins d&apos;una bibliografia. [només epub:type]</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="191"/>
@@ -915,7 +915,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="192"/>
         <source>A major thematic section of content in a work.</source>
-        <translation type="unfinished"/>
+        <translation>Una secció temàtica principal del contingut d&apos;una obra.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="193"/>
@@ -925,7 +925,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="193"/>
         <source>A short section of production notes particular to the edition (e.g., describing the typeface used), often located at the end of a work.</source>
-        <translation type="unfinished"/>
+        <translation>Una secció breu de notes de producció pròpies de l&apos;edició (p. ex., que descriu la tipografia utilitzada), sovint situada al final de l&apos;obra.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="194"/>
@@ -935,7 +935,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="194"/>
         <source>A concluding section or statement that summarizes the work or wraps up the narrative.</source>
-        <translation type="unfinished"/>
+        <translation>Una secció o declaració de cloenda que resumeix l&apos;obra o tanca la narració.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="195"/>
@@ -945,7 +945,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="195"/>
         <source>An image that sets the mood or tone for the work and typically includes the title and author.</source>
-        <translation type="unfinished"/>
+        <translation>Una imatge que estableix l&apos;ambient o el to de l&apos;obra i que normalment inclou el títol i l&apos;autor.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="196"/>
@@ -955,7 +955,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="196"/>
         <source>An acknowledgement of the source of integrated content from third-party sources, such as photos.  Typically identifies the creator, copyright, and any restrictions on reuse.</source>
-        <translation type="unfinished"/>
+        <translation>Un reconeixement de la font del contingut integrat procedent de tercers, com ara fotografies. Normalment identifica el creador, els drets d&apos;autor i qualsevol restricció de reutilització.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="197"/>
@@ -975,7 +975,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="198"/>
         <source>An inscription at the front of the work, typically addressed in tribute to one or more persons close to the author.</source>
-        <translation type="unfinished"/>
+        <translation>Una dedicatòria al començament de l&apos;obra, normalment adreçada com a homenatge a una o més persones properes a l&apos;autor.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="199"/>
@@ -985,7 +985,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="199"/>
         <source>One of a collection of notes that occur at the end of a work, or a section within it that provides additional context to a referenced passage of text. [epub:type ONLY]</source>
-        <translation type="unfinished"/>
+        <translation>Una de les notes d&apos;un conjunt de notes situades al final d&apos;una obra, o d&apos;una secció dins d&apos;aquesta, que aporta context addicional a un passatge de text referenciat. [només epub:type]</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="200"/>
@@ -995,7 +995,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="200"/>
         <source>A collection of notes at the end of a work or a section within it.</source>
-        <translation type="unfinished"/>
+        <translation>Un conjunt de notes al final d&apos;una obra o d’una secció dins d&apos;aquesta.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="201"/>
@@ -1005,7 +1005,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="201"/>
         <source>A quotation set at the start of the work or a section that establishes the theme or sets the mood.</source>
-        <translation type="unfinished"/>
+        <translation>Una citació situada al començament de l&apos;obra o d’&apos;una secció que n&apos;estableix el tema o en marca l&apos;ambient.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="202"/>
@@ -1015,7 +1015,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="202"/>
         <source>A concluding section of narrative that wraps up or comments on the actions and events of the work, typically from a future perspective.</source>
-        <translation type="unfinished"/>
+        <translation>Una secció final de la narració que tanca o comenta les accions i els esdeveniments de l&apos;obra, normalment des d&apos;una perspectiva futura.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="203"/>
@@ -1025,7 +1025,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="203"/>
         <source>A set of corrections discovered after initial publication of the work, sometimes referred to as corrigenda.</source>
-        <translation type="unfinished"/>
+        <translation>Un conjunt de correccions descobertes després de la publicació inicial de l&apos;obra, de vegades anomenades corrigenda.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="204"/>
@@ -1035,7 +1035,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="204"/>
         <source>An illustration of a key concept of the work, such as a code listing, case study or problem. [aria role ONLY]</source>
-        <translation type="unfinished"/>
+        <translation>Una il·lustració d’un concepte clau de l&apos;obra, com ara un fragment de codi, un cas d&apos;estudi o un problema. [només rol ARIA]</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="205"/>
@@ -1045,7 +1045,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="205"/>
         <source>Ancillary information, such as a citation or commentary, that provides additional context to a referenced passage of text.</source>
-        <translation type="unfinished"/>
+        <translation>Informació complementària, com ara una citació o un comentari, que aporta context addicional a un passatge de text referenciat.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="206"/>
@@ -1055,7 +1055,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="206"/>
         <source>A collection of footnotes. [epub:type ONLY]</source>
-        <translation type="unfinished"/>
+        <translation>Un conjunt de notes al peu. [només epub:type]</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="207"/>
@@ -1065,7 +1065,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="207"/>
         <source>An introductory section that precedes the work, typically not written by the author of the work.</source>
-        <translation type="unfinished"/>
+        <translation>Una secció introductòria que precedeix l&apos;obra, normalment no escrita per l&apos;autor de l&apos;obra.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="208"/>
@@ -1075,17 +1075,17 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="208"/>
         <source>A brief dictionary of new, uncommon, or specialized terms used in the content.</source>
-        <translation type="unfinished"/>
+        <translation>Un breu diccionari de termes nous, poc comuns o especialitzats utilitzats en el contingut.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="209"/>
         <source>Glossary Reference</source>
-        <translation type="unfinished"/>
+        <translation>Referència del glossari</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="209"/>
         <source>A reference to a glossary definition.</source>
-        <translation type="unfinished"/>
+        <translation>Una referència a una definició del glossari.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="210"/>
@@ -1095,7 +1095,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="210"/>
         <source>A navigational aid that provides a detailed list of links to key subjects, names and other important topics covered in the work.</source>
-        <translation type="unfinished"/>
+        <translation>Una ajuda de navegació que proporciona una llista detallada d&apos;enllaços a matèries clau, noms i altres temes importants tractats a l&apos;obra.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="211"/>
@@ -1105,17 +1105,17 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="211"/>
         <source>A preliminary section that typically introduces the scope or nature of the work.</source>
-        <translation type="unfinished"/>
+        <translation>Una secció preliminar que normalment introdueix l&apos;abast o la naturalesa de l&apos;obra.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="212"/>
         <source>Note Reference</source>
-        <translation type="unfinished"/>
+        <translation>Referència de nota</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="212"/>
         <source>A reference to a footnote or endnote, typically appearing as a superscripted number or symbol in the main body of the text.</source>
-        <translation type="unfinished"/>
+        <translation>Una referència a una nota al peu o una nota final, que normalment apareix com un número o símbol en superíndex al cos principal del text.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="213"/>
@@ -1125,7 +1125,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="213"/>
         <source>Notifies the user of consequences that might arise from an action or event.  Examples include warnings, cautions and dangers.</source>
-        <translation type="unfinished"/>
+        <translation>Informa l&apos;usuari de les conseqüències que poden derivar-se d&apos;una acció o d&apos;un esdeveniment. Alguns exemples són avisos, precaucions i perills.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="214"/>
@@ -1135,7 +1135,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="214"/>
         <source>A separator denoting the position before which a break occurs between contiguous pages in a statically paginated version of the content.</source>
-        <translation type="unfinished"/>
+        <translation>Un separador que indica la posició abans de la qual es produeix un salt entre pàgines contigües en una versió del contingut paginada estàticament.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="215"/>
@@ -1145,7 +1145,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="215"/>
         <source>A section of text appearing at the bottom of a page that provides context about the current work and location within it. The page footer is distinct from the body text and normally follows a repeating template that contains (possibly truncated) items such as the document title, current section, author name(s), and page number.</source>
-        <translation type="unfinished"/>
+        <translation>Una secció de text que apareix a la part inferior d&apos;una pàgina i que proporciona context sobre l&apos;obra actual i la ubicació dins d&apos;aquesta. El peu de pàgina és diferent del cos del text i normalment segueix una plantilla repetitiva que conté elements com ara el títol del document, la secció actual, el nom de l&apos;autor o dels autors i el número de pàgina, possiblement de manera abreujada.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="216"/>
@@ -1155,7 +1155,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="216"/>
         <source>A section of text appearing at the top of a page that provides context about the current work and location within it. The page header is distinct from the body text and normally follows a repeating template that contains (possibly truncated) items such as the document title, current section, author name(s), and page number.</source>
-        <translation type="unfinished"/>
+        <translation>Una secció de text que apareix a la part superior d&apos;una pàgina i que proporciona context sobre l&apos;obra actual i la ubicació dins d&apos;aquesta. La capçalera de pàgina és diferent del cos del text i normalment segueix una plantilla repetitiva que conté elements com ara el títol del document, la secció actual, el nom de l&apos;autor o dels autors i el número de pàgina, possiblement de manera abreujada.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="217"/>
@@ -1165,7 +1165,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="217"/>
         <source>A navigational aid that provides a list of links to the page breaks in the content.</source>
-        <translation type="unfinished"/>
+        <translation>Una ajuda a la navegació que proporciona una llista d&apos;enllaços als salts de pàgina del contingut.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="218"/>
@@ -1175,7 +1175,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="218"/>
         <source>A major structural division in a work that contains a set of related sections dealing with a particular subject, narrative arc, or similar encapsulated theme.</source>
-        <translation type="unfinished"/>
+        <translation>Una divisió estructural principal d&apos;una obra que conté un conjunt de seccions relacionades que tracten un tema concret, un arc narratiu o una altra unitat temàtica similar.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="219"/>
@@ -1185,7 +1185,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="219"/>
         <source>A section at the beginning of a work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content. [epub:type ONLY]</source>
-        <translation type="unfinished"/>
+        <translation>Una secció situada a l&apos;inici d’una obra, que normalment conté un text introductori o explicatiu sobre l&apos;abast o la naturalesa del contingut de l&apos;obra. [NOMÉS per a epub:type]</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="220"/>
@@ -1195,7 +1195,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="220"/>
         <source>An introductory section that precedes the work, typically written by the author of the work.</source>
-        <translation type="unfinished"/>
+        <translation>Una secció introductòria que precedeix l&apos;obra, escrita normalment per l&apos;autor de l&apos;obra.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="221"/>
@@ -1205,17 +1205,17 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="221"/>
         <source>An introductory section that sets the background to a work, typically part of the narrative.</source>
-        <translation type="unfinished"/>
+        <translation>Una secció introductòria que estableix el context d&apos;na obra, normalment com a part de la narració.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="222"/>
         <source>Pull Quote</source>
-        <translation type="unfinished"/>
+        <translation>Citació destacada</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="222"/>
         <source>A distinctively placed or highlighted quotation from the current content designed to draw attention to a topic or highlight a key point.</source>
-        <translation type="unfinished"/>
+        <translation>Una citació del contingut actual col·locada o ressaltada de manera distintiva per atreure l&apos;atenció sobre un tema o destacar una idea clau.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="223"/>
@@ -1225,7 +1225,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="223"/>
         <source>A section of content structured as a series of questions and answers, such as an interview or list of frequently asked questions.</source>
-        <translation type="unfinished"/>
+        <translation>Una secció de contingut estructurada com una sèrie de preguntes i respostes, com ara una entrevista o una llista de preguntes freqüents.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="224"/>
@@ -1235,7 +1235,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="224"/>
         <source>An explanatory or alternate title for the work, or a section or components within it.</source>
-        <translation type="unfinished"/>
+        <translation>Un títol explicatiu o alternatiu per a l&apos;obra, o per a una secció o components dins d&apos;aquesta.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="225"/>
@@ -1245,7 +1245,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="225"/>
         <source>Helpful information that clarifies some aspect of the content or assists in comprehension.</source>
-        <translation type="unfinished"/>
+        <translation>Informació útil que aclareix algun aspecte del contingut o que n&apos;ajuda a la comprensió</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="226"/>
@@ -1255,7 +1255,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="226"/>
         <source>A navigational aid that provides an ordered list of links to the major sectional headings in the content.  A table of contents may cover an entire work, or only a smaller section of it.</source>
-        <translation type="unfinished"/>
+        <translation>Una ajuda a la navegació que proporciona una llista ordenada d&apos;enllaços als encapçalaments seccionals principals del contingut. Una taula de continguts pot cobrir una obra sencera o només una secció més petita.</translation>
     </message>
 </context>
 <context>
@@ -1314,7 +1314,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Form_Files/AutomateEditor.ui" line="184"/>
         <source>Use OK to commit your changes to the file, otherwise use Cancel.</source>
-        <translation type="unfinished"/>
+        <translation>Utilitzeu D&apos;acord per confirmar els canvis al fitxer; altrament, utilitzeu Cancel·la.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="65"/>
@@ -1331,7 +1331,7 @@ si el CSS n&apos;indica una sense serifs</translation>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="189"/>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="192"/>
         <source>[SavedSearch full name here]</source>
-        <translation type="unfinished"/>
+        <translation>[nom complet de la cerca desada aquí]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="195"/>
@@ -1411,17 +1411,17 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="353"/>
         <source>Reformat All CSS to Multiple Lines format.</source>
-        <translation type="unfinished"/>
+        <translation>Reformata tot el CSS al format de múltiples línies.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="354"/>
         <source>Reformat All CSS to Single Lines format.</source>
-        <translation type="unfinished"/>
+        <translation>Reformata tot el CSS al format d&apos;una sola línia.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="355"/>
         <source>Remove NCX and OPF Guide from Epub3.</source>
-        <translation type="unfinished"/>
+        <translation>Elimina l&apos;NCX i la guia OPF de l&apos;Epub3.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="356"/>
@@ -1481,17 +1481,17 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="368"/>
         <source>Update Epub3 OPF Manifest properties.</source>
-        <translation type="unfinished"/>
+        <translation>Actualitza les propietats del manifest OPF de l&apos;Epub3.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="369"/>
         <source>Validate All Stylesheets with W3C in external browser.</source>
-        <translation type="unfinished"/>
+        <translation>Valida tots els fulls d&apos;estil amb el W3C en un navegador extern.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="370"/>
         <source>Perform a basic Well-Formed Check on Epub XHtml files.</source>
-        <translation type="unfinished"/>
+        <translation>Fes una comprovació bàsica per comprovar si els fitxers XHTML de l&apos;EPUB són ben formats.</translation>
     </message>
 </context>
 <context>
@@ -1617,7 +1617,7 @@ Al llibre, ja hi ha un fitxer amb el mateix nom.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="998"/>
         <source>File(s) added or replaced.</source>
-        <translation type="unfinished"/>
+        <translation>Fitxer(s) afegit o reemplaçat.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1035"/>
@@ -1652,7 +1652,7 @@ Al llibre, ja hi ha un fitxer amb el mateix nom.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1340"/>
         <source>Filenames cannot contain these characters: &quot;%1&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>Els noms de fitxer no poden contenir aquests caràcters: &quot;%1&quot;.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1402"/>
@@ -1699,12 +1699,12 @@ Com a mínim, n&apos;hi ha d&apos;haver un.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1763"/>
         <source>(root folder)</source>
-        <translation type="unfinished"/>
+        <translation>(directori arrel)</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1773"/>
         <source>FileName</source>
-        <translation type="unfinished"/>
+        <translation>Nom del fitxer</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1776"/>
@@ -1719,7 +1719,7 @@ Com a mínim, n&apos;hi ha d&apos;haver un.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1782"/>
         <source>File Size(kb)</source>
-        <translation type="unfinished"/>
+        <translation>Mida del fitxer (kb)</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1785"/>
@@ -1729,17 +1729,17 @@ Com a mínim, n&apos;hi ha d&apos;haver un.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1802"/>
         <source>Word Count</source>
-        <translation type="unfinished"/>
+        <translation>Recompte de paraules</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1805"/>
         <source>Primary Language</source>
-        <translation type="unfinished"/>
+        <translation>Idioma principal</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1812"/>
         <source>WellFormed</source>
-        <translation type="unfinished"/>
+        <translation>Ben format</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1814"/>
@@ -1754,27 +1754,27 @@ Com a mínim, n&apos;hi ha d&apos;haver un.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1819"/>
         <source>Linked Stylesheets</source>
-        <translation type="unfinished"/>
+        <translation>Fulls d&apos;estil enllaçats</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1822"/>
         <source>Linked Javascripts</source>
-        <translation type="unfinished"/>
+        <translation>Fitxers JavaScript enllaçats</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1825"/>
         <source>Linked Images</source>
-        <translation type="unfinished"/>
+        <translation>Imatges enllaçades</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1828"/>
         <source>Linked Audio</source>
-        <translation type="unfinished"/>
+        <translation>Àudios enllaçats</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1831"/>
         <source>Linked Video</source>
-        <translation type="unfinished"/>
+        <translation>Vídeos enllaçats</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1858"/>
@@ -1784,12 +1784,12 @@ Com a mínim, n&apos;hi ha d&apos;haver un.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1867"/>
         <source>Manifest Properties</source>
-        <translation type="unfinished"/>
+        <translation>Propietats del manifest</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1870"/>
         <source>Defined Ids</source>
-        <translation type="unfinished"/>
+        <translation>Ids definits</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1877"/>
@@ -1800,7 +1800,7 @@ Com a mínim, n&apos;hi ha d&apos;haver un.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1880"/>
         <source>Obfuscation Algorithm</source>
-        <translation type="unfinished"/>
+        <translation>Algorisme d&apos;ofuscació</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1882"/>
@@ -1857,7 +1857,7 @@ Com a mínim, n&apos;hi ha d&apos;haver un.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2130"/>
         <source>RegEx Rename</source>
-        <translation type="unfinished"/>
+        <translation>Nom de l&apos;expressió regular</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2131"/>
@@ -1948,7 +1948,7 @@ Com a mínim, n&apos;hi ha d&apos;haver un.</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2164"/>
         <source>Rename selected file(s)</source>
-        <translation type="unfinished"/>
+        <translation>Reanomena el fitxer(s) seleccionat</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2166"/>
@@ -2189,7 +2189,7 @@ Com a mínim, n&apos;hi ha d&apos;haver un.</translation>
     <message>
         <location filename="../../Form_Files/ReportsClassesInHTMLFilesWidget.ui" line="14"/>
         <source>Classes Used</source>
-        <translation type="unfinished"/>
+        <translation>Classes utilitzades</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsClassesInHTMLFilesWidget.ui" line="34"/>
@@ -2202,57 +2202,57 @@ Com a mínim, n&apos;hi ha d&apos;haver un.</translation>
         <translation>Filtre:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="83"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="84"/>
         <source>HTML File</source>
         <translation>Fitxer HTML</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="84"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="85"/>
         <source>Element</source>
         <translation>Element</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="85"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="86"/>
         <source>Class</source>
         <translation>Classe</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="86"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="87"/>
         <source>Matched Selector</source>
         <translation>Selector coincident</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="87"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="88"/>
         <source>Found In</source>
         <translation>Trobat a</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="93"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="94"/>
         <source>&lt;p&gt;This is a list of the style classes used in all HTML files and whether or not the style matched a selector in a linked stylesheet.&lt;p&gt;</source>
         <translation>&lt;p&gt;Llista de les classes d&apos;estil utilitzades a tots els fitxers HTML, tan si coincideixen o no amb un selector d&apos;un full d&apos;estils enllaçat.&lt;p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="94"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="95"/>
         <source>&lt;p&gt;NOTE:&lt;/p&gt;</source>
         <translation>&lt;p&gt;NOTA:&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="95"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="96"/>
         <source>&lt;p&gt;Due to the complexities of CSS you must check your code manually to be certain if a style is used or not.&lt;/p&gt;</source>
         <translation>&lt;p&gt;La complexitat del CSS obliga a revisar el codi manualment per comprovar si un estil s&apos;utilitza o no.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="236"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="256"/>
         <source>Save Report As Comma Separated File</source>
         <translation>Desa un informe com a fitxer de text separat per comes</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="249"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="269"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="249"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="269"/>
         <source>Cannot save report file.</source>
         <translation>No es pot desar el fitxer d&apos;informe.</translation>
     </message>
@@ -2708,7 +2708,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2050"/>
         <source>Rename Class</source>
-        <translation type="unfinished"/>
+        <translation>Reanomena la classe</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2051"/>
@@ -2718,7 +2718,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2071"/>
         <source>Class renamed.</source>
-        <translation type="unfinished"/>
+        <translation>Classe reanomenada.</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2073"/>
@@ -2754,7 +2754,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="20"/>
         <source>Search Controls</source>
-        <translation type="unfinished"/>
+        <translation>Controls de cerca</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="99"/>
@@ -2930,12 +2930,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="330"/>
         <source>Tabbed HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>Fitxers HTML en pestanyes</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="331"/>
         <source>Restrict the find or replace to the HTML files open in Tabs.</source>
-        <translation type="unfinished"/>
+        <translation>Restringeix la cerca o la substitució als fitxers HTML oberts en pestanyes.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="333"/>
@@ -3082,7 +3082,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="85"/>
         <source>Search Full Name</source>
-        <translation type="unfinished"/>
+        <translation>Cerca el nom complet</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="86"/>
@@ -3112,7 +3112,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="103"/>
         <source>Tabbed HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>Fitxers HTML en pestanyes</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="104"/>
@@ -3152,7 +3152,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="111"/>
         <source>Selected Other XML Files</source>
-        <translation type="unfinished"/>
+        <translation>Selecciona altres fitxers XML</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="253"/>
@@ -3266,7 +3266,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="93"/>
         <source>Total Number of Matches/Replacements</source>
-        <translation type="unfinished"/>
+        <translation>Nombre total de coincidències/substitucions</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="96"/>
@@ -3644,12 +3644,12 @@ locations and names for the OPF, NCX and/or Nav.</source>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="467"/>
         <source>A single NCX file is required.</source>
-        <translation type="unfinished"/>
+        <translation>Cal un únic fitxer NCX.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="469"/>
         <source>A single NAV file is required.</source>
-        <translation type="unfinished"/>
+        <translation>Cal un únic fitxer NAV.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="473"/>
@@ -3666,7 +3666,9 @@ locations and names for the OPF, NCX and/or Nav.</source>
         <source>Do you want to set this layout as the default empty Epub layout for Sigil?
 
 </source>
-        <translation type="unfinished"/>
+        <translation>Vols establir aquest disseny com a disseny buit d&apos;EPUB predeterminat per a Sigil?
+
+</translation>
     </message>
 </context>
 <context>
@@ -3689,7 +3691,7 @@ locations and names for the OPF, NCX and/or Nav.</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="90"/>
         <source>Python Function Replace</source>
-        <translation type="unfinished"/>
+        <translation>Substitució amb funció de Python</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="96"/>
@@ -3706,7 +3708,9 @@ locations and names for the OPF, NCX and/or Nav.</source>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Find&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Find next match.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Cerca&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Cerca següent.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="200"/>
@@ -3789,7 +3793,7 @@ then find the Next match in Code View.&lt;/p&gt;</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="467"/>
         <source>Regex Valid?</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;expressió regular és vàlida?</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="477"/>
@@ -3804,7 +3808,7 @@ then find the Next match in Code View.&lt;/p&gt;</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="495"/>
         <source>Regex Options</source>
-        <translation type="unfinished"/>
+        <translation>Opcions de l&apos;expressió regular</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="512"/>
@@ -3833,7 +3837,7 @@ Valid only when searching HTML files.</source>
         <location filename="../../MainUI/FindReplace.cpp" line="348"/>
         <location filename="../../MainUI/FindReplace.cpp" line="355"/>
         <source>Search will restart</source>
-        <translation type="unfinished"/>
+        <translation>La cerca es reiniciarà</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="371"/>
@@ -3986,12 +3990,12 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2195"/>
         <source>Tabbed HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>Fitxers HTML en pestanyes</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2196"/>
         <source>Restrict the find or replace to the HTML files open in Tabs.</source>
-        <translation type="unfinished"/>
+        <translation>Restringeix la cerca o la substitució als fitxers HTML oberts en pestanyes.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2198"/>
@@ -4182,7 +4186,7 @@ alguns caràcters de la selecció en obrir el diàleg de cerca.</translation>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2299"/>
         <source>Valid Regex</source>
-        <translation type="unfinished"/>
+        <translation>Expressió regular vàlida</translation>
     </message>
 </context>
 <context>
@@ -4195,7 +4199,7 @@ alguns caràcters de la selecció en obrir el diàleg de cerca.</translation>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="72"/>
         <source>Python Function Replace</source>
-        <translation type="unfinished"/>
+        <translation>Substitució amb funció de Python</translation>
     </message>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="85"/>
@@ -4396,7 +4400,7 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="321"/>
         <source>Epubs may use javascript.</source>
-        <translation type="unfinished"/>
+        <translation>Els EPUB poden utilitzar JavaScript.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="348"/>
@@ -4479,12 +4483,12 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="532"/>
         <source>Unless you know exactly what you&apos;re doing, there&apos;s very little reason to ever change this setting. Use extreme caution!</source>
-        <translation type="unfinished"/>
+        <translation>A menys que sàpigues exactament què fas, hi ha molt poques raons per canviar mai aquesta configuració. Ves amb molta cautela!</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="542"/>
         <source>Set folder where temporary files should be created:</source>
-        <translation type="unfinished"/>
+        <translation>Estableix la carpeta on s&apos;han de crear els fitxers temporals:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="562"/>
@@ -4494,18 +4498,18 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="584"/>
         <source>Disable GPU Acceleration in QtWebEngine/Preview</source>
-        <translation type="unfinished"/>
+        <translation>Desactiva l&apos;acceleració per GPU a QtWebEngine/Previsualització</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="587"/>
         <source> Disable GPU Acceleration in QtWebEngine/Preview.</source>
-        <translation type="unfinished"/>
+        <translation>Desactiva l&apos;acceleració per GPU a QtWebEngine/Previsualització.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="605"/>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="608"/>
         <source>Disable GPU Acceleration in QtWebEngine.</source>
-        <translation type="unfinished"/>
+        <translation>Desactiva l&apos;acceleració per GPU a QtWebEngine.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="621"/>
@@ -4526,7 +4530,7 @@ mended.</source>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="223"/>
         <source>Incorrect Path for External Xhtml Editor selected</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;ha seleccionat una ruta incorrecte per a l&apos;editor XHTML extern.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="240"/>
@@ -5290,12 +5294,12 @@ podeu activar-les o desactivar-les individualment a la llista de dalt.</translat
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="156"/>
         <source>Files exist in epub that are not listed in the manifest, they will be ignored.</source>
-        <translation type="unfinished"/>
+        <translation>Hi ha fitxers a l&apos;EPUB que no estan llistats al manifest; s&apos;ignoraran.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="199"/>
         <source>This EPUB had HTML files that were not well formed or are missing a DOCTYPE, html, head or body elements.&lt;br/&gt;&lt;br&gt;They were automatically fixed based on your Preference setting to Clean on Open.</source>
-        <translation type="unfinished"/>
+        <translation>Aquest EPUB conté fitxers HTML que no estan ben formats o bé els falta un DOCTYPE o els elements html, head o body.&lt;br/&gt;&lt;br&gt;S&apos;han corregit automàticament d&apos;acord amb la teva preferència de netejar en obrir.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="205"/>
@@ -5390,7 +5394,7 @@ podeu activar-les o desactivar-les individualment a la llista de dalt.</translat
     <message numerus="yes">
         <location filename="../../Dialogs/IndexEditor.cpp" line="288"/>
         <source>Entries added: %n</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Entrades afegides: %n</numerusform><numerusform>Entrades afegides: %n</numerusform></translation>
     </message>
     <message>
         <location filename="../../Dialogs/IndexEditor.cpp" line="294"/>
@@ -5556,7 +5560,7 @@ Voleu desar els canvis?</translation>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="108"/>
         <source>Enable AltGr on international keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Activa l&apos;AltGr al teclat internacional</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PKeyboardShortcutsWidget.ui" line="125"/>
@@ -5765,7 +5769,7 @@ Voleu desar els canvis?</translation>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="180"/>
         <source>A collection of notes at the end of a work or a section within it.</source>
-        <translation type="unfinished"/>
+        <translation>Un conjunt de notes al final d&apos;una obra o d’una secció dins d&apos;aquesta.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="181"/>
@@ -9249,7 +9253,7 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     <message>
         <location filename="../../Dialogs/ListSelector.h" line="48"/>
         <source>View selected</source>
-        <translation type="unfinished"/>
+        <translation>Visualitza la selecció</translation>
     </message>
 </context>
 <context>
@@ -9406,12 +9410,12 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     <message>
         <location filename="../../Form_Files/main.ui" line="480"/>
         <source>Add Existing</source>
-        <translation type="unfinished"/>
+        <translation>Afegeix existent</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="493"/>
         <source>Checkpoints</source>
-        <translation type="unfinished"/>
+        <translation>Punts de control</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="508"/>
@@ -9421,7 +9425,7 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     <message>
         <location filename="../../Form_Files/main.ui" line="524"/>
         <source>Undo/Redo</source>
-        <translation type="unfinished"/>
+        <translation>Desfés/Refés</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="538"/>
@@ -9462,12 +9466,12 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     <message>
         <location filename="../../Form_Files/main.ui" line="640"/>
         <source>Plugins Set 1</source>
-        <translation type="unfinished"/>
+        <translation>Conjunt de plugins 1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="656"/>
         <source>Plugins Set 2</source>
-        <translation type="unfinished"/>
+        <translation>Conjunt de plugins 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="672"/>
@@ -9482,7 +9486,7 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     <message>
         <location filename="../../Form_Files/main.ui" line="700"/>
         <source>Set Heading Level of Selected Text</source>
-        <translation type="unfinished"/>
+        <translation>Estableix el nivell d&apos;encapçalament del text seleccionat</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="713"/>
@@ -9512,7 +9516,7 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     <message>
         <location filename="../../Form_Files/main.ui" line="785"/>
         <source>Set Case of Selected Text</source>
-        <translation type="unfinished"/>
+        <translation>Estableix les majúscules/minúscules del text seleccionat</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="795"/>
@@ -10176,7 +10180,7 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     <message>
         <location filename="../../Form_Files/main.ui" line="1547"/>
         <source>Use Standard File Extensions</source>
-        <translation type="unfinished"/>
+        <translation>Fes servir extensions de fitxer estàndaritzades</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1550"/>
@@ -12427,12 +12431,12 @@ This action cannot be reversed.</source>
         <translation>s&apos;ha actualitzat</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1826"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1825"/>
         <source>Warning</source>
         <translation>Avís</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1826"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1825"/>
         <source>The file was NOT well formed and may be corrupted.</source>
         <translation>El fitxer no és ben format i pot ser corrupte.</translation>
     </message>
@@ -17124,7 +17128,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="73"/>
         <source>unrecognized character after (? or (?-</source>
-        <translation type="unfinished"/>
+        <translation>caràcter no reconegut després de (? o (?-</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="74"/>
@@ -17139,82 +17143,82 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="76"/>
         <source>missing closing parenthesis</source>
-        <translation type="unfinished"/>
+        <translation>falta el parèntesi de tancament</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="79"/>
         <source>reference to non-existent subpattern</source>
-        <translation type="unfinished"/>
+        <translation>referència a un subpatró inexistent</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="80"/>
         <source>pattern passed as NULL</source>
-        <translation type="unfinished"/>
+        <translation>s&apos;ha passat un patró com a NULL</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="81"/>
         <source>unrecognised compile-time option bit(s)</source>
-        <translation type="unfinished"/>
+        <translation>bit(s) d&apos;opció de compilació no reconegut(s)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="82"/>
         <source>missing ) after (?# comment</source>
-        <translation type="unfinished"/>
+        <translation>falta ) després del comentari (?#</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="83"/>
         <source>parentheses are too deeply nested</source>
-        <translation type="unfinished"/>
+        <translation>els parèntesis estan massa profundament imbricats</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="86"/>
         <source>regular expression is too large</source>
-        <translation type="unfinished"/>
+        <translation>l&apos;expressió regular és massa llarga</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="87"/>
         <source>failed to allocate heap memory</source>
-        <translation type="unfinished"/>
+        <translation>no s&apos;ha pogut assignar memòria de munt (heap)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="88"/>
         <source>unmatched closing parenthesis</source>
-        <translation type="unfinished"/>
+        <translation>parèntesi de tancament sense correspondència</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="89"/>
         <source>internal error: code overflow</source>
-        <translation type="unfinished"/>
+        <translation>error intern: desbordament de codi</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="90"/>
         <source>missing closing parenthesis for condition</source>
-        <translation type="unfinished"/>
+        <translation>falta el parèntesi de tancament de la condició</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="93"/>
         <source>lookbehind assertion is not fixed length</source>
-        <translation type="unfinished"/>
+        <translation>l&apos;assert de lookbehind no és de longitud fixa</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="94"/>
         <source>a relative value of zero is not allowed</source>
-        <translation type="unfinished"/>
+        <translation>no es permet un valor relatiu zero</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="95"/>
         <source>conditional subpattern contains more than two branches</source>
-        <translation type="unfinished"/>
+        <translation>el subpatró condicional conté més de dues branques</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="96"/>
         <source>assertion expected after (?( or (?(?C)</source>
-        <translation type="unfinished"/>
+        <translation>s&apos;esperava una asserció després de (?( o (?(?C)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="97"/>
         <source>digit expected after (?+ or (?-<byte value="x0"/></source>
-        <translation type="unfinished"/>
+        <translation>s&apos;esperava un dígit després de (?+ o (?-&lt;byte value=&quot;x0&quot;/&gt;</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="100"/>
@@ -17224,7 +17228,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="101"/>
         <source>internal error in pcre2_study(): should not occur</source>
-        <translation type="unfinished"/>
+        <translation>error intern a pcre2_study(): no hauria de passar</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="102"/>
@@ -17234,22 +17238,22 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="103"/>
         <source>parentheses are too deeply nested (stack check)</source>
-        <translation type="unfinished"/>
+        <translation>els parèntesis estan massa profundament imbricats (comprovació de pila)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="104"/>
         <source>character code point value in \x{} or \o{} is too large</source>
-        <translation type="unfinished"/>
+        <translation>el valor del punt de codi del caràcter a \x{} o \o{} és massa gran</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="107"/>
         <source>lookbehind is too complicated</source>
-        <translation type="unfinished"/>
+        <translation>el lookbehind és massa complicat</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="108"/>
         <source>\C is not allowed in a lookbehind assertion in UTF-16 mode</source>
-        <translation type="unfinished"/>
+        <translation>\C no es permet en una asserció de lookbehind en mode UTF-16</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="109"/>
@@ -17264,22 +17268,22 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="111"/>
         <source>closing parenthesis for (?C expected</source>
-        <translation type="unfinished"/>
+        <translation>s&apos;esperava el parèntesi de tancament per a (?C</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="114"/>
         <source>invalid escape sequence in (*VERB) name</source>
-        <translation type="unfinished"/>
+        <translation>seqüència d&apos;escapament no vàlida al nom de (*VERB)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="115"/>
         <source>unrecognized character after (?P</source>
-        <translation type="unfinished"/>
+        <translation>caràcter no reconegut després de (?P</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="116"/>
         <source>syntax error in subpattern name (missing terminator?)</source>
-        <translation type="unfinished"/>
+        <translation>error de sintaxi al nom del subpatró (falta el delimitador de tancament?)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="117"/>
@@ -17309,42 +17313,42 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="124"/>
         <source>subpattern name is too long (maximum 32 code units)</source>
-        <translation type="unfinished"/>
+        <translation>el nom del subpatró és massa llarg (màxim 32 unitats de codi)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="125"/>
         <source>too many named subpatterns (maximum 10000)</source>
-        <translation type="unfinished"/>
+        <translation>massa subpatrons amb nom (màxim 10000)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="128"/>
         <source>invalid range in character class</source>
-        <translation type="unfinished"/>
+        <translation>interval no vàlid a la classe de caràcters</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="129"/>
         <source>octal value is greater than \377 in 8-bit non-UTF-8 mode</source>
-        <translation type="unfinished"/>
+        <translation>el valor octal és més gran que \377 en mode de 8 bits no UTF-8</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="130"/>
         <source>internal error: overran compiling workspace</source>
-        <translation type="unfinished"/>
+        <translation>error intern: s&apos;ha excedit l&apos;espai de treball de compilació</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="131"/>
         <source>internal error: previously-checked referenced subpattern not found</source>
-        <translation type="unfinished"/>
+        <translation>error intern: no s&apos;ha trobat el subpatró referenciat comprovat prèviament</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="132"/>
         <source>DEFINE subpattern contains more than one branch</source>
-        <translation type="unfinished"/>
+        <translation>el subpatró DEFINE conté més d&apos;una branca</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="135"/>
         <source>missing opening brace after \o</source>
-        <translation type="unfinished"/>
+        <translation>falta la clau d’obertura després de \o</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="136"/>
@@ -17354,7 +17358,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="137"/>
         <source>\g is not followed by a braced, angle-bracketed, or quoted name/number or by a plain number</source>
-        <translation type="unfinished"/>
+        <translation>a \g no el segueix un nom/número entre claus, entre claudàtors angulars o entre cometes, ni tampoc un número simple</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="138"/>
@@ -17364,17 +17368,17 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="139"/>
         <source>obsolete error (should not occur)</source>
-        <translation type="unfinished"/>
+        <translation>error obsolet (no hauria de passar)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="142"/>
         <source>(*VERB) not recognized or malformed</source>
-        <translation type="unfinished"/>
+        <translation>(*VERB) no reconegut o mal format</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="143"/>
         <source>subpattern number is too big</source>
-        <translation type="unfinished"/>
+        <translation>el número de subpatró és massa llarg</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="144"/>
@@ -17617,17 +17621,17 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="160"/>
         <source>Error: Interpreter</source>
-        <translation type="unfinished"/>
+        <translation>Error: intèrpret</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="160"/>
         <source>has no path set</source>
-        <translation type="unfinished"/>
+        <translation>no té cap camí establert</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="173"/>
         <source>Installation Error: plugin launcher</source>
-        <translation type="unfinished"/>
+        <translation>Error d&apos;instal·lació: llançador de connectors</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="174"/>
@@ -17637,12 +17641,12 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="179"/>
         <source>Error: plugin engine</source>
-        <translation type="unfinished"/>
+        <translation>Error: motor de connectors</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="180"/>
         <source>is not supported (yet!)</source>
-        <translation type="unfinished"/>
+        <translation>no és compatible (encara!)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="186"/>
@@ -17652,7 +17656,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="274"/>
         <source>Error: plugin cannot start</source>
-        <translation type="unfinished"/>
+        <translation>Error: el connector no es pot iniciar</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="423"/>
@@ -17752,12 +17756,12 @@ Esteu segur de voler continuar?</translation>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="848"/>
         <source>Status: deleting</source>
-        <translation type="unfinished"/>
+        <translation>Estat: s&apos;està suprimint</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="887"/>
         <source>Status: Loading</source>
-        <translation type="unfinished"/>
+        <translation>Estat: s&apos;està carregant</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="895"/>
@@ -17773,7 +17777,7 @@ Esteu segur de voler continuar?</translation>
         <location filename="../../Dialogs/PluginRunner.cpp" line="924"/>
         <location filename="../../Dialogs/PluginRunner.cpp" line="938"/>
         <source>Status: adding</source>
-        <translation type="unfinished"/>
+        <translation>Estat: s&apos;està afegint</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="976"/>
@@ -17783,7 +17787,7 @@ Esteu segur de voler continuar?</translation>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="1013"/>
         <source>Status: modifying</source>
-        <translation type="unfinished"/>
+        <translation>Estat: s&apos;està modificant</translation>
     </message>
 </context>
 <context>
@@ -17827,7 +17831,7 @@ Esteu segur de voler continuar?</translation>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="111"/>
         <source>Add/Remove</source>
-        <translation type="unfinished"/>
+        <translation>Afegeix/Suprimeix</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="166"/>
@@ -17877,7 +17881,7 @@ Esteu segur de voler continuar?</translation>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="261"/>
         <source>Quick Launch Plugin Assignments</source>
-        <translation type="unfinished"/>
+        <translation>Assignacions del connector de llançament ràpid</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="271"/>
@@ -18063,13 +18067,13 @@ Podeu separar les entitats amb línies, comes o espais.</translation>
     <message>
         <location filename="../../Dialogs/PreviewFileDialog.cpp" line="56"/>
         <source>not an image</source>
-        <translation type="unfinished"/>
+        <translation>no és una imatge</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreviewFileDialog.cpp" line="68"/>
         <location filename="../../Dialogs/PreviewFileDialog.cpp" line="93"/>
         <source>no preview available</source>
-        <translation type="unfinished"/>
+        <translation>no hi ha una previsualització disponible</translation>
     </message>
 </context>
 <context>
@@ -18090,7 +18094,7 @@ Podeu separar les entitats amb línies, comes o espais.</translation>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="279"/>
         <source>Select-All</source>
-        <translation type="unfinished"/>
+        <translation>Selecciona-ho tot</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="285"/>
@@ -18100,7 +18104,7 @@ Podeu separar les entitats amb línies, comes o espais.</translation>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="291"/>
         <source>Update Preview Window</source>
-        <translation type="unfinished"/>
+        <translation>Actualitza la finestra de previsualització</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="297"/>
@@ -18138,7 +18142,7 @@ Podeu separar les entitats amb línies, comes o espais.</translation>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="88"/>
         <source>Python Function Replace</source>
-        <translation type="unfinished"/>
+        <translation>Substitució amb funció de Python</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="118"/>
@@ -18235,7 +18239,7 @@ Podeu separar les entitats amb línies, comes o espais.</translation>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="258"/>
         <source>Please verify and correct the OPF Spine order.</source>
-        <translation type="unfinished"/>
+        <translation>Verifica i corregeix l&apos;ordre de l&apos;spine de l&apos;OPF.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="307"/>
@@ -18252,7 +18256,7 @@ Línia %1 - Columna %2 - %3</translation>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="503"/>
         <source>Possible evil or corrupt epub file name: %1</source>
-        <translation type="unfinished"/>
+        <translation>Possible nom de fitxer EPUB maliciós o corrupte: %1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="534"/>
@@ -18470,17 +18474,17 @@ Línia %1 - Columna %2 - %3</translation>
     <message>
         <location filename="../../Form_Files/RETable.ui" line="14"/>
         <source>Rename Table</source>
-        <translation type="unfinished"/>
+        <translation>Reanomena la taula</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RETable.ui" line="39"/>
         <source>Prior Filename</source>
-        <translation type="unfinished"/>
+        <translation>Nom de fitxer anterior</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RETable.ui" line="44"/>
         <source>Revised Filename</source>
-        <translation type="unfinished"/>
+        <translation>Nom de fitxer revisat</translation>
     </message>
 </context>
 <context>
@@ -18539,7 +18543,7 @@ poseu siguin vàlides per a tots els fitxers seleccionats.</translation>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="14"/>
         <source>Replacements (Select Desired Replacements)</source>
-        <translation type="unfinished"/>
+        <translation>Substitucions (selecciona les substitucions desitjades)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="37"/>
@@ -18549,7 +18553,7 @@ poseu siguin vàlides per a tots els fitxers seleccionats.</translation>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="57"/>
         <source>Select the amount of context in characters shown before and after the match.</source>
-        <translation type="unfinished"/>
+        <translation>Selecciona la quantitat de context, en caràcters, que es mostra abans i després de la coincidència.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="60"/>
@@ -18564,7 +18568,7 @@ poseu siguin vàlides per a tots els fitxers seleccionats.</translation>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="90"/>
         <source>Total Number of Matches/Replacements</source>
-        <translation type="unfinished"/>
+        <translation>Nombre total de coincidències/substitucions</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="93"/>
@@ -18916,7 +18920,7 @@ del diàleg de cerca i reemplaçament per triar una de les entrades.</translatio
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="119"/>
         <source>Option: Minimal Match</source>
-        <translation type="unfinished"/>
+        <translation>Opció: coincidència mínima</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="120"/>
@@ -18926,7 +18930,7 @@ del diàleg de cerca i reemplaçament per triar una de les entrades.</translatio
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="121"/>
         <source>Option: Unicode Property</source>
-        <translation type="unfinished"/>
+        <translation>Opció: propietat unicode</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="122"/>
@@ -18999,7 +19003,7 @@ Tots els canvis sense desar es sobreescriuran.</translation>
         <location filename="../../Dialogs/SearchEditor.cpp" line="571"/>
         <location filename="../../Dialogs/SearchEditor.cpp" line="668"/>
         <source>Sigil INI files (*.ini)</source>
-        <translation type="unfinished"/>
+        <translation>Fitxers INI de Sigil (*.ini)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="572"/>
@@ -19226,7 +19230,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="523"/>
         <source>Option: Minimal Match</source>
-        <translation type="unfinished"/>
+        <translation>Opció: coincidència mínima</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="526"/>
@@ -19241,7 +19245,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="532"/>
         <source>Option: Text Only</source>
-        <translation type="unfinished"/>
+        <translation>Opció: només text</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="827"/>
@@ -19554,7 +19558,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="147"/>
         <source>small tilde</source>
-        <translation type="unfinished"/>
+        <translation>titlla petita</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="148"/>
@@ -20710,7 +20714,7 @@ Els noms d&apos;identificador han de únics i començar amb una lletra.</transla
     <message>
         <location filename="../../Form_Files/SemanticTargetID.ui" line="22"/>
         <source>Select an ID or use the default file level target for this Semantic setting.</source>
-        <translation type="unfinished"/>
+        <translation>Selecciona un ID o fes servir la destinació predeterminada a nivell de fitxer per a aquesta configuració semàntica.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SemanticTargetID.ui" line="25"/>
@@ -20728,12 +20732,12 @@ Els noms d&apos;identificador han de únics i començar amb una lletra.</transla
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="22"/>
         <source>Primary Language Dictionary:</source>
-        <translation type="unfinished"/>
+        <translation>Diccionari de llengua principal:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="55"/>
         <source>Secondary Language Dictionary:</source>
-        <translation type="unfinished"/>
+        <translation>Diccionari de llengua secundària:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="91"/>
@@ -20971,12 +20975,12 @@ No es verifica l&apos;ortografia de la paraula seleccionada.</translation>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="209"/>
         <source>Sort words as in a locale specific manner, typically AaBbCc instead of ABCabc.</source>
-        <translation type="unfinished"/>
+        <translation>Ordena les paraules segons la configuració regional, normalment AaBbCc en lloc d&apos;ABCabc.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="212"/>
         <source>Locale-Aware Sort</source>
-        <translation type="unfinished"/>
+        <translation>Ordenació segons la configuració regional.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="239"/>
@@ -21101,7 +21105,7 @@ ortogràfica és oberta.</translation>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="588"/>
         <source>Save Selected Data</source>
-        <translation type="unfinished"/>
+        <translation>Desa les dades seleccionades.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="589"/>
@@ -21111,7 +21115,7 @@ ortogràfica és oberta.</translation>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="681"/>
         <source>Save Selected Data As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>Desa les dades seleccionades com a fitxer separat per comes.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="694"/>
@@ -21121,7 +21125,7 @@ ortogràfica és oberta.</translation>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="694"/>
         <source>Cannot save data file.</source>
-        <translation type="unfinished"/>
+        <translation>No es pot desar el fitxer de dades.</translation>
     </message>
 </context>
 <context>
@@ -21174,7 +21178,7 @@ ortogràfica és oberta.</translation>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="92"/>
         <source>&lt;p&gt;Note: Only one HTML File is listed among the many possible matches.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Nota: només es mostra un fitxer HTML entre les moltes coincidències possibles.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="240"/>
@@ -21296,7 +21300,7 @@ Encara voleu fer servir aquest nom de fitxer?</translation>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="334"/>
         <source>Updating Validation Results</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;estan actualitzant els resultats de validació</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="409"/>

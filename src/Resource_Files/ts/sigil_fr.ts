@@ -52,37 +52,37 @@
         <translation>Auteurs</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="41"/>
+        <location filename="../../Dialogs/About.cpp" line="42"/>
         <source>GNU General Public License v3</source>
         <translation>License publique générale GNU v3</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="51"/>
-        <source>Maintainer(s)</source>
-        <translation>Mainteneur(s)</translation>
+        <location filename="../../Dialogs/About.cpp" line="52"/>
+        <source>Developers(s)</source>
+        <translation>Développeur(s)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="56"/>
-        <source>Previous Maintainer(s)</source>
-        <translation>Mainteneur(s) précédent</translation>
+        <location filename="../../Dialogs/About.cpp" line="57"/>
+        <source>Previous Developer(s)</source>
+        <translation>Anciens développeur(s)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="60"/>
+        <location filename="../../Dialogs/About.cpp" line="61"/>
         <source>Code Contributors</source>
         <translation>Contributeurs au code</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="68"/>
+        <location filename="../../Dialogs/About.cpp" line="70"/>
         <source>Translators</source>
         <translation>Traducteurs</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="70"/>
+        <location filename="../../Dialogs/About.cpp" line="72"/>
         <source>Original Creator</source>
         <translation>Créateur initial</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="71"/>
+        <location filename="../../Dialogs/About.cpp" line="73"/>
         <source>retired</source>
         <translation>inactif</translation>
     </message>
@@ -2200,57 +2200,57 @@ Il faut toujours au minimum un fichier HTML.</translation>
         <translation>Filtre :</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="83"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="84"/>
         <source>HTML File</source>
         <translation>Fichier HTML</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="84"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="85"/>
         <source>Element</source>
         <translation>Élément</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="85"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="86"/>
         <source>Class</source>
         <translation>Classe</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="86"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="87"/>
         <source>Matched Selector</source>
         <translation>Sélecteur de correspondance</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="87"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="88"/>
         <source>Found In</source>
         <translation>Trouvé dans</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="93"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="94"/>
         <source>&lt;p&gt;This is a list of the style classes used in all HTML files and whether or not the style matched a selector in a linked stylesheet.&lt;p&gt;</source>
         <translation>&lt;p&gt;Il s&apos;agit d&apos;une liste des classes de style utilisées dans tous les fichiers HTML et si oui ou non le style correspond à un sélecteur dans un feuille de style associée.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="94"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="95"/>
         <source>&lt;p&gt;NOTE:&lt;/p&gt;</source>
         <translation>&lt;p&gt;Remarque :&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="95"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="96"/>
         <source>&lt;p&gt;Due to the complexities of CSS you must check your code manually to be certain if a style is used or not.&lt;/p&gt;</source>
         <translation>&lt;p&gt;En raison de la complexité des CSS, vous devez manuellement vérifier votre code pour savoir si un style est utilisé ou non.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="236"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="256"/>
         <source>Save Report As Comma Separated File</source>
         <translation>Enregistrer le fichier de rapport au format CSV (Comma Separated Values)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="249"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="269"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="249"/>
+        <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="269"/>
         <source>Cannot save report file.</source>
         <translation>Impossible d&apos;enregistrer le rapport.</translation>
     </message>
@@ -12218,15 +12218,15 @@ soit redemarré.</translation>
         <location filename="../../MainUI/MainWindow.cpp" line="3759"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3791"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3990"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5175"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5216"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5222"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5228"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5454"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5474"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5522"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5786"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5992"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5184"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5225"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5231"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5237"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5466"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5486"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5543"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5807"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6013"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -12247,17 +12247,17 @@ Cette action ne peut pas être annulée.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="874"/>
         <location filename="../../MainUI/MainWindow.cpp" line="876"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5520"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5522"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5990"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5992"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5541"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5543"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6011"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6013"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] - ePub%2 - %3</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="874"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5520"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5990"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5541"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6011"/>
         <source>Sigil [std]</source>
         <translation>Sigil [std]</translation>
     </message>
@@ -12453,12 +12453,12 @@ Cette action ne peut pas être annulée.</translation>
         <translation>a été mis à jour</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1826"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1825"/>
         <source>Warning</source>
         <translation>Attention</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1826"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1825"/>
         <source>The file was NOT well formed and may be corrupted.</source>
         <translation>Ce fichier était mal structuré et peut être inutilisable.</translation>
     </message>
@@ -12847,64 +12847,64 @@ This action cannot be reversed.</source>
         <translation>Cet ePub ne contient aucune feuille de styles CSS à reformater.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5087"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5096"/>
         <source>%1 (%2) - Line: %3, Col: %4</source>
         <translation>%1 (%2) - Ligne : %3, Col : %4</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5175"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5184"/>
         <source>File cannot be split at this position.</source>
         <translation>Impossible de subdiviser le fichier à cet endroit.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5198"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5207"/>
         <source>Split completed.</source>
         <translation>Subdivision effectuée.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5216"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5225"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>Impossible de subdiviser puisqu&apos;au moins un fichier n&apos;est pas au format HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5222"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5231"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>Impossible de subdiviser : %1 XML est incorrect</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5228"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5237"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>Impossible de subdiviser puisqu&apos;au moins un fichier n&apos;est probablement pas au format HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5261"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5270"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Subdivision effectuée. Il faudra actualiser la Table des matières.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5263"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5272"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>Aucun marqueur de séparation trouvé. Utilisez Insérer → Marqueur de séparation</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5455"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5467"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>Le document a été modifié. 
 Voulez-vous enregistrer vos modifications ?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5476"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5488"/>
         <source>Should Sigil overwrite this file?</source>
         <translation>Sigil doit-il écraser ce fichier ?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5662"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5683"/>
         <source>No importer for file type: %1</source>
         <translation>Pas de module d&apos;importation pour ce type de fichier : %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5669"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5690"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -12917,44 +12917,44 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
 Essayez de régler la préférence Nettoyer la source sur Corriger le code source XHTML dans Ouvrir et de recharger le fichier.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5674"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5695"/>
         <source>Loading file...</source>
         <translation>Chargement du fichier…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5688"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5709"/>
         <source>File loaded.</source>
         <translation>Fichier chargé.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5714"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5735"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Le créateur de ce fichier l&apos;a chiffré avec des DRM. Sigil ne peut pas l&apos;ouvrir.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5722"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5743"/>
         <source>Cannot load EPUB: %1</source>
         <translation>Impossible de charger le fichier ePub : %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5727"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5748"/>
         <source>Cannot load file %1: %2</source>
         <translation>Impossible de charger le fichier %1 : %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5754"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5775"/>
         <source>Saving EPUB...</source>
         <translation>Enregistrement du ePub…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5763"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5784"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Impossible d&apos;enregistrer les fichiers de ce type &quot;%1&quot;.
 Veuillez choisir un format différent.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5787"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5808"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to mend on Save.
 
 Do you want to automatically mend the files before saving? Or cancel the Save?</source>
@@ -12963,94 +12963,94 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 Voulez-vous modifier automatiquement les fichiers avant de les enregistrer ? Ou annuler l&apos;enregistrement ?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5792"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5813"/>
         <source>Saving EPUB... cancelled</source>
         <translation>Enregistrement de l&apos;ePub… annulée</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5818"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5839"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>Epub enregistré, mais certains fichiers HTML sont incorrects. </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5820"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5841"/>
         <source>EPUB saved.</source>
         <translation>Epub enregistré.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5826"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5847"/>
         <source>Cannot save file %1: %2</source>
         <translation>Impossible d&apos;enregistrer le fichier %1 : %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5959"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5980"/>
         <source>EPUB files (*.epub)</source>
         <translation>Fichiers ePub (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5960"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5961"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5962"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5981"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5982"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5983"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>Fichiers HTML (*. htm *. html *. xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5963"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5984"/>
         <source>Text files (*.txt)</source>
         <translation>Fichiers texte (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5964"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5985"/>
         <source>All files (*.*)</source>
         <translation>Tous les fichiers (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5972"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5993"/>
         <source>EPUB file (*.epub)</source>
         <translation>Fichier ePub (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6074"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6095"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>La préservation des attributs d&apos;en-tête existants est maintenant :</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6075"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6096"/>
         <source>ON</source>
         <translation>Actif</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6075"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6096"/>
         <source>OFF</source>
         <translation>Inactif</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6100"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6121"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7070"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7091"/>
         <source>Focus changed to CodeView window.</source>
         <translation>Focus changé vers la fenêtre Vue code.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7079"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7100"/>
         <source>Focus changed to BookBrowser window.</source>
         <translation>Focus changé vers la fenêtre Navigateur du livre.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7088"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7109"/>
         <source>Focus changed to Preview window.</source>
         <translation>Focus changé vers la fenêtre Prévisualisation.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7097"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7118"/>
         <source>Focus changed to Table Of Contents window.</source>
         <translation>Focus changé vers la fenêtre Table des matières.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7106"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7127"/>
         <source>Focus changed to Clips window.</source>
         <translation>Focus changé vers la fenêtre Clips.</translation>
     </message>
@@ -17756,55 +17756,55 @@ propriété</translation>
         <translation>Ligne / Colonne</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="794"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="796"/>
         <source>Check Report</source>
         <translation>Vérifier le Rapport</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="795"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="797"/>
         <source>Incorrect XHTML/XML Detected
 Are you Sure You Want to Continue?</source>
         <translation>XHTML/XML incorrect détecté.
 Êtes-vous sûr de vouloir poursuivre ?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="813"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="815"/>
         <source>Status: cleaning up - deleting files</source>
         <translation>Statut : nettoyage – supression des fichiers</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="846"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="848"/>
         <source>Status: deleting</source>
         <translation>Statut : effacement</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="885"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="887"/>
         <source>Status: Loading</source>
         <translation>Statut : Chargement</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="893"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="895"/>
         <source>Input Plugin</source>
         <translation>Greffon d&apos;entrée</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="894"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="896"/>
         <source>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</source>
         <translation>Votre livre actuel sera complètement remplacé, perdant ainsi toute modification non sauvegardée. Êtes-vous sûr de vouloir continuer</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="922"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="936"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="924"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="938"/>
         <source>Status: adding</source>
         <translation>Statut : ajout</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="974"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="976"/>
         <source>Status: cleaning up - modifying files</source>
         <translation>Statut : nettoyage – modification des fichiers</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="1011"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="1013"/>
         <source>Status: modifying</source>
         <translation>Statut : modification</translation>
     </message>
@@ -18100,8 +18100,8 @@ Les entités peuvent être séparées pas des lignes, des virgules ou des espace
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="73"/>
         <location filename="../../MainUI/PreviewWindow.cpp" line="99"/>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="471"/>
-        <location filename="../../MainUI/PreviewWindow.cpp" line="479"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="472"/>
+        <location filename="../../MainUI/PreviewWindow.cpp" line="480"/>
         <source>Preview</source>
         <translation>Prévisualisation</translation>
     </message>
