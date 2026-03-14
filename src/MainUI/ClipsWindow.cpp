@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -114,8 +114,8 @@ void ClipsWindow::SetupTreeView()
     m_TreeView->setAnimated(true);
     m_TreeView->setIndentation(COLUMN_INDENTATION);
     m_TreeView->setHeaderHidden(true);
-
     m_TreeView->setColumnHidden(1, true);
+    m_TreeView->setColumnHidden(2, true);
 
     m_TreeView->expandAll();
 }
