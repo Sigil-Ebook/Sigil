@@ -59,12 +59,12 @@
     <message>
         <location filename="../../Dialogs/About.cpp" line="52"/>
         <source>Developers(s)</source>
-        <translation type="unfinished"/>
+        <translation>开发者</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="57"/>
         <source>Previous Developer(s)</source>
-        <translation type="unfinished"/>
+        <translation>之前的开发者</translation>
     </message>
     <message>
         <location filename="../../Dialogs/About.cpp" line="61"/>

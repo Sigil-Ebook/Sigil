@@ -5249,7 +5249,7 @@ Możesz następnie zaznaczyć lub odznaczyć pojedyncze pozycje na liście powy�
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="200"/>
         <source>shades</source>
-        <translation>odcienie</translation>
+        <translation>odcieni(e)</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="200"/>

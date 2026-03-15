@@ -4266,7 +4266,7 @@ alguns caràcters de la selecció en obrir el diàleg de cerca.</translation>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="30"/>
         <source>Basics</source>
-        <translation type="unfinished"/>
+        <translation>Basics</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="42"/>
@@ -4349,7 +4349,7 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="218"/>
         <source>Clear</source>
-        <translation type="unfinished"/>
+        <translation>Neteja</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="228"/>
@@ -9394,7 +9394,7 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     <message>
         <location filename="../../Form_Files/main.ui" line="430"/>
         <source>&amp;Automation</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Automatització</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="452"/>
@@ -9543,7 +9543,9 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new default book.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Nou&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Crea un nou llibre per defecte.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="904"/>
@@ -9560,7 +9562,9 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New ePub2&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new ePub2 book.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Nou ePub2&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Crea un nou llibre ePub2.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="929"/>
@@ -9572,7 +9576,9 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New ePub3&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new ePub3 book.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Nou ePub3&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Crea un nou llibre ePub3.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="944"/>
@@ -11718,7 +11724,7 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     <message>
         <location filename="../../Form_Files/main.ui" line="2856"/>
         <source>Blank Javascript</source>
-        <translation type="unfinished"/>
+        <translation>JavaScript en blanc</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2859"/>
@@ -12096,7 +12102,7 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="521"/>
         <source>Validation tool</source>
-        <translation type="unfinished"/>
+        <translation>Eina de validació</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="522"/>

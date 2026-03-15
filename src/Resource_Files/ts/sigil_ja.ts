@@ -692,17 +692,17 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="32"/>
         <source>CHAPTER_TITLE_HERE</source>
-        <translation type="unfinished"/>
+        <translation>CHAPTER_TITLE_HERE</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="34"/>
         <source>HREF_TO_ENDNOTE</source>
-        <translation type="unfinished"/>
+        <translation>HREF_TO_ENDNOTE</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="35"/>
         <source>HREF_RETURN_FROM_ENDNOTE</source>
-        <translation type="unfinished"/>
+        <translation>HREF_RETURN_FROM_ENDNOTE</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaClips.cpp" line="37"/>
@@ -870,12 +870,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="188"/>
         <source>Back Link</source>
-        <translation type="unfinished"/>
+        <translation>戻るリンク</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="188"/>
         <source>A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary definition to where a term is used.)</source>
-        <translation type="unfinished"/>
+        <translation>コンテンツ内の関連箇所に戻ることができるリンク(例: 脚注からその出典へ、または用語集の定義からその用語が使用されている箇所へ)。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="189"/>
@@ -900,12 +900,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="191"/>
         <source>Bibliography Reference</source>
-        <translation type="unfinished"/>
+        <translation>参考文献一覧</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="191"/>
         <source>A reference to a bibliography entry.</source>
-        <translation type="unfinished"/>
+        <translation>参考文献の項目への参照です。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="192"/>
@@ -1080,12 +1080,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="209"/>
         <source>Glossary Reference</source>
-        <translation type="unfinished"/>
+        <translation>用語集の参照</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="209"/>
         <source>A reference to a glossary definition.</source>
-        <translation type="unfinished"/>
+        <translation>用語集の定義への参照です。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="210"/>
@@ -1110,12 +1110,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="212"/>
         <source>Note Reference</source>
-        <translation type="unfinished"/>
+        <translation>注釈の参照</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="212"/>
         <source>A reference to a footnote or endnote, typically appearing as a superscripted number or symbol in the main body of the text.</source>
-        <translation type="unfinished"/>
+        <translation>本文中に上付き数字や記号として表示される、脚注または末尾注への参照です。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="213"/>
@@ -1230,12 +1230,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="224"/>
         <source>Subtitle</source>
-        <translation type="unfinished"/>
+        <translation>副題</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="224"/>
         <source>An explanatory or alternate title for the work, or a section or components within it.</source>
-        <translation type="unfinished"/>
+        <translation>作品、あるいはその中のセクションや構成要素に対する説明的なタイトル、または別名です。</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="225"/>
@@ -2104,7 +2104,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="100"/>
         <source>Sigil will send your stylesheet data to the &lt;a href=&apos;https://jigsaw.w3.org/css-validator/&apos;&gt;W3C Validation Service&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>Sigilは、スタイルシートデータを &lt;a href=&apos;https://jigsaw.w3.org/css-validator/&apos;&gt;W3C Validation Service&lt;/a&gt;に送信します。</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="101"/>
@@ -2354,12 +2354,12 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
         <source>Number</source>
-        <translation type="unfinished"/>
+        <translation>番号</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
         <source>Assignable Shortcut Id.</source>
-        <translation type="unfinished"/>
+        <translation>割り当て可能なショートカットID。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="78"/>
@@ -2519,7 +2519,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="74"/>
         <source>Number</source>
-        <translation type="unfinished"/>
+        <translation>番号</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/ClipEditorModel.cpp" line="75"/>
@@ -13336,7 +13336,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="120"/>
         <source>Use for a person or organization who designs structures or oversees their construction.</source>
-        <translation type="unfinished"/>
+        <translation>構造物を設計したり、その建設を監督したりする個人または組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="121"/>
@@ -13346,7 +13346,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="121"/>
         <source>Use for a person or organization who transcribes a musical composition, usually for a different medium from that of the original; in an arrangement the musical substance remains essentially unchanged.</source>
-        <translation type="unfinished"/>
+        <translation>楽曲を、通常は原曲とは異なる媒体向けに書き起こす個人または組織を指します。編曲においては、楽曲の本質的な内容は基本的に変わりません。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="122"/>
@@ -13356,7 +13356,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="122"/>
         <source>Use for a person (e.g., a painter or sculptor) who makes copies of works of visual art.</source>
-        <translation type="unfinished"/>
+        <translation>視覚芸術作品の複製を行う人 (画家や彫刻家など) を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="123"/>
@@ -13366,7 +13366,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="123"/>
         <source>A person contributing to a motion picture or television production by overseeing the artists and craftspeople who build the sets.</source>
-        <translation type="unfinished"/>
+        <translation>映画やテレビ番組の制作において、セットを制作するアーティストや職人を監督する役割を担う人です。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="124"/>
@@ -13386,7 +13386,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="125"/>
         <source>Use for a person responsible for controlling the development of the artistic style of an entire production, including the choice of works to be presented and selection of senior production staff.</source>
-        <translation type="unfinished"/>
+        <translation>作品全体の芸術的スタイルの構築を統括する責任者を指し、これには、上演作品の選定や主要制作スタッフの選任などが含まれます。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="126"/>
@@ -13396,7 +13396,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="126"/>
         <source>Use for a person or organization to whom a license for printing or publishing has been transferred.</source>
-        <translation type="unfinished"/>
+        <translation>印刷または出版のライセンスが譲渡された個人または組織に対して使用します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="127"/>
@@ -13416,7 +13416,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="128"/>
         <source>Use for an author, artist, etc., relating him/her to a work for which there is or once was substantial authority for designating that person as author, creator, etc. of the work. </source>
-        <translation type="unfinished"/>
+        <translation>著者、芸術家などについて、その人物を当該作品の著者、制作者などとして指定するに足る相当な根拠が現在あるか、あるいはかつてあった作品に関連付けて使用すること。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="129"/>
@@ -13426,7 +13426,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="129"/>
         <source>Use for a person or organization in charge of the estimation and public auctioning of goods, particularly books, artistic works, etc.</source>
-        <translation type="unfinished"/>
+        <translation>物品、特に書籍や美術品などの鑑定および競売を担当する個人または組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="130"/>
@@ -13446,7 +13446,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="131"/>
         <source>Use for a person or organization whose work is largely quoted or extracted in works to which he or she did not contribute directly. Such quotations are found particularly in exhibition catalogs, collections of photographs, etc.</source>
-        <translation type="unfinished"/>
+        <translation>自身が直接関与していない著作物において、その活動内容が主に引用または抜粋されている個人や組織を指します。このような引用は、特に展覧会カタログや写真集などで見られます。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="132"/>
@@ -13466,7 +13466,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="133"/>
         <source>Use for a person or organization responsible for the dialog or spoken commentary for a screenplay or sound recording.</source>
-        <translation type="unfinished"/>
+        <translation>脚本や録音物における台詞やナレーションを担当する個人または組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="134"/>
@@ -13476,7 +13476,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="134"/>
         <source>Use for a person or organization responsible for an introduction, preface, foreword, or other critical introductory matter, but who is not the chief author.</source>
-        <translation type="unfinished"/>
+        <translation>序文、前書き、序言、またはその他の重要な導入部分を担当しているが、主執筆者ではない個人または組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="135"/>
@@ -13486,7 +13486,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="135"/>
         <source>Use for a person or organization responsible for a motion picture screenplay, dialog, spoken commentary, etc.</source>
-        <translation type="unfinished"/>
+        <translation>映画の脚本、台詞、ナレーションなどを担当する個人または組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="136"/>
@@ -13496,7 +13496,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="136"/>
         <source>A person whose manuscript signature appears on an item.</source>
-        <translation type="unfinished"/>
+        <translation>その作品に自筆の署名がある人物です。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="137"/>
@@ -13506,7 +13506,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="137"/>
         <source>Use for a person or organization responsible for a work upon which the work represented by the catalog record is based. This may be appropriate for adaptations, sequels, continuations, indexes, etc.</source>
-        <translation type="unfinished"/>
+        <translation>カタログ記録の対象となる著作物の元となった著作物の責任者(個人または組織)を指す場合に使用します。これは、翻案、続編、続編、索引などに適しています。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="138"/>
@@ -13516,7 +13516,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="138"/>
         <source>Use for a person or organization responsible for the binding of printed or manuscript materials.</source>
-        <translation type="unfinished"/>
+        <translation>印刷物や原稿の製本を担当する個人または組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="139"/>
@@ -13526,7 +13526,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="139"/>
         <source>Use for a person or organization responsible for the binding design of a book, including the type of binding, the type of materials used, and any decorative aspects of the binding. </source>
-        <translation type="unfinished"/>
+        <translation>製本方式、使用する素材、装丁の装飾的要素など、書籍の製本デザインを担当する個人または組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="140"/>
@@ -13546,7 +13546,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="141"/>
         <source>Use for a person or organization responsible for the entire graphic design of a book, including arrangement of type and illustration, choice of materials, and process used. </source>
-        <translation type="unfinished"/>
+        <translation>組版や挿絵の配置、素材の選定、製本方法など、書籍のグラフィックデザイン全般を担当する個人または組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="142"/>
@@ -13566,7 +13566,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="143"/>
         <source>Use for a person or organization responsible for the design of flexible covers designed for or published with a book, including the type of materials used, and any decorative aspects of the bookjacket. </source>
-        <translation type="unfinished"/>
+        <translation>書籍のためにデザインされた、あるいは書籍に付属して発行されるソフトカバーの設計を担当する個人または組織を指します。これには、使用される素材の種類や、ブックジャケットの装飾的な要素も含まれます。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="144"/>
@@ -13576,7 +13576,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="144"/>
         <source>Use for a person or organization responsible for the design of a book owner&apos;s identification label that is most commonly pasted to the inside front cover of a book. </source>
-        <translation type="unfinished"/>
+        <translation>通常、本の表紙の内側に貼られる所有者用識別ラベルの設計を担当する個人または組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="145"/>
@@ -13586,7 +13586,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="145"/>
         <source>Use for a person or organization who makes books and other bibliographic materials available for purchase. Interest in the materials is primarily lucrative.</source>
-        <translation type="unfinished"/>
+        <translation>書籍やその他の図書資料を販売している個人または組織を指します。その資料に対する関心は、主に利益を得ることを目的としています。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="146"/>
@@ -13606,7 +13606,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="147"/>
         <source>A person, family, or organization involved in broadcasting a resource to an audience via radio, television, webcast, etc.</source>
-        <translation type="unfinished"/>
+        <translation>ラジオ、テレビ、ウェブキャストなどを通じて、視聴者や聴衆に向けてコンテンツを配信する個人、家族、または組織です。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="148"/>
@@ -13616,7 +13616,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="148"/>
         <source>Use for a person or organization who writes in an artistic hand, usually as a copyist and or engrosser.</source>
-        <translation type="unfinished"/>
+        <translation>芸術的な筆跡で文章を書く個人または組織を指し、通常、写本家や正本作成者を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="149"/>
@@ -13626,7 +13626,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="149"/>
         <source>Use for a person or organization responsible for the creation of maps and other cartographic materials.</source>
-        <translation type="unfinished"/>
+        <translation>地図やその他の地図資料の作成を担当する個人または組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="150"/>
@@ -13646,7 +13646,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="151"/>
         <source>Use for a censor, bowdlerizer, expurgator, etc., official or private. </source>
-        <translation type="unfinished"/>
+        <translation>検閲官、修正者、削除者など、公的・私的な立場の人を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="152"/>
@@ -13686,7 +13686,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="155"/>
         <source>A curator who lists or inventories the items in an aggregate work such as a collection of items or works.</source>
-        <translation type="unfinished"/>
+        <translation>コレクションや作品集などの集合作品に含まれる品目を一覧化したり、目録を作成したりする学芸員です。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="156"/>
@@ -13696,7 +13696,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="156"/>
         <source>Use for a person or organization who has brought together material from various sources that has been arranged, described, and cataloged as a collection. A collector is neither the creator of the material nor a person to whom manuscripts in the collection may have been addressed.</source>
-        <translation type="unfinished"/>
+        <translation>さまざまな情報源から資料を集め、それらを整理・記述・目録化してコレクションとしてまとめた個人または組織を指します。収集家とは、その資料の制作者でもなければ、コレクションに含まれる原稿の宛先となった人物でもありません。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="157"/>
@@ -13706,7 +13706,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="157"/>
         <source>Use for a person or organization responsible for the production of photographic prints from film or other colloid that has ink-receptive and ink-repellent surfaces.</source>
-        <translation type="unfinished"/>
+        <translation>インクを吸着する表面とインクをはじく表面を持つフィルムやその他のコロイドから写真プリントを製作する責任を負う個人または組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="158"/>
@@ -13716,7 +13716,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="158"/>
         <source>A person or organization responsible for applying color to drawings, prints, photographs, maps, moving images, etc.</source>
-        <translation type="unfinished"/>
+        <translation>図面、版画、写真、地図、動画などに色を付けることを担当する個人または組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="159"/>
@@ -13726,7 +13726,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="159"/>
         <source>Use for a person or organization who provides interpretation, analysis, or a discussion of the subject matter on a recording, motion picture, or other audiovisual medium.</source>
-        <translation type="unfinished"/>
+        <translation>録音物、映画、その他の視聴覚媒体において、その主題に関する解説、分析、または考察を行う個人または組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="160"/>
@@ -13736,7 +13736,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="160"/>
         <source>Use for a person or organization responsible for the commentary or explanatory notes about a text. For the writer of manuscript annotations in a printed book, use Annotator [ann].</source>
-        <translation type="unfinished"/>
+        <translation>テキストに関する解説や注釈を担当する個人または組織を指します。印刷物における原稿の注釈の執筆者の場合は、注釈者 [ann] を使用してください。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="161"/>
@@ -13746,7 +13746,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="161"/>
         <source>Use for a person or organization who produces a work or publication by selecting and putting together material from the works of various persons or bodies.</source>
-        <translation type="unfinished"/>
+        <translation>さまざまな個人や団体の著作物から素材を選定し、それらを組み合わせて作品や出版物を制作する個人または組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="162"/>
@@ -13756,7 +13756,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="162"/>
         <source>Use for the party who applies to the courts for redress, usually in an equity proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>通常、衡平法上の手続きにおいて、裁判所に救済を求める当事者を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="163"/>
@@ -13766,7 +13766,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="163"/>
         <source>Use for a complainant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>ある裁判所または管轄区域の判決を覆すために、別の裁判所または管轄区域へ上訴を行う申立人を指し、通常、衡平法上の手続において用いられます。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="164"/>
@@ -13776,17 +13776,17 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="164"/>
         <source>Use for a complainant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
-        <translation type="unfinished"/>
+        <translation>ある裁判所または管轄区域から別の裁判所または管轄区域へ、判決の覆しを求める上訴が提起された場合の申立人を指し、通常、衡平法上の手続において用いられます。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="165"/>
         <source>Composer</source>
-        <translation type="unfinished"/>
+        <translation>Composer [cmp]: 作曲者</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="165"/>
         <source>Use for a person or organization who creates a musical work, usually a piece of music in manuscript or printed form.</source>
-        <translation type="unfinished"/>
+        <translation>音楽作品(通常は手書きまたは印刷された楽曲)を創作する個人または団体を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="166"/>
@@ -13796,7 +13796,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="166"/>
         <source>Use for a person or organization responsible for the creation of metal slug, or molds made of other materials, used to produce the text and images in printed matter. </source>
-        <translation type="unfinished"/>
+        <translation>印刷物の文字や画像を制作するために使用される、金属製スラグ、またはその他の素材で作られた金型を製作する責任を負う個人または組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="167"/>
@@ -13806,7 +13806,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="167"/>
         <source>Use for a person or organization responsible for the original idea on which a work is based, this includes the scientific author of an audio-visual item and the conceptor of an advertisement.</source>
-        <translation type="unfinished"/>
+        <translation>作品のもととなった原案の責任者である個人または組織を指し、これには、視聴覚作品の科学的著者や広告の企画者などが含まれます。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="168"/>
@@ -13816,7 +13816,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="168"/>
         <source>Use for a person who directs a performing group (orchestra, chorus, opera, etc.) in a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>音楽や演劇の公演、あるいはエンターテインメントにおいて、演奏団体(オーケストラ、合唱団、オペラ団など)を指揮する人を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="169"/>
@@ -13826,7 +13826,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="169"/>
         <source>A person or organization responsible for documenting, preserving, or treating printed or manuscript material, works of art, artifacts, or other media.</source>
-        <translation type="unfinished"/>
+        <translation>印刷物や手書き資料、美術品、工芸品、その他の媒体を記録、保存、または処理する責任を負う個人または組織です。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="170"/>
@@ -13836,7 +13836,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="170"/>
         <source>Use for a person or organization relevant to a resource, who is called upon for professional advice or services in a specialized field of knowledge or training.</source>
-        <translation type="unfinished"/>
+        <translation>リソースに関連する個人または組織を指し、専門的な知識や訓練の分野において、専門的な助言やサービスの提供を求められる者を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="171"/>
@@ -13846,7 +13846,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="171"/>
         <source>Use for a person or organization relevant to a resource, who is engaged specifically to provide an intellectual overview of a strategic or operational task and by analysis, specification, or instruction, to create or propose a cost-effective course of action or solution.</source>
-        <translation type="unfinished"/>
+        <translation>リソースに関連する個人または組織を指し、戦略的または業務上の課題について包括的な知見を提供し、分析、仕様策定、または指示を通じて、費用対効果の高い行動方針や解決策を策定または提案するために特に任命された者を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="172"/>
@@ -13856,7 +13856,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="172"/>
         <source>Use for the party who opposes, resists, or disputes, in a court of law, a claim, decision, result, etc.</source>
-        <translation type="unfinished"/>
+        <translation>法廷において、請求、決定、結果などに対して反対し、抵抗し、または異議を唱える当事者を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="173"/>
@@ -13866,7 +13866,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="173"/>
         <source>Use for a contestant who takes an appeal from one court of law or jurisdiction to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>ある裁判所または管轄区域の判決を覆すために、別の裁判所または管轄区域に上訴する当事者を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="174"/>
@@ -13876,7 +13876,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="174"/>
         <source>Use for a contestant against whom an appeal is taken from one court of law or jurisdiction to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>ある裁判所または管轄区域から別の裁判所または管轄区域へ、判決の覆しを求める上訴が提起された当事者を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="175"/>
@@ -13886,7 +13886,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="175"/>
         <source>Use for the party defending a claim, decision, result, etc. being opposed, resisted, or disputed in a court of law.</source>
-        <translation type="unfinished"/>
+        <translation>法廷において、異議が申し立てられたり、抵抗されたり、争われたりしている主張、決定、結果などを擁護する側を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="176"/>
@@ -13896,7 +13896,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="176"/>
         <source>Use for a contestee who takes an appeal from one court or jurisdiction to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>ある裁判所または管轄区域の判決を覆すために、別の裁判所または管轄区域へ上訴する当事者を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="177"/>
@@ -13906,7 +13906,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="177"/>
         <source>Use for a contestee against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment.</source>
-        <translation type="unfinished"/>
+        <translation>ある裁判所または管轄区域から別の裁判所または管轄区域へ、判決の破棄を求めて上訴が提起された被上訴人を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="178"/>
@@ -13916,7 +13916,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="178"/>
         <source>Use for a person or organization relevant to a resource, who enters into a contract with another person or organization to perform a specific task.</source>
-        <translation type="unfinished"/>
+        <translation>リソースに関連する個人または組織が、特定の業務を遂行するために他の個人または組織と契約を締結する場合に用いる。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="179"/>
@@ -13936,7 +13936,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="180"/>
         <source>Use for a person or organization listed as a copyright owner at the time of registration. Copyright can be granted or later transferred to another person or organization, at which time the claimant becomes the copyright holder.</source>
-        <translation type="unfinished"/>
+        <translation>登録時に著作権者として記載されている個人または団体が使用できます。著作権は付与されるか、あるいは後日他の個人または団体に譲渡されることがあり、その時点で権利主張者が著作権者となります。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="181"/>
@@ -13946,7 +13946,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="181"/>
         <source>Use for a person or organization to whom copy and legal rights have been granted or transferred for the intellectual content of a work. The copyright holder, although not necessarily the creator of the work, usually has the exclusive right to benefit financially from the sale and use of the work to which the associated copyright protection applies.</source>
-        <translation type="unfinished"/>
+        <translation>作品の知的財産権に関する複製権および法的権利が付与または譲渡された個人または組織を指します。著作権者は必ずしも作品の制作者であるとは限りませんが、通常、関連する著作権保護の対象となる作品の販売および利用から経済的利益を得る排他的権利を有します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="182"/>
@@ -13956,7 +13956,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="182"/>
         <source>Use for a person or organization who is a corrector of manuscripts, such as the scriptorium official who corrected the work of a scribe. For printed matter, use Proofreader.</source>
-        <translation type="unfinished"/>
+        <translation>写本の校正者、例えば筆写者の作業を校正した写字室の職員など、個人または組織を指す場合に使用します。印刷物については、Proofreader を使用してください。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="183"/>
@@ -13966,17 +13966,17 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="183"/>
         <source>Use for a person or organization who was either the writer or recipient of a letter or other communication.</source>
-        <translation type="unfinished"/>
+        <translation>手紙やその他の通信文の差出人または受取人であった個人や組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="184"/>
         <source>Costume designer</source>
-        <translation type="unfinished"/>
+        <translation>Costume designer [cst]: 衣装デザイナー</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="184"/>
         <source>Use for a person or organization who designs or makes costumes, fixes hair, etc., for a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>ミュージカルや演劇、エンターテインメントなどのために、衣装のデザインや制作、ヘアメイクなどを担当する個人または団体を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="185"/>
@@ -13986,7 +13986,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="185"/>
         <source>A court governed by court rules, regardless of their official nature (e.g., laws, administrative regulations.)</source>
-        <translation type="unfinished"/>
+        <translation>裁判所規則によって運営される裁判所で、その規則が公的な性質(例:法律、行政規則など)を持つか否かは問わない。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="186"/>
@@ -13996,7 +13996,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="186"/>
         <source>A person, family, or organization contributing to a resource by preparing a court&apos;s opinions for publication.</source>
-        <translation type="unfinished"/>
+        <translation>裁判所の判決文を出版用に編集・作成することで、資料の整備に貢献する個人、家族、または団体です。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="187"/>
@@ -14006,7 +14006,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="187"/>
         <source>Use for a person or organization responsible for the graphic design of a book cover, album cover, slipcase, box, container, etc. For a person or organization responsible for the graphic design of an entire book, use Book designer; for book jackets, use Bookjacket designer.</source>
-        <translation type="unfinished"/>
+        <translation>書籍の表紙、アルバムカバー、スリップケース、ボックス、ケースなどのグラフィックデザインを担当する個人または組織を指す場合に使用します。書籍全体のグラフィックデザインを担当する個人または組織については Book designer を、ブックジャケットについては Bookjacket designer を使用してください。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="188"/>
@@ -14026,7 +14026,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="189"/>
         <source>Use for a person or organization responsible for conceiving and organizing an exhibition.</source>
-        <translation type="unfinished"/>
+        <translation>展覧会の企画・運営を担当する個人または組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="190"/>
@@ -14036,7 +14036,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="190"/>
         <source>Use for a person or organization who principally exhibits dancing skills in a musical or dramatic presentation or entertainment.</source>
-        <translation type="unfinished"/>
+        <translation>主にミュージカルや演劇、あるいはエンターテインメントにおいてダンスの技能を披露する個人または団体を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="191"/>
@@ -14046,7 +14046,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="191"/>
         <source>Use for a person or organization that submits data for inclusion in a database or other collection of data.</source>
-        <translation type="unfinished"/>
+        <translation>データベースやその他のデータ集に収録するためにデータを提供する個人または組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="192"/>
@@ -14056,7 +14056,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="192"/>
         <source>Use for a person or organization responsible for managing databases or other data sources.</source>
-        <translation type="unfinished"/>
+        <translation>データベースやその他のデータソースの管理を担当する個人または組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="193"/>
@@ -14066,7 +14066,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="193"/>
         <source>Use for a person or organization to whom a book, manuscript, etc., is dedicated (not the recipient of a gift).</source>
-        <translation type="unfinished"/>
+        <translation>本や原稿などが献呈される相手(贈り物の受取人ではない)を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="194"/>
@@ -14076,7 +14076,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="194"/>
         <source>Use for the author of a dedication, which may be a formal statement or in epistolary or verse form.</source>
-        <translation type="unfinished"/>
+        <translation>献辞の著者に使用され、正式な声明や書簡体または詩の形式である場合があります。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="195"/>
@@ -14086,7 +14086,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="195"/>
         <source>Use for the party defending or denying allegations made in a suit and against whom relief or recovery is sought in the courts, usually in a legal action.</source>
-        <translation type="unfinished"/>
+        <translation>訴訟において、提訴された主張を防御または否認し、かつ裁判所において救済または賠償の請求対象となっている当事者を指し、通常、法的措置において用いられます。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="196"/>
@@ -14096,7 +14096,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="196"/>
         <source>Use for a defendant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
-        <translation type="unfinished"/>
+        <translation>通常、訴訟において、ある裁判所または管轄区域から別の裁判所または管轄区域へ上訴し、判決の覆しを求める被告を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="197"/>
@@ -14106,7 +14106,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="197"/>
         <source>Use for a defendant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
-        <translation type="unfinished"/>
+        <translation>ある裁判所または管轄区域から別の裁判所または管轄区域へ、判決の破棄を求めて上訴が提起された被告を指し、通常、訴訟において用いられます。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="198"/>
@@ -14116,7 +14116,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="198"/>
         <source>Use for the organization granting a degree for which the thesis or dissertation described was presented.</source>
-        <translation type="unfinished"/>
+        <translation>論文または学位論文が提出された学位を授与する組織に使用します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="199"/>
@@ -14126,17 +14126,17 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="199"/>
         <source>Use for a person or organization executing technical drawings from others&apos; designs.</source>
-        <translation type="unfinished"/>
+        <translation>他者の設計図に基づいて技術図面を作成する個人または組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="200"/>
         <source>Depicted</source>
-        <translation type="unfinished"/>
+        <translation>Depicted [dpc]: 描写</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="200"/>
         <source>Use for an entity depicted or portrayed in a work, particularly in a work of art.</source>
-        <translation type="unfinished"/>
+        <translation>作品、特に美術作品に描かれた、あるいは表現された対象を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="201"/>
@@ -14146,7 +14146,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="201"/>
         <source>Use for a person or organization placing material in the physical custody of a library or repository without transferring the legal title.</source>
-        <translation type="unfinished"/>
+        <translation>法的所有権を移転することなく、資料を図書館や保管施設に物理的に預ける個人または組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="202"/>
@@ -14166,7 +14166,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="203"/>
         <source>Use for a person or organization who is responsible for the general management of a work or who supervises the production of a performance for stage, screen, or sound recording.</source>
-        <translation type="unfinished"/>
+        <translation>作品全体の管理を担当する者、または舞台、映画、音響録音における公演・制作を監督する個人や組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="204"/>
@@ -14176,7 +14176,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="204"/>
         <source>Use for a person who presents a thesis for a university or higher-level educational degree.</source>
-        <translation type="unfinished"/>
+        <translation>大学またはそれ以上の教育機関で学位論文を提出する人を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="205"/>
@@ -14196,7 +14196,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="206"/>
         <source>Use for a person or organization that has exclusive or shared marketing rights for an item.</source>
-        <translation type="unfinished"/>
+        <translation>ある商品の独占的または共同の販促権を有する個人または組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="207"/>
@@ -14216,7 +14216,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="208"/>
         <source>Use for a person or organization who prepares artistic or technical drawings. </source>
-        <translation type="unfinished"/>
+        <translation>芸術的または技術的な図面を作成する個人または組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="209"/>
@@ -14236,7 +14236,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="210"/>
         <source>Use for a person or organization who prepares for publication a work not primarily his/her own, such as by elucidating text, adding introductory or other critical matter, or technically directing an editorial staff.</source>
-        <translation type="unfinished"/>
+        <translation>主に自身のものではない著作物の出版準備を行う個人または組織を指し、具体的には、本文の解説、序文やその他の批評的解説の追加、あるいは編集スタッフへの技術的な指導などを行う場合が該当します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="211"/>
@@ -14256,7 +14256,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="212"/>
         <source>A person, family, or organization responsible for assembling, arranging, and trimming film, video, or other moving image formats, including both visual and audio aspects.</source>
-        <translation type="unfinished"/>
+        <translation>映画、ビデオ、その他の動画フォーマットの編集、構成、およびトリミングを担当する個人、家族、または組織で、これには、映像面と音声面の両方が含まれます。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="213"/>
@@ -14266,7 +14266,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="213"/>
         <source>Use for a person responsible for setting up a lighting rig and focusing the lights for a production, and running the lighting at a performance.</source>
-        <translation type="unfinished"/>
+        <translation>制作における照明装置の設営やライトのフォーカス調整を担当し、本番での照明操作を行う責任者を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="214"/>
@@ -14276,7 +14276,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="214"/>
         <source>Use for a person or organization who creates a duplicate printing surface by pressure molding and electrodepositing of metal that is then backed up with lead for printing.</source>
-        <translation type="unfinished"/>
+        <translation>加圧成形および金属の電気めっきによって複写用印刷面を作成し、その裏面に鉛を貼り付けて印刷に用いる個人または組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="215"/>
@@ -14286,7 +14286,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="215"/>
         <source>Use for a person or organization that is responsible for technical planning and design, particularly with construction.</source>
-        <translation type="unfinished"/>
+        <translation>主に建設分野において、技術的な計画や設計を担当する個人または組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="216"/>
@@ -14296,7 +14296,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="216"/>
         <source>Use for a person or organization who cuts letters, figures, etc. on a surface, such as a wooden or metal plate, for printing.</source>
-        <translation type="unfinished"/>
+        <translation>印刷のために、木板や金属板などの表面に文字や数字などを彫る人または組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="217"/>
@@ -14306,7 +14306,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="217"/>
         <source>Use for a person or organization who produces text or images for printing by subjecting metal, glass, or some other surface to acid or the corrosive action of some other substance.</source>
-        <translation type="unfinished"/>
+        <translation>金属、ガラス、またはその他の表面を酸やその他の腐食性物質にさらすことで、印刷用のテキストや画像を作成する個人または組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="218"/>
@@ -14316,7 +14316,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="218"/>
         <source>A place where an event such as a conference or a concert took place.</source>
-        <translation type="unfinished"/>
+        <translation>会議やコンサートなどのイベントが開催された場所。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="219"/>
@@ -14326,7 +14326,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="219"/>
         <source>Use for a person or organization in charge of the description and appraisal of the value of goods, particularly rare items, works of art, etc. </source>
-        <translation type="unfinished"/>
+        <translation>物品、特に希少品や美術品などの価値の評価や鑑定を担当する個人または組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="220"/>
@@ -14336,7 +14336,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="220"/>
         <source>Use for a person or organization that executed the facsimile.</source>
-        <translation type="unfinished"/>
+        <translation>ファクシミリを送信した個人または組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="221"/>
@@ -14366,7 +14366,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="223"/>
         <source>A person, family, or organization involved in distributing a moving image resource to theatres or other distribution channels.</source>
-        <translation type="unfinished"/>
+        <translation>映画館やその他の配給ルートへ映像コンテンツを配給する個人、家族、または組織です。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="224"/>
@@ -14376,7 +14376,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="224"/>
         <source>Use for a person or organization who is an editor of a motion picture film. This term is used regardless of the medium upon which the motion picture is produced or manufactured (e.g., acetate film, video tape). </source>
-        <translation type="unfinished"/>
+        <translation>映画の編集者を指す場合に用います。この用語は、映画が制作または製造される媒体(例:アセテートフィルム、ビデオテープ)にかかわらず使用されます。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="225"/>
@@ -14386,7 +14386,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="225"/>
         <source>A producer responsible for most of the business aspects of a film.</source>
-        <translation type="unfinished"/>
+        <translation>映画のビジネス面のほとんどを担当するプロデューサーです。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="226"/>
@@ -14491,12 +14491,12 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="236"/>
         <source>Illustrator</source>
-        <translation type="unfinished"/>
+        <translation>Illustrator [ill]: イラストレーター</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="236"/>
         <source>Use for a person or organization who conceives, and perhaps also implements, a design or illustration, usually to accompany a written text.</source>
-        <translation type="unfinished"/>
+        <translation>通常、文章に添えるデザインやイラストを考案し、場合によっては制作も行う個人や組織を指します。</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="237"/>
@@ -15992,7 +15992,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
         <location filename="../../Dialogs/MetaEditor.cpp" line="488"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="579"/>
         <source>Add Metadata Element</source>
-        <translation type="unfinished"/>
+        <translation>メタデータ要素を追加</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="497"/>
@@ -16083,13 +16083,13 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="663"/>
         <source>Add Property to Element</source>
-        <translation type="unfinished"/>
+        <translation>要素のプロパティを追加</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="721"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="775"/>
         <source>Select Role</source>
-        <translation type="unfinished"/>
+        <translation>Role (役割) を追加</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="735"/>
@@ -18158,7 +18158,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="61"/>
         <source>Function</source>
-        <translation type="unfinished"/>
+        <translation>関数</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="67"/>
@@ -18173,7 +18173,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="71"/>
         <source>Use</source>
-        <translation type="unfinished"/>
+        <translation>使用</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="88"/>
@@ -18183,12 +18183,12 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="118"/>
         <source>Input Name</source>
-        <translation type="unfinished"/>
+        <translation>名前を入力</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="119"/>
         <source>Input Function Name</source>
-        <translation type="unfinished"/>
+        <translation>関数名を入力</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="124"/>
@@ -18199,12 +18199,12 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="124"/>
         <source>Name cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>名前は空にすることはできません</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="126"/>
         <source>Name cannot be duplicate</source>
-        <translation type="unfinished"/>
+        <translation>名前は重複できません</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="141"/>
@@ -18214,7 +18214,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="142"/>
         <source>Are you sure you want to delete the function?:</source>
-        <translation type="unfinished"/>
+        <translation>本当に関数を削除しますか?</translation>
     </message>
 </context>
 <context>
@@ -18615,13 +18615,15 @@ valid for all selected files.
         <location filename="../../Form_Files/ReplacementChooser.ui" line="108"/>
         <source>Select desired replacements in the table.
        Warning: Once replacements are applied, no &quot;undo&quot; is possible.</source>
-        <translation type="unfinished"/>
+        <translation>表で希望の置換を選択してください。
+       警告: 一度適用すれば、&quot;取り消し&quot;は不可能です。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="136"/>
         <source>Apply the selected replacements listed in the table.
          Warning: Once applied, no &quot;undo&quot; is possible.</source>
-        <translation type="unfinished"/>
+        <translation>表に記載されている選択した置換を適用します。
+         警告: 一度適用すれば、&quot;取り消し&quot;は不可能です。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="140"/>
@@ -18716,7 +18718,7 @@ then if not found look for the second entry in the list, etc.</source>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="108"/>
         <source>Alt+F</source>
-        <translation type="unfinished"/>
+        <translation>Alt+F</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="118"/>
@@ -19278,7 +19280,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="532"/>
         <source>Option: Text Only</source>
-        <translation type="unfinished"/>
+        <translation>オプション: テキストのみ</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="827"/>
@@ -21135,17 +21137,17 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="588"/>
         <source>Save Selected Data</source>
-        <translation type="unfinished"/>
+        <translation>選択したデータを保存</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="589"/>
         <source>Copy Selected Data to Clipboard</source>
-        <translation type="unfinished"/>
+        <translation>選択したデータをクリップボードにコピー</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="681"/>
         <source>Save Selected Data As Comma Separated File</source>
-        <translation type="unfinished"/>
+        <translation>選択したデータをカンマ区切りファイルとして保存</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="694"/>
