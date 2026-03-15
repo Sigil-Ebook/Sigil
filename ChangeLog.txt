@@ -1,3 +1,8 @@
+Sigil-2.7.6
+   Bug Fixes
+     - fix many translations from Transifex that somehow were improperly updated
+     - Fix bug in Clips Window (dock widgei) that messed up its layout
+     
 Sigil-2.7.5
    Bug Fixes
      - WebProfileMgr will now detect multiple instances of Sigil and choose the right profile cache type
