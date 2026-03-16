@@ -341,18 +341,28 @@ void set_env_vars_if_needed(const QString& env_path)
     if (QFile::exists(env_path)) {
         envdata = Utility::ReadUnicodeTextFile(env_path, false);
     }
-    // assumes NAME=VALUE and one per line
+    // assumes NAME=VALUE, or ~NAME, one per line
     if (!envdata.isEmpty()) {
         QStringList evpairs = envdata.split('\n');
         foreach(QString apair, evpairs) {
-            if (apair.contains('=')) {
-                QStringList nv = apair.split('=');
-                QString evname = nv.value(0).trimmed();
-                QString evval = nv.value(1).trimmed();
-                // This is defined as: bool qputenv(const char * varName, QByteArrayView raw);
-                if (!evname.isEmpty() && !evval.isEmpty()) {
-                    qputenv(evname.toLocal8Bit().data(), evval.toLocal8Bit());
-                    // qDebug() << "setting ev: " << evname << " to: " << evval;
+            // unset environment variable
+            if (apair.startsWith('~')) {
+                QString evname = apair.remove(0, 1).trimmed();
+                if (!evname.isEmpty()) {
+                    qunsetenv(evname.toLocal8Bit().data());
+                    qDebug() << "unsetting ev: " << evname;
+                }
+            } else { // Only ever unset or set just to be safe
+                // set environment variable
+                if (apair.contains('=')) {
+                    QStringList nv = apair.split('=');
+                    QString evname = nv.value(0).trimmed();
+                    QString evval = nv.value(1).trimmed();
+                    // This is defined as: bool qputenv(const char * varName, QByteArrayView raw);
+                    if (!evname.isEmpty() && !evval.isEmpty()) {
+                        qputenv(evname.toLocal8Bit().data(), evval.toLocal8Bit());
+                        // qDebug() << "setting ev: " << evname << " to: " << evval;
+                    }
                 }
             }
         }
