@@ -146,7 +146,6 @@ const QString FOCUS_HIGHLIGHT_QSS =
 // can be added back on Windows theme changes.
 QString accumulatedQss = "";
 
-
 // Creates a MainWindow instance depending
 // on command line arguments
 static MainWindow *GetMainWindow(const QStringList &arguments)
@@ -160,7 +159,6 @@ static MainWindow *GetMainWindow(const QStringList &arguments)
 }
 
 #ifdef Q_OS_MAC
-
 static void AboutDialog()
 {
     About about;
@@ -196,16 +194,10 @@ static void file_open()
     foreach(QString filter, filters) {
         filter_string += filter + ";;";
     }
-    // "All Files (*.*)" is the default
     QString default_filter = load_filters.value("epub");
     QString filename = QFileDialog::getOpenFileName(0,
-                       "Open File",
-                       "~",
-                       filter_string,
-                       &default_filter,
-                       QFileDialog::DontUseNativeDialog
-                                                   );
-
+                       "Open File", "~", filter_string, &default_filter,
+                       QFileDialog::DontUseNativeDialog);
     if (!filename.isEmpty()) {
         MainWindow *w = GetMainWindow(QStringList() << "" << filename);
         w->show();
@@ -239,7 +231,6 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
     QString qt_debug_message;
 
     switch (type) {
-        // TODO: should go to a log
         case QtDebugMsg:
             qt_debug_message = QString("Debug: %1").arg(message.toLatin1().constData());
             fprintf(stderr, "Debug: %s\n", message.toLatin1().constData());
@@ -248,7 +239,6 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
             qt_debug_message = QString("Info: %1").arg(message.toLatin1().constData());
             fprintf(stderr, "Info: %s\n", message.toLatin1().constData());
             break;
-        // TODO: should go to a log
         case QtWarningMsg:
             qt_debug_message = QString("Warning: %1").arg(message.toLatin1().constData());
             fprintf(stderr, "Warning: %s\n", message.toLatin1().constData());
@@ -313,7 +303,7 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
         if (outFile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
             QTextStream ts(&outFile);
             ts << qt_debug_message << Qt::endl;
-	}
+        }
     }
 }
 
@@ -350,7 +340,7 @@ void set_env_vars_if_needed(const QString& env_path)
                 QString evname = apair.remove(0, 1).trimmed();
                 if (!evname.isEmpty()) {
                     qunsetenv(evname.toLocal8Bit().data());
-                    qDebug() << "unsetting ev: " << evname;
+                    // qDebug() << "unsetting ev: " << evname;
                 }
             } else { // Only ever unset or set just to be safe
                 // set environment variable
