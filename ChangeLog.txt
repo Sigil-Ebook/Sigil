@@ -2,6 +2,9 @@ Sigil-2.7.6
    Bug Fixes
      - fix many translations from Transifex that somehow were improperly updated
      - Fix bug in Clips Window (dock widgei) that messed up its layout
+
+    New Features
+      - add ability to unset environment variables using the env-vars.txt file
      
 Sigil-2.7.5
    Bug Fixes
