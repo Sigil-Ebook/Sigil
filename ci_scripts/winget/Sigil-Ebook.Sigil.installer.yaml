@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://aka.ms/winget-manifest.installer.1.9.0.schema.json
+# yaml-language-server: $schema=https://aka.ms/winget-manifest.installer.1.10.0.schema.json
 
 PackageIdentifier: Sigil-Ebook.Sigil
 PackageVersion: <VERSION>
@@ -28,4 +28,4 @@ Installers:
   InstallerSwitches:
     Custom: /ALLUSERS /NORESTART /SUPPRESSMSGBOXES /COMPONENTS="dicon,*afiles"
 ManifestType: installer
-ManifestVersion: 1.9.0
+ManifestVersion: 1.10.0
