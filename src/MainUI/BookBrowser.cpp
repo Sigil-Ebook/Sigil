@@ -821,7 +821,7 @@ CSSResource* BookBrowser::CreateIndexCSSFile()
     return css_resource;
 }
 
-QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
+QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images, QStringList already_selected)
 {
     QStringList added_book_paths;
 
@@ -832,24 +832,30 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images)
         m_LastFolderOpen = "";
     }
 
-    QFileDialog::Options options = Utility::DlgOptions("Win32UseNonNative");
+    QStringList filepaths;
+    
+    if (already_selected.isEmpty() ) {
+        QFileDialog::Options options = Utility::DlgOptions("Win32UseNonNative");
 #if 0
-    // filepaths are full absolute file paths to the files to be added
-    QStringList filepaths = QFileDialog::getOpenFileNames(this,
-                                                          tr("Add Existing Files"),
-                                                          m_LastFolderOpen,
-                                                          filter_string,
-                                                          NULL,
-                                                          options);
+        // filepaths are full absolute file paths to the files to be added
+        filepaths = QFileDialog::getOpenFileNames(this,
+                                                  tr("Add Existing Files"),
+                                                  m_LastFolderOpen,
+                                                  filter_string,
+                                                  NULL,
+                                                  options);
 #else
-    QStringList filepaths = PreviewFileDialog::getOpenFileNames(this,
-                                                                tr("Add Existing Files"),
-                                                                m_LastFolderOpen,
-                                                                filter_string,
-                                                                nullptr,
-                                                                options);
+        filepaths = PreviewFileDialog::getOpenFileNames(this,
+                                                        tr("Add Existing Files"),
+                                                        m_LastFolderOpen,
+                                                        filter_string,
+                                                        nullptr,
+                                                        options);
 #endif
-
+    } else {
+        filepaths = already_selected; 
+    }
+    
     if (filepaths.isEmpty()) {
         return added_book_paths;
     }

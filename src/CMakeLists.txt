@@ -246,6 +246,7 @@ set( WIDGET_FILES
     Widgets/FontView.h
     Widgets/Navigator.h
     Widgets/Navigator2.h
+    Widgets/FileDropZone.h
     Widgets/TextView.cpp
     Widgets/TextView.h
     Widgets/TextDocument.h

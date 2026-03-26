@@ -24,10 +24,11 @@
 #ifndef BOOKBROWSER_H
 #define BOOKBROWSER_H
 
-#include <QtCore/QSharedPointer>
+#include <QSharedPointer>
 #include <QWidget>
 #include <QPointer>
-#include <QtWidgets/QDockWidget>
+#include <QDockWidget>
+#include <QStringList>
 
 #include "BookManipulation/Book.h"
 #include "ResourceObjects/Resource.h"
@@ -195,7 +196,7 @@ public slots:
     /**
      * Implements the Add Existing context menu action functionality.
      */
-    QStringList AddExisting(bool only_multimedia = false, bool only_images = false);
+    QStringList AddExisting(bool only_multimedia = false, bool only_images = false, QStringList already_selected = QStringList());
 
     /*
      * Sorts the HTML book entries alphanumerically

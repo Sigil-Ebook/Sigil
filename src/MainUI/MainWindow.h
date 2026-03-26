@@ -73,7 +73,7 @@ class SelectCharacter;
 class ViewImage;
 class FlowTab;
 class QWidget;
-
+class FileDropZone;
 
 /**
  * @mainpage
@@ -239,6 +239,8 @@ public slots:
     void OpenUrl(const QUrl &url);
 
     void ScrollCVToFragment(const QString &fragment);
+
+    void AddDroppedFiles(const QStringList& filepaths);
 
     /**
      * Opens the specified resource in the specified view state.
@@ -982,6 +984,8 @@ private:
      * Line and column.
      */
     QLabel *m_lbCursorPosition;
+
+    FileDropZone * m_lbDropZone;
 
     /**
      * The slider which the user can use to zoom.

@@ -127,6 +127,7 @@
 #include "Tabs/TextTab.h"
 #include "Tabs/TabManager.h"
 #include "MainUI/MainApplication.h"
+#include "Widgets/FileDropZone.h"
 
 #define DWINGEO if(0)
 #define DBG if(0)
@@ -2510,6 +2511,19 @@ bool MainWindow::ProceedWithUndefinedUrlFragments()
         return true;
     }
     return true;
+}
+
+
+void MainWindow::AddDroppedFiles(const QStringList& filepaths)
+{
+    if (!filepaths.isEmpty()) {
+        QStringList added_book_paths = m_BookBrowser->AddExisting(false, false, filepaths);
+        if (!added_book_paths.isEmpty()) {
+            m_BookBrowser->Refresh();
+            m_Book->SetModified();
+	    ShowMessageOnStatusBar(tr("Dropped files added."));
+	}
+    }
 }
 
 
@@ -6316,6 +6330,8 @@ void MainWindow::ExtendUI()
     ui.menuToolbars->addAction(ui.toolBarIndexActions->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarAutomate->toggleViewAction());
     ui.toolBarClips->setVisible(false);
+    m_lbDropZone = new FileDropZone(statusBar());
+    statusBar()->addPermanentWidget(m_lbDropZone);
     m_lbCursorPosition = new QLabel(QString(""), statusBar());
     statusBar()->addPermanentWidget(m_lbCursorPosition);
     UpdateCursorPositionLabel(0, 0, -1);
@@ -6797,7 +6813,9 @@ void MainWindow::ConnectSignalsToSlots()
                 MainWindow::PasteClipIntoCurrentTarget(i);
         });
     }
-
+    // Drop zone
+    connect(m_lbDropZone, SIGNAL(AddDroppedToEpub(const QStringList&)), this, SLOT(AddDroppedFiles(const QStringList&)));
+    
     // Slider
     connect(m_slZoomSlider,         SIGNAL(valueChanged(int)), this, SLOT(SliderZoom(int)));
     // We also update the label when the slider moves... this is to show
