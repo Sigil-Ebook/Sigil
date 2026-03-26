@@ -55,11 +55,11 @@
        </item>
        <item>
         <widget class="QPushButton" name="ToTop">
-         <property name="toolTip">
-          <string>Make selected entry first in the list. Shortcut: F </string>
-         </property>
          <property name="text">
-          <string>To First</string>
+          <string>First</string>
+         </property>
+         <property name="toolTip">
+          <string>Make selected entry first in the list. Shortcut: F</string>
          </property>
          <property name="focusPolicy">
            <enum>Qt::TabFocus</enum>
@@ -68,11 +68,11 @@
        </item>
        <item>
         <widget class="QPushButton" name="ToEnd">
+         <property name="text">
+          <string>Last</string>
+         </property>
          <property name="toolTip">
           <string>Make selected entry last in the list. Shortcut: L</string>
-         </property>
-         <property name="text">
-          <string>To Last</string>
          </property>
          <property name="focusPolicy">
            <enum>Qt::TabFocus</enum>
@@ -98,7 +98,7 @@
          <item>
             <widget class="QToolButton" name="MoveUp">
              <property name="text">
-              <string>...</string>
+              <string>Up</string>
              </property>
              <property name="arrowType">
               <enum>Qt::UpArrow</enum>
@@ -114,7 +114,7 @@
            <item>
             <widget class="QToolButton" name="MoveDown">
              <property name="text">
-              <string>...</string>
+              <string>Down</string>
              </property>
              <property name="arrowType">
               <enum>Qt::DownArrow</enum>

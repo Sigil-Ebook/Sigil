@@ -172,12 +172,6 @@ bool EditRO::eventFilter(QObject *obj, QEvent *event)
             } else if (key == Qt::Key_L) {
                 ToBottom();
                 return true;
-            } else if (key == Qt::Key_S) {
-                accept();
-                return true;
-            } else if (key == Qt::Key_C) {
-	        reject();
-                return true;
             }
         }
     }
