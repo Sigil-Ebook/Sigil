@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -201,6 +201,8 @@ public slots:
      * Sorts the HTML book entries alphanumerically
      */
     void SortHTML();
+
+    void ReorderHTML();
 
     void SelectAll();
 
@@ -548,6 +550,7 @@ private:
     QAction *m_NoObfuscationMethod;
     QAction *m_AdobesObfuscationMethod;
     QAction *m_IdpfsObfuscationMethod;
+    QAction *m_ReorderHTML;
     QAction *m_SortHTML;
     QAction *m_RenumberTOC;
     QAction *m_LinkStylesheets;
@@ -590,5 +593,3 @@ private:
 };
 
 #endif // BOOKBROWSER_H
-
-

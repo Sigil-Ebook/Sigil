@@ -46,6 +46,7 @@
 #include "Dialogs/RERenamer.h"
 #include "Dialogs/RETable.h"
 #include "Dialogs/PreviewFileDialog.h"
+#include "Dialogs/EditRO.h"
 #include "Importers/ImportHTML.h"
 #include "MainUI/BookBrowser.h"
 #include "MainUI/MainWindow.h"
@@ -295,6 +296,7 @@ void BookBrowser::PreviousResource()
     }
 }
 
+
 void BookBrowser::SortHTML()
 {
     QList <Resource *> resources = ValidSelectedResources();
@@ -312,6 +314,40 @@ void BookBrowser::SortHTML()
     QList <QModelIndex> indexList = m_TreeView->selectionModel()->selectedRows(0);
     m_OPFModel->SortHTML(indexList);
     SelectResources(resources);
+}
+
+void BookBrowser::ReorderHTML()
+{
+    QList <Resource *> resources = AllHTMLResources();
+    QList <Resource *> selected_resources = ValidSelectedResources();
+    QString selected;
+    if (selected_resources.count() > 0) {
+        selected = selected_resources.at(0)->GetRelativePath();
+    }
+    QStringList bookpaths;
+    foreach(Resource * rsc, resources) {
+        bookpaths << rsc->GetRelativePath();
+        // qDebug() << "in: " << rsc->GetRelativePath();
+    }
+    EditRO rodlg(bookpaths, selected);
+    if (rodlg.exec() == QDialog::Accepted) {
+        QStringList neworder = rodlg.GetNewReadingOrder();
+        if (!neworder.isEmpty()) {
+	    QList<HTMLResource*> htmlres;
+	    foreach(QString bp, neworder) {
+	        Resource* aresource = m_Book->GetFolderKeeper()->GetResourceByBookPathNoThrow(bp);
+	        if (aresource) {
+		    HTMLResource* ahtmlresource = qobject_cast<HTMLResource*>(aresource);
+		    htmlres << ahtmlresource;
+		}
+	    }
+	    if (!htmlres.isEmpty()) {
+	        m_Book->GetOPF()->UpdateSpineOrder(htmlres);
+	        m_Book->SetModified();
+	        Refresh();
+	    }
+	}
+    }
 }
 
 void BookBrowser::RenumberTOC()
@@ -2117,39 +2153,40 @@ void BookBrowser::SetupTreeView()
 void BookBrowser::CreateContextMenuActions()
 {
     KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
-    m_SelectAll               = new QAction(tr("Select All"),               this);
-    m_AddNewHTML              = new QAction(tr("Add Blank HTML File"),      this);
-    m_AddNewCSS               = new QAction(tr("Add Blank Stylesheet"),     this);
-    m_AddNewJS                = new QAction(tr("Add Blank Javascript"),     this);
-    m_AddNewSVG               = new QAction(tr("Add Blank SVG Image"),      this);
-    m_ViewImage               = new QAction(tr("View Image"),               this);
-    m_AddExisting             = new QAction(tr("Add Existing Files..."),    this);
-    m_CopyHTML                = new QAction(tr("Add Copy"),                 this);
-    m_CopyCSS                 = new QAction(tr("Add Copy"),                 this);
-    m_Rename                  = new QAction(tr("Rename") + "...",           this);
-    m_RERename                = new QAction(tr("RegEx Rename") + "...",     this);
-    m_Move                    = new QAction(tr("Move") + "...",             this);
-    m_Delete                  = new QAction(tr("Delete") + "...",           this);
-    m_CoverImage              = new QAction(tr("Cover Image"),              this);
-    m_Merge                   = new QAction(tr("Merge"),                    this);
-    m_NoObfuscationMethod     = new QAction(tr("None"),                     this);
-    m_AdobesObfuscationMethod = new QAction(tr("Use Adobe's Method"),       this);
-    m_IdpfsObfuscationMethod  = new QAction(tr("Use IDPF's Method"),        this);
-    m_SortHTML                = new QAction(tr("Sort") + "...",             this);
-    m_RenumberTOC             = new QAction(tr("Renumber TOC Entries"),     this);
-    m_LinkStylesheets         = new QAction(tr("Link Stylesheets..."),      this);
-    m_LinkJavascripts         = new QAction(tr("Link Javascripts..."),      this);
-    m_AddSemantics            = new QAction(tr("Add Semantics..."),         this);
-    m_GetInfo                 = new QAction(tr("Get Info..."),              this);
-    m_ValidateWithW3C         = new QAction(tr("Validate with W3C"),        this);
-    m_SaveAs                  = new QAction(tr("Save As") + "...",          this);
-    m_OpenWithEditor0         = new QAction("",                             this);
-    m_OpenWithEditor1         = new QAction("",                             this);
-    m_OpenWithEditor2         = new QAction("",                             this);
-    m_OpenWithEditor3         = new QAction("",                             this);
-    m_OpenWithEditor4         = new QAction("",                             this);
-    m_OpenWithOtherApp        = new QAction(tr("Other Application")+"...",  this);
-    m_OpenWithClear           = new QAction(tr("Clear Editor List"),        this);
+    m_SelectAll               = new QAction(tr("Select All"),                   this);
+    m_AddNewHTML              = new QAction(tr("Add Blank HTML File"),          this);
+    m_AddNewCSS               = new QAction(tr("Add Blank Stylesheet"),         this);
+    m_AddNewJS                = new QAction(tr("Add Blank Javascript"),         this);
+    m_AddNewSVG               = new QAction(tr("Add Blank SVG Image"),          this);
+    m_ViewImage               = new QAction(tr("View Image"),                   this);
+    m_AddExisting             = new QAction(tr("Add Existing Files..."),        this);
+    m_CopyHTML                = new QAction(tr("Add Copy"),                     this);
+    m_CopyCSS                 = new QAction(tr("Add Copy"),                     this);
+    m_Rename                  = new QAction(tr("Rename") + "...",               this);
+    m_RERename                = new QAction(tr("RegEx Rename") + "...",         this);
+    m_Move                    = new QAction(tr("Move") + "...",                 this);
+    m_Delete                  = new QAction(tr("Delete") + "...",               this);
+    m_CoverImage              = new QAction(tr("Cover Image"),                  this);
+    m_Merge                   = new QAction(tr("Merge"),                        this);
+    m_NoObfuscationMethod     = new QAction(tr("None"),                         this);
+    m_AdobesObfuscationMethod = new QAction(tr("Use Adobe's Method"),           this);
+    m_IdpfsObfuscationMethod  = new QAction(tr("Use IDPF's Method"),            this);
+    m_SortHTML                = new QAction(tr("Sort") + "...",                 this);
+    m_ReorderHTML             = new QAction(tr("Change Reading Order") + "...", this);
+    m_RenumberTOC             = new QAction(tr("Renumber TOC Entries"),         this);
+    m_LinkStylesheets         = new QAction(tr("Link Stylesheets..."),          this);
+    m_LinkJavascripts         = new QAction(tr("Link Javascripts..."),          this);
+    m_AddSemantics            = new QAction(tr("Add Semantics..."),             this);
+    m_GetInfo                 = new QAction(tr("Get Info..."),                  this);
+    m_ValidateWithW3C         = new QAction(tr("Validate with W3C"),            this);
+    m_SaveAs                  = new QAction(tr("Save As") + "...",              this);
+    m_OpenWithEditor0         = new QAction("",                                 this);
+    m_OpenWithEditor1         = new QAction("",                                 this);
+    m_OpenWithEditor2         = new QAction("",                                 this);
+    m_OpenWithEditor3         = new QAction("",                                 this);
+    m_OpenWithEditor4         = new QAction("",                                 this);
+    m_OpenWithOtherApp        = new QAction(tr("Other Application")+"...",      this);
+    m_OpenWithClear           = new QAction(tr("Clear Editor List"),            this);
     m_CoverImage             ->setCheckable(true);
     m_NoObfuscationMethod    ->setCheckable(true);
     m_AdobesObfuscationMethod->setCheckable(true);
@@ -2340,6 +2377,8 @@ bool BookBrowser::SuccessfullySetupContextMenu(const QPoint &point)
 
     if (m_LastContextMenuType == Resource::HTMLResourceType) {
         m_ContextMenu->addAction(m_AddNewHTML);
+	m_ContextMenu->addAction(m_ReorderHTML);
+        m_ReorderHTML->setEnabled(true);
         m_ContextMenu->addAction(m_CopyHTML);
         m_CopyHTML->setEnabled(item_count == 1);
     } else if (m_LastContextMenuType == Resource::CSSResourceType) {
@@ -2438,6 +2477,7 @@ void BookBrowser::ConnectSignalsToSlots()
     connect(m_AddNewHTML,              SIGNAL(triggered()), this, SLOT(AddNewHTML()));
     connect(m_RenumberTOC,             SIGNAL(triggered()), this, SLOT(RenumberTOC()));
     connect(m_SortHTML,                SIGNAL(triggered()), this, SLOT(SortHTML()));
+    connect(m_ReorderHTML,             SIGNAL(triggered()), this, SLOT(ReorderHTML()));
     connect(m_AddNewCSS,               SIGNAL(triggered()), this, SLOT(AddNewCSS()));
     connect(m_AddNewJS,                SIGNAL(triggered()), this, SLOT(AddNewJS()));
     connect(m_AddNewSVG,               SIGNAL(triggered()), this, SLOT(AddNewSVG()));

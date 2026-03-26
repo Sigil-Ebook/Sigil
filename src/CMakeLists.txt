@@ -96,6 +96,8 @@ set( DIALOG_FILES
     Dialogs/DeleteFiles.h
     Dialogs/DeleteStyles.cpp
     Dialogs/DeleteStyles.h
+    Dialogs/EditRO.cpp
+    Dialogs/EditRO.h
     Dialogs/EditTOC.cpp
     Dialogs/EditTOC.h
     Dialogs/EmptyLayout.cpp
@@ -575,6 +577,7 @@ set( UI_FILES
     Form_Files/AddRoles.ui
     Form_Files/AddSemantics.ui
     Form_Files/About.ui
+    Form_Files/EditRO.ui
     Form_Files/EditTOC.ui
     Form_Files/HeadingSelector.ui
     Form_Files/FindReplace.ui
