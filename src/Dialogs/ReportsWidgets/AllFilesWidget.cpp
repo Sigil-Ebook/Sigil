@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford, Ontario
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford, Ontario
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **
@@ -69,10 +69,12 @@ void AllFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
     m_AllResources = m_Book->GetAllResources();
     m_ItemModel->clear();
     QHash<QString, QStringList> semantic_names;
+    QHash<QString, QString> manifest_properties;
     QString version = m_Book->GetOPF()->GetEpubVersion();
     if (version.startsWith('3')) {
         NavProcessor navproc(m_Book->GetConstOPF()->GetNavResource());
         semantic_names = navproc.GetLandmarkNameForPaths();
+        manifest_properties = m_Book->GetOPF()->GetManifestPropertiesForPaths();
     } else {
         semantic_names = m_Book->GetOPF()->GetGuideSemanticNameForPaths();
     }
@@ -129,8 +131,9 @@ void AllFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         rowItems << item;
         // Manifest Properties
         if (version.startsWith('3')) {
+            QString mprops = manifest_properties.value(filepath, QString());
             item = new QStandardItem();
-            item->setText(m_Book->GetOPF()->GetManifestPropertiesForResource(resource));
+            item->setText(mprops);
             rowItems << item;
         }
         // Add item to table
