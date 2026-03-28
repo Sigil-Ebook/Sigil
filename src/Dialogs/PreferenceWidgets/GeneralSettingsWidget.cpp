@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2025 Kevin B. Hendricks, Stratford, Ontario Canada
-**  Copyright (C) 2019-2023 Doug Massay
+**  Copyright (C) 2019-2026 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2019-2026 Doug Massay
 **  Copyright (C) 2011      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **
@@ -125,6 +125,7 @@ PreferencesWidget::ResultActions GeneralSettingsWidget::saveSettings()
     settings.setSkipPrintPreview(ui.chkSkipPrintPreview->isChecked());
     settings.setPrintDPI(ui.cboPrintDPI->currentText().toInt());
     settings.setExternalXEditorPath(new_xeditor_path);
+    settings.setFileDropZoneEnabled(ui.useFileDrop->isChecked());
     if (m_refreshClipboardHistoryLimit) {
         results = results | PreferencesWidget::ResultAction_RefreshClipHistoryLimit;
     }
@@ -170,6 +171,8 @@ void GeneralSettingsWidget::readSettings()
     ui.cboPrintDPI->setCurrentIndex(index);
     QString xeditor_path = settings.externalXEditorPath();
     ui.lineEdit7->setText(xeditor_path);
+    bool showdropzone = settings.fileDropZoneEnabled();
+    ui.useFileDrop->setChecked(showdropzone);
 }
 
 void GeneralSettingsWidget::clearXEditorPath()

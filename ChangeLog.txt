@@ -1,3 +1,12 @@
+pre-Sigil-2.X
+   Bug Fies
+     - make sure assigned clip number is not editable in ClipEditor
+
+   New Features
+     - Create a separate Change Reading Order dialog for those who can not use drag and drop
+     - Create a Drop Zone for users who want to use drag and drop to add files to their epub
+
+
 Sigil-2.7.6
    Bug Fixes
      - fix many translations from Transifex that somehow were improperly updated

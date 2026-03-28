@@ -235,6 +235,40 @@ mended.</string>
         </widget>
        </item>
        <item>
+        <widget class="QGroupBox" name="groupBox_77">
+         <property name="toolTip">
+          <string>Determine if files can be dragged and dropped to add them to an epub.</string>
+         </property>
+         <property name="title">
+          <string> Control use of drag and drop to add files to an epub.</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+         <layout class="QGridLayout" name="gridLayout77">
+          <item row="0" column="0">
+           <widget class="QCheckBox" name="useFileDrop">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::TabFocus</enum>
+            </property>
+            <property name="toolTip">
+             <string>Check to use drag and drop to add files to your epub.</string>
+            </property>
+            <property name="text">
+             <string>May use drag and drop to add files.</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>

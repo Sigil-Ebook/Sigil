@@ -75,6 +75,8 @@ public:
 
     QString externalXEditorPath();
 
+    bool fileDropZoneEnabled();
+
     /**
      * The zoom factor used by the component.
      *
@@ -304,6 +306,8 @@ public slots:
     void setDefaultMetadataLang(const QString &lang);
 
     void setExternalXEditorPath(const QString &path);
+
+    void setFileDropZoneEnabled(bool enable);
 
     /**
      * Set the zoom factor used by the component.

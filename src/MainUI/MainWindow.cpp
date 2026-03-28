@@ -4466,7 +4466,12 @@ void MainWindow::PreferencesDialog()
         // To ensure any font size changes are immediately applied.
         m_SelectCharacter->show();
     }
-
+    SettingsStore ss;
+    if (ss.fileDropZoneEnabled()) {
+        m_lbDropZone->show();
+    } else {
+        m_lbDropZone->hide();
+    }
     updateToolTipsOnPluginIcons();
     UpdateAutomationMenu();
 }
@@ -4501,7 +4506,12 @@ void MainWindow::ManagePluginsDialog()
         // To ensure any font size changes are immediately applied.
         m_SelectCharacter->show();
     }
-
+    SettingsStore ss;
+    if (ss.fileDropZoneEnabled()) {
+        m_lbDropZone->show();
+    } else {
+        m_lbDropZone->hide();
+    }
     loadPluginsMenu();
     UpdateAutomationMenu();
 }
@@ -6332,6 +6342,8 @@ void MainWindow::ExtendUI()
     ui.toolBarClips->setVisible(false);
     m_lbDropZone = new FileDropZone(statusBar());
     statusBar()->addPermanentWidget(m_lbDropZone);
+    SettingsStore ss;
+    if (!ss.fileDropZoneEnabled()) m_lbDropZone->hide(); 
     m_lbCursorPosition = new QLabel(QString(""), statusBar());
     statusBar()->addPermanentWidget(m_lbCursorPosition);
     UpdateCursorPositionLabel(0, 0, -1);

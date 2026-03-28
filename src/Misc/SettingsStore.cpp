@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2025  Kevin B. Hendricks, Stratford, ON
-**  Copyright (C) 2016-2025  Doug Massay
+**  Copyright (C) 2016-2026  Kevin B. Hendricks, Stratford, ON
+**  Copyright (C) 2016-2026  Doug Massay
 **  Copyright (C) 2011-2013  John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013  Dave Heiland
 **
@@ -73,8 +73,9 @@ static QString KEY_DEFAULT_VERSION = SETTINGS_GROUP + "/" + "default_version";
 static QString KEY_PRESERVE_ENTITY_NAMES = SETTINGS_GROUP + "/" + "preserve_entity_names";
 static QString KEY_PRESERVE_ENTITY_CODES = SETTINGS_GROUP + "/" + "preserve_entity_codes";
 static QString KEY_EXTERNAL_XHTML_EDITOR = SETTINGS_GROUP + "/" + "external_xhtml_editor"; 
-static QString KEY_ENABLE_ALTGR = SETTINGS_GROUP + "/" + "enable_altgr";
+static QString KEY_ENABLE_FILE_DROP_ZONE = SETTINGS_GROUP + "/" + "enable_file_drop_zone";
 
+static QString KEY_ENABLE_ALTGR = SETTINGS_GROUP + "/" + "enable_altgr";
 static QString KEY_PLUGIN_INFO = SETTINGS_GROUP + "/" + "plugin_info";
 static QString KEY_PLUGIN_ENGINE_PATHS = SETTINGS_GROUP + "/" + "plugin_engine_paths";
 static QString KEY_PLUGIN_LAST_FOLDER = SETTINGS_GROUP + "/" + "plugin_add_last_folder";
@@ -216,6 +217,12 @@ QString SettingsStore::externalXEditorPath()
 {
     clearSettingsGroup();
     return value(KEY_EXTERNAL_XHTML_EDITOR, "").toString();
+}
+
+bool SettingsStore::fileDropZoneEnabled()
+{
+   clearSettingsGroup();
+   return value(KEY_ENABLE_FILE_DROP_ZONE, true).toBool();
 }
 
 float SettingsStore::zoomImage()
@@ -608,6 +615,12 @@ void SettingsStore::setExternalXEditorPath(const QString &path)
 {
     clearSettingsGroup();
     setValue(KEY_EXTERNAL_XHTML_EDITOR, path);
+}
+
+void SettingsStore::setFileDropZoneEnabled(bool enable)
+{
+    clearSettingsGroup();
+    setValue(KEY_ENABLE_FILE_DROP_ZONE, enable);
 }
 
 void SettingsStore::setZoomImage(float zoom)
