@@ -39,10 +39,10 @@ class FileDropZone : public QLabel
 
 public:
     FileDropZone(QWidget* parent = 0)
-      : QLabel(tr(" To Add: Drop Files Here "), parent)
+      : QLabel("  " + tr("Drop Files Here To Add to Epub") + "  ", parent)
     {
         setAlignment(Qt::AlignCenter);
-       	setStyleSheet("border: 2px dashed #aaa; padding 20px; color: #555;");
+       	setStyleSheet("border: 2px dashed #878787; padding 20px; color: #3498db;");
 	setAcceptDrops(true);
     }
 
@@ -50,7 +50,7 @@ public:
     {
         if (event->mimeData()->hasUrls()) {
 	    event->acceptProposedAction();
-	    setStyleSheet("border: 2px dashed blue; background: #e1f5fe;");
+	    setStyleSheet("border: 2px dashed #1d76d5; background: #91c7f9; color: #1665c0;");
         } else {
 	    event->ignore();
 	}
@@ -58,7 +58,7 @@ public:
 
     void dragLeaveEvent(QDragLeaveEvent * event)
     {
-       	setStyleSheet("border: 2px dashed #aaa; padding 20px; color: #555;");
+       	setStyleSheet("border: 2px dashed #878787; padding 20px; color: #3498db;");
     }
 
     void dropEvent(QDropEvent* event)
@@ -73,7 +73,7 @@ public:
 	    }
 	    emit AddDroppedToEpub(file_paths);
 	}
-       	setStyleSheet("border: 2px dashed #aaa; padding 20px; color: #555;");
+       	setStyleSheet("border: 2px dashed #878787; padding 20px; color: #3498db;");
     }
 
 signals:
