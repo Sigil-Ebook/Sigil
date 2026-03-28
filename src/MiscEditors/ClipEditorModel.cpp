@@ -306,6 +306,7 @@ void ClipEditorModel::UpdateNumber()
             } else {
                 number_item->setText("");
             }
+	    number_item->setEditable(false);
         }
         if (name_item->hasChildren()) {
             for (int rw = 0; rw < name_item->rowCount(); rw++) {
@@ -330,6 +331,7 @@ void ClipEditorModel::BlankOutClipNumber(QStandardItem* item)
         }
         QStandardItem *number_item = parent_item->child(item->row(), NUMBER_COL);
         number_item->setText("");
+	number_item->setEditable(false);
         if (item->hasChildren()){
             for (int rw = 0; rw < item->rowCount(); rw++) {
                 // handle blanking out all Number items inside groups
