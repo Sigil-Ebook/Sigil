@@ -3164,6 +3164,8 @@ bool MainWindow::DeleteUnusedMedia(bool in_automate)
 
     style_bookpaths.removeDuplicates();
 
+    QString cover_image_bookpath = m_Book->GetConstOPF()->GetCoverImagePath();
+
     foreach(Resource * resource, m_BookBrowser->AllMediaResources()) {
         QString filepath = resource->GetRelativePath();
 
@@ -3171,7 +3173,7 @@ bool MainWindow::DeleteUnusedMedia(bool in_automate)
         if (html_files_hash[filepath].count() == 0 && !style_bookpaths.contains(filepath)) {
             // If used as cover image, consider it referenced.
             ImageResource *image_resource = qobject_cast<ImageResource *>(resource);
-            if (!image_resource || !m_Book->GetOPF()->IsCoverImage(image_resource)) {
+            if (!image_resource || (filepath != cover_image_bookpath)) {
                 resources.append(resource);
             }
         }

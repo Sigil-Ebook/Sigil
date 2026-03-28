@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford ON
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford ON
 **  Copyright (C) 2013      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -106,6 +106,8 @@ public:
 
     bool IsCoverImage(const ImageResource *image_resource) const;
 
+    QString GetCoverImagePath() const;
+    
     void AutoFixWellFormedErrors();
 
     QStringList GetSpineOrderBookPaths() const;

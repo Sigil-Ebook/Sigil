@@ -512,6 +512,34 @@ bool OPFResource::CoverImageExists() const
 }
 
 
+QString OPFResource::GetCoverImagePath() const
+{
+    QReadLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
+    OPFParser p;
+    p.parse(source);
+    QString bkpath;
+    int pos  = GetCoverMeta(p);
+    if (pos > -1) {
+	MetaEntry me = p.m_metadata.at(pos);
+        QString cover_id = me.m_atts.value(QString("content"),QString(""));
+        ManifestEntry man = p.m_manifest.at(p.m_idpos[cover_id]);
+        QString apath = Utility::URLDecodePath(man.m_href);
+        bkpath = Utility::buildBookPath(apath, GetFolder());
+    } else {
+        // walk manifest properties looking for cover-image
+        foreach(ManifestEntry me, p.m_manifest) {
+            if (me.m_atts.value("properties","").contains("cover-image")) {
+                QString apath = Utility::URLDecodePath(me.m_href);
+                bkpath = Utility::buildBookPath(apath, GetFolder());
+                break;
+            }
+        }
+    }
+    return bkpath;
+}
+
+
 void OPFResource::AutoFixWellFormedErrors()
 {
     QWriteLocker locker(&GetLock());
