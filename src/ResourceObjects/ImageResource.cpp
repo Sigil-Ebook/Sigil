@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -55,6 +55,6 @@ QString ImageResource::GetDescription() const
     } else if (img.depth() > 0) {
         colorsInfo = QString(" %1bpp (%2 %3)").arg(img.bitPlaneCount()).arg(img.colorCount()).arg(colors_shades);
     }
-    QString description = QString("(%1px ✕ %2px) %3%4").arg(img.width()).arg(img.height()).arg(grayscale_color).arg(colorsInfo);
+    QString description = QString("(%1px × %2px) %3%4").arg(img.width()).arg(img.height()).arg(grayscale_color).arg(colorsInfo);
     return description;
 }
