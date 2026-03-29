@@ -1,6 +1,8 @@
 pre-Sigil-2.X
    Bug Fies
      - make sure assigned clip number is not editable in ClipEditor
+     - greatly speed up All Files report generation in epub3s with manifest properties
+     - greatly speed up Delete Used Media by caching current cover image
 
    New Features
      - Create a separate Change Reading Order dialog for those who can not use drag and drop

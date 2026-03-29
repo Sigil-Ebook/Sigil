@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2025 Kevin B. Hendricks
+**  Copyright (C) 2019-2026 Kevin B. Hendricks
 **  Copyright (C) 2013      Dave Heiland
 **
 **  This file is part of Sigil.
@@ -43,16 +43,16 @@ static const QString IMAGE_HTML_BASE =
     "<html>"
     "<head>"
     "<style type=\"text/css\">"
-    "body { -webkit-user-select: none; }"
-    "img { display: block; margin-left: auto; margin-right: auto; border-style: solid; border-width: 1px; }"
+    "body { -webkit-user-select: none; margin: 0; }"
+    "div { text-align: center; margin: 8px 0; }"
+    "img { display: block; margin: 0 auto; border: 1px solid; max-width: 100%; max-height: calc(100vh - 75px); }"
     "hr { width: 75%; }"
-    "div { text-align: center; }"
     "</style>"
     "</head>"
     "<body>"
-    "<p><img src=\"%1\" /></p>"
-    "<hr />"
     "<div>%2&times;%3px | %4 KB | %5%6</div>"
+    "<hr />"
+    "<p><img src=\"%1\" /></p>"
     "</body>"
     "</html>";
 
