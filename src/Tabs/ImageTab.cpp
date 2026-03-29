@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -65,9 +65,9 @@ const QString IMAGE_HTML_BASE =
     "</style>"
     "</head>"
     "<body>"
-    "<p><img src=\"%1\" /></p>"
-    "<hr />"
     "<div>%2&times;%3px | %4 KB | %5%6</div>"
+    "<hr />"
+    "<p><img src=\"%1\" /></p>"
     "</body>"
     "</html>";
 
