@@ -95,6 +95,10 @@ PreferencesWidget::ResultActions PluginWidget::saveSettings()
     }
     settings.setPluginMap(pluginmap);
 
+    if (pluginmap != m_OriPluginMap) {
+        results = results | PreferencesWidget::ResultAction_RefreshToolBarPlugins;
+    }
+
     if (!bundledInterpReady()) {
         settings.setUseBundledInterp(false);
     } else {
@@ -178,6 +182,8 @@ void PluginWidget::readSettings()
         int t = m_qlcbxs.at(i)->findText(pluginmap.at(i));
         m_qlcbxs.at(i)->setCurrentIndex(t);
     }
+
+    m_OriPluginMap = pluginmap;
 
     // If the python bundled interpreter is present/ready, enable the checkbox and set it
     // based on the value of the SettingStore Value. Otherwise keep it disabled.
