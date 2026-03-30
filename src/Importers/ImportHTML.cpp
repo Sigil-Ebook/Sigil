@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -56,7 +56,8 @@ ImportHTML::ImportHTML(const QString &fullfilepath)
     :
     Importer(fullfilepath),
     m_IgnoreDuplicates(false),
-    m_CachedSource(QString())
+    m_CachedSource(QString()),
+    m_UpdateOPF(true)
 {
     SettingsStore ss;
     m_EpubVersion = ss.defaultVersion();
@@ -174,7 +175,7 @@ HTMLResource *ImportHTML::CreateHTMLResource()
     TempFolder tempfolder;
     QString fullfilepath = tempfolder.GetPath() + "/" + QFileInfo(m_FullFilePath).fileName();
     Utility::WriteUnicodeTextFile("TEMP_SOURCE", fullfilepath);
-    HTMLResource *resource = qobject_cast<HTMLResource *>(m_Book->GetFolderKeeper()->AddContentFileToFolder(fullfilepath));
+    HTMLResource *resource = qobject_cast<HTMLResource *>(m_Book->GetFolderKeeper()->AddContentFileToFolder(fullfilepath, m_UpdateOPF));
     resource->SetCurrentBookRelPath(m_FullFilePath);
     m_AddedBookPaths << resource->GetRelativePath();
     return resource;

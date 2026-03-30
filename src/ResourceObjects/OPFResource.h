@@ -172,6 +172,7 @@ public slots:
     void SetDCMetadata(const QList<MetaEntry>  &metadata);
 
     void AddResource(const Resource *resource);
+    void BulkAddResources(const QList<Resource*>resources);
 
     void RemoveResource(const Resource *resource);
     void BulkRemoveResources(const QList<Resource *>resources);

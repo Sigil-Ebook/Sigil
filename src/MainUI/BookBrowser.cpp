@@ -888,6 +888,7 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images, QSt
     }
     bool yes_to_all = false;
     bool no_to_all = false;
+    QList<Resource*> resToBeAdded;
     foreach(QString filepath, filepaths) {
         if (file_count > 1) {
             // Set progress value and ensure dialog has time to display when doing extensive updates
@@ -919,13 +920,15 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images, QSt
         bool CoverImageSemanticsSet = false;
         // try to see if an existing file has this filename and allow overwriting
         QString existing_book_path = m_Book->GetFolderKeeper()->GetBookPathByPathEnd(filename);
-
+        bool needsToUpdateOPF = true;
+        
         if (!existing_book_path.isEmpty()) {
             // If this is an image prompt to replace it.
             if (IMAGE_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower()) ||
                 SVG_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower()) ||
                 VIDEO_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower()) ||
-                AUDIO_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower())) {
+                AUDIO_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower()) ||
+                FONT_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower())) {
                 bool do_replacement = false;
                 if (yes_to_all) do_replacement = true;
                 if (no_to_all) do_replacement = false;
@@ -955,7 +958,10 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images, QSt
                     if (image_resource) {
                         CoverImageSemanticsSet = m_Book->GetOPF()->IsCoverImage(image_resource);
                     }
-                    old_resource->Delete();
+                    // allow remove without updating OPF since overwrite
+                    // old_resource->Delete();
+                    m_Book->GetFolderKeeper()->RemoveWithoutUpdatingOPF(old_resource);
+                    needsToUpdateOPF = false;
                     replacements_made = true;
                 } catch (ResourceDoesNotExist&) {
                     Utility::DisplayStdErrorDialog(tr("Unable to delete or replace file \"%1\".").arg(filename)
@@ -984,10 +990,12 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images, QSt
             // Since we set the Book manually,
             // this call merely mutates our Book.
             bool extract_metadata = false;
+            html_import.setUpdateOPF(false);
             html_import.GetBook(extract_metadata);
             QStringList importedbookpaths = html_import.GetAddedBookPaths();
             DBG qDebug() << "In BookBrowser Add Existing adding bookpaths: " << importedbookpaths;
             Resource *added_resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(importedbookpaths.at(0));
+            if (needsToUpdateOPF) resToBeAdded << added_resource;
             HTMLResource *added_html_resource = qobject_cast<HTMLResource *>(added_resource);
             added_book_paths.append(importedbookpaths);
             if (current_html_resource && added_html_resource) {
@@ -1002,7 +1010,8 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images, QSt
                 }
             }
         } else {
-            Resource *resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(filepath);
+            Resource *resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(filepath, false);
+            if (needsToUpdateOPF) resToBeAdded << resource;
             added_book_paths << resource->GetRelativePath();
             // if replacing a cover image, set the cover image semantics
             if (CoverImageSemanticsSet) {
@@ -1019,6 +1028,8 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images, QSt
         }
 
     }
+    m_Book->GetFolderKeeper()->BulkAddResourcesToOPF(resToBeAdded);
+    
     // turn off the QProgress Dialog by setting it as reaching its target
     progress.setValue(file_count);
 

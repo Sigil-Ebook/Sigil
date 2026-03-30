@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2025 Kevin B. Hendricks  Stratford, ON Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks  Stratford, ON Canada
 **  Copyright (C) 2013      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -788,6 +788,33 @@ void OPFResource::AddCoverMetaForImage(const Resource *resource, OPFParser &p)
         p.m_metadata.append(me);
     }
 }
+
+
+void OPFResource::BulkAddResources(const QList<Resource*>resources) {
+    QWriteLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText(), "application/oebps-package+xml");
+    OPFParser p;
+    p.parse(source);
+    foreach(Resource * resource, resources) {
+        ManifestEntry me;
+        me.m_id = GetUniqueID(GetValidID(resource->Filename()), p);
+        me.m_href = Utility::URLEncodePath(GetRelativePathToResource(resource));
+        me.m_mtype = GetResourceMimetype(resource);
+        // Argh! If this is an new blank resource - it will have no content yet
+        // so trying to parse it here to check for manifest properties is a mistake
+        int n = p.m_manifest.count();
+        p.m_manifest.append(me);
+        p.m_idpos[me.m_id] = n;
+        p.m_hrefpos[me.m_href] = n;
+        if (resource->Type() == Resource::HTMLResourceType) {
+            SpineEntry se;
+            se.m_idref = me.m_id;
+            p.m_spine.append(se);
+        }
+    }
+    UpdateText(p);
+}
+
 
 void OPFResource::BulkRemoveResources(const QList<Resource *>resources)
 {

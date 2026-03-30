@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2022 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -53,6 +53,8 @@ public:
 
     const QStringList& GetAddedBookPaths();
 
+    void setUpdateOPF(bool enable=true) { m_UpdateOPF = enable; };
+
 private:
 
     // Loads the source code into the Book
@@ -90,6 +92,8 @@ private:
     QString m_EpubVersion;
 
     QStringList m_AddedBookPaths;
+
+    bool m_UpdateOPF;
 };
 
 #endif // IMPORTHTML_H

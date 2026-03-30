@@ -591,6 +591,20 @@ void FolderKeeper::RemoveResource(const Resource *resource)
     emit ResourceRemoved(resource);
 }
 
+void FolderKeeper::RemoveWithoutUpdatingOPF(Resource* resource)
+{
+    m_Resources.remove(resource->GetIdentifier());
+    m_Path2Resource.remove(resource->GetRelativePath());
+
+    if (m_FSWatcher->files().contains(resource->GetFullPath())) {
+        m_FSWatcher->removePath(resource->GetFullPath());
+    }
+    
+    m_SuspendedWatchedFiles.removeAll(resource->GetFullPath());
+
+    disconnect(resource, SIGNAL(Deleted(const Resource*)), this, SLOT(RemoveResource(const Resource*)));
+    resource->Delete();
+}
 
 void FolderKeeper::BulkRenameResources(const QList<Resource *> resources, const QStringList &newnames)
 {
@@ -658,6 +672,15 @@ void FolderKeeper::ResourceMoved(const Resource *resource, const QString &old_fu
     m_OPF->ResourceMoved(resource, old_full_path);
     updateShortPathNames();
 }
+
+
+void FolderKeeper::BulkAddResourcesToOPF(const QList<Resource*>resources)
+{
+    if (!resources.isEmpty()) {
+        m_OPF->BulkAddResources(resources);
+    }
+}
+
 
 void FolderKeeper::ResourceFileChanged(const QString &path) const
 {
