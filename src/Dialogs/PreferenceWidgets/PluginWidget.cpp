@@ -179,8 +179,6 @@ void PluginWidget::readSettings()
         m_qlcbxs.at(i)->setCurrentIndex(t);
     }
 
-    m_OriPluginMap = pluginmap;
-
     // If the python bundled interpreter is present/ready, enable the checkbox and set it
     // based on the value of the SettingStore Value. Otherwise keep it disabled.
     if (bundledInterpReady()) {
