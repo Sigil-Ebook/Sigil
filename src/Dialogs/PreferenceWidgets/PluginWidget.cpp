@@ -95,10 +95,6 @@ PreferencesWidget::ResultActions PluginWidget::saveSettings()
     }
     settings.setPluginMap(pluginmap);
 
-    if (pluginmap != m_OriPluginMap) {
-        results = results | PreferencesWidget::ResultAction_RefreshToolBarPlugins;
-    }
-
     if (!bundledInterpReady()) {
         settings.setUseBundledInterp(false);
     } else {
