@@ -53,8 +53,7 @@ public:
         ResultAction_RefreshBookBrowser      = 8,  // Refresh BookBrowser window
         ResultAction_ReloadPreview           = 16, // Reload Preview window
         ResultAction_RestartSigil            = 32, // Warn user that Sigil needs to be restarted.
-        ResultAction_RefreshToolBarPlugins   = 64, // Refresh the toolbars with plugins
-        ResultAction_Mask                    = 127  // AND Mask of allowable values
+        ResultAction_Mask                    = 63  // AND Mask of allowable values
     };
 
     /**

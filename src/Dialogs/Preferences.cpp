@@ -47,7 +47,6 @@ Preferences::Preferences(QWidget *parent) :
     m_restartSigil(false),
     m_refreshClipHistoryLimit(false),
     m_refreshBookBrowser(false),
-    m_refreshToolBarPlugins(false),
     m_reloadPreview(false)
 {
     ui.setupUi(this);
@@ -107,9 +106,6 @@ void Preferences::saveSettings()
 
             if (widgetResult & PreferencesWidget::ResultAction_ReloadPreview)
                 m_reloadPreview = true;
-
-            if (widgetResult & PreferencesWidget::ResultAction_RefreshToolBarPlugins)
-                m_refreshToolBarPlugins = true;
         }
     }
 
@@ -188,11 +184,6 @@ bool Preferences::isRefreshBookBrowserRequired()
 bool Preferences::isReloadPreviewRequired()
 {
     return m_reloadPreview;
-}
-
-bool Preferences::isRefreshToolBarPluginsRequired()
-{
-    return m_refreshToolBarPlugins;
 }
 
 void Preferences::openPreferencesLocation()

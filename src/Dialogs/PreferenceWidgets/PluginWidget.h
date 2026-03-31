@@ -71,7 +71,6 @@ private:
     QString m_LastFolderOpen;
     bool m_useBundledInterp;
     QList<QComboBox*> m_qlcbxs;
-    QStringList m_OriPluginMap;
 };
 
 #endif // PLUGINWIDGET_H

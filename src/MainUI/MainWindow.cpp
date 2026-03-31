@@ -4464,10 +4464,6 @@ void MainWindow::PreferencesDialog()
         }
     }
 
-    if (prefers.isRefreshToolBarPluginsRequired()) {
-        loadPluginsMenu();
-    }
-
     if (m_SelectCharacter->isVisible()) {
         // To ensure any font size changes are immediately applied.
         m_SelectCharacter->show();
@@ -4478,7 +4474,7 @@ void MainWindow::PreferencesDialog()
     } else {
         m_lbDropZone->hide();
     }
-    updateToolTipsOnPluginIcons();
+    loadPluginsMenu();
     UpdateAutomationMenu();
 }
 
