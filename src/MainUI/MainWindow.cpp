@@ -4474,7 +4474,7 @@ void MainWindow::PreferencesDialog()
     } else {
         m_lbDropZone->hide();
     }
-    updateToolTipsOnPluginIcons();
+    loadPluginsMenu();
     UpdateAutomationMenu();
 }
 
