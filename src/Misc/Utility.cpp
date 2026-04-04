@@ -523,18 +523,18 @@ QString Utility::ReadUnicodeTextFile(const QString &fullfilepath, bool canthrow)
 
 // Writes the provided text variable to the specified
 // file; if the file exists, it is truncated
-void Utility::WriteUnicodeTextFile(const QString &text, const QString &fullfilepath)
+void Utility::WriteUnicodeTextFile(const QString &text, const QString &fullfilepath, bool canthrow)
 {
     QString newtext = Utility::UseNFC(text);
     QFile file(fullfilepath);
 
-    if (!file.open(QIODevice::WriteOnly |
-                   QIODevice::Truncate  |
-                   QIODevice::Text
-                  )
-       ) {
-        std::string msg = file.fileName().toStdString() + ": " + file.errorString().toStdString();
-        throw(CannotOpenFile(msg));
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate  | QIODevice::Text)) {
+        std::string msg = fullfilepath.toStdString() + ": " + file.errorString().toStdString();
+        if (canthrow) {
+            throw(CannotOpenFile(msg));
+	}
+	qDebug() << QString::fromStdString(msg);
+	return;
     }
 
     QTextStream out(&file);

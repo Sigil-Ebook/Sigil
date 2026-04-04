@@ -141,7 +141,7 @@ public:
 
     // Writes the provided text variable to the specified
     // file; if the file exists, it is truncated
-    static void WriteUnicodeTextFile(const QString &text, const QString &fullfilepath);
+    static void WriteUnicodeTextFile(const QString &text, const QString &fullfilepath, bool canthrow=true);
 
     // Converts Mac and Windows style line endings to Unix style
     // line endings that are expected throughout the Qt framework

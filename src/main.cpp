@@ -58,6 +58,7 @@
 #include "Misc/Utility.h"
 #include "Misc/WebProfileMgr.h"
 #include "Misc/CodepointNames.h"
+#include "Misc/PrettyPrintProps.h"
 #include "Widgets/CaretStyle.h"
 #include "sigil_constants.h"
 #include "sigil_exception.h"
@@ -770,6 +771,10 @@ int main(int argc, char *argv[])
         // just once
         CodepointNames* cpnames = CodepointNames::instance();
         Q_UNUSED(cpnames);
+
+	// Initialize the PrettyPrint settings properties
+        PrettyPrintProps* pp = PrettyPrintProps::instance();
+        Q_UNUSED(pp);
 
         // Needs to be created on the heap so that
         // the reply has time to return.

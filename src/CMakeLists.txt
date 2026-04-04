@@ -429,6 +429,8 @@ set( MISC_FILES
     Misc/XMLEntities.h
     Misc/MediaTypes.cpp
     Misc/MediaTypes.h
+    Misc/PrettyPrintProps.cpp
+    Misc/PrettyPrintProps.h
     Misc/WebProfileMgr.cpp
     Misc/WebProfileMgr.h
     Misc/webviewprinter.cpp

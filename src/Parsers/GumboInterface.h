@@ -37,6 +37,7 @@
 #include <QHash>
 
 class QString;
+class PrettyPrintProps;
 
 struct GumboWellFormedError {
   int line;
@@ -64,7 +65,7 @@ public:
     QList<GumboNode *> findnodes(const QString &aSelector);
     CSelection find(const QString &aSelector);
 
-    QString prettyprint(QString indent_chars="  ");
+    QString prettyprint();
 
     // returns list tags that match manifest properties
     QStringList get_all_properties();
@@ -140,9 +141,9 @@ private:
 
     std::string serialize_contents(GumboNode* node, enum UpdateTypes doupdates = NoUpdates);
 
-    std::string prettyprint(GumboNode* node, int lvl, const std::string indent_chars);
+    std::string prettyprint(GumboNode* node, int lvl, PrettyPrintProps* pp);
 
-    std::string prettyprint_contents(GumboNode* node, int lvl, const std::string indent_chars);
+    std::string prettyprint_contents(GumboNode* node, int lvl, PrettyPrintProps* pp);
 
     std::string build_doctype(GumboNode *node);
 
