@@ -42,6 +42,7 @@ TextTab::TextTab(TextResource *resource,
     m_PositionToScrollTo(position_to_scroll_to)
 {
     m_wCodeView->SetContentMediaType(resource->GetMediaType());
+    m_wCodeView->SetContentBookPath(resource->GetRelativePath());
     m_Layout->addWidget(m_wCodeView);
     setFocusProxy(m_wCodeView);
     ConnectSignalsToSlots();

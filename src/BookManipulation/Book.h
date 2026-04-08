@@ -302,10 +302,13 @@ public:
     bool IsDataOnDiskWellFormed(HTMLResource *html_resource);
 
     /**
-     * Reformats All the book's html resources using either
-     * the 'Mend' or "Mend and Repair' CleanSource procedures.
+     * Reformats All the book's html resources using 'Mend' or 'PrettyPrint
      */
     void ReformatAllHTML(bool to_valid);
+
+    bool XhtmlUsesStyleProperty(HTMLResource* html_resource, QString property);
+    bool SafePrettyPrintResources(QList<HTMLResource*> resources);
+    QString SafePrettyPrint(const QString& bookpath, const QString& original_text);    
 
     /**
      * Checks for the presence of obfuscated fonts in the book.

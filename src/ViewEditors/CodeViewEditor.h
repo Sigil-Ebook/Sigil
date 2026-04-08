@@ -388,6 +388,7 @@ public:
     void SetReformatCSSEnabled(bool value);
 
     void SetContentMediaType(const QString& mt) { m_mediatype = mt; };
+    void SetContentBookPath(const QString& bp) { m_bookpath = bp; };
 
     /**
      * Control wheter the Reformat (clean) HTML submenu is avaliable on the context menu.
@@ -871,6 +872,7 @@ private:
     bool m_regen_taglist;
 
     QString m_mediatype;
+    QString m_bookpath;
 };
 
 #endif // CODEVIEWEDITOR_H

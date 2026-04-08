@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2015-2026 Kevin B. Hendricks Stratford, ON, Canada 
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -60,13 +60,13 @@ QString CleanSource::Mend(const QString &source, const QString &version)
 }
 
 
-// Mend and Prettify XHTML
-QString CleanSource::MendPrettify(const QString &source, const QString &version)
+// Prettify XHTML
+QString CleanSource::PrettyPrint(const QString &source, bool keep_whitespace, const QString &version)
 {
     QString newsource = PreprocessSpecialCases(source);
     newsource = RemoveMetaCharset(newsource);
     GumboInterface gi = GumboInterface(newsource, version);
-    newsource = gi.prettyprint();
+    newsource = gi.prettyprint(keep_whitespace);
     newsource = CharToEntity(newsource, version);
     newsource = PrettifyDOCTYPEHeader(newsource);
     return newsource;
@@ -294,9 +294,9 @@ QString CleanSource::CharToEntity(const QString &source, const QString &version)
 }
 
 
-bool CleanSource::ReformatAll(QList <HTMLResource *> resources, QString(clean_func)(const QString &source, const QString &version))
+bool CleanSource::ReformatMendAll(QList <HTMLResource *> resources)
 {
-    QProgressDialog progress(QObject::tr("Cleaning..."), 0, 0, resources.count(), Utility::GetMainWindow());
+    QProgressDialog progress(QObject::tr("Mending..."), 0, 0, resources.count(), Utility::GetMainWindow());
     progress.setMinimumDuration(PROGRESS_BAR_MINIMUM_DURATION);
     int progress_value = 0;
     progress.setValue(progress_value);
@@ -307,7 +307,7 @@ bool CleanSource::ReformatAll(QList <HTMLResource *> resources, QString(clean_fu
         QWriteLocker locker(&resource->GetLock());
         QString source = resource->GetText();
         QString version = resource->GetEpubVersion();
-        QString newsource = clean_func(source, version);
+        QString newsource = Mend(source, version);
         if (newsource != source) {
             book_modified = true;
             resource->SetText(newsource);

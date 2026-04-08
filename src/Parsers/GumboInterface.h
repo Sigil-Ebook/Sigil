@@ -65,7 +65,7 @@ public:
     QList<GumboNode *> findnodes(const QString &aSelector);
     CSelection find(const QString &aSelector);
 
-    QString prettyprint();
+    QString prettyprint(bool keep_whitespace);
 
     // returns list tags that match manifest properties
     QStringList get_all_properties();
@@ -187,6 +187,7 @@ private:
     std::string                     m_newbody;
     QString                         m_version;
     QString                         m_newbookpath;
+    bool                            m_keep_whitespace;
     
 };
 

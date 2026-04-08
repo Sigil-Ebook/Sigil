@@ -45,7 +45,7 @@ public:
 
     static bool IsWellFormedXML(const QString &source, const QString mtype="");
 
-    static QString MendPrettify(const QString &source, const QString &version);
+    static QString PrettyPrint(const QString &source, bool keep_whitespace, const QString &version);
 
     static QString XMLPrettyPrintBS4(const QString &source, const QString mtype="");
 
@@ -53,7 +53,7 @@ public:
 
     static QString CharToEntity(const QString &source, const QString &version);
 
-    static bool ReformatAll(QList <HTMLResource *> resources, QString(clean_fun)(const QString &source, const QString &version));
+    static bool ReformatMendAll(QList<HTMLResource *> resources);
 
     /** 
      * neither svg nor math tags need a namespace prefix defined

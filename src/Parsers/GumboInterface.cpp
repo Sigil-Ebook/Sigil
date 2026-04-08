@@ -293,8 +293,9 @@ CSelection GumboInterface::find(const QString &aSelector)
 }
 
 
-QString GumboInterface::prettyprint()
+QString GumboInterface::prettyprint(bool keep_whitespace)
 {
+    m_keep_whitespace = keep_whitespace;
     PrettyPrintProps * pp = PrettyPrintProps::instance();
     QString result = "";
     if (!m_source.isEmpty()) {
@@ -1489,7 +1490,7 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, Prett
                 contents.append(indent_space);
                 ltrim(val);
             }
-            if (!keep_whitespace) {
+            if (!keep_whitespace && !m_keep_whitespace) {
                 // this includes structural, inline, and other text holders 
                 // okay to condense whitespace
                 condense_whitespace(val);

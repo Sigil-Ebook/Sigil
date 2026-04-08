@@ -32,6 +32,8 @@
 #include "BookManipulation/FolderKeeper.h"
 #include "Parsers/GumboInterface.h"
 #include "Parsers/CSSToolbox.h"
+#include "Parsers/CSSInfo.h"
+#include "Parsers/HTMLStyleInfo.h"
 #include "Misc/TempFolder.h"
 #include "Misc/Utility.h"
 #include "Misc/HTMLSpellCheck.h"
@@ -746,10 +748,14 @@ bool Book::RenameClassInHTMLFileMapped(HTMLResource* html_resource,
 void Book::ReformatAllHTML(bool to_valid)
 {
     QApplication::setOverrideCursor(Qt::WaitCursor);
-
     SaveAllResourcesToDisk();
     QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(true);
-    bool book_modified = CleanSource::ReformatAll(html_resources, to_valid ? CleanSource::Mend : CleanSource::MendPrettify);
+    bool book_modified = false; 
+    if (to_valid) {
+        book_modified = CleanSource::ReformatMendAll(html_resources);
+    } else {
+        book_modified = SafePrettyPrintResources(html_resources);
+    }
     if (book_modified) {
         SetModified();
     }
@@ -1616,4 +1622,91 @@ QPair<QString, QStringList> Book::GetOneFileIDs(HTMLResource *html_resource)
     id_pair.first = html_resource->GetRelativePath();
     id_pair.second = ids;
     return id_pair;
+}
+
+
+bool Book::XhtmlUsesStyleProperty(HTMLResource* html_resource, QString property)
+{
+    QString newsource;
+    // first check all internal style attributes
+    {
+        QReadLocker locker(&html_resource->GetLock());
+        newsource = html_resource->GetText();
+    }
+    QString version = html_resource->GetEpubVersion();
+    GumboInterface gi = GumboInterface(newsource, version);
+    gi.parse();
+    QStringList styles = gi.get_all_values_for_attribute(QString("style"));
+    foreach(QString style_value, styles){
+        if (style_value.indexOf(property) >= 0) return true;
+    }
+    // next get and parse any style tags inside the file
+    HTMLStyleInfo hp(newsource);
+    if (hp.hasStyles()) {
+        QStringList pvs = hp.getAllPropertyValues(property);
+        if (!pvs.isEmpty()) return true;
+    }    
+    // Finally, walk the linked css files to check there
+    QStringList css_file_paths = html_resource->GetPathsToLinkedResources();
+    foreach(QString css_path, css_file_paths) {
+        Resource* resource = GetFolderKeeper()->GetResourceByBookPathNoThrow(css_path);
+        if (resource) {
+            CSSResource* css_resource = qobject_cast<CSSResource*>(resource);
+            if (css_resource) {
+                CSSInfo cp(css_resource->GetText());
+                QStringList pvs = cp.getAllPropertyValues(property);
+                if (!pvs.isEmpty()) return true;
+            }
+        }
+    }
+    // that property was not found
+    return false;
+}
+
+
+bool Book::SafePrettyPrintResources(QList<HTMLResource*> resources)
+{
+    QProgressDialog progress(QObject::tr("PrettyPrinting..."), 0, 0, resources.count(), Utility::GetMainWindow());
+    progress.setMinimumDuration(PROGRESS_BAR_MINIMUM_DURATION);
+    int progress_value = 0;
+    progress.setValue(progress_value);
+    bool book_modified = false;
+    foreach(HTMLResource * html_resource, resources) {
+        progress.setValue(progress_value++);
+        qApp->processEvents();
+        QString version = html_resource->GetEpubVersion();
+        QString original_source;
+        QString newsource;
+        {   
+            QReadLocker locker(&html_resource->GetLock());
+            original_source = html_resource->GetText();
+        }
+        newsource = original_source;
+        bool keep_whitespace = XhtmlUsesStyleProperty(html_resource, "white-space");
+        newsource = CleanSource::PrettyPrint(newsource, keep_whitespace, version);
+        if (newsource != original_source) {
+            book_modified = true;
+            {
+                QWriteLocker locker(&html_resource->GetLock());
+                html_resource->SetText(newsource);
+            }
+        }
+    }
+    return book_modified;
+}
+
+
+QString Book::SafePrettyPrint(const QString& bookpath, const QString& original_text)
+{
+    Resource* resource = GetFolderKeeper()->GetResourceByBookPathNoThrow(bookpath);
+    QString newsource = original_text;
+    if (resource) {
+        HTMLResource* html_resource = qobject_cast<HTMLResource*>(resource);
+        if (html_resource) {
+            QString version = html_resource->GetEpubVersion();
+            bool keep_whitespace = XhtmlUsesStyleProperty(html_resource, "white-space");
+            newsource = CleanSource::PrettyPrint(newsource, keep_whitespace, version);
+        }
+    }
+    return newsource;
 }

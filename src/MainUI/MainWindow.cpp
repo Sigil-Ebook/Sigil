@@ -5841,7 +5841,7 @@ bool MainWindow::SaveFile(const QString &fullfilepath, bool update_current_filen
                 }
                 QApplication::setOverrideCursor(Qt::WaitCursor);
                 if (button_pressed == QMessageBox::Yes) {
-                    CleanSource::ReformatAll(broken_resources, CleanSource::Mend);
+                    CleanSource::ReformatMendAll(broken_resources);
                     not_well_formed = false;
                 }
             }
