@@ -47,7 +47,7 @@
 #include <QVector>
 #include <QMap>
 
-class CSSDenester;
+// class CSSDenester;
 
 class CSSParser 
 { 
@@ -115,7 +115,7 @@ public:
     void set_csstokens(const QVector<token> &ntokens);
 
     // get errors, warnings, and information
-    QVector<QString> get_denest_errors();
+    // QVector<QString> get_denest_errors();
     QVector<QString> get_parse_errors();
     QVector<QString> get_parse_warnings();
     QVector<QString> get_parse_info();
@@ -201,7 +201,7 @@ private:
     QVector<int>  sel_separate;
     QVector<QString> cur_sub_value_arr;
     QVector<QString> cur_function_arr;
-    CSSDenester * m_dn;
+    // CSSDenester * m_dn;
 
 };
         
