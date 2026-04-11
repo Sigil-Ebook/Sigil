@@ -1682,7 +1682,8 @@ bool Book::SafePrettyPrintResources(QList<HTMLResource*> resources)
             original_source = html_resource->GetText();
         }
         newsource = original_source;
-        bool keep_whitespace = XhtmlUsesStyleProperty(html_resource, "white-space");
+        bool keep_whitespace = XhtmlUsesStyleProperty(html_resource, "white-space") ||
+                               XhtmlUsesStyleProperty(html_resource, "white-space-collapse");
         newsource = CleanSource::PrettyPrint(newsource, keep_whitespace, version);
         if (newsource != original_source) {
             book_modified = true;
