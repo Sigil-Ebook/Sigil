@@ -1,3 +1,31 @@
+/************************************************************************
+ **
+ **  CSSDeNest.cpp
+ **  Used for the Sigil C++ CSS Parser
+ **
+ **  Copyright (C) 2026  Kevin B. Hendricks, Stratford, Ontario, Canada
+ **  Co-authored with CoPilot: Claude 4.6 engine
+ **
+ **  License: MIT
+ **  Permission is hereby granted, free of charge, to any person obtaining a
+ **  copy of this software and associated documentation files (the “Software”),
+ **  to deal in the Software without restriction, including without limitation
+ **  the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ **  and/or sell copies of the Software, and to permit persons to whom the
+ **  Software is furnished to do so, subject to the following conditions:
+ **
+ **  The above copyright notice and this permission notice shall be included
+ **  in all copies or substantial portions of the Software.
+ **
+ **  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ **  OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ **  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ **  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ **  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ **  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ **  DEALINGS IN THE SOFTWARE.
+ ** 
+ ***********************************************************************/
 #include "CSSDeNest.h"
 
 #include <algorithm>
@@ -132,17 +160,17 @@ void CSSDeNest::readParens(const std::string& in, size_t& pos, std::string& out)
 // AST node
 // ------------------------------------------------------------
 #if 0  
-struct CSSDeNest::Node {
+struct Node {
     enum Type { TEXT, BLOCK } type = TEXT;
 
     // TEXT node: raw text (may include a trailing ';')
     std::string text;
 
     // BLOCK node fields
-    std::string header;                      // selector or at-rule, trimmed, without '{'
-    std::string rawBody;                     // raw text between '{' and '}' (before parsing)
-    std::vector<CSSDeNest::Node> children;   // parsed children of this block
-    bool isAtRule = false;                   // header starts with '@'
+    std::string header;           // selector or at-rule, trimmed, without '{'
+    std::string rawBody;          // raw text between '{' and '}' (before parsing)
+    std::vector<Node> children;   // parsed children of this block
+    bool isAtRule = false;        // header starts with '@'
 };
 #endif
 
