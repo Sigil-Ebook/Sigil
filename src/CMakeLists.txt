@@ -313,7 +313,8 @@ set( PARSERS_FILES
     Parsers/CSSToolbox.h
     Parsers/HTMLStyleInfo.cpp
     Parsers/HTMLStyleInfo.h
-    Parsers/qCSSDenester.h
+    Parsers/CSSDeNest.cpp
+    Parsers/CSSDeNest.h
     Parsers/qCSSParser.cpp
     Parsers/qCSSParser.h
     Parsers/qCSSUtils.cpp

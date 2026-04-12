@@ -41,10 +41,11 @@
 #include <QChar>
 #include <QString>
 #include <QTextStream>
-#include "Parsers/qCSSDenester.h"
+#include <string>
 #include "Parsers/qCSSProperties.h"
 #include "Parsers/qCSSUtils.h"
 #include "Parsers/qCSSParser.h"
+#include "Parsers/CSSDeNest.h" // note: uses st::string and std::vector
 
 /* PIS = in selector
  * PIP = in property
@@ -119,19 +120,7 @@ CSSParser::CSSParser()
     token_type_names.push_back("CSS_END");
 
     css_level = "CSS3.0";
-
-    // m_dn = new CSSDenester();
 } 
-
-#if 0
-~CSSParser()
-{
-    if (m_dn) {
-        delete m_dn;
-        m_dn = nullptr;
-    }
-}
-#endif
 
 void CSSParser::set_level(QString level)
 {
@@ -161,11 +150,6 @@ void CSSParser::reset_parser()
     cur_string.clear();
     cur_selector.clear();
     sel_separate.clear();
-#if 0    
-    if (m_dn) {
-        delete m_dn;
-    } m_dn = new CSSDenester();
-#endif
 }
 
 
@@ -892,7 +876,8 @@ void CSSParser::parse_css(QString css_input)
     reset_parser();
     css_input = css_input.replace("\r\n","\n"); // Replace newlines
     css_input += "\n";
-    // css_input = m_dn->denest(css_input);
+    std::string denested_css = CSSDeNest::denest_css(css_input.toStdString());
+    css_input = QString::fromStdString(denested_css);
     parse_status astatus = PIS, afrom;
     parse_status old_status = PIS;
     record_position(PIS, PIS, css_input, 0, true);
@@ -1022,12 +1007,6 @@ bool CSSParser::property_is_next(QString istring, int pos)
     return CSSProperties::instance()->contains(istring);
 }
 
-#if 0
-QVector<QString> CSSParser::get_denest_errors()
-{
-    return m_dn->get_denest_errors();
-}
-#endif
 
 QVector<QString> CSSParser::get_parse_errors()
 { 
