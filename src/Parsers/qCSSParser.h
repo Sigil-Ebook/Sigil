@@ -47,8 +47,6 @@
 #include <QVector>
 #include <QMap>
 
-// class CSSDenester;
-
 class CSSParser 
 { 
 
@@ -171,7 +169,6 @@ private:
     static bool property_is_next(QString istring, int pos);
 
 
-
     // private member variables
     QVector<QString> token_type_names;
     QMap<QString, parse_status>  at_rules;
@@ -201,7 +198,6 @@ private:
     QVector<int>  sel_separate;
     QVector<QString> cur_sub_value_arr;
     QVector<QString> cur_function_arr;
-    // CSSDenester * m_dn;
 
 };
         
