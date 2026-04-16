@@ -1657,7 +1657,11 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, PrettyPrintPro
     if (is_structural) {
         results = indent_space + starttag;
         if (!contents.empty()) {
-            results.append("\n" + contents + "\n" + indent_space);
+            if (!doublespace) {
+                results.append("\n" + contents + "\n" + indent_space);
+            } else {
+                results.append("\n\n" + contents + "\n\n" + indent_space);
+            }
         }  
         results.append(closetag + "\n");
         if (!in_head && (tagname != "html") && doublespace) results.append("\n");
