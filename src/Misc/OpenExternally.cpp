@@ -105,7 +105,7 @@ bool OpenExternally::openFile(const QString &filePath, const QString &applicatio
 #if defined(Q_OS_MAC)
 
     if (QFile::exists(filePath) && QDir(application).exists()) {
-        QStringList arguments = QStringList() << "-a" << application << filePath;
+        QStringList arguments = QStringList() << "-a" << application << "--args" << filePath;
         return QProcess::startDetached("/usr/bin/open", arguments);
     }
 
