@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2023 Kevin B. Hendricks, Stratford Ontario, Canada
+**  Copyright (C) 2019-2026 Kevin B. Hendricks, Stratford Ontario, Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -30,10 +30,9 @@
 #include "Tabs/ContentTab.h"
 
 class ImageResource;
-class QWebEngineView;
 class QAction;
 class QMenu;
-class WebViewPrinter;
+class AdjustImage;
 
 class ImageTab : public ContentTab
 {
@@ -98,7 +97,7 @@ private:
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
 
-    QWebEngineView *m_WebView;
+    AdjustImage *m_AdjImg;
 
     QPointer<QMenu> m_ContextMenu;
     QMenu *m_OpenWithContextMenu;
@@ -116,7 +115,7 @@ private:
 
     float m_CurrentZoomFactor;
 
-    WebViewPrinter * m_WebViewPrinter;
+    // WebViewPrinter * m_WebViewPrinter;
     QString m_page_source;
     QString m_filepath;
 };

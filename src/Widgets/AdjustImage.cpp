@@ -1,0 +1,356 @@
+#include <QTransform>
+#include <QDebug>
+#include <QFileInfo>
+#include <QFileDialog>
+#include "Dialogs/ImageResizeDialog.h"
+#include "Widgets/AdjustImage.h"
+#include "ui_AdjustImage.h"
+
+AdjustImage::AdjustImage(const QString filepath, QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::AdjustImage),
+    m_rb(new QRubberBand(QRubberBand::Rectangle, this))
+{
+    ui->setupUi(this);
+    m_rb->hide();
+    m_mainToolBar = ui->mainToolBar;
+    m_statusBar = ui->statusBar;
+    m_menuBar = ui->menuBar;
+
+    updateActions(false);
+    ui->actionUndo->setEnabled(false);
+    ui->actionRedo->setEnabled(false);
+
+    m_imageLabel = new QLabel;
+    m_imageLabel->resize(0, 0);
+    m_imageLabel->setMouseTracking(true);
+    m_imageLabel->setBackgroundRole(QPalette::Base);
+    m_imageLabel->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
+    m_imageLabel->setScaledContents(true);
+    m_imageLabel->installEventFilter(this);
+
+    m_scrollArea = new QScrollArea;
+    m_scrollArea->setBackgroundRole(QPalette::Dark);
+    m_scrollArea->setWidget(m_imageLabel);
+
+    m_description = new QLabel;
+    m_statusBar->addPermanentWidget(m_description);
+    
+    vlayout = new QVBoxLayout;
+    vlayout->addWidget(m_menuBar);
+    vlayout->addWidget(m_mainToolBar);
+    vlayout->addWidget(m_scrollArea);
+    vlayout->addWidget(m_statusBar);
+    setLayout(vlayout);
+
+    setWindowTitle(tr("Adjust Image"));
+    if (!filepath.isEmpty()) {
+        m_fileName = filepath;
+        m_image = QImage(m_fileName);
+        if (m_image.isNull()) {
+             QMessageBox::information(this,
+                                      tr("Adjust Image"),
+                                      tr("Cannot load %1.").arg(m_fileName));
+             return;
+        }
+        m_scaleFactor = 1.0;
+        m_croppingState = false;
+        setCursor(Qt::ArrowCursor);
+        updateActions(true);
+        refreshLabel();
+        m_imageLabel->adjustSize();
+    }
+    ConnectSignalsToSlots();
+}
+
+AdjustImage::~AdjustImage()
+{
+    m_history.clear();
+    m_reverseHistory.clear();
+    delete ui;
+    delete m_rb;
+}
+
+void AdjustImage::UpdateImageDescription()
+{
+    QString colors_shades = m_image.isGrayscale() ? tr("shades") : tr("colors");
+    QString grayscale_color = m_image.isGrayscale() ? tr("Grayscale") : tr("Color");
+    QString colorsInfo = "";
+    if (m_image.depth() == 32) {
+        colorsInfo = QString(" %1bpp").arg(m_image.bitPlaneCount());
+    } else if (m_image.depth() > 0) {
+        colorsInfo = QString(" %1bpp (%2 %3)").arg(m_image.bitPlaneCount()).arg(m_image.colorCount()).arg(colors_shades);
+    }
+    QString description = QString("(%1px × %2px) %3%4").arg(m_image.width()).arg(m_image.height()).arg(grayscale_color).arg(colorsInfo);
+    m_description->setText(description);
+}
+
+void AdjustImage::adjustScrollBar(QScrollBar *scrollBar, double factor)
+{
+    int newValue = factor * scrollBar->value() + (factor - 1) * scrollBar->pageStep() / 2;
+    scrollBar->setValue(newValue);
+}
+
+void AdjustImage::changeCroppingState(bool changeTo)
+{
+    m_croppingState = changeTo;
+    ui->actionCrop->setDisabled(changeTo);
+
+    if (changeTo)
+        setCursor(Qt::CrossCursor);
+    else
+        setCursor(Qt::ArrowCursor);
+}
+
+void AdjustImage::refreshLabel()
+{
+    m_imageLabel->setPixmap(QPixmap::fromImage(m_image));
+    UpdateImageDescription();
+}
+
+void AdjustImage::rotateImage(int angle)
+{
+    saveToHistoryWithClear(m_image);
+    QPixmap pixmap(m_imageLabel->pixmap());
+    QTransform rm;
+    rm.rotate(angle);
+    pixmap = pixmap.transformed(rm, Qt::SmoothTransformation);
+    m_image = pixmap.toImage();
+    refreshLabel();
+    m_imageLabel->adjustSize();
+}
+
+void AdjustImage::saveToHistory(QImage imageToSave)
+{
+    m_history.push_back(imageToSave);
+    ui->actionUndo->setEnabled(true);
+}
+
+void AdjustImage::saveToHistoryWithClear(QImage imageToSave)
+{
+    saveToHistory(imageToSave);
+    m_reverseHistory.clear();
+    ui->actionRedo->setEnabled(false);
+}
+
+void AdjustImage::saveToReverseHistory(QImage imageToSave)
+{
+    m_reverseHistory.push_back(imageToSave);
+    ui->actionRedo->setEnabled(true);
+}
+
+void AdjustImage::resizeImage(int targetW, int targetH)
+{
+    saveToHistoryWithClear(m_image);
+    QPixmap pixmap(m_imageLabel->pixmap());
+    pixmap = pixmap.scaled(targetW, targetH, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+    m_image = pixmap.toImage();
+    refreshLabel();
+    m_imageLabel->adjustSize();
+}
+
+void AdjustImage::scaleImage(double factor)
+{
+    m_scaleFactor *= factor;
+    m_imageLabel->resize(m_scaleFactor * m_imageLabel->pixmap().size());
+
+    adjustScrollBar(m_scrollArea->horizontalScrollBar(), factor);
+    adjustScrollBar(m_scrollArea->verticalScrollBar(), factor);
+
+    ui->actionZoomIn->setEnabled(m_scaleFactor < 3.0);
+    ui->actionZoomOut->setEnabled(m_scaleFactor > 0.333);
+}
+
+void AdjustImage::updateActions(bool updateTo)
+{
+    ui->actionCrop->setEnabled(updateTo);
+    ui->actionResizeImage->setEnabled(updateTo);
+    ui->actionRotateLeft->setEnabled(updateTo);
+    ui->actionRotateRight->setEnabled(updateTo);
+    ui->actionSave->setEnabled(updateTo);
+    ui->actionZoomIn->setEnabled(updateTo);
+    ui->actionZoomOut->setEnabled(updateTo);
+    ui->actionZoomToFit->setEnabled(updateTo);
+}
+
+
+// Slots
+
+bool AdjustImage::eventFilter(QObject* watched, QEvent* event)
+{
+    if (watched != m_imageLabel)
+        return false;
+
+    switch (event->type())
+    {
+        case QEvent::MouseButtonPress:
+        {
+            if (!m_croppingState) break;
+            const QMouseEvent* const me = static_cast<const QMouseEvent*>(event);
+            m_croppingStart = me->pos() / m_scaleFactor;
+            m_rb->setGeometry(QRect(m_croppingStart, QSize()));
+            m_rb->show();
+            break;
+        }
+
+        case QEvent::MouseButtonRelease:
+        {
+            if (!m_croppingState) break;
+            saveToHistoryWithClear(m_image);
+            const QMouseEvent* const me = static_cast<const QMouseEvent*>(event);
+            m_croppingEnd = me->pos() / m_scaleFactor;
+            const QRect rect(m_croppingStart, m_croppingEnd);
+            m_rb->setGeometry(rect);
+            m_image = m_image.copy(rect);
+            m_rb->hide();
+            refreshLabel();
+            m_imageLabel->adjustSize();
+            changeCroppingState(false);
+            break;
+        }
+
+        case QEvent::MouseMove:
+        {
+            const QMouseEvent* const me = static_cast<const QMouseEvent*>(event);
+            const QPoint position = me->pos();
+            m_statusBar->showMessage(QString("(x,y) coordinates: (%1,%2)").arg(position.x()).arg(position.y()));
+            if (m_croppingState) {
+                m_rb->setGeometry(QRect(m_croppingStart, position/m_scaleFactor));
+            }
+            break;
+        }
+
+        default:
+            break;
+    }
+    return false;
+}
+
+
+void AdjustImage::doCrop()
+{
+    changeCroppingState(true);
+}
+
+
+void AdjustImage::toggleFullscreen()
+{
+    if(isFullScreen()) {
+        this->showNormal();
+    } else {
+        this->showFullScreen();
+    }
+}
+
+void AdjustImage::doResizeImage()
+{
+    saveToHistoryWithClear(m_image);
+    int width = m_image.width();
+    int height = m_image.height();
+    ImageResizeDialog dlg(width, height, this);
+    if (dlg.exec() == QDialog::Accepted) {
+        int newWidth = dlg.getWidth();
+        int newHeight = dlg.getHeight();
+        resizeImage(newWidth, newHeight);
+    }
+}
+
+
+void AdjustImage::doRotateLeft()
+{
+    rotateImage(-90);
+}
+
+void AdjustImage::doRotateRight()
+{
+    rotateImage(90);
+}
+
+void AdjustImage::doSave()
+{
+    QString imagePath;
+    if (m_fileName.isEmpty()) {
+        imagePath = QFileDialog::getSaveFileName(this, tr("Save File"), "",
+                                                 tr("JPEG (*.jpg *.jpeg);;PNG (*.png)" ));
+    } else {
+        imagePath = m_fileName;
+    }
+    m_image.save(imagePath);
+}
+
+void AdjustImage::toggleShowToolbar(bool checked)
+{
+    if (checked)
+        m_mainToolBar->show();
+    else
+        m_mainToolBar->hide();
+}
+
+
+void AdjustImage::doUndo()
+{
+    saveToReverseHistory(m_image);
+    m_image = m_history.last();
+    refreshLabel();
+    m_imageLabel->adjustSize();
+
+    m_history.pop_back();
+    if (m_history.size() == 0)
+        ui->actionUndo->setEnabled(false);
+}
+
+void AdjustImage::doRedo()
+{
+    saveToHistory(m_image);
+    m_image = m_reverseHistory.last();
+    refreshLabel();
+    m_imageLabel->adjustSize();
+
+    m_reverseHistory.pop_back();
+    if (m_reverseHistory.size() == 0)
+        ui->actionRedo->setEnabled(false);
+}
+
+void AdjustImage::doZoomIn()
+{
+    scaleImage(1.25);
+}
+
+void AdjustImage::doZoomOut()
+{
+    scaleImage(0.80);
+}
+
+void AdjustImage::doZoomToFit()
+{
+    QSize windowSize = m_scrollArea->size();
+    QSize labelSize = m_imageLabel->pixmap().size();
+
+    double imageRatio = double(labelSize.height()) / labelSize.width();
+    double scaleTo;
+
+    if (windowSize.width() * imageRatio > windowSize.height()) {
+        scaleTo = double(windowSize.height()) / labelSize.height();
+    } else {
+        scaleTo = double(windowSize.width()) / labelSize.width();
+    }
+    double scaleBy = scaleTo / m_scaleFactor;
+    scaleImage(scaleBy);
+}
+
+
+void AdjustImage::ConnectSignalsToSlots()
+{
+    connect(ui->actionCrop,        SIGNAL(triggered()), this, SLOT(doCrop()));
+    connect(ui->actionResizeImage, SIGNAL(triggered()), this, SLOT(doResizeImage()));
+    connect(ui->actionRotateLeft,  SIGNAL(triggered()), this, SLOT(doRotateLeft()));
+    connect(ui->actionRotateRight, SIGNAL(triggered()), this, SLOT(doRotateRight()));
+    connect(ui->actionSave,        SIGNAL(triggered()), this, SLOT(doSave()));
+    connect(ui->actionZoomIn,      SIGNAL(triggered()), this, SLOT(doZoomIn()));
+    connect(ui->actionZoomOut,     SIGNAL(triggered()), this, SLOT(doZoomOut()));
+    connect(ui->actionZoomToFit,   SIGNAL(triggered()), this, SLOT(doZoomToFit()));
+    connect(ui->actionRedo,        SIGNAL(triggered()), this, SLOT(doRedo()));
+    connect(ui->actionUndo,        SIGNAL(triggered()), this, SLOT(doUndo()));
+    connect(ui->actionFullscreen,  SIGNAL(triggered()), this, SLOT(toggleFullscreen()));
+    connect(ui->actionShowToolbar, SIGNAL(triggered(bool)), this, SLOT(toggleShowToolbar(bool)));
+}

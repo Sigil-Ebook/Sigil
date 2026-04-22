@@ -102,6 +102,8 @@ set( DIALOG_FILES
     Dialogs/EditTOC.h
     Dialogs/EmptyLayout.cpp
     Dialogs/EmptyLayout.h
+    Dialogs/ImageResizeDialog.cpp
+    Dialogs/ImageResizeDialog.h
     Dialogs/ManageAutomation.cpp
     Dialogs/ManageAutomation.h
     Dialogs/ManageRepos.cpp
@@ -238,6 +240,8 @@ set( DIALOG_FILES
 set( WIDGET_FILES
     Widgets/ImageView.cpp
     Widgets/ImageView.h
+    Widgets/AdjustImage.cpp
+    Widgets/AdjustImage.h
     Widgets/AVView.cpp
     Widgets/AVView.h
     Widgets/PdfView.cpp
@@ -562,6 +566,7 @@ set( UI_FILES
     Form_Files/ManageRepos.ui
     Form_Files/ManageAutomation.ui
     Form_Files/MDViewer.ui
+    Form_Files/AdjustImage.ui
     Form_Files/OpenWithName.ui
     Form_Files/RERenamer.ui
     Form_Files/RETable.ui
