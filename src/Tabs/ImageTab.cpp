@@ -62,6 +62,7 @@ ImageTab::ImageTab(ImageResource *resource, QWidget *parent)
     
     const QString path = m_Resource->GetFullPath();
     m_AdjImg = new AdjustImage(path, this);
+    m_AdjImg->setContextMenuPolicy(Qt::CustomContextMenu);
     m_Layout->addWidget(m_AdjImg);
     // Set the Zoom factor but be sure no signals are set because of this.
     SettingsStore settings;
@@ -128,7 +129,9 @@ ImageTab::~ImageTab()
 
 float ImageTab::GetZoomFactor() const
 {
-    return m_CurrentZoomFactor;
+    float zf = (float) m_AdjImg->getZoomFactor();
+    return zf;
+    // return m_CurrentZoomFactor();
 }
 
 void ImageTab::SetZoomFactor(float new_zoom_factor)
@@ -141,6 +144,11 @@ void ImageTab::SetZoomFactor(float new_zoom_factor)
     emit ZoomFactorChanged(m_CurrentZoomFactor);
 }
 
+void ImageTab::HandleInternalImageZoomChange(double factor)
+{
+    float zf = (float) factor;
+    SetZoomFactor(zf);
+}
 
 void ImageTab::UpdateDisplay()
 {
@@ -347,7 +355,8 @@ void ImageTab::ConnectSignalsToSlots()
     connect(m_Resource, SIGNAL(ResourceUpdatedOnDisk()),   this, SLOT(RefreshContent()));
     connect(m_Resource, SIGNAL(Deleted(const Resource *)), this, SLOT(Close()));
 
-    connect(m_AdjImg, SIGNAL(customContextMenuRequested(const QPoint &)),  this, SLOT(OpenContextMenu(const QPoint &)));
+    connect(m_AdjImg, SIGNAL(customContextMenuRequested(const QPoint &)),this, SLOT(OpenContextMenu(const QPoint &)));
+    connect(m_AdjImg, SIGNAL(InternalZoomFactorChanged(double)),  this, SLOT(HandleInternalImageZoomChange(double)));
 
     connect(m_OpenWith,       SIGNAL(triggered()),   this, SLOT(openWith()));
     connect(m_OpenWithEditor0, SIGNAL(triggered()),  m_openWithMapper, SLOT(map()));
@@ -372,7 +381,7 @@ void ImageTab::ConnectSignalsToSlots()
 
 void ImageTab::Zoom()
 {
-    // m_WebView->setZoomFactor(m_CurrentZoomFactor);
+    m_AdjImg->scaleImageUsing(m_CurrentZoomFactor);
 }
 
 void ImageTab::PrintPreview()

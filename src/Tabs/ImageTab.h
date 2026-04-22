@@ -39,7 +39,6 @@ class ImageTab : public ContentTab
     Q_OBJECT
 
 public:
-
     ImageTab(ImageResource *resource, QWidget *parent = 0);
     ~ImageTab();
 
@@ -60,6 +59,8 @@ public slots:
 
     void saveAs();
     void copyImage();
+
+    void HandleInternalImageZoomChange(double factor);
 
     void Print();
     void PrintPreview();

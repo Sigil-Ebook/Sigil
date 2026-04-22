@@ -31,6 +31,17 @@ public:
     explicit AdjustImage(const QString filepath, QWidget *parent = 0);
     ~AdjustImage();
 
+    double getZoomFactor() { return m_scaleFactor; };
+    void scaleImageUsing(double factor);
+                          
+public slots:
+    void doZoomIn();
+    void doZoomOut();
+    void doZoomToFit();
+
+signals:
+    void InternalZoomFactorChanged(double factor);
+
 private slots:
     bool eventFilter(QObject* watched, QEvent* event) override;
     void doCrop();
@@ -40,9 +51,6 @@ private slots:
     void doSave();
     void doUndo();
     void doRedo();
-    void doZoomIn();
-    void doZoomOut();
-    void doZoomToFit();
     void toggleShowToolbar(bool checked);
     void toggleFullscreen();
   
@@ -56,7 +64,7 @@ private:
     void saveToHistory(QImage imageToSave);
     void saveToHistoryWithClear(QImage imageToSave);
     void saveToReverseHistory(QImage imageToSave);
-    void scaleImage(double factor);
+    void scaleImageBy(double factor);
     void updateActions(bool updateTo);
     void UpdateImageDescription();
 

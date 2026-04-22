@@ -58,7 +58,6 @@ AdjustImage::AdjustImage(const QString filepath, QWidget *parent) :
         setCursor(Qt::ArrowCursor);
         updateActions(true);
         refreshLabel();
-        m_imageLabel->adjustSize();
     }
     ConnectSignalsToSlots();
 }
@@ -106,6 +105,7 @@ void AdjustImage::refreshLabel()
 {
     m_imageLabel->setPixmap(QPixmap::fromImage(m_image));
     UpdateImageDescription();
+    scaleImageBy(1.0);
 }
 
 void AdjustImage::rotateImage(int angle)
@@ -117,7 +117,6 @@ void AdjustImage::rotateImage(int angle)
     pixmap = pixmap.transformed(rm, Qt::SmoothTransformation);
     m_image = pixmap.toImage();
     refreshLabel();
-    m_imageLabel->adjustSize();
 }
 
 void AdjustImage::saveToHistory(QImage imageToSave)
@@ -146,10 +145,9 @@ void AdjustImage::resizeImage(int targetW, int targetH)
     pixmap = pixmap.scaled(targetW, targetH, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
     m_image = pixmap.toImage();
     refreshLabel();
-    m_imageLabel->adjustSize();
 }
 
-void AdjustImage::scaleImage(double factor)
+void AdjustImage::scaleImageBy(double factor)
 {
     m_scaleFactor *= factor;
     m_imageLabel->resize(m_scaleFactor * m_imageLabel->pixmap().size());
@@ -159,7 +157,21 @@ void AdjustImage::scaleImage(double factor)
 
     ui->actionZoomIn->setEnabled(m_scaleFactor < 3.0);
     ui->actionZoomOut->setEnabled(m_scaleFactor > 0.333);
+    emit InternalZoomFactorChanged(m_scaleFactor);
 }
+
+void AdjustImage::scaleImageUsing(double factor)
+{
+    m_scaleFactor = factor;
+    m_imageLabel->resize(m_scaleFactor * m_imageLabel->pixmap().size());
+
+    adjustScrollBar(m_scrollArea->horizontalScrollBar(), factor);
+    adjustScrollBar(m_scrollArea->verticalScrollBar(), factor);
+
+    ui->actionZoomIn->setEnabled(m_scaleFactor < 3.0);
+    ui->actionZoomOut->setEnabled(m_scaleFactor > 0.333);
+}
+
 
 void AdjustImage::updateActions(bool updateTo)
 {
@@ -204,7 +216,6 @@ bool AdjustImage::eventFilter(QObject* watched, QEvent* event)
             m_image = m_image.copy(rect);
             m_rb->hide();
             refreshLabel();
-            m_imageLabel->adjustSize();
             changeCroppingState(false);
             break;
         }
@@ -213,7 +224,8 @@ bool AdjustImage::eventFilter(QObject* watched, QEvent* event)
         {
             const QMouseEvent* const me = static_cast<const QMouseEvent*>(event);
             const QPoint position = me->pos();
-            m_statusBar->showMessage(QString("(x,y) coordinates: (%1,%2)").arg(position.x()).arg(position.y()));
+            QString sf = QString::number(m_scaleFactor, 'f', 4);
+            m_statusBar->showMessage(QString("(x,y) coordinates: (%1,%2) Zoom (%3)").arg(position.x()).arg(position.y()).arg(sf));
             if (m_croppingState) {
                 m_rb->setGeometry(QRect(m_croppingStart, position/m_scaleFactor));
             }
@@ -292,8 +304,6 @@ void AdjustImage::doUndo()
     saveToReverseHistory(m_image);
     m_image = m_history.last();
     refreshLabel();
-    m_imageLabel->adjustSize();
-
     m_history.pop_back();
     if (m_history.size() == 0)
         ui->actionUndo->setEnabled(false);
@@ -304,8 +314,6 @@ void AdjustImage::doRedo()
     saveToHistory(m_image);
     m_image = m_reverseHistory.last();
     refreshLabel();
-    m_imageLabel->adjustSize();
-
     m_reverseHistory.pop_back();
     if (m_reverseHistory.size() == 0)
         ui->actionRedo->setEnabled(false);
@@ -313,12 +321,12 @@ void AdjustImage::doRedo()
 
 void AdjustImage::doZoomIn()
 {
-    scaleImage(1.25);
+    scaleImageBy(1.25);
 }
 
 void AdjustImage::doZoomOut()
 {
-    scaleImage(0.80);
+    scaleImageBy(0.80);
 }
 
 void AdjustImage::doZoomToFit()
@@ -335,7 +343,7 @@ void AdjustImage::doZoomToFit()
         scaleTo = double(windowSize.width()) / labelSize.width();
     }
     double scaleBy = scaleTo / m_scaleFactor;
-    scaleImage(scaleBy);
+    scaleImageBy(scaleBy);
 }
 
 
