@@ -105,5 +105,12 @@
         <file>replace-find.svg</file>
         <file>replace.svg</file>
         <file>restart.svg</file>
+        <file>crop.svg</file>
+        <file>resize.svg</file>
+        <file>rotate-left.svg</file>
+        <file>rotate-right.svg</file>
+        <file>zoom-in.svg</file>
+        <file>zoom-out.svg</file>
+        <file>zoom-to-window.svg</file>
    </qresource>
 </RCC>

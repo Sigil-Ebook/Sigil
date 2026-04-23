@@ -41,7 +41,7 @@
   <action name="actionZoomIn">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/zoom-in.png</normaloff>:/main/zoom-in.png</iconset>
+     <normaloff>:/main/zoom-in.svg</normaloff>:/main/zoom-in.svg</iconset>
    </property>
    <property name="text">
     <string>Zoom &amp;In (25%)</string>
@@ -53,7 +53,7 @@
   <action name="actionZoomOut">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/zoom-out.png</normaloff>:/main/zoom-out.png</iconset>
+     <normaloff>:/main/zoom-out.svg</normaloff>:/main/zoom-out.svg</iconset>
    </property>
    <property name="text">
     <string>Zoom Out (25%)</string>
@@ -65,7 +65,7 @@
   <action name="actionRotateLeft">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/rotate-left.png</normaloff>:/main/rotate-left.png</iconset>
+     <normaloff>:/main/rotate-left.svg</normaloff>:/main/rotate-left.svg</iconset>
    </property>
    <property name="text">
     <string>Rotate Left</string>
@@ -77,7 +77,7 @@
   <action name="actionRotateRight">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/rotate-right.png</normaloff>:/main/rotate-right.png</iconset>
+     <normaloff>:/main/rotate-right.svg</normaloff>:/main/rotate-right.svg</iconset>
    </property>
    <property name="text">
     <string>Rotate Right</string>
@@ -89,7 +89,7 @@
   <action name="actionCrop">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/crop.png</normaloff>:/main/crop.png</iconset>
+     <normaloff>:/main/crop.svg</normaloff>:/main/crop.svg</iconset>
    </property>
    <property name="text">
     <string>Crop</string>
@@ -127,7 +127,7 @@
   <action name="actionResizeImage">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/resize.png</normaloff>:/main/resize.png</iconset>
+     <normaloff>:/main/resize.svg</normaloff>:/main/resize.svg</iconset>
    </property>
    <property name="text">
     <string>Resize Image</string>
@@ -148,7 +148,7 @@
   <action name="actionRedo">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/edit-redo.svg</normaloff>:/main/edit-redo.png</iconset>
+     <normaloff>:/main/edit-redo.svg</normaloff>:/main/edit-redo.svg</iconset>
    </property>
    <property name="text">
     <string>Redo</string>
@@ -157,7 +157,7 @@
   <action name="actionZoomToFit">
    <property name="icon">
     <iconset resource="../Resource_Files/main/main.qrc">
-     <normaloff>:/main/zoom-to-window.png</normaloff>:/main/zoom-to-window.png</iconset>
+     <normaloff>:/main/zoom-to-window.svg</normaloff>:/main/zoom-to-window.svg</iconset>
    </property>
    <property name="text">
     <string>Zoom To Fit</string>
