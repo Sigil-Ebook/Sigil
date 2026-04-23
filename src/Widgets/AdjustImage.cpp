@@ -8,11 +8,9 @@
 
 AdjustImage::AdjustImage(const QString filepath, QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::AdjustImage),
-    m_rb(new QRubberBand(QRubberBand::Rectangle, this))
+    ui(new Ui::AdjustImage)
 {
     ui->setupUi(this);
-    m_rb->hide();
     m_mainToolBar = ui->mainToolBar;
     m_statusBar = ui->statusBar;
     m_menuBar = ui->menuBar;
@@ -28,6 +26,10 @@ AdjustImage::AdjustImage(const QString filepath, QWidget *parent) :
     m_imageLabel->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
     m_imageLabel->setScaledContents(true);
     m_imageLabel->installEventFilter(this);
+    // rubber band must be a child of the m_imageLabel
+    // otherwise there is a coordinate nightmare
+    m_rb = new QRubberBand(QRubberBand::Rectangle, m_imageLabel);
+    m_rb->hide();
 
     m_scrollArea = new QScrollArea;
     m_scrollArea->setBackgroundRole(QPalette::Dark);
@@ -67,7 +69,6 @@ AdjustImage::~AdjustImage()
     m_history.clear();
     m_reverseHistory.clear();
     delete ui;
-    delete m_rb;
 }
 
 void AdjustImage::UpdateImageDescription()
@@ -200,7 +201,9 @@ bool AdjustImage::eventFilter(QObject* watched, QEvent* event)
             if (!m_croppingState) break;
             const QMouseEvent* const me = static_cast<const QMouseEvent*>(event);
             m_croppingStart = me->pos() / m_scaleFactor;
-            m_rb->setGeometry(QRect(m_croppingStart, QSize()));
+            // QRubberBand scales with m_imageLabel scaling
+            m_rbstart = me->pos();
+            m_rb->setGeometry(QRect(m_rbstart, QSize()));
             m_rb->show();
             break;
         }
@@ -211,10 +214,13 @@ bool AdjustImage::eventFilter(QObject* watched, QEvent* event)
             saveToHistoryWithClear(m_image);
             const QMouseEvent* const me = static_cast<const QMouseEvent*>(event);
             m_croppingEnd = me->pos() / m_scaleFactor;
+            m_rbend = me->pos();
             const QRect rect(m_croppingStart, m_croppingEnd);
-            m_rb->setGeometry(rect);
+            m_rb->setGeometry(QRect(m_rbstart, m_rbend));
             m_image = m_image.copy(rect);
             m_rb->hide();
+            m_rbstart = QPoint();
+            m_rbend = QPoint();
             refreshLabel();
             changeCroppingState(false);
             break;
@@ -227,7 +233,8 @@ bool AdjustImage::eventFilter(QObject* watched, QEvent* event)
             QString sf = QString::number(m_scaleFactor, 'f', 4);
             m_statusBar->showMessage(QString("(x,y) coordinates: (%1,%2) Zoom (%3)").arg(position.x()).arg(position.y()).arg(sf));
             if (m_croppingState) {
-                m_rb->setGeometry(QRect(m_croppingStart, position/m_scaleFactor));
+                m_rbend = position;
+                m_rb->setGeometry(QRect(m_rbstart, m_rbend));
             }
             break;
         }

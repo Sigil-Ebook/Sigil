@@ -81,6 +81,8 @@ private:
     bool m_croppingState;
     QPoint m_croppingStart;
     QPoint m_croppingEnd;
+    QPoint m_rbstart;
+    QPoint m_rbend;
     QRubberBand*  m_rb;
 
     QString m_fileName;
