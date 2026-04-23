@@ -77,8 +77,10 @@ ImageTab::ImageTab(ImageResource *resource, QWidget *parent)
     m_WebViewPrinter(new WebViewPrinter(this))
 {
     const QString path = m_Resource->GetFullPath();
-    m_AdjImg = new AdjustImage(path, this);
+    const QString mediatype = m_Resource->GetMediaType();
+    m_AdjImg = new AdjustImage(path, mediatype, this);
     m_AdjImg->setContextMenuPolicy(Qt::CustomContextMenu);
+    m_Layout->setContentsMargins(2,2,2,2);
     m_Layout->addWidget(m_AdjImg);
     // Set the Zoom factor but be sure no signals are set because of this.
     SettingsStore settings;
@@ -167,8 +169,9 @@ void ImageTab::ThemeChangeRefresh()
 void ImageTab::RefreshContent()
 {
     const QString path = m_Resource->GetFullPath();
+    const QString mediatype = m_Resource->GetMediaType();
     if (!m_AdjImg) {
-        m_AdjImg = new AdjustImage(path, this);
+        m_AdjImg = new AdjustImage(path, mediatype, this);
     }
     m_filepath = path;
     m_AdjImg->hide();

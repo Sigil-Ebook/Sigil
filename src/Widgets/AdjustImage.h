@@ -27,7 +27,7 @@ class AdjustImage : public QWidget
     Q_OBJECT
 
 public:
-    explicit AdjustImage(const QString filepath, QWidget *parent = 0);
+    explicit AdjustImage(const QString filepath, const QString& mediatype, QWidget *parent = 0);
     ~AdjustImage();
 
     double getZoomFactor() { return m_scaleFactor; };
@@ -88,6 +88,7 @@ private:
     QRubberBand*  m_rb;
 
     QString m_fileName;
+    QString m_mediatype;
 
     QVector<QImage> m_history;
     QVector<QImage> m_reverseHistory;

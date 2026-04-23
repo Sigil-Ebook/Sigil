@@ -6,8 +6,9 @@
 #include "Widgets/AdjustImage.h"
 #include "ui_AdjustImage.h"
 
-AdjustImage::AdjustImage(const QString filepath, QWidget *parent) :
+AdjustImage::AdjustImage(const QString filepath, const QString& mediatype,  QWidget *parent) :
     QWidget(parent),
+    m_mediatype(mediatype),
     ui(new Ui::AdjustImage)
 {
     ui->setupUi(this);
@@ -38,6 +39,7 @@ AdjustImage::AdjustImage(const QString filepath, QWidget *parent) :
     m_statusBar->addPermanentWidget(m_description);
     
     vlayout = new QVBoxLayout;
+    vlayout->setContentsMargins(2,2,2,2);
     vlayout->addWidget(m_mainToolBar);
     vlayout->addWidget(m_scrollArea);
     vlayout->addWidget(m_statusBar);
@@ -202,9 +204,12 @@ bool AdjustImage::eventFilter(QObject* watched, QEvent* event)
         {
             if (!m_croppingState) break;
             const QMouseEvent* const me = static_cast<const QMouseEvent*>(event);
-            m_croppingStart = me->pos() / m_scaleFactor;
+            QPoint sp(me->pos());
+            if (sp.x() < 0) sp.setX(0);
+            if (sp.y() < 0) sp.setY(0);
+            m_croppingStart = sp / m_scaleFactor;
             // QRubberBand scales with m_imageLabel scaling
-            m_rbstart = me->pos();
+            m_rbstart = sp;
             m_rb->setGeometry(QRect(m_rbstart, QSize()));
             m_rb->show();
             break;
@@ -215,8 +220,13 @@ bool AdjustImage::eventFilter(QObject* watched, QEvent* event)
             if (!m_croppingState) break;
             saveToHistoryWithClear(m_image);
             const QMouseEvent* const me = static_cast<const QMouseEvent*>(event);
-            m_croppingEnd = me->pos() / m_scaleFactor;
-            m_rbend = me->pos();
+            QPoint se(me->pos());
+            if (se.x() < 0) se.setX(0);
+            if (se.y() < 0) se.setY(0);
+            m_croppingEnd = se / m_scaleFactor;
+            if (m_croppingEnd.x() > m_image.width()) m_croppingEnd.setX(m_image.width());
+            if (m_croppingEnd.y() > m_image.height()) m_croppingEnd.setY(m_image.height());
+            m_rbend = se;
             const QRect rect(m_croppingStart, m_croppingEnd);
             m_rb->setGeometry(QRect(m_rbstart, m_rbend));
             m_image = m_image.copy(rect);
