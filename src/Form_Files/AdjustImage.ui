@@ -40,7 +40,7 @@
   </widget>
   <action name="actionZoomIn">
    <property name="icon">
-    <iconset resource="icons.qrc">
+    <iconset resource="../Resource_Files/main/main.qrc">
      <normaloff>:/main/zoom-in.png</normaloff>:/main/zoom-in.png</iconset>
    </property>
    <property name="text">
@@ -52,7 +52,7 @@
   </action>
   <action name="actionZoomOut">
    <property name="icon">
-    <iconset resource="icons.qrc">
+    <iconset resource="../Resource_Files/main/main.qrc">
      <normaloff>:/main/zoom-out.png</normaloff>:/main/zoom-out.png</iconset>
    </property>
    <property name="text">
@@ -64,7 +64,7 @@
   </action>
   <action name="actionRotateLeft">
    <property name="icon">
-    <iconset resource="icons.qrc">
+    <iconset resource="../Resource_Files/main/main.qrc">
      <normaloff>:/main/rotate-left.png</normaloff>:/main/rotate-left.png</iconset>
    </property>
    <property name="text">
@@ -76,7 +76,7 @@
   </action>
   <action name="actionRotateRight">
    <property name="icon">
-    <iconset resource="icons.qrc">
+    <iconset resource="../Resource_Files/main/main.qrc">
      <normaloff>:/main/rotate-right.png</normaloff>:/main/rotate-right.png</iconset>
    </property>
    <property name="text">
@@ -88,7 +88,7 @@
   </action>
   <action name="actionCrop">
    <property name="icon">
-    <iconset resource="icons.qrc">
+    <iconset resource="../Resource_Files/main/main.qrc">
      <normaloff>:/main/crop.png</normaloff>:/main/crop.png</iconset>
    </property>
    <property name="text">
@@ -100,8 +100,8 @@
   </action>
   <action name="actionSave">
    <property name="icon">
-    <iconset resource="icons.qrc">
-     <normaloff>:/main/save.png</normaloff>:/main/save.png</iconset>
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/document-save.svg</normaloff>:/main/document-save.svg</iconset>
    </property>
    <property name="text">
     <string>Save</string>
@@ -126,7 +126,7 @@
   </action>
   <action name="actionResizeImage">
    <property name="icon">
-    <iconset resource="icons.qrc">
+    <iconset resource="../Resource_Files/main/main.qrc">
      <normaloff>:/main/resize.png</normaloff>:/main/resize.png</iconset>
    </property>
    <property name="text">
@@ -138,8 +138,8 @@
   </action>
   <action name="actionUndo">
    <property name="icon">
-    <iconset resource="icons.qrc">
-     <normaloff>:/main/undo.png</normaloff>:/main/undo.png</iconset>
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/edit-undo.svg</normaloff>:/main/edit-undo.svg</iconset>
    </property>
    <property name="text">
     <string>Undo</string>
@@ -147,8 +147,8 @@
   </action>
   <action name="actionRedo">
    <property name="icon">
-    <iconset resource="icons.qrc">
-     <normaloff>:/main/redo.png</normaloff>:/main/redo.png</iconset>
+    <iconset resource="../Resource_Files/main/main.qrc">
+     <normaloff>:/main/edit-redo.svg</normaloff>:/main/edit-redo.png</iconset>
    </property>
    <property name="text">
     <string>Redo</string>
@@ -156,7 +156,7 @@
   </action>
   <action name="actionZoomToFit">
    <property name="icon">
-    <iconset resource="icons.qrc">
+    <iconset resource="../Resource_Files/main/main.qrc">
      <normaloff>:/main/zoom-to-window.png</normaloff>:/main/zoom-to-window.png</iconset>
    </property>
    <property name="text">
