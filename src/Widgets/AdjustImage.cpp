@@ -78,13 +78,12 @@ bool AdjustImage::isRedoEnabled() { return ui->actionRedo->isEnabled(); }
 
 QRect AdjustImage::BuildRect(const QPoint& p1, const QPoint& p2)
 {
-    QPoint tl;
-    tl.setX(std::min(p1.x(), p2.x()));
-    tl.setY(std::min(p1.y(), p2.y()));
-    QPoint br;
-    br.setX(std::max(p1.x(), p2.x()));
-    br.setY(std::max(p1.y(), p2.y()));
-    return QRect(tl, br);
+    QRect arect = QRect(p1, p2).normalized();
+    if ((arect.x() < 2) && (arect.y() < 2)) {
+        arect.setX(0);
+        arect.setY(0);
+    }
+    return arect;
 }
 
 
@@ -217,12 +216,9 @@ bool AdjustImage::eventFilter(QObject* watched, QEvent* event)
         {
             if (!m_croppingState) break;
             const QMouseEvent* const me = static_cast<const QMouseEvent*>(event);
-            QPoint sp(me->pos());
-            if (sp.x() < 2) sp.setX(0);
-            if (sp.y() < 2) sp.setY(0);
-            m_croppingStart = sp / m_scaleFactor;
+            m_croppingStart = me->pos() / m_scaleFactor;
             // QRubberBand scales with m_imageLabel scaling
-            m_rbstart = sp;
+            m_rbstart = me->pos();
             m_rb->setGeometry(QRect(m_rbstart, QSize()));
             m_rb->show();
             break;
@@ -233,21 +229,12 @@ bool AdjustImage::eventFilter(QObject* watched, QEvent* event)
             if (!m_croppingState) break;
             saveToHistoryWithClear(m_image);
             const QMouseEvent* const me = static_cast<const QMouseEvent*>(event);
-            QPoint se(me->pos());
-            if (se.x() < 2) se.setX(0);
-            if (se.y() < 2) se.setY(0);
-            m_croppingEnd = se / m_scaleFactor;
-            if (m_croppingEnd.x() > m_image.width()-2) m_croppingEnd.setX(m_image.width());
-            if (m_croppingEnd.y() > m_image.height()-2) m_croppingEnd.setY(m_image.height());
-            m_rbend = se;
+            m_croppingEnd = me->pos() / m_scaleFactor;
+            m_rbend = me->pos();
             m_rb->setGeometry(BuildRect(m_rbstart, m_rbend));
             m_rb->hide();
-            m_rbstart = QPoint();
-            m_rbend = QPoint();
             QRect rect = BuildRect(m_croppingStart, m_croppingEnd);
             m_image = m_image.copy(rect);
-            m_croppingStart = QPoint();
-            m_croppingEnd = QPoint();
             refreshLabel();
             changeCroppingState(false);
             break;
