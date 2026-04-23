@@ -50,6 +50,22 @@
 #include <QMetaType>
 static const QVariant QVINVALID = QVariant(QMetaType(QMetaType::UnknownType));
 
+const QString IMAGE_HTML_BASE =
+    "<html>"
+    "<head>"
+    "<style type=\"text/css\">"
+    "body { -webkit-user-select: none; }"
+    "img { display: block; margin-left: auto; margin-right: auto; border-style: solid; border-width: 1px; }"
+    "hr { width: 75%; }"
+    "div { text-align: center; }"
+    "</style>"
+    "</head>"
+    "<body>"
+    "<div>%2&times;%3px | %4 KB | %5%6</div>"
+    "<hr />"
+    "<p><img src=\"%1\" /></p>"
+    "</body>"
+    "</html>";
 
 ImageTab::ImageTab(ImageResource *resource, QWidget *parent)
     :
@@ -57,9 +73,9 @@ ImageTab::ImageTab(ImageResource *resource, QWidget *parent)
     m_ContextMenu(new QMenu(this)),
     m_OpenWithContextMenu(new QMenu(this)),
     m_AdjImg(nullptr),
-    m_openWithMapper(new QSignalMapper(this))
+    m_openWithMapper(new QSignalMapper(this)),
+    m_WebViewPrinter(new WebViewPrinter(this))
 {
-    
     const QString path = m_Resource->GetFullPath();
     m_AdjImg = new AdjustImage(path, this);
     m_AdjImg->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -312,6 +328,7 @@ bool ImageTab::SuccessfullySetupContextMenu(const QPoint &point)
         m_SaveAs->setData(imageUrl);
         m_ContextMenu->addAction(m_SaveAs);
         m_ContextMenu->addAction(m_CopyImage);
+        m_ContextMenu->addSeparator();
         m_ContextMenu->addAction(m_SaveChanges);
         m_ContextMenu->addSeparator();
         m_ContextMenu->addAction(m_ZoomIn);
@@ -405,12 +422,40 @@ void ImageTab::Zoom()
     m_AdjImg->scaleImageUsing(m_CurrentZoomFactor);
 }
 
+QString ImageTab::PageSourceForPrinting(QString& file_path)
+{
+    const QString path = m_Resource->GetFullPath();
+    const QString folderpath = m_Resource->GetFullFolderPath();
+    const QFileInfo fileInfo = QFileInfo(path);
+    const double ffsize = fileInfo.size() / 1024.0;
+    const QString fsize = QLocale().toString(ffsize, 'f', 2);
+    const QImage img(path);
+    const QUrl imgUrl = QUrl::fromLocalFile(path);
+    QString colors_shades = img.isGrayscale() ? tr("shades") : tr("colors");
+    QString grayscale_color = img.isGrayscale() ? tr("Grayscale") : tr("Color");
+    QString colorsInfo = "";
+    if (img.depth() == 32) {
+        colorsInfo = QString(" %1bpp").arg(img.bitPlaneCount());
+    } else if (img.depth() > 0) {
+        colorsInfo = QString(" %1bpp (%2 %3)").arg(img.bitPlaneCount()).arg(img.colorCount()).arg(colors_shades);
+    }
+
+    QString html = IMAGE_HTML_BASE.arg(imgUrl.toString()).arg(img.width()).arg(img.height()).arg(fsize)
+                         .arg(grayscale_color).arg(colorsInfo);
+    file_path = folderpath + "/temp.xhtml";
+    return html;
+}
+
 void ImageTab::PrintPreview()
 {
-    // m_WebViewPrinter->setContent(m_filepath, m_page_source, false);
+    QString file_path;
+    QString page_source = PageSourceForPrinting(file_path);
+    m_WebViewPrinter->setContent(file_path, page_source, false);
 }
 
 void ImageTab::Print()
 {
-    // m_WebViewPrinter->setContent(m_filepath, m_page_source, true);
+    QString file_path;
+    QString page_source = PageSourceForPrinting(file_path);
+    m_WebViewPrinter->setContent(file_path, page_source, true);
 }

@@ -33,6 +33,7 @@ class ImageResource;
 class QAction;
 class QMenu;
 class AdjustImage;
+class WebViewPrinter;
 
 class ImageTab : public ContentTab
 {
@@ -106,6 +107,8 @@ private:
 
     void Zoom();
 
+    QString PageSourceForPrinting(QString& file_path);
+
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
@@ -137,8 +140,7 @@ private:
 
     float m_CurrentZoomFactor;
 
-    // WebViewPrinter * m_WebViewPrinter;
-    QString m_page_source;
+    WebViewPrinter * m_WebViewPrinter;
     QString m_filepath;
 };
 
