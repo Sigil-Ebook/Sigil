@@ -1,7 +1,7 @@
 #include <QTransform>
 #include <QDebug>
 #include <QFileInfo>
-#include <QFileDialog>
+#include <QImageWriter>
 #include "Dialogs/ImageResizeDialog.h"
 #include "Widgets/AdjustImage.h"
 #include "ui_AdjustImage.h"
@@ -302,14 +302,24 @@ void AdjustImage::doRotateRight()
 
 void AdjustImage::doSave()
 {
-    QString imagePath;
-    if (m_fileName.isEmpty()) {
-        imagePath = QFileDialog::getSaveFileName(this, tr("Save File"), "",
-                                                 tr("JPEG (*.jpg *.jpeg);;PNG (*.png)" ));
+    QString format;
+    if (m_mediatype == "image/jpeg") format="JPG";
+    if (m_mediatype == "image/png")  format="PNG";
+    if (m_mediatype == "image/gif")  format="GIF";
+    if (m_mediatype == "image/bmp")  format="BMP";
+    if (m_mediatype == "image/tiff") format="TIFF";
+    if (m_mediatype == "image/webp") format="WEBP";
+    // if an unknown format just default to let QImage decide based on filename
+    if (format.isEmpty()) {
+        m_image.save(m_fileName);
     } else {
-        imagePath = m_fileName;
+        int quality = 80;
+        if (format == "JPG") quality = 95;
+        if (format == "WEBP") quality = 85;
+        QImageWriter writer(m_fileName, format.toUtf8().data());
+        writer.setQuality(quality);
+        writer.write(m_image);
     }
-    m_image.save(imagePath);
 }
 
 void AdjustImage::toggleShowToolbar(bool checked)
