@@ -1,6 +1,7 @@
 #ifndef ADJUSTIMAGE_H
 #define ADJUSTIMAGE_H
 
+#include <algorithm>
 #include <QWidget>
 #include <QLabel>
 #include <QScrollArea>
@@ -70,7 +71,8 @@ private:
     void scaleImageBy(double factor);
     void updateActions(bool updateTo);
     void UpdateImageDescription();
-
+    QRect BuildRect(const QPoint& p1, const QPoint& p2);
+    
     Ui::AdjustImage *ui;
     QVBoxLayout* vlayout;
     QStatusBar * m_statusBar;

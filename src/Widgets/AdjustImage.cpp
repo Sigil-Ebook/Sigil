@@ -75,6 +75,19 @@ bool AdjustImage::isCropEnabled() { return ui->actionCrop->isEnabled(); }
 bool AdjustImage::isUndoEnabled() { return ui->actionUndo->isEnabled(); }
 bool AdjustImage::isRedoEnabled() { return ui->actionRedo->isEnabled(); }
 
+
+QRect AdjustImage::BuildRect(const QPoint& p1, const QPoint& p2)
+{
+    QPoint tl;
+    tl.setX(std::min(p1.x(), p2.x()));
+    tl.setY(std::min(p1.y(), p2.y()));
+    QPoint br;
+    br.setX(std::max(p1.x(), p2.x()));
+    br.setY(std::max(p1.y(), p2.y()));
+    return QRect(tl, br);
+}
+
+
 void AdjustImage::UpdateImageDescription()
 {
     QString colors_shades = m_image.isGrayscale() ? tr("shades") : tr("colors");
@@ -205,8 +218,8 @@ bool AdjustImage::eventFilter(QObject* watched, QEvent* event)
             if (!m_croppingState) break;
             const QMouseEvent* const me = static_cast<const QMouseEvent*>(event);
             QPoint sp(me->pos());
-            if (sp.x() < 0) sp.setX(0);
-            if (sp.y() < 0) sp.setY(0);
+            if (sp.x() < 2) sp.setX(0);
+            if (sp.y() < 2) sp.setY(0);
             m_croppingStart = sp / m_scaleFactor;
             // QRubberBand scales with m_imageLabel scaling
             m_rbstart = sp;
@@ -221,18 +234,20 @@ bool AdjustImage::eventFilter(QObject* watched, QEvent* event)
             saveToHistoryWithClear(m_image);
             const QMouseEvent* const me = static_cast<const QMouseEvent*>(event);
             QPoint se(me->pos());
-            if (se.x() < 0) se.setX(0);
-            if (se.y() < 0) se.setY(0);
+            if (se.x() < 2) se.setX(0);
+            if (se.y() < 2) se.setY(0);
             m_croppingEnd = se / m_scaleFactor;
-            if (m_croppingEnd.x() > m_image.width()) m_croppingEnd.setX(m_image.width());
-            if (m_croppingEnd.y() > m_image.height()) m_croppingEnd.setY(m_image.height());
+            if (m_croppingEnd.x() > m_image.width()-2) m_croppingEnd.setX(m_image.width());
+            if (m_croppingEnd.y() > m_image.height()-2) m_croppingEnd.setY(m_image.height());
             m_rbend = se;
-            const QRect rect(m_croppingStart, m_croppingEnd);
-            m_rb->setGeometry(QRect(m_rbstart, m_rbend));
-            m_image = m_image.copy(rect);
+            m_rb->setGeometry(BuildRect(m_rbstart, m_rbend));
             m_rb->hide();
             m_rbstart = QPoint();
             m_rbend = QPoint();
+            QRect rect = BuildRect(m_croppingStart, m_croppingEnd);
+            m_image = m_image.copy(rect);
+            m_croppingStart = QPoint();
+            m_croppingEnd = QPoint();
             refreshLabel();
             changeCroppingState(false);
             break;
@@ -246,7 +261,7 @@ bool AdjustImage::eventFilter(QObject* watched, QEvent* event)
             m_statusBar->showMessage(QString("(x,y) coordinates: (%1,%2) Zoom (%3)").arg(position.x()).arg(position.y()).arg(sf));
             if (m_croppingState) {
                 m_rbend = position;
-                m_rb->setGeometry(QRect(m_rbstart, m_rbend));
+                m_rb->setGeometry(BuildRect(m_rbstart, m_rbend));
             }
             break;
         }
