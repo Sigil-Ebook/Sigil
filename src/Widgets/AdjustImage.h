@@ -16,7 +16,6 @@
 #include <QRubberBand>
 #include <QDebug>
 #include <QVBoxLayout>
-#include <QMenuBar>
 #include <QToolBar>
 
 namespace Ui {
@@ -33,26 +32,30 @@ public:
 
     double getZoomFactor() { return m_scaleFactor; };
     void scaleImageUsing(double factor);
+
+    bool isCropEnabled();
+    bool isUndoEnabled();
+    bool isRedoEnabled();
                           
 public slots:
+    void doSave();
     void doZoomIn();
     void doZoomOut();
     void doZoomToFit();
+    void doUndo();
+    void doRedo();
+    void doRotateLeft();
+    void doRotateRight();
+    void doCrop();
+    void doResizeImage();
 
 signals:
     void InternalZoomFactorChanged(double factor);
 
 private slots:
     bool eventFilter(QObject* watched, QEvent* event) override;
-    void doCrop();
-    void doResizeImage();
-    void doRotateLeft();
-    void doRotateRight();
-    void doSave();
-    void doUndo();
-    void doRedo();
     void toggleShowToolbar(bool checked);
-    void toggleFullscreen();
+
   
 private:
     void ConnectSignalsToSlots();
@@ -70,7 +73,6 @@ private:
 
     Ui::AdjustImage *ui;
     QVBoxLayout* vlayout;
-    QMenuBar * m_menuBar;
     QStatusBar * m_statusBar;
     QToolBar * m_mainToolBar;
     QScrollArea * m_scrollArea;

@@ -13,7 +13,6 @@ AdjustImage::AdjustImage(const QString filepath, QWidget *parent) :
     ui->setupUi(this);
     m_mainToolBar = ui->mainToolBar;
     m_statusBar = ui->statusBar;
-    m_menuBar = ui->menuBar;
 
     updateActions(false);
     ui->actionUndo->setEnabled(false);
@@ -39,7 +38,6 @@ AdjustImage::AdjustImage(const QString filepath, QWidget *parent) :
     m_statusBar->addPermanentWidget(m_description);
     
     vlayout = new QVBoxLayout;
-    vlayout->addWidget(m_menuBar);
     vlayout->addWidget(m_mainToolBar);
     vlayout->addWidget(m_scrollArea);
     vlayout->addWidget(m_statusBar);
@@ -70,6 +68,10 @@ AdjustImage::~AdjustImage()
     m_reverseHistory.clear();
     delete ui;
 }
+
+bool AdjustImage::isCropEnabled() { return ui->actionCrop->isEnabled(); }  
+bool AdjustImage::isUndoEnabled() { return ui->actionUndo->isEnabled(); }
+bool AdjustImage::isRedoEnabled() { return ui->actionRedo->isEnabled(); }
 
 void AdjustImage::UpdateImageDescription()
 {
@@ -251,7 +253,7 @@ void AdjustImage::doCrop()
     changeCroppingState(true);
 }
 
-
+#if 0
 void AdjustImage::toggleFullscreen()
 {
     if(isFullScreen()) {
@@ -260,6 +262,7 @@ void AdjustImage::toggleFullscreen()
         this->showFullScreen();
     }
 }
+#endif
 
 void AdjustImage::doResizeImage()
 {
@@ -366,6 +369,6 @@ void AdjustImage::ConnectSignalsToSlots()
     connect(ui->actionZoomToFit,   SIGNAL(triggered()), this, SLOT(doZoomToFit()));
     connect(ui->actionRedo,        SIGNAL(triggered()), this, SLOT(doRedo()));
     connect(ui->actionUndo,        SIGNAL(triggered()), this, SLOT(doUndo()));
-    connect(ui->actionFullscreen,  SIGNAL(triggered()), this, SLOT(toggleFullscreen()));
+    // connect(ui->actionFullscreen,  SIGNAL(triggered()), this, SLOT(toggleFullscreen()));
     connect(ui->actionShowToolbar, SIGNAL(triggered(bool)), this, SLOT(toggleShowToolbar(bool)));
 }

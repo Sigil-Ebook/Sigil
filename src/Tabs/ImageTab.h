@@ -64,7 +64,19 @@ public slots:
 
     void Print();
     void PrintPreview();
+    
+    void SaveChanges();
+    void ZoomIn();
+    void ZoomOut();
+    void ZoomToFit();
+    void Undo();
+    void Redo();
+    void RotateLeft();
+    void RotateRight();
+    void CropImage();
+    void ResizeImage();
 
+                       
 private slots:
 
     /**
@@ -110,9 +122,18 @@ private:
     QAction *m_OpenWithEditor3;
     QAction *m_OpenWithEditor4;
     QSignalMapper *m_openWithMapper;
-
     QAction *m_SaveAs;
     QAction *m_CopyImage;
+    QAction *m_SaveChanges;
+    QAction *m_ZoomIn;
+    QAction *m_ZoomOut;
+    QAction *m_ZoomToFit;
+    QAction *m_Undo;
+    QAction *m_Redo;
+    QAction *m_RotateLeft;
+    QAction *m_RotateRight;
+    QAction *m_CropImage;
+    QAction *m_ResizeImage;
 
     float m_CurrentZoomFactor;
 

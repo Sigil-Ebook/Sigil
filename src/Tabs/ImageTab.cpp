@@ -75,57 +75,39 @@ ImageTab::ImageTab(ImageResource *resource, QWidget *parent)
 
 ImageTab::~ImageTab()
 {
-    if (m_ContextMenu) {
-        delete m_ContextMenu;
-        m_ContextMenu = 0;
-    }
-
-    if (m_OpenWithContextMenu) {
-        delete m_OpenWithContextMenu;
-        m_OpenWithContextMenu = 0;
-    }
-
-    if (m_OpenWith) {
-        delete m_OpenWith;
-        m_OpenWith = 0;
-    }
-
-    if (m_OpenWithEditor0) {
-        delete m_OpenWithEditor0;
-        m_OpenWithEditor0 = NULL;
-    }
-
-    if (m_OpenWithEditor1) {
-        delete m_OpenWithEditor1;
-        m_OpenWithEditor1 = NULL;
-    }
-
-    if (m_OpenWithEditor2) {
-        delete m_OpenWithEditor2;
-        m_OpenWithEditor2 = NULL;
-    }
-
-    if (m_OpenWithEditor3) {
-        delete m_OpenWithEditor3;
-        m_OpenWithEditor3 = NULL;
-    }
-
-    if (m_OpenWithEditor4) {
-        delete m_OpenWithEditor4;
-        m_OpenWithEditor4 = NULL;
-    }
-
-    if (m_SaveAs) {
-        delete m_SaveAs;
-        m_SaveAs = 0;
-    }
-
-    if (m_CopyImage) {
-        delete m_CopyImage;
-        m_CopyImage = 0;
-    }
+    delete m_ContextMenu;
+    delete m_OpenWithContextMenu;
+    delete m_OpenWith;
+    delete m_OpenWithEditor0;
+    delete m_OpenWithEditor1;
+    delete m_OpenWithEditor2;
+    delete m_OpenWithEditor3;
+    delete m_OpenWithEditor4;
+    delete m_SaveAs;
+    delete m_CopyImage;
+    delete m_SaveChanges;
+    delete m_ZoomIn;
+    delete m_ZoomOut;
+    delete m_ZoomToFit;
+    delete m_Undo;
+    delete m_Redo;
+    delete m_RotateLeft;
+    delete m_RotateRight;
+    delete m_CropImage;
+    delete m_ResizeImage;
 }
 
+// map context menu actions into AdjustImage routines
+void ImageTab::SaveChanges() { m_AdjImg->doSave();        }
+void ImageTab::ZoomIn()      { m_AdjImg->doZoomIn();      }
+void ImageTab::ZoomOut()     { m_AdjImg->doZoomOut();     }
+void ImageTab::ZoomToFit()   { m_AdjImg->doZoomToFit();   }
+void ImageTab::Undo()        { m_AdjImg->doUndo();        }
+void ImageTab::Redo()        { m_AdjImg->doRedo();        }
+void ImageTab::RotateLeft()  { m_AdjImg->doRotateLeft();  }
+void ImageTab::RotateRight() { m_AdjImg->doRotateRight(); }
+void ImageTab::CropImage()   { m_AdjImg->doCrop();        }
+void ImageTab::ResizeImage() { m_AdjImg->doResizeImage(); }
 
 float ImageTab::GetZoomFactor() const
 {
@@ -321,11 +303,29 @@ bool ImageTab::SuccessfullySetupContextMenu(const QPoint &point)
             m_ContextMenu->addMenu(m_OpenWithContextMenu);
         }
 
+        // handle conditional menu items
+        m_CropImage->setEnabled(m_AdjImg->isCropEnabled());
+        m_Undo->setEnabled(m_AdjImg->isUndoEnabled());
+        m_Redo->setEnabled(m_AdjImg->isRedoEnabled());
+
         // Save As
         m_SaveAs->setData(imageUrl);
         m_ContextMenu->addAction(m_SaveAs);
-        m_ContextMenu->addSeparator();
         m_ContextMenu->addAction(m_CopyImage);
+        m_ContextMenu->addAction(m_SaveChanges);
+        m_ContextMenu->addSeparator();
+        m_ContextMenu->addAction(m_ZoomIn);
+        m_ContextMenu->addAction(m_ZoomOut);
+        m_ContextMenu->addAction(m_ZoomToFit);
+        m_ContextMenu->addSeparator();
+        m_ContextMenu->addAction(m_Undo);
+        m_ContextMenu->addAction(m_Redo);
+        m_ContextMenu->addSeparator();
+        m_ContextMenu->addAction(m_RotateLeft);
+        m_ContextMenu->addAction(m_RotateRight);
+        m_ContextMenu->addSeparator();
+        m_ContextMenu->addAction(m_CropImage);
+        m_ContextMenu->addAction(m_ResizeImage);
     }
 
     return true;
@@ -339,8 +339,6 @@ void ImageTab::CreateContextMenuActions()
     m_OpenWithEditor3 = new QAction("", this);
     m_OpenWithEditor4 = new QAction("", this);
     m_OpenWith        = new QAction(tr("Open With") + "...",  this);
-    m_SaveAs          = new QAction(tr("Save As") + "...",  this);
-    m_CopyImage       = new QAction(tr("Copy Image"),  this);
     m_OpenWithContextMenu->setTitle(tr("Open With"));
     m_OpenWithContextMenu->addAction(m_OpenWithEditor0);
     m_OpenWithContextMenu->addAction(m_OpenWithEditor1);
@@ -348,6 +346,19 @@ void ImageTab::CreateContextMenuActions()
     m_OpenWithContextMenu->addAction(m_OpenWithEditor3);
     m_OpenWithContextMenu->addAction(m_OpenWithEditor4);
     m_OpenWithContextMenu->addAction(m_OpenWith);
+    m_SaveAs          = new QAction(tr("Save As") + "...",  this);
+    m_CopyImage       = new QAction(tr("Copy Image"),  this);
+    
+    m_SaveChanges     = new QAction(tr("Save Changes"), this);
+    m_ZoomIn          = new QAction(tr("Zoom In"),      this);
+    m_ZoomOut         = new QAction(tr("Zoom Out"),     this);
+    m_ZoomToFit       = new QAction(tr("Zoom to Fit"),  this);
+    m_Undo            = new QAction(tr("Undo Change"),  this);
+    m_Redo            = new QAction(tr("Redo Change"),  this);
+    m_RotateLeft      = new QAction(tr("Rotate Left"),  this);
+    m_RotateRight     = new QAction(tr("Rotate Right"), this);
+    m_CropImage       = new QAction(tr("Crop Image"),   this);
+    m_ResizeImage     = new QAction(tr("Resize Image"), this);
 }
 
 void ImageTab::ConnectSignalsToSlots()
@@ -374,9 +385,19 @@ void ImageTab::ConnectSignalsToSlots()
     connect(m_OpenWithEditor4, SIGNAL(triggered()),  m_openWithMapper, SLOT(map()));
     m_openWithMapper->setMapping(m_OpenWithEditor4, 4);
 
-    connect(m_openWithMapper, SIGNAL(mappedInt(int)),   this, SLOT(openWithEditor(int)));
-    connect(m_SaveAs,         SIGNAL(triggered()),   this, SLOT(saveAs()));
-    connect(m_CopyImage,      SIGNAL(triggered()),   this, SLOT(copyImage()));
+    connect(m_openWithMapper, SIGNAL(mappedInt(int)), this, SLOT(openWithEditor(int)));
+    connect(m_SaveAs,         SIGNAL(triggered()),    this, SLOT(saveAs()));
+    connect(m_CopyImage,      SIGNAL(triggered()),    this, SLOT(copyImage()));
+    connect(m_SaveChanges,    SIGNAL(triggered()),    this, SLOT(SaveChanges()));
+    connect(m_ZoomIn,         SIGNAL(triggered()),    this, SLOT(ZoomIn()));
+    connect(m_ZoomOut,        SIGNAL(triggered()),    this, SLOT(ZoomOut()));
+    connect(m_ZoomToFit,      SIGNAL(triggered()),    this, SLOT(ZoomToFit()));
+    connect(m_Undo,           SIGNAL(triggered()),    this, SLOT(Undo()));
+    connect(m_Redo,           SIGNAL(triggered()),    this, SLOT(Redo()));
+    connect(m_RotateLeft,     SIGNAL(triggered()),    this, SLOT(RotateLeft()));
+    connect(m_RotateRight,    SIGNAL(triggered()),    this, SLOT(RotateRight()));
+    connect(m_CropImage,      SIGNAL(triggered()),    this, SLOT(CropImage()));
+    connect(m_ResizeImage,    SIGNAL(triggered()),    this, SLOT(ResizeImage()));
 }
 
 void ImageTab::Zoom()
