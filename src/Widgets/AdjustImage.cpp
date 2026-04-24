@@ -363,7 +363,7 @@ void AdjustImage::doZoomOut()
 
 void AdjustImage::doZoomToFit()
 {
-    QSize windowSize = m_scrollArea->size();
+    QSize windowSize = m_scrollArea->viewport()->size();
     QSize labelSize = m_imageLabel->pixmap().size();
 
     double imageRatio = double(labelSize.height()) / labelSize.width();
