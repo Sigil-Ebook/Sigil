@@ -303,22 +303,25 @@ void AdjustImage::doRotateRight()
 void AdjustImage::doSave()
 {
     QString format;
-    if (m_mediatype == "image/jpeg") format="JPG";
-    if (m_mediatype == "image/png")  format="PNG";
-    if (m_mediatype == "image/gif")  format="GIF";
-    if (m_mediatype == "image/bmp")  format="BMP";
-    if (m_mediatype == "image/tiff") format="TIFF";
-    if (m_mediatype == "image/webp") format="WEBP";
+    if (m_mediatype.startsWith("image/")) {
+        format = m_mediatype.mid(6,-1).toUpper();
+    }
+    bool success = false;
     // if an unknown format just default to let QImage decide based on filename
     if (format.isEmpty()) {
-        m_image.save(m_fileName);
+        success = m_image.save(m_fileName);
     } else {
-        int quality = 80;
-        if (format == "JPG") quality = 95;
-        if (format == "WEBP") quality = 85;
+        int quality = -1;
+        if (m_mediatype == "image/jpeg") quality = 90;
+        if (m_mediatype == "image/webp") quality = 80;
         QImageWriter writer(m_fileName, format.toUtf8().data());
-        writer.setQuality(quality);
-        writer.write(m_image);
+        if (quality != -1) writer.setQuality(quality);
+        success = writer.write(m_image);
+    }
+    if (success) {
+        m_statusBar->showMessage(tr("Image successfully saved."));
+    } else {
+        m_statusBar->showMessage(tr("Image save failed."));
     }
 }
 
