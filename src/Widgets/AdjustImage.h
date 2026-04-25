@@ -90,6 +90,8 @@ private slots:
 
   
 private:
+    void ReadSettings();
+    void WriteSettings();
     void ConnectSignalsToSlots();
     void adjustScrollBar(QScrollBar *scrollBar, double factor);
     void changeCroppingState(bool changeTo);
@@ -127,6 +129,8 @@ private:
     QVector<QImage> m_reverseHistory;
 
     double m_scaleFactor;
+    int m_jpeg_quality;
+    int m_webp_quality;
 
 };
 

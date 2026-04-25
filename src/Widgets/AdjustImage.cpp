@@ -33,9 +33,13 @@
 #include <QDebug>
 #include <QFileInfo>
 #include <QImageWriter>
+#include <QInputDialog>
+#include "Misc/SettingsStore.h"
 #include "Dialogs/ImageResizeDialog.h"
 #include "Widgets/AdjustImage.h"
 #include "ui_AdjustImage.h"
+
+static const QString SETTINGS_GROUP = "adjust_image";
 
 AdjustImage::AdjustImage(const QString filepath, const QString& mediatype,  QWidget *parent) :
     QWidget(parent),
@@ -93,10 +97,12 @@ AdjustImage::AdjustImage(const QString filepath, const QString& mediatype,  QWid
         refreshLabel();
     }
     ConnectSignalsToSlots();
+    ReadSettings();
 }
 
 AdjustImage::~AdjustImage()
 {
+    WriteSettings();
     m_history.clear();
     m_reverseHistory.clear();
     delete ui;
@@ -106,6 +112,25 @@ bool AdjustImage::isCropEnabled() { return ui->actionCrop->isEnabled(); }
 bool AdjustImage::isUndoEnabled() { return ui->actionUndo->isEnabled(); }
 bool AdjustImage::isRedoEnabled() { return ui->actionRedo->isEnabled(); }
 
+
+void AdjustImage::ReadSettings()
+{
+    SettingsStore settings;
+    settings.beginGroup(SETTINGS_GROUP);
+    m_jpeg_quality = settings.value("jpeg_quality", QVariant(93)).toInt();
+    m_webp_quality = settings.value("webp_quality", QVariant(90)).toInt();
+    settings.endGroup();
+}
+
+
+void AdjustImage::WriteSettings()
+{
+    SettingsStore settings;
+    settings.beginGroup(SETTINGS_GROUP);
+    settings.setValue("jpeg_quality", m_jpeg_quality);
+    settings.setValue("webp_quality", m_webp_quality);
+    settings.endGroup();
+}
 
 QRect AdjustImage::BuildRect(const QPoint& p1, const QPoint& p2)
 {
@@ -337,25 +362,43 @@ void AdjustImage::doSave()
     if (m_mediatype.startsWith("image/")) {
         format = m_mediatype.mid(6,-1).toUpper();
     }
-    bool success = false;
     // if an unknown format just default to let QImage decide based on filename
     if (format.isEmpty()) {
-        success = m_image.save(m_fileName);
+        bool success = m_image.save(m_fileName);
+        if (success) {
+            m_statusBar->showMessage(tr("Image successfully saved."));
+        } else {
+            m_statusBar->showMessage(tr("Image save failed."));
+        }
     } else {
         int quality = -1;
-        if (m_mediatype == "image/jpeg") quality = 93;
-        if (m_mediatype == "image/webp") quality = 90;
+        // handle lossy image types
+        if ((m_mediatype == "image/jpeg") || (m_mediatype == "image/webp")) {
+            if (m_mediatype == "image/jpeg") quality = m_jpeg_quality;
+            if (m_mediatype == "image/webp") quality = m_webp_quality;
+            bool ok;
+            quality = QInputDialog::getInt(nullptr, tr("Image Quality"),
+                                           tr("Enter quality level (0-100):"), quality, 0, 100, 1, &ok);
+            if (!ok) {
+                m_statusBar->showMessage(tr("Image save failed. "));
+                return;
+            }
+            if (m_mediatype == "image/jpeg") m_jpeg_quality = quality;
+            if (m_mediatype == "image/webp") m_webp_quality = quality;
+        }
         QImageWriter writer(m_fileName, format.toUtf8().data());
         if (quality != -1) writer.setQuality(quality);
         writer.setOptimizedWrite(true);
-        success = writer.write(m_image);
+        bool success = writer.write(m_image);
+        if (success) {
+            m_statusBar->showMessage(tr("Image successfully saved."));
+        } else {
+            m_statusBar->showMessage(tr("Image save failed: ") + writer.errorString() );
+        }
     }
-    if (success) {
-        m_statusBar->showMessage(tr("Image successfully saved."));
-    } else {
-        m_statusBar->showMessage(tr("Image save failed."));
-    }
+    
 }
+
 
 void AdjustImage::toggleShowToolbar(bool checked)
 {
