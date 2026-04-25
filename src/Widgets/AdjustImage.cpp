@@ -347,6 +347,7 @@ void AdjustImage::doSave()
         if (m_mediatype == "image/webp") quality = 90;
         QImageWriter writer(m_fileName, format.toUtf8().data());
         if (quality != -1) writer.setQuality(quality);
+        writer.setOptimizedWrite(true);
         success = writer.write(m_image);
     }
     if (success) {
