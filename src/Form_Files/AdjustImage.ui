@@ -47,7 +47,7 @@
     <string>Zoom &amp;In (25%)</string>
    </property>
    <property name="toolTip">
-    <string>Zoom in on the image. (Ctrl++)</string>
+    <string>Zoom in on the image.</string>
    </property>
   </action>
   <action name="actionZoomOut">
@@ -59,7 +59,7 @@
     <string>Zoom Out (25%)</string>
    </property>
    <property name="toolTip">
-    <string>Zoom out on the image. (Ctrl+-)</string>
+    <string>Zoom out on the image.</string>
    </property>
   </action>
   <action name="actionRotateLeft">
@@ -71,7 +71,7 @@
     <string>Rotate Left</string>
    </property>
    <property name="toolTip">
-    <string>Rotate image 90 degrees left (counter-clockwise). (Ctrl+L)</string>
+    <string>Rotate image 90 degrees left (counter-clockwise).</string>
    </property>
   </action>
   <action name="actionRotateRight">
@@ -83,7 +83,7 @@
     <string>Rotate Right</string>
    </property>
    <property name="toolTip">
-    <string>Rotate image 90 degrees right (clockwise). (Ctrl+R)</string>
+    <string>Rotate image 90 degrees right (clockwise).</string>
    </property>
   </action>
   <action name="actionCrop">
@@ -95,7 +95,7 @@
     <string>Crop</string>
    </property>
    <property name="toolTip">
-    <string>Crop image. (Ctrl+K)</string>
+    <string>Crop image.</string>
    </property>
   </action>
   <action name="actionSave">
@@ -107,7 +107,7 @@
     <string>Save</string>
    </property>
    <property name="toolTip">
-    <string>Save image changes to the Epub. (Ctrl+S)</string>
+    <string>Save image changes to the Epub.</string>
    </property>
   </action>
   <action name="actionShowToolbar">
@@ -133,7 +133,7 @@
     <string>Resize Image</string>
    </property>
    <property name="toolTip">
-    <string>Resize image. (Ctrl+E)</string>
+    <string>Resize image.</string>
    </property>
   </action>
   <action name="actionUndo">
@@ -145,7 +145,7 @@
     <string>Undo</string>
    </property>
    <property name="toolTip">
-    <string>Undo last change. (Ctrl+Z)</string>
+    <string>Undo last change.</string>
    </property>
   </action>
   <action name="actionRedo">
@@ -157,7 +157,7 @@
     <string>Redo</string>
    </property>
    <property name="toolTip">
-    <string>Redo last change. (Ctrl+Y)</string>
+    <string>Redo last change.</string>
    </property>
   </action>
   <action name="actionZoomToFit">
@@ -169,7 +169,7 @@
     <string>Zoom To Fit</string>
    </property>
    <property name="toolTip">
-    <string>Zoom image to fit. (Ctrl+F)</string>
+    <string>Zoom image to fit.</string>
    </property>
   </action>
  </widget>

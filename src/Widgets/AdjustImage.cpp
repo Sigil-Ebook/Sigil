@@ -34,6 +34,7 @@
 #include <QFileInfo>
 #include <QImageWriter>
 #include <QInputDialog>
+#include <QKeySequence>
 #include "Misc/SettingsStore.h"
 #include "Dialogs/ImageResizeDialog.h"
 #include "Widgets/AdjustImage.h"
@@ -72,7 +73,18 @@ AdjustImage::AdjustImage(const QString filepath, const QString& mediatype,  QWid
 
     m_description = new QLabel;
     m_statusBar->addPermanentWidget(m_description);
-    
+    // update tooltips on toolbar icons to include shortcut in a platform specific manner
+    extendToolTip(ui->actionSave,        "Ctrl+S");    
+    extendToolTip(ui->actionZoomIn,      "Ctrl++");
+    extendToolTip(ui->actionZoomOut,     "Ctrl+-");
+    extendToolTip(ui->actionZoomToFit,   "Ctrl+F");
+    extendToolTip(ui->actionUndo,        "Ctrl+Z");
+    extendToolTip(ui->actionRedo,        "Ctrl+Y");
+    extendToolTip(ui->actionRotateLeft,  "Ctrl+L");
+    extendToolTip(ui->actionRotateRight, "Ctrl+R");
+    extendToolTip(ui->actionCrop,        "Ctrl+K");
+    extendToolTip(ui->actionResizeImage, "Ctrl+E");
+        
     vlayout = new QVBoxLayout;
     vlayout->setContentsMargins(2,2,2,2);
     vlayout->addWidget(m_mainToolBar);
@@ -112,6 +124,13 @@ bool AdjustImage::isCropEnabled() { return ui->actionCrop->isEnabled(); }
 bool AdjustImage::isUndoEnabled() { return ui->actionUndo->isEnabled(); }
 bool AdjustImage::isRedoEnabled() { return ui->actionRedo->isEnabled(); }
 
+
+void AdjustImage::extendToolTip(QAction*m, const QString sc)
+{
+    QString shct = QKeySequence(sc).toString(QKeySequence::NativeText);
+    QString current_tip = m->toolTip();
+    m->setToolTip(current_tip + " (" + shct + ")");
+}
 
 void AdjustImage::ReadSettings()
 {

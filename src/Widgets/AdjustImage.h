@@ -50,6 +50,8 @@
 #include <QVBoxLayout>
 #include <QToolBar>
 
+class QAction;
+
 namespace Ui {
 class AdjustImage;
 }
@@ -105,6 +107,7 @@ private:
     void updateActions(bool updateTo);
     void UpdateImageDescription();
     QRect BuildRect(const QPoint& p1, const QPoint& p2);
+    void extendToolTip(QAction* m, const QString sc);
     
     Ui::AdjustImage *ui;
     QVBoxLayout* vlayout;
