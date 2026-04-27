@@ -208,7 +208,7 @@ void KeyboardShortcutsWidget::resetAllButtonClickedSlot()
         QTreeWidgetItem *item = ui.commandList->topLevelItem(i);
         QKeySequence seq = sm->keyboardShortcut(item->text(COL_ID)).defaultKeySequence();
 #ifdef Q_OS_MAC
-        item->setText(COL_SHORTCUT, seq.toString());
+        item->setText(COL_SHORTCUT, seq.toString(QKeySequence::NativeText));
 #else
         item->setText(COL_SHORTCUT, seq.toString(QKeySequence::PortableText));
 #endif
@@ -229,7 +229,7 @@ void KeyboardShortcutsWidget::readSettings()
             QTreeWidgetItem *item = new QTreeWidgetItem();
             item->setText(COL_NAME, shortcut.name());
 #ifdef Q_OS_MAC
-            item->setText(COL_SHORTCUT, shortcut.keySequence().toString());
+            item->setText(COL_SHORTCUT, shortcut.keySequence().toString(QKeySequence::NativeText));
 #else
             item->setText(COL_SHORTCUT, shortcut.keySequence().toString(QKeySequence::PortableText));
 #endif
@@ -311,7 +311,11 @@ void KeyboardShortcutsWidget::handleKeyEvent(QKeyEvent *event)
         return;
     }
 
+#ifdef Q_OS_MAC
+    QString letter = QKeySequence(nextKey).toString(QKeySequence::NativeText);
+#else
     QString letter = QKeySequence(nextKey).toString(QKeySequence::PortableText);
+#endif
     Qt::KeyboardModifiers state = event->modifiers();
 
     DBG qDebug() << "key(): " << QString::number(nextKey) << "  " << QChar(nextKey);
@@ -357,10 +361,12 @@ void KeyboardShortcutsWidget::handleKeyEvent(QKeyEvent *event)
     if ((state & Qt::MetaModifier) && (letter.toUpper() == letter.toLower())) {
         state = state & ~Qt::SHIFT;
     }
-#endif
-
+    nextKey |= translateModifiers(state, event->text());
+    ui.targetEdit->setText(QKeySequence(nextKey).toString(QKeySequence::NativeText));
+#else // linux
     nextKey |= translateModifiers(state, event->text());
     ui.targetEdit->setText(QKeySequence(nextKey).toString(QKeySequence::PortableText));
+#endif
 
 #endif
 
