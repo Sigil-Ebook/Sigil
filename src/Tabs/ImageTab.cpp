@@ -33,6 +33,8 @@
 #include <QLayout>
 #include <QMenu>
 #include <QVariant>
+#include <QEvent>
+#include <QKeyEvent>
 #include <QDebug>
 
 #include "MainUI/MainWindow.h"
@@ -82,6 +84,7 @@ ImageTab::ImageTab(ImageResource *resource, QWidget *parent)
     m_AdjImg->setContextMenuPolicy(Qt::CustomContextMenu);
     m_Layout->setContentsMargins(2,2,2,2);
     m_Layout->addWidget(m_AdjImg);
+    setFocusPolicy(Qt::StrongFocus);
     // Set the Zoom factor but be sure no signals are set because of this.
     SettingsStore settings;
     m_CurrentZoomFactor = settings.zoomImage();
@@ -380,6 +383,100 @@ void ImageTab::CreateContextMenuActions()
     m_CropImage       = new QAction(tr("Crop Image"),   this);
     m_ResizeImage     = new QAction(tr("Resize Image"), this);
 }
+
+
+bool ImageTab::event(QEvent *event) {
+    // Intercept the override event before the QMainWindow sees it
+    if (event->type() == QEvent::ShortcutOverride) {
+        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+        if (keyEvent->modifiers() == Qt::ControlModifier) {
+            if (keyEvent->key() == Qt::Key_S) {
+                event->accept();
+                return true;
+            }
+            if (keyEvent->key() == Qt::Key_Y) {
+                event->accept();
+                return true;
+            }
+            if (keyEvent->key() == Qt::Key_Z) {
+                event->accept();
+                return true;
+            }
+            if (keyEvent->key() == Qt::Key_Plus) {
+                event->accept();
+                return true;
+            }
+            if (keyEvent->key() == Qt::Key_Minus) {
+                event->accept();
+                return true;
+            }
+            if (keyEvent->key() == Qt::Key_R) {
+                event->accept();
+                return true;
+            }
+            if (keyEvent->key() == Qt::Key_L) {
+                event->accept();
+                return true;
+            }
+            if (keyEvent->key() == Qt::Key_K) {
+                event->accept();
+                return true;
+            }
+            if (keyEvent->key() == Qt::Key_E) {
+                event->accept();
+                return true;
+            }
+            if (keyEvent->key() == Qt::Key_F) {
+                event->accept();
+                return true;
+            }
+        }
+
+    }
+    return ContentTab::event(event);
+}
+
+
+void ImageTab::keyPressEvent(QKeyEvent *event) {
+    if (event->modifiers() == Qt::ControlModifier) {
+        if (event->key() == Qt::Key_S) {
+            m_SaveChanges->trigger();
+            event->accept();
+        } else if (event->key() == Qt::Key_Y) {
+            m_Redo->trigger();
+            event->accept();
+        } else if (event->key() == Qt::Key_Z) {
+            m_Undo->trigger();
+            event->accept();
+        } else if (event->key() == Qt::Key_Plus) {
+            m_ZoomIn->trigger();
+            event->accept();
+        } else if (event->key() == Qt::Key_Minus) {
+            m_ZoomOut->trigger();
+            event->accept();
+        } else if (event->key() == Qt::Key_R) {
+            m_RotateRight->trigger();
+            event->accept();
+        } else if (event->key() == Qt::Key_L) {
+            m_RotateLeft->trigger();
+            event->accept();
+        } else if (event->key() == Qt::Key_K) {
+            m_CropImage->trigger();
+            event->accept();
+        } else if (event->key() == Qt::Key_E) {
+            m_ResizeImage->trigger();
+            event->accept();
+        } else if (event->key() == Qt::Key_F) {
+            m_ZoomToFit->trigger();
+            event->accept();
+        } else {
+            ContentTab::keyPressEvent(event);
+        }
+    } else {
+        ContentTab::keyPressEvent(event);
+    }
+}
+
 
 void ImageTab::ConnectSignalsToSlots()
 {

@@ -32,6 +32,8 @@
 class ImageResource;
 class QAction;
 class QMenu;
+class QEvent;
+class QKeyEvent;
 class AdjustImage;
 class WebViewPrinter;
 
@@ -77,6 +79,9 @@ public slots:
     void CropImage();
     void ResizeImage();
 
+protected:
+    bool event(QEvent* event) override;
+    void keyPressEvent(QKeyEvent* event) override;                                 
                        
 private slots:
 

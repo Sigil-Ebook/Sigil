@@ -46,9 +46,6 @@
    <property name="text">
     <string>Zoom &amp;In (25%)</string>
    </property>
-   <property name="shortcut">
-    <string>Ctrl++</string>
-   </property>
   </action>
   <action name="actionZoomOut">
    <property name="icon">
@@ -57,9 +54,6 @@
    </property>
    <property name="text">
     <string>Zoom Out (25%)</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+-</string>
    </property>
   </action>
   <action name="actionRotateLeft">
@@ -70,9 +64,6 @@
    <property name="text">
     <string>Rotate Left</string>
    </property>
-   <property name="shortcut">
-    <string>Ctrl+L</string>
-   </property>
   </action>
   <action name="actionRotateRight">
    <property name="icon">
@@ -81,9 +72,6 @@
    </property>
    <property name="text">
     <string>Rotate Right</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+R</string>
    </property>
   </action>
   <action name="actionCrop">
@@ -94,9 +82,6 @@
    <property name="text">
     <string>Crop</string>
    </property>
-   <property name="shortcut">
-    <string>Ctrl+K</string>
-   </property>
   </action>
   <action name="actionSave">
    <property name="icon">
@@ -105,9 +90,6 @@
    </property>
    <property name="text">
     <string>Save</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+S</string>
    </property>
   </action>
   <action name="actionShowToolbar">
@@ -131,9 +113,6 @@
    </property>
    <property name="text">
     <string>Resize Image</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+Shift+B</string>
    </property>
   </action>
   <action name="actionUndo">
