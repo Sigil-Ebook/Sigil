@@ -451,12 +451,16 @@ void ImageTab::keyPressEvent(QKeyEvent *event)
             return;
         }
         if (event->key() == Qt::Key_Y) {
-            m_Redo->trigger();
+            if (m_AdjImg && m_AdjImg->isRedoEnabled()) {
+                m_Redo->trigger();
+            }
             event->accept();
             return;
         }
         if (event->key() == Qt::Key_Z) {
-            m_Undo->trigger();
+            if (m_AdjImg && m_AdjImg->isUndoEnabled()) {
+                m_Undo->trigger();
+            }
             event->accept();
             return;
         }
@@ -481,7 +485,9 @@ void ImageTab::keyPressEvent(QKeyEvent *event)
             return;
         }
         if (event->key() == Qt::Key_K) {
-            m_CropImage->trigger();
+            if (m_AdjImg && m_AdjImg->isCropEnabled()) {
+                m_CropImage->trigger();
+            }
             event->accept();
             return;
         }
