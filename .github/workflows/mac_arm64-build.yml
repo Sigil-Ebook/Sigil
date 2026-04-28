@@ -43,16 +43,16 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
 
     - name: Cache Custom Qt
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       with:
         path: ${{runner.workspace}}/${{env.QT}}
         key: ${{ runner.os }}-qtdeps-${{hashFiles('**/reset-mac_arm64-caches.txt')}}
 
     - name: Cache Custom Python
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       with:
         path: ${{runner.workspace}}/Frameworks
         key: ${{ runner.os }}-qtdeps-${{hashFiles('**/reset-mac_arm64-caches.txt')}}
@@ -123,10 +123,11 @@ jobs:
     #    gdrive version
     #    python3 $GITHUB_WORKSPACE/ci_scripts/newgddeploy.py
 
-    - uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v7
       if: contains(github.event.head_commit.message, '[deploy]') || github.event_name == 'workflow_dispatch'
       with:
         name: sigil-installer
         path: ${{runner.workspace}}/build/bin/Sigil_arm64.tar.xz
+        archive: false
         retention-days: 5
          
