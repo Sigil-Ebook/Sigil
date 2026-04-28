@@ -38,21 +38,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
 
-    - uses: actions/setup-python@v5
+    - uses: actions/setup-python@v6
       with:
         python-version: '3.10.4'
 
     - name: Cache Qt
       id: cache-qt
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       with:
         path: ${{runner.workspace}}/Qt
         key: ${{ runner.os }}-sigilqt-${{ hashFiles('**/reset-lin-caches.txt') }}
   
     - name: Install Qt
-      uses: jurplel/install-qt-action@v3
+      uses: jurplel/install-qt-action@v4
       with:
         version: '6.4.0'
         dir: ${{runner.workspace}}/Qt
