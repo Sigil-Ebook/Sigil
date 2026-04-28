@@ -1580,7 +1580,6 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, PrettyPrintPro
     std::string tagname = get_tag_name(node);
     std::string parentname = get_tag_name(node->parent);
     bool in_head = (parentname == "head");
-
     bool is_structural = pp->inset_structural(tagname);
     bool is_inline = pp->inset_inline(tagname);
     bool in_xml_ns = node->v.element.tag_namespace != GUMBO_NAMESPACE_HTML;
@@ -1657,12 +1656,12 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, PrettyPrintPro
     if (is_structural) {
         results = indent_space + starttag;
         if (!contents.empty()) {
-            if (!doublespace) {
-                results.append("\n" + contents + "\n" + indent_space);
-            } else {
+            if (doublespace && !in_head && (tagname != "html") && (tagname != "head") & (tagname != "body")) {
                 results.append("\n\n" + contents + "\n\n" + indent_space);
+            } else {
+                results.append("\n" + contents + "\n" + indent_space);
             }
-        }  
+        }
         results.append(closetag + "\n");
         if (!in_head && (tagname != "html") && doublespace) results.append("\n");
     } else if (is_inline) {
