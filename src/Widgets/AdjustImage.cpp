@@ -431,9 +431,11 @@ void AdjustImage::toggleShowToolbar(bool checked)
 void AdjustImage::doUndo()
 {
     saveToReverseHistory(m_image);
-    m_image = m_history.last();
-    refreshLabel();
-    m_history.pop_back();
+    if (!m_history.isEmpty()) {
+        m_image = m_history.last();
+        refreshLabel();
+        m_history.pop_back();
+    }
     if (m_history.size() == 0)
         ui->actionUndo->setEnabled(false);
 }
@@ -441,9 +443,11 @@ void AdjustImage::doUndo()
 void AdjustImage::doRedo()
 {
     saveToHistory(m_image);
-    m_image = m_reverseHistory.last();
-    refreshLabel();
-    m_reverseHistory.pop_back();
+    if (!m_reverseHistory.isEmpty()) {
+        m_image = m_reverseHistory.last();
+        refreshLabel();
+        m_reverseHistory.pop_back();
+    }
     if (m_reverseHistory.size() == 0)
         ui->actionRedo->setEnabled(false);
 }
