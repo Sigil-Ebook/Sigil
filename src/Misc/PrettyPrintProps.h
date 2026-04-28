@@ -51,7 +51,7 @@ public:
     bool inset_textholder(const std::string &s) const;
 
     std::string  getIndentString() { return m_indent_string; } ;
-    bool getDoubleSpace() { return m_doublespace; };
+    bool getSingleSpace() { return m_singlespace; };
 
   
 private:
@@ -67,7 +67,7 @@ private:
     std::unordered_set<std::string> m_textholder;
 
     std::string m_indent_string = "  ";
-    int m_doublespace = true;
+    int m_singlespace = false;
 
     static PrettyPrintProps *m_instance;
 };

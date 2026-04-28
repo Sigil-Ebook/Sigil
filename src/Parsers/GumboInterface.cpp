@@ -1465,7 +1465,7 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, Prett
     std::string indent_space    = std::string((lvl-1)*n,c);
     char last_char              = 'x';
     bool contains_block_tags    = false;
-    bool doublespace = pp->getDoubleSpace();
+    bool singlespace = pp->getSingleSpace();
 
     GumboVector* children = &node->v.element.children;
 
@@ -1506,7 +1506,7 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, Prett
                 contains_block_tags = true;
                 if (last_char != '\n') {
                     contents.append("\n");
-                    if (tagname != "head" && tagname != "html" && doublespace) contents.append("\n");
+                    if (tagname != "head" && tagname != "html" && !singlespace) contents.append("\n");
                     last_char='\n';
                 }
             }
@@ -1554,8 +1554,8 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, Prett
 
     // treat inline tags containing block tags like a block tag
     if (is_inline && contains_block_tags) {
-      if (last_char != '\n' && doublespace) contents.append("\n\n");
-      contents.append(indent_space);
+        if (last_char != '\n' && !singlespace) contents.append("\n\n");
+        contents.append(indent_space);
     }
 
     return contents;
@@ -1568,7 +1568,7 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, Prett
 std::string GumboInterface::prettyprint(GumboNode* node, int lvl, PrettyPrintProps* pp)
 {
     std::string indent_chars = pp->getIndentString();
-    bool doublespace = pp->getDoubleSpace();
+    bool singlespace = pp->getSingleSpace();
 
     // special case the document node
     if (node->type == GUMBO_NODE_DOCUMENT) {
@@ -1640,11 +1640,11 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, PrettyPrintPro
             // always add newline after br tags when they are children of structural tags
 	  if ((tagname == "br") && pp->inset_structural(parentname)) {
               selfclosetag.append("\n");
-              if (!in_head && (tagname != "html") && doublespace) selfclosetag.append("\n");
+              if (!in_head && (tagname != "html") && !singlespace) selfclosetag.append("\n");
             }
             return selfclosetag;
         }
-        if (!in_head && (tagname != "html") && doublespace) selfclosetag.append("\n");
+        if (!in_head && (tagname != "html") && !singlespace) selfclosetag.append("\n");
         return indent_space + selfclosetag + "\n";
     } 
 
@@ -1656,18 +1656,10 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, PrettyPrintPro
     if (is_structural) {
         results = indent_space + starttag;
         if (!contents.empty()) {
-#if 0
-            if (doublespace && !in_head && (tagname != "html") && (tagname != "head") & (tagname != "body")) {
-                results.append("\n\n" + contents + "\n\n" + indent_space);
-            } else {
-                results.append("\n" + contents + "\n" + indent_space);
-            }
-#else
             results.append("\n" + contents + "\n" + indent_space);
-#endif
         }
         results.append(closetag + "\n");
-        if (!in_head && (tagname != "html") && doublespace) results.append("\n");
+        if (!in_head && (tagname != "html") && !singlespace) results.append("\n");
     } else if (is_inline) {
         results = starttag;
         results.append(contents);
@@ -1679,7 +1671,7 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, PrettyPrintPro
         }
         results.append(contents);
         results.append(closetag + "\n");
-        if (!in_head && (tagname != "html") && doublespace) results.append("\n");
+        if (!in_head && (tagname != "html") && !singlespace) results.append("\n");
     }
     return results;
 }

@@ -37,7 +37,7 @@ const QString DEFAULTXML =
   "  <!-- actual string added in front to indent one level, typically 2 or 4 blanks, quotes needed -->\n"
   "  <indent_string>\"  \"</indent_string>\n"
   "   \n"
-  "  <doublespace>true</doublespace>\n"
+  "  <singlespace>false</singlespace>\n"
   "   \n"
   "  <!-- set membership of tags determine when and where whitespace is compressed, and newlines added -->\n"
   "   \n"
@@ -86,7 +86,7 @@ const QString DEFAULTXML =
   " \n"
   "</prettyprint>\n";
 
-const QStringList TAGS_TO_PARSE = QStringList() << "indent_string" << "doublespace" <<
+const QStringList TAGS_TO_PARSE = QStringList() << "indent_string" << "singlespace" <<
                                   "structural_tags" << "inline_tags" << "void_tags" <<
                                   "preservespace_tags" << "noentitysub_tags" << "textholder_tags";
 
@@ -100,7 +100,6 @@ PrettyPrintProps *PrettyPrintProps::instance()
     if (m_instance == 0) {
         m_instance = new PrettyPrintProps();
     }
-
     return m_instance;
 }
 
@@ -119,44 +118,44 @@ void PrettyPrintProps::ParsePrettyPrintXml()
     while(true) {
         QuickParser::MarkupInfo mi = qp.parse_next();
         if (mi.pos < 0) break;
-	if (!mi.text.isEmpty() && get_text) {
-	    data = data + mi.text;
-	}
-        if (mi.text.isEmpty()) {
-	    if (mi.ttype == "begin") {
-	        if (TAGS_TO_PARSE.contains(mi.tname)) {
-		    pstate = mi.tname;
-		    get_text = true;
-		}
-	    } else if (mi.ttype == "end") {
-	        if (TAGS_TO_PARSE.contains(mi.tname)) {
-		    get_text = false;
-		    // parse collected text and assign it to its set
-		    data = data.trimmed();
-		    if (pstate == "indent_string") {
-		        std::string ind = data.toStdString();
-		        // remove any leading or trailing quotes
-		        if (!ind.empty() && (ind.front() == '"' || ind.front() == '\'')) ind.erase(0,1);
-		        if (!ind.empty() && (ind.back() == '"' || ind.back() == '\'')) ind.pop_back();
-		        m_indent_string = ind;
-		    } else if (pstate == "doublespace") {
-		        m_doublespace = BOOL_TRUE.contains(data.toLower());
-		    } else {
-		        foreach(QString tag, data.split(",")) {
-		            tag = tag.simplified();
-		            if (pstate == "structural_tags") m_structural.insert(tag.toStdString());
-		            if (pstate == "inline_tags") m_inline.insert(tag.toStdString());
-		            if (pstate == "void_tags") m_void.insert(tag.toStdString());
-		            if (pstate == "preservespace_tags") m_preservespace.insert(tag.toStdString());
-		      	    if (pstate == "noentiyysub_tags") m_noentitysub.insert(tag.toStdString());
-		            if (pstate == "textholder_tags") m_textholder.insert(tag.toStdString());
-			}
-		    }
-		    pstate = "";
-		    data = "";
-	        }
+        if (!mi.text.isEmpty() && get_text) {
+            data = data + mi.text;
 	    }
-	}
+        if (mi.text.isEmpty()) {
+	        if (mi.ttype == "begin") {
+	            if (TAGS_TO_PARSE.contains(mi.tname)) {
+		            pstate = mi.tname;
+		            get_text = true;
+                }
+	        } else if (mi.ttype == "end") {
+	            if (TAGS_TO_PARSE.contains(mi.tname)) {
+		            get_text = false;
+		            // parse collected text and assign it to its set
+		            data = data.trimmed();
+		            if (pstate == "indent_string") {
+		                std::string ind = data.toStdString();
+		                // remove any leading or trailing quotes
+		                if (!ind.empty() && (ind.front() == '"' || ind.front() == '\'')) ind.erase(0,1);
+		                if (!ind.empty() && (ind.back() == '"' || ind.back() == '\'')) ind.pop_back();
+		                 m_indent_string = ind;
+		            } else if (pstate == "singlespace") {
+		                m_singlespace = BOOL_TRUE.contains(data.toLower());
+		            } else {
+		                foreach(QString tag, data.split(",")) {
+		                    tag = tag.simplified();
+		                    if (pstate == "structural_tags") m_structural.insert(tag.toStdString());
+		                    if (pstate == "inline_tags") m_inline.insert(tag.toStdString());
+		                    if (pstate == "void_tags") m_void.insert(tag.toStdString());
+		                    if (pstate == "preservespace_tags") m_preservespace.insert(tag.toStdString());
+		      	            if (pstate == "noentiyysub_tags") m_noentitysub.insert(tag.toStdString());
+		                    if (pstate == "textholder_tags") m_textholder.insert(tag.toStdString());
+                        }
+                    }
+                    pstate = "";
+                    data = "";
+                }
+		    }
+        }
     }
 }
 
@@ -169,7 +168,6 @@ bool PrettyPrintProps::inset_structural(const std::string &s) const
 {
     return m_structural.find(s) != m_structural.end();
 }
-
 
 bool PrettyPrintProps::inset_inline(const std::string &s) const
 {
