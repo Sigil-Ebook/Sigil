@@ -155,7 +155,7 @@ def copy_python():
         ans = []
         for x in items:
             ext = os.path.splitext(x)[1]
-            if (not ext and (x in ('demos', 'tests', 'test', 'idlelib', 'lib2to3', '__pycache__', 'site-packages')) or x.startswith('plat-')) or \
+            if (not ext and (x in ('demos', 'tests', 'test', 'idlelib', 'lib2to3', 'turtledemo', 'venv', '__pycache__', 'site-packages')) or x.startswith('plat-')) or \
                 (ext in ('.chm', '.htm', '.txt')):
                 ans.append(x)
         return ans
