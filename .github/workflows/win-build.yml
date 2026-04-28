@@ -43,15 +43,15 @@ jobs:
     runs-on: windows-2025-vs2026
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
 
     - name: Set up Python 3.14.2
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v6
       with:
         python-version: 3.14.2
 
     - name: Cache Custom Qt
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       with:
         path: ${{runner.workspace}}\${{env.QT}}
         key: ${{ runner.os }}-qtdeps-${{hashFiles('**/reset-win-caches.txt')}}
@@ -130,9 +130,10 @@ jobs:
     #    set PATH=C:\%PYTHON%;${{runner.workspace}}\build;%PATH%
     #    python %GITHUB_WORKSPACE%\ci_scripts\newgddeploy.py
 
-    - uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v7
       if: contains(github.event.head_commit.message, '[deploy]') || github.event_name == 'workflow_dispatch'
       with:
         name: sigil-installer
         path: ${{runner.workspace}}\build\installer\*.exe
+        archive: false
         retention-days: 5
