@@ -44,8 +44,8 @@ static const QString SETTINGS_GROUP = "adjust_image";
 
 AdjustImage::AdjustImage(const QString filepath, const QString& mediatype,  QWidget *parent) :
     QWidget(parent),
-    m_mediatype(mediatype),
-    ui(new Ui::AdjustImage)
+    ui(new Ui::AdjustImage),
+    m_mediatype(mediatype)
 {
     ui->setupUi(this);
     m_mainToolBar = ui->mainToolBar;
