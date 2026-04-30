@@ -1,13 +1,23 @@
-pre-Sigil-2.X
+pre-Sigil-2.8.0
    Bug Fies
      - make sure assigned clip number is not editable in ClipEditor
      - greatly speed up All Files report generation in epub3s with manifest properties
      - greatly speed up Delete Used Media by caching current cover image
+     - greatly speed up adding bulk resources to the OPF to speed up Add Existing ...
+     - fix bug in Open With on MacOS not properly parsing arguments
+     - fix bug in refreshing plugin toolbars (Thank you BeckyEbook)
+     - fix bug in GetInfo not using the proper times symbol (Thank you BeckyEbook)
 
    New Features
-     - Create a separate Change Reading Order dialog for those who can not use drag and drop
-     - Create a Drop Zone for users who want to use drag and drop to add files to their epub
-
+     - create a separate Change Reading Order dialog for those who can not use drag and drop
+     - create a Drop Zone for users who want to use drag and drop to add files to their epub
+     - rewrite ImageTab to allow for basic image adjustments: rotate right, rotate left, crop, resize
+     - allow users more control over Prettify using prettyprint.xml
+     - update all CI github actions to the latest versions
+     - add cability to de-nest the newly native nested CSS so that it will work with e-readers
+     - in ImageViewer move image description to the top (Thank you BeckyEbook)
+     - make ImageView open images fitted to its window automatically (Thank you BeckyEbook)
+     
 
 Sigil-2.7.6
    Bug Fixes
