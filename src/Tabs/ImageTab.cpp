@@ -72,9 +72,9 @@ const QString IMAGE_HTML_BASE =
 ImageTab::ImageTab(ImageResource *resource, QWidget *parent)
     :
     ContentTab(resource, parent),
+    m_AdjImg(nullptr),
     m_ContextMenu(new QMenu(this)),
     m_OpenWithContextMenu(new QMenu(this)),
-    m_AdjImg(nullptr),
     m_openWithMapper(new QSignalMapper(this)),
     m_WebViewPrinter(new WebViewPrinter(this))
 {
