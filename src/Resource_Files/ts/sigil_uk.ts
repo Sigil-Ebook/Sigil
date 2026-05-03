@@ -166,6 +166,186 @@
     </message>
 </context>
 <context>
+    <name>AdjustImage</name>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="6"/>
+        <source>AdjustImage</source>
+        <translation>AdjustImage</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="47"/>
+        <source>Zoom &amp;In (25%)</source>
+        <translation>Збільшити (25%)</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="50"/>
+        <source>Zoom in on the image.</source>
+        <translation>Збільшити масштаб зображення.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="59"/>
+        <source>Zoom Out (25%)</source>
+        <translation>Зменшити (25%)</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="62"/>
+        <source>Zoom out on the image.</source>
+        <translation>Зменьшити масштаб зображення.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="71"/>
+        <source>Rotate Left</source>
+        <translation>Повернути вліво</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="74"/>
+        <source>Rotate image 90 degrees left (counter-clockwise).</source>
+        <translation>Повернути зображення на 90 градусів вліво (проти годинникової стрілки).</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="83"/>
+        <source>Rotate Right</source>
+        <translation>Повернути вправо</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="86"/>
+        <source>Rotate image 90 degrees right (clockwise).</source>
+        <translation>Повернути зображення на 90 градусів вправо (за годинниковою стрілкою).</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="95"/>
+        <source>Crop</source>
+        <translation>Обрізати</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="98"/>
+        <source>Crop image.</source>
+        <translation>Обрізати зображення.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="107"/>
+        <source>Save</source>
+        <translation>Зберегти</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="110"/>
+        <source>Save image changes to the Epub.</source>
+        <translation>Зберегти змінене зображеня у файлі ePUB.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="121"/>
+        <source>Show Toolbar</source>
+        <translation>Показати Панель інструментів</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="124"/>
+        <source>Ctrl+I</source>
+        <translation>Ctrl+I</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="133"/>
+        <source>Resize Image</source>
+        <translation>Змінити розмір</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="136"/>
+        <source>Resize image.</source>
+        <translation>Змінити розмір зображення.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="145"/>
+        <source>Undo</source>
+        <translation>Відкат дії</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="148"/>
+        <source>Undo last change.</source>
+        <translation>Скасувати останню дію.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="157"/>
+        <source>Redo</source>
+        <translation>Повтор дії</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="160"/>
+        <source>Redo last change.</source>
+        <translation>Повторити останню дію, скасовану командою «Відкат дії».</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="169"/>
+        <source>Zoom To Fit</source>
+        <translation>За розміром вікна</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="172"/>
+        <source>Zoom image to fit.</source>
+        <translation>Змінити масштаб зображення до розміру вікна відображення.</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="95"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="101"/>
+        <source>Adjust Image</source>
+        <translation>Змінити зображення</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="102"/>
+        <source>Cannot load %1.</source>
+        <translation>Неможливо завантажити %1.</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="167"/>
+        <source>shades</source>
+        <translation>відтінків</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="167"/>
+        <source>colors</source>
+        <translation>кольорів</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="168"/>
+        <source>Grayscale</source>
+        <translation>Градації сірого</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="168"/>
+        <source>Color</source>
+        <translation>Колір</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="388"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="413"/>
+        <source>Image successfully saved.</source>
+        <translation>Зображення успішно збережено.</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="390"/>
+        <source>Image save failed.</source>
+        <translation>Невдала спроба збереження зображення.</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="399"/>
+        <source>Image Quality</source>
+        <translation>Якість зображення</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="400"/>
+        <source>Enter quality level (0-100):</source>
+        <translation>Введіть значення якості (0-100):</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="402"/>
+        <source>Image save failed. </source>
+        <translation>Невдала спроба збереження зображення.</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="415"/>
+        <source>Image save failed: </source>
+        <translation>Збій при збереженні зображення:</translation>
+    </message>
+</context>
+<context>
     <name>AlertBox</name>
     <message>
         <location filename="../../Widgets/AlertBox.cpp" line="102"/>
@@ -197,82 +377,82 @@
         <translation>Фільтр:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="80"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="82"/>
         <source>Directory</source>
         <translation>Каталог</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="81"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="83"/>
         <source>Name</source>
         <translation>Назва</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="82"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="84"/>
         <source>File Size (KB)</source>
         <translation>Розмір файлу (кБ)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="83"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="85"/>
         <source>Type</source>
         <translation>Тип</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="84"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="86"/>
         <source>Semantics</source>
         <translation>Семантика</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="86"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="88"/>
         <source>Properties</source>
         <translation>Властивості</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="155"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="158"/>
         <source>%n file(s)</source>
         <translation><numerusform>%n файл</numerusform><numerusform>%n файли</numerusform><numerusform>%n файли</numerusform><numerusform>%n файл(и)</numerusform></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="261"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="264"/>
         <source>Save Report As Comma Separated File</source>
         <translation>Зберегти звіт як файл у форматі CSV</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="274"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="277"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="274"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="277"/>
         <source>Cannot save report file.</source>
         <translation>Не можу зберегти файл звіту.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="299"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="302"/>
         <source>Image</source>
         <translation>Зображення</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="304"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="307"/>
         <source>Audio</source>
         <translation>Аудіо</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="309"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="312"/>
         <source>Video</source>
         <translation>Відео</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="314"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="317"/>
         <source>PDF</source>
         <translation>PDF</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="319"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="322"/>
         <source>Font</source>
         <translation>Шрифт</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="346"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="349"/>
         <source>Unknown</source>
         <translation>Невідоме</translation>
     </message>
@@ -1497,7 +1677,7 @@ if a sans-serif font-family specified in your CSS</source>
 <context>
     <name>Book</name>
     <message>
-        <location filename="../../BookManipulation/Book.cpp" line="427"/>
+        <location filename="../../BookManipulation/Book.cpp" line="429"/>
         <source>Start</source>
         <translation>Початок</translation>
     </message>
@@ -1505,67 +1685,67 @@ if a sans-serif font-family specified in your CSS</source>
 <context>
     <name>BookBrowser</name>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="85"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="115"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="86"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="116"/>
         <source>Book Browser</source>
         <translation>Структура Книги</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="97"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="98"/>
         <source>Font Obfuscation</source>
         <translation>Обфускація Шрифту</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="98"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2286"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="99"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2340"/>
         <source>Open With</source>
         <translation>Відкрити за допомогою</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/BookBrowser.cpp" line="192"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="193"/>
         <source>%n file(s)</source>
         <translation><numerusform>%n файл</numerusform><numerusform>%n файли</numerusform><numerusform>%n файлів</numerusform><numerusform>%n файл(и)</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="303"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="731"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="892"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="924"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="984"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1091"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1402"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1507"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="305"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="767"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="937"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="972"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1037"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1144"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1455"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1560"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="304"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="306"/>
         <source>Are you sure you want to sort the selected files alphanumerically?</source>
         <translation>Ви впевнені, що хочете відсортувати обрані файли в абетко-цифровому форматі?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="305"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="307"/>
         <source>This action cannot be reversed.</source>
         <translation>Цю дію не можна буде повернути.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="348"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="384"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Файл «%1» не існує.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="731"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="767"/>
         <source>Javascript is not supported on epub2.</source>
         <translation>Javascript не підтримується в epub2.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="803"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="810"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="842"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="849"/>
         <source>Add Existing Files</source>
         <translation>Додати існуючі файли</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="862"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="905"/>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
@@ -1574,7 +1754,7 @@ if a sans-serif font-family specified in your CSS</source>
 «%1».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="871"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="914"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
@@ -1583,7 +1763,7 @@ if a sans-serif font-family specified in your CSS</source>
 «%1».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="893"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="938"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
@@ -1592,12 +1772,12 @@ OK to replace?</source>
 натисніть «ОК», якщо бажаете замінити?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="919"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="967"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
         <translation>Неможливо видалити або замінити файл «%1».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="924"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="972"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
@@ -1606,7 +1786,7 @@ A file with this name already exists in the book.</source>
 Файл з цим ім’ям вже є у книзі.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="985"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1038"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
@@ -1615,368 +1795,373 @@ A file with this name already exists in the book.</source>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="998"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1051"/>
         <source>File(s) added or replaced.</source>
         <translation>Файл(и) додано або замінено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1035"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1088"/>
         <source>Save As File</source>
         <translation>Зберегти як файл</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1058"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1111"/>
         <source>Unable to save the file.</source>
         <translation>Неможливо зберегти файл</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1069"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1122"/>
         <source>Choose the directory to save the files to</source>
         <translation>Оберіть каталог для збереження файлів</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1091"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1144"/>
         <source>One or more files already exists.  OK to overwrite?</source>
         <translation>Один або декілька файлів вже існують. Бажаєте перезаписати?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1108"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1161"/>
         <source>Unable to save files.  Destination may be a directory.</source>
         <translation>Неможливо зберегти файли. Місце призначення має бути каталогом.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1116"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1169"/>
         <source>Unable to save files.</source>
         <translation>Неможливо зберегти файли.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1340"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1393"/>
         <source>Filenames cannot contain these characters: &quot;%1&quot;.</source>
         <translation>Імена файлів не можуть містити символи: «%1».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1402"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1455"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
         <translation>Неможливо змінити назву файлу, через можливість повторення імен.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1473"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1526"/>
         <source>Destination Folder has invalid path &quot;%1&quot;</source>
         <translation>У папки призначення недійсний шлях «%1»</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1507"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1560"/>
         <source>Cannot move files since this would result in duplicate filenames.</source>
         <translation>Неможливо перемістити файли, через можливість повторення імен.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1554"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1607"/>
         <source>The Nav document cannot be removed.</source>
         <translation>Документ Nav не може бути видалений.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1562"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1615"/>
         <source>The NCX cannot be removed.</source>
         <translation>NCX не може бути видалений.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1569"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1622"/>
         <source>The OPF is required for epub and cannot be removed.</source>
         <translation>OPF необхідний для epub і не може бути видалений.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1578"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1631"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>Ви не можете видалити всі html файли
 Там завжди повинен бути принаймні один.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1726"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1779"/>
         <source>Unable to set file as cover image.</source>
         <translation>Неможливо встановити файл як зображення обкладинки.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1763"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1816"/>
         <source>(root folder)</source>
         <translation>(кореневий каталог)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1773"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1826"/>
         <source>FileName</source>
         <translation>Ім&apos;я файлу</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1776"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1829"/>
         <source>Folder</source>
         <translation>Папка розміщення</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1779"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1832"/>
         <source>Media Type</source>
         <translation>MIME-тип</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1782"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1835"/>
         <source>File Size(kb)</source>
         <translation>Розмір файлу (кБ)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1785"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1838"/>
         <source>Epub Version</source>
         <translation>Версія Epub</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1802"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1855"/>
         <source>Word Count</source>
         <translation>Кількість слів</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1805"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1858"/>
         <source>Primary Language</source>
         <translation>Основна мова</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1812"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1865"/>
         <source>WellFormed</source>
         <translation>WellFormed</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1814"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1867"/>
         <source>Yes</source>
         <translation>Так</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1816"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1869"/>
         <source>No</source>
         <translation>Ні</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1819"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1872"/>
         <source>Linked Stylesheets</source>
         <translation>Пов&apos;язані Таблиці Стилів</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1822"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1875"/>
         <source>Linked Javascripts</source>
         <translation>Підключені скрипти Java</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1825"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1878"/>
         <source>Linked Images</source>
         <translation>Пов&apos;язані зображення</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1828"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1881"/>
         <source>Linked Audio</source>
         <translation>Пов&apos;язаний аудіоматеріал</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1831"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1884"/>
         <source>Linked Video</source>
         <translation>Пов&apos;язаний відеоматеріал</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1858"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1911"/>
         <source>Semantics OPF Guide or Nav Landmarks</source>
         <translation>Семантика OPF Guide або Nav Landmarks</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1867"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1920"/>
         <source>Manifest Properties</source>
         <translation>Властивості Маніфесту</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1870"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1923"/>
         <source>Defined Ids</source>
         <translation>Визначені ідентифікатори (ID)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1877"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1889"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1930"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1942"/>
         <source>Description</source>
         <translation>Опис</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1880"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1933"/>
         <source>Obfuscation Algorithm</source>
         <translation>Алгоритм обфускації</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1882"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2135"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1935"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2188"/>
         <source>None</source>
         <translation>Нема</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2120"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2173"/>
         <source>Select All</source>
         <translation>Вибрати все</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2121"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2174"/>
         <source>Add Blank HTML File</source>
         <translation>Додати порожній файл HTML</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2122"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2175"/>
         <source>Add Blank Stylesheet</source>
         <translation>Додати порожній файл CSS</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2123"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2176"/>
         <source>Add Blank Javascript</source>
         <translation>Додати бланк Javascript</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2124"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2177"/>
         <source>Add Blank SVG Image</source>
         <translation>Додати порожнє SVG зображення</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2125"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2178"/>
         <source>View Image</source>
         <translation>Перегляд зображення</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2126"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2179"/>
         <source>Add Existing Files...</source>
         <translation>Додати існуючі файли…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2127"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2128"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2180"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2181"/>
         <source>Add Copy</source>
         <translation>Додати копію</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2129"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2182"/>
         <source>Rename</source>
         <translation>Перейменувати</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2130"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2183"/>
         <source>RegEx Rename</source>
         <translation>Перейменувати RegEx</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2131"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2184"/>
         <source>Move</source>
         <translation>Перемістити</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2132"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2185"/>
         <source>Delete</source>
         <translation>Видалити</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2133"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2186"/>
         <source>Cover Image</source>
         <translation>Зображення обкладинки</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2134"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2187"/>
         <source>Merge</source>
         <translation>Об&apos;єднати</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2136"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2189"/>
         <source>Use Adobe&apos;s Method</source>
         <translation>Зробити методом Adobe</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2137"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2190"/>
         <source>Use IDPF&apos;s Method</source>
         <translation>Зробити методом IDPF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2138"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2191"/>
         <source>Sort</source>
         <translation>Сортувати</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2139"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2192"/>
+        <source>Change Reading Order</source>
+        <translation>Змінити послідовність</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2193"/>
         <source>Renumber TOC Entries</source>
         <translation>Перенумерувати елементи змісту</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2140"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2194"/>
         <source>Link Stylesheets...</source>
         <translation>Зв&apos;язати з Таблицею Стилів…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2141"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2195"/>
         <source>Link Javascripts...</source>
         <translation>Підключити Javascripts…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2142"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2196"/>
         <source>Add Semantics...</source>
         <translation>Додати семантику…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2143"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2197"/>
         <source>Get Info...</source>
         <translation>Відомості про файл...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2144"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2198"/>
         <source>Validate with W3C</source>
         <translation>Перевірити на сайті W3C</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2145"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2199"/>
         <source>Save As</source>
         <translation>Зберегти як</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2151"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2326"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2205"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2380"/>
         <source>Other Application</source>
         <translation>Інша програма</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2152"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2206"/>
         <source>Clear Editor List</source>
         <translation>Очистити список редакторів</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2161"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2215"/>
         <source>Merge with previous file, or merge multiple files into one.</source>
         <translation>Об’єднати з попереднім файлом або об&apos;єднати декілька файлів в один.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2164"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2218"/>
         <source>Rename selected file(s)</source>
         <translation>Перейменувати вибраний файл(и)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2166"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2220"/>
         <source>Use Regular Expressions to Rename selected file(s)</source>
         <translation>Використовуйте регулярні вирази для перейменування вибраних файлів</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2169"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2223"/>
         <source>Move selected file(s) to a new folder</source>
         <translation>Перемістити вибраний файл(и) до нової папки</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2171"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2225"/>
         <source>Link Stylesheets to selected file(s).</source>
         <translation>Зв&apos;язати Таблицю Стилів з вибраними файлами.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2173"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2227"/>
         <source>Link Javascripts to selected file(s).</source>
         <translation>Зв’язати Javascripts з вибраними файлами.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2175"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2229"/>
         <source>Add Semantics to selected file(s).</source>
         <translation>Додати семантику до вибраних файлів.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2177"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2231"/>
         <source>Show Information about selected files.</source>
         <translation>Показати відомості про вибрані файли.</translation>
     </message>
@@ -2526,7 +2711,7 @@ Do you want to save your changes?</source>
         <translation>Текст</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="735"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="737"/>
         <source>Unable to create file %1</source>
         <translation>Неможливо створити файл %1</translation>
     </message>
@@ -3326,6 +3511,54 @@ other end to continue searching.</source>
     </message>
 </context>
 <context>
+    <name>EditRO</name>
+    <message>
+        <location filename="../../Form_Files/EditRO.ui" line="14"/>
+        <source>Edit Reading Order</source>
+        <translation>Коректив послідовності елементів</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/EditRO.ui" line="59"/>
+        <source>First</source>
+        <translation>Перший</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/EditRO.ui" line="62"/>
+        <source>Make selected entry first in the list. Shortcut: F</source>
+        <translation>Зробити вибраний елемент першим у списку. Гаряча клавіша: F</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/EditRO.ui" line="72"/>
+        <source>Last</source>
+        <translation>Останній</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/EditRO.ui" line="75"/>
+        <source>Make selected entry last in the list. Shortcut: L</source>
+        <translation>Зробити вибраний елемент останнім у списку. Гаряча клавіша: L</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/EditRO.ui" line="101"/>
+        <source>Up</source>
+        <translation>Вгору</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/EditRO.ui" line="107"/>
+        <source>Move selected entry up in the list. Shortcut: U</source>
+        <translation>Перемістити вибраний елемент вище у списку. Гаряча клавіша: U</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/EditRO.ui" line="117"/>
+        <source>Down</source>
+        <translation>Вниз</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/EditRO.ui" line="123"/>
+        <source>Move selected entry down in the list. Shortcut: D</source>
+        <translation>Перемістити вибраний елемент нижче у списку. Гаряча клавіша: D</translation>
+    </message>
+</context>
+<context>
     <name>EditTOC</name>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="14"/>
@@ -3673,6 +3906,14 @@ locations and names for the OPF, NCX and/or Nav.</source>
         <translation>Ви хочете встановити цей макет як оформлення бланку Epub за замовчуванням для Sigil?
 
 </translation>
+    </message>
+</context>
+<context>
+    <name>FileDropZone</name>
+    <message>
+        <location filename="../../Widgets/FileDropZone.h" line="42"/>
+        <source>Drop Files Here To Add to Epub</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4234,7 +4475,7 @@ Valid only when searching HTML files.</source>
 <context>
     <name>FlowTab</name>
     <message>
-        <location filename="../../Tabs/FlowTab.cpp" line="898"/>
+        <location filename="../../Tabs/FlowTab.cpp" line="899"/>
         <source>Print %1</source>
         <translation>Друк %1</translation>
     </message>
@@ -4373,192 +4614,212 @@ mended.</source>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="228"/>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="572"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="606"/>
         <source>Browse</source>
         <translation>Перегляд…</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="254"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="240"/>
+        <source>Determine if files can be dragged and dropped to add them to an epub.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="243"/>
+        <source> Control use of drag and drop to add files to an epub.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="261"/>
+        <source>Check to use drag and drop to add files to your epub.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="264"/>
+        <source>May use drag and drop to add files.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="288"/>
         <source>Security</source>
         <translation>Безпека</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="260"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="294"/>
         <source>Determine if Epubs are allowed to access non-multimedia remote resources.</source>
         <translation>Визначає, чи дозволяється Epub отримувати доступ до віддалених немультимедійних ресурсів.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="263"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="297"/>
         <source> Control Access by Epubs to non-multimedia remote resources:</source>
         <translation>Управління доступом Epub до віддалених немультимедійних ресурсів:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="281"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="315"/>
         <source>Check to allow Epubs to access non-multimedia remote resources.</source>
         <translation>Позначте чекбокс, щоб дозволити Epub отримати доступ до віддалених немультимедійних ресурсів.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="284"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="318"/>
         <source>Epubs may access all remote resources types.</source>
         <translation>Epub можуть отримувати доступ до всіх типів віддалених ресурсів.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="297"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="331"/>
         <source>Determine if javascript is allowed to be used by Epubs</source>
         <translation>Визначає, чи дозволено використовувати JavaScript у Epub</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="300"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="334"/>
         <source> Control Use of Javascript by Epubs.</source>
         <translation>Управління використанням JavaScript у Epub.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="318"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="352"/>
         <source>Check to allow Epubs to use javascript.</source>
         <translation>Позначте чекбокс, щоб дозволити Epub використовувати JavaScript.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="321"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="355"/>
         <source>Epubs may use javascript.</source>
         <translation>Epub можуть використовувати JavaScript.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="348"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="382"/>
         <source>Validation</source>
         <translation>Валідація</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="360"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="394"/>
         <source>What CSS level to specify for W3C stylesheet validation tool (EPUB2)</source>
         <translation>Який рівень CSS вказати для інструменту перевірки таблиць стилів W3C (EPUB 2)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="363"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="397"/>
         <source>EPUB2 W3C Stylesheet Validation Level:</source>
         <translation>Рівень перевірки таблиць стилів EPUB2 W3C:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="375"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="409"/>
         <source>W3C stylesheet validator will use CSS level 2 for EPUB2</source>
         <translation>Валідатор таблиці стилів W3C використовуватиме CSS рівня 2 для EPUB2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="378"/>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="457"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="412"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="491"/>
         <source>CSS Level 2</source>
         <translation>CSS Level 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="388"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="422"/>
         <source>W3C stylesheet validator will use CSS level 2.1 for EPUB2</source>
         <translation>Валідатор таблиці стилів W3C використовуватиме CSS рівня 2.1 для EPUB2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="391"/>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="470"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="425"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="504"/>
         <source>CSS Level 2.1</source>
         <translation>CSS Level 2.1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="404"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="438"/>
         <source>W3C stylesheet validator will use CSS level 3 for EPUB2</source>
         <translation>Валідатор таблиці стилів W3C використовуватиме CSS рівня 3 для EPUB2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="407"/>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="486"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="441"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="520"/>
         <source>CSS Level 3</source>
         <translation>CSS Level 3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="439"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="473"/>
         <source>What CSS Level to specify for W3C stylesheet validation tool (EPUB3)</source>
         <translation>Який рівень CSS вказати для інструменту перевірки таблиць стилів W3C (EPUB 3)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="442"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="476"/>
         <source>EPUB3 W3C Stylesheet Validation Level:</source>
         <translation>Рівень перевірки таблиць стилів EPUB3 W3C:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="454"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="488"/>
         <source>W3C stylesheet validator will use CSS level 2 for EPUB3</source>
         <translation>Валідатор таблиці стилів W3C використовуватиме CSS рівня 2 для EPUB3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="467"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="501"/>
         <source>W3C stylesheet validator will use CSS level 2.1 for EPUB3</source>
         <translation>Валідатор таблиці стилів W3C використовуватиме CSS рівня 2.1 для EPUB3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="483"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="517"/>
         <source>W3C stylesheet validator will use CSS level 3 for EPUB3</source>
         <translation>Валідатор таблиці стилів W3C використовуватиме CSS рівня 3 для EPUB3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="526"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="560"/>
         <source>Advanced</source>
         <translation>Розширені</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="532"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="566"/>
         <source>Unless you know exactly what you&apos;re doing, there&apos;s very little reason to ever change this setting. Use extreme caution!</source>
         <translation>Якщо Ви точно не знаєте, що робите, є дуже мало причин змінити цей параметр. Будьте вкрай обережні!</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="542"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="576"/>
         <source>Set folder where temporary files should be created:</source>
         <translation>Встановіть папку, де слід створювати тимчасові файли:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="562"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="596"/>
         <source>Auto</source>
         <translation>Стандартна</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="584"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="618"/>
         <source>Disable GPU Acceleration in QtWebEngine/Preview</source>
         <translation>Відключити прискорення GPU в QtWebEngine/Перегляді.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="587"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="621"/>
         <source> Disable GPU Acceleration in QtWebEngine/Preview.</source>
         <translation>Відключити прискорення GPU в QtWebEngine/Перегляді.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="605"/>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="608"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="639"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="642"/>
         <source>Disable GPU Acceleration in QtWebEngine.</source>
         <translation>Відключити прискорення GPU в QtWebEngine.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="621"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="655"/>
         <source>Preview Print Settings</source>
         <translation>Настройки перегляду перед друком</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="630"/>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="633"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="664"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="667"/>
         <source>Skip Print Preview</source>
         <translation>Пропустити перегляд перед друком</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="642"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="676"/>
         <source>Print DPI:</source>
         <translation>DPI для друку:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="223"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="226"/>
         <source>Incorrect Path for External Xhtml Editor selected</source>
         <translation>Неправильний шлях до вибраного зовнішнього редактора Xhtml</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="240"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="243"/>
         <source>Select Folder for Temporary Files</source>
         <translation>Виберіть папку для тимчасових файлів</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="257"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="260"/>
         <source>Incorrect Folder for Temporary Files selected</source>
         <translation>Вибрано неправильну папку для тимчасових файлів</translation>
     </message>
@@ -5244,46 +5505,96 @@ You can then check or uncheck individual headings in the list above.</source>
 <context>
     <name>ImageTab</name>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="200"/>
-        <source>shades</source>
-        <translation>тіні</translation>
-    </message>
-    <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="200"/>
-        <source>colors</source>
-        <translation>кольори</translation>
-    </message>
-    <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="201"/>
-        <source>Grayscale</source>
-        <translation>Відтінки сірого</translation>
-    </message>
-    <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="201"/>
-        <source>Color</source>
-        <translation>Колір</translation>
-    </message>
-    <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="327"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="385"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="388"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="287"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="364"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="365"/>
         <source>Open With</source>
         <translation>Відкрити за допомогою</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="363"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="323"/>
         <source>Other Application</source>
         <translation>Інша програма</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="386"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="372"/>
         <source>Save As</source>
         <translation>Зберегти як</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="387"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="373"/>
         <source>Copy Image</source>
         <translation>Копіювати зображення</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="375"/>
+        <source>Save Changes</source>
+        <translation>Зберегти зміни.</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="376"/>
+        <source>Zoom In</source>
+        <translation>Збільшити</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="377"/>
+        <source>Zoom Out</source>
+        <translation>Зменшити</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="378"/>
+        <source>Zoom to Fit</source>
+        <translation>За розміром вікна</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="379"/>
+        <source>Undo Change</source>
+        <translation>Відмінити дію</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="380"/>
+        <source>Redo Change</source>
+        <translation>Повторити відмінену дію</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="381"/>
+        <source>Rotate Left</source>
+        <translation>Повернути вліво</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="382"/>
+        <source>Rotate Right</source>
+        <translation>Повернути вправо</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="383"/>
+        <source>Crop Image</source>
+        <translation>Обрізати зображення</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="384"/>
+        <source>Resize Image</source>
+        <translation>Змінити розмір</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="567"/>
+        <source>shades</source>
+        <translation>тіні</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="567"/>
+        <source>colors</source>
+        <translation>кольори</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="568"/>
+        <source>Grayscale</source>
+        <translation>Відтінки сірого</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="568"/>
+        <source>Color</source>
+        <translation>Колір</translation>
     </message>
 </context>
 <context>
@@ -5614,7 +5925,7 @@ Do you want to save your changes?</source>
         <translation>Вилучити</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.cpp" line="460"/>
+        <location filename="../../Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.cpp" line="466"/>
         <source>Conflicts with: &lt;b&gt;</source>
         <translation>Конфлікт з: &lt;b&gt;</translation>
     </message>
@@ -9425,7 +9736,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="466"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1819"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1820"/>
         <source>File</source>
         <translation>Файл</translation>
     </message>
@@ -9451,7 +9762,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="538"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="638"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="639"/>
         <source>Edit</source>
         <translation>Редагувати</translation>
     </message>
@@ -12085,378 +12396,378 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation>Фокус на Фрагменти</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="326"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="327"/>
         <source>Error: Automation Already in Use</source>
         <translation>Помилка: Автоматизація вже використовується</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="332"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="333"/>
         <source>Missing Automation List</source>
         <translation>Список автоматизації відсутній</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="373"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="374"/>
         <source>running</source>
         <translation>виконується</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="432"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="433"/>
         <source>skipped since not an epub3</source>
         <translation>пропущено, оскільки це не epub3</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="457"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="476"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="500"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="458"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="477"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="501"/>
         <source>Missing or unknown Saved Search name</source>
         <translation>Відсутня або невідома назва збереженого пошуку</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="480"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="481"/>
         <source>Conditional search did not run.</source>
         <translation>Умовний пошук не виконано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="504"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="505"/>
         <source>Conditional Search did not run.</source>
         <translation>Умовний пошук не виконано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="508"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="509"/>
         <source>Missing or unknown plugin or tool</source>
         <translation>Відсутній або невідомий модуль або інструмент</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="513"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="514"/>
         <source>failed</source>
         <translation>збоїть</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="521"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="522"/>
         <source>Validation tool</source>
         <translation>Інструмент перевірки</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="522"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="523"/>
         <source>found errors</source>
         <translation>виявлені помилки</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="525"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="526"/>
         <source>Validation tool found errors - Abort or Ignore?</source>
         <translation>Інструмент перевірки виявив помилки – Перервати чи Ігнорувати?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="534"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="535"/>
         <source>Aborted due to Validation Errors</source>
         <translation>Перервано через помилки перевірки</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="537"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="538"/>
         <source>Ignored Validation Errors</source>
         <translation>Ігноровані помилки перевірки</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="540"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="541"/>
         <source>Validation Tool Reported No Problems Found</source>
         <translation>Інструмент перевірки повідомив, що проблем не виявлено</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="547"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="548"/>
         <source>Automation List Failed</source>
         <translation>Помилка списку автоматизації</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="549"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="550"/>
         <source>Automation List Completed</source>
         <translation>Список автоматизації завершено</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="551"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="552"/>
         <source>Automate Log</source>
         <translation>Журнал автоматизації</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="626"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="627"/>
         <source>Input</source>
         <translation>Ввод</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="632"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="633"/>
         <source>Output</source>
         <translation>Вивід</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="644"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="645"/>
         <source>Validation</source>
         <translation>Перевірка</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="749"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="750"/>
         <source>Run</source>
         <translation>Запустити</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="769"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="782"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="791"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="799"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="876"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="893"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="902"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="983"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1783"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2097"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2339"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2504"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3024"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3120"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3174"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3184"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3208"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3222"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3328"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="770"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="783"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="792"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="800"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="877"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="894"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="903"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="984"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1784"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2098"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2340"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2505"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3038"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3134"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3190"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3200"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3224"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3238"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3344"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3349"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3362"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3381"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3395"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3410"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3414"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3360"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3365"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3378"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3397"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3411"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3426"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3430"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3443"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3448"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3460"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3470"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3475"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3677"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3684"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3446"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3459"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3464"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3476"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3486"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3491"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3693"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3700"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3759"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3791"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3990"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5184"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5225"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5231"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5237"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5466"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5486"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5543"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5807"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6013"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3716"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3775"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3807"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4006"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5210"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5251"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5257"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5263"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5492"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5512"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5569"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5833"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6039"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="770"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="771"/>
         <source>Are you sure you want to restructure this epub?
 This action cannot be reversed.</source>
         <translation>Ви впевнені, що хочете реструктурувати цей epub?
 Ця дія не може бути скасована.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="783"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="792"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="800"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="784"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="793"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="801"/>
         <source>Restructure cancelled: %1, XML not well formed.</source>
         <translation>Зміна структури скасована: %1, неправильно сформований XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="874"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="876"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5541"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5543"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6011"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6013"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="875"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="877"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5567"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5569"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6037"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6039"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] – epub%2 – %3</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="874"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5541"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6011"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="875"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5567"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6037"/>
         <source>Sigil [std]</source>
         <translation>Sigil [std]</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="878"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="879"/>
         <source>Restructure completed.</source>
         <translation>Реструктуризація завершена.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="894"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="895"/>
         <source>Bulk rename cancelled: %1, XML not well formed.</source>
         <translation>Групове перейменування скасовано: %1, помилки у структурі XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="903"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="904"/>
         <source>Bulk rename cancelled: %1, OPF not well formed.</source>
         <translation>Групове перейменування скасовано: %1, помилки у структурі OPF.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="972"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="973"/>
         <source>Bulk rename completed.</source>
         <translation>Групове перейменування завершено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="984"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="985"/>
         <source>Rebase cancelled: %1, XML not well formed.</source>
         <translation>Заміна ID скасована: %1, помилки у структурі XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="992"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="993"/>
         <source>Rebase completed.</source>
         <translation>Заміна ID у файлі OPF виконана успішно. </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1102"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1103"/>
         <source>Checkpoint generation failed.</source>
         <translation>Не вдалося створити контрольну точку.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1108"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1109"/>
         <source>Checkpoint saved.</source>
         <translation>Контрольна точка збережена.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1145"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1146"/>
         <source>Checkout Failed. No checkpoints found</source>
         <translation>Перевірити не вдалося. Контрольні точки не знайдені</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1162"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1163"/>
         <source>Checkout Failed. No checkpoint selected</source>
         <translation>Перевірити не вдалося. Контрольна точка не вибрана</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1186"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1187"/>
         <source>Epub Generate from Tag Failed.</source>
         <translation>Не вдалося створити Epub з тегу.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1191"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1192"/>
         <source>Epub Generation succeeded</source>
         <translation>Epub успішно сгенерований</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1205"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1206"/>
         <source>Repository Checkout</source>
         <translation>Перевірка репозитарія</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1206"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1207"/>
         <source>Your current book will be replaced losing any unsaved changes ... Are you sure you want to proceed?</source>
         <translation>Ваша поточна книга буде замінена, втративши при цьому всі незбережені зміни… Ви впевнені, що хочете продовжити?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1230"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1259"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1231"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1260"/>
         <source>Diff Failed. No checkpoints found</source>
         <translation>Порівняти не вдалося. Контрольні точки не знайдені</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1275"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1276"/>
         <source>Diff Failed. No checkpoint selected for comparison</source>
         <translation>Порівняти не вдалося. Контрольна точка не вибрана для порівняння</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1306"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1307"/>
         <source>Results of Comparison</source>
         <translation>Результати порівняння</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1306"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1307"/>
         <source>No differences were found.</source>
         <translation>Ніяких відмінностей не виявлено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1327"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1342"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1328"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1343"/>
         <source>Description Edit Failed. No checkpoints found</source>
         <translation>Збій при редагуванні Опису. Контрольні точки не знайдені</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1359"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1360"/>
         <source>Description Edit Failed. No checkpoint selected to edit</source>
         <translation>Збій при редагуванні Опису. Контрольна точка не вибрана</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1376"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1377"/>
         <source>Edit checkpoint Description</source>
         <translation>Редагування Опису контрольної точки</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1377"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1378"/>
         <source>New Checkpoint Description:</source>
         <translation>Опис нової контрольної точки:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1388"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1389"/>
         <source>Description Edit Failed for unknown reason</source>
         <translation>Збій при редагуванні Опису з невідомих причин</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1394"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1395"/>
         <source>Description edit cancelled or empty</source>
         <translation>Редагування Опису скасовано або пусте</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1397"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1398"/>
         <source>Description successfully updated</source>
         <translation>Опис успішно оновлено</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1421"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1422"/>
         <source>Repository Log</source>
         <translation>Журнал репозитарія</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1452"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1453"/>
         <source>No External Xhtml Editor has been specified:  See Preferences</source>
         <translation>Жоден зовнішній редактор Xhtml не вказаний: дивитись Налаштування</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1459"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1460"/>
         <source>Specified External Xhtml Editor path does not exist</source>
         <translation>Вказаний шлях для зовнішнього редактора Xhtml не існує</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1469"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1470"/>
         <source>PageEdit XHtml Editor works only on Html/OPF Resources</source>
         <translation>Редактор XHtml PageEdit працює лише з ресурсами Html/OPF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1475"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1476"/>
         <source>External XHtml Editor works only on Html Resources</source>
         <translation>Зовнішній редактор XHtml працює лише з ресурсами Html</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1516"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1517"/>
         <source>Executing PageEdit Xhtml Editor</source>
         <translation>Виконання редактора Xhtml PageEdit</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1529"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1530"/>
         <source>Executing External Xhtml Editor</source>
         <translation>Виконання зовнішнього редактора Xhtml</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1533"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1534"/>
         <source>Failed to Launch External Xhtml Editor</source>
         <translation>Не вдалося запустити зовнішній редактор Xhtml</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1701"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1702"/>
         <source>Navigation cancelled as location no longer exists.</source>
         <translation>Навігація скасована, оскільки місцезнаходження більше не існує.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1718"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1719"/>
         <source>Location bookmarked.</source>
         <translation>Місце позначене закладкою.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1783"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1784"/>
         <source>Are you sure you want to open this external link?
 
 %1</source>
@@ -12465,464 +12776,469 @@ This action cannot be reversed.</source>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1819"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1820"/>
         <source>was updated</source>
         <translation>було оновлено</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1825"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1826"/>
         <source>Warning</source>
         <translation>Попередження</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1825"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1826"/>
         <source>The file was NOT well formed and may be corrupted.</source>
         <translation>Файл НЕ був правильно сформований і може бути пошкоджений.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1869"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1870"/>
         <source>Warning: </source>
         <translation>Попередження:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1966"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1967"/>
         <source>Sigil is closing...</source>
         <translation>Sigil закривається…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2033"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2034"/>
         <source>New file created.</source>
         <translation>Новий файл створено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2056"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2057"/>
         <source>Open File</source>
         <translation>Відкрити файл</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2096"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2097"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
         <translation>Цей файл більше не існує. Натисніть «OK», щоб видалити його з меню.
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2179"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2180"/>
         <source>Save File</source>
         <translation>Зберегти файл</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2235"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2236"/>
         <source>Save a Copy</source>
         <translation>Зберегти як копію</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2274"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2275"/>
         <source>Epub layout discarded.</source>
         <translation>Макет Epub відхилено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2281"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2282"/>
         <source>New epub created.</source>
         <translation>Нова електронна книга створена.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2316"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2317"/>
         <source>Go To Line</source>
         <translation>Перейти до рядка</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2316"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2317"/>
         <source>Line #</source>
         <translation>Рядок #</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2339"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2340"/>
         <source>Image does not exist: </source>
         <translation>Зображення не існує:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2419"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2420"/>
         <source>or</source>
         <translation>або</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2427"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2428"/>
         <source>No CSS styles named</source>
         <translation>Немає назв стилів CSS</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2427"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2428"/>
         <source>found, or stylesheet not linked.</source>
         <translation>знайдено або таблиця стилів не пов’язана.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2500"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2501"/>
         <source>&lt;html&gt;&lt;p&gt;The href &lt;b&gt;%1&lt;/b&gt; found in &lt;b&gt;%2&lt;/b&gt; does not exist (and there may be more). Splitting or merging under these conditions can result in broken links.&lt;/p&gt;&lt;p&gt;Do you still wish to continue?&lt;/p&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;p&gt;Гіперпосилання &lt;b&gt;%1&lt;/b&gt; знайдене у &lt;b&gt;%2&lt;/b&gt; не існує (і їх може бути більше). Розділення або злиття в цих умовах може призвести до розриву зв’язків або посилань.&lt;/p&gt;&lt;p&gt;Ви все ще хочете продовжувати?&lt;/p&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2524"/>
+        <source>Dropped files added.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="2538"/>
         <source>Add Cover</source>
         <translation>Додати обкладинку</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2573"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2587"/>
         <source>An existing Cover file has been found.</source>
         <translation>Знайдено існуючий файл обкладинки.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2636"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2650"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
         <translation>Неочікувана помилка. Для обкладинки можуть використовуватися лише файли зображень.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2655"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2669"/>
         <source>Cover added.</source>
         <translation>Обкладинку додано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2671"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2685"/>
         <source>OPF Manifest Mimetypes Updated.</source>
         <translation>MIME-типи маніфесту OPF оновлені.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2680"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2698"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2730"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2694"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2712"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2744"/>
         <source>Not Available for epub2.</source>
         <translation>Недоступно для epub2.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2688"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2702"/>
         <source>OPF Manifest Properties Updated.</source>
         <translation>Властивості маніфесту OPF оновлені.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2720"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2734"/>
         <source>NCX and Guide removed.</source>
         <translation>NCX та Посібник видалені.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2747"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2780"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2761"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2794"/>
         <source>NCX and Guide generation failed.</source>
         <translation>Помилка генерації NCX та Посібника.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2816"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2830"/>
         <source>NCX and Guide generated.</source>
         <translation>NCX та Посібник сгенеровані.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2913"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2927"/>
         <source>An existing Index file has been found.</source>
         <translation>Знайдено існуючий файл покажчика.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3005"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3019"/>
         <source>Styles deleted.</source>
         <translation>Стилі видалено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3013"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3027"/>
         <source>Reports Being Generated.</source>
         <translation>Звіти формуються.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3024"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3038"/>
         <source>Reports cancelled due to XML not well formed.</source>
         <translation>Звіти скасовуються через неправильне формування XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3120"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3134"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
         <translation>Видалення невикористаних медіафайлів скасовано через неправильне формування XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3168"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3184"/>
         <source>Unused media files deleted.</source>
         <translation>Невикористані медіафайли видалено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3171"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3174"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3187"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3190"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation>Немає використаних файлів зображень, відео чи аудіо, які можна видалити.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3184"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3200"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation>Видалення невикористаних стилів скасовано через неправильне формування XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3206"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3208"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3222"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3224"/>
         <source>There are no unused stylesheet selectors to delete.</source>
         <translation>Немає невикористаних селекторів таблиць стилів, які потрібно видалити.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3222"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3238"/>
         <source>You cannot insert a file at this position.</source>
         <translation>Ви не можете вставити файл у цій позиції.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3229"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3245"/>
         <source>Insert File</source>
         <translation>Вставити Файл</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3282"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3298"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Файл «%1» не існує.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3328"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3349"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3344"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3365"/>
         <source>You cannot insert an id at this position.</source>
         <translation>Ви не можете вставити ідентифікатор у цю позицію.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3344"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3360"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation>ID недійсний – повинен починатися з літери, після чого можуть додаватися букви, цифри, знаки  «-», «_», «:», або «.»</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3362"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3378"/>
         <source>You can only insert an aria clips in xhtml files.</source>
         <translation>Фрагменти коду ARIA можна вставляти тільки у файли xhtml.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3381"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3397"/>
         <source>Inserting an aria clip failed.</source>
         <translation>Збій вставки фрагмента коду ARIA.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3395"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3414"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3411"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3430"/>
         <source>You cannot insert an aria role at this position.</source>
         <translation>Ви не можете вставити роль ARIA у цьому місці.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3410"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3426"/>
         <source>The selected role cannot be used on this tag.</source>
         <translation>Вибрану роль не використовується для цього тегу.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3430"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3448"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3446"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3464"/>
         <source>You cannot insert a link at this position.</source>
         <translation>Ви не можете вставити посилання у цю позицію.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3443"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3459"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Посилання недійсне – не може містити «&lt;» або «&gt;»</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3460"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3476"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation>Ви не можете поставити маркер покажчика у цій позиції або не вибрали текст.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3470"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3486"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Запис недійсний – не може містити «&lt;» або «&gt;»</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3475"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3491"/>
         <source>You cannot mark an index at this position.</source>
         <translation>Ви не можете поставити маркер покажчика на цій позиції.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3586"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3598"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3617"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3602"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3614"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3633"/>
         <source>Select the destination to paste into first.</source>
         <translation>Виберіть місце призначення, що слід вставити спочатку.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3606"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3622"/>
         <source>Pasted clip entry %1.</source>
         <translation>Вставлено елемент фрагменту %1.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3677"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3693"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>Вибраний тільки один ресурс,  другий ресурс для об’єднання відсутній.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3685"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3701"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>Ви впевнені, що хочете об&apos;єднати вибрані файли?
 Цю дію неможливо відмінити.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3700"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3716"/>
         <source>Merge cancelled: XHTML files involved in merge are not well formed.</source>
         <translation>Об’єднання скасовано: файли XHTML, залучені до злиття, сформовані неправильно.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3759"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3775"/>
         <source>Cannot merge file %1</source>
         <translation>Неможливо об&apos;єднати файл %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3773"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3789"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>Об’єднання успішно завершено. Можливо, Вам доведеться обновити або відредагувати зміст.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3791"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3807"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation>Зв&apos;язування з Таблицями Стилів скасовано: %1, XML неправильно сформований.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3921"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3937"/>
         <source>Word updated.</source>
         <translation>Слово оновлено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3990"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4006"/>
         <source>Link Javascripts cancelled: %1, XML not well formed.</source>
         <translation>Зв&apos;язування з Таблицями Стилів скасовано: %1, XML неправильно сформований.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4100"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4116"/>
         <source>File(s) deleted.</source>
         <translation>Файл(и) видалено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4111"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4127"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>Редагування Змісту скасовано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4116"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4132"/>
         <source>Table Of Contents edited.</source>
         <translation>Зміст відредаговано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4134"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4150"/>
         <source>Generate TOC cancelled.</source>
         <translation>Створення Змісту скасовано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4159"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4175"/>
         <source>Table Of Contents generated.</source>
         <translation>Зміст сформовано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4161"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4177"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>Зміни Змісту не потрібні.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4235"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4251"/>
         <source>An existing HTML Table of Contents file has been found.</source>
         <translation>Знайдено існуючий HTML-файл змісту.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4319"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4335"/>
         <source>Text selection marked.</source>
         <translation>Вибраний текст позначений.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4321"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4339"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4337"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4355"/>
         <source>Text selection unmarked.</source>
         <translation>Знято позначення вибраного тексту.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4388"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4404"/>
         <source>Metadata Editor cancelled.</source>
         <translation>Роботу Редактора МетаДаних скасовано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4391"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4407"/>
         <source>Metadata edited.</source>
         <translation>МетаДані відредаговані.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4501"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4527"/>
         <source>RunPlugin</source>
         <translation>ЗапуститиМодуль</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4514"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4540"/>
         <source>RunAutomate</source>
         <translation>RunAutomate</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4540"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4566"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>Цей EPUB не містить таблиць стилів CSS для перевірки.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4571"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4597"/>
         <source>This EPUB does not contain any CSS stylesheets to reformat.</source>
         <translation>Цей EPUB не містить таблиць стилів CSS для переформатування.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5096"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5122"/>
         <source>%1 (%2) - Line: %3, Col: %4</source>
         <translation>%1 (%2) - Ряд.: %3, Стовп.: %4</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5184"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5210"/>
         <source>File cannot be split at this position.</source>
         <translation>Файл неможливо розділити з цієї позиції.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5207"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5233"/>
         <source>Split completed.</source>
         <translation>Розділення завершено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5225"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5251"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>Неможливо розділити, оскільки принаймні один файл не є файлом HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5231"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5257"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>Неможливо розділити: %1 XML неправильно сформований</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5237"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5263"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>Неможливо розділити, оскільки принаймні один файл може бути не HTML файлом.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5270"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5296"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Розділення завершено. Можливо, Вам доведеться оновити Зміст.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5272"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5298"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>Не знайдено маркерів розділення файлу. Використовуйте Вставити -&gt; Маркер розділення.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5467"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5493"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>У файл EPUB були внесені зміни.
 Що потрібно зробити?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5488"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5514"/>
         <source>Should Sigil overwrite this file?</source>
         <translation>Чи повинен Sigil перезаписати цей файл?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5683"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5709"/>
         <source>No importer for file type: %1</source>
         <translation>Відсутній контейнер для типу файлу: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5690"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5716"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -12935,44 +13251,44 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
 Активуйте опцію «Відкрити» у параметрі «Виправити некоректний код HTML по команді» налаштувань та перезавантажте файл.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5695"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5721"/>
         <source>Loading file...</source>
         <translation>Завантаження файлу…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5709"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5735"/>
         <source>File loaded.</source>
         <translation>Файл завантажено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5735"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5761"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Той хто створив цей файл зашифрував його за допомогою DRM. Sigil не може відкрити такі файли.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5743"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5769"/>
         <source>Cannot load EPUB: %1</source>
         <translation>Неможливо завантажити EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5748"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5774"/>
         <source>Cannot load file %1: %2</source>
         <translation>Неможливо завантажити файл %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5775"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5801"/>
         <source>Saving EPUB...</source>
         <translation>Збереження EPUB…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5784"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5810"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil не може зберігати файли типу «%1».
 Будь ласка, виберіть інший формат.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5808"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5834"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to mend on Save.
 
 Do you want to automatically mend the files before saving? Or cancel the Save?</source>
@@ -12981,94 +13297,94 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 Ви хочете автоматично виправити файли перед збереженням? Чи скасувати збереження?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5813"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5839"/>
         <source>Saving EPUB... cancelled</source>
         <translation>Збереження EPUB... скасовано</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5839"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5865"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>EPUB збережено, але не всі файли HTML добре сформовані.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5841"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5867"/>
         <source>EPUB saved.</source>
         <translation>EPUB збережено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5847"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5873"/>
         <source>Cannot save file %1: %2</source>
         <translation>Неможливо зберегти файл %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5980"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6006"/>
         <source>EPUB files (*.epub)</source>
         <translation>Файли EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5981"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5982"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5983"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6007"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6008"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6009"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>Файли HTML (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5984"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6010"/>
         <source>Text files (*.txt)</source>
         <translation>Текстові файли (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5985"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6011"/>
         <source>All files (*.*)</source>
         <translation>Усі файли (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5993"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6019"/>
         <source>EPUB file (*.epub)</source>
         <translation>Файл EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6095"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6121"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>Зберегти існуючі атрибути заголовка зараз:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6096"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6122"/>
         <source>ON</source>
         <translation>ON</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6096"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6122"/>
         <source>OFF</source>
         <translation>OFF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6121"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6147"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7091"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7123"/>
         <source>Focus changed to CodeView window.</source>
         <translation>Фокус переключився на вікно «Браузер Коду».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7100"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7132"/>
         <source>Focus changed to BookBrowser window.</source>
         <translation>Фокус переключився на вікно «Структура Книги».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7109"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7141"/>
         <source>Focus changed to Preview window.</source>
         <translation>Фокус переключився на вікно «Перегляд».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7118"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7150"/>
         <source>Focus changed to Table Of Contents window.</source>
         <translation>Фокус переключився на вікно «Зміст».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7127"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7159"/>
         <source>Focus changed to Clips window.</source>
         <translation>Фокус переключився на вікно «Фрагменти».</translation>
     </message>
@@ -17065,12 +17381,12 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 <context>
     <name>OPFResource</name>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1594"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1649"/>
         <source>[Title here]</source>
         <translation>[Назва отут]</translation>
     </message>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1604"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1659"/>
         <source>[Main title here]</source>
         <translation>[Основний заголовок отут]</translation>
     </message>
@@ -18219,9 +18535,14 @@ Entities can be separated by lines, commas, or spaces.</source>
 <context>
     <name>QObject</name>
     <message>
+        <location filename="../../BookManipulation/Book.cpp" line="1669"/>
+        <source>PrettyPrinting...</source>
+        <translation>PrettyPrinting (форматується)...</translation>
+    </message>
+    <message>
         <location filename="../../BookManipulation/CleanSource.cpp" line="299"/>
-        <source>Cleaning...</source>
-        <translation>Очищення…</translation>
+        <source>Mending...</source>
+        <translation>Виправляється...</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Index.cpp" line="48"/>
@@ -18240,13 +18561,13 @@ Entities can be separated by lines, commas, or spaces.</source>
         <translation>Конструктор оформлення Epub</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="188"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="191"/>
         <location filename="../../Misc/OpenExternally.cpp" line="346"/>
         <source>Applications</source>
         <translation>Програми</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="205"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="208"/>
         <source>Select External Xhtml Editor</source>
         <translation>Вибрати зовнішній редактор Xhtml</translation>
     </message>
@@ -18381,33 +18702,33 @@ Line: %1 Column %2 - %3</source>
         <translation>OPF містить неіснуючі або нерозпізнані MIME-типи.  Створено тимчасові MIME-типи. Вам слід відредагувати OPF, щоб виправити їх.</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="869"/>
-        <location filename="../../main.cpp" line="917"/>
+        <location filename="../../main.cpp" line="874"/>
+        <location filename="../../main.cpp" line="922"/>
         <source>Quit</source>
         <translation>Вихід</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="879"/>
+        <location filename="../../main.cpp" line="884"/>
         <source>About</source>
         <translation>Про програму</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="888"/>
+        <location filename="../../main.cpp" line="893"/>
         <source>Preferences</source>
         <translation>Налаштування</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="899"/>
+        <location filename="../../main.cpp" line="904"/>
         <source>New</source>
         <translation>Новий</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="908"/>
+        <location filename="../../main.cpp" line="913"/>
         <source>Open</source>
         <translation>Відкрити</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="837"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="879"/>
         <source>Adding Existing Files..</source>
         <translation>Додавання існуючих файлів…</translation>
     </message>
@@ -21276,7 +21597,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
 <context>
     <name>TextTab</name>
     <message>
-        <location filename="../../Tabs/TextTab.cpp" line="348"/>
+        <location filename="../../Tabs/TextTab.cpp" line="349"/>
         <source>Print %1</source>
         <translation>Друк %1</translation>
     </message>

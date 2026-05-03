@@ -166,6 +166,186 @@
     </message>
 </context>
 <context>
+    <name>AdjustImage</name>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="6"/>
+        <source>AdjustImage</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="47"/>
+        <source>Zoom &amp;In (25%)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="50"/>
+        <source>Zoom in on the image.</source>
+        <translation>Apropa el zoom a la imatge.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="59"/>
+        <source>Zoom Out (25%)</source>
+        <translation>Allunya el zoom (25%)</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="62"/>
+        <source>Zoom out on the image.</source>
+        <translation>ALLUNYA el zoom de la imatge.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="71"/>
+        <source>Rotate Left</source>
+        <translation>Gira a l&apos;esquerra</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="74"/>
+        <source>Rotate image 90 degrees left (counter-clockwise).</source>
+        <translation>Gira la imatge 90 graus a l&apos;esquerra (en sentit antihorari).</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="83"/>
+        <source>Rotate Right</source>
+        <translation>Gira a la dreta</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="86"/>
+        <source>Rotate image 90 degrees right (clockwise).</source>
+        <translation>Gira la imatge 90 graus a la dreta (en sentit horari).</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="95"/>
+        <source>Crop</source>
+        <translation>Retalla</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="98"/>
+        <source>Crop image.</source>
+        <translation>Retalla la imatge</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="107"/>
+        <source>Save</source>
+        <translation>Desa</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="110"/>
+        <source>Save image changes to the Epub.</source>
+        <translation>Desa els canvis de la imatge a l&apos;EPUB.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="121"/>
+        <source>Show Toolbar</source>
+        <translation>Mostra la barra d&apos;eines</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="124"/>
+        <source>Ctrl+I</source>
+        <translation>Ctrl+I</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="133"/>
+        <source>Resize Image</source>
+        <translation>Redimensiona la imatge</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="136"/>
+        <source>Resize image.</source>
+        <translation>Redimensiona la imatge</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="145"/>
+        <source>Undo</source>
+        <translation>Desfés</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="148"/>
+        <source>Undo last change.</source>
+        <translation>Desfés l&apos;últim canvi.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="157"/>
+        <source>Redo</source>
+        <translation>Refés</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="160"/>
+        <source>Redo last change.</source>
+        <translation>Refés l&apos;últim canvi.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="169"/>
+        <source>Zoom To Fit</source>
+        <translation>Ajusta el zoom a la finestra</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/AdjustImage.ui" line="172"/>
+        <source>Zoom image to fit.</source>
+        <translation>Ajusta la imatge a la finestra.</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="95"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="101"/>
+        <source>Adjust Image</source>
+        <translation>Ajusta la imatge</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="102"/>
+        <source>Cannot load %1.</source>
+        <translation>No es pot carregar %1.</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="167"/>
+        <source>shades</source>
+        <translation>nivells</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="167"/>
+        <source>colors</source>
+        <translation>colors</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="168"/>
+        <source>Grayscale</source>
+        <translation>Escala de grisos</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="168"/>
+        <source>Color</source>
+        <translation>Color</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="388"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="413"/>
+        <source>Image successfully saved.</source>
+        <translation>La imatge s&apos;ha desat correctament.</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="390"/>
+        <source>Image save failed.</source>
+        <translation>No s&apos;ha pogut desar la imatge.</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="399"/>
+        <source>Image Quality</source>
+        <translation>Qualitat de la imatge</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="400"/>
+        <source>Enter quality level (0-100):</source>
+        <translation>Introdueix el nivell de qualitat (0-100):</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="402"/>
+        <source>Image save failed. </source>
+        <translation>No s&apos;ha pogut desar la imatge.</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="415"/>
+        <source>Image save failed: </source>
+        <translation>No s&apos;ha pogut desar la imatge:</translation>
+    </message>
+</context>
+<context>
     <name>AlertBox</name>
     <message>
         <location filename="../../Widgets/AlertBox.cpp" line="102"/>
@@ -197,82 +377,82 @@
         <translation>Filtre:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="80"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="82"/>
         <source>Directory</source>
         <translation>Directori</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="81"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="83"/>
         <source>Name</source>
         <translation>Nom</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="82"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="84"/>
         <source>File Size (KB)</source>
         <translation>Mida del fitxer (kB)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="83"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="85"/>
         <source>Type</source>
         <translation>Tipus</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="84"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="86"/>
         <source>Semantics</source>
         <translation>Semàntica</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="86"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="88"/>
         <source>Properties</source>
         <translation>Propietats</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="155"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="158"/>
         <source>%n file(s)</source>
         <translation><numerusform>%n fitxer(s)</numerusform><numerusform>%n fitxer(s)</numerusform></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="261"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="264"/>
         <source>Save Report As Comma Separated File</source>
         <translation>Desa l&apos;informe com a fitxer de text separat per comes</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="274"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="277"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="274"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="277"/>
         <source>Cannot save report file.</source>
         <translation>No es pot desar el fitxer amb l&apos;informe.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="299"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="302"/>
         <source>Image</source>
         <translation>Imatge</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="304"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="307"/>
         <source>Audio</source>
         <translation>Àudio</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="309"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="312"/>
         <source>Video</source>
         <translation>Vídeo</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="314"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="317"/>
         <source>PDF</source>
         <translation>PDF</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="319"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="322"/>
         <source>Font</source>
         <translation>Tipus de lletra</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="346"/>
+        <location filename="../../Dialogs/ReportsWidgets/AllFilesWidget.cpp" line="349"/>
         <source>Unknown</source>
         <translation>Desconegut</translation>
     </message>
@@ -484,7 +664,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="590"/>
         <source>Adjust the size of the icons in the main menu.</source>
-        <translation>Ajusteu la mida de les icones al menú principal.</translation>
+        <translation>Ajusteu la mida de les icones del menú principal.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="631"/>
@@ -539,7 +719,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="733"/>
         <source>BookBrowser should show full paths.</source>
-        <translation>Mostra les rutes senceres al navagador de llibres.</translation>
+        <translation>Mostra les rutes senceres al navegador de llibres.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="746"/>
@@ -1336,7 +1516,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="195"/>
         <source>[String parameter for next Plugin run here]</source>
-        <translation type="unfinished"/>
+        <translation>[Paràmetre de cadena per a la següent execució del connector aquí]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="227"/>
@@ -1371,7 +1551,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="345"/>
         <source>Delete Unused Media Resource.</source>
-        <translation type="unfinished"/>
+        <translation>Suprimeix el recurs multimèdia no utilitzat.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="346"/>
@@ -1381,7 +1561,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="347"/>
         <source>Generate NCX and OPF Guide from Epub3 Nav.</source>
-        <translation type="unfinished"/>
+        <translation>Genera l&apos;NCX i la guia OPF a partir de la navegació de l&apos;Epub3.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="348"/>
@@ -1391,22 +1571,22 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="349"/>
         <source>Mend and Prettify all XHtml files.</source>
-        <translation type="unfinished"/>
+        <translation>Repara i dona un format net a tots els fitxers XHTML.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="350"/>
         <source>Mend All XHtml files.</source>
-        <translation type="unfinished"/>
+        <translation>Repara tots els fitxers XHTML.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="351"/>
         <source>If previous search failed, run the named Saved Search.</source>
-        <translation type="unfinished"/>
+        <translation>Si la cerca anterior ha fallat, executa la cerca desada amb el nom indicat.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="352"/>
         <source>If previous search had success, run the named Saved Search.</source>
-        <translation type="unfinished"/>
+        <translation>Si la cerca anterior ha tingut èxit, executa la cerca desada amb el nom indicat.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="353"/>
@@ -1426,12 +1606,12 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="356"/>
         <source>Save a Checkpoint of the current epub.</source>
-        <translation type="unfinished"/>
+        <translation>Desa un punt de control de l&apos;EPUB actual.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="357"/>
         <source>Run the named Saved Search with Replace All.</source>
-        <translation type="unfinished"/>
+        <translation>Executa la cerca desada amb el nom indicat amb l&apos;opció Substitueix-ho tot.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="358"/>
@@ -1441,42 +1621,42 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="359"/>
         <source>Select all CSS Files in BookBrowser</source>
-        <translation type="unfinished"/>
+        <translation>Selecciona tots els fitxers CSS al navegador del llibre</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="360"/>
         <source>Select all HTML Files in BookBrowser</source>
-        <translation type="unfinished"/>
+        <translation>Selecciona tots els fitxers HTML al navegador del llibre</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="361"/>
         <source>Select all Image Files in BookBrowser</source>
-        <translation type="unfinished"/>
+        <translation>Selecciona tots els fitxers d&apos;imatge al navegador del llibre</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="362"/>
         <source>Reset BookBrowser to its initial selection</source>
-        <translation type="unfinished"/>
+        <translation>Restableix el navegador del llibre a la seva selecció inicial</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="363"/>
         <source>set a string parameter to be passed to the next plugin.</source>
-        <translation type="unfinished"/>
+        <translation>estableix un paràmetre de cadena que es passarà al connector següent.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="365"/>
         <source>Split XHtml files on Sigil Section Markers</source>
-        <translation type="unfinished"/>
+        <translation>Divideix els fitxers XHTML segons els marcadors de secció de Sigil.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="366"/>
         <source>Convert Epub layout to Sigil&apos;s historic Standard form.</source>
-        <translation type="unfinished"/>
+        <translation>Converteix la composició de l&apos;EPUB al format estàndard històric de Sigil.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="367"/>
         <source>Rename files to use standard file extensions for their media type.</source>
-        <translation type="unfinished"/>
+        <translation>Canvia el nom dels fitxers perquè utilitzin les extensions estàndard del seu tipus de contingut.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="368"/>
@@ -1497,7 +1677,7 @@ si el CSS n&apos;indica una sense serifs</translation>
 <context>
     <name>Book</name>
     <message>
-        <location filename="../../BookManipulation/Book.cpp" line="427"/>
+        <location filename="../../BookManipulation/Book.cpp" line="429"/>
         <source>Start</source>
         <translation>Inici</translation>
     </message>
@@ -1505,108 +1685,108 @@ si el CSS n&apos;indica una sense serifs</translation>
 <context>
     <name>BookBrowser</name>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="85"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="115"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="86"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="116"/>
         <source>Book Browser</source>
         <translation>Navegador del llibre</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="97"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="98"/>
         <source>Font Obfuscation</source>
         <translation>Ofuscament dels tipus de lletra</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="98"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2286"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="99"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2340"/>
         <source>Open With</source>
         <translation>Obre amb</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/BookBrowser.cpp" line="192"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="193"/>
         <source>%n file(s)</source>
         <translation><numerusform>%n fitxer(s)</numerusform><numerusform>%n fitxer(s)</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="303"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="731"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="892"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="924"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="984"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1091"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1402"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1507"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="305"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="767"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="937"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="972"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1037"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1144"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1455"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1560"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="304"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="306"/>
         <source>Are you sure you want to sort the selected files alphanumerically?</source>
-        <translation>Esteu segur que voleu ordenar els arxius seleccionats alfanumèricament?</translation>
+        <translation>Esteu segur que voleu ordenar els fitxers seleccionats alfanumèricament?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="305"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="307"/>
         <source>This action cannot be reversed.</source>
         <translation>Aquesta acció no es pot desfer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="348"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="384"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>El fitxer «%1» no existeix.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="731"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="767"/>
         <source>Javascript is not supported on epub2.</source>
         <translation>L&apos;epub2 no suporta el JavaScript.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="803"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="810"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="842"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="849"/>
         <source>Add Existing Files</source>
         <translation>Afegeix fitxers</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="862"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="905"/>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
         <translation>El fitxer no es pot utilitzar ja que no és una imatge:
 
-«%1».</translation>
+&quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="871"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="914"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
         <translation>El fitxer no es pot inserir ja que no és un fitxer multimèdia (imatge, vídeo, àudio):
 
-«%1».</translation>
+&quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="893"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="938"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
-        <translation>El fitxer multimèdia «%1» ja existeix dins el llibre.
+        <translation>El fitxer multimèdia &quot;%1&quot; ja existeix dins el llibre.
 
 Voleu reemplaçar-lo?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="919"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="967"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
-        <translation>No s&apos;ha pogut esborrar ni reemplaçar el fitxer «%1».</translation>
+        <translation>No s&apos;ha pogut esborrar ni reemplaçar el fitxer &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="924"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="972"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
-        <translation>No s&apos;ha pogut carregar «%1»
+        <translation>No s&apos;ha pogut carregar &quot;%1&quot;
 
 Al llibre, ja hi ha un fitxer amb el mateix nom.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="985"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1038"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
@@ -1615,370 +1795,375 @@ Al llibre, ja hi ha un fitxer amb el mateix nom.</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="998"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1051"/>
         <source>File(s) added or replaced.</source>
         <translation>Fitxer(s) afegit o reemplaçat.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1035"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1088"/>
         <source>Save As File</source>
         <translation>Desa com a fitxer</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1058"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1111"/>
         <source>Unable to save the file.</source>
         <translation>No s&apos;ha pogut desar el fitxer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1069"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1122"/>
         <source>Choose the directory to save the files to</source>
         <translation>Escolliu el directori on voleu desar els fitxers</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1091"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1144"/>
         <source>One or more files already exists.  OK to overwrite?</source>
         <translation>Un o més fitxers ja existeixen.  Voleu sobreescriure&apos;ls?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1108"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1161"/>
         <source>Unable to save files.  Destination may be a directory.</source>
         <translation>No s&apos;ha pogut desar els fitxers. La destinació ha de ser un directori.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1116"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1169"/>
         <source>Unable to save files.</source>
         <translation>No s&apos;ha pogut desar els fitxers.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1340"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1393"/>
         <source>Filenames cannot contain these characters: &quot;%1&quot;.</source>
         <translation>Els noms de fitxer no poden contenir aquests caràcters: &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1402"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1455"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
         <translation>No s&apos;ha pogut canviar el nom dels fitxers ja que es repetirien noms.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1473"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1526"/>
         <source>Destination Folder has invalid path &quot;%1&quot;</source>
         <translation>El directori de destí té una ruta incorrecte &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1507"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1560"/>
         <source>Cannot move files since this would result in duplicate filenames.</source>
-        <translation type="unfinished"/>
+        <translation>No es poden moure els fitxers perquè això provocaria noms de fitxer duplicats.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1554"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1607"/>
         <source>The Nav document cannot be removed.</source>
-        <translation type="unfinished"/>
+        <translation>No es pot eliminar el document de navegació.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1562"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1615"/>
         <source>The NCX cannot be removed.</source>
-        <translation type="unfinished"/>
+        <translation>No es pot eliminar l&apos;NCX.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1569"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1622"/>
         <source>The OPF is required for epub and cannot be removed.</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;OPF és necessari per a l&apos;EPUB i no es pot eliminar.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1578"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1631"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>No podeu esborrar tots els fitxers HTML.
 Com a mínim, n&apos;hi ha d&apos;haver un.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1726"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1779"/>
         <source>Unable to set file as cover image.</source>
         <translation>No s&apos;ha pogut establir el fitxer com a imatge de la coberta.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1763"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1816"/>
         <source>(root folder)</source>
         <translation>(directori arrel)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1773"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1826"/>
         <source>FileName</source>
         <translation>Nom del fitxer</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1776"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1829"/>
         <source>Folder</source>
         <translation>Directori</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1779"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1832"/>
         <source>Media Type</source>
-        <translation type="unfinished"/>
+        <translation>Tipus de contingut multimèdia</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1782"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1835"/>
         <source>File Size(kb)</source>
         <translation>Mida del fitxer (kb)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1785"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1838"/>
         <source>Epub Version</source>
         <translation>Versió Epub</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1802"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1855"/>
         <source>Word Count</source>
         <translation>Recompte de paraules</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1805"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1858"/>
         <source>Primary Language</source>
         <translation>Idioma principal</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1812"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1865"/>
         <source>WellFormed</source>
         <translation>Ben format</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1814"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1867"/>
         <source>Yes</source>
         <translation>Sí</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1816"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1869"/>
         <source>No</source>
         <translation>No</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1819"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1872"/>
         <source>Linked Stylesheets</source>
         <translation>Fulls d&apos;estil enllaçats</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1822"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1875"/>
         <source>Linked Javascripts</source>
         <translation>Fitxers JavaScript enllaçats</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1825"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1878"/>
         <source>Linked Images</source>
         <translation>Imatges enllaçades</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1828"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1881"/>
         <source>Linked Audio</source>
         <translation>Àudios enllaçats</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1831"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1884"/>
         <source>Linked Video</source>
         <translation>Vídeos enllaçats</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1858"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1911"/>
         <source>Semantics OPF Guide or Nav Landmarks</source>
-        <translation type="unfinished"/>
+        <translation>Semàntica: guia OPF o regions de navegació del NAV</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1867"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1920"/>
         <source>Manifest Properties</source>
         <translation>Propietats del manifest</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1870"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1923"/>
         <source>Defined Ids</source>
         <translation>Ids definits</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1877"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1889"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1930"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1942"/>
         <source>Description</source>
         <translation>Descripció</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1880"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1933"/>
         <source>Obfuscation Algorithm</source>
         <translation>Algorisme d&apos;ofuscació</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1882"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2135"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1935"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2188"/>
         <source>None</source>
         <translation>Cap</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2120"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2173"/>
         <source>Select All</source>
         <translation>Selecciona-ho tot</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2121"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2174"/>
         <source>Add Blank HTML File</source>
         <translation>Afegeix un fitxer HTML en blanc</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2122"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2175"/>
         <source>Add Blank Stylesheet</source>
         <translation>Afegeix un full d&apos;estils en blanc</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2123"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2176"/>
         <source>Add Blank Javascript</source>
-        <translation type="unfinished"/>
+        <translation>Afegeix un fitxer JavaScript en blanc.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2124"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2177"/>
         <source>Add Blank SVG Image</source>
         <translation>Afegeix una imatge SVG en blanc</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2125"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2178"/>
         <source>View Image</source>
         <translation>Visualitza la imatge</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2126"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2179"/>
         <source>Add Existing Files...</source>
         <translation>Afegeix fitxers...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2127"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2128"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2180"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2181"/>
         <source>Add Copy</source>
         <translation>Afegeix una còpia</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2129"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2182"/>
         <source>Rename</source>
         <translation>Canvia el nom</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2130"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2183"/>
         <source>RegEx Rename</source>
         <translation>Nom de l&apos;expressió regular</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2131"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2184"/>
         <source>Move</source>
         <translation>Mou</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2132"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2185"/>
         <source>Delete</source>
         <translation>Esborrar</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2133"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2186"/>
         <source>Cover Image</source>
         <translation>Imatge de la coberta</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2134"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2187"/>
         <source>Merge</source>
         <translation>Combina</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2136"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2189"/>
         <source>Use Adobe&apos;s Method</source>
         <translation>Utilitza el mètode d&apos;Adobe</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2137"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2190"/>
         <source>Use IDPF&apos;s Method</source>
         <translation>Utilitza el mètode de l&apos;IDPF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2138"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2191"/>
         <source>Sort</source>
         <translation>Ordena</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2139"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2192"/>
+        <source>Change Reading Order</source>
+        <translation>Canvia l&apos;ordre de lectura</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2193"/>
         <source>Renumber TOC Entries</source>
         <translation>Torna a numerar les entrades de la taula de continguts</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2140"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2194"/>
         <source>Link Stylesheets...</source>
         <translation>Enllaça-hi fulls d&apos;estils...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2141"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2195"/>
         <source>Link Javascripts...</source>
-        <translation type="unfinished"/>
+        <translation>Enllaça fitxers JavaScript...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2142"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2196"/>
         <source>Add Semantics...</source>
         <translation>Afegeix informació semàntica...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2143"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2197"/>
         <source>Get Info...</source>
-        <translation type="unfinished"/>
+        <translation>Obtén informació...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2144"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2198"/>
         <source>Validate with W3C</source>
         <translation>Valida amb l&apos;W3C</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2145"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2199"/>
         <source>Save As</source>
         <translation>Anomena i desa</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2151"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2326"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2205"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2380"/>
         <source>Other Application</source>
         <translation>Una altra aplicació</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2152"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2206"/>
         <source>Clear Editor List</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2161"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2215"/>
         <source>Merge with previous file, or merge multiple files into one.</source>
-        <translation type="unfinished"/>
+        <translation>Fusiona amb el fitxer anterior o combina diversos fitxers en un de sol.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2164"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2218"/>
         <source>Rename selected file(s)</source>
         <translation>Reanomena el fitxer(s) seleccionat</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2166"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2220"/>
         <source>Use Regular Expressions to Rename selected file(s)</source>
-        <translation type="unfinished"/>
+        <translation>Utilitza expressions regulars per canviar el nom dels fitxer(s) seleccionats.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2169"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2223"/>
         <source>Move selected file(s) to a new folder</source>
         <translation>Mou el fitxer(s) seleccionat a un nou directori</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2171"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2225"/>
         <source>Link Stylesheets to selected file(s).</source>
-        <translation type="unfinished"/>
+        <translation>Enllaça fulls d&apos;estil als fitxer(s) seleccionats.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2173"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2227"/>
         <source>Link Javascripts to selected file(s).</source>
-        <translation type="unfinished"/>
+        <translation>Enllaça fitxers JavaScript als fitxer(s) seleccionats.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2175"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2229"/>
         <source>Add Semantics to selected file(s).</source>
-        <translation type="unfinished"/>
+        <translation>Afegeix semàntica al fitxer(s) seleccionats.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2177"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2231"/>
         <source>Show Information about selected files.</source>
-        <translation type="unfinished"/>
+        <translation>Mostra informació sobre els fitxers seleccionats.</translation>
     </message>
 </context>
 <context>
@@ -1986,7 +2171,7 @@ Com a mínim, n&apos;hi ha d&apos;haver un.</translation>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="86"/>
         <source>Files Only in Checkpoint</source>
-        <translation type="unfinished"/>
+        <translation>Fitxers només al punt de control</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="86"/>
@@ -1998,12 +2183,12 @@ Com a mínim, n&apos;hi ha d&apos;haver un.</translation>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="87"/>
         <source>Files Only in Current ePub</source>
-        <translation type="unfinished"/>
+        <translation>Fitxers només a l&apos;EPUB actual</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="88"/>
         <source>Modified since Checkpoint</source>
-        <translation type="unfinished"/>
+        <translation>Modificat des del punt de control</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="89"/>
@@ -2020,7 +2205,7 @@ Com a mínim, n&apos;hi ha d&apos;haver un.</translation>
         <location filename="../../Dialogs/CPCompare.cpp" line="201"/>
         <location filename="../../Dialogs/CPCompare.cpp" line="210"/>
         <source>Checkpoint:</source>
-        <translation type="unfinished"/>
+        <translation>Punt de control:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="201"/>
@@ -2031,7 +2216,7 @@ Com a mínim, n&apos;hi ha d&apos;haver un.</translation>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="209"/>
         <source>These binary files differ in content:</source>
-        <translation type="unfinished"/>
+        <translation>Aquests fitxers binaris difereixen pel que fa al contingut:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="210"/>
@@ -2103,7 +2288,7 @@ Com a mínim, n&apos;hi ha d&apos;haver un.</translation>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="100"/>
         <source>Sigil will send your stylesheet data to the &lt;a href=&apos;https://jigsaw.w3.org/css-validator/&apos;&gt;W3C Validation Service&lt;/a&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>Sigil enviarà les dades del vostre full d&apos;estil al &lt;a href=&apos;https://jigsaw.w3.org/css-validator/&apos;&gt;servei de validació de l&apos;W3C&lt;/a&gt;.</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/CSSResource.cpp" line="101"/>
@@ -2121,7 +2306,7 @@ Com a mínim, n&apos;hi ha d&apos;haver un.</translation>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="14"/>
         <source>Characters Used</source>
-        <translation type="unfinished"/>
+        <translation>Caràcters utilitzats</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsCharactersInHTMLFilesWidget.ui" line="34"/>
@@ -2244,7 +2429,7 @@ Com a mínim, n&apos;hi ha d&apos;haver un.</translation>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="256"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Desa un informe com a fitxer de text separat per comes</translation>
+        <translation>Desa l&apos;informe com a fitxer de text separat per comes</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="269"/>
@@ -2359,7 +2544,7 @@ un menú d&apos;accions contextual.</translation>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
         <source>Assignable Shortcut Id.</source>
-        <translation type="unfinished"/>
+        <translation>ID de drecera assignable.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="78"/>
@@ -2414,7 +2599,7 @@ un menú d&apos;accions contextual.</translation>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="360"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
-        <translation>Esteu segur que voleu tornar a carregar totes les entrades? Tots els canvis sense desar es sobreescriuran.</translation>
+        <translation>Esteu segur que voleu tornar a carregar totes les entrades? Tots els canvis sense desar se sobreescriuran.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ClipEditor.cpp" line="378"/>
@@ -2527,7 +2712,7 @@ Voleu desar-ne els canvis?</translation>
         <translation>Text</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="735"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="737"/>
         <source>Unable to create file %1</source>
         <translation>No s&apos;ha pogut crear el fitxer %1</translation>
     </message>
@@ -2658,7 +2843,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1744"/>
         <source>Toggle Line Wrap Mode</source>
-        <translation type="unfinished"/>
+        <translation>Commuta el mode d&apos;ajustament de línia</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1766"/>
@@ -2703,7 +2888,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2043"/>
         <source>Selected Text is not a valid class name.</source>
-        <translation type="unfinished"/>
+        <translation>El text seleccionat no és un nom de classe vàlid.</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2050"/>
@@ -2713,7 +2898,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2051"/>
         <source>Enter new class name</source>
-        <translation type="unfinished"/>
+        <translation>Introduïu el nou nom de la classe</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2071"/>
@@ -2723,7 +2908,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2073"/>
         <source>Class rename aborted.</source>
-        <translation type="unfinished"/>
+        <translation>S’ha interromput el canvi de nom de la classe.</translation>
     </message>
 </context>
 <context>
@@ -2741,12 +2926,12 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="67"/>
         <source>Selection Background</source>
-        <translation>Seleccionar fons</translation>
+        <translation>Selecciona el fons</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/AppearanceWidget.cpp" line="69"/>
         <source>Selection Foreground</source>
-        <translation>Seleccionar primer pla</translation>
+        <translation>Selecciona el primer pla</translation>
     </message>
 </context>
 <context>
@@ -2795,7 +2980,7 @@ alguns caràcters de la selecció en obrir el diàleg de cerca.</translation>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="190"/>
         <source>For Regex searches, set the Unicode Property flag.</source>
-        <translation type="unfinished"/>
+        <translation>Per a les cerques amb expressions regulars, activeu l&apos;opció de propietat Unicode.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="196"/>
@@ -2807,7 +2992,9 @@ alguns caràcters de la selecció en obrir el diàleg de cerca.</translation>
         <source>Search from current position to top or end of the 
 current file and then wrap to the
 other end to continue searching.</source>
-        <translation type="unfinished"/>
+        <translation>Cerqueu des de la posició actual fins a l&apos;inici o el final 
+del fitxer actual i, després,
+continueu la cerca des de l&apos;altre extrem.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="218"/>
@@ -2818,7 +3005,8 @@ other end to continue searching.</source>
         <location filename="../../Form_Files/Controls.ui" line="235"/>
         <source>Search only in text (outside tags).
               Valid only when searching HTML files.</source>
-        <translation type="unfinished"/>
+        <translation>Cerqueu només dins del text (fora de les etiquetes).
+              Només és vàlid quan es fa la cerca en fitxers HTML.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="239"/>
@@ -2833,12 +3021,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="310"/>
         <source>Ignore current settings and return an empty Controls value. </source>
-        <translation type="unfinished"/>
+        <translation>Ignoreu la configuració actual i retorneu un valor de Controls buit.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/Controls.ui" line="313"/>
         <source>Clear All</source>
-        <translation type="unfinished"/>
+        <translation>Neteja-ho tot</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="304"/>
@@ -2946,7 +3134,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="334"/>
         <source>Find or replace in all CSS files in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Cerca o substitueix en tots els fitxers CSS a la vista de codi.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="336"/>
@@ -2957,18 +3145,18 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="337"/>
         <source>Restrict the find or replace to the CSS files selected in the Book Browser in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Restringiu la cerca o la substitució als fitxers CSS seleccionats al navegador del llibre en la vista de codi.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="339"/>
         <location filename="../../Dialogs/Controls.cpp" line="340"/>
         <source>Tabbed CSS Files</source>
-        <translation type="unfinished"/>
+        <translation>Fitxers CSS oberts en pestanyes</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="340"/>
         <source>Restrict the find or replace to the CSS files open in Tabs.</source>
-        <translation type="unfinished"/>
+        <translation>Restringeix la cerca o la substitució als fitxers CSS oberts en pestanyes.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="342"/>
@@ -2979,7 +3167,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="343"/>
         <source>Restrict the find or replace to the OPF file.</source>
-        <translation type="unfinished"/>
+        <translation>Restringeix la cerca o la substitució al fitxer OPF.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="345"/>
@@ -2990,7 +3178,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="346"/>
         <source>Restrict the find or replace to the NCX file.</source>
-        <translation type="unfinished"/>
+        <translation>Restringiu la cerca o la substitució al fitxer NCX.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="348"/>
@@ -3001,7 +3189,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="349"/>
         <source>Restrict the find or replace to the SVG files selected in the Book Browser in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Restringiu la cerca o la substitució als fitxers SVG seleccionats al navegador del llibre en la vista de codi.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="351"/>
@@ -3016,7 +3204,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="352"/>
         <source>Restrict the find or replace to the JS files selected in the Book Browser in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Restringiu la cerca o la substitució als fitxers JS seleccionats al navegador del llibre en la vista de codi.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="354"/>
@@ -3027,12 +3215,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="355"/>
         <source>Restrict the find or replace to other XML files selected in the Book Browser under the Misc Folder in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Restringiu la cerca o la substitució als altres fitxers XML seleccionats al navegador del llibre, dins de la carpeta Misc, en la vista de codi.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="361"/>
         <source>Select Direction</source>
-        <translation type="unfinished"/>
+        <translation>Seleccioneu la direcció</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="362"/>
@@ -3067,12 +3255,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/CountsReport.ui" line="14"/>
         <source>Counts Report</source>
-        <translation type="unfinished"/>
+        <translation>Informe de recompte</translation>
     </message>
     <message>
         <location filename="../../Form_Files/CountsReport.ui" line="34"/>
         <source>List only the table rows which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Mostreu només les files de la taula que contenen el text que introduïu.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/CountsReport.ui" line="37"/>
@@ -3127,7 +3315,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="106"/>
         <source>Tabbed CSS Files</source>
-        <translation type="unfinished"/>
+        <translation>Fitxers CSS oberts en pestanyes</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CountsReport.cpp" line="107"/>
@@ -3236,12 +3424,12 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="14"/>
         <source>Dry Run Replace-All Results</source>
-        <translation type="unfinished"/>
+        <translation>Resultats de la simulació de &quot;Substitueix-ho tot&quot;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="34"/>
         <source>List only the table rows which contain the text you enter.</source>
-        <translation type="unfinished"/>
+        <translation>Mostreu només les files de la taula que contenen el text que introduïu.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="37"/>
@@ -3251,7 +3439,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="60"/>
         <source>Select the amount of context before and after the match in characters</source>
-        <translation type="unfinished"/>
+        <translation>Seleccioneu la quantitat de context abans i després de la coincidència, en caràcters.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="63"/>
@@ -3276,7 +3464,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="135"/>
         <source>Perform the dry run ReplaceAll again and rebuild the table</source>
-        <translation type="unfinished"/>
+        <translation>Torneu a executar la simulació de &quot;Substitueix-ho tot&quot; i reconstruïu la taula.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DryRunReplace.ui" line="138"/>
@@ -3311,17 +3499,65 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/DryRunReplace.cpp" line="132"/>
         <source>Before</source>
-        <translation type="unfinished"/>
+        <translation>Abans</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DryRunReplace.cpp" line="133"/>
         <source>After</source>
-        <translation type="unfinished"/>
+        <translation>Després</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DryRunReplace.cpp" line="261"/>
         <source>Dry Run Replace-All</source>
-        <translation type="unfinished"/>
+        <translation>Simulació de &quot;Substitueix-ho tot&quot;</translation>
+    </message>
+</context>
+<context>
+    <name>EditRO</name>
+    <message>
+        <location filename="../../Form_Files/EditRO.ui" line="14"/>
+        <source>Edit Reading Order</source>
+        <translation>Edita l&apos;ordre de lectura</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/EditRO.ui" line="59"/>
+        <source>First</source>
+        <translation>Primer</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/EditRO.ui" line="62"/>
+        <source>Make selected entry first in the list. Shortcut: F</source>
+        <translation>Fes que l&apos;entrada seleccionada sigui la primera de la llista. Drecera: F</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/EditRO.ui" line="72"/>
+        <source>Last</source>
+        <translation>Últim</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/EditRO.ui" line="75"/>
+        <source>Make selected entry last in the list. Shortcut: L</source>
+        <translation>Fes que l&apos;entrada seleccionada sigui l’última de la llista. Drecera: L</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/EditRO.ui" line="101"/>
+        <source>Up</source>
+        <translation>Amunt</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/EditRO.ui" line="107"/>
+        <source>Move selected entry up in the list. Shortcut: U</source>
+        <translation>Mou l&apos;entrada seleccionada cap amunt a la llista. Drecera: U</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/EditRO.ui" line="117"/>
+        <source>Down</source>
+        <translation>Avall</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/EditRO.ui" line="123"/>
+        <source>Move selected entry down in the list. Shortcut: D</source>
+        <translation>Mou l&apos;entrada seleccionada cap avall a la llista. Drecera: D</translation>
     </message>
 </context>
 <context>
@@ -3441,7 +3677,7 @@ També podeu utilitzar la fletxa dreta.</translation>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="20"/>
         <source>Design Custom Epub Layout</source>
-        <translation type="unfinished"/>
+        <translation>Dissenya una composició EPUB personalitzada</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="55"/>
@@ -3466,7 +3702,7 @@ També podeu utilitzar la fletxa dreta.</translation>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="94"/>
         <source>Add a new folder to parent.</source>
-        <translation type="unfinished"/>
+        <translation>Afegeix una carpeta nova a l&apos;element pare.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="97"/>
@@ -3476,7 +3712,7 @@ També podeu utilitzar la fletxa dreta.</translation>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="107"/>
         <source>Add an allowed file type marker to an existing folder.</source>
-        <translation type="unfinished"/>
+        <translation>Afegeix un marcador de tipus de fitxer permès a una carpeta existent.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="110"/>
@@ -3486,7 +3722,7 @@ També podeu utilitzar la fletxa dreta.</translation>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="120"/>
         <source>Remove an existing file type marker or folder.</source>
-        <translation type="unfinished"/>
+        <translation>Elimina un marcador de tipus de fitxer o una carpeta existents.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="123"/>
@@ -3496,7 +3732,7 @@ També podeu utilitzar la fletxa dreta.</translation>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="133"/>
         <source>Rename a folder or OPF, NCX or Nav marker.</source>
-        <translation type="unfinished"/>
+        <translation>Canvia el nom d&apos;una carpeta o d&apos;un marcador OPF, NCX o de navegació.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="136"/>
@@ -3509,12 +3745,15 @@ També podeu utilitzar la fletxa dreta.</translation>
 the types of files that can be stored in each folder.  
 The file type markers can also be used to specify 
 locations and names for the OPF, NCX and/or Nav.</source>
-        <translation type="unfinished"/>
+        <translation>Afegeix carpetes/subcarpetes i marcadors de fitxer que determinen 
+els tipus de fitxers que es poden desar a cada carpeta.  
+Els marcadors de tipus de fitxer també es poden fer servir per especificar 
+ubicacions i noms per a l&apos;OPF, l&apos;NCX i/o el NAV.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="179"/>
         <source>Use OK to commit your custom epub design, otherwise use Cancel.</source>
-        <translation type="unfinished"/>
+        <translation>Fes servir D&apos;acord per confirmar el teu disseny d&apos;EPUB personalitzat; si no, prem Cancel·la.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="146"/>
@@ -3554,7 +3793,7 @@ locations and names for the OPF, NCX and/or Nav.</source>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="149"/>
         <source>Misc files</source>
-        <translation type="unfinished"/>
+        <translation>Fitxers Misc</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="150"/>
@@ -3569,12 +3808,12 @@ locations and names for the OPF, NCX and/or Nav.</source>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="151"/>
         <source>Nav file</source>
-        <translation type="unfinished"/>
+        <translation>Fitxers de navegació</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="222"/>
         <source>Select previously saved layout design ini File</source>
-        <translation type="unfinished"/>
+        <translation>Seleccioneu un fitxer INI de disseny de disposició desat prèviament.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="224"/>
@@ -3584,7 +3823,7 @@ locations and names for the OPF, NCX and/or Nav.</source>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="324"/>
         <source>Save current design to an ini File</source>
-        <translation type="unfinished"/>
+        <translation>Desa el disseny actual en un fitxer ini.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="356"/>
@@ -3594,7 +3833,7 @@ locations and names for the OPF, NCX and/or Nav.</source>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="356"/>
         <source>New Folder Name?</source>
-        <translation type="unfinished"/>
+        <translation>Nom de la nova carpeta?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="356"/>
@@ -3609,7 +3848,7 @@ locations and names for the OPF, NCX and/or Nav.</source>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="393"/>
         <source>New Name for Folder?</source>
-        <translation type="unfinished"/>
+        <translation>Nou nom per a la carpeta?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="404"/>
@@ -3619,27 +3858,27 @@ locations and names for the OPF, NCX and/or Nav.</source>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="404"/>
         <source>New Name for File?</source>
-        <translation type="unfinished"/>
+        <translation>Nou nom per al fitxer?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="462"/>
         <source>A single OPF file is required.</source>
-        <translation type="unfinished"/>
+        <translation>Cal un únic fitxer OPF.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="463"/>
         <source>At least one xhtml marker must exist.</source>
-        <translation type="unfinished"/>
+        <translation>Cal que existeixi almenys un marcador XHTML.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="464"/>
         <source>At least one image marker must exist.</source>
-        <translation type="unfinished"/>
+        <translation>Cal que existeixi almenys un marcador d&apos;imatge.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="465"/>
         <source>At least one css marker must exist.</source>
-        <translation type="unfinished"/>
+        <translation>Cal que existeixi almenys un marcador CSS.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="467"/>
@@ -3669,6 +3908,14 @@ locations and names for the OPF, NCX and/or Nav.</source>
         <translation>Vols establir aquest disseny com a disseny buit d&apos;EPUB predeterminat per a Sigil?
 
 </translation>
+    </message>
+</context>
+<context>
+    <name>FileDropZone</name>
+    <message>
+        <location filename="../../Widgets/FileDropZone.h" line="42"/>
+        <source>Drop Files Here To Add to Epub</source>
+        <translation>Deixa anar els fitxers aquí per afegir-los a l&apos;EPUB</translation>
     </message>
 </context>
 <context>
@@ -3722,7 +3969,9 @@ locations and names for the OPF, NCX and/or Nav.</source>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Replace highlighted match (if any) in Code View.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Substitueix&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Substitueix la coincidència ressaltada (si n’hi ha cap) a la vista de codi.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="234"/>
@@ -3734,7 +3983,9 @@ locations and names for the OPF, NCX and/or Nav.</source>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Restart&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Restart current search from beginning.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Reinicia&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Reinicia la cerca actual des del començament.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="268"/>
@@ -3752,7 +4003,10 @@ locations and names for the OPF, NCX and/or Nav.</source>
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Replace highlighted match (if any),
 then find the Next match in Code View.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Substitueix/Cerca&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Substitueix la coincidència ressaltada (si n&apos;hi ha cap),
+i, tot seguit, cerca la coincidència següent a la vista de codi.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="332"/>
@@ -3765,7 +4019,10 @@ then find the Next match in Code View.&lt;/p&gt;</source>
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Replace all matches in Code View.&lt;/p&gt;
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Use with SHIFT to Filter Replacements before changes are applied.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Substitueix-ho tot&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Substitueix totes les coincidències a la vista de codi.&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Utilitzeu-ho amb Maj per filtrar les substitucions abans que s&apos;apliquin els canvis..&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="367"/>
@@ -3778,7 +4035,10 @@ then find the Next match in Code View.&lt;/p&gt;</source>
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Count all matches in Code View.&lt;/p&gt;
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Use with SHIFT to generate a Dry Run Replace All table.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Compta-ho tot&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Compta totes les coincidències a la vista de codi.&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Utilitzeu-ho amb Maj per generar una taula de simulació de &quot;Substitueix-ho tot&quot;.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="402"/>
@@ -3803,7 +4063,7 @@ then find the Next match in Code View.&lt;/p&gt;</source>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="492"/>
         <source>Set advanced Regex search flags / options.</source>
-        <translation type="unfinished"/>
+        <translation>Defineix les opcions o els indicadors avançats de cerca amb expressions regulars.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="495"/>
@@ -3815,7 +4075,9 @@ then find the Next match in Code View.&lt;/p&gt;</source>
         <source>Search from current position to top or end of the
 current file and then wrap to the
 other end to continue searching.</source>
-        <translation type="unfinished"/>
+        <translation> Cerca des de la posició actual fins al principi o al final
+del fitxer actual i, tot seguit, torna a l&apos;altre extrem
+per continuar cercant.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="517"/>
@@ -3856,7 +4118,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="693"/>
         <source>Choose Replacements</source>
-        <translation type="unfinished"/>
+        <translation>Tria les substitucions</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="711"/>
@@ -3870,12 +4132,12 @@ Valid only when searching HTML files.</source>
         <location filename="../../MainUI/FindReplace.cpp" line="772"/>
         <location filename="../../MainUI/FindReplace.cpp" line="1989"/>
         <source>Replacements made: %n</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Substitucions fetes: %n</numerusform><numerusform>Substitucions fetes: %n</numerusform></translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="898"/>
         <source>End of search</source>
-        <translation type="unfinished"/>
+        <translation>Final de la cerca</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="971"/>
@@ -3914,7 +4176,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2039"/>
         <source>Are you sure you want to clear your Find and Replace current values and history?</source>
-        <translation type="unfinished"/>
+        <translation>Esteu segur que voleu esborrar els valors actuals i l&apos;historial de cerca i substitució?</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2172"/>
@@ -4006,7 +4268,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2199"/>
         <source>Find or replace in all CSS files in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Cerca o substitueix en tots els fitxers CSS a la vista de codi.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2201"/>
@@ -4017,18 +4279,18 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2202"/>
         <source>Restrict the find or replace to the CSS files selected in the Book Browser in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Restringiu la cerca o la substitució als fitxers CSS seleccionats al navegador del llibre en la vista de codi.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2204"/>
         <location filename="../../MainUI/FindReplace.cpp" line="2205"/>
         <source>Tabbed CSS Files</source>
-        <translation type="unfinished"/>
+        <translation>Fitxers CSS oberts en pestanyes</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2205"/>
         <source>Restrict the find or replace to the CSS files open in Tabs.</source>
-        <translation type="unfinished"/>
+        <translation>Restringeix la cerca o la substitució als fitxers CSS oberts en pestanyes.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2207"/>
@@ -4039,7 +4301,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2208"/>
         <source>Restrict the find or replace to the OPF file.</source>
-        <translation type="unfinished"/>
+        <translation>Restringeix la cerca o la substitució al fitxer OPF.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2210"/>
@@ -4050,7 +4312,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2211"/>
         <source>Restrict the find or replace to the NCX file.</source>
-        <translation type="unfinished"/>
+        <translation>Restringiu la cerca o la substitució al fitxer NCX.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2213"/>
@@ -4061,7 +4323,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2214"/>
         <source>Restrict the find or replace to the SVG files selected in the Book Browser in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Restringiu la cerca o la substitució als fitxers SVG seleccionats al navegador del llibre en la vista de codi.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2216"/>
@@ -4076,7 +4338,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2217"/>
         <source>Restrict the find or replace to the JS files selected in the Book Browser in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Restringiu la cerca o la substitució als fitxers JS seleccionats al navegador del llibre en la vista de codi.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2219"/>
@@ -4087,12 +4349,12 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2220"/>
         <source>Restrict the find or replace to the XML files selected in the Misc folder of the Book Browser in Code View.</source>
-        <translation type="unfinished"/>
+        <translation>Restringeix la cerca o la substitució als fitxers XML seleccionats a la carpeta Misc del navegador del llibre, a la vista de codi.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2223"/>
         <source>To restrict search to selected text, use Search&amp;rarr;Mark Selected Text.</source>
-        <translation type="unfinished"/>
+        <translation>Per restringir la cerca al text seleccionat, fes servir Search&amp;rarr;Marca el text seleccionat.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2228"/>
@@ -4155,7 +4417,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2258"/>
         <source>Auto Tokenise</source>
-        <translation type="unfinished"/>
+        <translation>Tokenització automàtica</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2261"/>
@@ -4171,12 +4433,12 @@ alguns caràcters de la selecció en obrir el diàleg de cerca.</translation>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2268"/>
         <source>For Regex searches, set the Unicode Property flag.</source>
-        <translation type="unfinished"/>
+        <translation>Per a les cerques amb expressions regulars, activeu l&apos;opció de propietat Unicode.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2294"/>
         <source>Invalid Regex:</source>
-        <translation type="unfinished"/>
+        <translation>Expressió regular incorrecta:</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2295"/>
@@ -4194,7 +4456,7 @@ alguns caràcters de la selecció en obrir el diàleg de cerca.</translation>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="60"/>
         <source>Clear Find Replace History</source>
-        <translation type="unfinished"/>
+        <translation>sborra l&apos;historial de cerca i substitució</translation>
     </message>
     <message>
         <location filename="../../Misc/FindReplaceQLineEdit.cpp" line="72"/>
@@ -4215,7 +4477,7 @@ alguns caràcters de la selecció en obrir el diàleg de cerca.</translation>
 <context>
     <name>FlowTab</name>
     <message>
-        <location filename="../../Tabs/FlowTab.cpp" line="898"/>
+        <location filename="../../Tabs/FlowTab.cpp" line="899"/>
         <source>Print %1</source>
         <translation>Imprimeix %1</translation>
     </message>
@@ -4225,7 +4487,7 @@ alguns caràcters de la selecció en obrir el diàleg de cerca.</translation>
     <message>
         <location filename="../../ResourceObjects/FontResource.cpp" line="70"/>
         <source>No reliable font data</source>
-        <translation type="unfinished"/>
+        <translation>No hi ha dades de tipografia fiables.</translation>
     </message>
 </context>
 <context>
@@ -4233,7 +4495,7 @@ alguns caràcters de la selecció en obrir el diàleg de cerca.</translation>
     <message>
         <location filename="../../Widgets/FontView.cpp" line="125"/>
         <source>No reliable font data</source>
-        <translation type="unfinished"/>
+        <translation>No hi ha dades de tipografia fiables.</translation>
     </message>
     <message>
         <location filename="../../Widgets/FontView.cpp" line="136"/>
@@ -4253,7 +4515,7 @@ alguns caràcters de la selecció en obrir el diàleg de cerca.</translation>
     <message>
         <location filename="../../Widgets/FontView.cpp" line="139"/>
         <source>The quick brown fox jumps over the lazy dog</source>
-        <translation type="unfinished"/>
+        <translation>The quick brown fox jumps over the lazy dog</translation>
     </message>
 </context>
 <context>
@@ -4304,17 +4566,18 @@ en crear EPUBS nous o buids amb el Sigil.</translation>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="109"/>
         <source>Choose when your not well formed HTML code is automatically 
 mended.</source>
-        <translation type="unfinished"/>
+        <translation>Trieu quan s&apos;ha de reparar automàticament el vostre codi HTML que no està 
+ben format.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="113"/>
         <source>Mend Not Well Formed HTML Source Code On:</source>
-        <translation type="unfinished"/>
+        <translation>Repara el codi font HTML mal format en:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="125"/>
         <source>Mend Not Well Formed HTML when opening an Epub or HTML file.</source>
-        <translation type="unfinished"/>
+        <translation>Repara l&apos;HTML mal format en obrir un EPUB o un fitxer HTML.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="128"/>
@@ -4324,7 +4587,7 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="138"/>
         <source>Mend Not Well Formed HTML when saving an Epub.</source>
-        <translation type="unfinished"/>
+        <translation>Repara l&apos;HTML mal format en desar un EPUB.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="141"/>
@@ -4344,7 +4607,7 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="198"/>
         <source>Set your preferred external xhtml editor:</source>
-        <translation type="unfinished"/>
+        <translation>Estableix l&apos;editor XHTML extern preferit:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="218"/>
@@ -4353,192 +4616,212 @@ mended.</source>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="228"/>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="572"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="606"/>
         <source>Browse</source>
         <translation>Navega</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="254"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="240"/>
+        <source>Determine if files can be dragged and dropped to add them to an epub.</source>
+        <translation>Determina si es poden arrossegar i deixar anar fitxers per afegir-los a un EPUB.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="243"/>
+        <source> Control use of drag and drop to add files to an epub.</source>
+        <translation>Controla l&apos;ús de l&apos;arrossegar i deixar anar per afegir fitxers a un EPUB.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="261"/>
+        <source>Check to use drag and drop to add files to your epub.</source>
+        <translation> Marca-ho per fer servir l&apos;arrossegar i deixar anar per afegir fitxers al teu EPUB.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="264"/>
+        <source>May use drag and drop to add files.</source>
+        <translation>Es pot fer servir l&apos;arrossegar i deixar anar per afegir fitxers.</translation>
+    </message>
+    <message>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="288"/>
         <source>Security</source>
         <translation>Seguretat</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="260"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="294"/>
         <source>Determine if Epubs are allowed to access non-multimedia remote resources.</source>
         <translation>Determina si els EPUB poden accedir a recusros remots no multimèdia.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="263"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="297"/>
         <source> Control Access by Epubs to non-multimedia remote resources:</source>
-        <translation type="unfinished"/>
+        <translation> Controla l&apos;accés dels EPUB als recursos remots que no siguin multimèdia:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="281"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="315"/>
         <source>Check to allow Epubs to access non-multimedia remote resources.</source>
         <translation>Marqueu per permetre als EPUB d&apos;accedir als recursos remots no multimèdia.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="284"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="318"/>
         <source>Epubs may access all remote resources types.</source>
         <translation>Els EPUB poden accedir a tota mena de recursos remots.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="297"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="331"/>
         <source>Determine if javascript is allowed to be used by Epubs</source>
-        <translation type="unfinished"/>
+        <translation>Determina si els EPUB poden utilitzar JavaScript.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="300"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="334"/>
         <source> Control Use of Javascript by Epubs.</source>
-        <translation type="unfinished"/>
+        <translation> Controla l&apos;ús de JavaScript als EPUB.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="318"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="352"/>
         <source>Check to allow Epubs to use javascript.</source>
-        <translation type="unfinished"/>
+        <translation>Marca-ho per permetre que els EPUB utilitzin JavaScript.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="321"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="355"/>
         <source>Epubs may use javascript.</source>
         <translation>Els EPUB poden utilitzar JavaScript.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="348"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="382"/>
         <source>Validation</source>
         <translation>Validació</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="360"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="394"/>
         <source>What CSS level to specify for W3C stylesheet validation tool (EPUB2)</source>
         <translation>Nivell del CSS establert per a l&apos;eina de validació del full d&apos;estils del W3C (EPUB2)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="363"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="397"/>
         <source>EPUB2 W3C Stylesheet Validation Level:</source>
         <translation>Nivell de validació del full d&apos;estils del W3C per a l&apos;EPUB2:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="375"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="409"/>
         <source>W3C stylesheet validator will use CSS level 2 for EPUB2</source>
         <translation>S&apos;usarà el nivell 2 del CSS en la validació del full d&apos;estils del W3C per a l&apos;EPUB2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="378"/>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="457"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="412"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="491"/>
         <source>CSS Level 2</source>
         <translation>CSS nivell 2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="388"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="422"/>
         <source>W3C stylesheet validator will use CSS level 2.1 for EPUB2</source>
         <translation>S&apos;usarà el nivell 2.1 del CSS en la validació del full d&apos;estils del W3C per a l&apos;EPUB2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="391"/>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="470"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="425"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="504"/>
         <source>CSS Level 2.1</source>
         <translation>CSS nivell 2.1</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="404"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="438"/>
         <source>W3C stylesheet validator will use CSS level 3 for EPUB2</source>
         <translation>S&apos;usarà el nivell 3 del CSS en la validació del full d&apos;estils del W3C per a l&apos;EPUB2</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="407"/>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="486"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="441"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="520"/>
         <source>CSS Level 3</source>
         <translation>CSS nivell 3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="439"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="473"/>
         <source>What CSS Level to specify for W3C stylesheet validation tool (EPUB3)</source>
         <translation>Nivell del CSS establert per a l&apos;eina de validació del full d&apos;estils del W3C (EPUB3)</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="442"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="476"/>
         <source>EPUB3 W3C Stylesheet Validation Level:</source>
         <translation>Nivell de validació del full d&apos;estils del W3C per a l&apos;EPUB3:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="454"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="488"/>
         <source>W3C stylesheet validator will use CSS level 2 for EPUB3</source>
         <translation>S&apos;usarà el nivell 2 del CSS en la validació del full d&apos;estils del W3C per a l&apos;EPUB3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="467"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="501"/>
         <source>W3C stylesheet validator will use CSS level 2.1 for EPUB3</source>
         <translation>S&apos;usarà el nivell 2.1 del CSS en la validació del full d&apos;estils del W3C per a l&apos;EPUB3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="483"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="517"/>
         <source>W3C stylesheet validator will use CSS level 3 for EPUB3</source>
         <translation>S&apos;usarà el nivell 3 del CSS en la validació del full d&apos;estils del W3C per a l&apos;EPUB3</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="526"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="560"/>
         <source>Advanced</source>
         <translation>Avançat</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="532"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="566"/>
         <source>Unless you know exactly what you&apos;re doing, there&apos;s very little reason to ever change this setting. Use extreme caution!</source>
         <translation>A menys que sàpigues exactament què fas, hi ha molt poques raons per canviar mai aquesta configuració. Ves amb molta cautela!</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="542"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="576"/>
         <source>Set folder where temporary files should be created:</source>
         <translation>Estableix la carpeta on s&apos;han de crear els fitxers temporals:</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="562"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="596"/>
         <source>Auto</source>
         <translation>Auto</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="584"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="618"/>
         <source>Disable GPU Acceleration in QtWebEngine/Preview</source>
         <translation>Desactiva l&apos;acceleració per GPU a QtWebEngine/Previsualització</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="587"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="621"/>
         <source> Disable GPU Acceleration in QtWebEngine/Preview.</source>
         <translation>Desactiva l&apos;acceleració per GPU a QtWebEngine/Previsualització.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="605"/>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="608"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="639"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="642"/>
         <source>Disable GPU Acceleration in QtWebEngine.</source>
         <translation>Desactiva l&apos;acceleració per GPU a QtWebEngine.</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="621"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="655"/>
         <source>Preview Print Settings</source>
         <translation>Previsualitza la configuració d&apos;impressió</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="630"/>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="633"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="664"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="667"/>
         <source>Skip Print Preview</source>
         <translation>Omet la vista prèvia d&apos;impressió</translation>
     </message>
     <message>
-        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="642"/>
+        <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="676"/>
         <source>Print DPI:</source>
         <translation>DPI (impressió):</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="223"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="226"/>
         <source>Incorrect Path for External Xhtml Editor selected</source>
         <translation>S&apos;ha seleccionat una ruta incorrecte per a l&apos;editor XHTML extern.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="240"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="243"/>
         <source>Select Folder for Temporary Files</source>
         <translation>Selecciona el directori per als fitxers temporals</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="257"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="260"/>
         <source>Incorrect Folder for Temporary Files selected</source>
         <translation>S&apos;ha seleccionat un directori incorrecte per als fitxers temporals</translation>
     </message>
@@ -5224,46 +5507,96 @@ podeu activar-les o desactivar-les individualment a la llista de dalt.</translat
 <context>
     <name>ImageTab</name>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="200"/>
-        <source>shades</source>
-        <translation>nivells</translation>
-    </message>
-    <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="200"/>
-        <source>colors</source>
-        <translation>colors</translation>
-    </message>
-    <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="201"/>
-        <source>Grayscale</source>
-        <translation>Escala de grisos</translation>
-    </message>
-    <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="201"/>
-        <source>Color</source>
-        <translation>Color</translation>
-    </message>
-    <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="327"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="385"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="388"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="287"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="364"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="365"/>
         <source>Open With</source>
         <translation>Obrie amb</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="363"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="323"/>
         <source>Other Application</source>
         <translation>Una altra aplicació</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="386"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="372"/>
         <source>Save As</source>
         <translation>Anomena i desa</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="387"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="373"/>
         <source>Copy Image</source>
         <translation>Copia la imatge</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="375"/>
+        <source>Save Changes</source>
+        <translation>Desa els canvis</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="376"/>
+        <source>Zoom In</source>
+        <translation>Apropa</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="377"/>
+        <source>Zoom Out</source>
+        <translation>Redueix</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="378"/>
+        <source>Zoom to Fit</source>
+        <translation>Ajusta el zoom a la finestra</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="379"/>
+        <source>Undo Change</source>
+        <translation>Desfés el canvi</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="380"/>
+        <source>Redo Change</source>
+        <translation>Refés el canvi</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="381"/>
+        <source>Rotate Left</source>
+        <translation>Gira a l&apos;esquerra</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="382"/>
+        <source>Rotate Right</source>
+        <translation>Gira a la dreta</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="383"/>
+        <source>Crop Image</source>
+        <translation>Retalla la imatge</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="384"/>
+        <source>Resize Image</source>
+        <translation>Redimensiona la imatge</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="567"/>
+        <source>shades</source>
+        <translation>nivells</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="567"/>
+        <source>colors</source>
+        <translation>colors</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="568"/>
+        <source>Grayscale</source>
+        <translation>Escala de grisos</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="568"/>
+        <source>Color</source>
+        <translation>Color</translation>
     </message>
 </context>
 <context>
@@ -5304,7 +5637,7 @@ podeu activar-les o desactivar-les individualment a la llista de dalt.</translat
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="205"/>
         <source>This EPUB has HTML files that are not well formed or are missing a DOCTYPE, html, head or body elements.&lt;br/&gt;&lt;/br&gt;Fix these manually or use Sigil&apos;s Mend tool to automatically fixed these errors or omissions.</source>
-        <translation type="unfinished"/>
+        <translation>Aquest EPUB conté fitxers HTML que no estan ben formats o als quals falta un DOCTYPE, o els elements html, head o body.&lt;br/&gt;&lt;/br&gt;Corregeix-ho manualment o fes servir l&apos;eina Repara de Sigil per corregir automàticament aquests errors o omissions..</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="606"/>
@@ -5594,7 +5927,7 @@ Voleu desar els canvis?</translation>
         <translation>Elimina</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.cpp" line="460"/>
+        <location filename="../../Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.cpp" line="466"/>
         <source>Conflicts with: &lt;b&gt;</source>
         <translation>Conflictes amb: &lt;b&gt;</translation>
     </message>
@@ -6029,7 +6362,7 @@ Voleu desar els canvis?</translation>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="206"/>
         <source>A collection of notes appearing at the rear (backmatter) of the work, or at the end of a section. Status: Deprecated</source>
-        <translation type="unfinished"/>
+        <translation>Un conjunt de notes que apareixen al final (matèria final) de l&apos;obra, o al final d&apos;una secció. Estat: obsolet</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="207"/>
@@ -9061,14 +9394,16 @@ Establiu el diccionari de comprovació ortogràfica a l&apos;apartat corresponen
     <message>
         <location filename="../../Form_Files/LinkJavascripts.ui" line="14"/>
         <source>Link Javascripts</source>
-        <translation type="unfinished"/>
+        <translation>Enllaça fitxers JavaScript</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkJavascripts.ui" line="46"/>
         <source>Move the selected javascripts up in priority.
 
 Javascripts that are listed first are loaded first.</source>
-        <translation type="unfinished"/>
+        <translation>Mou els JavaScript seleccionats cap amunt en la prioritat.
+
+Els JavaScript que apareixen primer a la llista es carreguen primer.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkJavascripts.ui" line="51"/>
@@ -9078,7 +9413,7 @@ Javascripts that are listed first are loaded first.</source>
     <message>
         <location filename="../../Form_Files/LinkJavascripts.ui" line="64"/>
         <source>Move the selected javascripts down in priority.</source>
-        <translation type="unfinished"/>
+        <translation>Mou els JavaScript seleccionats cap avall en l&apos;ordre de prioritat.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkJavascripts.ui" line="67"/>
@@ -9403,7 +9738,7 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="466"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1819"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1820"/>
         <source>File</source>
         <translation>Fitxer</translation>
     </message>
@@ -9429,7 +9764,7 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="538"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="638"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="639"/>
         <source>Edit</source>
         <translation>Edita</translation>
     </message>
@@ -9536,7 +9871,7 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     <message>
         <location filename="../../Form_Files/main.ui" line="896"/>
         <source>New Default</source>
-        <translation type="unfinished"/>
+        <translation>Nou valor predeterminat</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="899"/>
@@ -10048,7 +10383,9 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Aria Role&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert an Aria role and any associated epub:type.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insereix un rol ARIA&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insereix un rol ARIA i qualsevol epub:type associat.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1403"/>
@@ -10176,12 +10513,12 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     <message>
         <location filename="../../Form_Files/main.ui" line="1539"/>
         <source>Restructure Epub to Sigil Norm</source>
-        <translation type="unfinished"/>
+        <translation>Reestructura l&apos;EPUB segons la norma de Sigil</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1542"/>
         <source>Restructure Epub to Sigil Standard Form</source>
-        <translation type="unfinished"/>
+        <translation>Reestructura l&apos;EPUB al format estàndard de Sigil</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1547"/>
@@ -10191,17 +10528,17 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     <message>
         <location filename="../../Form_Files/main.ui" line="1550"/>
         <source>Rename all files to use standard file extensions</source>
-        <translation type="unfinished"/>
+        <translation>Canvia el nom de tots els fitxers perquè facin servir extensions estàndard.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1555"/>
         <source>Rebase OPF Manifest IDs on Current Filenames</source>
-        <translation type="unfinished"/>
+        <translation>Reassigna els ID del manifest de l&apos;OPF a partir dels noms de fitxer actuals.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1558"/>
         <source>Updates each Manifest ID to reflect its current file name</source>
-        <translation type="unfinished"/>
+        <translation>Actualitza cada ID del manifest perquè reflecteixi el seu nom de fitxer actual.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1567"/>
@@ -10255,14 +10592,16 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     <message>
         <location filename="../../Form_Files/main.ui" line="1610"/>
         <source>&amp;Hide Find &amp;&amp; Replace...</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Amaga Cerca &amp;&amp; Reemplaça...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1613"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Hide Find &amp;amp; Replace&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Hide the Find and Replace Window.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Amaga Cerca i substitució&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Amaga la finestra de Cerca i substitució.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1624"/>
@@ -10370,14 +10709,16 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     <message>
         <location filename="../../Form_Files/main.ui" line="1714"/>
         <source>Remove Tag Pair</source>
-        <translation type="unfinished"/>
+        <translation>Elimina el parell d&apos;etiquetes.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1717"/>
         <source>
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Remove Open and Close Tag Pair.&lt;/p&gt;
     </source>
-        <translation type="unfinished"/>
+        <translation>
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Elimina el parell d&apos;etiquetes d&apos;obertura i tancament.&lt;/p&gt;
+    </translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1728"/>
@@ -10579,7 +10920,7 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     <message>
         <location filename="../../Form_Files/main.ui" line="1883"/>
         <source>Validate Stylesheets With &amp;W3C</source>
-        <translation>Valida els fulls d&apos;estil amb el &amp;W3C</translation>
+        <translation>Valida els fulls d&apos;estil amb l&apos; &amp;W3C</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1886"/>
@@ -10589,9 +10930,9 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Verify your CSS stylesheets comply with W3C standards using the online W3C CSS Validation Service.&lt;/p&gt;
     </source>
         <translation>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Valida els fulls d&apos;estils amb el W3C&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Valida els fulls d&apos;estils amb l&apos;W3C&lt;/b&gt;&lt;/p&gt;
 
-     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Verifica si els fulls d&apos;estil compleixen els estàndards del W3C usant el servei de validació de CSS en línia del W3C.&lt;/p&gt;
+     &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Verifica si els fulls d&apos;estil compleixen els estàndards de l&apos;W3C usant el servei de validació de CSS en línia de l&apos;W3C.&lt;/p&gt;
     </translation>
     </message>
     <message>
@@ -10686,7 +11027,7 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     <message>
         <location filename="../../Form_Files/main.ui" line="1976"/>
         <source>Delete &amp;Unused Stylesheet Selectors...</source>
-        <translation type="unfinished"/>
+        <translation>Suprimeix els selectors de f&amp;ull d&apos;estils no utilitzats...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1981"/>
@@ -10711,7 +11052,7 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
 </source>
         <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Feu una donació&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Col·laboreu amb diners amb el desenvolupament del Sigil.&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Col·laboreu econòmicament amb el desenvolupament del Sigil.&lt;/p&gt;
 </translation>
     </message>
     <message>
@@ -10817,7 +11158,7 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     <message>
         <location filename="../../Form_Files/main.ui" line="2086"/>
         <source>Restart Current Search</source>
-        <translation type="unfinished"/>
+        <translation>Reinicia la cerca actual</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2091"/>
@@ -11729,7 +12070,7 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     <message>
         <location filename="../../Form_Files/main.ui" line="2859"/>
         <source>Add a new blank javascript to the book.</source>
-        <translation type="unfinished"/>
+        <translation>Afegeix un fitxer JavaScript nou en blanc al llibre.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2864"/>
@@ -11809,7 +12150,7 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     <message>
         <location filename="../../Form_Files/main.ui" line="2933"/>
         <source>&amp;Create HTML from Table Of Contents</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Crea un HTML a partir del sumari</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2936"/>
@@ -11980,52 +12321,52 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     <message>
         <location filename="../../Form_Files/main.ui" line="3154"/>
         <source>Update OPF Manifest Media Types</source>
-        <translation type="unfinished"/>
+        <translation>Actualitza els tipus multimèdia del manifest de l&apos;OPF</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3159"/>
         <source>Generate &amp;NCX/Guide for epub2 e-readers</source>
-        <translation type="unfinished"/>
+        <translation>Genera l&apos;&amp;NCX/guia per a lectors EPUB2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3164"/>
         <source>Create a Custom Empty Epub</source>
-        <translation type="unfinished"/>
+        <translation> Crea un EPUB buit personalitzat</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3169"/>
         <source>Remove the NCX and Guide</source>
-        <translation type="unfinished"/>
+        <translation>Elimina l&apos;NCX i la guia</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3178"/>
         <source>Create Checkpoint for Epub</source>
-        <translation type="unfinished"/>
+        <translation>Crea un punt de control per a l&apos;Epub</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3187"/>
         <source>Restore Epub from previous Checkpoint</source>
-        <translation type="unfinished"/>
+        <translation>Restaura l&apos;Epub des del punt de control anterior</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3196"/>
         <source>Compare Epub against Previous Checkpoint</source>
-        <translation type="unfinished"/>
+        <translation>Compara l&apos;Epub contra el punt de control anterior</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3205"/>
         <source>Manage Checkpoint Repositories</source>
-        <translation type="unfinished"/>
+        <translation>Gestiona els repositoris de punts de control</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3210"/>
         <source>Edit Checkpoint Descriptions</source>
-        <translation type="unfinished"/>
+        <translation>Edita dels descripcions dels punts de control</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3215"/>
         <source>Show Log of Checkpoints</source>
-        <translation type="unfinished"/>
+        <translation>Mostra el registre dels punts de control</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3220"/>
@@ -12035,7 +12376,7 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
     <message>
         <location filename="../../Form_Files/main.ui" line="3225"/>
         <source>Focus on BookBrowser</source>
-        <translation type="unfinished"/>
+        <translation>Posa el focus al navegador del llibre</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3230"/>
@@ -12053,377 +12394,378 @@ La llista estableix els fulls d&apos;estil amb prioritat decreixent.</translatio
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="326"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="327"/>
         <source>Error: Automation Already in Use</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="332"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="333"/>
         <source>Missing Automation List</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="373"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="374"/>
         <source>running</source>
         <translation>s&apos;està executant</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="432"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="433"/>
         <source>skipped since not an epub3</source>
-        <translation type="unfinished"/>
+        <translation>s&apos;ha omès perquè no és un EPUB 3.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="457"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="476"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="500"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="458"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="477"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="501"/>
         <source>Missing or unknown Saved Search name</source>
-        <translation type="unfinished"/>
+        <translation>Falta el nom de la cerca desada o és desconegut.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="480"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="481"/>
         <source>Conditional search did not run.</source>
-        <translation type="unfinished"/>
+        <translation>La cerca condicional no s&apos;ha executat.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="504"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="505"/>
         <source>Conditional Search did not run.</source>
-        <translation type="unfinished"/>
+        <translation>La Cerca Condicional no s&apos;ha executat.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="508"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="509"/>
         <source>Missing or unknown plugin or tool</source>
-        <translation type="unfinished"/>
+        <translation>Falta el connector o l&apos;eina, o bé és desconegut.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="513"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="514"/>
         <source>failed</source>
         <translation>ha fallat</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="521"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="522"/>
         <source>Validation tool</source>
         <translation>Eina de validació</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="522"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="523"/>
         <source>found errors</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;han trobat errors</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="525"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="526"/>
         <source>Validation tool found errors - Abort or Ignore?</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;eina de validació ha trobat errors. Voleu interrompre el procés o ignorar-los?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="534"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="535"/>
         <source>Aborted due to Validation Errors</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;ha interromput a causa d&apos;errors de validació.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="537"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="538"/>
         <source>Ignored Validation Errors</source>
         <translation>Errors de validació ignorats</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="540"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="541"/>
         <source>Validation Tool Reported No Problems Found</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;eina de validació ha indicat que no s&apos;ha trobat cap problema.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="547"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="548"/>
         <source>Automation List Failed</source>
         <translation>La llista d&apos;automatització ha fallat</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="549"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="550"/>
         <source>Automation List Completed</source>
         <translation>S&apos;ha completat la llista d&apos;automatització</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="551"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="552"/>
         <source>Automate Log</source>
         <translation>Registre automàtic</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="626"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="627"/>
         <source>Input</source>
         <translation>Entrada</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="632"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="633"/>
         <source>Output</source>
         <translation>Sortida</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="644"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="645"/>
         <source>Validation</source>
         <translation>Validació</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="749"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="750"/>
         <source>Run</source>
         <translation>Executa</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="769"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="782"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="791"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="799"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="876"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="893"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="902"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="983"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1783"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2097"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2339"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2504"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3024"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3120"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3174"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3184"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3208"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3222"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3328"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="770"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="783"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="792"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="800"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="877"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="894"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="903"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="984"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1784"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2098"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2340"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2505"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3038"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3134"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3190"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3200"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3224"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3238"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3344"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3349"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3362"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3381"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3395"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3410"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3414"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3360"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3365"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3378"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3397"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3411"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3426"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3430"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3443"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3448"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3460"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3470"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3475"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3677"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3684"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3446"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3459"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3464"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3476"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3486"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3491"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3693"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3700"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3759"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3791"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3990"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5184"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5225"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5231"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5237"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5466"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5486"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5543"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5807"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6013"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3716"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3775"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3807"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4006"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5210"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5251"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5257"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5263"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5492"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5512"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5569"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5833"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6039"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="770"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="771"/>
         <source>Are you sure you want to restructure this epub?
 This action cannot be reversed.</source>
-        <translation type="unfinished"/>
+        <translation>Esteu segur que voleu reestructurar aquest EPUB?
+Aquesta acció no es pot desfer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="783"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="792"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="800"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="784"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="793"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="801"/>
         <source>Restructure cancelled: %1, XML not well formed.</source>
         <translation>Reestructuració cancel·lada: %1, l&apos;XML no és ben format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="874"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="876"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5541"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5543"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6011"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6013"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="875"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="877"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5567"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5569"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6037"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6039"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] - EPUB%2 - %3</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="874"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5541"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6011"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="875"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5567"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6037"/>
         <source>Sigil [std]</source>
         <translation>Sigil [std]</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="878"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="879"/>
         <source>Restructure completed.</source>
         <translation>S&apos;ha completat la reestructuració.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="894"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="895"/>
         <source>Bulk rename cancelled: %1, XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Canvi massiu de nom cancel·lat: %1, l&apos;XML no és ben format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="903"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="904"/>
         <source>Bulk rename cancelled: %1, OPF not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Canvi massiu de nom cancel·lat: %1, l&apos;OPF no és ben format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="972"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="973"/>
         <source>Bulk rename completed.</source>
-        <translation type="unfinished"/>
+        <translation>Canvi massiu de nom completat.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="984"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="985"/>
         <source>Rebase cancelled: %1, XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Reassignació de base cancel·lada: %1, l&apos;XML no és ben format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="992"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="993"/>
         <source>Rebase completed.</source>
-        <translation type="unfinished"/>
+        <translation>Reassigació de base completada.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1102"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1103"/>
         <source>Checkpoint generation failed.</source>
-        <translation type="unfinished"/>
+        <translation>Ha fallat la generació del punt de control.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1108"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1109"/>
         <source>Checkpoint saved.</source>
-        <translation type="unfinished"/>
+        <translation>Punt de control desat.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1145"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1146"/>
         <source>Checkout Failed. No checkpoints found</source>
-        <translation type="unfinished"/>
+        <translation>Ha fallat la recuperació. No s&apos;ha trobat cap punt de control.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1162"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1163"/>
         <source>Checkout Failed. No checkpoint selected</source>
-        <translation type="unfinished"/>
+        <translation>Ha fallat la recuperació. No s&apos;ha seleccionat cap punt de control.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1186"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1187"/>
         <source>Epub Generate from Tag Failed.</source>
-        <translation type="unfinished"/>
+        <translation>Ha fallat la generació de l&apos;EPUB a partir de l&apos;etiqueta.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1191"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1192"/>
         <source>Epub Generation succeeded</source>
         <translation>L&apos;epub s&apos;ha generat correctament</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1205"/>
-        <source>Repository Checkout</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1206"/>
+        <source>Repository Checkout</source>
+        <translation>Recuperació del repositori</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="1207"/>
         <source>Your current book will be replaced losing any unsaved changes ... Are you sure you want to proceed?</source>
-        <translation type="unfinished"/>
+        <translation>El llibre actual se substituirà i es perdran tots els canvis que no hàgiu desat... Esteu segur que voleu continuar?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1230"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1259"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1231"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1260"/>
         <source>Diff Failed. No checkpoints found</source>
-        <translation type="unfinished"/>
+        <translation>Ha fallat la comparació. No s&apos;ha trobat cap punt de control.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1275"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1276"/>
         <source>Diff Failed. No checkpoint selected for comparison</source>
-        <translation type="unfinished"/>
+        <translation>Ha fallat la comparació. No s&apos;ha seleccionat cap punt de control per a la comparació.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1306"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1307"/>
         <source>Results of Comparison</source>
         <translation>Resultats de la comparació</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1306"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1307"/>
         <source>No differences were found.</source>
         <translation>No s&apos;ha trobat cap diferència.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1327"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="1342"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1328"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1343"/>
         <source>Description Edit Failed. No checkpoints found</source>
-        <translation type="unfinished"/>
+        <translation>Ha fallat l&apos;edició de la descripció. No s&apos;ha trobat cap punt de control.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1359"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1360"/>
         <source>Description Edit Failed. No checkpoint selected to edit</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1376"/>
-        <source>Edit checkpoint Description</source>
-        <translation type="unfinished"/>
+        <translation>Ha fallat l&apos;edició de la descripció. No s&apos;ha seleccionat cap punt de control per editar.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1377"/>
+        <source>Edit checkpoint Description</source>
+        <translation>Edita la descripció del punt de control.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="1378"/>
         <source>New Checkpoint Description:</source>
-        <translation type="unfinished"/>
+        <translation>Nova descripció del punt de control:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1388"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1389"/>
         <source>Description Edit Failed for unknown reason</source>
-        <translation type="unfinished"/>
+        <translation>Ha fallat l&apos;edició de la descripció per un motiu desconegut.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1394"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1395"/>
         <source>Description edit cancelled or empty</source>
-        <translation type="unfinished"/>
+        <translation>Edició de la descripció cancel·lada o buida.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1397"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1398"/>
         <source>Description successfully updated</source>
-        <translation type="unfinished"/>
+        <translation>Descripció actualitzada correctament.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1421"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1422"/>
         <source>Repository Log</source>
         <translation>Registre del repositori</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1452"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1453"/>
         <source>No External Xhtml Editor has been specified:  See Preferences</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha especificat cap editor XHTML extern: consulteu les Preferències.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1459"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1460"/>
         <source>Specified External Xhtml Editor path does not exist</source>
-        <translation type="unfinished"/>
+        <translation>La ruta especificada per a l&apos;editor XHTML extern no existeix.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1469"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1470"/>
         <source>PageEdit XHtml Editor works only on Html/OPF Resources</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;editor XHTML PageEdit només funciona amb recursos HTML/OPF.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1475"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1476"/>
         <source>External XHtml Editor works only on Html Resources</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;editor XHTML extern només funciona amb recursos HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1516"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1517"/>
         <source>Executing PageEdit Xhtml Editor</source>
-        <translation type="unfinished"/>
+        <translation>S’està executant l&apos;editor XHTML PageEdit.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1529"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1530"/>
         <source>Executing External Xhtml Editor</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;està executant l&apos;editor XHTML extern.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1533"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1534"/>
         <source>Failed to Launch External Xhtml Editor</source>
         <translation>No s&apos;ha pogut iniciar l&apos;editor Xhtml extern</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1701"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1702"/>
         <source>Navigation cancelled as location no longer exists.</source>
         <translation>S&apos;ha cancel·lat la navegació ja que el lloc ja no existeix.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1718"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1719"/>
         <source>Location bookmarked.</source>
         <translation>S&apos;ha desat l&apos;adreça d&apos;interès.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1783"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1784"/>
         <source>Are you sure you want to open this external link?
 
 %1</source>
@@ -12432,465 +12774,470 @@ This action cannot be reversed.</source>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1819"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1820"/>
         <source>was updated</source>
         <translation>s&apos;ha actualitzat</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1825"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1826"/>
         <source>Warning</source>
         <translation>Avís</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1825"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1826"/>
         <source>The file was NOT well formed and may be corrupted.</source>
         <translation>El fitxer no és ben format i pot ser corrupte.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1869"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1870"/>
         <source>Warning: </source>
         <translation>Alerta:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="1966"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="1967"/>
         <source>Sigil is closing...</source>
         <translation>El Sigil s&apos;està tancant...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2033"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2034"/>
         <source>New file created.</source>
         <translation>S&apos;ha creat un fitxer nou.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2056"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2057"/>
         <source>Open File</source>
         <translation>Obre el fitxer</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2096"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2097"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
         <translation>El fitxer ja no existeix. Feu clic a «D&apos;acord» per esborrar-lo del menú.
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2179"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2180"/>
         <source>Save File</source>
         <translation>Desa el fitxer</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2235"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2236"/>
         <source>Save a Copy</source>
         <translation>Desa una còpia</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2274"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2275"/>
         <source>Epub layout discarded.</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;ha descartat la composició de l&apos;EPUB.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2281"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2282"/>
         <source>New epub created.</source>
         <translation>S&apos;ha creat un nou epub.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2316"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2317"/>
         <source>Go To Line</source>
         <translation>Vés a la línia</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2316"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2317"/>
         <source>Line #</source>
         <translation>Linia número</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2339"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2340"/>
         <source>Image does not exist: </source>
         <translation>La imatge no existeix:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2419"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2420"/>
         <source>or</source>
         <translation>o</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2427"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2428"/>
         <source>No CSS styles named</source>
         <translation>No hi ha cap estil CSS anomenat</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2427"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2428"/>
         <source>found, or stylesheet not linked.</source>
-        <translation type="unfinished"/>
+        <translation>trobat, o bé el full d&apos;estil no està enllaçat.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2500"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2501"/>
         <source>&lt;html&gt;&lt;p&gt;The href &lt;b&gt;%1&lt;/b&gt; found in &lt;b&gt;%2&lt;/b&gt; does not exist (and there may be more). Splitting or merging under these conditions can result in broken links.&lt;/p&gt;&lt;p&gt;Do you still wish to continue?&lt;/p&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;p&gt;L&apos;href &lt;b&gt;%1&lt;/b&gt; trobat en &lt;b&gt;%2&lt;/b&gt; no existeix (hi poden haver-hi més). La divisió o fusió sota aquestes condicions pot donar lloc a enllaços trencats.&lt;/p&gt;&lt;p&gt;Encara voleu continuar?&lt;/p&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2524"/>
+        <source>Dropped files added.</source>
+        <translation>S&apos;han afegit els fitxers deixats anar.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="2538"/>
         <source>Add Cover</source>
         <translation>Afegeix una coberta</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2573"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2587"/>
         <source>An existing Cover file has been found.</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;ha trobat un fitxer de coberta existent.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2636"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2650"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
         <translation>Hi ha hagut un error. Per a la coberta, només es poden fer servir fitxers d&apos;imatge.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2655"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2669"/>
         <source>Cover added.</source>
         <translation>S&apos;ha afegit la coberta.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2671"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2685"/>
         <source>OPF Manifest Mimetypes Updated.</source>
-        <translation type="unfinished"/>
+        <translation>Tipus MIME del manifest OPF actualitzats.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2680"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2698"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2730"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2694"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2712"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2744"/>
         <source>Not Available for epub2.</source>
         <translation>No disponible per a l&apos;EPUB2.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2688"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2702"/>
         <source>OPF Manifest Properties Updated.</source>
         <translation>S&apos;han actualitzat les propietats del manifest OPF.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2720"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2734"/>
         <source>NCX and Guide removed.</source>
-        <translation type="unfinished"/>
+        <translation>S’han eliminat l&apos;NCX i la guia.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2747"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2780"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2761"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2794"/>
         <source>NCX and Guide generation failed.</source>
-        <translation type="unfinished"/>
+        <translation>Ha fallat la generació de l&apos;NCX i de la guia.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2816"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2830"/>
         <source>NCX and Guide generated.</source>
-        <translation type="unfinished"/>
+        <translation>S’han generat l&apos;NCX i la guia.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2913"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2927"/>
         <source>An existing Index file has been found.</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;ha trobat un fitxer d&apos;índex existent.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3005"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3019"/>
         <source>Styles deleted.</source>
         <translation>S&apos;han esborrat els estils.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3013"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3027"/>
         <source>Reports Being Generated.</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;estan generant els informes.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3024"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3038"/>
         <source>Reports cancelled due to XML not well formed.</source>
         <translation>S&apos;han cancel·lat els informes ja que l&apos;XML és mal format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3120"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3134"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
         <translation>S&apos;ha cancel·lat la supressió de fitxers multimèdia sense utilitzar ja que l&apos;XML és mal format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3168"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3184"/>
         <source>Unused media files deleted.</source>
         <translation>S&apos;han suprimit els fitxers multimèdia no utilitzats.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3171"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3174"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3187"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3190"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation>No hi ha cap imatge, vídeo o fitxer d&apos;àudio sense utilitzar.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3184"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3200"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation>Esborra els fulls d&apos;estil sense utilitzar cancel·lats per tenir l&apos;XML mal format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3206"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3208"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3222"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3224"/>
         <source>There are no unused stylesheet selectors to delete.</source>
-        <translation type="unfinished"/>
+        <translation>No hi ha cap selector de full d&apos;estil sense ús per eliminar.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3222"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3238"/>
         <source>You cannot insert a file at this position.</source>
         <translation>No es pot inserir un fitxer en aquesta posició.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3229"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3245"/>
         <source>Insert File</source>
         <translation>Insereix un fitxer</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3282"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3298"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>El fitxer «%1» no existeix.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3328"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3349"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3344"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3365"/>
         <source>You cannot insert an id at this position.</source>
         <translation>No es pot inserir un identificador en aquesta posició.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3344"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3360"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation>L&apos;identificador no és vàlid; ha de començar amb una lletra seguida de lletre, números _ : o .</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3362"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3378"/>
         <source>You can only insert an aria clips in xhtml files.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3381"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3397"/>
         <source>Inserting an aria clip failed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3395"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3414"/>
-        <source>You cannot insert an aria role at this position.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3410"/>
-        <source>The selected role cannot be used on this tag.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="3411"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3430"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3448"/>
+        <source>You cannot insert an aria role at this position.</source>
+        <translation>No podeu inserir un rol ARIA en aquesta posició.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="3426"/>
+        <source>The selected role cannot be used on this tag.</source>
+        <translation>El rol seleccionat no es pot utilitzar en aquesta etiqueta.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="3446"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3464"/>
         <source>You cannot insert a link at this position.</source>
         <translation>No es pot inserir un enllaç en aquesta posició</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3443"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3459"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>L&apos;enllaç no és correcte; no ha de tenir «&lt;» ni «&gt;»</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3460"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3476"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation>No es pot marcar un índex en aquesta posició o sense seleccionar text.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3470"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3486"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>L&apos;entrada no és correcta; no ha de tenir «&lt;» ni «&gt;»</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3475"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3491"/>
         <source>You cannot mark an index at this position.</source>
         <translation>No es pot marcar un índex en aquesta posició.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3586"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3598"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3617"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3602"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3614"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3633"/>
         <source>Select the destination to paste into first.</source>
         <translation>Seleccioneu una destinació per enganxar-hi a dins.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3606"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3622"/>
         <source>Pasted clip entry %1.</source>
         <translation>S&apos;ha enganxat l&apos;entrada de retall %1.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3677"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3693"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>Hi ha un recurs seleccionat i cap recurs previ per combinar-lo dins seu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3685"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3701"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>Esteu segur que voleu combinar els fitxers seleccionats?
 Aquesta acció no es pot desfer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3700"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3716"/>
         <source>Merge cancelled: XHTML files involved in merge are not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Combinació cancel·lada: els fitxers XHTML implicats en la combinació no són ben formats.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3759"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3775"/>
         <source>Cannot merge file %1</source>
         <translation>No es pot combinar el fitxer %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3773"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3789"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>S&apos;ha completat la combinació. Si cal, editeu o tornau a generar la taula de continguts.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3791"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3807"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation>S&apos;ha cancel·lat l&apos;enllaç amb el full d&apos;estil %1 ja que l&apos;XML no és ben format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3921"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3937"/>
         <source>Word updated.</source>
         <translation>S&apos;ha actualitzat la paraula.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3990"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4006"/>
         <source>Link Javascripts cancelled: %1, XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>Enllaç dels fitxers JavaScript cancel·lat: %1, l&apos;XML no és ben format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4100"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4116"/>
         <source>File(s) deleted.</source>
         <translation>S&apos;han esborrat els fitxers.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4111"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4127"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>S&apos;ha cancel·lat l&apos;edició de la taula de continguts.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4116"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4132"/>
         <source>Table Of Contents edited.</source>
         <translation>S&apos;ha editat la taula de contonguts.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4134"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4150"/>
         <source>Generate TOC cancelled.</source>
         <translation>S&apos;ha cancel·lat la generació de la taula de continguts.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4159"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4175"/>
         <source>Table Of Contents generated.</source>
         <translation>S&apos;ha generat la taula de continguts.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4161"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4177"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>No cal fer canvis a la taula de continguts.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4235"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4251"/>
         <source>An existing HTML Table of Contents file has been found.</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;ha trobat un fitxer HTML de taula de continguts existent.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4319"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4335"/>
         <source>Text selection marked.</source>
         <translation>S&apos;ha marcat el text seleccionat.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4321"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4339"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4337"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4355"/>
         <source>Text selection unmarked.</source>
         <translation>S&apos;ha desmarcat el text seleccionat.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4388"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4404"/>
         <source>Metadata Editor cancelled.</source>
         <translation>S&apos;ha cancel·lat l&apos;editor de metadades.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4391"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4407"/>
         <source>Metadata edited.</source>
         <translation>S&apos;han editat les metadades.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4501"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4527"/>
         <source>RunPlugin</source>
         <translation>Executa el connector</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4514"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4540"/>
         <source>RunAutomate</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4540"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4566"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>Aquest EPUB no conté cap full d&apos;estil CSS per validar.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4571"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4597"/>
         <source>This EPUB does not contain any CSS stylesheets to reformat.</source>
-        <translation type="unfinished"/>
+        <translation>Aquest EPUB no conté cap full d&apos;estil CSS per reformatar.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5096"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5122"/>
         <source>%1 (%2) - Line: %3, Col: %4</source>
         <translation>%1 (%2) - Línia: %3, Columna: %4</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5184"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5210"/>
         <source>File cannot be split at this position.</source>
         <translation>El fitxer no es pot dividir en aquesta posició.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5207"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5233"/>
         <source>Split completed.</source>
         <translation>S&apos;ha completat la divisió.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5225"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5251"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>No es po dividir ja que un dels fitxers, com a mínim, no és HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5231"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5257"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>No es pot dividir %1 ja que l&apos;XML no és ben format</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5237"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5263"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>No es pot dividir ja que un dels fitxers, com a mínim, potser no és HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5270"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5296"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>S&apos;ha completat la divisió. Si cal, actualitzau la taula de continguts.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5272"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5298"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>No s&apos;ha trobat cap marcador de divisió de fitxer.
 Utilizeu l&apos;ordre «Marcador de divisió» del menú «Insereix».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5467"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5493"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>El document s&apos;ha modificat.
 Voleu desar-ne els canvis?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5488"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5514"/>
         <source>Should Sigil overwrite this file?</source>
         <translation>Voleu sobreescriure aquest fitxer?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5683"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5709"/>
         <source>No importer for file type: %1</source>
         <translation>No es poden importar els fitxers de tipus %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5690"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5716"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -12903,138 +13250,140 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
 Proveu de canviar les preferències de netedat del codi triant l&apos;opció «Repara el codi font XHTML en obrir» i torneu a carregat el fitxer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5695"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5721"/>
         <source>Loading file...</source>
         <translation>S&apos;està carregant el fitxer...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5709"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5735"/>
         <source>File loaded.</source>
         <translation>S&apos;ha carregat el fitxer.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5735"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5761"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>El creador d&apos;aquest fitxer l&apos;ha encriptat amb DRM. El Sigil no pot obrir aquests fitxers.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5743"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5769"/>
         <source>Cannot load EPUB: %1</source>
         <translation>No es pot carregar l&apos;EPUB %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5748"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5774"/>
         <source>Cannot load file %1: %2</source>
         <translation>No es pot carregar el fitxer %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5775"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5801"/>
         <source>Saving EPUB...</source>
         <translation>S&apos;està desant l&apos;EPUB...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5784"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5810"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>El Sigil no pot desar fitxers del tipus «%1».
 Trieu un altre format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5808"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5834"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to mend on Save.
 
 Do you want to automatically mend the files before saving? Or cancel the Save?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5813"/>
-        <source>Saving EPUB... cancelled</source>
-        <translation type="unfinished"/>
+        <translation>Aquest EPUB conté fitxers HTML que no estan ben formats i les preferències actuals de neteja del codi font estan configurades per reparar en desar.
+
+Voleu reparar automàticament els fitxers abans de desar? O vols cancel·lar?</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5839"/>
+        <source>Saving EPUB... cancelled</source>
+        <translation>Desament de l&apos;EPUB... cancel·lat</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/MainWindow.cpp" line="5865"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>S&apos;ha desat l&apos;EPUB, però no tots els fitxers HTML són ben formats.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5841"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5867"/>
         <source>EPUB saved.</source>
         <translation>S&apos;ha desat l&apos;EPUB.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5847"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5873"/>
         <source>Cannot save file %1: %2</source>
         <translation>No es pot desar el fitxer %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5980"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6006"/>
         <source>EPUB files (*.epub)</source>
         <translation>Fitxers EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5981"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5982"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5983"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6007"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6008"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6009"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>Fitxers HTML  (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5984"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6010"/>
         <source>Text files (*.txt)</source>
         <translation>Fitxers de text (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5985"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6011"/>
         <source>All files (*.*)</source>
         <translation>Tots els fitxers (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5993"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6019"/>
         <source>EPUB file (*.epub)</source>
         <translation>Fitxer EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6095"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6121"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>Conservació d&apos;atributs d&apos;encapçalament:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6096"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6122"/>
         <source>ON</source>
         <translation>Actiu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6096"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6122"/>
         <source>OFF</source>
         <translation>Inactiu</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6121"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6147"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7091"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7123"/>
         <source>Focus changed to CodeView window.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7100"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7132"/>
         <source>Focus changed to BookBrowser window.</source>
-        <translation type="unfinished"/>
+        <translation> El focus ha canviat a la finestra del navegador del llibre.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7109"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7141"/>
         <source>Focus changed to Preview window.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7118"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7150"/>
         <source>Focus changed to Table Of Contents window.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7127"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7159"/>
         <source>Focus changed to Clips window.</source>
         <translation type="unfinished"/>
     </message>
@@ -13064,7 +13413,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="51"/>
         <source>Remove selected lists.</source>
-        <translation type="unfinished"/>
+        <translation>Suprimeix les llistes seleccionades.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="54"/>
@@ -13074,7 +13423,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="64"/>
         <source>Rename a selected list.</source>
-        <translation type="unfinished"/>
+        <translation>Canvia el nom d&apos;una llista seleccionada.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="67"/>
@@ -13084,7 +13433,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="77"/>
         <source>Edit selected list</source>
-        <translation type="unfinished"/>
+        <translation>Edita la llista seleccionada</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageAutomation.ui" line="80"/>
@@ -13133,12 +13482,12 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="14"/>
         <source>Manage Checkpoint Repositories</source>
-        <translation type="unfinished"/>
+        <translation>Gestiona els repositoris de punts de control</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="22"/>
         <source>Checkpoint Repositories</source>
-        <translation type="unfinished"/>
+        <translation>Repositoris de punts de control</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="69"/>
@@ -13168,7 +13517,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="113"/>
         <source>Show Log</source>
-        <translation type="unfinished"/>
+        <translation>Mostra el registre</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="123"/>
@@ -13194,12 +13543,12 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/ManageRepos.cpp" line="198"/>
         <source>Remove All Repositories</source>
-        <translation type="unfinished"/>
+        <translation>Suprimeix tots els repositoris</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ManageRepos.cpp" line="199"/>
         <source>Are you sure sure you want to remove all checkpoint repositories?</source>
-        <translation type="unfinished"/>
+        <translation>Esteu segur que voleu eliminar tots els repositoris de punts de control?</translation>
     </message>
 </context>
 <context>
@@ -15919,7 +16268,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="178"/>
         <source>Use OK to commit your metadata changes to the epub, otherwise use Cancel.</source>
-        <translation type="unfinished"/>
+        <translation>Utilitzeu D&apos;acord per confirmar els canvis de metadades a l&apos;EPUB; altrament, utilitzeu Cancel·la.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="90"/>
@@ -15934,12 +16283,12 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="170"/>
         <source>Add Metadata element</source>
-        <translation type="unfinished"/>
+        <translation>Afegeix un element de metadades</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="171"/>
         <source>Add Property to element</source>
-        <translation type="unfinished"/>
+        <translation>Afegeix una propietat a l&apos;element</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="172"/>
@@ -15960,7 +16309,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
         <location filename="../../Dialogs/MetaEditor.cpp" line="488"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="579"/>
         <source>Add Metadata Element</source>
-        <translation type="unfinished"/>
+        <translation>Afegeix un element de metadades</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="497"/>
@@ -16051,7 +16400,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="663"/>
         <source>Add Property to Element</source>
-        <translation type="unfinished"/>
+        <translation>Afegeix una propietat a l&apos;element</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="721"/>
@@ -16062,12 +16411,12 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="735"/>
         <source>[Insert identifier type here]</source>
-        <translation type="unfinished"/>
+        <translation>[Inseriu aquí el tipus d&apos;identificador]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="737"/>
         <source>[Insert scheme type here]</source>
-        <translation type="unfinished"/>
+        <translation>[Inseriu aquí el tipus d&apos;esquema]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="739"/>
@@ -16078,12 +16427,12 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="739"/>
         <source>[Custom property/attribute]</source>
-        <translation type="unfinished"/>
+        <translation>[Propietat/atribut personalitzat]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="752"/>
         <source>Add Propety to Element</source>
-        <translation type="unfinished"/>
+        <translation>Afegeix una propietat a l&apos;element</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="786"/>
@@ -16094,7 +16443,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="786"/>
         <source>[Custom metadata property/attribute]</source>
-        <translation type="unfinished"/>
+        <translation>[Propietat/atribut de metadades personalitzat]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="845"/>
@@ -16104,7 +16453,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="884"/>
         <source>[Your value here]</source>
-        <translation type="unfinished"/>
+        <translation>[El vostre valor aquí]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="949"/>
@@ -16237,7 +16586,7 @@ Es recomana usar un vocabulari controlat, per exemple, la llista de Internet Med
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="960"/>
         <source>Related To</source>
-        <translation type="unfinished"/>
+        <translation>Relacionat amb</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="960"/>
@@ -16281,7 +16630,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="963"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The Role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
-        <translation type="unfinished"/>
+        <translation>Representa el nom d&apos;una persona, organització, etc. responsable de la creació del contingut d&apos;una publicació EPUB. La propietat role es pot associar a l&apos;element per indicar la funció que aquest creador ha exercit en la creació del contingut.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="964"/>
@@ -16292,12 +16641,12 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="964"/>
         <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication. The Role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
-        <translation type="unfinished"/>
+        <translation>Representa el nom d&apos;una persona, organització, etc. que ha tingut un paper secundari en la creació del contingut d’una publicació EPUB. La propietat role es pot associar a l&apos;element per indicar la funció que aquesta persona o entitat ha exercit en la creació del contingut.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="965"/>
         <source>Belongs to a Collection</source>
-        <translation type="unfinished"/>
+        <translation>Pertany a una col·lecció</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="965"/>
@@ -16323,7 +16672,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="967"/>
         <source>Digital Object Identifier associated with this publication.</source>
-        <translation type="unfinished"/>
+        <translation>El DOI associat a aquesta publicació.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="968"/>
@@ -16333,7 +16682,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="968"/>
         <source>International Standard Book Number associated with this publication.</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;ISBN associat a aquesta publicació.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="969"/>
@@ -16343,7 +16692,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="969"/>
         <source>International Standard Serial Number associated with this publication.</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;ISSN associat a aquesta publicació.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="970"/>
@@ -16353,7 +16702,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="970"/>
         <source>A Universally Unique Identifier generated for this publication.</source>
-        <translation type="unfinished"/>
+        <translation>Un número estàndard d&apos;identificació d&apos;Amazon associat amb aquesta publicació.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="971"/>
@@ -16363,7 +16712,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="971"/>
         <source>An Amazon Standard Identification Number associated with this publication.</source>
-        <translation type="unfinished"/>
+        <translation>Un número estàndard d&apos;identificació d&apos;Amazon associat amb aquesta publicació.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="972"/>
@@ -16384,12 +16733,12 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="974"/>
         <source>Meta Element (primary)</source>
-        <translation type="unfinished"/>
+        <translation>Element meta (principal)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="974"/>
         <source>An empty primary metadata element you can modify.</source>
-        <translation type="unfinished"/>
+        <translation>Un element de metadades principal buit que podeu modificar.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1000"/>
@@ -16412,12 +16761,12 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1001"/>
         <source>Optional, language specifying attribute.  Uses same codes as Language. Not for use with Language, Date, or Identifier metadata elements.</source>
-        <translation type="unfinished"/>
+        <translation>Atribut opcional que especifica la llengua. Utilitza els mateixos codis que Llengua. No s&apos;ha d&apos;utilitzar amb els elements de metadades language, date o identifier.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1002"/>
         <source>Uses Right To Left Text</source>
-        <translation type="unfinished"/>
+        <translation>Utilitza text de dreata a esquerra</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1002"/>
@@ -16427,7 +16776,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1003"/>
         <source>Uses Left to Right Text</source>
-        <translation type="unfinished"/>
+        <translation>Utilitza text d&apos;esquerra a dreta</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1003"/>
@@ -16502,7 +16851,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1010"/>
         <source>Provides an alternate expression of the associated property value in a language and script identified by an xml:lang attribute.</source>
-        <translation type="unfinished"/>
+        <translation>Proporciona una expressió alternativa del valor de la propietat associada en una llengua i una escriptura identificades mitjançant un atribut xml:lang.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1011"/>
@@ -16517,7 +16866,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1012"/>
         <source>Collection is a Set</source>
-        <translation type="unfinished"/>
+        <translation>La col·lecció és un conjunt.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1012"/>
@@ -16527,7 +16876,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1013"/>
         <source>Collection is a Series</source>
-        <translation type="unfinished"/>
+        <translation> La col·lecció és una sèrie</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1013"/>
@@ -16559,7 +16908,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1016"/>
         <source>Position In Group</source>
-        <translation type="unfinished"/>
+        <translation>Posició dins del grup</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1016"/>
@@ -16597,7 +16946,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1019"/>
         <source>This attribute is typically added to Identifier, Source, Creator, or Contributors to indicate the controlled vocabulary system employed. (e.g. marc:relators to specify valid values for the role property.</source>
-        <translation type="unfinished"/>
+        <translation>Aquest atribut se sol afegir a identifier, source, creator o contributor per indicar el sistema de vocabulari controlat emprat (per exemple, marc:relators per especificar valors vàlids per a la propietat role).</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1020"/>
@@ -16622,7 +16971,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1049"/>
         <source>Optional text direction attribute for this metadata item.</source>
-        <translation type="unfinished"/>
+        <translation>Atribut opcional de direcció del text per a aquest element de metadades.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1050"/>
@@ -16632,7 +16981,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1050"/>
         <source>Indicates the kind or type of the title</source>
-        <translation type="unfinished"/>
+        <translation>Indica la mena o el tipus de títol.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1051"/>
@@ -16642,7 +16991,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1051"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection.</source>
-        <translation type="unfinished"/>
+        <translation>Propietat utilitzada amb belongs-to-collection. Indica la forma o la naturalesa d&apos;una col·lecció.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1052"/>
@@ -16652,7 +17001,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1052"/>
         <source>Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication.</source>
-        <translation type="unfinished"/>
+        <translation>Indica un aspecte únic d&apos;un recurs font adaptat que s&apos;ha conservat en la representació concreta de la publicació EPUB.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1079"/>
@@ -16662,7 +17011,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1079"/>
         <source>Event Type is Published.</source>
-        <translation type="unfinished"/>
+        <translation>El tipus d&apos;esdeveniment és publicat.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1080"/>
@@ -16672,7 +17021,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1080"/>
         <source>Event Type is Publication.</source>
-        <translation type="unfinished"/>
+        <translation>El tipus d&apos;esdeveniment és publicació.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1081"/>
@@ -16682,7 +17031,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1081"/>
         <source>Event Type is Creation.</source>
-        <translation type="unfinished"/>
+        <translation>El tipus d&apos;esdeveniment és creació.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1082"/>
@@ -16692,7 +17041,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1082"/>
         <source>Event Type is Modification.</source>
-        <translation type="unfinished"/>
+        <translation>El tipus d&apos;esdeveniment és modificació.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1083"/>
@@ -16703,7 +17052,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1083"/>
         <source>Identifier Scheme: Digital Object Identifier</source>
-        <translation type="unfinished"/>
+        <translation>Esquema d&apos;identificador: Digital Object Identifier</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1084"/>
@@ -16714,7 +17063,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1084"/>
         <source>Identifier Scheme: International Standard Book Number</source>
-        <translation type="unfinished"/>
+        <translation>Esquema d&apos;identificador: International Standard Book Number</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1085"/>
@@ -16725,7 +17074,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1085"/>
         <source>Identifier Scheme: International Standard Serial Number</source>
-        <translation type="unfinished"/>
+        <translation>Esquema d&apos;identificador: International Standard Serial Number</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1086"/>
@@ -16736,7 +17085,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1086"/>
         <source>Identifier Scheme: Universally Unique Identifier</source>
-        <translation type="unfinished"/>
+        <translation>Esquema d&apos;identificador: Universally Unique Identifier</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1087"/>
@@ -16746,7 +17095,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1087"/>
         <source>Identifier Scheme: Amazon Unique Identifier</source>
-        <translation type="unfinished"/>
+        <translation>Esquema d&apos;identificador: identificador únic d&apos;Amazon</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1116"/>
@@ -16771,7 +17120,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1122"/>
         <source>A date associated with this epub, typically refined by event type information</source>
-        <translation type="unfinished"/>
+        <translation>Una data associada amb aquest EPUB, normalment refinada mitjançant informació sobre el tipus d&apos;esdeveniment.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1123"/>
@@ -16820,7 +17169,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1137"/>
         <source>Amazon Standard Identification Number</source>
-        <translation type="unfinished"/>
+        <translation>Número estàndard d&apos;identificació d&apos;Amazon</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1138"/>
@@ -16845,22 +17194,22 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1140"/>
         <source>Index of this book in the series (from calibre)</source>
-        <translation type="unfinished"/>
+        <translation>Índex d&apos;aquest llibre dins de la sèrie (de calibre)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1141"/>
         <source>Title for Sorting</source>
-        <translation type="unfinished"/>
+        <translation>Títol per a l&apos;ordenació</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1141"/>
         <source>Version of ebook title to use for sorting (from calibre)</source>
-        <translation type="unfinished"/>
+        <translation>Versió del títol del llibre electrònic que s&apos;ha d&apos;utilitzar per a l&apos;ordenació (de calibre)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1142"/>
         <source>An empty element for you to modify</source>
-        <translation type="unfinished"/>
+        <translation>Un element buit perquè el pugueu modificar.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1170"/>
@@ -16870,7 +17219,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1173"/>
         <source>This attribute is typically added to dc:identifier to indicate the type of identifier being used: DOI, ISBN, ISSN, UUID, or AMAZON.</source>
-        <translation type="unfinished"/>
+        <translation>Aquest atribut se sol afegir a dc:identifier per indicar el tipus d&apos;identificador que s&apos;està utilitzant: DOI, ISBN, ISSN, UUID o AMAZON.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1174"/>
@@ -16880,7 +17229,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1174"/>
         <source>This attribute is typically added to dc:identifier to indicate that a custom identifier scheme is being used.</source>
-        <translation type="unfinished"/>
+        <translation>Aquest atribut se sol afegir a dc:identifier per indicar que s&apos;està utilitzant un esquema d&apos;identificació personalitzat.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1175"/>
@@ -16922,12 +17271,12 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Widgets/Navigator.h" line="55"/>
         <source>Go to previous change - [p]</source>
-        <translation type="unfinished"/>
+        <translation>Ves al canvi anterior - [p]</translation>
     </message>
     <message>
         <location filename="../../Widgets/Navigator.h" line="62"/>
         <source>Go to next change - [n]</source>
-        <translation type="unfinished"/>
+        <translation>Ves al canvi següent - [n]</translation>
     </message>
     <message>
         <location filename="../../Widgets/Navigator.h" line="69"/>
@@ -16937,22 +17286,22 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Widgets/Navigator.h" line="73"/>
         <source>Find Next</source>
-        <translation type="unfinished"/>
+        <translation>Cerca el següent</translation>
     </message>
     <message>
         <location filename="../../Widgets/Navigator.h" line="80"/>
         <source>Find Previous</source>
-        <translation type="unfinished"/>
+        <translation>Cerca l&apos;anterior</translation>
     </message>
     <message>
         <location filename="../../Widgets/Navigator.h" line="86"/>
         <source>Use Left Panel</source>
-        <translation type="unfinished"/>
+        <translation>Utilitza el panell esquerre</translation>
     </message>
     <message>
         <location filename="../../Widgets/Navigator.h" line="89"/>
         <source>Use Right Panel</source>
-        <translation type="unfinished"/>
+        <translation>Utilitza el panell dret</translation>
     </message>
     <message>
         <location filename="../../Widgets/Navigator.h" line="94"/>
@@ -16970,12 +17319,12 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Widgets/Navigator2.h" line="53"/>
         <source>Go to previous page - [p]</source>
-        <translation type="unfinished"/>
+        <translation>Ves a la pàgina anterior - [p]</translation>
     </message>
     <message>
         <location filename="../../Widgets/Navigator2.h" line="61"/>
         <source>Go to next page - [n]</source>
-        <translation type="unfinished"/>
+        <translation>Ves a la pàgina següent - [n]</translation>
     </message>
     <message>
         <location filename="../../Widgets/Navigator2.h" line="69"/>
@@ -16985,12 +17334,12 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../Widgets/Navigator2.h" line="74"/>
         <source>Find Next</source>
-        <translation type="unfinished"/>
+        <translation>Cerca el següent</translation>
     </message>
     <message>
         <location filename="../../Widgets/Navigator2.h" line="82"/>
         <source>Find Previous</source>
-        <translation type="unfinished"/>
+        <translation>Cerca l&apos;anterior</translation>
     </message>
     <message>
         <location filename="../../Widgets/Navigator2.h" line="89"/>
@@ -17024,24 +17373,25 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="820"/>
         <source>The book path cannot be empty.</source>
-        <translation type="unfinished"/>
+        <translation>La ruta del llibre no pot estar buida.</translation>
     </message>
     <message>
         <location filename="../../MainUI/OPFModel.cpp" line="827"/>
         <source>That book path &quot;%1&quot; is already in use.
 </source>
-        <translation type="unfinished"/>
+        <translation>La ruta del llibre &quot;%1&quot; ja està en ús.
+</translation>
     </message>
 </context>
 <context>
     <name>OPFResource</name>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1594"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1649"/>
         <source>[Title here]</source>
         <translation>[Títol]</translation>
     </message>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1604"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1659"/>
         <source>[Main title here]</source>
         <translation>[Títol principal]</translation>
     </message>
@@ -17084,52 +17434,52 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="60"/>
         <source>\ at end of pattern</source>
-        <translation type="unfinished"/>
+        <translation>\ al final del patró</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="61"/>
         <source>\c at end of pattern</source>
-        <translation type="unfinished"/>
+        <translation>\c al final del patró</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="62"/>
         <source>unrecognized character follows \</source>
-        <translation type="unfinished"/>
+        <translation>hi ha un caràcter no reconegut després de \</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="63"/>
         <source>numbers out of order in {} quantifier</source>
-        <translation type="unfinished"/>
+        <translation>els números del quantificador {} no estan en ordre</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="65"/>
         <source>number too big in {} quantifier</source>
-        <translation type="unfinished"/>
+        <translation>número massa gran al quantificador {}</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="66"/>
         <source>missing terminating ] for character class</source>
-        <translation type="unfinished"/>
+        <translation>falta el ] de tancament de la classe de caràcters</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="67"/>
         <source>escape sequence is invalid in character class</source>
-        <translation type="unfinished"/>
+        <translation>la seqüència d&apos;escapament no és vàlida dins de la classe de caràcters</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="68"/>
         <source>range out of order in character class</source>
-        <translation type="unfinished"/>
+        <translation>l&apos;interval dins de la classe de caràcters no està en ordre</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="69"/>
         <source>quantifier does not follow a repeatable item</source>
-        <translation type="unfinished"/>
+        <translation>el quantificador no va darrere d&apos;un element repetible</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="72"/>
         <source>internal error: unexpected repeat</source>
-        <translation type="unfinished"/>
+        <translation>error intern: repetició inesperada</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="73"/>
@@ -17139,12 +17489,12 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="74"/>
         <source>POSIX named classes are supported only within a class</source>
-        <translation type="unfinished"/>
+        <translation>les classes amb nom de POSIX només són compatibles dins d&apos;una classe</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="75"/>
         <source>POSIX collating elements are not supported</source>
-        <translation type="unfinished"/>
+        <translation>els elements de col·lació POSIX no són compatibles</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="76"/>
@@ -17229,7 +17579,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="100"/>
         <source>unknown POSIX class name</source>
-        <translation type="unfinished"/>
+        <translation>nom de classe POSIX desconegut</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="101"/>
@@ -17239,7 +17589,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="102"/>
         <source>this version of PCRE2 does not have Unicode support</source>
-        <translation type="unfinished"/>
+        <translation>aquesta versió de PCRE2 no té compatibilitat amb Unicode.</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="103"/>
@@ -17264,12 +17614,12 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="109"/>
         <source>PCRE2 does not support \F, \L, \l, \N{name}, \U, or \u</source>
-        <translation type="unfinished"/>
+        <translation>PCRE2 no és compatible amb \F, \L, \l, \N{name}, \U ni \u.</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="110"/>
         <source>number after (?C is greater than 255</source>
-        <translation type="unfinished"/>
+        <translation>el nombre després de (?C és superior a 255</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="111"/>
@@ -17294,27 +17644,27 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="117"/>
         <source>two named subpatterns have the same name (PCRE2_DUPNAMES not set)</source>
-        <translation type="unfinished"/>
+        <translation>dos subpatrons amb nom tenen el mateix nom (PCRE2_DUPNAMES no està establert)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="118"/>
         <source>subpattern name must start with a non-digit</source>
-        <translation type="unfinished"/>
+        <translation>el nom del subpatró ha de començar amb un caràcter que no sigui un dígit</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="121"/>
         <source>this version of PCRE2 does not have support for \P, \p, or \X</source>
-        <translation type="unfinished"/>
+        <translation>aquesta versió de PCRE2 no és compatible amb \P, \p ni \X</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="122"/>
         <source>malformed \P or \p sequence</source>
-        <translation type="unfinished"/>
+        <translation>seqüència \P o \p mal formada</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="123"/>
         <source>unknown property name after \P or \p</source>
-        <translation type="unfinished"/>
+        <translation>nom de propietat desconegut després de \P o \p</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="124"/>
@@ -17369,7 +17719,7 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="138"/>
         <source>(?R (recursive pattern call) must be followed by a closing parenthesis</source>
-        <translation type="unfinished"/>
+        <translation>(?R (crida recursiva al patró) ha d&apos;anar seguida d&apos;un parèntesi de tancament</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="139"/>
@@ -17389,192 +17739,192 @@ El fet que no s&apos;indiqui cap dret no vol dir que la publicació no en tingui
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="144"/>
         <source>subpattern name expected</source>
-        <translation type="unfinished"/>
+        <translation>s&apos;esperava el nom del subpatró</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="145"/>
         <source>internal error: parsed pattern overflow</source>
-        <translation type="unfinished"/>
+        <translation>error intern: desbordament del patró analitzat</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="146"/>
         <source>non-octal character in \o{} (closing brace missing?)</source>
-        <translation type="unfinished"/>
+        <translation>caràcter no octal a \o{} (falta la clau de tancament?)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="149"/>
         <source>different names for subpatterns of the same number are not allowed</source>
-        <translation type="unfinished"/>
+        <translation>no es permeten noms diferents per a subpatrons amb el mateix número</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="150"/>
         <source>(*MARK) must have an argument</source>
-        <translation type="unfinished"/>
+        <translation>(*MARK) ha de tenir un argument</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="151"/>
         <source>non-hex character in \x{} (closing brace missing?)</source>
-        <translation type="unfinished"/>
+        <translation>caràcter no hexadecimal a \x{} (falta la clau de tancament?)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="152"/>
         <source>\c must be followed by a printable ASCII character</source>
-        <translation type="unfinished"/>
+        <translation>\c ha d&apos;anar seguit d&apos;un caràcter ASCII imprimible</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="153"/>
         <source>\k is not followed by a braced, angle-bracketed, or quoted name</source>
-        <translation type="unfinished"/>
+        <translation>\k no va seguit d&apos;un nom entre claus, entre signes de menor i major, o entre cometes</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="156"/>
         <source>internal error: unknown meta code in check_lookbehinds()</source>
-        <translation type="unfinished"/>
+        <translation>error intern: metacodi desconegut a check_lookbehinds()</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="157"/>
         <source>\N is not supported in a class</source>
-        <translation type="unfinished"/>
+        <translation>\N no és compatible dins d&apos;una classe</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="158"/>
         <source>callout string is too long</source>
-        <translation type="unfinished"/>
+        <translation>la cadena de crida és massa llarga</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="159"/>
         <source>disallowed Unicode code point (&gt;= 0xd800 &amp;&amp; &lt;= 0xdfff)</source>
-        <translation type="unfinished"/>
+        <translation>punt de codi Unicode no permès (&gt;= 0xd800 &amp;&amp; &lt;= 0xdfff)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="160"/>
         <source>using UTF is disabled by the application</source>
-        <translation type="unfinished"/>
+        <translation>l&apos;ús d&apos;UTF està desactivat per l&apos;aplicació</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="163"/>
         <source>using UCP is disabled by the application</source>
-        <translation type="unfinished"/>
+        <translation>l&apos;ús d&apos;UCP està desactivat per l&apos;aplicació</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="164"/>
         <source>name is too long in (*MARK), (*PRUNE), (*SKIP), or (*THEN)</source>
-        <translation type="unfinished"/>
+        <translation>el nom és massa llarg a (*MARK), (*PRUNE), (*SKIP) o (*THEN)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="165"/>
         <source>character code point value in \u.... sequence is too large</source>
-        <translation type="unfinished"/>
+        <translation>el valor del punt de codi del caràcter a la seqüència \u.... és massa gran</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="166"/>
         <source>digits missing in \x{} or \o{} or \N{U+}</source>
-        <translation type="unfinished"/>
+        <translation>falten dígits a \x{}, \o{} o \N{U+}</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="167"/>
         <source>syntax error or number too big in (?(VERSION condition</source>
-        <translation type="unfinished"/>
+        <translation>error de sintaxi o nombre massa gran a la condició (?(VERSION</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="170"/>
         <source>internal error: unknown opcode in auto_possessify()</source>
-        <translation type="unfinished"/>
+        <translation>error intern: codi d&apos;operació desconegut a auto_possessify()</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="171"/>
         <source>missing terminating delimiter for callout with string argument</source>
-        <translation type="unfinished"/>
+        <translation>falta el delimitador final per a la crida amb argument de cadena</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="172"/>
         <source>unrecognized string delimiter follows (?C</source>
-        <translation type="unfinished"/>
+        <translation>hi ha un delimitador de cadena no reconegut després de (?C</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="173"/>
         <source>using \C is disabled by the application</source>
-        <translation type="unfinished"/>
+        <translation>l&apos;ús de \C està desactivat per l&apos;aplicació</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="174"/>
         <source>(?| and/or (?J: or (?x: parentheses are too deeply nested</source>
-        <translation type="unfinished"/>
+        <translation>(?| i/o els parèntesis de (?J: o (?x: estan imbricats massa profundament</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="177"/>
         <source>using \C is disabled in this PCRE2 library</source>
-        <translation type="unfinished"/>
+        <translation>l&apos;ús de \C està desactivat en aquesta biblioteca PCRE2</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="178"/>
         <source>regular expression is too complicated</source>
-        <translation type="unfinished"/>
+        <translation>l&apos;expressió regular és massa complexa</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="179"/>
         <source>lookbehind assertion is too long</source>
-        <translation type="unfinished"/>
+        <translation> l&apos;assertió lookbehind és massa llarga</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="180"/>
         <source>pattern string is longer than the limit set by the application</source>
-        <translation type="unfinished"/>
+        <translation>la cadena del patró és més llarga que el límit establert per l&apos;aplicació</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="181"/>
         <source>internal error: unknown code in parsed pattern</source>
-        <translation type="unfinished"/>
+        <translation>error intern: codi desconegut en el patró analitzat</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="184"/>
         <source>internal error: bad code value in parsed_skip()</source>
-        <translation type="unfinished"/>
+        <translation>error intern: valor de codi incorrecte a parsed_skip()</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="185"/>
         <source>PCRE2_EXTRA_ALLOW_SURROGATE_ESCAPES is not allowed in UTF-16 mode</source>
-        <translation type="unfinished"/>
+        <translation>PCRE2_EXTRA_ALLOW_SURROGATE_ESCAPES no està permès en mode UTF-16.</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="186"/>
         <source>invalid option bits with PCRE2_LITERAL</source>
-        <translation type="unfinished"/>
+        <translation>bits d’&apos;opció no vàlids amb PCRE2_LITERAL</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="187"/>
         <source>\N{U+dddd} is supported only in Unicode (UTF) mode</source>
-        <translation type="unfinished"/>
+        <translation>\N{U+dddd} només és compatible en mode Unicode (UTF).</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="188"/>
         <source>invalid hyphen in option setting</source>
-        <translation type="unfinished"/>
+        <translation>guionet no vàlid en la configuració de les opcions</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="191"/>
         <source>(*alpha_assertion) not recognized</source>
-        <translation type="unfinished"/>
+        <translation>(*alpha_assertion) no es reconeix.</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="192"/>
         <source>script runs require Unicode support, which this version of PCRE2 does not have</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;execució d&apos;scripts requereix compatibilitat amb Unicode, que aquesta versió de PCRE2 no té.</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="193"/>
         <source>too many capturing groups (maximum 65535)</source>
-        <translation type="unfinished"/>
+        <translation>massa grups de captura (màxim 65535)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="194"/>
         <source>atomic assertion expected after (?( or (?(?C)</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;esperava una asserció atòmica després de (?( o de (?(?C)</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="195"/>
         <source>\K is not allowed in lookarounds (but see PCRE2_EXTRA_ALLOW_LOOKAROUND_BSK)</source>
-        <translation type="unfinished"/>
+        <translation>\K no està permès dins de les construccions lookaround (però vegeu PCRE2_EXTRA_ALLOW_LOOKAROUND_BSK).</translation>
     </message>
 </context>
 <context>
@@ -18105,7 +18455,7 @@ Podeu separar les entitats amb línies, comes o espais.</translation>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="285"/>
         <source>Copy Selection To ClipBoard</source>
-        <translation type="unfinished"/>
+        <translation>Copia la selecció al porta-retalls.</translation>
     </message>
     <message>
         <location filename="../../MainUI/PreviewWindow.cpp" line="291"/>
@@ -18143,7 +18493,7 @@ Podeu separar les entitats amb línies, comes o espais.</translation>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="71"/>
         <source>Use</source>
-        <translation type="unfinished"/>
+        <translation>Fes servir</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="88"/>
@@ -18153,12 +18503,12 @@ Podeu separar les entitats amb línies, comes o espais.</translation>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="118"/>
         <source>Input Name</source>
-        <translation type="unfinished"/>
+        <translation>Introduïu el nom</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="119"/>
         <source>Input Function Name</source>
-        <translation type="unfinished"/>
+        <translation> Introduïu el nom de la funció</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="124"/>
@@ -18184,15 +18534,20 @@ Podeu separar les entitats amb línies, comes o espais.</translation>
     <message>
         <location filename="../../Dialogs/PythonFunctionEditor.cpp" line="142"/>
         <source>Are you sure you want to delete the function?:</source>
-        <translation type="unfinished"/>
+        <translation>Esteu segur que voleu suprimir la funció?</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
+        <location filename="../../BookManipulation/Book.cpp" line="1669"/>
+        <source>PrettyPrinting...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../../BookManipulation/CleanSource.cpp" line="299"/>
-        <source>Cleaning...</source>
-        <translation>S&apos;està netejant...</translation>
+        <source>Mending...</source>
+        <translation>S&apos;està reparant…</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Index.cpp" line="48"/>
@@ -18208,16 +18563,16 @@ Podeu separar les entitats amb línies, comes o espais.</translation>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="91"/>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="290"/>
         <source>Custom Epub Layout Designer</source>
-        <translation type="unfinished"/>
+        <translation>Dissenyador personalitzat de la composició de l&apos;EPUB</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="188"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="191"/>
         <location filename="../../Misc/OpenExternally.cpp" line="346"/>
         <source>Applications</source>
         <translation>Aplicacions</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="205"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="208"/>
         <source>Select External Xhtml Editor</source>
         <translation>Selecciona un editor XHTML extern</translation>
     </message>
@@ -18281,13 +18636,13 @@ Línia %1 - Columna %2 - %3</translation>
         <location filename="../../Importers/ImportEPUB.cpp" line="638"/>
         <source>Unable to parse container.xml file.
 Line: %1 Column %2 - %3</source>
-        <translation>No s&apos;ha pogut analitzar el fitxer contenidor.xml.
+        <translation>No s&apos;ha pogut analitzar el fitxer container.xml.
 Línia %1 - Columna %2 - %3</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="646"/>
         <source>This epub has multiple renditions (multiple OPF files). Editing this epub in Sigil will produce a normal single rendition epub using only the main (first) OPF file found.</source>
-        <translation type="unfinished"/>
+        <translation>Aquest EPUB té múltiples representacions (diversos fitxers OPF). Si editeu aquest EPUB amb Sigil, es generarà un EPUB normal d&apos;una sola representació utilitzant únicament el fitxer OPF principal (el primer que s&apos;hagi trobat).</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="650"/>
@@ -18304,12 +18659,12 @@ Línia %1 - Columna %2 - %3</translation>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="837"/>
         <source>The OPF has an illegal Manifest entry for a file inside the META-INF folder for file &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;OPF conté una entrada il·legal al manifest per a un fitxer dins de la carpeta META-INF per al fitxer. &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="838"/>
         <source>You should edit your OPF file to remove this entry.</source>
-        <translation type="unfinished"/>
+        <translation>Hauríeu d&apos;editar el fitxer OPF per eliminar aquesta entrada.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="857"/>
@@ -18324,12 +18679,12 @@ Línia %1 - Columna %2 - %3</translation>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="875"/>
         <source>The OPF manifest contains duplicate file paths for: %1</source>
-        <translation type="unfinished"/>
+        <translation>El manifest de l&apos;OPF conté camins de fitxer duplicats per a: %1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="876"/>
         <source>You should edit your OPF file&apos;s manifest to remove the duplication.</source>
-        <translation type="unfinished"/>
+        <translation>Hauríeu d&apos;editar el manifest del fitxer OPF per eliminar la duplicació.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="958"/>
@@ -18349,36 +18704,36 @@ Línia %1 - Columna %2 - %3</translation>
     <message>
         <location filename="../../Importers/Importer.cpp" line="47"/>
         <source>The OPF contains missing or unrecognized media types.  Temporary media types have been generated. You should edit your OPF to fix these.</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;OPF conté tipus de contingut inexistents o no reconeguts. S&apos;han generat tipus de contingut temporals. Hauríeu d&apos;editar l’OPF per corregir-los.</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="869"/>
-        <location filename="../../main.cpp" line="917"/>
+        <location filename="../../main.cpp" line="874"/>
+        <location filename="../../main.cpp" line="922"/>
         <source>Quit</source>
         <translation>Surt</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="879"/>
+        <location filename="../../main.cpp" line="884"/>
         <source>About</source>
         <translation>Quant al Sigil</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="888"/>
+        <location filename="../../main.cpp" line="893"/>
         <source>Preferences</source>
         <translation>Preferències</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="899"/>
+        <location filename="../../main.cpp" line="904"/>
         <source>New</source>
         <translation>Nou</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="908"/>
+        <location filename="../../main.cpp" line="913"/>
         <source>Open</source>
-        <translation>obrir</translation>
+        <translation>Obre</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="837"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="879"/>
         <source>Adding Existing Files..</source>
         <translation>S&apos;estan afegint els fitxers...</translation>
     </message>
@@ -18423,7 +18778,7 @@ Línia %1 - Columna %2 - %3</translation>
     <message>
         <location filename="../../Misc/Utility.cpp" line="679"/>
         <source>Sigil may need to close.</source>
-        <translation type="unfinished"/>
+        <translation>Pot ser que calgui tancar Sigil.</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/IndexHTMLWriter.cpp" line="75"/>
@@ -18457,7 +18812,7 @@ Línia %1 - Columna %2 - %3</translation>
     <message>
         <location filename="../../Form_Files/RERenamer.ui" line="42"/>
         <source>Enter Regular Expression to be Replaced</source>
-        <translation type="unfinished"/>
+        <translation>Introduïu l&apos;expressió regular que s&apos;ha de substituir.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RERenamer.ui" line="55"/>
@@ -18467,12 +18822,12 @@ Línia %1 - Columna %2 - %3</translation>
     <message>
         <location filename="../../Form_Files/RERenamer.ui" line="68"/>
         <source>Replacement:</source>
-        <translation type="unfinished"/>
+        <translation>Substitució:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/RERenamer.ui" line="81"/>
         <source>Enter Replacement text (can use subgroups replacements)</source>
-        <translation type="unfinished"/>
+        <translation>Introduïu el text de substitució (es poden utilitzar substitucions de subgrups).</translation>
     </message>
 </context>
 <context>
@@ -18585,13 +18940,15 @@ poseu siguin vàlides per a tots els fitxers seleccionats.</translation>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="108"/>
         <source>Select desired replacements in the table.
        Warning: Once replacements are applied, no &quot;undo&quot; is possible.</source>
-        <translation type="unfinished"/>
+        <translation>Seleccioneu les substitucions desitjades a la taula.
+       Alerta: un cop aplicades les substitucions, no es poden desfer.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="136"/>
         <source>Apply the selected replacements listed in the table.
          Warning: Once applied, no &quot;undo&quot; is possible.</source>
-        <translation type="unfinished"/>
+        <translation>Aplica les substitucions seleccionades que apareixen a la taula.
+         Alerta: un cop aplicades, no es poden desfer.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReplacementChooser.ui" line="140"/>
@@ -18616,12 +18973,12 @@ poseu siguin vàlides per a tots els fitxers seleccionats.</translation>
     <message>
         <location filename="../../Dialogs/ReplacementChooser.cpp" line="121"/>
         <source>Before</source>
-        <translation type="unfinished"/>
+        <translation>Abans</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReplacementChooser.cpp" line="122"/>
         <source>After</source>
-        <translation type="unfinished"/>
+        <translation>Després</translation>
     </message>
 </context>
 <context>
@@ -18745,12 +19102,12 @@ i l&apos;ordre seleccionar, incloent les entrades dels grups seleccionats.</tran
         <location filename="../../Form_Files/SearchEditor.ui" line="208"/>
         <source>Create a Counts report for the selected entries in the order selected,
 including entries in selected groups.</source>
-        <translation type="unfinished"/>
+        <translation>Crea un informe de recompte per a les entrades seleccionades en l&apos;ordre de selecció, incloent-hi les entrades dels grups seleccionats.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="212"/>
         <source>Counts Report</source>
-        <translation type="unfinished"/>
+        <translation>Informe de recompte</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="240"/>
@@ -18831,7 +19188,7 @@ del diàleg de cerca i reemplaçament per triar una de les entrades.</translatio
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="97"/>
         <source>Two character codes to control the search Mode, Direction, Target and Options.  Codes can be in any order comma or space separated.</source>
-        <translation type="unfinished"/>
+        <translation>Dos codis de caràcter per controlar el mode, la direcció, l&apos;objectiu i les opcions de la cerca. Els codis poden estar en qualsevol ordre i separats per comes o espais.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="98"/>
@@ -18851,72 +19208,72 @@ del diàleg de cerca i reemplaçament per triar una de les entrades.</translatio
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="102"/>
         <source>Direction: Up</source>
-        <translation type="unfinished"/>
+        <translation>Direcció: amunt</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="103"/>
         <source>Direction: Down</source>
-        <translation type="unfinished"/>
+        <translation>Direcció: avall</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="105"/>
         <source>Target: Current File</source>
-        <translation type="unfinished"/>
+        <translation>Abast: fitxer actual</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="106"/>
         <source>Target: All HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>Abast: tots els fitxers HTML</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="107"/>
         <source>Target: Selected HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>Abast: fitxers HTML seleccionats</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="108"/>
         <source>Target: Tabbed HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>Abast: fitxers HTML oberts en pestanyes</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="109"/>
         <source>Target: All CSS Files</source>
-        <translation type="unfinished"/>
+        <translation>Abast: tots els fitxers CSS</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="110"/>
         <source>Target: Selected CSS Files</source>
-        <translation type="unfinished"/>
+        <translation>Abast: tots els fitxers CSS seleccionats</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="111"/>
         <source>Target: Tabbed CSS Files</source>
-        <translation type="unfinished"/>
+        <translation>Abast: fitxers CSS oberts en pestanyes</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="112"/>
         <source>Target: OPF File</source>
-        <translation type="unfinished"/>
+        <translation>Abast: fitxer OPF</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="113"/>
         <source>Target: NCX File</source>
-        <translation type="unfinished"/>
+        <translation>Abast: fitxer NCX</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="114"/>
         <source>Target: Selected SVG Files</source>
-        <translation type="unfinished"/>
+        <translation>Abast: tots els fitxers SVG seleccionats</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="115"/>
         <source>Target: Selected Javascript Files</source>
-        <translation type="unfinished"/>
+        <translation>Abast: tots els fitxers JavaScript seleccionats</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="116"/>
         <source>Target: Selected Misc XML Files</source>
-        <translation type="unfinished"/>
+        <translation>Abast: tots els fitxers Misc XML seleccionats </translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="118"/>
@@ -18931,7 +19288,7 @@ del diàleg de cerca i reemplaçament per triar una de les entrades.</translatio
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="120"/>
         <source>Option: Auto Tokenise</source>
-        <translation type="unfinished"/>
+        <translation>Opció: tokenització automàtica</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="121"/>
@@ -19101,7 +19458,7 @@ Tots els canvis sense desar es sobreescriuran.</translation>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="884"/>
         <source>Fill Controls</source>
-        <translation type="unfinished"/>
+        <translation>Omple els controls</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="965"/>
@@ -19161,72 +19518,72 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="478"/>
         <source>Direction: Up</source>
-        <translation type="unfinished"/>
+        <translation>Direcció: amunt</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="481"/>
         <source>Direction: Down</source>
-        <translation type="unfinished"/>
+        <translation>Direcció: avall</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="484"/>
         <source>Target: Current File</source>
-        <translation type="unfinished"/>
+        <translation>Abast: fitxer actual</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="487"/>
         <source>Target: All HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>Abast: tots els fitxers HTML</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="490"/>
         <source>Target: Selected HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>Abast: fitxers HTML seleccionats</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="493"/>
         <source>Target: Tabbed HTML Files</source>
-        <translation type="unfinished"/>
+        <translation>Abast: fitxers HTML oberts en pestanyes</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="496"/>
         <source>Target: All CSS Files</source>
-        <translation type="unfinished"/>
+        <translation>Abast: tots els fitxers CSS</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="499"/>
         <source>Target: Selected CSS Files</source>
-        <translation type="unfinished"/>
+        <translation>Abast: tots els fitxers CSS seleccionats</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="502"/>
         <source>Target: Tabbed CSS Files</source>
-        <translation type="unfinished"/>
+        <translation>Abast: fitxers CSS oberts en pestanyes</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="505"/>
         <source>Target: OPF File</source>
-        <translation type="unfinished"/>
+        <translation>Abast: fitxer OPF</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="508"/>
         <source>Target: NCX File</source>
-        <translation type="unfinished"/>
+        <translation>Abast: fitxer NCX</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="511"/>
         <source>Target: Selected SVG Files</source>
-        <translation type="unfinished"/>
+        <translation>Abast: tots els fitxers SVG seleccionats</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="514"/>
         <source>Target: Selected Javascript Files</source>
-        <translation type="unfinished"/>
+        <translation>Abast: tots els fitxers JavaScript seleccionats</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="517"/>
         <source>Target: Selected Misc XML Files</source>
-        <translation type="unfinished"/>
+        <translation>Abast: tots els fitxers Misc XML seleccionats </translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="520"/>
@@ -19241,7 +19598,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="526"/>
         <source>Option: Auto Tokenise</source>
-        <translation type="unfinished"/>
+        <translation>Opció: tokenització automàtica</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="529"/>
@@ -20149,7 +20506,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="267"/>
         <source>Greek capital letter Xi</source>
-        <translation>lletra grega CSI majúscula</translation>
+        <translation>lletra grega XI majúscula</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="268"/>
@@ -20224,7 +20581,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="285"/>
         <source>upwards arrow</source>
-        <translation>flrtxa amunt</translation>
+        <translation>fletxa amunt</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="286"/>
@@ -20517,12 +20874,12 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../Form_Files/SelectCheckpoint.ui" line="14"/>
         <source>Select Checkpoint Version</source>
-        <translation type="unfinished"/>
+        <translation>Seleccioneu la versió del punt de control</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectCheckpoint.ui" line="56"/>
         <source>Description of Checkpoint</source>
-        <translation type="unfinished"/>
+        <translation>Descripció del punt de control</translation>
     </message>
 </context>
 <context>
@@ -20615,14 +20972,16 @@ des del vostre ordinador i s&apos;inserirà automàticament al document.</transl
     <message>
         <location filename="../../Form_Files/SelectFolder.ui" line="14"/>
         <source>Select Destination Folder </source>
-        <translation type="unfinished"/>
+        <translation>Seleccioneu la carpeta de destinació</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFolder.ui" line="22"/>
         <source>Enter or select an ebook path to the desired destination folder.
 
 The dropdown box shows existing Folder paths for this file type.</source>
-        <translation type="unfinished"/>
+        <translation>Introduïu o seleccioneu una ruta per al llibre electrònic cap a la carpeta de destinació desitjada.
+
+El quadre desplegable mostra els camins de carpeta existents per a aquest tipus de fitxer.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFolder.ui" line="27"/>
@@ -20663,7 +21022,7 @@ a la llista del damunt.</translation>
     <message>
         <location filename="../../Dialogs/SelectHyperlink.cpp" line="69"/>
         <source>Targets</source>
-        <translation type="unfinished"/>
+        <translation>Abast</translation>
     </message>
 </context>
 <context>
@@ -21116,7 +21475,7 @@ ortogràfica és oberta.</translation>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="589"/>
         <source>Copy Selected Data to Clipboard</source>
-        <translation type="unfinished"/>
+        <translation>Copia les dades seleccionades al porta-retalls</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="681"/>
@@ -21169,7 +21528,7 @@ ortogràfica és oberta.</translation>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="90"/>
         <source>&lt;p&gt;This is a list of the CSS selectors in all CSS files and whether or not the selector was matched in an HTML file.&lt;p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Aquesta és una llista dels selectors CSS de tots els fitxers CSS i de si el selector ha coincidit o no en algun fitxer HTML.&lt;p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="91"/>
@@ -21179,7 +21538,7 @@ ortogràfica és oberta.</translation>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="92"/>
         <source>&lt;p&gt;Due to the complexities of CSS you must check your code manually to be absolutely certain if a selector is used or not.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;A causa de la complexitat del CSS, heu de revisar manualment el vostre codi per estar del tot segur de si un selector s&apos;utilitza o no.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="92"/>
@@ -21249,7 +21608,7 @@ ortogràfica és oberta.</translation>
 <context>
     <name>TextTab</name>
     <message>
-        <location filename="../../Tabs/TextTab.cpp" line="348"/>
+        <location filename="../../Tabs/TextTab.cpp" line="349"/>
         <source>Print %1</source>
         <translation>Imprimeix %1</translation>
     </message>
@@ -21644,12 +22003,12 @@ Encara voleu fer servir aquest nom de fitxer?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="145"/>
         <source>Latin capital letter E with diaeresis</source>
-        <translation>Lletra llatina majúscula E amb dièresi</translation>
+        <translation>Lletra llatina majúscula E amb dièresi dièresi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="146"/>
         <source>Latin capital letter I with grave accent</source>
-        <translation>Lletra llatina majúscula I amb accent greu</translation>
+        <translation>Lletra llatina majúscula I amb accent greu</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="147"/>
@@ -21909,7 +22268,7 @@ Encara voleu fer servir aquest nom de fitxer?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="198"/>
         <source>Latin capital ligature OE</source>
-        <translation type="unfinished"/>
+        <translation>Lligadura majúscula llatina OE</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="199"/>
@@ -21929,7 +22288,7 @@ Encara voleu fer servir aquest nom de fitxer?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="202"/>
         <source>Latin capital letter Y with diaeresis</source>
-        <translation type="unfinished"/>
+        <translation>Lletra majúscula llatina Y amb dièresi</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="203"/>
@@ -22059,12 +22418,12 @@ Encara voleu fer servir aquest nom de fitxer?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="228"/>
         <source>Greek capital letter Psi</source>
-        <translation>lletra grega PSI majúscula</translation>
+        <translation>lletra grega Psi majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="229"/>
         <source>Greek capital letter Omega</source>
-        <translation>lletra grega OMEGA majúscula</translation>
+        <translation>lletra grega Omega majúscula</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="230"/>
@@ -22274,12 +22633,12 @@ Encara voleu fer servir aquest nom de fitxer?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="271"/>
         <source>right double quotation mark</source>
-        <translation>Cometa doble dreta</translation>
+        <translation>Cometa doble  dreta</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="272"/>
         <source>double low-9 quotation mark</source>
-        <translation>Cometes dobles alemanyes -9</translation>
+        <translation>Cometes dobles  alemanyes -9</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="273"/>
@@ -22299,12 +22658,12 @@ Encara voleu fer servir aquest nom de fitxer?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="276"/>
         <source>horizontal ellipsis</source>
-        <translation>punts suspensius</translation>
+        <translation>punts  suspensius</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="277"/>
         <source>per mille sign</source>
-        <translation>signe per mil</translation>
+        <translation>signe  per mil</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="278"/>
@@ -22539,7 +22898,7 @@ Encara voleu fer servir aquest nom de fitxer?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="324"/>
         <source>congruent to</source>
-        <translation>congruent</translation>
+        <translation>congruent a</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="325"/>
@@ -22549,7 +22908,7 @@ Encara voleu fer servir aquest nom de fitxer?</translation>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="326"/>
         <source>not equal to</source>
-        <translation>diferent</translation>
+        <translation>diferent a</translation>
     </message>
     <message>
         <location filename="../../Misc/XMLEntities.cpp" line="327"/>
