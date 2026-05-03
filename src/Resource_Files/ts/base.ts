@@ -316,33 +316,43 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="388"/>
-        <location filename="../../Widgets/AdjustImage.cpp" line="413"/>
-        <source>Image successfully saved.</source>
+        <location filename="../../Widgets/AdjustImage.cpp" line="323"/>
+        <source>(x,y) coordinates:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="323"/>
+        <source>Zoom</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Widgets/AdjustImage.cpp" line="390"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="415"/>
+        <source>Image successfully saved.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="392"/>
         <source>Image save failed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="399"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="401"/>
         <source>Image Quality</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="400"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="402"/>
         <source>Enter quality level (0-100):</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="402"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="404"/>
         <source>Image save failed. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="415"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="417"/>
         <source>Image save failed: </source>
         <translation type="unfinished"></translation>
     </message>

@@ -320,7 +320,9 @@ bool AdjustImage::eventFilter(QObject* watched, QEvent* event)
             const QMouseEvent* const me = static_cast<const QMouseEvent*>(event);
             const QPoint position = me->pos();
             QString sf = QString::number(m_scaleFactor, 'f', 4);
-            m_statusBar->showMessage(QString("(x,y) coordinates: (%1,%2) Zoom (%3)").arg(position.x()).arg(position.y()).arg(sf));
+            QString msg = tr("(x,y) coordinates:") + " (%1,%2)  " + tr("Zoom") + " (%3)";
+            msg = msg.arg(position.x()).arg(position.y()).arg(sf);
+            m_statusBar->showMessage(msg);
             if (m_croppingState) {
                 m_rbend = position;
                 m_rb->setGeometry(BuildRect(m_rbstart, m_rbend));
