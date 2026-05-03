@@ -376,6 +376,22 @@ void EditTOC::DeleteEntry()
     }
 
     parent_item->takeRow(item->row());
+
+    // make sure at leat one empty row exits for editing purposes
+    if (m_TableOfContents->rowCount() == 0) {
+        QStandardItem *entry_item = new QStandardItem();
+        QStandardItem *target_item = new QStandardItem();
+        entry_item->setText(tr("[placeholder]"));
+        QList<QStandardItem *> row_items;
+        row_items << entry_item << target_item ;
+        parent_item->insertRow(0,row_items);
+
+        // Select the new row
+        ui.TOCTree->selectionModel()->clear();
+        ui.TOCTree->setCurrentIndex(entry_item->index());
+        ui.TOCTree->selectionModel()->select(entry_item->index(),
+                                             QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
+    }
 }
 
 void EditTOC::SelectTarget()
