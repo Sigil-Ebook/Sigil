@@ -314,33 +314,43 @@
         <translation>顏色</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="388"/>
-        <location filename="../../Widgets/AdjustImage.cpp" line="413"/>
-        <source>Image successfully saved.</source>
+        <location filename="../../Widgets/AdjustImage.cpp" line="323"/>
+        <source>(x,y) coordinates:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="323"/>
+        <source>Zoom</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Widgets/AdjustImage.cpp" line="390"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="415"/>
+        <source>Image successfully saved.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="392"/>
         <source>Image save failed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="399"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="401"/>
         <source>Image Quality</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="400"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="402"/>
         <source>Enter quality level (0-100):</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="402"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="404"/>
         <source>Image save failed. </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="415"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="417"/>
         <source>Image save failed: </source>
         <translation type="unfinished"/>
     </message>
@@ -3589,7 +3599,7 @@ other end to continue searching.</source>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="81"/>
-        <location filename="../../Dialogs/EditTOC.cpp" line="481"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="497"/>
         <source>Delete</source>
         <translation>刪除</translation>
     </message>
@@ -3634,27 +3644,32 @@ You can also use the right arrow key.</source>
         <translation>目標</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="480"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="384"/>
+        <source>[placeholder]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/EditTOC.cpp" line="496"/>
         <source>Rename</source>
         <translation>重新命名</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="488"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="504"/>
         <source>Move Up</source>
         <translation>向上移</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="489"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="505"/>
         <source>Move Down</source>
         <translation>向下移</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="495"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="511"/>
         <source>Expand All</source>
         <translation>全部展開</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="496"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="512"/>
         <source>Collapse All</source>
         <translation>全部折疊</translation>
     </message>

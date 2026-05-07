@@ -314,33 +314,43 @@
         <translation>Cor</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="388"/>
-        <location filename="../../Widgets/AdjustImage.cpp" line="413"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="323"/>
+        <source>(x,y) coordinates:</source>
+        <translation>coordenadas (x,y):</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="323"/>
+        <source>Zoom</source>
+        <translation>Zoom</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="390"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="415"/>
         <source>Image successfully saved.</source>
         <translation>Imagem salva com sucesso.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="390"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="392"/>
         <source>Image save failed.</source>
         <translation>Erro ao salvar a imagem.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="399"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="401"/>
         <source>Image Quality</source>
         <translation>Qualidade da Imagem</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="400"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="402"/>
         <source>Enter quality level (0-100):</source>
         <translation>Digite o nível da qualidade (0-100):</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="402"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="404"/>
         <source>Image save failed. </source>
         <translation>Erro ao salvar a imagem.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="415"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="417"/>
         <source>Image save failed: </source>
         <translation>Erro ao salvar a imagem:</translation>
     </message>
@@ -3591,7 +3601,7 @@ outro sentido e continuar a busca.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="81"/>
-        <location filename="../../Dialogs/EditTOC.cpp" line="481"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="497"/>
         <source>Delete</source>
         <translation>Deletar</translation>
     </message>
@@ -3636,27 +3646,32 @@ Você também pode usar a tecla de seta à direita.</translation>
         <translation>Alvo</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="480"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="384"/>
+        <source>[placeholder]</source>
+        <translation>[espaço reservado]</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/EditTOC.cpp" line="496"/>
         <source>Rename</source>
         <translation>Renomear</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="488"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="504"/>
         <source>Move Up</source>
         <translation>Mover para Cima</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="489"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="505"/>
         <source>Move Down</source>
         <translation>Mover para Baixo</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="495"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="511"/>
         <source>Expand All</source>
         <translation>Expandir todos</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="496"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="512"/>
         <source>Collapse All</source>
         <translation>Fechar Todos</translation>
     </message>

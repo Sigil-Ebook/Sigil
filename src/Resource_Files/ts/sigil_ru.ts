@@ -314,33 +314,43 @@
         <translation>Цветное</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="388"/>
-        <location filename="../../Widgets/AdjustImage.cpp" line="413"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="323"/>
+        <source>(x,y) coordinates:</source>
+        <translation>(x,y) координаты:</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="323"/>
+        <source>Zoom</source>
+        <translation>Масштаб</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="390"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="415"/>
         <source>Image successfully saved.</source>
         <translation>Изображение успешно сохранено.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="390"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="392"/>
         <source>Image save failed.</source>
         <translation>Не удалось сохранить изображение.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="399"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="401"/>
         <source>Image Quality</source>
         <translation>Качество изображения</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="400"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="402"/>
         <source>Enter quality level (0-100):</source>
         <translation>Введите значение качества (0–100):</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="402"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="404"/>
         <source>Image save failed. </source>
         <translation>Не удалось сохранить изображение.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="415"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="417"/>
         <source>Image save failed: </source>
         <translation>Сбой при сохранении изображения:</translation>
     </message>
@@ -1541,7 +1551,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="343"/>
         <source>Add Cover to epub.</source>
-        <translation>Добавить Обложку в epub.</translation>
+        <translation>Добавить Обложку в ePUB.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="344"/>
@@ -1561,7 +1571,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="347"/>
         <source>Generate NCX and OPF Guide from Epub3 Nav.</source>
-        <translation>Генерировать NCX и OPF из Nav Epub3.</translation>
+        <translation>Генерировать NCX и OPF из Nav EPUB3.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="348"/>
@@ -1601,12 +1611,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="355"/>
         <source>Remove NCX and OPF Guide from Epub3.</source>
-        <translation>Удалить NCX и OPF из Epub3.</translation>
+        <translation>Удалить NCX и OPF из EPUB3.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="356"/>
         <source>Save a Checkpoint of the current epub.</source>
-        <translation>Сохранить контрольную точку текущего epub.</translation>
+        <translation>Сохранить контрольную точку текущего ePUB.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="357"/>
@@ -1616,7 +1626,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="358"/>
         <source>Save the current epub.</source>
-        <translation>Сохранить текущий epub.</translation>
+        <translation>Сохранить текущий ePUB.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="359"/>
@@ -1651,7 +1661,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="366"/>
         <source>Convert Epub layout to Sigil&apos;s historic Standard form.</source>
-        <translation>Преобразовать макет Epub в историческую стандартную форму Sigil.</translation>
+        <translation>Преобразовать макет ePUB в историческую стандартную форму Sigil.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="367"/>
@@ -1661,7 +1671,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="368"/>
         <source>Update Epub3 OPF Manifest properties.</source>
-        <translation>Обновить свойства манифеста OPF Epub3.</translation>
+        <translation>Обновить свойства манифеста OPF EPUB3.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="369"/>
@@ -1671,7 +1681,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="370"/>
         <source>Perform a basic Well-Formed Check on Epub XHtml files.</source>
-        <translation>Выполнить базовую проверку синтаксиса файлов Epub XHtml.</translation>
+        <translation>Выполнить базовую проверку синтаксиса файлов ePUB XHtml.</translation>
     </message>
 </context>
 <context>
@@ -1736,7 +1746,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="767"/>
         <source>Javascript is not supported on epub2.</source>
-        <translation>Javascript не поддерживается в epub2.</translation>
+        <translation>Javascript не поддерживается в EPUB2.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="842"/>
@@ -1862,7 +1872,7 @@ A file with this name already exists in the book.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1622"/>
         <source>The OPF is required for epub and cannot be removed.</source>
-        <translation>OPF требуется для EPUB и не может быть удалён.</translation>
+        <translation>OPF требуется для ePUB и не может быть удалён.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1631"/>
@@ -1904,7 +1914,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1838"/>
         <source>Epub Version</source>
-        <translation>Версия Epub</translation>
+        <translation>Версия ePUB</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1855"/>
@@ -2183,7 +2193,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="87"/>
         <source>Files Only in Current ePub</source>
-        <translation>Только файлы в текущем ePub</translation>
+        <translation>Только файлы в текущем ePUB</translation>
     </message>
     <message>
         <location filename="../../Dialogs/CPCompare.cpp" line="88"/>
@@ -3592,7 +3602,7 @@ other end to continue searching.</source>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="81"/>
-        <location filename="../../Dialogs/EditTOC.cpp" line="481"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="497"/>
         <source>Delete</source>
         <translation>Удалить</translation>
     </message>
@@ -3637,27 +3647,32 @@ You can also use the right arrow key.</source>
         <translation>Цель</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="480"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="384"/>
+        <source>[placeholder]</source>
+        <translation>[плейсхолдер]</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/EditTOC.cpp" line="496"/>
         <source>Rename</source>
         <translation>Переименовать</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="488"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="504"/>
         <source>Move Up</source>
         <translation>Вверх</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="489"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="505"/>
         <source>Move Down</source>
         <translation>Вниз</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="495"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="511"/>
         <source>Expand All</source>
         <translation>Развернуть всё</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="496"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="512"/>
         <source>Collapse All</source>
         <translation>Свернуть всё</translation>
     </message>
@@ -3675,7 +3690,7 @@ You can also use the right arrow key.</source>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="20"/>
         <source>Design Custom Epub Layout</source>
-        <translation>Дизайн оформления Epub</translation>
+        <translation>Дизайн оформления ePUB</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="55"/>
@@ -3751,7 +3766,7 @@ locations and names for the OPF, NCX and/or Nav.</source>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="179"/>
         <source>Use OK to commit your custom epub design, otherwise use Cancel.</source>
-        <translation>Используйте OK, чтобы зафиксировать свой собственный дизайн epub или используйте Отменить.</translation>
+        <translation>Используйте «OK», чтобы зафиксировать свой собственный дизайн ePUB или используйте «Отменить».</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="146"/>
@@ -3903,7 +3918,7 @@ locations and names for the OPF, NCX and/or Nav.</source>
         <source>Do you want to set this layout as the default empty Epub layout for Sigil?
 
 </source>
-        <translation>Вы хотите установить это оформление как оформление бланка Epub по умолчанию для Sigil?
+        <translation>Вы хотите установить это оформление как оформление бланка ePUB по умолчанию для Sigil?
 
 </translation>
     </message>
@@ -5626,17 +5641,17 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="156"/>
         <source>Files exist in epub that are not listed in the manifest, they will be ignored.</source>
-        <translation>Если epub содержит файлы, не указанные в манифесте, они будут проигнорированы.</translation>
+        <translation>Если ePUB содержит файлы, не указанные в манифесте, они будут проигнорированы.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="199"/>
         <source>This EPUB had HTML files that were not well formed or are missing a DOCTYPE, html, head or body elements.&lt;br/&gt;&lt;br&gt;They were automatically fixed based on your Preference setting to Clean on Open.</source>
-        <translation>Этот EPUB содержал HTML-файлы, которые были плохо сформированы или в которых отсутствовали элементы DOCTYPE, html, head или body.&lt;br/&gt;&lt;br&gt;Они были автоматически исправлены в соответствии с настройкой исправлять некорректный код HTML по команде &quot;Открыть&quot;.</translation>
+        <translation>Этот ePUB содержал HTML-файлы, которые были плохо сформированы или в которых отсутствовали элементы DOCTYPE, html, head или body.&lt;br/&gt;&lt;br&gt;Они были автоматически исправлены в соответствии с настройкой исправлять некорректный код HTML по команде «Открыть».</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="205"/>
         <source>This EPUB has HTML files that are not well formed or are missing a DOCTYPE, html, head or body elements.&lt;br/&gt;&lt;/br&gt;Fix these manually or use Sigil&apos;s Mend tool to automatically fixed these errors or omissions.</source>
-        <translation>Этот EPUB содержит HTML-файлы, которые плохо сформированы или в которых отсутствуют элементы DOCTYPE, html, head или body.&lt;br/&gt;&lt;/br&gt;Исправьте их вручную или воспользуйтесь имеющимся в Sigil инструментарием, чтобы автоматически исправить эти ошибки или пропуски.</translation>
+        <translation>Этот ePUB содержит HTML-файлы, которые плохо сформированы или в которых отсутствуют элементы DOCTYPE, html, head или body.&lt;br/&gt;&lt;/br&gt;Исправьте их вручную или воспользуйтесь имеющимся в Sigil инструментарием, чтобы автоматически исправить эти ошибки или пропуски.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="606"/>
@@ -9713,7 +9728,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="382"/>
         <source>Epub&amp;3 Tools</source>
-        <translation>Инструменты Epub&amp;3</translation>
+        <translation>Инструменты EPUB&amp;3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="413"/>
@@ -9889,30 +9904,30 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="914"/>
         <source>ePub&amp;2</source>
-        <translation>ePub&amp;2</translation>
+        <translation>EPUB&amp;2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="917"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New ePub2&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new ePub2 book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Новый ePub2&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Новый EPUB2&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Создать новую книгу ePub2.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Создать новую книгу в формате EPUB2.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="929"/>
         <source>ePub&amp;3</source>
-        <translation>ePub&amp;3</translation>
+        <translation>EPUB&amp;3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="932"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New ePub3&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new ePub3 book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Новый ePub3&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Новый EPUB3&lt;/b&gt;&lt;/p&gt;
 
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Создать новую книгу ePub3.&lt;/p&gt;</translation>
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Создать новую книгу в формате EPUB3.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="944"/>
@@ -10516,12 +10531,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1539"/>
         <source>Restructure Epub to Sigil Norm</source>
-        <translation>Изменить структуру Epub до Sigil Norm</translation>
+        <translation>Изменить структуру ePUB до Sigil Norm</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1542"/>
         <source>Restructure Epub to Sigil Standard Form</source>
-        <translation>Изменить структуру Epub до стандартной формы Sigil</translation>
+        <translation>Изменить структуру ePUB до стандартной формы Sigil</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1547"/>
@@ -10911,7 +10926,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1875"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Well-Formed Check EPUB&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Verify your document complies with minimum needed to be successfully parsed. This does not indicate compliance with the relevant epub standards.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Проверка EPUB на правильность формирования&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Убедитесь, что документ соответствует минимальным требованиям для успешного анализа. Это не указывает на соответствие соответствующим стандартам EPUB.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Проверка ePUB на правильность формирования&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Убедитесь, что документ соответствует минимальным требованиям для успешного анализа. Это не указывает на соответствие соответствующим стандартам EPUB.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1878"/>
@@ -12327,12 +12342,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="3159"/>
         <source>Generate &amp;NCX/Guide for epub2 e-readers</source>
-        <translation>Генерировать &amp;NCX/Guide для epub2-ридеров</translation>
+        <translation>Генерировать &amp;NCX/Guide для EPUB2-ридеров</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3164"/>
         <source>Create a Custom Empty Epub</source>
-        <translation>Создать пользовательский бланк Epub</translation>
+        <translation>Создать пользовательский бланк ePUB</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3169"/>
@@ -12342,7 +12357,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="3178"/>
         <source>Create Checkpoint for Epub</source>
-        <translation>Создать контрольную точку для Epub</translation>
+        <translation>Создать контрольную точку для ePUB</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3187"/>
@@ -12412,7 +12427,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="433"/>
         <source>skipped since not an epub3</source>
-        <translation>пропущен, т.к. не epub3</translation>
+        <translation>пропущен, т.к. не EPUB3</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="458"/>
@@ -12561,7 +12576,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../MainUI/MainWindow.cpp" line="771"/>
         <source>Are you sure you want to restructure this epub?
 This action cannot be reversed.</source>
-        <translation>Вы уверены, что хотите реструктурировать этот epub?
+        <translation>Вы уверены, что хотите реструктурировать этот ePUB?
 Это действие не может быть отменено.</translation>
     </message>
     <message>
@@ -12641,12 +12656,12 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1187"/>
         <source>Epub Generate from Tag Failed.</source>
-        <translation>Не удалось создать Epub из тега.</translation>
+        <translation>Не удалось создать ePUB из тега.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1192"/>
         <source>Epub Generation succeeded</source>
-        <translation>Epub успешно сгенерирован</translation>
+        <translation>ePUB успешно сгенерирован</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1206"/>
@@ -12829,7 +12844,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2275"/>
         <source>Epub layout discarded.</source>
-        <translation>Оформление Epub отклонено.</translation>
+        <translation>Оформление ePUB отклонено.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2282"/>
@@ -12906,7 +12921,7 @@ This action cannot be reversed.</source>
         <location filename="../../MainUI/MainWindow.cpp" line="2712"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2744"/>
         <source>Not Available for epub2.</source>
-        <translation>Недоступно для EPUB 2.</translation>
+        <translation>Недоступно для EPUB2.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2702"/>
@@ -13177,7 +13192,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4597"/>
         <source>This EPUB does not contain any CSS stylesheets to reformat.</source>
-        <translation>Этот EPUB не содержит таблиц стилей CSS, которые нужно переформатировать.</translation>
+        <translation>Этот ePUB не содержит таблиц стилей CSS, которые нужно переформатировать.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5122"/>
@@ -13268,7 +13283,7 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5769"/>
         <source>Cannot load EPUB: %1</source>
-        <translation>Не удалось загрузить EPUB: %1</translation>
+        <translation>Не удалось загрузить ePUB: %1</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5774"/>
@@ -13278,7 +13293,7 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5801"/>
         <source>Saving EPUB...</source>
-        <translation>Сохранение файла EPUB...</translation>
+        <translation>Сохранение файла ePUB...</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5810"/>
@@ -13292,24 +13307,24 @@ Please choose a different format.</source>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to mend on Save.
 
 Do you want to automatically mend the files before saving? Or cancel the Save?</source>
-        <translation>Этот EPUB содержит неправильно сформированные файлы HTML, а параметр «Исправить некорректный код HTML по команде» настроен на команду «Сохранить».
+        <translation>Этот ePUB содержит неправильно сформированные файлы HTML, а параметр «Исправить некорректный код HTML по команде» настроен на команду «Сохранить».
 
 Вы хотите автоматически исправлять файлы перед сохранением? Или отменить сохранение?</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5839"/>
         <source>Saving EPUB... cancelled</source>
-        <translation>Сохранение EPUB... отменено</translation>
+        <translation>Сохранение ePUB... отменено</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5865"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
-        <translation>EPUB сохранён, но некоторые HTML-файлы имеют ошибки в структуре.</translation>
+        <translation>ePUB сохранён, но некоторые HTML-файлы имеют ошибки в структуре.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5867"/>
         <source>EPUB saved.</source>
-        <translation>EPUB сохранён.</translation>
+        <translation>ePUB сохранён.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5873"/>
@@ -13319,7 +13334,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="6006"/>
         <source>EPUB files (*.epub)</source>
-        <translation>Файлы EPUB (*.epub)</translation>
+        <translation>Файлы ePUB (*.epub)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="6007"/>
@@ -13341,7 +13356,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="6019"/>
         <source>EPUB file (*.epub)</source>
-        <translation>Файл EPUB (*.epub)</translation>
+        <translation>Файл ePUB (*.epub)</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="6121"/>
@@ -13493,7 +13508,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="69"/>
         <source>ePub FileName</source>
-        <translation>Имя файла ePub</translation>
+        <translation>Имя файла ePUB</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="74"/>
@@ -16267,7 +16282,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="178"/>
         <source>Use OK to commit your metadata changes to the epub, otherwise use Cancel.</source>
-        <translation>Используйте OK, чтобы зафиксировать изменения метаданных в epub или используйте Отменить.</translation>
+        <translation>Используйте «OK», чтобы зафиксировать изменения метаданных в ePUB или используйте «Отменить».</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="90"/>
@@ -16544,7 +16559,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="956"/>
         <source>Used to indicate that the given EPUB Publication is of a specialized type..</source>
-        <translation>Указывает, что данная EPUB-публикация специализированного типа...</translation>
+        <translation>Указывает, что данная ePUB-публикация специализированного типа...</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="957"/>
@@ -16567,7 +16582,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="958"/>
         <source>Identifies the related resource(s) from which this EPUB Publication is derived.</source>
-        <translation>Определяет соответствующие ресурсы, из которого формируется эта EPUB-публикация.</translation>
+        <translation>Определяет соответствующие ресурсы, из которого формируется эта ePUB-публикация.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="959"/>
@@ -16624,7 +16639,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="963"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The Role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
-        <translation>Лицо или организация и т.д.,  ответственные за создание контента публикации EPUB. Свойство Роль может быть присоединено к элементу для указания функции, которую выполнил автор при создании контента.</translation>
+        <translation>Лицо или организация и т.д.,  ответственные за создание контента публикации ePUB. Свойство Роль может быть присоединено к элементу для указания функции, которую выполнил автор при создании контента.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="964"/>
@@ -16635,7 +16650,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="964"/>
         <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication. The Role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
-        <translation>Лицо, организация и т.д., которые сыграли второстепенную роль в создании контента публикации EPUB. Свойство Роль может быть присоединено к элементу для указания функции, которую выполнил соавтор при создании контента.</translation>
+        <translation>Лицо, организация и т.д., которые сыграли второстепенную роль в создании контента публикации ePUB. Свойство Роль может быть присоединено к элементу для указания функции, которую выполнил соавтор при создании контента.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="965"/>
@@ -16645,7 +16660,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="965"/>
         <source>Identifies the name of a collection to which the EPUB Publication belongs. An EPUB Publication may belong to one or more collections.</source>
-        <translation>Определяет имя сборника, к которому принадлежит публикация EPUB. Публикация EPUB может принадлежать одному или нескольким сборникам.</translation>
+        <translation>Определяет имя сборника, к которому принадлежит публикация ePUB. Публикация ePUB может принадлежать одному или нескольким сборникам.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="966"/>
@@ -16907,7 +16922,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1016"/>
         <source>Indicates the numeric position in which the EPUB Publication is ordered relative to other works belonging to the same group (whether all EPUB Publications or not).</source>
-        <translation>Указывает числовую позицию, в которой Публикация EPUB упорядочена относительно других произведений, принадлежащих к той же группе (независимо от того, являются ли все они публикациями EPUB или нет).</translation>
+        <translation>Указывает числовую позицию, в которой Публикация ePUB упорядочена относительно других произведений, принадлежащих к той же группе (независимо от того, являются ли все они публикациями ePUB или нет).</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1017"/>
@@ -16950,7 +16965,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1020"/>
         <source>Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication. This specification defines the pagination value to indicate that the referenced source element is the source of the pagebreak properties defined in the content. This value should be set whenever pagination is included and the print source is known. Valid values: pagination.</source>
-        <translation>Указывает на уникальный аспект адаптированного исходного ресурса, который был сохранен в данном исполнении публикации EPUB. В этой спецификации определяется значение нумерации страниц, указывающее, что указанный исходный элемент является источником свойств разрыва страницы, определенных в содержимом. Это значение следует устанавливать всякий раз, когда включена нумерация страниц и известен источник печати. Допустимые значения: pagination.</translation>
+        <translation>Указывает на уникальный аспект адаптированного исходного ресурса, который был сохранен в данном исполнении публикации ePUB. В этой спецификации определяется значение нумерации страниц, указывающее, что указанный исходный элемент является источником свойств разрыва страницы, определенных в содержимом. Это значение следует устанавливать всякий раз, когда включена нумерация страниц и известен источник печати. Допустимые значения: pagination.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1021"/>
@@ -16995,7 +17010,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1052"/>
         <source>Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication.</source>
-        <translation>Указывает на уникальный аспект адаптированного ресурса-источника, который был сохранен в данном представлении публикации EPUB.</translation>
+        <translation>Указывает на уникальный аспект адаптированного ресурса-источника, который был сохранен в данном представлении публикации ePUB.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1079"/>
@@ -17094,17 +17109,17 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1116"/>
         <source>The main title of the epub publication.  Only one title may exist.</source>
-        <translation>Основной и единственный заголовок EPUB-публикации.</translation>
+        <translation>Основной и единственный заголовок ePUB-публикации.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1117"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The attributes opf:role, opf:scheme and opf:file-as can be attached to the element to indicate the function the creator played in the creation of the content.</source>
-        <translation>Представляет имя лица, организации и т.д., ответственного за создание содержимого публикации EPUB. Атрибуты opf:role, opf:scheme и opf:file-as могут быть добавлены к элементу для указания функции, которую сыграл создатель при создании контента.</translation>
+        <translation>Представляет имя лица, организации и т.д., ответственного за создание содержимого публикации ePUB. Атрибуты opf:role, opf:scheme и opf:file-as могут быть добавлены к элементу для указания функции, которую сыграл создатель при создании контента.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1118"/>
         <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication&apos;</source>
-        <translation>Представляет имя человека, организации и т.п., которые сыграли второстепенную роль в создании EPUB-публикации.</translation>
+        <translation>Представляет имя человека, организации и т.п., которые сыграли второстепенную роль в создании ePUB-публикации.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1122"/>
@@ -17114,7 +17129,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1122"/>
         <source>A date associated with this epub, typically refined by event type information</source>
-        <translation>Дата, связанная с этим файлом EPUB, обычно уточняемая типом события</translation>
+        <translation>Дата, связанная с этим файлом ePUB, обычно уточняемая типом события</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1123"/>
@@ -18368,18 +18383,18 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="14"/>
         <source>Preserve Entities</source>
-        <translation>Сохранённые объекты</translation>
+        <translation>Мнемоника</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="32"/>
         <source>Entities to Preserve</source>
-        <translation>Объекты для сохранения</translation>
+        <translation>Коды спецсимволов</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPreserveEntitiesWidget.ui" line="50"/>
         <source>Enter or paste entities to add to the list.
 Entities can be separated by lines, commas, or spaces.</source>
-        <translation>Введите или вставьте объекты для добавления в список.
+        <translation>Введите или вставьте коды спецсимволов для добавления в список.
 Мнемоники разделяются запятыми, пробелами или разрывом строки.</translation>
     </message>
     <message>
@@ -18558,7 +18573,7 @@ Entities can be separated by lines, commas, or spaces.</source>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="91"/>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="290"/>
         <source>Custom Epub Layout Designer</source>
-        <translation>Конструктор оформления Epub</translation>
+        <translation>Конструктор оформления ePUB</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="191"/>
@@ -18579,7 +18594,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="118"/>
         <source>Cannot read EPUB: %1</source>
-        <translation>Не удалось прочесть EPUB: %1</translation>
+        <translation>Не удалось прочесть ePUB: %1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="256"/>
@@ -18607,12 +18622,12 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="427"/>
         <source>Cannot unzip EPUB: %1</source>
-        <translation>Не удалось распаковать EPUB: %1</translation>
+        <translation>Не удалось распаковать ePUB: %1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="503"/>
         <source>Possible evil or corrupt epub file name: %1</source>
-        <translation>Возможно испорченный или повреждённый файл epub: %1</translation>
+        <translation>Возможно испорченный или повреждённый файл ePUB: %1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="534"/>
@@ -18625,7 +18640,7 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="584"/>
         <source>Cannot open EPUB: %1</source>
-        <translation>Не удалось открыть EPUB: %1</translation>
+        <translation>Не удалось открыть ePUB: %1</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="638"/>
@@ -18637,7 +18652,7 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="646"/>
         <source>This epub has multiple renditions (multiple OPF files). Editing this epub in Sigil will produce a normal single rendition epub using only the main (first) OPF file found.</source>
-        <translation>Этот файл epub содержит множественные представления (несколько файлов OPF). Редактирование файла в Sigil приведёт к созданию обычной версии epub с использованием основного (первого) найденного OPF-файла.</translation>
+        <translation>Этот файл ePUB содержит множественные представления (несколько файлов OPF). Редактирование файла в Sigil приведёт к созданию обычной версии ePUB с использованием основного (первого) найденного OPF-файла.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="650"/>
@@ -18669,7 +18684,7 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="858"/>
         <source>A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.</source>
-        <translation>Временный идентификатор был назначен для загрузки этот EPUB. Вы должны отредактировать ваш файл OPF, чтобы удалить дублирование.</translation>
+        <translation>Временный идентификатор был назначен для загрузки этот ePUB. Вы должны отредактировать ваш файл OPF, чтобы удалить дублирование.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="875"/>
@@ -21613,7 +21628,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>
-        <translation>Запрошенное имя содержит символы, не входящие в ASCII. В именах файлов можно использовать только символы ASCII. Если в имени файла есть символы, не входящие в ASCII, то в некоторых программах для чтения книг EPUB не будет работать.
+        <translation>Запрошенное имя содержит символы, не входящие в ASCII. В именах файлов можно использовать только символы ASCII. Если в имени файла есть символы, не входящие в ASCII, то в некоторых программах для чтения книг ePUB не будет работать.
 
 Продолжить использование этого имени?</translation>
     </message>

@@ -314,33 +314,43 @@
         <translation>색상</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="388"/>
-        <location filename="../../Widgets/AdjustImage.cpp" line="413"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="323"/>
+        <source>(x,y) coordinates:</source>
+        <translation>(x,y) 좌표:</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="323"/>
+        <source>Zoom</source>
+        <translation>확대</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="390"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="415"/>
         <source>Image successfully saved.</source>
         <translation>이미지 저장 성공</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="390"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="392"/>
         <source>Image save failed.</source>
         <translation>이미지 저장 실패</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="399"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="401"/>
         <source>Image Quality</source>
         <translation>이미지 품질</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="400"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="402"/>
         <source>Enter quality level (0-100):</source>
         <translation>품질 수준(0-100):</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="402"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="404"/>
         <source>Image save failed. </source>
         <translation>이미지 저장 실패.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="415"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="417"/>
         <source>Image save failed: </source>
         <translation>이미지 저장 실패:</translation>
     </message>
@@ -3581,7 +3591,7 @@ other end to continue searching.</source>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="81"/>
-        <location filename="../../Dialogs/EditTOC.cpp" line="481"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="497"/>
         <source>Delete</source>
         <translation>삭제</translation>
     </message>
@@ -3626,27 +3636,32 @@ You can also use the right arrow key.</source>
         <translation>대상</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="480"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="384"/>
+        <source>[placeholder]</source>
+        <translation>[플레이스홀더]</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/EditTOC.cpp" line="496"/>
         <source>Rename</source>
         <translation>이름 바꾸기</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="488"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="504"/>
         <source>Move Up</source>
         <translation>위로 이동</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="489"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="505"/>
         <source>Move Down</source>
         <translation>아래로 이동</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="495"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="511"/>
         <source>Expand All</source>
         <translation>모두 펼치기</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="496"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="512"/>
         <source>Collapse All</source>
         <translation>모두 접기</translation>
     </message>

@@ -314,33 +314,43 @@
         <translation>Color</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="388"/>
-        <location filename="../../Widgets/AdjustImage.cpp" line="413"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="323"/>
+        <source>(x,y) coordinates:</source>
+        <translation>(x,y) coordenades:</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="323"/>
+        <source>Zoom</source>
+        <translation>Zoom</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="390"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="415"/>
         <source>Image successfully saved.</source>
         <translation>La imatge s&apos;ha desat correctament.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="390"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="392"/>
         <source>Image save failed.</source>
         <translation>No s&apos;ha pogut desar la imatge.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="399"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="401"/>
         <source>Image Quality</source>
         <translation>Qualitat de la imatge</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="400"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="402"/>
         <source>Enter quality level (0-100):</source>
         <translation>Introdueix el nivell de qualitat (0-100):</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="402"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="404"/>
         <source>Image save failed. </source>
         <translation>No s&apos;ha pogut desar la imatge.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="415"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="417"/>
         <source>Image save failed: </source>
         <translation>No s&apos;ha pogut desar la imatge:</translation>
     </message>
@@ -1468,7 +1478,7 @@ si el CSS n&apos;indica una sense serifs</translation>
     <message>
         <location filename="../../Form_Files/AutomateEditor.ui" line="81"/>
         <source>Add a new Plugin element to the list.</source>
-        <translation type="unfinished"/>
+        <translation>Afegeix un nou Connector a la llista.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AutomateEditor.ui" line="84"/>
@@ -3237,7 +3247,7 @@ continueu la cerca des de l&apos;altre extrem.</translation>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="364"/>
         <source>Direction to search</source>
-        <translation>Sentit de la cerca</translation>
+        <translation>Direcció de la cerca</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="366"/>
@@ -3363,7 +3373,7 @@ continueu la cerca des de l&apos;altre extrem.</translation>
     <message>
         <location filename="../../Form_Files/DeleteFiles.ui" line="14"/>
         <source>Delete Files</source>
-        <translation>Esborrar fitxers</translation>
+        <translation>Esborra els fitxers</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DeleteFiles.ui" line="30"/>
@@ -3378,7 +3388,7 @@ continueu la cerca des de l&apos;altre extrem.</translation>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="69"/>
         <source>Delete</source>
-        <translation>Esborrar</translation>
+        <translation>Esborra</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteFiles.cpp" line="70"/>
@@ -3391,7 +3401,7 @@ continueu la cerca des de l&apos;altre extrem.</translation>
     <message>
         <location filename="../../Form_Files/DeleteStyles.ui" line="14"/>
         <source>Delete Styles</source>
-        <translation>Esborrar estils</translation>
+        <translation>Esborra els estils</translation>
     </message>
     <message>
         <location filename="../../Form_Files/DeleteStyles.ui" line="30"/>
@@ -3406,7 +3416,7 @@ continueu la cerca des de l&apos;altre extrem.</translation>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="81"/>
         <source>Delete</source>
-        <translation>Esborrar</translation>
+        <translation>Esborra</translation>
     </message>
     <message>
         <location filename="../../Dialogs/DeleteStyles.cpp" line="82"/>
@@ -3565,7 +3575,7 @@ continueu la cerca des de l&apos;altre extrem.</translation>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="14"/>
         <source>Edit Table Of Contents</source>
-        <translation>Edita la taula de continguts</translation>
+        <translation>Edita el sumari</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="52"/>
@@ -3594,7 +3604,7 @@ continueu la cerca des de l&apos;altre extrem.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="81"/>
-        <location filename="../../Dialogs/EditTOC.cpp" line="481"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="497"/>
         <source>Delete</source>
         <translation>Esborra</translation>
     </message>
@@ -3639,27 +3649,32 @@ També podeu utilitzar la fletxa dreta.</translation>
         <translation>Objectiu</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="480"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="384"/>
+        <source>[placeholder]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/EditTOC.cpp" line="496"/>
         <source>Rename</source>
         <translation>Canvia el nom</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="488"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="504"/>
         <source>Move Up</source>
         <translation>Moure a dalt</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="489"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="505"/>
         <source>Move Down</source>
         <translation>Moure a sota</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="495"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="511"/>
         <source>Expand All</source>
         <translation>Amplia-ho tot</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="496"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="512"/>
         <source>Collapse All</source>
         <translation>Redueix-ho tot</translation>
     </message>
@@ -4088,7 +4103,8 @@ per continuar cercant.</translation>
         <location filename="../../Form_Files/FindReplace.ui" line="534"/>
         <source>Search only in text (outside tags).
 Valid only when searching HTML files.</source>
-        <translation type="unfinished"/>
+        <translation>Cerca només al text (fora de les etiquetes).
+Només és vàlid quan se cerquen fitxers HTML.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/FindReplace.ui" line="538"/>
@@ -13120,7 +13136,7 @@ Aquesta acció no es pot desfer.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4150"/>
         <source>Generate TOC cancelled.</source>
-        <translation>S&apos;ha cancel·lat la generació de la taula de continguts.</translation>
+        <translation>S&apos;ha cancel·lat la generació del sumari.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4175"/>
@@ -13469,7 +13485,7 @@ Voleu reparar automàticament els fitxers abans de desar? O vols cancel·lar?</t
         <location filename="../../Dialogs/ManageAutomation.cpp" line="56"/>
         <location filename="../../Dialogs/ManageAutomation.cpp" line="83"/>
         <source>List Identifier</source>
-        <translation type="unfinished"/>
+        <translation>Identificador de la llista</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ManageAutomation.cpp" line="83"/>
@@ -19736,12 +19752,12 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="110"/>
         <source>dagger</source>
-        <translation type="unfinished"/>
+        <translation>obelisc</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="111"/>
         <source>double dagger</source>
-        <translation type="unfinished"/>
+        <translation>Obelisc doble</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="112"/>
@@ -20006,7 +20022,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="164"/>
         <source>capital eth</source>
-        <translation type="unfinished"/>
+        <translation>Ð majúscula</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="165"/>
@@ -20176,7 +20192,7 @@ Voleu desar-ne els canvis?</translation>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="198"/>
         <source>small eth</source>
-        <translation type="unfinished"/>
+        <translation>eth minúscula</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="199"/>
