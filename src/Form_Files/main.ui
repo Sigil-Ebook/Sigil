@@ -1799,7 +1799,7 @@
     <string>&amp;Next Tab</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+PgUp</string>
+    <string>Ctrl+PgDown</string>
    </property>
   </action>
   <action name="actionPreviousTab">
@@ -1807,7 +1807,7 @@
     <string>&amp;Previous Tab</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+PgDown</string>
+    <string>Ctrl+PgUp</string>
    </property>
   </action>
   <action name="actionCloseTab">
