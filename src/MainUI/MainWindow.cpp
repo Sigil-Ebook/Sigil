@@ -5115,11 +5115,11 @@ void MainWindow::UpdateCursorPositionLabel(int line, int column, int codepoint)
     QString name = "";
     if (line > 0 && column > 0) {
         name = CodepointNames::instance()->GetName(codepoint);
-	const QString cp = QString("U+%1").arg(codepoint, 4, 16, QLatin1Char('0')).toUpper();
-        const QString l = QString::number(line);
-        const QString c = QString::number(column);
-        // m_lbCursorPosition->setText(tr("Line: %1, Col: %2 - %3 (%4)").arg(l).arg(c).arg(name).arg(cp));
-        m_lbCursorPosition->setText(tr("%1 (%2) - Line: %3, Col: %4").arg(name).arg(cp).arg(l).arg(c));
+	QString cp = " (" + QString("U+%1").arg(codepoint, 4, 16, QLatin1Char('0')).toUpper() + ")";
+        QString l = QString::number(line);
+        QString c = QString::number(column);
+        if (codepoint < 0) cp = "";
+        m_lbCursorPosition->setText(tr("%1%2 - Line: %3, Col: %4").arg(name).arg(cp).arg(l).arg(c));
         m_lbCursorPosition->show();
     } else {
         m_lbCursorPosition->clear();
@@ -6342,13 +6342,13 @@ void MainWindow::ExtendUI()
     ui.menuToolbars->addAction(ui.toolBarIndexActions->toggleViewAction());
     ui.menuToolbars->addAction(ui.toolBarAutomate->toggleViewAction());
     ui.toolBarClips->setVisible(false);
+    m_lbCursorPosition = new QLabel(QString(""), statusBar());
+    statusBar()->addPermanentWidget(m_lbCursorPosition);
+    UpdateCursorPositionLabel(0, 0, -1);
     m_lbDropZone = new FileDropZone(statusBar());
     statusBar()->addPermanentWidget(m_lbDropZone);
     SettingsStore ss;
     if (!ss.fileDropZoneEnabled()) m_lbDropZone->hide(); 
-    m_lbCursorPosition = new QLabel(QString(""), statusBar());
-    statusBar()->addPermanentWidget(m_lbCursorPosition);
-    UpdateCursorPositionLabel(0, 0, -1);
     // Creating the zoom controls in the status bar
     m_slZoomSlider = new QSlider(Qt::Horizontal, statusBar());
     m_slZoomSlider->setTracking(false);
