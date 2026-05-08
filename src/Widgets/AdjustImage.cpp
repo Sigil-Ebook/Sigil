@@ -29,6 +29,7 @@
  * THE SOFTWARE.
  */
 
+#include <cmath>
 #include <QTransform>
 #include <QDebug>
 #include <QFileInfo>
@@ -321,7 +322,9 @@ bool AdjustImage::eventFilter(QObject* watched, QEvent* event)
             const QPoint position = me->pos();
             QString sf = QString::number(m_scaleFactor, 'f', 4);
             QString msg = tr("(x,y) coordinates:") + " (%1,%2)  " + tr("Zoom") + " (%3)";
-            msg = msg.arg(position.x()).arg(position.y()).arg(sf);
+            int x_pos = std::round(position.x() / m_scaleFactor);
+            int y_pos = std::round(position.y()/ m_scaleFactor);
+            msg = msg.arg(x_pos).arg(y_pos).arg(sf);
             m_statusBar->showMessage(msg);
             if (m_croppingState) {
                 m_rbend = position;
