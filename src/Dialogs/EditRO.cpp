@@ -45,6 +45,10 @@ EditRO::EditRO(QStringList bookpaths, QString selected, QWidget *parent)
 	row++;
     }
     ui.ROList->installEventFilter(this);
+    ui.ROList->setDragDropMode(QAbstractItemView::InternalMove);
+    ui.ROList->setDragEnabled(true);
+    ui.ROList->setAcceptDrops(true);
+    ui.ROList->setDropIndicatorShown(true);
     ConnectSignalsToSlots();
 
     ReadSettings();
