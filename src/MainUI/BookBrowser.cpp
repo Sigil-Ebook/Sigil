@@ -319,6 +319,12 @@ void BookBrowser::SortHTML()
 void BookBrowser::ReorderHTML()
 {
     QList <Resource *> resources = AllHTMLResources();
+    QString version = m_Book->GetConstOPF()->GetEpubVersion();
+    if (version.startsWith("3")) {
+        if (!m_Book->GetConstOPF()->isNavInSpine()) {
+            resources.removeOne(m_Book->GetConstOPF()->GetNavResource());
+        }
+    }
     QList <Resource *> selected_resources = ValidSelectedResources();
     QString selected;
     if (selected_resources.count() > 0) {

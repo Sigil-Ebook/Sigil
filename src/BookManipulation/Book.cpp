@@ -467,6 +467,11 @@ HTMLResource *Book::CreateHTMLCoverFile(QString text)
 
     // Move file to start of book.
     QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(true);
+    if (version.startsWith("3")) {
+        if (!GetConstOPF()->isNavInSpine()) {
+            html_resources.removeOne(GetConstOPF()->GetNavResource());
+        }
+    }
     html_resources.removeOne(html_resource);
     html_resources.prepend(html_resource);
     GetOPF()->UpdateSpineOrder(html_resources);
@@ -567,10 +572,15 @@ HTMLResource *Book::CreateSectionBreakOriginalResource(const QString &content, H
     int reading_order = GetOPF()->GetReadingOrder(originating_resource);
     Q_ASSERT(reading_order >= 0);
     QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(true);
+    QString version = GetConstOPF()->GetEpubVersion();
+    if (version.startsWith("3")) {
+        if (!GetConstOPF()->isNavInSpine()) {
+            html_resources.removeOne(GetConstOPF()->GetNavResource());
+        }
+    }
     QString old_extension = originating_filename.right(originating_filename.length() - originating_filename.lastIndexOf("."));
     originating_resource->RenameTo(GetFirstUniqueSectionName(old_extension));
     HTMLResource *new_resource = CreateNewHTMLFile(folder_path);
-    QString version = GetOPF()->GetEpubVersion();
     new_resource->RenameTo(originating_filename);
     new_resource->SetText(CleanSource::Mend(content, version));
     m_Mainfolder->SuspendWatchingResources();
@@ -610,11 +620,9 @@ void Book::CreateNewSections(const QStringList &new_sections, HTMLResource *orig
     QString new_file_prefix = QFileInfo(original_resource->Filename()).baseName();
     QString file_extension = "." + QFileInfo(original_resource->Filename()).suffix();
     QString folder_path = Utility::startingDir(original_resource->GetRelativePath());
-
     if (new_sections.isEmpty()) {
         return;
     }
-
     TempFolder tempfolder;
     QFutureSynchronizer<NewSectionResult> sync;
     QList<HTMLResource *> html_resources = m_Mainfolder->GetResourceTypeList<HTMLResource>(true);
@@ -622,6 +630,12 @@ void Book::CreateNewSections(const QStringList &new_sections, HTMLResource *orig
     // This will be used later when anchors are updated.
     QList<HTMLResource *> other_files = html_resources;
     other_files.removeOne(original_resource);
+    QString version = GetConstOPF()->GetEpubVersion();
+    if (version.startsWith("3")) {
+        if (!GetConstOPF()->isNavInSpine()) {
+            html_resources.removeOne(GetConstOPF()->GetNavResource());
+        }
+    }
     int next_reading_order;
 
     if (original_position == -1) {

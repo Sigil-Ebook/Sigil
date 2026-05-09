@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2023 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -553,7 +553,7 @@ void OPFModel::InitializeModel()
     } else { 
         semantic_type_all = m_Book->GetOPF()->GetGuideSemanticNameForPaths();
     }
-
+    
     foreach(Resource * resource, resources) {
         AlphanumericItem * item;
         QIcon fileicon = m_Book->GetFolderKeeper()->GetFileIconFromMediaType(resource->GetMediaType());
@@ -588,7 +588,6 @@ void OPFModel::InitializeModel()
             } else {
                 reading_order = NO_READING_ORDER;
             }
-
             item->setData(reading_order, READING_ORDER_ROLE);
             // Remove the extension for alphanumeric sorting
             QString name;
@@ -636,23 +635,43 @@ void OPFModel::InitializeModel()
 void OPFModel::UpdateHTMLReadingOrders()
 {
     QList<HTMLResource *> reading_order_htmls;
-
+    QString version = m_Book->GetConstOPF()->GetEpubVersion();
+    bool nav_in_spine = false;
+    HTMLResource * nav_res = nullptr;
+    if (version.startsWith("3")) {
+        nav_res = m_Book->GetConstOPF()->GetNavResource();
+        nav_in_spine = m_Book->GetConstOPF()->isNavInSpine();
+    }
+    // qDebug() << "In UpdateHTMLReadingOrders " << version << nav_in_spine << nav_res;
+    int spine_order = 0;
     for (int i = 0; i < m_TextFolderItem->rowCount(); ++i) {
         QStandardItem *html_item = m_TextFolderItem->child(i);
         Q_ASSERT(html_item);
-        html_item->setData(i, READING_ORDER_ROLE);
         HTMLResource *html_resource =  qobject_cast<HTMLResource *>(
                                            m_Book->GetFolderKeeper()->GetResourceByIdentifier(html_item->data().toString()));
 
         if (html_resource != NULL) {
             // for some reason icons can be lost during drag and drop
             html_item->setIcon(m_Book->GetFolderKeeper()->GetFileIconFromMediaType("application/xhtml+xml"));
-            reading_order_htmls.append(html_resource);
+            QString bookpath = html_resource->GetRelativePath();
+
+            if ((version.startsWith("3")) && (!nav_in_spine) && (html_resource == nav_res)) {
+                // always sort nav to last if not in spine
+                // but do not actually add it to the spine
+                // qDebug() << "set nav reading_order_role to last ";
+                // qDebug() << bookpath << m_TextFolderItem->rowCount()-1;
+                html_item->setData(m_TextFolderItem->rowCount()-1, READING_ORDER_ROLE);
+            } else {
+                // qDebug() << bookpath << spine_order; 
+                reading_order_htmls.append(html_resource);
+                html_item->setData(spine_order, READING_ORDER_ROLE);
+                spine_order += 1;
+            }
         }
     }
-
     m_Book->GetOPF()->UpdateSpineOrder(reading_order_htmls);
     m_Book->SetModified();
+    Refresh();
 }
 
 

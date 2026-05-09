@@ -1484,6 +1484,7 @@ void MainWindow::launchExternalXEditor()
         resource = m_Book->GetOPF();
 
         // an OPF Resource could be used to access every xhtml file in the spine
+        // including the nav no matter if present in the spine or not
         // so save all of these resources to disk and set a fswatcher on them
         QList<Resource *> all_resources = m_Book->GetFolderKeeper()->GetResourceList();
         QList<Resource*> spine_resources = m_Book->GetOPF()->GetSpineOrderResources(all_resources);
@@ -4219,7 +4220,11 @@ bool MainWindow::CreateHTMLTOC()
 
     // list is built in spine order by the BookBrowser
     QList<Resource *> resources = GetAllHTMLResources();
-
+    if (version.startsWith("3")) {
+        if (!m_Book->GetConstOPF()->isNavInSpine()) {
+            resources.removeOne(m_Book->GetConstOPF()->GetNavResource());
+        }
+    }
     foreach(Resource * resource, resources) {
         HTMLResource *htmlResource = qobject_cast<HTMLResource *>(resource);
         if (htmlResource) {

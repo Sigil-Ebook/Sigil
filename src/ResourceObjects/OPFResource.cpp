@@ -131,7 +131,7 @@ OPFResource::OPFResource(const QString &mainfolder,
              const QString &version, 
              QObject *parent)
   : XMLResource(mainfolder, fullfilepath, parent),
-    m_NavResource(NULL),
+    m_NavResource(nullptr),
     m_WarnedAboutVersion(false)
 {
     FillWithDefaultText(version);
@@ -203,8 +203,12 @@ bool OPFResource::LoadFromDisk()
     return false;
 }
 
+// This is used to determine the list of resources to watch for
+// changes caused by external Xhtml editors like PageEdit
 QList<Resource*> OPFResource::GetSpineOrderResources( const QList<Resource *> &resources)
 {
+    QString version = GetEpubVersion();
+    bool nav_in_spine = isNavInSpine();
     QReadLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
@@ -217,19 +221,40 @@ QList<Resource*> OPFResource::GetSpineOrderResources( const QList<Resource *> &r
             spine_order << id_mapping[idref];
         }
     }
+    // in epub 3 without nav in the spine, add it to be watched as last
+    if (version.startsWith("3") && (!nav_in_spine)) {
+        spine_order << GetNavResource();;
+    }
     return spine_order;
 }
 
+// This is used by OPFModel to build BookBrowser list in reading order
 QHash <Resource *, int>  OPFResource::GetReadingOrderAll( const QList <Resource *> resources)
 {
+    QString version = GetEpubVersion();
+    bool nav_in_spine = false;
+    Resource* nav_rsc = nullptr;
+    QString nav_id = "";
+    if (version.startsWith("3")) {
+        nav_in_spine = isNavInSpine();
+        nav_rsc = GetNavResource();
+    }
     QReadLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
+    if (nav_rsc) {
+        nav_id = GetResourceManifestID(nav_rsc, p);
+    }
     QHash <Resource *, int> reading_order;
     QHash<QString, int> id_order;
     for (int i = 0; i < p.m_spine.count(); ++i) {
         id_order[p.m_spine.at(i).m_idref] = i;
+    }
+    // Need to special case, epub version 3 without nav in the spine
+    // add it in always as last
+    if (version.startsWith("3") && (!nav_in_spine)) {
+        id_order[nav_id] = p.m_spine.count() - 1;
     }
     QHash<Resource *, QString> id_mapping = GetResourceManifestIDMapping(resources, p);
     foreach(Resource *resource, resources) {
@@ -238,7 +263,15 @@ QHash <Resource *, int>  OPFResource::GetReadingOrderAll( const QList <Resource 
     return reading_order;
 }
 
+bool OPFResource::isNavInSpine() const
+{
+    if (GetEpubVersion().startsWith('3')) {
+        return GetReadingOrder(GetNavResource()) != -1;
+    }
+    return false;
+}
 
+// this is used by isNavInSpine() so do not treat is as a special case
 int OPFResource::GetReadingOrder(const HTMLResource *html_resource) const
 {
     QReadLocker locker(&GetLock());
@@ -1261,6 +1294,7 @@ void OPFResource::SetResourceAsCoverImage(ImageResource *image_resource)
 
 void OPFResource::UpdateSpineOrder(const QList<::HTMLResource *> html_files)
 {
+    bool contains_nav = html_files.contains(GetNavResource());
     QWriteLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;

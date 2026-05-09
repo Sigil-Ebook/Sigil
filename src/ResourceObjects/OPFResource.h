@@ -157,6 +157,8 @@ public:
     void UpdateGuideAfterMerge(QList<Resource*> &merged_resources, QHash<QString,QString> &section_id_map);
     void UpdateGuideFragments(QHash<QString,QString> &idupdates);
 
+    bool isNavInSpine() const;
+
  signals:
     void TextChanging();
     void LoadedFromDisk();
