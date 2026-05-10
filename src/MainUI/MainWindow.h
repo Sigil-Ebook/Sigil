@@ -234,6 +234,9 @@ public:
 
 public slots:
 
+    bool AddNavToSpine(); 
+    bool AddNavToSpineNonLinear();
+
     bool Automate(const QStringList &commands);
 
     void OpenUrl(const QUrl &url);
@@ -266,6 +269,9 @@ public slots:
     bool GenerateNCXGuideFromNav();
 
     bool RemoveNCXGuideFromEpub3();
+
+    bool RemoveNavFromSpine();
+    bool AddNavToSpine(bool nonlinear);
 
     void CreateIndex();
 

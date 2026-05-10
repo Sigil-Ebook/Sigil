@@ -174,6 +174,8 @@ QStringList MainWindow::s_RecentFiles = QStringList();
 // This list needs to be kept in exact sync with AutomateEditor.cpp in Dialogs
 static const QStringList AUTOMATE_TOOLS = QStringList() <<
     "AddCover" <<
+    "AddNavToSpine" <<
+    "AddNavToSpineNonLinear" <<
     "CreateHTMLTOC" <<
     "DeleteUnusedMedia" <<
     "DeleteUnusedStyles" <<
@@ -185,6 +187,7 @@ static const QStringList AUTOMATE_TOOLS = QStringList() <<
     "OnSuccessRunSavedSearchReplaceAll" <<
     "ReformatCSSMultipleLines" <<
     "ReformatCSSSingleLines" <<
+    "RemoveNavFromSpine" <<
     "RemoveNCXGuideFromEpub3" <<
     "RepoCommit" <<
     "RunSavedSearchReplaceAll" <<
@@ -426,9 +429,13 @@ bool MainWindow::Automate(const QStringList &commands)
                 // these tools are epub3 specific
                 QString version = m_Book->GetOPF()->GetEpubVersion();
                 if (version.startsWith('3')) {
-                    if (cmd == "GenerateNCXGuideFromNav")     success = GenerateNCXGuideFromNav();
-                    if (cmd == "RemoveNCXGuideFromEpub3")     success = RemoveNCXGuideFromEpub3();
-                    if (cmd == "UpdateManifestProperties")    success = UpdateManifestProperties();
+                    if (cmd == "GenerateNCXGuideFromNav")  success = GenerateNCXGuideFromNav();
+                    if (cmd == "RemoveNCXGuideFromEpub3")  success = RemoveNCXGuideFromEpub3();
+                    if (cmd == "UpdateManifestProperties") success = UpdateManifestProperties();
+                    if (cmd == "RemoveNavFromSpine")       success = RemoveNavFromSpine();
+                    if (cmd == "AddNavToSpine")            success = AddNavToSpine(false);
+                    if (cmd == "AddNavToSpineNonLinear")   success = AddNavToSpine(true);
+                    
                 } else {
                     ShowMessageOnStatusBar(cmd + " " + tr("skipped since not an epub3"));
                     success = true;
@@ -2704,6 +2711,48 @@ bool MainWindow::UpdateManifestProperties()
     QApplication::restoreOverrideCursor();
     return true;
 }
+
+bool MainWindow::RemoveNavFromSpine()
+{
+    QString version = m_Book->GetConstOPF()->GetEpubVersion();
+    if (!version.startsWith('3')) {
+        ShowMessageOnStatusBar(tr("Not Available for epub2."));
+        return false;
+    }
+    SaveTabData();
+    Resource * navrsc = m_Book->GetConstOPF()->GetNavResource();
+    m_Book->GetOPF()->RemoveResourceFromSpine(navrsc);
+    ShowMessageOnStatusBar(tr("Nav removed from OPF Spine."));
+    m_BookBrowser->BookContentModified();
+    m_BookBrowser->Refresh();
+    m_Book->SetModified();
+    return true;
+}
+
+bool MainWindow::AddNavToSpine() { return AddNavToSpine(false); }
+bool MainWindow::AddNavToSpineNonLinear() { return AddNavToSpine(true); }
+
+bool MainWindow::AddNavToSpine(bool nonlinear)
+{
+    QString version = m_Book->GetConstOPF()->GetEpubVersion();
+    if (!version.startsWith('3')) {
+        ShowMessageOnStatusBar(tr("Not Available for epub2."));
+        return false;
+    }
+    SaveTabData();
+    Resource * navrsc = m_Book->GetConstOPF()->GetNavResource();
+    m_Book->GetOPF()->AppendResourceToSpine(navrsc, nonlinear);
+    if (nonlinear) {
+        ShowMessageOnStatusBar(tr("Nav added to OPF Spine with linear=\"no\""));
+    } else {
+        ShowMessageOnStatusBar(tr("Nav added to OPF Spine."));
+    }
+    m_BookBrowser->BookContentModified();
+    m_BookBrowser->Refresh();
+    m_Book->SetModified();
+    return true;
+}
+
 
 
 bool MainWindow::RemoveNCXGuideFromEpub3()
@@ -6490,6 +6539,9 @@ void MainWindow::ExtendUI()
     sm->registerAction(this, ui.actionUpdateManifestProperties, "MainWindow.UpdateManifestProperties");
     sm->registerAction(this, ui.actionNCXGuideFromNav, "MainWindow.NCXGuideFromNav");
     sm->registerAction(this, ui.actionRemoveNCXGuide, "MainWindow.RemoveNCXGuide");
+    sm->registerAction(this, ui.actionRemoveNavFromSpine, "MainWindow.RemoveNavFromGuide");
+    sm->registerAction(this, ui.actionAddNavToSpine, "MainWindow.AddNavToSpine");
+    sm->registerAction(this, ui.actionAddNavToSpineNonLinear, "MainWindow.AddNavToSpineNonLinear");
     sm->registerAction(this, ui.actionSpellcheckEditor, "MainWindow.SpellcheckEditor");
     sm->registerAction(this, ui.actionSpellcheck, "MainWindow.Spellcheck");
     sm->registerAction(this, ui.actionAddMisspelledWord, "MainWindow.AddMispelledWord");
@@ -6782,6 +6834,9 @@ void MainWindow::ConnectSignalsToSlots()
     connect(ui.actionUpdateManifestProperties,   SIGNAL(triggered()),     this, SLOT(UpdateManifestProperties()));
     connect(ui.actionNCXGuideFromNav,            SIGNAL(triggered()),     this, SLOT(GenerateNCXGuideFromNav()));
     connect(ui.actionRemoveNCXGuide,             SIGNAL(triggered()),     this, SLOT(RemoveNCXGuideFromEpub3()));
+    connect(ui.actionRemoveNavFromSpine,         SIGNAL(triggered()),     this, SLOT(RemoveNavFromSpine()));
+    connect(ui.actionAddNavToSpine,              SIGNAL(triggered()),     this, SLOT(AddNavToSpine()));
+    connect(ui.actionAddNavToSpineNonLinear,     SIGNAL(triggered()),     this, SLOT(AddNavToSpineNonLinear()));
     connect(ui.actionClearIgnoredWords,          SIGNAL(triggered()),     this, SLOT(ClearIgnoredWords()));
     connect(ui.actionGenerateTOC,   SIGNAL(triggered()), this, SLOT(GenerateTOC()));
     connect(ui.actionEditTOC,       SIGNAL(triggered()), this, SLOT(EditTOCDialog()));

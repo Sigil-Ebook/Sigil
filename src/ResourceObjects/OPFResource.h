@@ -100,6 +100,10 @@ public:
 
     void UpdateNCXLocationInManifest(const NCXResource *ncx);
 
+    void RemoveResourceFromSpine(const Resource* resource);
+
+    void AppendResourceToSpine(const Resource * resource, bool nonlinear);
+
     QString AddModificationDateMeta();
 
     void AddSigilVersionMeta();

@@ -1964,3 +1964,48 @@ void OPFResource::RebaseManifestIDs()
     source = pr.RebaseManifestIDsInPython(source);
     TextResource::SetText(source);
 }
+
+void OPFResource::AppendResourceToSpine(const Resource* resource, bool nonlinear)
+{
+    QWriteLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
+    OPFParser p;
+    p.parse(source);
+    QString item_id = GetResourceManifestID(resource, p);
+    // first remove any instance from the spine if one already exists
+    for (int i=0; i < p.m_spine.count(); ++i) {
+        QString idref = p.m_spine.at(i).m_idref;
+        if (idref == item_id) {
+            p.m_spine.removeAt(i);
+            break;
+        }
+    }
+    if ((resource->Type() == Resource::HTMLResourceType) && !item_id.isEmpty()) {
+        SpineEntry se;
+        se.m_idref = item_id;
+        if (nonlinear) {
+            se.m_atts["linear"] = "no";
+        }
+        p.m_spine.append(se);
+    }
+    UpdateText(p);
+}
+
+void OPFResource::RemoveResourceFromSpine(const Resource* resource)
+{
+    QWriteLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
+    OPFParser p;
+    p.parse(source);
+    QString item_id = GetResourceManifestID(resource, p);
+    if (!item_id.isEmpty()) {
+        for (int i=0; i < p.m_spine.count(); ++i) {
+            QString idref = p.m_spine.at(i).m_idref;
+            if (idref == item_id) {
+                p.m_spine.removeAt(i);
+                break;
+            }
+        }
+    }
+    UpdateText(p);
+}

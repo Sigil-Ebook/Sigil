@@ -384,6 +384,9 @@
      <addaction name="actionUpdateManifestProperties"/>
      <addaction name="actionNCXGuideFromNav"/>
      <addaction name="actionRemoveNCXGuide"/>
+     <addaction name="actionRemoveNavFromSpine"/>
+     <addaction name="actionAddNavToSpine"/>
+     <addaction name="actionAddNavToSpineNonLinear"/>
     </widget>
     <addaction name="actionAddCover"/>
     <addaction name="actionMetaEditor"/>
@@ -3167,6 +3170,21 @@
   <action name="actionRemoveNCXGuide">
    <property name="text">
     <string>Remove the NCX and Guide</string>
+   </property>
+  </action>
+  <action name="actionRemoveNavFromSpine">
+   <property name="text">
+    <string>Remove Nav from Reading Order</string>
+   </property>
+  </action>
+  <action name="actionAddNavToSpineNonLinear">
+   <property name="text">
+    <string>Add Nav to Reading Order with linear="no"</string>
+   </property>
+  </action>
+  <action name="actionAddNavToSpine">
+   <property name="text">
+    <string>Add Nav to Reading Order</string>
    </property>
   </action>
   <action name="actionCommit">

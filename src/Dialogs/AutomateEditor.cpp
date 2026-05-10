@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-**  Copyright (C) 2021-2025 Kevin B. Hendricks, Stratford, ON Canada
+**  Copyright (C) 2021-2026 Kevin B. Hendricks, Stratford, ON Canada
 **  Based on the MetaEditor, AddMetadata Dialogs design
 **  This file is part of Sigil.
 **
@@ -341,6 +341,8 @@ void AutomateEditor::loadToolElements()
     QStringList data;
     data <<
          "AddCover" << "AddCover" << tr("Add Cover to epub.") <<
+         "AddNavToSpine" << "AddNavToSpine" << tr("Add Nav to OPF Spine.") <<
+         "AddNavToSpineNonLinear" << "AddNavToSpineNonLinear" << tr("Add Nav to OPF Spine with linear='no'.") <<
          "CreateHTMLTOC" << "CreateHTMLTOC" << tr("Create HTML Table Of Contents.") <<
          "DeleteUnusedMedia" << "DeleteUnusedMedia" << tr("Delete Unused Media Resource.") <<
          "DeleteUnusedStyles" << "DeleteUnusedStyles" << tr("Delete Unused CSS Selectors.") <<
@@ -352,6 +354,7 @@ void AutomateEditor::loadToolElements()
          "OnSuccessRunSavedSearchReplaceAll" << "OnSuccessRunSavedSearchReplaceAll" << tr("If previous search had success, run the named Saved Search.") <<
          "ReformatCSSMultipleLines" << "ReformatCSSMultipleLines" << tr("Reformat All CSS to Multiple Lines format.") <<
          "ReformatCSSSingleLines" << "ReformatCSSSingleLines" << tr("Reformat All CSS to Single Lines format.") <<
+         "RemoveNavFromSpine" << "RemoveNavFromSpine" << tr("Remove Nav from OPF Spine.") <<
          "RemoveNCXGuideFromEpub3" << "RemoveNCXGuideFromEpub3" << tr("Remove NCX and OPF Guide from Epub3.") <<
          "RepoCommit" << "RepoCommit" << tr("Save a Checkpoint of the current epub.") << 
          "RunSavedSearchReplaceAll" << "RunSavedSearchReplaceAll" << tr("Run the named Saved Search with Replace All.") <<

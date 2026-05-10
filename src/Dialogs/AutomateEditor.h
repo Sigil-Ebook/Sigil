@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2021 Kevin B. Hendricks, Stratford, ON Canada
+** Copyright (C) 2021-2026 Kevin B. Hendricks, Stratford, ON Canada
 **
 **  This file is part of Sigil.
 **
