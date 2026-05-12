@@ -62,10 +62,10 @@ DeleteStyles::DeleteStyles(QHash<QString, QList<CSSInfo::CSSSelector *>> css_sty
             for (int i = 0; i < rowItems.count(); i++) {
                 rowItems[i]->setEditable(false);
             }
-
             m_Model.appendRow(rowItems);
         }
     }
+    ui.Table->resizeColumnsToContents();
 }
 
 DeleteStyles::~DeleteStyles()
@@ -95,7 +95,6 @@ void DeleteStyles::SetUpTable()
 void DeleteStyles::SaveStylesToDelete()
 {
     m_CSSStylesToDelete.clear();
-
     for (int row = 0; row < m_Model.rowCount(); row++) {
         bool checked = m_Model.itemFromIndex(m_Model.index(row, 0))->checkState() == Qt::Checked;
 

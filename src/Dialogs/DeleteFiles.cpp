@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012      Dave Heiland
 **
 **  This file is part of Sigil.
@@ -51,9 +51,9 @@ DeleteFiles::DeleteFiles(QStringList files_to_delete, QWidget *parent)
         for (int i = 0; i < rowItems.count(); i++) {
             rowItems[i]->setEditable(false);
         }
-
         m_Model.appendRow(rowItems);
     }
+    ui.Table->resizeColumnsToContents();
 }
 
 DeleteFiles::~DeleteFiles()
