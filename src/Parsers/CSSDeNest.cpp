@@ -328,6 +328,15 @@ std::string CSSDeNest::flattenBlock(const Node& block, const std::string& parent
         std::string inner = flattenNodes(block.children, parentSel);
         out << block.header << " {\n" << inner << "}\n";
     } else {
+        bool hasNestedBlocks = std::any_of(
+            block.children.begin(), block.children.end(),
+            [](const Node& child) { return child.type == Node::BLOCK; });
+
+        if (parentSel.empty() && !hasNestedBlocks) {
+            out << block.header << " {" << block.rawBody << "}\n";
+            return out.str();
+        }
+
         // Regular selector block.
         std::string selector = parentSel.empty()
             ? block.header
@@ -381,4 +390,3 @@ std::string CSSDeNest::denest_css(const std::string& input) {
     std::vector<Node> nodes = parse(input, pos);
     return flattenNodes(nodes, "");
 }
-
