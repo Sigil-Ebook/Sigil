@@ -7,6 +7,8 @@ pre-Sigil-2.8.0
      - fix bug in Open With on MacOS not properly parsing arguments
      - fix bug in refreshing plugin toolbars (Thank you BeckyEbook)
      - fix bug in GetInfo not using the proper times symbol (Thank you BeckyEbook)
+     - fix stripping out of css selectors with non properites (empty)
+     - use resizeColumnsToContents to set DeleteUnunsedMedia and DeleteUnusedStyles column width
 
    New Features
      - create a separate Change Reading Order dialog for those who can not use drag and drop
