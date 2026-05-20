@@ -1691,7 +1691,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="372"/>
         <source>Validate All Stylesheets with W3C in external browser.</source>
-        <translation>Перевірте всі Таблиці Стилів за допомогою W3C у зовнішньому браузері.</translation>
+        <translation>Перевірте всі Таблиці стилів за допомогою W3C у зовнішньому браузері.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="373"/>
@@ -1959,7 +1959,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1878"/>
         <source>Linked Stylesheets</source>
-        <translation>Пов&apos;язані Таблиці Стилів</translation>
+        <translation>Пов&apos;язані Таблиці стилів</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1881"/>
@@ -2112,7 +2112,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2200"/>
         <source>Link Stylesheets...</source>
-        <translation>Зв&apos;язати з Таблицею Стилів…</translation>
+        <translation>Зв&apos;язати з Таблицею стилів…</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2201"/>
@@ -2132,7 +2132,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2204"/>
         <source>Validate with W3C</source>
-        <translation>Перевірити на сайті W3C</translation>
+        <translation>Валідація на сайті W3C</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2205"/>
@@ -2173,7 +2173,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2231"/>
         <source>Link Stylesheets to selected file(s).</source>
-        <translation>Зв&apos;язати Таблицю Стилів з вибраними файлами.</translation>
+        <translation>Зв&apos;язати Таблицю стилів з вибраними файлами.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2233"/>
@@ -3851,7 +3851,7 @@ locations and names for the OPF, NCX and/or Nav.</source>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="324"/>
         <source>Save current design to an ini File</source>
-        <translation>Зберегти поточний дизайн у файл ini</translation>
+        <translation>Зберегти поточний дизайн у файл ini.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="356"/>
@@ -3933,7 +3933,7 @@ locations and names for the OPF, NCX and/or Nav.</source>
         <source>Do you want to set this layout as the default empty Epub layout for Sigil?
 
 </source>
-        <translation>Ви хочете встановити цей макет як оформлення бланку ePUB за замовчуванням для Sigil?
+        <translation>Ви хочете зробити цей макет шаблоном ePUB за замовчуванням?
 
 </translation>
     </message>
@@ -4721,7 +4721,7 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="394"/>
         <source>What CSS level to specify for W3C stylesheet validation tool (EPUB2)</source>
-        <translation>Який рівень CSS вказати для інструменту перевірки таблиць стилів W3C (EPUB 2)</translation>
+        <translation>Який рівень CSS вказати для інструменту валідації таблиць стилів W3C (EPUB 2)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="397"/>
@@ -4764,7 +4764,7 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="473"/>
         <source>What CSS Level to specify for W3C stylesheet validation tool (EPUB3)</source>
-        <translation>Який рівень CSS вказати для інструменту перевірки таблиць стилів W3C (EPUB 3)</translation>
+        <translation>Який рівень CSS вказати для інструменту валідації таблиць стилів W3C (EPUB 3)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="476"/>
@@ -5272,7 +5272,7 @@ mended.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="82"/>
         <source>Stylesheets</source>
-        <translation>Таблиці Стилів</translation>
+        <translation>Таблиці стилів</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/HTMLFilesWidget.cpp" line="83"/>
@@ -9464,7 +9464,7 @@ Javascripts that are listed first are loaded first.</source>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="14"/>
         <source>Link StyleSheets</source>
-        <translation>Зв&apos;язати з Таблицею Стилів</translation>
+        <translation>Зв&apos;язати з Таблицею стилів</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkStylesheets.ui" line="46"/>
@@ -9498,7 +9498,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Dialogs/LinkStylesheets.cpp" line="62"/>
         <source>Stylesheet</source>
-        <translation>Таблиця Стилів</translation>
+        <translation>Таблиця стилів</translation>
     </message>
 </context>
 <context>
@@ -10937,7 +10937,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1875"/>
         <source>Well-Formed Check &amp;EPUB</source>
-        <translation>Перевірити правильність формату &amp;EPUB</translation>
+        <translation>Валідація формату &amp;EPUB</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1878"/>
@@ -10952,7 +10952,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1886"/>
         <source>Validate Stylesheets With &amp;W3C</source>
-        <translation>Перевірити Таблиці Стилів на сайті &amp;W3C</translation>
+        <translation>Валідація Таблиць стилів на сайті &amp;W3C</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1889"/>
@@ -10962,7 +10962,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Verify your CSS stylesheets comply with W3C standards using the online W3C CSS Validation Service.&lt;/p&gt;
     </source>
         <translation>
-     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;W3C перевіряє Таблиці Стилів&lt;/b&gt;&lt;/p&gt;
+     &lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;W3C перевіряє Таблиці стилів&lt;/b&gt;&lt;/p&gt;
 
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Перевірити відповідність CSS-таблиць стандартам W3C за допомогою онлайн-служби W3C CSS Validation Service.&lt;/p&gt;
     </translation>
@@ -11059,7 +11059,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1979"/>
         <source>Delete &amp;Unused Stylesheet Selectors...</source>
-        <translation>Видалити &amp;невикористані селектори Таблиць Стилів…</translation>
+        <translation>Видалити &amp;невикористані селектори Таблиць стилів…</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1984"/>
@@ -12087,12 +12087,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="2851"/>
         <source>Blank Stylesheet</source>
-        <translation>Бланк Таблиці Стилів</translation>
+        <translation>Бланк Таблиці стилів</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2854"/>
         <source>Add a new blank stylesheet to the book.</source>
-        <translation>Додати до книги нову порожню Таблицю Стилів.</translation>
+        <translation>Додати до книги нову порожню Таблицю стилів.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2859"/>
@@ -12358,17 +12358,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="3162"/>
         <source>Generate &amp;NCX/Guide for epub2 e-readers</source>
-        <translation>Створити &amp;NCX/Посібник для EPUB2 рідерів</translation>
+        <translation>Створити &amp;NCX/Guide для рідерів EPUB2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3167"/>
         <source>Create a Custom Empty Epub</source>
-        <translation>Створити власний бланк ePUB</translation>
+        <translation>Створити довільний макет ePUB</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3172"/>
         <source>Remove the NCX and Guide</source>
-        <translation>Видалити NCX та Посібник</translation>
+        <translation>Видалити NCX та Guide</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3177"/>
@@ -12490,7 +12490,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="529"/>
         <source>Validation tool</source>
-        <translation>Інструмент перевірки</translation>
+        <translation>Інструмент валідації</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="530"/>
@@ -12500,22 +12500,22 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="533"/>
         <source>Validation tool found errors - Abort or Ignore?</source>
-        <translation>Інструмент перевірки виявив помилки – Перервати чи Ігнорувати?</translation>
+        <translation>Інструмент валідації виявив помилки – Перервати чи Ігнорувати?</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="542"/>
         <source>Aborted due to Validation Errors</source>
-        <translation>Перервано через помилки перевірки</translation>
+        <translation>Перервано через помилки валідації</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="545"/>
         <source>Ignored Validation Errors</source>
-        <translation>Ігноровані помилки перевірки</translation>
+        <translation>Ігноровані помилки валідації</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="548"/>
         <source>Validation Tool Reported No Problems Found</source>
-        <translation>Інструмент перевірки повідомив, що проблем не виявлено</translation>
+        <translation>Інструмент валідації повідомив, що проблем не виявлено</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="555"/>
@@ -12545,7 +12545,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="652"/>
         <source>Validation</source>
-        <translation>Перевірка</translation>
+        <translation>Валідація</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="757"/>
@@ -12964,17 +12964,17 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2725"/>
         <source>Nav removed from OPF Spine.</source>
-        <translation type="unfinished"/>
+        <translation>Nav видалено з розділу Spine файлу OPF.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2746"/>
         <source>Nav added to OPF Spine with linear=&quot;no&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Nav додано до розділу Spine файлу OPF з «linear=&quot;no&quot;».</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2748"/>
         <source>Nav added to OPF Spine.</source>
-        <translation type="unfinished"/>
+        <translation>Nav додано до розділу Spine файлу OPF.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2784"/>
@@ -13154,7 +13154,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3857"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
-        <translation>Зв&apos;язування з Таблицями Стилів скасовано: %1, XML неправильно сформований.</translation>
+        <translation>Зв&apos;язування з Таблицями стилів скасовано: %1, XML неправильно сформований.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3987"/>
@@ -13164,7 +13164,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4056"/>
         <source>Link Javascripts cancelled: %1, XML not well formed.</source>
-        <translation>Зв&apos;язування з Таблицями Стилів скасовано: %1, XML неправильно сформований.</translation>
+        <translation>Зв&apos;язування з Таблицями стилів скасовано: %1, XML неправильно сформований.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4166"/>
@@ -13235,7 +13235,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4620"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
-        <translation>Цей ePUB не містить таблиць стилів CSS для перевірки.</translation>
+        <translation>Цей ePUB не містить таблиць стилів CSS для валідації.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4651"/>
@@ -21614,7 +21614,7 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="263"/>
         <source>Delete From Stylesheet</source>
-        <translation>Видалити з Таблиці Стилів</translation>
+        <translation>Видалити з Таблиці стилів</translation>
     </message>
 </context>
 <context>

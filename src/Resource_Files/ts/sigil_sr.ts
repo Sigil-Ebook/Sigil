@@ -4661,12 +4661,12 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="261"/>
         <source>Check to use drag and drop to add files to your epub.</source>
-        <translation type="unfinished"/>
+        <translation>Штиклирајте да се за додавање фајлова у epub користи превлачење и упуштање.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="264"/>
         <source>May use drag and drop to add files.</source>
-        <translation type="unfinished"/>
+        <translation>Постоји могућност да се за додавање фајлова користи превлачење и упуштање.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="288"/>
@@ -5559,7 +5559,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="375"/>
         <source>Save Changes</source>
-        <translation type="unfinished"/>
+        <translation>Сачувај измене</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="376"/>
@@ -5574,17 +5574,17 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="378"/>
         <source>Zoom to Fit</source>
-        <translation type="unfinished"/>
+        <translation>Зумирај да се уклопи</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="379"/>
         <source>Undo Change</source>
-        <translation type="unfinished"/>
+        <translation>Поништи последњу измену</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="380"/>
         <source>Redo Change</source>
-        <translation type="unfinished"/>
+        <translation>Врати последњу поништену измену</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="381"/>
@@ -5599,7 +5599,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="383"/>
         <source>Crop Image</source>
-        <translation type="unfinished"/>
+        <translation>Опсеци слику</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="384"/>
@@ -12373,17 +12373,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="3177"/>
         <source>Remove Nav from Reading Order</source>
-        <translation type="unfinished"/>
+        <translation>Уклони Nav из Редоследа читања</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3182"/>
         <source>Add Nav to Reading Order with linear=&quot;no&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Додај Nav у Редослед читања са linear=&quot;no&quot;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3187"/>
         <source>Add Nav to Reading Order</source>
-        <translation type="unfinished"/>
+        <translation>Додај Nav у Редослед читања</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3196"/>
@@ -12920,7 +12920,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2532"/>
         <source>Dropped files added.</source>
-        <translation type="unfinished"/>
+        <translation>Упуштени фајлови су додати.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2546"/>
@@ -12964,17 +12964,17 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2725"/>
         <source>Nav removed from OPF Spine.</source>
-        <translation type="unfinished"/>
+        <translation>Nav је уклоњен из OPF Spine.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2746"/>
         <source>Nav added to OPF Spine with linear=&quot;no&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Nav је додат у OPF Spine са linear=&quot;no&quot;</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2748"/>
         <source>Nav added to OPF Spine.</source>
-        <translation type="unfinished"/>
+        <translation>Nav је додат у OPF Spine.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2784"/>
@@ -13245,7 +13245,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5176"/>
         <source>%1%2 - Line: %3, Col: %4</source>
-        <translation type="unfinished"/>
+        <translation>%1%2 - Лин: %3, Кол: %4</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5264"/>
@@ -18599,12 +18599,12 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../BookManipulation/Book.cpp" line="1683"/>
         <source>PrettyPrinting...</source>
-        <translation type="unfinished"/>
+        <translation>Кôд се улепшава…</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/CleanSource.cpp" line="299"/>
         <source>Mending...</source>
-        <translation type="unfinished"/>
+        <translation>Поправљање</translation>
     </message>
     <message>
         <location filename="../../BookManipulation/Index.cpp" line="48"/>

@@ -2132,7 +2132,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2204"/>
         <source>Validate with W3C</source>
-        <translation>Проверить с помощью W3C</translation>
+        <translation>Валидация с помощью W3C</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2205"/>
@@ -4722,7 +4722,7 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="394"/>
         <source>What CSS level to specify for W3C stylesheet validation tool (EPUB2)</source>
-        <translation>Уровень CSS, который указывается для инструмента проверки таблиц стилей W3C (EPUB2)</translation>
+        <translation>Уровень CSS, который указывается для инструмента валидации таблиц стилей W3C (EPUB2)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="397"/>
@@ -4765,7 +4765,7 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="473"/>
         <source>What CSS Level to specify for W3C stylesheet validation tool (EPUB3)</source>
-        <translation>Уровень CSS, который указывается для инструмента проверки таблиц стилей W3C (EPUB3)</translation>
+        <translation>Уровень CSS, который указывается для инструмента валидации таблиц стилей W3C (EPUB3)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="476"/>
@@ -10936,7 +10936,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1875"/>
         <source>Well-Formed Check &amp;EPUB</source>
-        <translation>Проверка правильности  формата &amp;EPUB</translation>
+        <translation>Валидация  формата &amp;EPUB</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1878"/>
@@ -10951,7 +10951,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1886"/>
         <source>Validate Stylesheets With &amp;W3C</source>
-        <translation>Проверить таблицы стилей на сайте &amp;W3C</translation>
+        <translation>Валидация таблиц стилей на сайте &amp;W3C</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1889"/>
@@ -21685,7 +21685,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="54"/>
         <source>Validation Results</source>
-        <translation>Результаты проверки</translation>
+        <translation>Результаты валидации</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="63"/>
@@ -21705,17 +21705,17 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="118"/>
         <source>Export Validation Results</source>
-        <translation>Экспорт результатов проверки</translation>
+        <translation>Экспорт результатов валидации</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="151"/>
         <source>Export of Validation Results failed: </source>
-        <translation>Сбой экспорта результатов проверки:</translation>
+        <translation>Сбой экспорта результатов валидации:</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="334"/>
         <source>Updating Validation Results</source>
-        <translation>Обновление результатов проверки</translation>
+        <translation>Обновление результатов валидации</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="409"/>

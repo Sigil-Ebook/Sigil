@@ -1556,12 +1556,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="344"/>
         <source>Add Nav to OPF Spine.</source>
-        <translation type="unfinished"/>
+        <translation>添加 Nav 到 OPF 脊骨</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="345"/>
         <source>Add Nav to OPF Spine with linear=&apos;no&apos;.</source>
-        <translation type="unfinished"/>
+        <translation>添加 Nav 到 OPF 脊骨，带参数 linear=&apos;no&apos; </translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="346"/>
@@ -1621,7 +1621,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="357"/>
         <source>Remove Nav from OPF Spine.</source>
-        <translation type="unfinished"/>
+        <translation>从 OPF 脊骨中删除 Nav</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="358"/>
@@ -12376,17 +12376,17 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="3177"/>
         <source>Remove Nav from Reading Order</source>
-        <translation type="unfinished"/>
+        <translation>从阅读顺序中删除 Nav</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3182"/>
         <source>Add Nav to Reading Order with linear=&quot;no&quot;</source>
-        <translation type="unfinished"/>
+        <translation>添加 Nav 到阅读顺序，带 linear=&apos;no&apos; 参数</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3187"/>
         <source>Add Nav to Reading Order</source>
-        <translation type="unfinished"/>
+        <translation>添加 Nav 到阅读顺序</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3196"/>
@@ -12967,17 +12967,17 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2725"/>
         <source>Nav removed from OPF Spine.</source>
-        <translation type="unfinished"/>
+        <translation>从 OPF 脊骨中删除了 Nav。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2746"/>
         <source>Nav added to OPF Spine with linear=&quot;no&quot;</source>
-        <translation type="unfinished"/>
+        <translation>已添加 Nav 到 OPF 脊骨，带参数 linear=&apos;no&apos; </translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2748"/>
         <source>Nav added to OPF Spine.</source>
-        <translation type="unfinished"/>
+        <translation>已添加 Nav 到 OPF 脊骨。</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2784"/>
@@ -13248,7 +13248,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5176"/>
         <source>%1%2 - Line: %3, Col: %4</source>
-        <translation type="unfinished"/>
+        <translation>%1%2 - 行： %3、列： %4</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5264"/>
