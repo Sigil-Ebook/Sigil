@@ -377,6 +377,8 @@ set( MISC_FILES
     Misc/XHTMLHighlighter2.h
     Misc/CSSHighlighter.cpp
     Misc/CSSHighlighter.h
+    Misc/JSONHighlighter.cpp
+    Misc/JSONHighlighter.h
     Misc/PythonHighlighter.cpp
     Misc/PythonHighlighter.h
     Misc/HTMLEncodingResolver.cpp

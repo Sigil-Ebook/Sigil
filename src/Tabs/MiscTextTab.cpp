@@ -24,8 +24,11 @@
 
 MiscTextTab::MiscTextTab(MiscTextResource *resource, int line_to_scroll_to, int position_to_scroll_to, QWidget *parent)
     :
-    TextTab(resource, CodeViewEditor::Highlight_NONE, line_to_scroll_to, position_to_scroll_to, parent)
+    TextTab(resource,
+            resource->GetMediaType() == "application/json" ? CodeViewEditor::Highlight_JSON : CodeViewEditor::Highlight_NONE,
+            line_to_scroll_to,
+            position_to_scroll_to,
+            parent)
 {
     connect(m_wCodeView, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)), this, SIGNAL(OpenClipEditorRequest(ClipEditorModel::clipEntry *)));
 }
-
