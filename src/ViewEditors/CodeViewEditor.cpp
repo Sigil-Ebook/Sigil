@@ -57,6 +57,7 @@
 #include "Misc/XHTMLHighlighter2.h"
 #include "Dialogs/ClipEditor.h"
 #include "Misc/CSSHighlighter.h"
+#include "Misc/JSONHighlighter.h"
 #include "Misc/SettingsStore.h"
 #include "Misc/SpellCheck.h"
 #include "Misc/HTMLSpellCheck.h"
@@ -120,6 +121,8 @@ CodeViewEditor::CodeViewEditor(HighlighterType high_type, bool check_spelling, Q
         m_Highlighter = new XHTMLHighlighter2(check_spelling, this);
     } else if (high_type == CodeViewEditor::Highlight_CSS) {
         m_Highlighter = new CSSHighlighter(this);
+    } else if (high_type == CodeViewEditor::Highlight_JSON) {
+        m_Highlighter = new JSONHighlighter(this);
     } else {
         m_Highlighter = NULL;
     }
@@ -2394,11 +2397,14 @@ void CodeViewEditor::RehighlightDocument()
         XHTMLHighlighter2* xhl = qobject_cast<XHTMLHighlighter2*>(m_Highlighter);
         // XHTMLHighlighter* xhl = qobject_cast<XHTMLHighlighter*>(m_Highlighter);
         CSSHighlighter* chl = qobject_cast<CSSHighlighter*>(m_Highlighter);
+        JSONHighlighter* jhl = qobject_cast<JSONHighlighter*>(m_Highlighter);
         document()->blockSignals(true);
         if (xhl) {
             xhl->do_rehighlight();
         } else if (chl) {
             chl->do_rehighlight();
+        } else if (jhl) {
+            jhl->do_rehighlight();
         }
         document()->blockSignals(false);
     }

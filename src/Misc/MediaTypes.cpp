@@ -38,7 +38,7 @@ const QStringList SVG_EXTENSIONS       = QStringList() << "svg";
 const QStringList SMIL_EXTENSIONS      = QStringList() << "smil";
 const QStringList JPG_EXTENSIONS       = QStringList() << "jpg"   << "jpeg";
 const QStringList TIFF_EXTENSIONS      = QStringList() << "tif"   << "tiff";
-const QStringList MISC_TEXT_EXTENSIONS = QStringList() << "txt"   << "js";
+const QStringList MISC_TEXT_EXTENSIONS = QStringList() << "txt"   << "js" << "json";
 const QStringList MISC_XML_EXTENSIONS  = QStringList() << "smil"  << "xpgt" << "pls" << "xml";
 const QStringList FONT_EXTENSIONS      = QStringList() << "ttf"   << "ttc"  << "otf" << "woff" << "woff2";
 const QStringList TEXT_EXTENSIONS      = QStringList() << "xhtml" << "html" << "htm";
@@ -219,6 +219,7 @@ void MediaTypes::SetExtToMTypeMap()
     m_ExtToMType[ "jpeg"  ] = "image/jpeg";
     m_ExtToMType[ "jpg"   ] = "image/jpeg";
     m_ExtToMType[ "js"    ] = "application/javascript";
+    m_ExtToMType[ "json"  ] = "application/json";
     m_ExtToMType[ "es"    ] = "application/ecmascript";
     m_ExtToMType[ "m4a"   ] = "audio/mp4";
     m_ExtToMType[ "m4v"   ] = "video/mp4";
@@ -324,6 +325,7 @@ void MediaTypes::SetMTypeToGroupMap()
     m_MTypeToGroup[ "application/vnd.adobe-page-template+xml" ] = "Misc";
 
     m_MTypeToGroup[ "application/javascript"                  ] = "Misc";
+    m_MTypeToGroup[ "application/json"                        ] = "Misc";
     m_MTypeToGroup[ "application/ecmascript"                  ] = "Misc";
     m_MTypeToGroup[ "application/x-javascript"                ] = "Misc";
     m_MTypeToGroup[ "text/javascript"                         ] = "Misc";
@@ -402,6 +404,7 @@ void MediaTypes::SetMTypeToRDescMap()
     m_MTypeToRDesc[ "application/vnd.adobe-page-template+xml" ] = "XMLResource";  // not a core media type
 
     m_MTypeToRDesc[ "application/javascript"                  ] = "MiscTextResource";
+    m_MTypeToRDesc[ "application/json"                        ] = "MiscTextResource";
     m_MTypeToRDesc[ "application/x-javascript"                ] = "MiscTextResource";
     m_MTypeToRDesc[ "application/ecmascript"                  ] = "MiscTextResource";
     m_MTypeToRDesc[ "text/javascript"                         ] = "MiscTextResource";
@@ -484,6 +487,7 @@ void MediaTypes::SetMTypeToExtMap()
 
     // Javascript
     m_MTypeToExt[ "application/javascript"                  ] = "js";
+    m_MTypeToExt[ "application/json"                        ] = "json";
     m_MTypeToExt[ "application/x-javascript"                ] = "js";
     m_MTypeToExt[ "application/ecmascript"                  ] = "es"; // js
     m_MTypeToExt[ "text/javascript"                         ] = "js";
@@ -512,4 +516,3 @@ void MediaTypes::SetMTypeToExtMap()
     m_MTypeToExt[ "application/ttml+xml"                    ] = "ttml";
 
 }
-

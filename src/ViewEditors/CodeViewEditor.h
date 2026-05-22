@@ -67,7 +67,8 @@ public:
     enum HighlighterType {
         Highlight_NONE,  /**< No source code highlighting */
         Highlight_XHTML, /**< XHTML source code highlighting */
-        Highlight_CSS    /**< CSS source code highlighting */
+        Highlight_CSS,   /**< CSS source code highlighting */
+        Highlight_JSON   /**< JSON source code highlighting */
     };
 
     /**
@@ -876,4 +877,3 @@ private:
 };
 
 #endif // CODEVIEWEDITOR_H
-
