@@ -104,13 +104,13 @@ void SourceViewer::ReloadViewer()
 
 void SourceViewer::LoadViewer()
 {
-    int blockno = 0;
+    // int blockno = 0;
     int lineno = 1;
     QStringList recs = m_data.split("\n");
     foreach(QString rec, recs) {
         m_view->insertPlainText(rec + "\n");
         m_blockmap << QString::number(lineno);
-        blockno++;
+        // blockno++;
         lineno++;
     }
     m_view->setBlockMap(m_blockmap);

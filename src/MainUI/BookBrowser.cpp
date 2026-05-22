@@ -1552,7 +1552,7 @@ void BookBrowser::MoveSelected()
     
     QStringList new_bookpaths;
     QStringList existing_bookpaths = m_Book->GetFolderKeeper()->GetAllBookPaths();
-    int num = 0;
+    // int num = 0;
 
     for (int i = 0; i < resources_count; i++) {
         QString filename = resources[i]->Filename();
@@ -1569,7 +1569,7 @@ void BookBrowser::MoveSelected()
 
         new_bookpaths.append(newbookpath);
 
-        num++;
+        // num++;
     }
 
 

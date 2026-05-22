@@ -174,7 +174,7 @@ void StylesInCSSFilesWidget::Delete()
         QString name = m_ItemModel->itemFromIndex(index.sibling(index.row(), 1))->text();
         stylesheet_styles[bookpath].append(name);
     }
-    int count = 0;
+    // int count = 0;
     QHashIterator<QString, QStringList> it_stylesheet_styles(stylesheet_styles);
 
     while (it_stylesheet_styles.hasNext()) {
@@ -182,7 +182,7 @@ void StylesInCSSFilesWidget::Delete()
         style_names += "\n\n" + it_stylesheet_styles.key() + ": " "\n";
         foreach(QString name, it_stylesheet_styles.value()) {
             style_names += name + ", ";
-            count++;
+            // count++;
         }
         style_names = style_names.left(style_names.length() - 2);
     }

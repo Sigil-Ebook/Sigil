@@ -95,7 +95,7 @@ void CSSFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
         }
     }
     double total_size = 0;
-    int total_links = 0;
+    // int total_links = 0;
     foreach(CSSResource * css_resource, m_CSSResources) {
         QString filepath = css_resource->GetRelativePath();
         QString path = css_resource->GetFullPath();
@@ -120,7 +120,7 @@ void CSSFilesWidget::SetupTable(int sort_column, Qt::SortOrder sort_order)
             count = linked_stylesheets_hash[filepath];
         }
 
-        total_links += count;
+        // total_links += count;
         NumericItem *link_item = new NumericItem();
         link_item->setText(QString::number(count));
         link_item->setTextAlignment(Qt::AlignRight);

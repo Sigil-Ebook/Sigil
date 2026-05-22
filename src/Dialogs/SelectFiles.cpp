@@ -187,7 +187,7 @@ void SelectFiles::SetImages()
     QSize icon_size(m_ThumbnailSize, m_ThumbnailSize);
     ui.imageTree->setIconSize(icon_size);
     ui.imageTree->setSortingEnabled(true);
-    int row = 0;
+    // int row = 0;
 
     foreach(Resource *resource, m_MediaResources) {
         // Don't show resources not matching the selected type
@@ -227,7 +227,7 @@ void SelectFiles::SetImages()
         }
 
         m_SelectFilesModel->appendRow(rowItems);
-        row++;
+        // row++;
     }
     ui.imageTree->header()->setStretchLastSection(true);
 

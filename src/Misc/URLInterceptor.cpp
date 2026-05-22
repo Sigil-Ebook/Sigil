@@ -102,7 +102,7 @@ void URLInterceptor::interceptRequest(QWebEngineUrlRequestInfo &info)
         // create a topLevelWidgets equivalent to screen out stale QWidgets more safely
         const QWidgetList all_widgets = QApplication::allWidgets();
         foreach(QWidget* w, all_widgets) {
-            if (w && w->isWindow() && w->windowType() != Qt::Desktop) {
+            if (w && w->isWindow()) {
                 MainWindow * mw = qobject_cast<MainWindow *>(w);
                 if (mw) {
                     QSharedPointer<Book> book = mw->GetCurrentBook();

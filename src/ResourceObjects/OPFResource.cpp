@@ -1294,7 +1294,7 @@ void OPFResource::SetResourceAsCoverImage(ImageResource *image_resource)
 
 void OPFResource::UpdateSpineOrder(const QList<::HTMLResource *> html_files)
 {
-    bool contains_nav = html_files.contains(GetNavResource());
+    // bool contains_nav = html_files.contains(GetNavResource());
     QWriteLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
