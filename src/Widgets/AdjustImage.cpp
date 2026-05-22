@@ -42,6 +42,7 @@
 #include "ui_AdjustImage.h"
 
 static const QString SETTINGS_GROUP = "adjust_image";
+static QStringList SAVE_QUALITY_MEDIATYPES = QStringList() << "image/jpeg" << "image/webp" << "image/avif" << "image/jxl";
 
 AdjustImage::AdjustImage(const QString filepath, const QString& mediatype,  QWidget *parent) :
     QWidget(parent),
@@ -139,6 +140,8 @@ void AdjustImage::ReadSettings()
     settings.beginGroup(SETTINGS_GROUP);
     m_jpeg_quality = settings.value("jpeg_quality", QVariant(93)).toInt();
     m_webp_quality = settings.value("webp_quality", QVariant(90)).toInt();
+    m_jxl_quality =  settings.value("jxl_quality", QVariant(93)).toInt();
+    m_avif_quality = settings.value("avif_quality", QVariant(90)).toInt();
     settings.endGroup();
 }
 
@@ -149,6 +152,8 @@ void AdjustImage::WriteSettings()
     settings.beginGroup(SETTINGS_GROUP);
     settings.setValue("jpeg_quality", m_jpeg_quality);
     settings.setValue("webp_quality", m_webp_quality);
+    settings.setValue("jxl_quality",  m_jxl_quality);
+    settings.setValue("avif_quality", m_avif_quality);
     settings.endGroup();
 }
 
@@ -397,9 +402,11 @@ void AdjustImage::doSave()
     } else {
         int quality = -1;
         // handle lossy image types
-        if ((m_mediatype == "image/jpeg") || (m_mediatype == "image/webp")) {
+        if (SAVE_QUALITY_MEDIATYPES.contains(m_mediatype)) {
             if (m_mediatype == "image/jpeg") quality = m_jpeg_quality;
             if (m_mediatype == "image/webp") quality = m_webp_quality;
+            if (m_mediatype == "image/jxl")  quality = m_jxl_quality;
+            if (m_mediatype == "image/avif") quality = m_avif_quality;
             bool ok;
             quality = QInputDialog::getInt(nullptr, tr("Image Quality"),
                                            tr("Enter quality level (0-100):"), quality, 0, 100, 1, &ok);
@@ -409,6 +416,8 @@ void AdjustImage::doSave()
             }
             if (m_mediatype == "image/jpeg") m_jpeg_quality = quality;
             if (m_mediatype == "image/webp") m_webp_quality = quality;
+            if (m_mediatype == "image/jxl")  m_jxl_quality = quality;
+            if (m_mediatype == "image/avif") m_avif_quality = quality;
         }
         QImageWriter writer(m_fileName, format.toUtf8().data());
         if (quality != -1) writer.setQuality(quality);

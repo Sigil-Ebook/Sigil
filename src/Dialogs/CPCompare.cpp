@@ -55,7 +55,7 @@ static const QStringList TEXT_EXTENSIONS = QStringList() << "css" << "htm" << "h
                                                             "xml" << "xpgt";
 
 static const QStringList IMAGE_EXTENSIONS = QStringList() << "bm" << "bmp" << "gif" << "jpeg" << "jpg" <<
-                                                             "png" << "tif" << "tiff" << "webp";
+                                                             "png" << "tif" << "tiff" << "webp" << "jxl" << "avif";
 
 
 static const QStringList AUDIO_EXTENSIONS = QStringList() << "aac"   << "m4a"  << "mp3" << "mpeg" << 

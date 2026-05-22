@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2025 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2019-2026 Kevin B. Hendricks, Stratford, Ontario, Canada
 **
 **  This file is part of Sigil.
 **
@@ -33,7 +33,7 @@
 #include "Misc/MediaTypes.h"
 
 const QStringList IMAGE_EXTENSIONS     = QStringList() << "jpg"   << "jpeg" << "png" << "gif"  << "tif"
-                                                       << "tiff"  << "bm"   << "bmp" << "webp";
+                                                       << "tiff"  << "bm"   << "bmp" << "webp" << "avif" << "jxl";
 const QStringList SVG_EXTENSIONS       = QStringList() << "svg";
 const QStringList SMIL_EXTENSIONS      = QStringList() << "smil";
 const QStringList JPG_EXTENSIONS       = QStringList() << "jpg"   << "jpeg";
@@ -45,7 +45,7 @@ const QStringList TEXT_EXTENSIONS      = QStringList() << "xhtml" << "html" << "
 const QStringList STYLE_EXTENSIONS     = QStringList() << "css";
 const QStringList AUDIO_EXTENSIONS     = QStringList() << "aac"   << "m4a"  << "mp3" << "mpeg" << "mpg" << "oga" << "ogg" << "opus";
 const QStringList VIDEO_EXTENSIONS     = QStringList() << "m4v"   << "mp4"  << "mov" << "ogv"  << "webm" << "vtt" << "ttml";
-const QStringList IMAGE_MIMEYPES       = QStringList() << "image/gif" << "image/jpeg" << "image/png" << "image/webp" << "image/tiff";
+const QStringList IMAGE_MIMEYPES       = QStringList() << "image/gif" << "image/jpeg" << "image/png" << "image/webp" << "image/tiff" << "image/avif" << "image/jxl";
 const QStringList SVG_MIMETYPES        = QStringList() << "image/svg+xml";
 const QStringList TEXT_MIMETYPES       = QStringList() << "application/xhtml+xml" << "application/x-dtbook+xml";
 const QStringList STYLE_MIMETYPES      = QStringList() << "text/css";
@@ -209,6 +209,7 @@ void MediaTypes::SetExtToMTypeMap()
     }
     // default to using the preferred media-types ffrom the epub 3.2 spec
     // https://www.w3.org/publishing/epub3/epub-spec.html#sec-cmt-supported
+    m_ExtToMType[ "avif"  ] = "image/avif";
     m_ExtToMType[ "bm"    ] = "image/bmp";
     m_ExtToMType[ "bmp"   ] = "image/bmp";
     m_ExtToMType[ "css"   ] = "text/css";
@@ -220,6 +221,7 @@ void MediaTypes::SetExtToMTypeMap()
     m_ExtToMType[ "jpg"   ] = "image/jpeg";
     m_ExtToMType[ "js"    ] = "application/javascript";
     m_ExtToMType[ "json"  ] = "application/json";
+    m_ExtToMType[ "jxl"   ] = "image/jxl";
     m_ExtToMType[ "es"    ] = "application/ecmascript";
     m_ExtToMType[ "m4a"   ] = "audio/mp4";
     m_ExtToMType[ "m4v"   ] = "video/mp4";
@@ -266,6 +268,8 @@ void MediaTypes::SetMTypeToGroupMap()
     m_MTypeToGroup[ "image/bmp"                               ] = "Images";
     m_MTypeToGroup[ "image/tiff"                              ] = "Images";
     m_MTypeToGroup[ "image/webp"                              ] = "Images";
+    m_MTypeToGroup[ "image/jxl"                               ] = "Images";
+    m_MTypeToGroup[ "image/avif"                              ] = "Images";
 
     m_MTypeToGroup[ "application/xhtml+xml"                   ] = "Text";
     m_MTypeToGroup[ "application/x-dtbook+xml"                ] = "Text";
@@ -357,7 +361,9 @@ void MediaTypes::SetMTypeToRDescMap()
     m_MTypeToRDesc[ "image/gif"                               ] = "ImageResource";
     m_MTypeToRDesc[ "image/bmp"                               ] = "ImageResource";  // not a core media type
     m_MTypeToRDesc[ "image/tiff"                              ] = "ImageResource";  // not a core media type
-    m_MTypeToRDesc[ "image/webp"                              ] = "ImageResource";  // not a core media type
+    m_MTypeToRDesc[ "image/webp"                              ] = "ImageResource";
+    m_MTypeToRDesc[ "image/avif"                              ] = "ImageResource";
+    m_MTypeToRDesc[ "image/jxl"                               ] = "ImageResource";
 
     m_MTypeToRDesc[ "image/svg+xml"                           ] = "SVGResource";
 
@@ -455,6 +461,8 @@ void MediaTypes::SetMTypeToExtMap()
     m_MTypeToExt[ "image/svg+xml"                           ] = "svg";
     m_MTypeToExt[ "image/tiff"                              ] = "tif"; // tiff
     m_MTypeToExt[ "image/webp"                              ] = "webp";
+    m_MTypeToExt[ "image/avif"                              ] = "avif";
+    m_MTypeToExt[ "image/jxl"                               ] = "jxl";
 
     // Fonts - Opentype
     m_MTypeToExt[ "font/otf"                                ] = "otf";
