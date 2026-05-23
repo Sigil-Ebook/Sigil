@@ -283,74 +283,74 @@
         <translation>Зумира слику тако да се уклопи</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="96"/>
-        <location filename="../../Widgets/AdjustImage.cpp" line="102"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="97"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="103"/>
         <source>Adjust Image</source>
         <translation>Подеси слику</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="103"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="104"/>
         <source>Cannot load %1.</source>
         <translation>Не може да се учита %1.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="168"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="173"/>
         <source>shades</source>
         <translation>нијансе</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="168"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="173"/>
         <source>colors</source>
         <translation>боје</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="169"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="174"/>
         <source>Grayscale</source>
         <translation>Сиви тонови</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="169"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="174"/>
         <source>Color</source>
         <translation>Боја</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="324"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="329"/>
         <source>(x,y) coordinates:</source>
         <translation>(x,y) координате:</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="324"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="329"/>
         <source>Zoom</source>
         <translation>Зумирање</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="393"/>
-        <location filename="../../Widgets/AdjustImage.cpp" line="418"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="398"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="427"/>
         <source>Image successfully saved.</source>
         <translation>Слика је успешно сачувана.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="395"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="400"/>
         <source>Image save failed.</source>
         <translation>Чување слике није успело.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="404"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="411"/>
         <source>Image Quality</source>
         <translation>Квалитет слике</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="405"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="412"/>
         <source>Enter quality level (0-100):</source>
         <translation>Унесите ниво квалитета (0-100):</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="407"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="414"/>
         <source>Image save failed. </source>
         <translation>Чување слике није успело. </translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="420"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="429"/>
         <source>Image save failed: </source>
         <translation>Чување слике није успело: </translation>
     </message>
@@ -2790,147 +2790,147 @@ Do you want to save your changes?</source>
 <context>
     <name>CodeViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="588"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="591"/>
         <source>Cannot insert closing tag at this position.</source>
         <translation>На ово место не може да се уметне затварајућа ознака.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="596"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="599"/>
         <source>No open tags found at this position.</source>
         <translation>На овом месту нису пронађене отворене ознаке.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1544"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1547"/>
         <source>Add To Default Dictionary</source>
         <translation>Додај у подразумевани речник</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1557"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1560"/>
         <source>Add To Dictionary</source>
         <translation>Додај у речник</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1574"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1577"/>
         <source>Ignore</source>
         <translation>Игнориши</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1636"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1639"/>
         <source>Reformat CSS</source>
         <translation>Поново форматирај CSS</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1638"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1641"/>
         <source>Multiple Lines Per Style</source>
         <translation>Вишеструке линије по стилу</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1639"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1642"/>
         <source>Single Line Per Style</source>
         <translation>Једна линија по стилу</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1665"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1668"/>
         <source>Rename Selected Class</source>
         <translation>Промени име изабраној класи</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1687"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1690"/>
         <source>Reformat HTML</source>
         <translation>Поновно форматирај HTML</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1689"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1692"/>
         <source>Mend and Prettify Code</source>
         <translation>Поправи и улепшај код</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1690"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1693"/>
         <source>Mend and Prettify Code - All HTML Files</source>
         <translation>Поправи и улепшај код - сви HTML фајлови</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1691"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1694"/>
         <source>Mend Code</source>
         <translation>Поправи код</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1692"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1695"/>
         <source>Mend Code - All HTML Files</source>
         <translation>Поправи код - сви HTML фајлови</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1722"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1725"/>
         <source>Go To Link Or Style</source>
         <translation>Иди на линк или стил</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1744"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1747"/>
         <source>Toggle Line Wrap Mode</source>
         <translation>Пребаци стање режима обавијања линије</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1766"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1769"/>
         <source>View Image</source>
         <translation>Прикажи слику</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1767"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1770"/>
         <source>Open Tab For Image</source>
         <translation>Отвори картицу за слику</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1793"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1796"/>
         <source>Mark Selected Text</source>
         <translation>Означи изабрани текст</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1795"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1798"/>
         <source>Unmark Marked Text</source>
         <translation>Скини ознаку са означеног текста</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1821"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1824"/>
         <source>Clips</source>
         <translation>Шаблони</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1831"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1834"/>
         <source>Add To Clips</source>
         <translation>Додај у шаблоне</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1969"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1972"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
         <translation>Морате да се налазите у отварајућој HTML ознаци како бисте користили ову могућност.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1979"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1982"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
         <translation>Морате да се налазите унутар отварајуће HTML ознаке како бисте користили ову могућност.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2043"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2046"/>
         <source>Selected Text is not a valid class name.</source>
         <translation>Изабрани текст није важеће име класе.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2050"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2053"/>
         <source>Rename Class</source>
         <translation>Промена имена класе</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2051"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2054"/>
         <source>Enter new class name</source>
         <translation>Унеси ново име класе</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2071"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2074"/>
         <source>Class renamed.</source>
         <translation>Име класе је промењено.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2073"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2076"/>
         <source>Class rename aborted.</source>
         <translation>Промена имена класе је отказана.</translation>
     </message>
@@ -16446,6 +16446,8 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="566"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="566"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="649"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="649"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="973"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1142"/>
@@ -16481,6 +16483,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="739"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="739"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1021"/>
         <source>Custom Property</source>
         <translation>Прилагођено својство</translation>
@@ -16496,6 +16499,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
         <translation>Додавање особине елементу</translation>
     </message>
     <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="786"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="786"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1176"/>
         <source>Custom Attribute</source>

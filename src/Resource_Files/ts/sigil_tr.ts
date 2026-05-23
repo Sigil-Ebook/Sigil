@@ -283,74 +283,74 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="96"/>
-        <location filename="../../Widgets/AdjustImage.cpp" line="102"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="97"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="103"/>
         <source>Adjust Image</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="103"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="104"/>
         <source>Cannot load %1.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="168"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="173"/>
         <source>shades</source>
         <translation>gölgeler</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="168"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="173"/>
         <source>colors</source>
         <translation>renkler</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="169"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="174"/>
         <source>Grayscale</source>
         <translation>Gri Tonlama</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="169"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="174"/>
         <source>Color</source>
         <translation>Renk</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="324"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="329"/>
         <source>(x,y) coordinates:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="324"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="329"/>
         <source>Zoom</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="393"/>
-        <location filename="../../Widgets/AdjustImage.cpp" line="418"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="398"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="427"/>
         <source>Image successfully saved.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="395"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="400"/>
         <source>Image save failed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="404"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="411"/>
         <source>Image Quality</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="405"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="412"/>
         <source>Enter quality level (0-100):</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="407"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="414"/>
         <source>Image save failed. </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="420"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="429"/>
         <source>Image save failed: </source>
         <translation type="unfinished"/>
     </message>
@@ -2790,147 +2790,147 @@ Değişikliklerinizi kaydetmek istiyor musunuz?</translation>
 <context>
     <name>CodeViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="588"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="591"/>
         <source>Cannot insert closing tag at this position.</source>
         <translation>Bu konuma kapanış etiketi eklenemez.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="596"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="599"/>
         <source>No open tags found at this position.</source>
         <translation>Bu konumda açık etiket bulunamadı.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1544"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1547"/>
         <source>Add To Default Dictionary</source>
         <translation>Varsayılan Sözlüğe Ekle</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1557"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1560"/>
         <source>Add To Dictionary</source>
         <translation>Sözlüğe Ekle</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1574"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1577"/>
         <source>Ignore</source>
         <translation>Yoksay</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1636"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1639"/>
         <source>Reformat CSS</source>
         <translation>CSS&apos;yi yeniden biçimlendir</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1638"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1641"/>
         <source>Multiple Lines Per Style</source>
         <translation>Stil Başına Birden Çok Satır</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1639"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1642"/>
         <source>Single Line Per Style</source>
         <translation>Stil Başına Tek Satır</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1665"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1668"/>
         <source>Rename Selected Class</source>
         <translation>Seçilen Sınıfı Yeniden Adlandır</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1687"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1690"/>
         <source>Reformat HTML</source>
         <translation>HTML&apos;yi yeniden biçimlendir</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1689"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1692"/>
         <source>Mend and Prettify Code</source>
         <translation>Onarım ve Güzelleştirme Kodu</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1690"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1693"/>
         <source>Mend and Prettify Code - All HTML Files</source>
         <translation>Kodu Düzelt ve Güzelleştir - Tüm HTML Dosyaları</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1691"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1694"/>
         <source>Mend Code</source>
         <translation>Mend Kodu</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1692"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1695"/>
         <source>Mend Code - All HTML Files</source>
         <translation>Mend Kodu - Tüm HTML Dosyaları</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1722"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1725"/>
         <source>Go To Link Or Style</source>
         <translation>Bağlantıya veya Stile Git</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1744"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1747"/>
         <source>Toggle Line Wrap Mode</source>
         <translation>Satır Kaydırma Modunu Değiştir</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1766"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1769"/>
         <source>View Image</source>
         <translation>Resmi görüntüle</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1767"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1770"/>
         <source>Open Tab For Image</source>
         <translation>Resim İçin Sekmeyi Aç</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1793"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1796"/>
         <source>Mark Selected Text</source>
         <translation>Seçili Metni İşaretle</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1795"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1798"/>
         <source>Unmark Marked Text</source>
         <translation>İşaretli Metnin İşaretini Kaldır</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1821"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1824"/>
         <source>Clips</source>
         <translation>Klipler</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1831"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1834"/>
         <source>Add To Clips</source>
         <translation>Kliplere Ekle</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1969"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1972"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
         <translation>Bu özelliği kullanmak için bir açılış HTML etiketinde olmanız gerekir.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1979"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1982"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
         <translation>Bu özelliği kullanmak için bir açılış HTML etiketinin içinde olmanız gerekir.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2043"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2046"/>
         <source>Selected Text is not a valid class name.</source>
         <translation>Seçili Metin geçerli bir sınıf adı değil.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2050"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2053"/>
         <source>Rename Class</source>
         <translation>Sınıfı Yeniden Adlandır</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2051"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2054"/>
         <source>Enter new class name</source>
         <translation>Yeni sınıf adını girin</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2071"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2074"/>
         <source>Class renamed.</source>
         <translation>Sınıf yeniden adlandırıldı.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2073"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2076"/>
         <source>Class rename aborted.</source>
         <translation>Sınıf yeniden adlandırma iptal edildi.</translation>
     </message>
@@ -16441,6 +16441,8 @@ Kaydı iptal etmek ister misiniz?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="566"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="566"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="649"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="649"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="973"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1142"/>
@@ -16476,6 +16478,7 @@ Kaydı iptal etmek ister misiniz?</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="739"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="739"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1021"/>
         <source>Custom Property</source>
         <translation>Özel Mülk</translation>
@@ -16491,6 +16494,7 @@ Kaydı iptal etmek ister misiniz?</translation>
         <translation type="unfinished"/>
     </message>
     <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="786"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="786"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1176"/>
         <source>Custom Attribute</source>

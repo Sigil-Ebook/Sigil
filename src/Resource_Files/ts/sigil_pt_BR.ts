@@ -283,74 +283,74 @@
         <translation>Dar Zoom na imagem para ajustar.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="96"/>
-        <location filename="../../Widgets/AdjustImage.cpp" line="102"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="97"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="103"/>
         <source>Adjust Image</source>
         <translation>Ajustar Imagem</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="103"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="104"/>
         <source>Cannot load %1.</source>
         <translation>Não foi possível carregar %1.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="168"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="173"/>
         <source>shades</source>
         <translation>sombras</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="168"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="173"/>
         <source>colors</source>
         <translation>cores</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="169"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="174"/>
         <source>Grayscale</source>
         <translation>Tons de Cinza</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="169"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="174"/>
         <source>Color</source>
         <translation>Cor</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="324"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="329"/>
         <source>(x,y) coordinates:</source>
         <translation>coordenadas (x,y):</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="324"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="329"/>
         <source>Zoom</source>
         <translation>Zoom</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="393"/>
-        <location filename="../../Widgets/AdjustImage.cpp" line="418"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="398"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="427"/>
         <source>Image successfully saved.</source>
         <translation>Imagem salva com sucesso.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="395"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="400"/>
         <source>Image save failed.</source>
         <translation>Erro ao salvar a imagem.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="404"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="411"/>
         <source>Image Quality</source>
         <translation>Qualidade da Imagem</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="405"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="412"/>
         <source>Enter quality level (0-100):</source>
         <translation>Digite o nível da qualidade (0-100):</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="407"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="414"/>
         <source>Image save failed. </source>
         <translation>Erro ao salvar a imagem.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="420"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="429"/>
         <source>Image save failed: </source>
         <translation>Erro ao salvar a imagem:</translation>
     </message>
@@ -2789,147 +2789,147 @@ Deseja salvar as alterações?</translation>
 <context>
     <name>CodeViewEditor</name>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="588"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="591"/>
         <source>Cannot insert closing tag at this position.</source>
         <translation>Não é possível inserir tag de fechamento nesta posição.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="596"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="599"/>
         <source>No open tags found at this position.</source>
         <translation>Nenhuma tag aberta encontrada nesta posição.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1544"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1547"/>
         <source>Add To Default Dictionary</source>
         <translation>Adicionar ao Dicionário Padrão</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1557"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1560"/>
         <source>Add To Dictionary</source>
         <translation>Adicionar ao Dicionário</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1574"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1577"/>
         <source>Ignore</source>
         <translation>Ignorar</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1636"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1639"/>
         <source>Reformat CSS</source>
         <translation>Reformatar CSS</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1638"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1641"/>
         <source>Multiple Lines Per Style</source>
         <translation>Múltiplas Linhas Por Estilo</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1639"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1642"/>
         <source>Single Line Per Style</source>
         <translation>Uma Linha Por Estilo</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1665"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1668"/>
         <source>Rename Selected Class</source>
         <translation>Renomear a Classe selecionada</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1687"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1690"/>
         <source>Reformat HTML</source>
         <translation>Reformatar HTML</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1689"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1692"/>
         <source>Mend and Prettify Code</source>
         <translation>Reparar e Embelezar Código</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1690"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1693"/>
         <source>Mend and Prettify Code - All HTML Files</source>
         <translation>Reparar e Embelezar Código - Todos os Arquivos HTML</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1691"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1694"/>
         <source>Mend Code</source>
         <translation>Reparar Código</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1692"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1695"/>
         <source>Mend Code - All HTML Files</source>
         <translation>Reparar Código - Todos os Arquivos HTML</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1722"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1725"/>
         <source>Go To Link Or Style</source>
         <translation>Ir para link ou estilo</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1744"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1747"/>
         <source>Toggle Line Wrap Mode</source>
         <translation>Alternar Modo de Envolvimento de Linha</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1766"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1769"/>
         <source>View Image</source>
         <translation>Ver imagem</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1767"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1770"/>
         <source>Open Tab For Image</source>
         <translation>Abrir Aba para Imagem</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1793"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1796"/>
         <source>Mark Selected Text</source>
         <translation>Marcar texto selecionado</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1795"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1798"/>
         <source>Unmark Marked Text</source>
         <translation>Desmarcar texto selecionado</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1821"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1824"/>
         <source>Clips</source>
         <translation>Recortes</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1831"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1834"/>
         <source>Add To Clips</source>
         <translation>Adicionar para Recortes</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1969"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1972"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
         <translation>Você deve estar em uma tag html aberta para usar este recurso.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1979"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1982"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
         <translation>Você deve estar em uma tag HTML aberta para usar este recurso.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2043"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2046"/>
         <source>Selected Text is not a valid class name.</source>
         <translation>O texto selecionado não é um nome válido para classe</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2050"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2053"/>
         <source>Rename Class</source>
         <translation>Renomear classe</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2051"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2054"/>
         <source>Enter new class name</source>
         <translation>Entrar o nome da nova classe</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2071"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2074"/>
         <source>Class renamed.</source>
         <translation>Classe renomeada.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2073"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2076"/>
         <source>Class rename aborted.</source>
         <translation>Renomeação de classe cancelada.</translation>
     </message>
@@ -16483,6 +16483,8 @@ Deseja corrigir automaticamente os arquivos antes de salvar? Ou cancelar o salva
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="566"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="566"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="649"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="649"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="973"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1142"/>
@@ -16518,6 +16520,7 @@ Deseja corrigir automaticamente os arquivos antes de salvar? Ou cancelar o salva
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="739"/>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="739"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1021"/>
         <source>Custom Property</source>
         <translation>Propriedade Personalizada</translation>
@@ -16533,6 +16536,7 @@ Deseja corrigir automaticamente os arquivos antes de salvar? Ou cancelar o salva
         <translation>Adicionar Propriedade a Elemento</translation>
     </message>
     <message>
+        <location filename="../../Dialogs/MetaEditor.cpp" line="786"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="786"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1176"/>
         <source>Custom Attribute</source>
