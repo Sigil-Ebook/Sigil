@@ -13235,27 +13235,27 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7183"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7189"/>
         <source>Focus changed to CodeView window.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7192"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7198"/>
         <source>Focus changed to BookBrowser window.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7201"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7207"/>
         <source>Focus changed to Preview window.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7210"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7216"/>
         <source>Focus changed to Table Of Contents window.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7219"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7225"/>
         <source>Focus changed to Clips window.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16255,8 +16255,6 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="566"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="566"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="649"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="649"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="973"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1142"/>
@@ -16292,7 +16290,6 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="739"/>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="739"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1021"/>
         <source>Custom Property</source>
         <translation type="unfinished"></translation>
@@ -16308,7 +16305,6 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/MetaEditor.cpp" line="786"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="786"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1176"/>
         <source>Custom Attribute</source>

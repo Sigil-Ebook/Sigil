@@ -6399,10 +6399,16 @@ void MainWindow::ExtendUI()
     m_lbCursorPosition = new QLabel(QString(""), statusBar());
     statusBar()->addPermanentWidget(m_lbCursorPosition);
     UpdateCursorPositionLabel(0, 0, -1);
+    QWidget* spacer1 = new QWidget(this);
+    spacer1->setFixedWidth(2);
+    statusBar()->addPermanentWidget(spacer1);
     m_lbDropZone = new FileDropZone(statusBar());
     statusBar()->addPermanentWidget(m_lbDropZone);
     SettingsStore ss;
-    if (!ss.fileDropZoneEnabled()) m_lbDropZone->hide(); 
+    if (!ss.fileDropZoneEnabled()) m_lbDropZone->hide();
+    QWidget* spacer2 = new QWidget(this);
+    spacer2->setFixedWidth(2);
+    statusBar()->addPermanentWidget(spacer2);
     // Creating the zoom controls in the status bar
     m_slZoomSlider = new QSlider(Qt::Horizontal, statusBar());
     m_slZoomSlider->setTracking(false);
