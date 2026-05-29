@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
-# Copyright (c) 2014-2023 Kevin B. Hendricks, John Schember, and Doug Massay
+# Copyright (c) 2014-2026 Kevin B. Hendricks, John Schember, and Doug Massay
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without modification,
@@ -62,6 +62,8 @@ SPECIAL_HANDLING_TAGS = OrderedDict([
 SPECIAL_HANDLING_TYPES = ['xmlheader', 'doctype', 'comment']
 
 _OPF_PARENT_TAGS = ['package', 'metadata', 'dc-metadata', 'x-metadata', 'manifest', 'spine', 'tours', 'guide', 'bindings']
+
+_DEPRECATED_METADATA_TAGS = ['dc-metadata', 'x-metadata']
 
 class Opf_Parser(object):
 
@@ -131,13 +133,17 @@ class Opf_Parser(object):
                 self.package = (ver, uid, tattr)
                 continue
             # metadata
+            if tname in _DEPRECATED_METADATA_TAGS:
+                continue;
             if tname == "metadata":
                 if self.ns_remap:
                     if not "xmlns:opf" in tattr:
                         tattr["xmlns:opf"] = "http://www.idpf.org/2007/opf"
                 self.metadata_attr = tattr
                 continue
-            if tname in ["meta", "link"] or tname.startswith("dc:") and "metadata" in prefix:
+            # allow custom defined metadata xmlns prefixed metadata too
+            # if tname in ["meta", "link"] or tname.startswith("dc:") and "metadata" in prefix:
+            if "metadata" in prefix:
                 self.metadata.append((tname, tcontent, tattr))
                 continue
             # manifest

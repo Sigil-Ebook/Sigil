@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2021-2025 Kevin B. Hendricks
+**  Copyright (C) 2021-2026 Kevin B. Hendricks
 **
 **  This file is part of Sigil.
 **
@@ -25,6 +25,8 @@
 #include <QDebug>
 
 const QString WHITESPACE_CHARS=" \t\n\r";  // valid in pure xml
+
+const QStringList DEPRECATED_METADATA_TAGS = QStringList() << "dc-metadata" << "x-metadata";
 
 // Note: all hrefs/urls should always be kept in URLEncoded form
 // as decoding urls before splitting into component parts can lead
@@ -442,23 +444,29 @@ void OPFParser::parse(const QString& source)
             m_metans = MetaNSEntry(mi.tattr);
             continue;
         }
+
+        // ignore and remove deprecated metadata parent tags
+        if (mi.tpath.contains("metadata") && (DEPRECATED_METADATA_TAGS.contains(mi.tname))) {
+            continue;
+        }
+
         if (mi.tpath.contains("metadata") && mi.ttype == "begin") {
-            if (mi.tname == "meta" || mi.tname == "link" || mi.tname.startsWith("dc:")) {
-                matching_begin_tag = mi;
-                get_content = true;
-            }
+            // allow metadata with external ns prefixes to be processed too
+            // if (mi.tname == "meta" || mi.tname == "link" || mi.tname.startsWith("dc:")) {
+            matching_begin_tag = mi;
+            get_content = true;
             continue;
         }
         if (mi.tpath.contains("metadata") && (mi.ttype == "single" || mi.ttype == "end")) {
-            if (mi.tname == "meta" || mi.tname == "link" || mi.tname.startsWith("dc:")) {
-                if (mi.ttype == "single") {
-                    m_metadata << MetaEntry(mi.tname, "", mi.tattr);
-                } else {
-                    m_metadata << MetaEntry(matching_begin_tag.tname, tcontent, matching_begin_tag.tattr);
-                    matching_begin_tag = BaseParser::MarkupInfo();
-                    tcontent = "";
-                    get_content = false;
-                }
+            // allow metadata with external ns prefixes to be processed too
+            // if (mi.tname == "meta" || mi.tname == "link" || mi.tname.startsWith("dc:")) {
+            if (mi.ttype == "single") {
+                m_metadata << MetaEntry(mi.tname, "", mi.tattr);
+            } else {
+                m_metadata << MetaEntry(matching_begin_tag.tname, tcontent, matching_begin_tag.tattr);
+                matching_begin_tag = BaseParser::MarkupInfo();
+                tcontent = "";
+                get_content = false;
             }
             continue;
         }
