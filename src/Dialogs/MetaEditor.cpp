@@ -31,6 +31,7 @@
 #include <QInputDialog>
 #include <QTimer>
 #include <QContextMenuEvent>
+#include <QRegularExpression>
 #include <QDebug>
 #if QT_VERSION >= QT_VERSION_CHECK(6,5,0)
 #include <QTimeZone>
@@ -564,6 +565,8 @@ void MetaEditor::selectElement()
             insertChild(PName("property"),"property", "[name]", "");
         } else if (code == "custom-element") {
             QString custom_element = getInput(tr("Custom Element"),tr("Custom Element"), tr("[Custom element]"));
+            // and metadata element name must follow spec for xml elements, try to screen out bad chars
+            custom_element.remove(QRegularExpression("[\\s<>&;'\"]"));
             QString content = tr("[Value here]");
             insertRow(custom_element, custom_element, content, "");
         } else {
