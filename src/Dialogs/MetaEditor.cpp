@@ -44,6 +44,7 @@
 #include "Misc/Language.h"
 #include "Misc/MarcRelators.h"
 #include "Misc/SettingsStore.h"
+#include "Misc/Utility.h"
 #include "Dialogs/MetaEditorItemDelegate.h"
 #include "Dialogs/MetaEditor.h"
 
@@ -565,11 +566,18 @@ void MetaEditor::selectElement()
             insertChild(PName("property"),"property", "[name]", "");
         } else if (code == "custom-element") {
             QString custom_element = getInput(tr("Custom Element"),tr("Custom Element"), tr("[Custom element]"));
-            // and metadata element name must follow spec for xml elements, try to screen out bad chars
-            custom_element.remove(QRegularExpression("[\\s<>&;'\"]"));
-            QString content = tr("[Value here]");
-            insertRow(custom_element, custom_element, content, "");
-        } else {
+            custom_element = custom_element.trimmed();
+            QRegularExpression valid_xml_name(
+                "^(?![Xx][Mm][Ll])([A-Za-z_][A-Za-z0-9._-]*)(:([A-Za-z_][A-Za-z0-9._-]*))?$"
+            );
+            bool valid = valid_xml_name.match(custom_element).hasMatch();
+            if (valid) {
+                QString content = tr("[Value here]");
+                insertRow(custom_element, custom_element, content, "");
+            } else {
+                Utility::warning(this, tr("Invalid characters were detected in the element name"), tr("Invalid XML element name."), QMessageBox::Ok);
+            }
+		} else {
             insertRow(EName(code), code, "", "");
         }
     }
