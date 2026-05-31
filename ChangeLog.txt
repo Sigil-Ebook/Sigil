@@ -11,12 +11,14 @@ Sigil-2.8.0
      - use resizeColumnsToContents to set DeleteUnunsedMedia and DeleteUnusedStyles column width
      - prevent user created custom metadata elements from breaking the lxml parser badly (Thanks BeckyEbook)
      - fix bug that stripped out custom etadata from epub before a save
+     - use more standard shortcuts for for Previous and Next tab
+     - stop Sigil tools from implicitly adding back nav to spine if not present
 
    New Features
      - create a separate Change Reading Order dialog for those who can not use drag and drop
      - create a Drop Zone for users who want to use drag and drop to add files to their epub
      - rewrite ImageTab to allow for basic image adjustments: rotate right, rotate left, crop, resize
-     - allow users more control over Prettify using prettyprint.xml
+     - allow users more control over Prettify using prettyprint.xml created in Sigil prefs.
      - update all CI github actions to the latest versions
      - add cability to de-nest the newly native nested CSS so that it will work with e-readers
      - in ImageViewer move image description to the top (Thank you BeckyEbook)
@@ -24,6 +26,7 @@ Sigil-2.8.0
      - recognize more core mediatypes for image/jxl and imaage/avif from epub 3.4 spec
      - recognize json as a mediatype in Sigil in prep for epub 3.4 spec (Thanks drmhessler)
      - support json syntax highlighting in CodeView to support epub 3.4 spec (Thanks drmhessler)
+     - add new epb3 tool menu items to safely add and remove the nav from the OPF spine
 
 
 Sigil-2.7.6
