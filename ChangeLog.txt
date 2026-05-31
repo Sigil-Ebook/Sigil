@@ -1,4 +1,4 @@
-pre-Sigil-2.8.0
+Sigil-2.8.0
    Bug Fies
      - make sure assigned clip number is not editable in ClipEditor
      - greatly speed up All Files report generation in epub3s with manifest properties
@@ -6,9 +6,11 @@ pre-Sigil-2.8.0
      - greatly speed up adding bulk resources to the OPF to speed up Add Existing ...
      - fix bug in Open With on MacOS not properly parsing arguments
      - fix bug in refreshing plugin toolbars (Thank you BeckyEbook)
-     - fix bug in GetInfo not using the proper times symbol (Thank you BeckyEbook)
+     - fix bug in GetInfo not using the proper times symbol (Thanks BeckyEbook)
      - fix stripping out of css selectors with non properites (empty)
      - use resizeColumnsToContents to set DeleteUnunsedMedia and DeleteUnusedStyles column width
+     - prevent user created custom metadata elements from breaking the lxml parser badly (Thanks BeckyEbook)
+     - fix bug that stripped out custom etadata from epub before a save
 
    New Features
      - create a separate Change Reading Order dialog for those who can not use drag and drop
@@ -18,8 +20,11 @@ pre-Sigil-2.8.0
      - update all CI github actions to the latest versions
      - add cability to de-nest the newly native nested CSS so that it will work with e-readers
      - in ImageViewer move image description to the top (Thank you BeckyEbook)
-     - make ImageView open images fitted to its window automatically (Thank you BeckyEbook)
-     
+     - make ImageView open images fitted to its window automatically (Thanks BeckyEbook)
+     - recognize more core mediatypes for image/jxl and imaage/avif from epub 3.4 spec
+     - recognize json as a mediatype in Sigil in prep for epub 3.4 spec (Thanks drmhessler)
+     - support json syntax highlighting in CodeView to support epub 3.4 spec (Thanks drmhessler)
+
 
 Sigil-2.7.6
    Bug Fixes
