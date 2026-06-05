@@ -13104,7 +13104,7 @@ Aquesta acció no es pot desfer.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3536"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
-        <translation>L&apos;entrada no és correcta; no ha de tenir «&lt;» ni «&gt;»</translation>
+        <translation>L&apos;entrada no és correcta; no ha de tenir &quot;&lt;&quot; ni &quot;&gt;&quot;</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3541"/>
@@ -13279,8 +13279,7 @@ Aquesta acció no es pot desfer.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5352"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
-        <translation>No s&apos;ha trobat cap marcador de divisió de fitxer.
-Utilizeu l&apos;ordre «Marcador de divisió» del menú «Insereix».</translation>
+        <translation>No s&apos;ha trobat cap marcador de divisió de fitxer. Utilizeu l&apos;ordre &quot;Marcador de divisió&quot; del menú &quot;Insereix&quot;.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5547"/>
@@ -13310,7 +13309,7 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
 
 %1 (línia %2: %3)
 
-Proveu de canviar les preferències de netedat del codi triant l&apos;opció «Repara el codi font XHTML en obrir» i torneu a carregat el fitxer.</translation>
+Proveu de canviar les preferències de netedat del codi triant l&apos;opció &quot;Repara el codi font XHTML en obrir&quot; i torneu a carregat el fitxer.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5775"/>
@@ -13754,7 +13753,7 @@ Voleu reparar automàticament els fitxers abans de desar? O vols cancel·lar?</t
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="124"/>
         <source>Use for a person (e.g., a painter) or organization who conceives, and perhaps also implements, an original graphic design or work of art, if specific codes (e.g., [egr], [etr]) are not desired. For book illustrators, prefer Illustrator [ill]. </source>
-        <translation>Persona o organització que concep i, potser, també du a terme un disseny gràfic original o una obra d&apos;art, si no es volen fer servir altres codis més concrets (com [egr] o [etr]). Per a il·lustradors de llibres, utilitzeu preferentment «il·lustrador» [ill].</translation>
+        <translation>Persona o organització que concep i, potser, també du a terme un disseny gràfic original o una obra d&apos;art, si no es volen fer servir altres codis més concrets (com [egr] o [etr]). Per a il·lustradors de llibres, utilitzeu preferentment &quot;il·lustrador&quot; [ill].</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="125"/>
@@ -21658,7 +21657,7 @@ ortogràfica és oberta.</translation>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="46"/>
         <source>Table Of Contents</source>
-        <translation>Taula de continguts</translation>
+        <translation>Sumari</translation>
     </message>
     <message>
         <location filename="../../MainUI/TableOfContents.cpp" line="167"/>
