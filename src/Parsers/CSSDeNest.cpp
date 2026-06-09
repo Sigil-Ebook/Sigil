@@ -319,21 +319,24 @@ std::string CSSDeNest::flattenBlock(const Node& block, const std::string& parent
     if (block.isAtRule) {
         if (isPassThroughAtRule(block.header)) {
             // @keyframes, @font-face, etc. – emit verbatim
-            out << block.header << " {\n" << block.rawBody << "}\n";
+            // do not introduce additional newlines
+            out << block.header << " {" << block.rawBody << "}";
             return out.str();
         }
 
         // @media, @supports, @layer, @document, etc.
         // Flatten the children under the same parentSel, then wrap.
         std::string inner = flattenNodes(block.children, parentSel);
-        out << block.header << " {\n" << inner << "}\n";
+        // do not introduce additional newlines
+        out << block.header << " {" << inner << "}";
     } else {
         bool hasNestedBlocks = std::any_of(
             block.children.begin(), block.children.end(),
             [](const Node& child) { return child.type == Node::BLOCK; });
 
         if (parentSel.empty() && !hasNestedBlocks) {
-            out << block.header << " {" << block.rawBody << "}\n";
+            // do not introduce additional newlines
+            out << block.header << " {" << block.rawBody << "}";
             return out.str();
         }
 
