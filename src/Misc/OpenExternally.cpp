@@ -105,7 +105,7 @@ bool OpenExternally::openFile(const QString &filePath, const QString &applicatio
 #if defined(Q_OS_MAC)
 
     if (QFile::exists(filePath) && QDir(application).exists()) {
-        QStringList arguments = QStringList() << "-a" << application << "--args" << filePath;
+        QStringList arguments = QStringList() << "-a" << application << filePath << "--args" << filePath;
         return QProcess::startDetached("/usr/bin/open", arguments);
     }
 
@@ -178,7 +178,7 @@ bool OpenExternally::openFileWithXEditor(const QString& filePath, const QString 
 #if defined(Q_OS_MAC)
 
     if (QFile::exists(filePath) && QDir(application).exists()) {
-        QStringList arguments = QStringList() << "-a" << application << "--args" << filePath << spineno << curpos;
+        QStringList arguments = QStringList() << "-n"<< "-a"<< application << "--args" << filePath << spineno << curpos;
         return QProcess::startDetached("/usr/bin/open", arguments);
     }
 
