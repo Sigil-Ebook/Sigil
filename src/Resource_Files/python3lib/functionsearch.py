@@ -157,6 +157,13 @@ class FunctionSearch(object):
 
     def do_text_replacements(self, pattern, bookpath, text):
         self.bookpath = bookpath
+        # must validate that regular expression works with Python's re
+        try:
+            re.compile(pattern)
+        except re.error as e:
+            replace_debug_log("Python Function Replace re error: " + str(e))
+            print("Python Function Replace re error: ", e)
+            return text
 
         def repl(match):
             if match:
