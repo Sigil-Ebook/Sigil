@@ -93,7 +93,7 @@ static std::unordered_set<std::string> manifest_properties = {
 
 static std::unordered_set<std::string> href_src_tags       = {
     "a","area","audio","base","embed","font-face-uri","frame","iframe",
-    "image","img","input","link","object","script","source","track","video"
+    "image","img","input","link","math", "object","script","source","track","video"
 };
 
 
