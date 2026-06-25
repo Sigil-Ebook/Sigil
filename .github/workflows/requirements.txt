@@ -1,6 +1,6 @@
 six==1.17.0
 html5lib==1.1
-regex==2026.1.15
+regex==2026.5.9
 css-parser==1.0.10
 cssselect==1.4.0
 certifi==2026.1.4

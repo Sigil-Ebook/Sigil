@@ -48,6 +48,8 @@ public:
 
     bool addToPythonSysPath(const QString& modulepath);
 
+    void setupRedirects();
+
     QVariant runInPython(const QString &module_name,
                          const QString &function_name,
                          const QVariantList &args,

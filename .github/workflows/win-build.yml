@@ -76,7 +76,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install six==1.17.0
         pip install html5lib==1.1
-        pip install regex==2026.1.15
+        pip install regex==2026.5.9
         pip install css-parser==1.0.10
         pip install cssselect==1.4.0
         pip install urllib3==2.6.3

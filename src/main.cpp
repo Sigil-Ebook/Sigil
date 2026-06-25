@@ -566,6 +566,12 @@ int main(int argc, char *argv[])
     EmbeddedPython* epython = EmbeddedPython::instance();
     epython->addToPythonSysPath(epython->embeddedRoot());
     epython->addToPythonSysPath(PluginDB::launcherRoot() + "/python");
+    // Redirect re module to regex only if user opts in for now
+    QString redirect_re = Utility::GetEnvironmentVar("SIGIL_EMBED_PY_USES_REGEX");
+    if (!redirect_re.isEmpty()) {
+        // Only run this after embeddedRoot is added to PythonSysPath
+        epython->setupRedirects();
+    }
 
     try {
 
