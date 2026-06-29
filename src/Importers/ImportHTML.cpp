@@ -290,7 +290,7 @@ QHash<QString, QString> ImportHTML::LoadMediaFiles(const QStringList & file_path
             if (m_IgnoreDuplicates && !existing_book_path.isEmpty()) {
                 newpath = newpath = existing_book_path;
             } else {
-                Resource * resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(fullfilepath);
+                Resource * resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(fullfilepath, m_UpdateOPF);
                 newpath = resource->GetRelativePath();
                 m_AddedBookPaths << newpath;
             }
@@ -325,7 +325,7 @@ QHash<QString, QString> ImportHTML::LoadStyleFiles(const QStringList & file_path
             if (m_IgnoreDuplicates && !existing_book_path.isEmpty()) {
                 newpath = existing_book_path;
             } else {
-                Resource * resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(fullfilepath);
+                Resource * resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(fullfilepath, m_UpdateOPF);
                 newpath = resource->GetRelativePath();
                 m_AddedBookPaths << newpath;
             }

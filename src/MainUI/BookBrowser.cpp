@@ -880,6 +880,8 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images, QSt
     // Avoid dialog popping up over Insert File from disk for duplicate file all the time
     int progress_value = 0;
     int file_count = filepaths.count();
+    bool always_opf_update = file_count < 10;
+
     // need to use the MainWindow as the parent of this QProgressDialog
     // and we can not make it modal as we may need to ask about replacing files of identical names
     QProgressDialog progress(QObject::tr("Adding Existing Files.."), 0, 0, file_count, Utility::GetMainWindow());
@@ -981,7 +983,10 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images, QSt
         }
 
         if (QFileInfo(filepath).fileName() == "page-map.xml") {
-            Resource * res = m_Book->GetFolderKeeper()->AddContentFileToFolder(filepath, true, QString("application/oebps-page-map+xml"));
+            Resource * res = m_Book->GetFolderKeeper()->AddContentFileToFolder(filepath, always_opf_update, QString("application/oebps-page-map+xml"));
+            if (!always_opf_update) {
+               if (res) resToBeAdded << res;
+            }
             added_book_paths << res->GetRelativePath(); 
         } else if (TEXT_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower())) {
             ImportHTML html_import(filepath);
@@ -996,18 +1001,27 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images, QSt
             // Since we set the Book manually,
             // this call merely mutates our Book.
             bool extract_metadata = false;
-            html_import.setUpdateOPF(false);
+            html_import.setUpdateOPF(always_opf_update);
             html_import.GetBook(extract_metadata);
             QStringList importedbookpaths = html_import.GetAddedBookPaths();
-            DBG qDebug() << "In BookBrowser Add Existing adding bookpaths: " << importedbookpaths;
-            Resource *added_resource = m_Book->GetFolderKeeper()->GetResourceByBookPath(importedbookpaths.at(0));
-            if (needsToUpdateOPF) resToBeAdded << added_resource;
+            Resource *added_resource = m_Book->GetFolderKeeper()->GetResourceByBookPathNoThrow(importedbookpaths.at(0));
             HTMLResource *added_html_resource = qobject_cast<HTMLResource *>(added_resource);
+            DBG qDebug() << "In BookBrowser Add Existing adding bookpaths: " << importedbookpaths;
+            if (!always_opf_update) {
+                // we are bulk updating the opf so we need to add this xhtml and its support resources (media, css)
+                // to the list of resToBeAdded
+                foreach(QString abookpath, importedbookpaths) {
+                    Resource* aresource = m_Book->GetFolderKeeper()->GetResourceByBookPathNoThrow(abookpath);
+                    if (aresource) resToBeAdded << aresource;
+                }
+            }
             added_book_paths.append(importedbookpaths);
-            if (current_html_resource && added_html_resource) {
-                m_Book->MoveResourceAfter(added_html_resource, current_html_resource);
-                current_html_resource = added_html_resource;
-
+            // you can not change the order in the opf until after bulk updating is done
+            if (always_opf_update) {
+                if (current_html_resource && added_html_resource) {
+                    m_Book->MoveResourceAfter(added_html_resource, current_html_resource);
+                    current_html_resource = added_html_resource;
+                }
                 // Only open HTML files as they are likely to be edited whereas other items
                 // are likely to be inserted into or linked to the current file.
                 // Only open the first file in any added group.
@@ -1016,8 +1030,8 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images, QSt
                 }
             }
         } else {
-            Resource *resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(filepath, false);
-            if (needsToUpdateOPF) resToBeAdded << resource;
+            Resource *resource = m_Book->GetFolderKeeper()->AddContentFileToFolder(filepath, always_opf_update);
+            if (!always_opf_update) resToBeAdded << resource;
             added_book_paths << resource->GetRelativePath();
             // if replacing a cover image, set the cover image semantics
             if (CoverImageSemanticsSet) {
