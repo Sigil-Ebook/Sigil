@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # vim:ts=4:sw=4:softtabstop=4:smarttab:expandtab
 
-# Copyright (c) 2014-2025 Kevin B. Hendricks and Doug Massay
+# Copyright (c) 2014-2026 Kevin B. Hendricks and Doug Massay
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without modification,
@@ -35,7 +35,7 @@ from hrefutils import ext_mime_map, mime_group_map
 
 import unicodedata
 
-_launcher_version = 20260501
+_launcher_version = 20260715
 
 _RS = chr(30) # record separator
 _US = chr(31) # unit separator
