@@ -12356,7 +12356,7 @@ soit redemarré.</translation>
     <message>
         <location filename="../../Form_Files/main.ui" line="3177"/>
         <source>Remove Nav from Reading Order</source>
-        <translation>Enlever le Nav de l&apos;ordre de lecture.</translation>
+        <translation>Enlever le Nav de l&apos;ordre de lecture</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3182"/>

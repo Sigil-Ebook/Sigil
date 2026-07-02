@@ -16460,12 +16460,12 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="578"/>
         <source>Invalid characters were detected in the element name</source>
-        <translation type="unfinished"/>
+        <translation>В имени элемента обнаружены недопустимые символы</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="578"/>
         <source>Invalid XML element name.</source>
-        <translation type="unfinished"/>
+        <translation>Недопустимое имя элемента XML.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="674"/>

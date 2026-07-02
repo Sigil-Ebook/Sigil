@@ -12537,7 +12537,7 @@ style=&quot;margin-left: 0.5em;&quot;&gt;De geselecteerde tekst doorhalen.&lt;/p
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="757"/>
         <source>Run</source>
-        <translation type="unfinished"/>
+        <translation>Uitvoeren</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="777"/>

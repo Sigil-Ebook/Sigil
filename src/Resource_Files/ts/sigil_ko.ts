@@ -1016,7 +1016,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="184"/>
         <source>Abstract</source>
-        <translation>Abstract</translation>
+        <translation>발췌문/초록</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="184"/>
@@ -1136,7 +1136,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="196"/>
         <source>Credit</source>
-        <translation>Credit</translation>
+        <translation>판권</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="196"/>
@@ -1146,12 +1146,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="197"/>
         <source>Credits</source>
-        <translation>Credits</translation>
+        <translation>판권 모음</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="197"/>
         <source>A collection of credits.</source>
-        <translation>크레딧 모음입니다.</translation>
+        <translation>판권 모음입니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="198"/>
@@ -1216,17 +1216,17 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="204"/>
         <source>Example</source>
-        <translation>Example</translation>
+        <translation>예시</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="204"/>
         <source>An illustration of a key concept of the work, such as a code listing, case study or problem. [aria role ONLY]</source>
-        <translation>작품의 핵심 개념을 보여주는 삽화로, 코드 목록, 사례 연구 또는 문제 등이 될 수 있습니다. [aria role ONLY]</translation>
+        <translation>사례 연구 또는 문제와 같이 저작물의 핵심 개념을 시각적으로 보여주는 예시입니다. [aria role ONLY]</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="205"/>
         <source>Footnote</source>
-        <translation>Footnote</translation>
+        <translation>각주</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="205"/>
@@ -1326,23 +1326,22 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="215"/>
         <source>Page Footer</source>
-        <translation>Page Footer</translation>
+        <translation>꼬리말</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="215"/>
         <source>A section of text appearing at the bottom of a page that provides context about the current work and location within it. The page footer is distinct from the body text and normally follows a repeating template that contains (possibly truncated) items such as the document title, current section, author name(s), and page number.</source>
-        <translation>페이지 하단에 나타나는 텍스트 섹션으로, 현재 작업과 그 내에서의 위치에 대한 문맥을 제공합니다. 페이지 바닥글은 본문 텍스트와 구별되며, 일반적으로 문서 제목, 현재 섹션, 저자 이름(들), 페이지 번호 등 (축약될 수도 있는) 항목들을 포함하는 반복적인 템플릿을 따릅니다.</translation>
+        <translation>페이지 하단에 나타나는 텍스트 섹션으로, 현재 작업과 그 내에서의 위치에 대한 문맥을 제공합니다. 꼬리말은 본문 텍스트와 구별되며, 일반적으로 문서 제목, 현재 섹션, 저자 이름(들), 페이지 번호 등 (축약될 수도 있는) 항목들을 포함하는 반복적인 템플릿을 따릅니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="216"/>
         <source>Page Header</source>
-        <translation>Page Header</translation>
+        <translation>머리말</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="216"/>
         <source>A section of text appearing at the top of a page that provides context about the current work and location within it. The page header is distinct from the body text and normally follows a repeating template that contains (possibly truncated) items such as the document title, current section, author name(s), and page number.</source>
-        <translation> 
-페이지 상단에 나타나는 텍스트 섹션으로, 현재 작업과 그 내에서의 위치에 대한 문맥을 제공합니다. 페이지 머리글은 본문 텍스트와 구별되며, 일반적으로 문서 제목, 현재 섹션, 저자 이름(들), 페이지 번호 등 (축약될 수도 있는) 항목들을 포함하는 반복적인 템플릿을 따릅니다.</translation>
+        <translation> 페이지 상단에 나타나는 텍스트 섹션으로, 현재 작업과 그 내에서의 위치에 대한 문맥을 제공합니다. 머리말은 본문 텍스트와 구별되며, 일반적으로 문서 제목, 현재 섹션, 저자 이름(들), 페이지 번호 등 (축약될 수도 있는) 항목들을 포함하는 반복적인 템플릿을 따릅니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="217"/>
@@ -1397,12 +1396,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="222"/>
         <source>Pull Quote</source>
-        <translation>Pull Quote</translation>
+        <translation>발췌 인용구</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="222"/>
         <source>A distinctively placed or highlighted quotation from the current content designed to draw attention to a topic or highlight a key point.</source>
-        <translation>현재 콘텐츠에서 주목을 끌거나 핵심 요점을 강조하기 위해 눈에 띄게 배치되거나 강조된 인용문입니다.</translation>
+        <translation>주제에 대한 관심을 끌거나 핵심 요점을 강조하기 위해 현재 콘텐츠에서 독특하게 배치하거나 하이라이트 처리한 인용구입니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="223"/>
@@ -1417,12 +1416,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="224"/>
         <source>Subtitle</source>
-        <translation>Subtitle</translation>
+        <translation>부제</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="224"/>
         <source>An explanatory or alternate title for the work, or a section or components within it.</source>
-        <translation>이 작업 또는 그 안의 섹션이나 구성 요소에 대한 설명 또는 대체 제목입니다.</translation>
+        <translation>저작물, 또는 저작물 내부의 섹션이나 구성 요소에 대한 설명체 또는 대체용 제목입니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="225"/>
@@ -5131,12 +5130,12 @@ mended.</source>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="195"/>
         <source>Other Credits</source>
-        <translation>기타 크레딧</translation>
+        <translation>기타 판권</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="195"/>
         <source>Acknowledgments of previously published parts of the work, illustration credits, and permission to quote from copyrighted material.</source>
-        <translation>전에 출판 된 작품의 일부에 대한 승인, 일러스트레이션 크레디트 및 저작권이있는 자료를 인용 할 수있는 권한.</translation>
+        <translation>전에 출판 된 작품의 일부에 대한 승인, 일러스트레이션 판권 및 저작권이있는 자료를 인용 할 수있는 권한을 표기합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="196"/>
@@ -6291,12 +6290,12 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="199"/>
         <source>Other Credits</source>
-        <translation>기타 크레딧</translation>
+        <translation>기타 판권 모음</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="199"/>
         <source>Acknowledgments of previously published parts of the work, illustration credits, and permission to quote from copyrighted material.</source>
-        <translation>전에 출판 된 작품의 일부에 대한 승인, 일러스트레이션 크레디트 및 저작권이있는 자료를 인용 할 수있는 권한.</translation>
+        <translation>전에 출판 된 작품의 일부에 대한 승인, 일러스트레이션 판권 및 저작권이있는 자료를 인용 할 수있는 권한을 표기합니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="200"/>
@@ -15430,7 +15429,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="295"/>
         <source>A person or organization mentioned in an &apos;X presents&apos; credit for moving image materials and who is associated with production, finance, or distribution in some way. A vanity credit; in early years, normally the head of a studio.</source>
-        <translation>&apos;X presemts&apos;에 언급 된 사람이나 조직은 동영상 자료 및 제작, 금융 또는 배포와 관련이있는 사람에 대해 크레딧을 제공합니다. 허영 신용; 초기에는 일반적으로 스튜디오 책임자였습니다.</translation>
+        <translation>영상 매체에서 &apos;X 제공(X presents)&apos; 크레딧에 언급되는 사람이나 조직으로, 제작, 금융 또는 배포와 어떤 방식으로든 관련이 있는 주체. 허영심을 채우기 위한 크레딧(vanity credit)의 일종으로, 영화 산업 초기에는 주로 스튜디오의 수장이 지칭되었습니다.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="296"/>

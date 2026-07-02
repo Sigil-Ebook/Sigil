@@ -593,7 +593,7 @@ si el CSS n&apos;indica una amb serifs</translation>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="402"/>
         <source>Default font family to be used for Preview
 if a sans-serif font-family specified in your CSS</source>
-        <translation>Llatre tipogràfica de la previsualització
+        <translation>Lletra tipogràfica de la previsualització
 si el CSS n&apos;indica una sense serifs</translation>
     </message>
     <message>
@@ -3656,7 +3656,7 @@ També podeu utilitzar la fletxa dreta.</translation>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="99"/>
         <source>TOC Entry</source>
-        <translation>Entrada de la taula de continguts</translation>
+        <translation>Entrada del sumari</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EditTOC.cpp" line="100"/>
@@ -4223,7 +4223,7 @@ Només és vàlid quan se cerquen fitxers HTML.</translation>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2174"/>
         <source>Case in-sensitive search of exactly what you type.</source>
-        <translation>La majúscula i la minúscula del mateix caràcter es consideren caràcters iguals.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2176"/>
@@ -4234,7 +4234,7 @@ Només és vàlid quan se cerquen fitxers HTML.</translation>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2177"/>
         <source>Case sensitive search of exactly what you type.</source>
-        <translation>La majúscula i la minúscula del mateix caràcter es consideren caràcters diferents.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2179"/>
@@ -4256,7 +4256,7 @@ Només és vàlid quan se cerquen fitxers HTML.</translation>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2187"/>
         <source>Restrict the find or replace to the opened file.  Hold the Ctrl key down while clicking any search buttons to temporarily restrict the search to the Current File.</source>
-        <translation>Limita la cerca o el reemplaçament al fitxer obert. Premeu la tecla de control en clicar sobre qualsevol botó de cerca per limitar temporalment la cerca al fitxer actual.</translation>
+        <translation>Limita la cerca o el reemplaçament al fitxer obert. Premeu la tecla Ctrl en clicar sobre qualsevol botó de cerca per limitar temporalment la cerca al fitxer actual.</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2189"/>
@@ -12889,7 +12889,7 @@ Aquesta acció no es pot desfer.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2325"/>
         <source>Line #</source>
-        <translation>Linia número</translation>
+        <translation>Línia número</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2348"/>
@@ -14808,7 +14808,7 @@ Voleu reparar automàticament els fitxers abans de desar? O vols cancel·lar?</t
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="230"/>
         <source>Funder</source>
-        <translation>Financer</translation>
+        <translation>Finançador</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="230"/>
@@ -14838,7 +14838,7 @@ Voleu reparar automàticament els fitxers abans de desar? O vols cancel·lar?</t
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="233"/>
         <source>Host</source>
-        <translation>Presentador</translation>
+        <translation>Amfitrió</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="233"/>
@@ -14848,7 +14848,7 @@ Voleu reparar automàticament els fitxers abans de desar? O vols cancel·lar?</t
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="234"/>
         <source>Host institution</source>
-        <translation>Institució hoste</translation>
+        <translation>Institució amfitriona</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="234"/>
