@@ -42,10 +42,12 @@ TextTab::TextTab(TextResource *resource,
     m_PositionToScrollTo(position_to_scroll_to)
 {
     m_wCodeView->SetContentMediaType(resource->GetMediaType());
-    m_wCodeView->SetContentBookPath(resource->GetRelativePath());
+    UpdateCodeViewBookPath();
     m_Layout->addWidget(m_wCodeView);
     setFocusProxy(m_wCodeView);
     ConnectSignalsToSlots();
+    connect(this,  SIGNAL(TabRenamed(ContentTab *)),this, SLOT(UpdateCodeViewBookPath()));
+
     // Make sure the resource is loaded as its file doesn't seem
     // to exist when the resource tries to do an initial load.
     m_TextResource->InitialLoad();
@@ -56,12 +58,17 @@ TextTab::TextTab(TextResource *resource,
 
 TextTab::~TextTab()
 {
+    disconnect(this,  SIGNAL(TabRenamed(ContentTab *)), 0, 0);
     if (m_wCodeView) {
         delete m_wCodeView;
         m_wCodeView = 0;
     }
 }
 
+void TextTab::UpdateCodeViewBookPath()
+{
+    m_wCodeView->SetContentBookPath(m_TextResource->GetRelativePath());
+}
 
 void TextTab::ScrollToLine(int line)
 {

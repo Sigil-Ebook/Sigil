@@ -266,6 +266,8 @@ public slots:
 
     void HandleViewImage(const QUrl &url);
 
+    void UpdateCodeViewBookPath();
+
 signals:
 
     void SelectionChanged();

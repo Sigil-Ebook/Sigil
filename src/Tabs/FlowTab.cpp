@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2025 Kevin B Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2016-2026 Kevin B Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2012      Grant Drake
@@ -73,11 +73,12 @@ FlowTab::FlowTab(HTMLResource *resource,
 {
     CreateCodeViewIfRequired(false);
     m_wCodeView->SetContentMediaType(resource->GetMediaType());
-    m_wCodeView->SetContentBookPath(resource->GetRelativePath());
+    UpdateCodeViewBookPath();
     m_Layout->addWidget(m_wCodeView);
     LoadSettings();
     setFocusProxy(m_wCodeView);
     ConnectCodeViewSignalsToSlots();
+    connect(this,  SIGNAL(TabRenamed(ContentTab *)), this, SLOT(UpdateCodeViewBookPath()));
 
     // We perform delayed initialization after the widget is on
     // the screen. This way, the user perceives less load time.
@@ -125,6 +126,11 @@ FlowTab::~FlowTab()
 
     m_HTMLResource = NULL;
 
+}
+
+void FlowTab::UpdateCodeViewBookPath()
+{
+    m_wCodeView->SetContentBookPath(m_HTMLResource->GetRelativePath());
 }
 
 void FlowTab::CreateCodeViewIfRequired(bool is_delayed_load)
