@@ -32,7 +32,7 @@ jobs:
       if: ${{ steps.check_tag_name.outputs.valid == 'yes' }}
       uses: crazy-max/ghaction-import-gpg@v7
       with:
-        gpg_private_key: ${{ secrets.NEW_SIGNING_STUFF }}
+        gpg_private_key: ${{ secrets.NEW_SIGNING_STUFF2 }}
         passphrase: ${{ secrets.SIGNING_BONUS_PHRASE }}
         git_user_signingkey: true
         git_tag_gpgsign: true
