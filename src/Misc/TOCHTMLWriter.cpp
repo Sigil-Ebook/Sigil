@@ -62,6 +62,7 @@ QString TOCHTMLWriter::WriteXML(const QString &version)
 
     m_Writer = new QXmlStreamWriter(&out);
     m_Writer->writeStartDocument();
+    m_Writer->writeCharacters("\n");
     if (version.startsWith('2')) {
         m_Writer->writeDTD("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\n"
                            "   \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n");
