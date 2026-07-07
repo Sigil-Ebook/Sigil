@@ -4301,11 +4301,12 @@ bool MainWindow::CreateHTMLTOC()
     }
  
     if (tocResource != NULL) {
-
+        QApplication::restoreOverrideCursor();
         QString msg = tr("An existing HTML Table of Contents file has been found.");
         if (!ProceedToOverwrite(msg, tocResource->ShortPathName())) {
             tocResource = NULL;
         }
+        QApplication::setOverrideCursor(Qt::WaitCursor);
     }
 
     // If you found an existing one, close the tab so the focus 
