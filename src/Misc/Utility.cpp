@@ -1450,11 +1450,22 @@ QMessageBox::StandardButton Utility::warning(QWidget* parent, const QString &tit
                                              QMessageBox::StandardButtons buttons,
                                              QMessageBox::StandardButton defaultButton)
 {
-  QMessageBox::StandardButton result = QMessageBox::warning(parent, title, text, buttons, defaultButton);
-#ifdef Q_OS_MAC
-  if (parent) parent->activateWindow();
+    QMessageBox message_box(parent);
+#if defined(Q_OS_MAC)
+    message_box.setOption(QMessageBox::Option::DontUseNativeDialog);
 #endif
-  return result;
+    message_box.setWindowTitle(title);
+    message_box.setText(text);
+    message_box.setIcon(QMessageBox::Warning);
+    message_box.setWindowModality(Qt::ApplicationModal);
+    message_box.setStandardButtons(buttons);
+    message_box.setDefaultButton(defaultButton);
+    message_box.exec();
+    QMessageBox::StandardButton result = message_box.standardButton(message_box.clickedButton());
+#ifdef Q_OS_MAC
+    if (parent) parent->activateWindow();
+#endif
+    return result;
 }
 
 
@@ -1462,11 +1473,22 @@ QMessageBox::StandardButton Utility::question(QWidget* parent, const QString &ti
                                               QMessageBox::StandardButtons buttons,
                                               QMessageBox::StandardButton defaultButton)
 {
-  QMessageBox::StandardButton result = QMessageBox::question(parent, title, text, buttons, defaultButton);
-#ifdef Q_OS_MAC
-  if (parent) parent->activateWindow();
+    QMessageBox message_box(parent);
+#if defined(Q_OS_MAC)
+    message_box.setOption(QMessageBox::Option::DontUseNativeDialog);
 #endif
-  return result;
+    message_box.setWindowTitle(title);
+    message_box.setText(text);
+    message_box.setIcon(QMessageBox::Question);
+    message_box.setWindowModality(Qt::ApplicationModal);
+    message_box.setStandardButtons(buttons);
+    message_box.setDefaultButton(defaultButton);
+    message_box.exec();
+    QMessageBox::StandardButton result = message_box.standardButton(message_box.clickedButton());
+#ifdef Q_OS_MAC
+    if (parent) parent->activateWindow();
+#endif
+    return result;
 }
 
 
@@ -1474,25 +1496,45 @@ QMessageBox::StandardButton Utility::information(QWidget* parent, const QString 
                                                  QMessageBox::StandardButtons buttons,
                                                  QMessageBox::StandardButton defaultButton)
 {
-  QMessageBox::StandardButton result = QMessageBox::information(parent, title, text, buttons, defaultButton);
-#ifdef Q_OS_MAC
-  if (parent) parent->activateWindow();
+    QMessageBox message_box(parent);
+#if defined(Q_OS_MAC)
+    message_box.setOption(QMessageBox::Option::DontUseNativeDialog);
 #endif
-  return result;
+    message_box.setWindowTitle(title);
+    message_box.setText(text);
+    message_box.setIcon(QMessageBox::Information);
+    message_box.setWindowModality(Qt::ApplicationModal);
+    message_box.setStandardButtons(buttons);
+    message_box.setDefaultButton(defaultButton);
+    message_box.exec();
+    QMessageBox::StandardButton result = message_box.standardButton(message_box.clickedButton());
+#ifdef Q_OS_MAC
+    if (parent) parent->activateWindow();
+#endif
+    return result;
 }
-
 
 QMessageBox::StandardButton Utility::critical(QWidget* parent, const QString &title, const QString &text,
                                               QMessageBox::StandardButtons buttons,
                                               QMessageBox::StandardButton defaultButton)
 {
-  QMessageBox::StandardButton result = QMessageBox::critical(parent, title, text, buttons, defaultButton);
-#ifdef Q_OS_MAC
-  if (parent) parent->activateWindow();
+    QMessageBox message_box(parent);
+#if defined(Q_OS_MAC)
+    message_box.setOption(QMessageBox::Option::DontUseNativeDialog);
 #endif
-  return result;
+    message_box.setWindowTitle(title);
+    message_box.setText(text);
+    message_box.setIcon(QMessageBox::Critical);
+    message_box.setWindowModality(Qt::ApplicationModal);
+    message_box.setStandardButtons(buttons);
+    message_box.setDefaultButton(defaultButton);
+    message_box.exec();
+    QMessageBox::StandardButton result = message_box.standardButton(message_box.clickedButton());
+#ifdef Q_OS_MAC
+    if (parent) parent->activateWindow();
+#endif
+    return result;
 }
-
 
 // QtSvg is broken with respect to desc and title tags used
 // inside text tags and does not support flowRoot and its children
