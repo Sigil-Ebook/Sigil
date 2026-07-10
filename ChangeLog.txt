@@ -1,16 +1,20 @@
-Sigil 2.8.x
+Sigil 2.8.1
    Bug Fixes
-     - fix bug in AddExisting that could sometimes add duplicate image entries and skip some xhtml imports
+     - fix multiple bugs in AddExisting that could sometimes add duplicate image entries and skip some xhtml imports
      - fix bug that caused altimage urls on math tags to not be preoperly updated when moved or renamed
      - prevent crash in python function replace when re can not handle an expression that PCRE2 recognizes
      - fix bug when using OpenWith to re-open BBEdit.app on MacOS if BBEdit was already open
      - make launching PageEdit on MacOS via the Preferred XEditor always spawn a new copy of the PageApp
      - fix bugs when newlines were sometimes added to css files that threw off sync to Style.
      - fix bug that prevented Mend and Prettify from working in CV after a resource name change
+     - fix bug in TOCHTMLWriter that dropped a needed newline causing Preview to be misaligned.
+           Thank you BeckyEbook!
+     - add workarounds to macOS Tahoe bugs that prevent modal native dialogs from working
+     - fix bug in Create an HTML TOC that did not drop the busy cursor during requests for import
     
    New Features
      - add ability to use python regex in place of python re for embedded python controlled via an
-       environment variable (SIGIL_EMBED_PY_USES_REGEX).
+           environment variable (SIGIL_EMBED_PY_USES_REGEX).
 
      
 Sigil-2.8.0
