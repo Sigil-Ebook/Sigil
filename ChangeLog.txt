@@ -12,13 +12,9 @@ Sigil 2.8.1
      - add workarounds to macOS Tahoe bugs that prevent modal native dialogs from working
      - fix bug in Create an HTML TOC that did not drop the busy cursor during requests for import
     
-   New Features
-     - add ability to use python regex in place of python re for embedded python controlled via an
-           environment variable (SIGIL_EMBED_PY_USES_REGEX).
-
      
 Sigil-2.8.0
-   Bug Fies
+   Bug Fixes
      - make sure assigned clip number is not editable in ClipEditor
      - greatly speed up All Files report generation in epub3s with manifest properties
      - greatly speed up Delete Used Media by caching current cover image
