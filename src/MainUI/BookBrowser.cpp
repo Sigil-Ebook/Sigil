@@ -26,7 +26,6 @@
 #include <QMenu>
 #include <QUrl>
 #include <QMessageBox>
-#include <QTreeView>
 #include <QProgressDialog>
 #include <QScrollBar>
 #include <QVariant>
@@ -35,6 +34,7 @@
 #include <QStylePainter>
 #include <QDebug>
 
+#include "MainUI/BBTreeView.h"
 #include "BookManipulation/Book.h"
 #include "BookManipulation/FolderKeeper.h"
 #include "Dialogs/DeleteFiles.h"
@@ -85,7 +85,7 @@ BookBrowser::BookBrowser(QWidget *parent)
     :
     QDockWidget(tr("Book Browser"), parent),
     m_Book(NULL),
-    m_TreeView(new QTreeView(this)),
+    m_TreeView(new BBTreeView(this)),
     m_OPFModel(new OPFModel(this)),
     m_ContextMenu(new QMenu(this)),
     m_FontObfuscationContextMenu(new QMenu(this)),

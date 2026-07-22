@@ -506,6 +506,8 @@ set( MAINUI_FILES
     MainUI/MainWindow.h
     MainUI/FindReplace.cpp
     MainUI/FindReplace.h
+    MainUI/BBTreeView.cpp
+    MainUI/BBTreeView.h
     MainUI/BookBrowser.cpp
     MainUI/BookBrowser.h
     MainUI/ClipsWindow.cpp
