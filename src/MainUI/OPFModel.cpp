@@ -632,6 +632,10 @@ void OPFModel::InitializeModel()
 }
 
 
+// the speed of this routine is critical to prevent
+// missed invocations from internal Qt drag and drop code
+// For non-contiguous drag and drop reordering this routine
+// is invoked once for each disjoint set in the drag.
 void OPFModel::UpdateHTMLReadingOrders()
 {
     QList<HTMLResource *> reading_order_htmls;
@@ -642,7 +646,6 @@ void OPFModel::UpdateHTMLReadingOrders()
         nav_res = m_Book->GetConstOPF()->GetNavResource();
         nav_in_spine = m_Book->GetConstOPF()->isNavInSpine();
     }
-    // qDebug() << "In UpdateHTMLReadingOrders " << version << nav_in_spine << nav_res;
     int spine_order = 0;
     for (int i = 0; i < m_TextFolderItem->rowCount(); ++i) {
         QStandardItem *html_item = m_TextFolderItem->child(i);
@@ -658,8 +661,6 @@ void OPFModel::UpdateHTMLReadingOrders()
             if ((version.startsWith("3")) && (!nav_in_spine) && (html_resource == nav_res)) {
                 // always sort nav to last if not in spine
                 // but do not actually add it to the spine
-                // qDebug() << "set nav reading_order_role to last ";
-                // qDebug() << bookpath << m_TextFolderItem->rowCount()-1;
                 html_item->setData(m_TextFolderItem->rowCount()-1, READING_ORDER_ROLE);
             } else {
                 // qDebug() << bookpath << spine_order; 
@@ -671,7 +672,8 @@ void OPFModel::UpdateHTMLReadingOrders()
     }
     m_Book->GetOPF()->UpdateSpineOrder(reading_order_htmls);
     m_Book->SetModified();
-    Refresh();
+    // DO NOT CALL Refresh() here.
+    // It causes missed dnd signals from non-consecutive dnd ops
 }
 
 
