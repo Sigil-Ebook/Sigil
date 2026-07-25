@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **
@@ -83,7 +83,7 @@ QString IndexHTMLWriter::WriteXML(const QString &version)
 
 void IndexHTMLWriter::WriteEntries(QStandardItem *parent_item)
 {
-    QStandardItem *root_item = IndexEntries::instance()->GetRootItem();
+    QStandardItem *root_item = IndexEntries::instance().GetRootItem();
 
     if (!parent_item) {
         parent_item = root_item;

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2025 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2025-2026 Kevin B. Hendricks, Stratford, Ontario, Canada
 **
 **  This file is part of Sigil.
 **
@@ -44,16 +44,6 @@ static const QString ph_backlink_book_label = AriaClips::tr("Back to");
 static const QString ph_fn_link_book_label = AriaClips::tr("To footnote");
 static const QString ph_en_link_book_label = AriaClips::tr("To endnote");
 
-AriaClips *AriaClips::m_instance = 0;
-
-AriaClips *AriaClips::instance()
-{
-    if (m_instance == 0) {
-        m_instance = new AriaClips();
-    }
-
-    return m_instance;
-}
 
 AriaClips::AriaClips()
 {
@@ -286,5 +276,3 @@ QString AriaClips::TranslatePlaceholders(const QString& cliptext, const QString&
 
     return newtext;
 }
-
-

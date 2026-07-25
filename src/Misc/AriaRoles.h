@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2025 Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2025-2026 Kevin B. Hendricks, Stratford, ON, Canada
 **
 **  This file is part of Sigil.
 **
@@ -44,8 +44,13 @@ class AriaRoles
     Q_DECLARE_TR_FUNCTIONS(AriaRoles)
 
 public:
+    static AriaRoles& instance() {
+        static AriaRoles the_instance;
+        return the_instance;
+    }
 
-    static AriaRoles *instance();
+    AriaRoles(const AriaRoles&) = delete;
+    AriaRoles& operator=(const AriaRoles&) = delete;
 
     QString GetName(const QString &code);
     QString GetTitle(const QString &code, const QString &lang);
@@ -63,6 +68,7 @@ public:
 private:
 
     AriaRoles();
+    ~AriaRoles() = default;
 
     void SetAriaRolesMap();
 
@@ -81,9 +87,6 @@ private:
     QHash<QString, QString> m_EpubTypeMap;
     
     QHash<QString,QString> m_CodeToRawTitle;
-
-    static AriaRoles *m_instance;
-
 
 };
 

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2023 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2016-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **
 **  This file is part of Sigil.
 **
@@ -29,18 +29,6 @@
 #include "Misc/SettingsStore.h"
 #include "Misc/UILanguage.h"
 #include "Misc/GuideItems.h"
-
-GuideItems *GuideItems::m_instance = 0;
-
-GuideItems *GuideItems::instance()
-{
-    if (m_instance == 0) {
-        m_instance = new GuideItems();
-    }
-
-    return m_instance;
-}
-
 
 GuideItems::GuideItems()
 {

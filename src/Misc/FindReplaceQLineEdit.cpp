@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2012      Grant Drake
@@ -101,7 +101,7 @@ void FindReplaceQLineEdit::contextMenuEvent(QContextMenuEvent *event)
     menu->insertSeparator(topAction);
     topAction = saveSearchAction;
 
-    if (CreateMenuEntries(menu, topAction, SearchEditorModel::instance()->invisibleRootItem())) {
+    if (CreateMenuEntries(menu, topAction, SearchEditorModel::instance().invisibleRootItem())) {
         menu->insertSeparator(topAction);
     }
 
@@ -125,7 +125,7 @@ bool FindReplaceQLineEdit::CreateMenuEntries(QMenu *parent_menu, QAction *topAct
         if (!item->data().toBool()) {
             searchAction = new QAction(item->text(), this);
             connect(searchAction, SIGNAL(triggered()), m_searchMapper, SLOT(map()));
-            m_searchMapper->setMapping(searchAction, SearchEditorModel::instance()->GetFullName(item));
+            m_searchMapper->setMapping(searchAction, SearchEditorModel::instance().GetFullName(item));
 
             if (!topAction) {
                 parent_menu->addAction(searchAction);

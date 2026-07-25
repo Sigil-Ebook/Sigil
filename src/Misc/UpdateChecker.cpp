@@ -72,8 +72,7 @@ void UpdateChecker::CheckForUpdate()
         QList<QVariant> args;
         args.append(QVariant(UPDATE_XML_LOCATION));
 
-        EmbeddedPython * epython  = EmbeddedPython::instance();
-        QVariant res = epython->runInPython( QString("updatechecker"),
+        QVariant res = EmbeddedPython::instance().runInPython( QString("updatechecker"),
                                          QString("check_for_updates"),
                                          args,
                                          &rv,

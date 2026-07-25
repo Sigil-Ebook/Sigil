@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -110,16 +110,16 @@ QString FolderKeeper::DetermineFileGroup(const QString &filepath, const QString 
 
     if (filepath.contains(FILE_EXCEPTIONS)) return "other";
     if (mt.isEmpty()) {
-        mt = MediaTypes::instance()->GetMediaTypeFromExtension(extension, "");
+        mt = MediaTypes::instance().GetMediaTypeFromExtension(extension, "");
         if (mt.isEmpty()) return "Misc";
     }
-    QString group = MediaTypes::instance()->GetGroupFromMediaType(mt, "");
+    QString group = MediaTypes::instance().GetGroupFromMediaType(mt, "");
     if (group.isEmpty()) {
         // try again just in case provided mediatype is wrong and use the one based
         // on the file extension only this time
-        mt = MediaTypes::instance()->GetMediaTypeFromExtension(extension, "");
+        mt = MediaTypes::instance().GetMediaTypeFromExtension(extension, "");
         if (!mt.isEmpty()) {
-            group = MediaTypes::instance()->GetGroupFromMediaType(mt, "");
+            group = MediaTypes::instance().GetGroupFromMediaType(mt, "");
         }
     }
     if (group.isEmpty()) group = "Misc";
@@ -145,7 +145,7 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath,
 
     // check if mediatype is recognized
     QString mt = mimetype;
-    if (!mt.isEmpty() && (MediaTypes::instance()->GetGroupFromMediaType(mt, "") == "")) {
+    if (!mt.isEmpty() && (MediaTypes::instance().GetGroupFromMediaType(mt, "") == "")) {
         qDebug() << "Warning: unrecognized mediatype in OPF: " << mimetype;
         mt = "";
     }
@@ -153,11 +153,11 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath,
     // try using the extension to determine the mediatype
     if (mt.isEmpty()) {
         QString extension = fi.suffix().toLower();
-        mt = MediaTypes::instance()->GetMediaTypeFromExtension(extension, mimetype);
+        mt = MediaTypes::instance().GetMediaTypeFromExtension(extension, mimetype);
     }
 
     QString group = DetermineFileGroup(norm_file_path, mt);
-    QString resdesc = MediaTypes::instance()->GetResourceDescFromMediaType(mt, "Resource");
+    QString resdesc = MediaTypes::instance().GetResourceDescFromMediaType(mt, "Resource");
 
     QDir folder(m_FullPathToMainFolder);
 
@@ -902,7 +902,7 @@ void FolderKeeper::SetGroupFolders(const QStringList &bookpaths, const QStringLi
     int i = 0;
     foreach(QString bookpath, bookpaths) {
         QString mtype = mtypes.at(i);
-        QString group = MediaTypes::instance()->GetGroupFromMediaType(mtype, "other");
+        QString group = MediaTypes::instance().GetGroupFromMediaType(mtype, "other");
         if (!bookpath.startsWith("META-INF")) {
             QStringList folderlst = group_folder.value(group,QStringList());
             QList<int> countlst = group_count.value(group, QList<int>());

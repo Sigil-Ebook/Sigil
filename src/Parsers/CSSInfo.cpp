@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2024 Kevin B. Hendricks, Stratford, ON Canada
+**  Copyright (C) 2016-2026 Kevin B. Hendricks, Stratford, ON Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2012      Grant Drake
@@ -28,7 +28,7 @@
 #include "Misc/Utility.h"
 #include "Parsers/CSSInfo.h"
 
-const int TAB_SPACES_WIDTH = 4;
+// const int TAB_SPACES_WIDTH = 4;
 const QString LINE_MARKER("[SIGIL_NEWLINE]");
 static const QString DELIMITERS = "}{;";
 
@@ -164,13 +164,13 @@ QStringList CSSInfo::getAllPropertyValues(QString property)
     bool get_value = false;
     int i = 0;
     while(i < m_csstokens.size()) {
-        CSSParser::token atoken = m_csstokens[i];
-        if (atoken.type == CSSParser::SEL_START && !atoken.data.startsWith('@')) inselector = true;
-        if (atoken.type == CSSParser::SEL_END && !atoken.data.startsWith('@')) inselector = false;
-        if (atoken.type == CSSParser::PROPERTY && inselector) {
+        CSSParser::csstoken atoken = m_csstokens[i];
+        if (atoken.type == TKN_SELECTOR) inselector = true;
+        if (atoken.type == TKN_SEL_BLOCK_END) inselector = false;
+        if (atoken.type == TKN_PROPERTY && inselector) {
             get_value = (atoken.data == property) || property.isEmpty();
         }
-        if (atoken.type == CSSParser::VALUE && inselector) {
+        if (atoken.type == TKN_PROPERTY_VALUE && inselector) {
             if (get_value) {
                 property_values << atoken.data;
                 get_value = false;
@@ -187,14 +187,13 @@ QString CSSInfo::getReformattedCSSText(bool multipleLineFormat)
     QString csstext(m_source);
 
     CSSParser cp;
-    cp.set_level("CSS3.0"); // most permissive
     cp.parse_css(csstext);
 
     QVector<QString> errors = cp.get_parse_errors();
     if (!errors.isEmpty()) {
         QString error_msg = "";
         for(int i = 0; i < errors.size(); i++) {
-            error_msg = error_msg + "CSS Parser Error: " + errors[i] +  "\n";
+            error_msg = error_msg + errors[i] +  "\n";
         }
         Utility::DisplayStdWarningDialog(QString("CSS Error: "), error_msg); 
         // a css parser error happened, return unchanged original
@@ -227,13 +226,13 @@ QString CSSInfo::removeMatchingSelectors(QList<CSSSelector *> cssSelectors)
     // Sort the selectors by pos ascending.
     std::sort(remove_selectors.begin(), remove_selectors.end(), dereferencedLessThan<CSSSelector>);
 
-    QVector<CSSParser::token> new_csstokens;
+    QVector<CSSParser::csstoken> new_csstokens;
 
     int i = 0;
     while(i < m_csstokens.size()) {
-        CSSParser::token atoken = m_csstokens[i];
+        CSSParser::csstoken atoken = m_csstokens[i];
         bool store_it = true;
-        if (atoken.type == CSSParser::SEL_START && !atoken.data.startsWith('@')) {
+        if (atoken.type == TKN_SELECTOR && !atoken.data.startsWith('@')) {
             // we have a selector
             QStringList sels = CSSParser::splitGroupSelector(atoken.data);
 
@@ -241,8 +240,8 @@ QString CSSInfo::removeMatchingSelectors(QList<CSSSelector *> cssSelectors)
             // for matching selector by position (unique key) and text and if matching
             // remove this selector
             foreach(CSSSelector * css_selector, remove_selectors) {
-                if (css_selector->pos < atoken.pos) continue;
-                if (css_selector->pos == atoken.pos) {
+                if (css_selector->pos < (int) atoken.pos) continue;
+                if (css_selector->pos == (int) atoken.pos) {
                     int found = -1;
                     for (int i = 0; i < sels.size(); i++) {
                         if (css_selector->text == sels.at(i)) {
@@ -252,7 +251,7 @@ QString CSSInfo::removeMatchingSelectors(QList<CSSSelector *> cssSelectors)
                     }
                     if (found != -1) sels.removeAt(found);
                 }
-                if (css_selector->pos > atoken.pos) break;
+                if (css_selector->pos > (int)atoken.pos) break;
             }
             if (!sels.isEmpty()) {
                 // recreate this token
@@ -264,7 +263,7 @@ QString CSSInfo::removeMatchingSelectors(QList<CSSSelector *> cssSelectors)
             } else {
                 // skip this SEL_START all of the way to the SEL_END
                 store_it = false;
-                while(atoken.type != CSSParser::SEL_END) {
+                while(atoken.type != TKN_SEL_BLOCK_END) {
                     i++;
                     if (i >=  m_csstokens.size()) break;
                     atoken = m_csstokens[i];
@@ -275,7 +274,6 @@ QString CSSInfo::removeMatchingSelectors(QList<CSSSelector *> cssSelectors)
         i++;
     }
     CSSParser cp;
-    cp.set_level("CSS3.0");
     cp.set_csstokens(new_csstokens);
     QString new_text = cp.serialize_css(false);
     if (new_text.isEmpty()) new_text = "/* CSS */\n";
@@ -290,31 +288,32 @@ QString CSSInfo::removeMatchingSelectors(QList<CSSSelector *> cssSelectors)
 void CSSInfo::parseStyles(const QString &text, int offset)
 {
     CSSParser cp;
-    cp.set_level("CSS3.0"); // most permissive
     cp.parse_css(text);
 
     // report any parser errors (should we abort?)
     QVector<QString> errors = cp.get_parse_errors();
     for(int i = 0; i < errors.size(); i++) {
-        qDebug() << "  CSS Parser Error: " << errors[i] << "\n";
+        qDebug() << errors[i] << "\n";
     }
 
     // now store the sequence of parsed tokens
-    CSSParser::token atoken = cp.get_next_token();
-    while(atoken.type != CSSParser::CSS_END)
+    CSSParser::csstoken atoken = cp.get_next_token();
+    while(atoken.type != TKN_CSS_END)
     {
-        CSSParser::token temp;
+        CSSParser::csstoken temp;
         temp.pos = atoken.pos + offset;
         temp.line = atoken.line;
+        temp.col = atoken.col;
         temp.type = atoken.type;
         temp.data = atoken.data;
         m_csstokens.append(temp);
         atoken = cp.get_next_token();
     }
-    CSSParser::token temp;
-    temp.pos = -1;
-    temp.line = -1;
-    temp.type = CSSParser::CSS_END;
+    CSSParser::csstoken temp;
+    temp.pos = 0;
+    temp.line = 0;
+    temp.col = 0;
+    temp.type = TKN_CSS_END;
     temp.data = "";
     m_csstokens.append(temp);  // end marker token
 
@@ -327,9 +326,9 @@ void CSSInfo::generateSelectorsList()
     // now walk the sequence of previously parsed tokens
     int i = 0;
     while(i < m_csstokens.size()) {
-        CSSParser::token atoken = m_csstokens[i];
+        CSSParser::csstoken atoken = m_csstokens[i];
 
-        if (atoken.type == CSSParser::SEL_START && !atoken.data.startsWith('@')) {
+        if (atoken.type == TKN_SELECTOR && !atoken.data.startsWith('@')) {
             QStringList sels = CSSParser::splitGroupSelector(atoken.data);
 
             foreach(QString asel, sels) {

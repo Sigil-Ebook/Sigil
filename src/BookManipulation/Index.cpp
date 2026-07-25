@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2015-2026 Kevin B. Hendricks Stratford, ON, Canada 
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **
@@ -43,7 +43,7 @@ const QString SIGIL_INDEX_ID_PREFIX = "sigil_index_id_";
 
 bool Index::BuildIndex(QList<HTMLResource *> html_resources)
 {
-    IndexEntries::instance()->Clear();
+    IndexEntries::instance().Clear();
     // Display progress dialog
     QProgressDialog progress(QObject::tr("Creating Index..."), QObject::tr("Cancel"), 0, html_resources.count(), QApplication::activeWindow());
     progress.setMinimumDuration(0);
@@ -148,7 +148,7 @@ bool Index::CreateIndexEntry(const QString text, HTMLResource *html_resource, QS
         custom_entry->index_entry = custom_index_value;
         entries.append(custom_entry);
     } else {
-        entries = IndexEditorModel::instance()->GetEntries();
+        entries = IndexEditorModel::instance().GetEntries();
     }
 
     foreach(IndexEditorModel::indexEntry * entry, entries) {
@@ -164,13 +164,13 @@ bool Index::CreateIndexEntry(const QString text, HTMLResource *html_resource, QS
             QString index_entry = entry->index_entry;
             if (index_entry.isEmpty()) {
                 // If no index text, use the pattern
-                IndexEntries::instance()->AddOneEntry(index_pattern, html_resource->GetRelativePath(), index_id_value);
+                IndexEntries::instance().AddOneEntry(index_pattern, html_resource->GetRelativePath(), index_id_value);
             } else if (entry->index_entry.endsWith("/")) {
                 // If index text is a category then append the pattern
-                IndexEntries::instance()->AddOneEntry(index_entry + index_pattern, html_resource->GetRelativePath(), index_id_value);
+                IndexEntries::instance().AddOneEntry(index_entry + index_pattern, html_resource->GetRelativePath(), index_id_value);
             } else {
                 // Use the given index text
-                IndexEntries::instance()->AddOneEntry(index_entry, html_resource->GetRelativePath(), index_id_value);
+                IndexEntries::instance().AddOneEntry(index_entry, html_resource->GetRelativePath(), index_id_value);
             }
         }
     }

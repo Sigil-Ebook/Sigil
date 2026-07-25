@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2020-2022 Kevin B. Hendrickws, Stratford Ontario Canada
+**  Copyright (C) 2020-2026 Kevin B. Hendrickws, Stratford Ontario Canada
 **
 **  This file is part of Sigil.
 **
@@ -32,8 +32,7 @@ const QString ENTITYWORDCHARS = ";#01234567890abcdefABCDEFxX";
 QList<HTMLSpellCheckML::AWord> HTMLSpellCheckML::GetWordList(const QString &source, const QString & default_lang)
 {
     QList<HTMLSpellCheckML::AWord> wordlist;
-    SpellCheck *sc = SpellCheck::instance();
-    QString wc = sc->getWordChars() + QChar(0x00ad); // add in soft hyphen
+    QString wc = SpellCheck::instance().getWordChars() + QChar(0x00ad); // add in soft hyphen
     SettingsStore ss;
     bool use_nums = ss.spellCheckNumbers();
     QuickParser qp(source, default_lang);

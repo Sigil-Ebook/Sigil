@@ -172,6 +172,10 @@ endif()
 # versions and neither want's our epub specific changes.
 add_subdirectory( internal/gumbo )
 
+# lexborcss is our main modern css parser
+# it has changes not yet upstream but a feature request has been made
+add_subdirectory( internal/lexbor )
+
 # Add external process wrapper for appimages
 if( APPIMAGE_BUILD )
     add_subdirectory( internal/exec_wrapper)

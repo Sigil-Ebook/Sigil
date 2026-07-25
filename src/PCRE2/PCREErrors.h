@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2021 Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2021-2026 Kevin B. Hendricks, Stratford, ON, Canada
 **
 **  This file is part of Sigil.
 **
@@ -42,21 +42,25 @@ class PCREErrors
     Q_DECLARE_TR_FUNCTIONS(PCREErrors)
 
 public:
+    static PCREErrors& instance() {
+        static PCREErrors the_instance;
+        return the_instance;
+    }
 
-    static PCREErrors *instance();
+    PCREErrors(const PCREErrors&) = delete;
+    PCREErrors& operator=(const PCREErrors&) = delete;
 
     QString GetError(const QString &code, const QString &ow);
 
 private:
 
     PCREErrors();
+    ~PCREErrors() = default;
 
     void SetErrorMap();
 
     QHash<QString, QString> m_XlateError;
     
-    static PCREErrors *m_instance;
-
 };
 
 #endif // PCREERRORS_H

@@ -63,8 +63,7 @@ void ClipEditor::SetBook(QSharedPointer <Book> book)
 
 void ClipEditor::SetupClipEditorTree()
 {
-    m_ClipEditorModel = ClipEditorModel::instance();
-    ui.ClipEditorTree->setModel(m_ClipEditorModel);
+    ui.ClipEditorTree->setModel(&ClipEditorModel::instance());
     ui.ClipEditorTree->setContextMenuPolicy(Qt::CustomContextMenu);
     ui.ClipEditorTree->setSortingEnabled(false);
     ui.ClipEditorTree->setWordWrap(true);
@@ -86,7 +85,7 @@ void ClipEditor::SetupClipEditorTree()
 
 bool ClipEditor::SaveData(QList<ClipEditorModel::clipEntry *> entries, QString filename)
 {
-    QString message = m_ClipEditorModel->SaveData(entries, filename);
+    QString message = ClipEditorModel::instance().SaveData(entries, filename);
 
     if (!message.isEmpty()) {
         Utility::DisplayStdErrorDialog(tr("Cannot save entries.") + "\n\n" + message);
@@ -164,13 +163,13 @@ QList<ClipEditorModel::clipEntry *> ClipEditor::GetSelectedEntries()
     QList<ClipEditorModel::clipEntry *> selected_entries;
 
     if (ui.ClipEditorTree->selectionModel()->hasSelection()) {
-        QList<QStandardItem *> items = m_ClipEditorModel->GetNonGroupItems(GetSelectedItems());
+        QList<QStandardItem *> items = ClipEditorModel::instance().GetNonGroupItems(GetSelectedItems());
 
         if (!ItemsAreUnique(items)) {
             return selected_entries;
         }
 
-        selected_entries = m_ClipEditorModel->GetEntries(items);
+        selected_entries = ClipEditorModel::instance().GetEntries(items);
     }
 
     return selected_entries;
@@ -183,7 +182,7 @@ QList<QStandardItem *> ClipEditor::GetSelectedItems()
     QModelIndexList selected_indexes = ui.ClipEditorTree->selectionModel()->selectedRows(0);
     QList<QStandardItem *> selected_items;
     foreach(QModelIndex index, selected_indexes) {
-        selected_items.append(m_ClipEditorModel->itemFromIndex(index));
+        selected_items.append(ClipEditorModel::instance().itemFromIndex(index));
     }
     return selected_items;
 }
@@ -218,7 +217,7 @@ QStandardItem *ClipEditor::AddEntry(bool is_group, ClipEditorModel::clipEntry *c
                 return parent_item;
             }
 
-            if (!m_ClipEditorModel->ItemIsGroup(parent_item)) {
+            if (!ClipEditorModel::instance().ItemIsGroup(parent_item)) {
                 row = parent_item->row() + 1;
                 parent_item = parent_item->parent();
             }
@@ -230,8 +229,8 @@ QStandardItem *ClipEditor::AddEntry(bool is_group, ClipEditorModel::clipEntry *c
         ui.ClipEditorTree->expand(parent_item->index());
     }
 
-    new_item = m_ClipEditorModel->AddEntryToModel(clip_entry, is_group, parent_item, row);
-    m_ClipEditorModel->UpdateNumber();
+    new_item = ClipEditorModel::instance().AddEntryToModel(clip_entry, is_group, parent_item, row);
+    ClipEditorModel::instance().UpdateNumber();
     QModelIndex new_index = new_item->index();
     // Select the added item and set it for editing
     ui.ClipEditorTree->selectionModel()->clear();
@@ -281,7 +280,7 @@ bool ClipEditor::Copy()
     }
 
     foreach(QStandardItem * item, GetSelectedItems()) {
-        ClipEditorModel::clipEntry *entry = m_ClipEditorModel->GetEntry(item);
+        ClipEditorModel::clipEntry *entry = ClipEditorModel::instance().GetEntry(item);
 
         if (entry->is_group) {
             Utility::DisplayStdErrorDialog(tr("You cannot Copy or Cut groups - use drag-and-drop.")) ;
@@ -327,7 +326,7 @@ void ClipEditor::Delete()
         if (index.isValid()) {
             row = index.row();
             parent_index = index.parent();
-            m_ClipEditorModel->removeRows(row, 1, parent_index);
+            ClipEditorModel::instance().removeRows(row, 1, parent_index);
         }
     }
 
@@ -335,9 +334,9 @@ void ClipEditor::Delete()
     int parent_row_count;
 
     if (parent_index.isValid()) {
-        parent_row_count = m_ClipEditorModel->itemFromIndex(parent_index)->rowCount();
+        parent_row_count = ClipEditorModel::instance().itemFromIndex(parent_index)->rowCount();
     } else {
-        parent_row_count = m_ClipEditorModel->invisibleRootItem()->rowCount();
+        parent_row_count = ClipEditorModel::instance().invisibleRootItem()->rowCount();
     }
 
     if (parent_row_count && row >= 0) {
@@ -346,12 +345,12 @@ void ClipEditor::Delete()
         }
 
         if (row >= 0) {
-            QModelIndex select_index = m_ClipEditorModel->index(row, 0, parent_index);
+            QModelIndex select_index = ClipEditorModel::instance().index(row, 0, parent_index);
             ui.ClipEditorTree->setCurrentIndex(select_index);
             ui.ClipEditorTree->selectionModel()->select(select_index, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
         }
     }
-    m_ClipEditorModel->UpdateNumber();
+    ClipEditorModel::instance().UpdateNumber();
 }
 
 void ClipEditor::Reload()
@@ -360,7 +359,7 @@ void ClipEditor::Reload()
     button_pressed = Utility::warning(this, tr("Sigil"), tr("Are you sure you want to reload all entries?  This will overwrite any unsaved changes."), QMessageBox::Ok | QMessageBox::Cancel);
 
     if (button_pressed == QMessageBox::Ok) {
-        m_ClipEditorModel->LoadInitialData();
+        ClipEditorModel::instance().LoadInitialData();
     }
 }
 
@@ -388,19 +387,19 @@ void ClipEditor::Import()
         QStandardItem *item = AddGroup();
 
         if (item) {
-            m_ClipEditorModel->Rename(item, "Imported");
-            m_ClipEditorModel->LoadData(filename, item);
+            ClipEditorModel::instance().Rename(item, "Imported");
+            ClipEditorModel::instance().LoadData(filename, item);
             m_LastFolderOpen = QFileInfo(filename).absolutePath();
             WriteSettings();
         }
     }
-    m_ClipEditorModel->UpdateNumber();
+    ClipEditorModel::instance().UpdateNumber();
 }
 
 void ClipEditor::ExportAll()
 {
     QList<QStandardItem *> items;
-    QStandardItem *item = m_ClipEditorModel->invisibleRootItem();
+    QStandardItem *item = ClipEditorModel::instance().invisibleRootItem();
     QModelIndex parent_index;
 
     for (int row = 0; row < item->rowCount(); row++) {
@@ -418,7 +417,7 @@ void ClipEditor::Export()
 
     QList<QStandardItem *> items = GetSelectedItems();
 
-    if (!ItemsAreUnique(m_ClipEditorModel->GetNonParentItems(items))) {
+    if (!ItemsAreUnique(ClipEditorModel::instance().GetNonParentItems(items))) {
         return;
     }
 
@@ -430,17 +429,17 @@ void ClipEditor::ExportItems(QList<QStandardItem *> items)
     QList<ClipEditorModel::clipEntry *> entries;
     foreach(QStandardItem * item, items) {
         // Get all subitems of an item not just the item itself
-        QList<QStandardItem *> sub_items = m_ClipEditorModel->GetNonParentItems(item);
+        QList<QStandardItem *> sub_items = ClipEditorModel::instance().GetNonParentItems(item);
         // Get the parent path of the item
         QString parent_path = "";
 
         if (item->parent()) {
-            parent_path = m_ClipEditorModel->GetFullName(item->parent());
+            parent_path = ClipEditorModel::instance().GetFullName(item->parent());
         }
 
         // Note GetEntry creates the clipEntry with new and it is just a struct
         foreach(QStandardItem * item, sub_items) {
-            ClipEditorModel::clipEntry *entry = m_ClipEditorModel->GetEntry(item);
+            ClipEditorModel::clipEntry *entry = ClipEditorModel::instance().GetEntry(item);
             // Remove the top level paths since we're exporting a subset
             entry->fullname.replace(QRegularExpression(parent_path), "");
             entry->name = entry->fullname;
@@ -520,7 +519,7 @@ void ClipEditor::AutoFill()
     ClipEditorModel::clipEntry *entry = new ClipEditorModel::clipEntry();
     entry->name = "Autofill";
     entry->is_group = true;
-    QStandardItem *group_item = m_ClipEditorModel->AddEntryToModel(entry, true);
+    QStandardItem *group_item = ClipEditorModel::instance().AddEntryToModel(entry, true);
 
     foreach(QString group, css_list) {
         QStringList values = group.split(".");
@@ -531,9 +530,9 @@ void ClipEditor::AutoFill()
         entry->name = group;
         entry->is_group = false;
         entry->text = "<" + element + " class=\"" + class_name + "\">" + "\\1" + "</" + element + ">";
-        m_ClipEditorModel->AddEntryToModel(entry, false, group_item);
+        ClipEditorModel::instance().AddEntryToModel(entry, false, group_item);
     }
-    m_ClipEditorModel->UpdateNumber();
+    ClipEditorModel::instance().UpdateNumber();
     QMessageBox::information(this, tr("Clip Editor"), tr("CSS entries added: %n", "",css_list.count()));
 }
 
@@ -550,7 +549,7 @@ bool ClipEditor::FilterEntries(const QString &text, QStandardItem *item)
 
     if (item) {
         // Hide the entry if it doesn't contain the entered text, otherwise show it
-        ClipEditorModel::clipEntry *entry = m_ClipEditorModel->GetEntry(item);
+        ClipEditorModel::clipEntry *entry = ClipEditorModel::instance().GetEntry(item);
 
         if (ui.Filter->currentIndex() == 0) {
             hidden = !(text.isEmpty() || entry->name.toLower().contains(lowercaseText));
@@ -561,7 +560,7 @@ bool ClipEditor::FilterEntries(const QString &text, QStandardItem *item)
 
         ui.ClipEditorTree->setRowHidden(item->row(), parent_index, hidden);
     } else {
-        item = m_ClipEditorModel->invisibleRootItem();
+        item = ClipEditorModel::instance().invisibleRootItem();
     }
 
     // Recursively set children
@@ -583,7 +582,7 @@ void ClipEditor::FilterEditTextChangedSlot(const QString &text)
     ui.ClipEditorTree->selectionModel()->clear();
 
     if (!text.isEmpty()) {
-        SelectFirstVisibleNonGroup(m_ClipEditorModel->invisibleRootItem());
+        SelectFirstVisibleNonGroup(ClipEditorModel::instance().invisibleRootItem());
     }
 
     return;
@@ -598,9 +597,9 @@ bool ClipEditor::SelectFirstVisibleNonGroup(QStandardItem *item)
     }
 
     // If the item is not a group and its visible select it and finish
-    if (item != m_ClipEditorModel->invisibleRootItem() && !ui.ClipEditorTree->isRowHidden(item->row(), parent_index)) {
-        if (!m_ClipEditorModel->ItemIsGroup(item)) {
-            ui.ClipEditorTree->selectionModel()->select(m_ClipEditorModel->index(item->row(), 0, parent_index), QItemSelectionModel::Select | QItemSelectionModel::Rows);
+    if (item != ClipEditorModel::instance().invisibleRootItem() && !ui.ClipEditorTree->isRowHidden(item->row(), parent_index)) {
+        if (!ClipEditorModel::instance().ItemIsGroup(item)) {
+            ui.ClipEditorTree->selectionModel()->select(ClipEditorModel::instance().index(item->row(), 0, parent_index), QItemSelectionModel::Select | QItemSelectionModel::Rows);
             ui.ClipEditorTree->setCurrentIndex(item->index());
             return true;
         }
@@ -764,7 +763,7 @@ void ClipEditor::ForceClose()
 
 bool ClipEditor::MaybeSaveDialogSaysProceed(bool is_forced)
 {
-    if (m_ClipEditorModel->IsDataModified()) {
+    if (ClipEditorModel::instance().IsDataModified()) {
         QMessageBox::StandardButton button_pressed;
         QMessageBox::StandardButtons buttons = is_forced ? QMessageBox::Save | QMessageBox::Discard
                                                : QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel;
@@ -780,7 +779,7 @@ bool ClipEditor::MaybeSaveDialogSaysProceed(bool is_forced)
         } else if (button_pressed == QMessageBox::Cancel) {
             return false;
         } else {
-            m_ClipEditorModel->LoadInitialData();
+            ClipEditorModel::instance().LoadInitialData();
         }
     }
 
@@ -812,11 +811,11 @@ void ClipEditor::MoveVertical(bool move_down)
     // Identify the selected item
     QModelIndex index = selected_indexes.first();
     int row = index.row();
-    QStandardItem *item = m_ClipEditorModel->itemFromIndex(index);
+    QStandardItem *item = ClipEditorModel::instance().itemFromIndex(index);
     QStandardItem *source_parent_item = item->parent();
 
     if (!source_parent_item) {
-        source_parent_item = m_ClipEditorModel->invisibleRootItem();
+        source_parent_item = ClipEditorModel::instance().invisibleRootItem();
     }
 
     QStandardItem *destination_parent_item = source_parent_item;
@@ -825,7 +824,7 @@ void ClipEditor::MoveVertical(bool move_down)
     if (move_down) {
         if (row >= source_parent_item->rowCount() - 1) {
             // We are the last child for this group.
-            if (source_parent_item == m_ClipEditorModel->invisibleRootItem()) {
+            if (source_parent_item == ClipEditorModel::instance().invisibleRootItem()) {
                 // Can't go any lower than this
                 return;
             }
@@ -834,7 +833,7 @@ void ClipEditor::MoveVertical(bool move_down)
             destination_parent_item = source_parent_item->parent();
 
             if (!destination_parent_item) {
-                destination_parent_item = m_ClipEditorModel->invisibleRootItem();
+                destination_parent_item = ClipEditorModel::instance().invisibleRootItem();
             }
 
             destination_row = source_parent_item->index().row() + 1;
@@ -844,7 +843,7 @@ void ClipEditor::MoveVertical(bool move_down)
     } else {
         if (row == 0) {
             // We are the first child for this parent.
-            if (source_parent_item == m_ClipEditorModel->invisibleRootItem()) {
+            if (source_parent_item == ClipEditorModel::instance().invisibleRootItem()) {
                 // Can't go any higher than this
                 return;
             }
@@ -853,7 +852,7 @@ void ClipEditor::MoveVertical(bool move_down)
             destination_parent_item = source_parent_item->parent();
 
             if (!destination_parent_item) {
-                destination_parent_item = m_ClipEditorModel->invisibleRootItem();
+                destination_parent_item = ClipEditorModel::instance().invisibleRootItem();
             }
 
             destination_row = source_parent_item->index().row();
@@ -868,9 +867,9 @@ void ClipEditor::MoveVertical(bool move_down)
     // Get index
     QModelIndex destination_index = destination_parent_item->child(destination_row, 0)->index();
     // Make sure the path to the item is updated
-    QStandardItem *destination_item = m_ClipEditorModel->itemFromIndex(destination_index);
-    m_ClipEditorModel->UpdateFullName(destination_item);
-    m_ClipEditorModel->UpdateNumber();
+    QStandardItem *destination_item = ClipEditorModel::instance().itemFromIndex(destination_index);
+    ClipEditorModel::instance().UpdateFullName(destination_item);
+    ClipEditorModel::instance().UpdateNumber();
     // Select the item row again
     ui.ClipEditorTree->selectionModel()->clear();
     ui.ClipEditorTree->setCurrentIndex(destination_index);
@@ -903,11 +902,11 @@ void ClipEditor::MoveHorizontal(bool move_left)
     // Identify the source information
     QModelIndex source_index = selected_indexes.first();
     int source_row = source_index.row();
-    QStandardItem *source_item = m_ClipEditorModel->itemFromIndex(source_index);
+    QStandardItem *source_item = ClipEditorModel::instance().itemFromIndex(source_index);
     QStandardItem *source_parent_item = source_item->parent();
 
     if (!source_parent_item) {
-        source_parent_item = m_ClipEditorModel->invisibleRootItem();
+        source_parent_item = ClipEditorModel::instance().invisibleRootItem();
     }
 
     QStandardItem *destination_parent_item;
@@ -915,7 +914,7 @@ void ClipEditor::MoveHorizontal(bool move_left)
 
     if (move_left) {
         // Skip if at root or otherwise at top level
-        if (!source_parent_item || source_parent_item == m_ClipEditorModel->invisibleRootItem()) {
+        if (!source_parent_item || source_parent_item == ClipEditorModel::instance().invisibleRootItem()) {
             return;
         }
 
@@ -923,7 +922,7 @@ void ClipEditor::MoveHorizontal(bool move_left)
         destination_parent_item = source_parent_item->parent();
 
         if (!destination_parent_item) {
-            destination_parent_item = m_ClipEditorModel->invisibleRootItem();
+            destination_parent_item = ClipEditorModel::instance().invisibleRootItem();
         }
 
         destination_row = source_parent_item->index().row() + 1;
@@ -934,13 +933,13 @@ void ClipEditor::MoveHorizontal(bool move_left)
             return;
         }
 
-        QStandardItem *item = m_ClipEditorModel->itemFromIndex(index_above);
+        QStandardItem *item = ClipEditorModel::instance().itemFromIndex(index_above);
 
         if (source_parent_item == item) {
             return;
         }
 
-        ClipEditorModel::clipEntry *entry = m_ClipEditorModel->GetEntry(item);
+        ClipEditorModel::clipEntry *entry = ClipEditorModel::instance().GetEntry(item);
 
         // Only move right if immediately under a group
         if (entry ->is_group) {
@@ -962,9 +961,9 @@ void ClipEditor::MoveHorizontal(bool move_left)
     destination_parent_item->insertRow(destination_row, row_items);
     QModelIndex destination_index = destination_parent_item->child(destination_row)->index();
     // Make sure the path to the item is updated
-    QStandardItem *destination_item = m_ClipEditorModel->itemFromIndex(destination_index);
-    m_ClipEditorModel->UpdateFullName(destination_item);
-    m_ClipEditorModel->UpdateNumber();
+    QStandardItem *destination_item = ClipEditorModel::instance().itemFromIndex(destination_index);
+    ClipEditorModel::instance().UpdateFullName(destination_item);
+    ClipEditorModel::instance().UpdateNumber();
     // Select the item row again
     ui.ClipEditorTree->selectionModel()->clear();
     ui.ClipEditorTree->setCurrentIndex(destination_index);
@@ -1000,7 +999,7 @@ void ClipEditor::ConnectSignalsSlots()
     connect(m_CollapseAll, SIGNAL(triggered()), this, SLOT(CollapseAll()));
     connect(m_ExpandAll,   SIGNAL(triggered()), this, SLOT(ExpandAll()));
     connect(m_AutoFill,    SIGNAL(triggered()), this, SLOT(AutoFill()));
-    connect(m_ClipEditorModel, SIGNAL(SettingsFileUpdated()), this, SLOT(SettingsFileModelUpdated()));
-    connect(m_ClipEditorModel, SIGNAL(ItemDropped(const QModelIndex &)), this, SLOT(ModelItemDropped(const QModelIndex &)));
-    connect(m_ClipEditorModel, SIGNAL(ClipsUpdated()), this, SIGNAL(ClipsUpdated()));
+    connect(&ClipEditorModel::instance(), SIGNAL(SettingsFileUpdated()), this, SLOT(SettingsFileModelUpdated()));
+    connect(&ClipEditorModel::instance(), SIGNAL(ItemDropped(const QModelIndex &)), this, SLOT(ModelItemDropped(const QModelIndex &)));
+    connect(&ClipEditorModel::instance(), SIGNAL(ClipsUpdated()), this, SIGNAL(ClipsUpdated()));
 }

@@ -172,9 +172,8 @@ void SpellcheckEditor::Ignore()
 
     m_MultipleSelection = SelectedRowsCount() > 1;
 
-    SpellCheck *sc = SpellCheck::instance();
     foreach (QStandardItem *item, GetSelectedItems()) {
-        sc->ignoreWord(HTMLSpellCheckML::textOf(item->text()));
+        SpellCheck::instance().ignoreWord(HTMLSpellCheckML::textOf(item->text()));
         MarkSpelledOkay(item->row());
     }
 
@@ -200,12 +199,11 @@ void SpellcheckEditor::Add()
 
     m_MultipleSelection = SelectedRowsCount() > 1;
 
-    SpellCheck *sc = SpellCheck::instance();
     SettingsStore settings;
     QStringList enabled_dicts = settings.enabledUserDictionaries();
     bool enabled = false;
     foreach (QStandardItem *item, GetSelectedItems()) {
-        sc->addToUserDictionary(item->text(), dict_name);
+        SpellCheck::instance().addToUserDictionary(item->text(), dict_name);
         if (enabled_dicts.contains(dict_name)) {
             enabled = true;
             MarkSpelledOkay(item->row());
@@ -272,18 +270,16 @@ void SpellcheckEditor::CreateModel(int sort_column, Qt::SortOrder sort_order)
     QHash<QString, int> unique_words = m_Book->GetUniqueWordsInHTMLFiles();
 
     int total_misspelled_words = 0;
-    SpellCheck *sc = SpellCheck::instance();
-    Language *lp = Language::instance();
-    
+
     QHashIterator<QString, int> i(unique_words);
     while (i.hasNext()) {
         i.next();
         QString lcword = i.key();
         QString code = HTMLSpellCheckML::langOf(lcword);
-        QString lang = lp->GetLanguageName(code, code);
+        QString lang = Language::instance().GetLanguageName(code, code);
         QString word = HTMLSpellCheckML::textOf(lcword);
         int count = unique_words.value(lcword);
-        bool misspelled = !sc->spell(lcword);
+        bool misspelled = !SpellCheck::instance().spell(lcword);
         if (misspelled) {
             total_misspelled_words++;
         }
@@ -372,8 +368,7 @@ void SpellcheckEditor::Refresh(int sort_column, Qt::SortOrder sort_order)
 void SpellcheckEditor::UpdateDictionaries()
 {
     ui.Dictionaries->clear();
-    SpellCheck *sc = SpellCheck::instance();
-    QStringList dicts = sc->userDictionaries();
+    QStringList dicts = SpellCheck::instance().userDictionaries();
     if (dicts.count() > 0) {
         ui.Dictionaries->addItems(dicts);
     }
@@ -446,8 +441,7 @@ void SpellcheckEditor::UpdateSuggestions()
     ui.cbChangeAll->clear();
     QString word = GetSelectedWord();
     if (!word.isEmpty()) {
-        SpellCheck *sc = SpellCheck::instance();
-        ui.cbChangeAll->addItems(sc->suggest(word));
+        ui.cbChangeAll->addItems(SpellCheck::instance().suggest(word));
     }
 }
 

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2025 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2019-2026 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **
@@ -140,11 +140,11 @@ void CharactersInHTMLFilesWidget::AddTableData()
         rowItems << item;
         // Name
         item = new QStandardItem();
-        item->setText(XMLEntities::instance()->GetEntityName(char_number));
+        item->setText(XMLEntities::instance().GetEntityName(char_number));
         rowItems << item;
         // Description
         item = new QStandardItem();
-        item->setText(XMLEntities::instance()->GetEntityDescription(char_number));
+        item->setText(XMLEntities::instance().GetEntityDescription(char_number));
         rowItems << item;
 
         for (int i = 0; i < rowItems.count(); i++) {

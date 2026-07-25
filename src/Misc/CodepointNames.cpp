@@ -31,17 +31,6 @@ static const QString XHTML_CHARS =
     "ąćęłńóśżźĄĆĘŁŃÓŚŻŹáàâäãåÁÀÂÄÃÅéèêëÉÈÊËíìîïÍÌÎÏ"
     "òôöõøÓÒÔÖÕØúùûüÚÙÛÜýÿÝŸçÇñÑšžŠŽđĐœæŒÆß";
 
-CodepointNames *CodepointNames::m_instance = 0;
-
-CodepointNames *CodepointNames::instance()
-{
-    if (m_instance == 0) {
-        m_instance = new CodepointNames();
-    }
-
-    return m_instance;
-}
-
 CodepointNames::CodepointNames()
 {
     SetNameCache();

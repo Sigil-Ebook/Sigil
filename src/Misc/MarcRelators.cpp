@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2016  Kevin B. Hendricks, Stratford, Ontario, Canada
-**  Copyright (C) 2011  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2016-2026 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2011      John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **
@@ -25,18 +25,6 @@
 #include <QHash>
 
 #include "Misc/MarcRelators.h"
-
-MarcRelators *MarcRelators::m_instance = 0;
-
-MarcRelators *MarcRelators::instance()
-{
-    if (m_instance == 0) {
-        m_instance = new MarcRelators();
-    }
-
-    return m_instance;
-}
-
 
 QString MarcRelators::GetName(QString code)
 {

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -42,8 +42,7 @@ QList<HTMLSpellCheck::MisspelledWord> HTMLSpellCheck::GetMisspelledWords(const Q
         bool first_only,
         bool include_all_words)
 {
-    SpellCheck *sc = SpellCheck::instance();
-    QString wordChars = sc->getWordChars();
+    QString wordChars = SpellCheck::instance().getWordChars();
     // Adding a soft hyphen to wordChars to avoid treating this character
     // as a boundary within a word
     wordChars = wordChars + QChar(0x00ad);
@@ -87,7 +86,7 @@ QList<HTMLSpellCheck::MisspelledWord> HTMLSpellCheck::GetMisspelledWords(const Q
                     QString word = Utility::Substring(word_start, i, text);
 
                     if (!word.isEmpty() && word_start > start_offset && word_start <= end_offset) {
-                        if (include_all_words || !sc->spellPS(word)) {
+                        if (include_all_words || !SpellCheck::instance().spellPS(word)) {
                             int cap_start = -1;
 
                             if (!search_regex.isEmpty()) {

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford Ontario canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -92,7 +92,7 @@ QString XMLResource::GetValidID(const QString &value)
     // simplify to trim any leading or trailing whitespace
     QString new_value = value.simplified();
     // convert it to a "close" pure ascii representation
-    new_value = AsciiFy::instance()->convertToPlainAscii(new_value);
+    new_value = AsciiFy::instance().convertToPlainAscii(new_value);
     int i = 0;
     // Remove all forbidden characters.
     while (i < new_value.size()) {

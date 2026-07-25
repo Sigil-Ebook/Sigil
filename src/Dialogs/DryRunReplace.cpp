@@ -152,7 +152,7 @@ void DryRunReplace::CreateTable()
         PythonRoutines pr;
         fsp = pr.SetupInitialFunctionSearchEnvInPython(functionname);
     }
-    SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
+    SPCRE *spcre = PCRECache::instance().getObject(search_regex);
     
     int count = 0;
     foreach(Resource* resource, resources ) {

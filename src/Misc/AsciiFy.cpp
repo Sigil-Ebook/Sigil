@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2020 Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2020-2026 Kevin B. Hendricks, Stratford, ON, Canada
 **
 **  This file is part of Sigil.
 **
@@ -2398,21 +2398,6 @@ const char *AsciiFy::unidecode_text =
     "EP'PRPSRHRsRxSSSvT'TLWba1aaaubzc'cccdcmdBdre1evfhfjfufyhvivkAkVkWlnlxlzm1mAmVmWn"
     "AnFnVnWoVp'pApFpHpVpWq'qaqhqlqpqysrtrtzvavevovuwwwyyrywyz||~a~e~i~o~u\"#$%&*+-;@Q"
     "[\\]^_`{}";
-
-
-AsciiFy *AsciiFy::m_instance = 0;
-
-AsciiFy *AsciiFy::instance()
-{
-    if (m_instance == 0) {
-        m_instance = new AsciiFy();
-    }
-    return m_instance;
-}
-
-AsciiFy::AsciiFy()
-{
-}
 
 
 QString AsciiFy::convertToPlainAscii(const QString &ninput) const

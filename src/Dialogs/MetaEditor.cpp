@@ -237,7 +237,7 @@ void MetaEditor::loadChoices()
     m_Choices[cat] = buildChoices(COLLECT);
 
     cat = PName("role");
-    QStringList rolenames = MarcRelators::instance()->GetSortedNames();
+    QStringList rolenames = MarcRelators::instance().GetSortedNames();
     QStringList  rchoices;
     foreach(QString aval, rolenames) {
         rchoices << aval + _GS + RCode(aval);
@@ -245,7 +245,7 @@ void MetaEditor::loadChoices()
     rchoices.sort();
     m_Choices[cat] = rchoices;
 
-    QStringList langnames = Language::instance()->GetSortedPrimaryLanguageNames();
+    QStringList langnames = Language::instance().GetSortedPrimaryLanguageNames();
     QStringList  lchoices;
     foreach(QString aval, langnames) {
         lchoices << aval + _GS + LCode(aval);
@@ -279,7 +279,7 @@ void MetaEditor::loadE2Choices()
     m_Choices[cat] = buildChoices(SCHEMES);
 
     cat = PName("opf:role");
-    QStringList rolenames = MarcRelators::instance()->GetSortedNames();
+    QStringList rolenames = MarcRelators::instance().GetSortedNames();
     QStringList  rchoices;
     foreach(QString aval, rolenames) {
         rchoices << aval + _GS + RCode(aval);
@@ -287,7 +287,7 @@ void MetaEditor::loadE2Choices()
     rchoices.sort();
     m_Choices[cat] = rchoices;
 
-    QStringList langnames = Language::instance()->GetSortedPrimaryLanguageNames();
+    QStringList langnames = Language::instance().GetSortedPrimaryLanguageNames();
     QStringList  lchoices;
     foreach(QString aval, langnames) {
         lchoices << aval + _GS + LCode(aval);
@@ -473,11 +473,11 @@ const QString MetaEditor::PCode  (const QString& name)
     return name;
 }
 
-const QString MetaEditor::LName  (const QString& code) { return Language::instance()->GetLanguageName(code, code); }
-const QString MetaEditor::LCode  (const QString& name) { return Language::instance()->GetLanguageCode(name, name); }
+const QString MetaEditor::LName  (const QString& code) { return Language::instance().GetLanguageName(code, code); }
+const QString MetaEditor::LCode  (const QString& name) { return Language::instance().GetLanguageCode(name, name); }
 
-const QString MetaEditor::RName  (const QString& code) { return MarcRelators::instance()->GetName(code);     }
-const QString MetaEditor::RCode  (const QString& name) { return MarcRelators::instance()->GetCode(name);     }
+const QString MetaEditor::RName  (const QString& code) { return MarcRelators::instance().GetName(code);     }
+const QString MetaEditor::RCode  (const QString& name) { return MarcRelators::instance().GetCode(name);     }
 
 
 
@@ -497,7 +497,7 @@ void MetaEditor::selectElement()
         if (code == "dc:language") {
             QStringList langcodes;
             QString title = tr("Select Language");
-            AddMetadata addvalue(title, Language::instance()->GetLangMap(), this);
+            AddMetadata addvalue(title, Language::instance().GetLangMap(), this);
             if (addvalue.exec() == QDialog::Accepted) {
                  langcodes = addvalue.GetSelectedEntries();
             }
@@ -597,7 +597,7 @@ void MetaEditor::selectE2Element()
         if (code == "dc:language") {
             QStringList langcodes;
             QString title = tr("Select Language");
-            AddMetadata addvalue(title, Language::instance()->GetLangMap(), this);
+            AddMetadata addvalue(title, Language::instance().GetLangMap(), this);
             if (addvalue.exec() == QDialog::Accepted) {
                  langcodes = addvalue.GetSelectedEntries();
             }
@@ -705,7 +705,7 @@ void MetaEditor::selectProperty()
                 insertChild(PName(code), code, "", "");
                 QStringList langcodes;
                 QString title = tr("Select Language");
-                AddMetadata addvalue(title, Language::instance()->GetLangMap(), this);
+                AddMetadata addvalue(title, Language::instance().GetLangMap(), this);
                 if (addvalue.exec() == QDialog::Accepted) {
                     langcodes = addvalue.GetSelectedEntries();
                 }
@@ -718,7 +718,7 @@ void MetaEditor::selectProperty()
         } else if ((code == "xml:lang") || (code == "altlang")) {
             QStringList langcodes;
             QString title = tr("Select Language");
-            AddMetadata addvalue(title, Language::instance()->GetLangMap(), this);
+            AddMetadata addvalue(title, Language::instance().GetLangMap(), this);
             if (addvalue.exec() == QDialog::Accepted) {
                 langcodes = addvalue.GetSelectedEntries();
             }
@@ -730,7 +730,7 @@ void MetaEditor::selectProperty()
         } else if (code == "role") {
             QStringList rolecodes;
             QString title = tr("Select Role");
-            AddMetadata addrole(title, MarcRelators::instance()->GetCodeMap(), this);
+            AddMetadata addrole(title, MarcRelators::instance().GetCodeMap(), this);
             if (addrole.exec() == QDialog::Accepted) {
                 rolecodes = addrole.GetSelectedEntries();
             }
@@ -772,7 +772,7 @@ void MetaEditor::selectE2Property()
         } else if (code == "xml:lang") {
             QStringList langcodes;
             QString title = tr("Select Language");
-            AddMetadata addvalue(title, Language::instance()->GetLangMap(), this);
+            AddMetadata addvalue(title, Language::instance().GetLangMap(), this);
             if (addvalue.exec() == QDialog::Accepted) {
                 langcodes = addvalue.GetSelectedEntries();
             }
@@ -784,7 +784,7 @@ void MetaEditor::selectE2Property()
         } else if (code == "opf:role") {
             QStringList rolecodes;
             QString title = tr("Select Role");
-            AddMetadata addrole(title, MarcRelators::instance()->GetCodeMap(), this);
+            AddMetadata addrole(title, MarcRelators::instance().GetCodeMap(), this);
             if (addrole.exec() == QDialog::Accepted) {
                 rolecodes = addrole.GetSelectedEntries();
             }

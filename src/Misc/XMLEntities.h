@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2013  Dave Heiland
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2013      Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -38,7 +39,13 @@ class XMLEntities
     Q_DECLARE_TR_FUNCTIONS(XMLEntities)
 
 public:
-    static XMLEntities *instance();
+    static XMLEntities& instance() {
+        static XMLEntities the_instance;
+        return the_instance;
+    }
+
+    XMLEntities(const XMLEntities&) = delete;
+    XMLEntities& operator=(const XMLEntities&) = delete;
 
     QString GetEntityName(ushort code);
     QString GetEntityDescription(ushort code);
@@ -46,6 +53,7 @@ public:
 
 private:
     XMLEntities();
+    ~XMLEntities() = default;
 
     void SetXMLEntities();
 
@@ -53,7 +61,6 @@ private:
     QHash<ushort, QString> m_EntityDescription;
     QHash<QString, ushort> m_EntityCode;
 
-    static XMLEntities *m_instance;
 };
 
 #endif // XMLENTITIES_H

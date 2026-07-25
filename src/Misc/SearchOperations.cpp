@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -111,7 +111,7 @@ int SearchOperations::CountInHTMLFile(const QString &search_regex,
     if (check_spelling) {
         return HTMLSpellCheck::CountMisspelledWords(text, 0, text.length(), search_regex);
     } else {
-        return PCRECache::instance()->getObject(search_regex)->getEveryMatchInfo(text).count();
+        return PCRECache::instance().getObject(search_regex)->getEveryMatchInfo(text).count();
     }
 }
 
@@ -121,7 +121,7 @@ int SearchOperations::CountInTextFile(const QString &search_regex, TextResource 
     // note you can not use a reference here because the text returned from
     // any text resource can come from an internal cache that can go away
     const QString text = text_resource->GetText();
-    return PCRECache::instance()->getObject(search_regex)->getEveryMatchInfo(text).count();
+    return PCRECache::instance().getObject(search_regex)->getEveryMatchInfo(text).count();
 }
 
 
@@ -182,7 +182,7 @@ std::tuple<QString, int> SearchOperations::PerformGlobalReplace(const QString &t
 {
     QString new_text = text;
     int count = 0;
-    SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
+    SPCRE *spcre = PCRECache::instance().getObject(search_regex);
     QList<SPCRE::MatchInfo> match_info = spcre->getEveryMatchInfo(text);
 
     for (int i =  match_info.count() - 1; i >= 0; i--) {
@@ -206,7 +206,7 @@ std::tuple<QString, int> SearchOperations::PerformHTMLSpellCheckReplace(const QS
     QString new_text = text;
     int count = 0;
     int offset = 0;
-    SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
+    SPCRE *spcre = PCRECache::instance().getObject(search_regex);
     QList<HTMLSpellCheck::MisspelledWord> check_spelling = HTMLSpellCheck::GetMisspelledWords(text, 0, text.length(), search_regex);
     foreach(HTMLSpellCheck::MisspelledWord misspelled_word, check_spelling) {
         SPCRE::MatchInfo match_info = spcre->getFirstMatchInfo(misspelled_word.text);

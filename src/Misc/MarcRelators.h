@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2016  Kevin B. Hendricks, Stratford, ON, Canada
-**  Copyright (C) 2011  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2016-2026 Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2011      John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **
@@ -45,7 +45,13 @@ class MarcRelators
     Q_DECLARE_TR_FUNCTIONS(MarcRelators)
 
 public:
-    static MarcRelators *instance();
+    static MarcRelators& instance() {
+        static MarcRelators the_instance;
+        return the_instance;
+    }
+
+    MarcRelators(const MarcRelators&) = delete;
+    MarcRelators& operator=(const MarcRelators&) = delete;
 
     QString GetName(QString code);
     QString GetDescriptionByCode(QString code);
@@ -58,7 +64,8 @@ public:
 
 private:
     MarcRelators();
-
+    ~MarcRelators() = default;
+    
     void SetRelatorsMap();
 
     // code -> DescriptiveInfo -> name and description
@@ -69,7 +76,6 @@ private:
 
     QStringList m_sortedNames;
 
-    static MarcRelators *m_instance;
 };
 
 #endif // MARCRELATORS_H

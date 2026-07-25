@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2014  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2014      John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **
@@ -36,8 +37,13 @@ class PluginDB : public QObject
     Q_OBJECT
 
 public:
-    static PluginDB *instance();
-    ~PluginDB();
+    static PluginDB& instance() {
+        static PluginDB the_instance;
+        return the_instance;
+    }
+
+    PluginDB(const PluginDB&) = delete;
+    PluginDB& operator=(const PluginDB&) = delete;
 
     enum AddResult {
         AR_SUCCESS = 0,
@@ -68,6 +74,8 @@ signals:
 
 private:
     PluginDB();
+    ~PluginDB();
+
 
     PluginDB::AddResult add_plugin_int(const QString &path, bool force=false);
     Plugin *load_plugin(const QString &name);
@@ -76,7 +84,6 @@ private:
     QHash<QString, Plugin *> m_plugins;
     QHash<QString, QString> m_engine_paths;
 
-    static PluginDB *m_instance;
 };
 
 #endif // PLUGINDB_H

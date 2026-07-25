@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2020-2024 Kevin B. Hendricks
+ **  Copyright (C) 2020-2026 Kevin B. Hendricks
  **
  **  This file is part of Sigil.
  **
@@ -74,7 +74,7 @@ AVView::AVView(QWidget *parent)
       m_WebView(new QWebEngineView(this)),
       m_layout(new QVBoxLayout(this))
 {
-    QWebEngineProfile* profile = WebProfileMgr::instance()->GetOneTimeProfile();
+    QWebEngineProfile* profile = WebProfileMgr::instance().GetOneTimeProfile();
     m_WebView->setPage(new SimplePage(profile, m_WebView));
     m_WebView->setContextMenuPolicy(Qt::NoContextMenu);
     m_WebView->setFocusPolicy(Qt::NoFocus);

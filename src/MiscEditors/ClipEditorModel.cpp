@@ -52,17 +52,6 @@ static const int FULLNAME_ROLE = Qt::UserRole + 2;
 
 static const QString CLIP_EXAMPLES_FILE = "clip_entries.ini";
 
-ClipEditorModel *ClipEditorModel::m_instance = 0;
-
-ClipEditorModel *ClipEditorModel::instance()
-{
-    if (m_instance == 0) {
-        m_instance = new ClipEditorModel();
-    }
-
-    return m_instance;
-}
-
 ClipEditorModel::ClipEditorModel(QObject *parent)
     : QStandardItemModel(parent),
       m_FSWatcher(new QFileSystemWatcher()),
@@ -94,11 +83,6 @@ ClipEditorModel::~ClipEditorModel()
 {
     delete m_FSWatcher;
     m_FSWatcher = 0;
-
-    if (m_instance) {
-        delete m_instance;
-        m_instance = 0;
-    }
 }
 
 void ClipEditorModel::SetDataModified(bool modified)
@@ -260,7 +244,7 @@ void ClipEditorModel::SettingsFileChanged(const QString &path) const
             m_FSWatcher->addPath(path);
         }
 
-        instance()->LoadInitialData();
+        instance().LoadInitialData();
         emit SettingsFileUpdated();
     }
 }

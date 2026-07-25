@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2025 Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2025-2026 Kevin B. Hendricks, Stratford, ON, Canada
 **
 **  This file is part of Sigil.
 **
@@ -54,8 +54,8 @@ AddClips::AddClips(const QString& selected_text, const QString& book_lang, QWidg
 
     // Fill the dialog with sorted translated role names
     QStringList names;
-    foreach (QString code, AriaClips::instance()->GetAllCodes()) {
-        QString name = AriaClips::instance()->GetName(code);
+    foreach (QString code, AriaClips::instance().GetAllCodes()) {
+        QString name = AriaClips::instance().GetName(code);
         name = name + " (" + code + ")";
         m_Name2Code[name]=code;
         names.append(name);
@@ -73,8 +73,8 @@ void AddClips::UpdateDescription(QListWidgetItem *current)
     QString text;
     QString code = m_Name2Code.value(current->text(), QString());
     if (!code.isEmpty()) {
-        text = AriaClips::instance()->GetDescriptionByCode(code);
-        text = AriaClips::instance()->TranslatePlaceholders(text, m_book_lang);
+        text = AriaClips::instance().GetDescriptionByCode(code);
+        text = AriaClips::instance().TranslatePlaceholders(text, m_book_lang);
     }
     if (!text.isEmpty()) {
         ui.lbDescription->setText(text);
@@ -86,7 +86,7 @@ QString AddClips::GetSelectedClip()
     QString clip = "";
     if (!m_SelectedEntries.isEmpty()) {
         QString code = m_SelectedEntries.at(0);
-        clip = AriaClips::instance()->GetDescriptionByCode(code);
+        clip = AriaClips::instance().GetDescriptionByCode(code);
         
         if (!m_selected_text.isEmpty()) {
             if (UPDATE_ONLY_NUMBER.contains(code) || UPDATE_NUMBER_AND_FILL.contains(code)) {
@@ -114,7 +114,7 @@ QString AddClips::GetSelectedClip()
                 QStringList rolecodes = addmeaning.GetSelectedEntries();
                 if (!rolecodes.isEmpty()) {
                     QString rcode = rolecodes.at(0);
-                    QString etype = AriaRoles::instance()->EpubTypeMapping(rcode);
+                    QString etype = AriaRoles::instance().EpubTypeMapping(rcode);
                     QString atts_added = " ";
                     if (etype == rcode) {
                         // this is an epub:type only attribute
@@ -133,7 +133,7 @@ QString AddClips::GetSelectedClip()
                 }
             }
         }
-        clip = AriaClips::instance()->TranslatePlaceholders(clip, m_book_lang);
+        clip = AriaClips::instance().TranslatePlaceholders(clip, m_book_lang);
     }
     return clip;
 }

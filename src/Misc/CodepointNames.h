@@ -39,21 +39,25 @@ class CodepointNames
 {
 
 public:
+    static CodepointNames& instance() {
+        static CodepointNames the_instance;
+        return the_instance;
+    }
 
-    static CodepointNames *instance();
+    CodepointNames(const CodepointNames&) = delete;
+    CodepointNames& operator=(const CodepointNames&) = delete;
 
     QString GetName(int cp);
 
 private:
 
     CodepointNames();
+    ~CodepointNames() = default;
 
     void SetNameCache();
 
     QHash<int, QString> m_NameCache;
     
-    static CodepointNames *m_instance;
-
 };
 
 #endif // CODEPOINTNAMES_H

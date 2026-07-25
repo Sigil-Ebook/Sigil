@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2013  Dave Heiland
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2013      Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -23,17 +24,6 @@
 #include <QtCore/QStringList>
 
 #include "Misc/XMLEntities.h"
-
-XMLEntities *XMLEntities::m_instance = 0;
-
-XMLEntities *XMLEntities::instance()
-{
-    if (m_instance == 0) {
-        m_instance = new XMLEntities();
-    }
-
-    return m_instance;
-}
 
 QString XMLEntities::GetEntityName(ushort code)
 {

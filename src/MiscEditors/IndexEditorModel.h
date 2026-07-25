@@ -31,21 +31,27 @@
 
 #include "Misc/SettingsStore.h"
 
+/* Singleton */
+
 class IndexEditorModel : public QStandardItemModel
 {
     Q_OBJECT
 
 public:
-    IndexEditorModel(QObject *parent = 0);
-    ~IndexEditorModel();
-
-    static IndexEditorModel *instance();
 
     struct indexEntry {
         QString pattern;
         QString index_entry;
     };
 
+    static IndexEditorModel& instance() {
+        static IndexEditorModel the_instance;
+        return the_instance;
+    }
+
+    IndexEditorModel(const IndexEditorModel&) = delete;
+    IndexEditorModel& operator=(const IndexEditorModel&) = delete;
+    
     bool IsDataModified();
 
     void ClearData();
@@ -73,11 +79,12 @@ private slots:
     void SettingsFileChanged(const QString &path) const;
 
 private:
+    IndexEditorModel(QObject *parent = 0);
+    ~IndexEditorModel();
+
     void SetDataModified(bool modified);
 
     void SplitEntry(QStandardItem *item);
-
-    static IndexEditorModel *m_instance;
 
     QString m_SettingsPath;
 

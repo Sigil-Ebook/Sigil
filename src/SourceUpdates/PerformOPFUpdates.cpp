@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2023 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -62,9 +62,7 @@ QString PerformOPFUpdates::operator()()
     args.append(QVariant(dictkeys));
     args.append(QVariant(dictvals));
 
-    EmbeddedPython * epython  = EmbeddedPython::instance();
-
-    QVariant res = epython->runInPython( QString("xmlprocessor"),
+    QVariant res = EmbeddedPython::instance().runInPython( QString("xmlprocessor"),
                                          QString("performOPFSourceUpdates"),
                                          args,
                                          &rv,

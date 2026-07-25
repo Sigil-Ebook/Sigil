@@ -37,7 +37,6 @@
 #include <QHash>
 
 class QString;
-class PrettyPrintProps;
 
 struct GumboWellFormedError {
   int line;
@@ -141,9 +140,9 @@ private:
 
     std::string serialize_contents(GumboNode* node, enum UpdateTypes doupdates = NoUpdates);
 
-    std::string prettyprint(GumboNode* node, int lvl, PrettyPrintProps* pp);
+    std::string prettyprint(GumboNode* node, int lvl);
 
-    std::string prettyprint_contents(GumboNode* node, int lvl, PrettyPrintProps* pp);
+    std::string prettyprint_contents(GumboNode* node, int lvl);
 
     std::string build_doctype(GumboNode *node);
 

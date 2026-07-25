@@ -1154,7 +1154,7 @@ void OPFResource::SetGuideSemanticCodeForResource(QString code, const Resource *
 {
     if (code.isEmpty()) return;
     int pos = GetGuideReferenceForResourcePos(resource, p, tgt_id);
-    QString title = GuideItems::instance()->GetTitle(code, lang);
+    QString title = GuideItems::instance().GetTitle(code, lang);
     if (pos > -1) {
         GuideEntry ge = p.m_guide.at(pos);
         ge.m_type = code;
@@ -1186,7 +1186,7 @@ QString OPFResource::GetGuideSemanticCodeForResource(const Resource *resource, Q
 
 QString OPFResource::GetGuideSemanticNameForResource(Resource *resource, QString tgt_id)
 {
-    return GuideItems::instance()->GetName(GetGuideSemanticCodeForResource(resource, tgt_id));
+    return GuideItems::instance().GetName(GetGuideSemanticCodeForResource(resource, tgt_id));
 }
 
 
@@ -1235,7 +1235,7 @@ QHash <QString, QStringList>  OPFResource::GetGuideSemanticNameForPaths()
         if (semantic_types.contains(bkpath)) {
             names = semantic_types[bkpath];
         }
-        names << GuideItems::instance()->GetName(gtype);
+        names << GuideItems::instance().GetName(gtype);
         semantic_types[bkpath] = names;
     }
 
@@ -1248,7 +1248,7 @@ QHash <QString, QStringList>  OPFResource::GetGuideSemanticNameForPaths()
         QString apath = Utility::URLDecodePath(man.m_href);
         QString bkpath = Utility::buildBookPath(apath, GetFolder());
         QStringList al;
-        al << GuideItems::instance()->GetName("cover");
+        al << GuideItems::instance().GetName("cover");
         semantic_types[bkpath] = al;
     }
     return semantic_types;
@@ -1721,13 +1721,13 @@ QString OPFResource::GetResourceMimetype(const Resource *resource) const
     QString absolute_file_path = resource->GetFullPath();
     if (mimetype.isEmpty()) {
         QString extension = QFileInfo(absolute_file_path).suffix().toLower();
-        mimetype = MediaTypes::instance()->GetMediaTypeFromExtension(extension, "");
+        mimetype = MediaTypes::instance().GetMediaTypeFromExtension(extension, "");
     }
     if (mimetype.isEmpty()) {
-        mimetype = MediaTypes::instance()->GetFileDataMimeType(absolute_file_path, "");
+        mimetype = MediaTypes::instance().GetFileDataMimeType(absolute_file_path, "");
     }
     if (mimetype == "application/xml") {
-        mimetype = MediaTypes::instance()->GetMediaTypeFromXML(absolute_file_path, "application/xml");
+        mimetype = MediaTypes::instance().GetMediaTypeFromXML(absolute_file_path, "application/xml");
     }
     return mimetype;
 }
@@ -1742,8 +1742,8 @@ void OPFResource::UpdateManifestMediaTypes(const QList<Resource*> resources)
     foreach(Resource* resource, resources) {
         // QString absolute_file_path = resource->GetFullPath();
         // QString extension = QFileInfo(absolute_file_path).suffix().toLower();
-        // QString ext_mimetype = MediaTypes::instance()->GetMediaTypeFromExtension(extension, "");
-        // QString data_mimetype = MediaTypes::instance()->GetFileDataMimeType(absolute_file_path, "");
+        // QString ext_mimetype = MediaTypes::instance().GetMediaTypeFromExtension(extension, "");
+        // QString data_mimetype = MediaTypes::instance().GetFileDataMimeType(absolute_file_path, "");
         QString manifest_mimetype;
         QString resource_mimetype = GetResourceMimetype(resource);
         QString href = Utility::URLEncodePath(GetRelativePathToResource(resource));

@@ -394,8 +394,7 @@ void AutomateEditor::loadPluginElements()
     }
 
     QStringList data;
-    PluginDB *pdb = PluginDB::instance();
-    QHash<QString, Plugin *> plugins = pdb->all_plugins();
+    QHash<QString, Plugin *> plugins = PluginDB::instance().all_plugins();
     QStringList plugin_names = plugins.keys();
     foreach(QString name, plugin_names) {
         QString desc = plugins[name]->get_description();

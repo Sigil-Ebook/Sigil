@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2011      John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -50,17 +50,6 @@
 #if !defined(Q_OS_WIN32) && !defined(Q_OS_MAC)
 # include <stdlib.h>
 #endif
-
-SpellCheck *SpellCheck::m_instance = 0;
-
-SpellCheck *SpellCheck::instance()
-{
-    if (m_instance == 0) {
-        m_instance = new SpellCheck();
-    }
-
-    return m_instance;
-}
 
 SpellCheck::SpellCheck()
 {
@@ -160,11 +149,6 @@ SpellCheck::~SpellCheck()
 {
     DBG qDebug() << "In SpellCheck destructor";
     UnloadAllDictionaries();
-
-    if (m_instance) {
-        delete m_instance;
-        m_instance = 0;
-    }
 }
 
 QStringList SpellCheck::userDictionaries()

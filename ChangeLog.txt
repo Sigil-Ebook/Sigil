@@ -1,3 +1,16 @@
+Sigil-next
+   New Features
+     - remove outdated CSS parser and replace it with a modern spec-compliant Lexbor based css parser.
+         See https://github.com/lexbor/lexbor. Note: Required upstream changes have been approved
+         but are waiting to be merged until other changes requiring a major update are needed
+         (ie size of parser and tokenizer structures needed to grow).  So do NOT replace our
+         internal version of lexbor with an your version of lexbor as it will currently not work.
+         We will keep it internal with our own patches and statically linked to prevent dll issues
+         until those requested changes are properly upstreamed.
+         
+     - improve bulk addition speed of AddExisting/Drop Zone when replacing already existing images
+         by directly using file write with truncation and thereby never touching the opf
+
 Sigil 2.8.1
    Bug Fixes
      - fix multiple bugs in AddExisting that could sometimes add duplicate image entries and skip some xhtml imports

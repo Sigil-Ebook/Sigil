@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2014-2025 Kevin B. Hendricks, Stratford Ontario Canada
+ **  Copyright (C) 2014-2026 Kevin B. Hendricks, Stratford Ontario Canada
  **  Copyright (C) 2020-2025 Doug Massay
  **
  **  This file is part of Sigil.
@@ -117,14 +117,13 @@ QStringList PluginRunner::SupportedEngines()
 int PluginRunner::exec(const QString &name)
 {
     QHash <QString, QStringList> plugininfo;
-    PluginDB *pdb = PluginDB::instance();
     Plugin *plugin;
     SettingsStore settings;
     QString launcher_root;
 
     m_ready = false;
 
-    plugin = pdb->get_plugin(name);
+    plugin = PluginDB::instance().get_plugin(name);
     if (plugin == NULL) {
         Utility::DisplayStdErrorDialog(tr("Error: A plugin by that name does not exist"));
         reject();
@@ -153,7 +152,7 @@ int PluginRunner::exec(const QString &name)
             engineList.append(m_engine);
         }
         foreach(QString engine, engineList) {
-            m_enginePath = pdb->get_engine_path(engine);
+            m_enginePath = PluginDB::instance().get_engine_path(engine);
             if (!m_enginePath.isEmpty()) break;
         } 
         if (m_enginePath.isEmpty()) {

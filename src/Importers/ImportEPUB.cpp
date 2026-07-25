@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2025 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2016-2026 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -809,17 +809,17 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
     // qDebug() << "ImportEpub with Manifest item: " << href << apath;
     QString extension = QFileInfo(apath).suffix().toLower();
      // validate the media type if we can, and warn otherwise
-    QString group = MediaTypes::instance()->GetGroupFromMediaType(type,"");
-    QString ext_mtype = MediaTypes::instance()->GetMediaTypeFromExtension(extension,"");
+    QString group = MediaTypes::instance().GetGroupFromMediaType(type,"");
+    QString ext_mtype = MediaTypes::instance().GetMediaTypeFromExtension(extension,"");
     if (ext_mtype.isEmpty()) {
         if (!file_full_path.isEmpty()) {
             // sniff for magic bytes in the file
-            ext_mtype = MediaTypes::instance()->GetFileDataMimeType(file_full_path, "");
+            ext_mtype = MediaTypes::instance().GetFileDataMimeType(file_full_path, "");
         }
     }
     // if it is generic xml lets try and refine it if possible
     if (ext_mtype == "application/xml") {
-        ext_mtype = MediaTypes::instance()->GetMediaTypeFromXML(file_full_path, "application/xml");
+        ext_mtype = MediaTypes::instance().GetMediaTypeFromXML(file_full_path, "application/xml");
     }
     if (type.isEmpty() || group.isEmpty()) {
         const QString warning = apath + "\n     '" + type + "' -> '" + ext_mtype + "'";;

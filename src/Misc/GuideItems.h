@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2020 Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2016-2026 Kevin B. Hendricks, Stratford, ON, Canada
 **
 **  This file is part of Sigil.
 **
@@ -43,8 +43,14 @@ class GuideItems
     Q_DECLARE_TR_FUNCTIONS(GuideItems)
 
 public:
-    static GuideItems *instance();
+    static GuideItems& instance() {
+        static GuideItems the_instance;
+        return the_instance;
+    }
 
+    GuideItems(const GuideItems&) = delete;
+    GuideItems& operator=(const GuideItems&) = delete;
+    
     QString GetName(const QString &code);
     QString GetTitle(const QString &code, const QString &lang);
     QString GetDescriptionByCode(const QString &code);
@@ -57,7 +63,8 @@ public:
 
 private:
     GuideItems();
-
+    ~GuideItems() = default;
+    
     void SetGuideItemsMap();
     void SetCodeToRawTitleMap();
 
@@ -70,8 +77,6 @@ private:
     QHash<QString, QString> m_CodeToRawTitle;
 
     QStringList m_sortedNames;
-
-    static GuideItems *m_instance;
 };
 
 #endif // GUIDEITEMS_H

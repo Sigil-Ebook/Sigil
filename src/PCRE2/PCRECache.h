@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2021  Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2019-2026  Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2011       John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -37,12 +37,15 @@
  */
 class PCRECache
 {
+
 public:
-    /**
-     * The accessor function to access the cache.
-     */
-    static PCRECache *instance();
-    ~PCRECache();
+    static PCRECache& instance() {
+        static PCRECache the_instance;
+        return the_instance;
+    }
+
+    PCRECache(const PCRECache&) = delete;
+    PCRECache& operator=(const PCRECache&) = delete;
 
     /**
      * Insert an SPCRE into the cache. The key is the regular expression
@@ -68,12 +71,12 @@ private:
     /**
      * Private constructor.
      */
-    PCRECache();
+    PCRECache() = default;
+
+    ~PCRECache() = default;
 
     // The cache that we store the SPCRE's.
     QCache<QString, SPCRE> m_cache;
-    // The single instance of the cache.
-    static PCRECache *m_instance;
 };
 
 #endif // PCRECACHE_H

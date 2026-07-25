@@ -296,13 +296,12 @@ CSelection GumboInterface::find(const QString &aSelector)
 QString GumboInterface::prettyprint(bool keep_whitespace)
 {
     m_keep_whitespace = keep_whitespace;
-    PrettyPrintProps * pp = PrettyPrintProps::instance();
     QString result = "";
     if (!m_source.isEmpty()) {
         if (m_output == NULL) {
             parse();
         }
-        std::string utf8out = prettyprint(m_output->document, 0, pp);
+        std::string utf8out = prettyprint(m_output->document, 0);
         rtrim(utf8out);
         result =  "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + QString::fromStdString(utf8out);
     }
@@ -1450,22 +1449,22 @@ std::string GumboInterface::serialize(GumboNode* node, enum UpdateTypes doupdate
 
 
 
-std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, PrettyPrintProps* pp) 
+std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl) 
 {
-    std::string indent_chars = pp->getIndentString();
+    std::string indent_chars = PrettyPrintProps::instance().getIndentString();
     std::string contents        = "";
     std::string tagname         = get_tag_name(node);
-    bool no_entity_substitution = pp->inset_noentitysub(tagname);
-    bool keep_whitespace        = pp->inset_preservespace(tagname);
-    bool is_inline              = pp->inset_inline(tagname);
-    bool is_structural          = pp->inset_structural(tagname);
-    // bool is_other               = pp->inset_textholder(tagname);
+    bool no_entity_substitution = PrettyPrintProps::instance().inset_noentitysub(tagname);
+    bool keep_whitespace        = PrettyPrintProps::instance().inset_preservespace(tagname);
+    bool is_inline              = PrettyPrintProps::instance().inset_inline(tagname);
+    bool is_structural          = PrettyPrintProps::instance().inset_structural(tagname);
+    // bool is_other               = PrettyPrintProps::instance().inset_textholder(tagname);
     char c                      = indent_chars.at(0);
     unsigned int n              = (unsigned int) indent_chars.length(); 
     std::string indent_space    = std::string((lvl-1)*n,c);
     char last_char              = 'x';
     bool contains_block_tags    = false;
-    bool singlespace = pp->getSingleSpace();
+    bool singlespace = PrettyPrintProps::instance().getSingleSpace();
 
     GumboVector* children = &node->v.element.children;
 
@@ -1499,10 +1498,10 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, Prett
 
         } else if (child->type == GUMBO_NODE_ELEMENT || child->type == GUMBO_NODE_TEMPLATE) {
 
-            std::string val = prettyprint(child, lvl, pp);
+            std::string val = prettyprint(child, lvl);
             std::string childname = get_tag_name(child);
             if (in_head_without_title && (childname == "title")) in_head_without_title = false;
-            if (!pp->inset_inline(childname)) {
+            if (!PrettyPrintProps::instance().inset_inline(childname)) {
                 contains_block_tags = true;
                 if (last_char != '\n') {
                     contents.append("\n");
@@ -1511,7 +1510,7 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, Prett
                 }
             }
             // if child of a structual element is inline and follows a newline, indent it properly
-            if (is_structural && pp->inset_inline(childname) && (last_char == '\n')) {
+            if (is_structural && PrettyPrintProps::instance().inset_inline(childname) && (last_char == '\n')) {
                 contents.append(indent_space);
                 ltrim(val);
             }    
@@ -1522,7 +1521,7 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, Prett
             if (keep_whitespace) {
                 std::string wspace = std::string(child->v.text.text);
                 contents.append(wspace);
-            } else if (is_inline || pp->inset_textholder(tagname)) {
+            } else if (is_inline || PrettyPrintProps::instance().inset_textholder(tagname)) {
                 if (std::string(" \t\v\f\r\n").find(last_char) == std::string::npos) {
                     contents.append(std::string(" "));
                 }
@@ -1565,23 +1564,23 @@ std::string GumboInterface::prettyprint_contents(GumboNode* node, int lvl, Prett
 // prettyprint a GumboNode back to html/xhtml
 // may be invoked recursively
 
-std::string GumboInterface::prettyprint(GumboNode* node, int lvl, PrettyPrintProps* pp)
+std::string GumboInterface::prettyprint(GumboNode* node, int lvl)
 {
-    std::string indent_chars = pp->getIndentString();
-    bool singlespace = pp->getSingleSpace();
+    std::string indent_chars = PrettyPrintProps::instance().getIndentString();
+    bool singlespace = PrettyPrintProps::instance().getSingleSpace();
 
     // special case the document node
     if (node->type == GUMBO_NODE_DOCUMENT) {
       std::string results = build_doctype(node);
-      results.append(prettyprint_contents(node,lvl+1,pp));
+      results.append(prettyprint_contents(node,lvl+1));
       return results;
     }
 
     std::string tagname = get_tag_name(node);
     std::string parentname = get_tag_name(node->parent);
     bool in_head = (parentname == "head");
-    bool is_structural = pp->inset_structural(tagname);
-    bool is_inline = pp->inset_inline(tagname);
+    bool is_structural = PrettyPrintProps::instance().inset_structural(tagname);
+    bool is_inline = PrettyPrintProps::instance().inset_inline(tagname);
     bool in_xml_ns = node->v.element.tag_namespace != GUMBO_NAMESPACE_HTML;
 
     // handle special case of stylesheet link missing type attribute
@@ -1600,26 +1599,26 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, PrettyPrintPro
     
     // build attr string
     std::string atts = "";
-    bool no_entity_substitution = pp->inset_noentitysub(tagname);
+    bool no_entity_substitution = PrettyPrintProps::instance().inset_noentitysub(tagname);
     const GumboVector * attribs = &node->v.element.attributes;
     for (unsigned int i=0; i< attribs->length; ++i) {
         GumboAttribute* at = static_cast<GumboAttribute*>(attribs->data[i]);
         atts.append(build_attributes(at, no_entity_substitution));
     }
 
-    bool is_void_tag = pp->inset_void(tagname);
+    bool is_void_tag = PrettyPrintProps::instance().inset_void(tagname);
 
     // get tag contents
     std::string contents = "";
     if (!is_void_tag) {
         if (is_structural && tagname != "html") {
-            contents = prettyprint_contents(node, lvl+1, pp);
+            contents = prettyprint_contents(node, lvl+1);
         } else {
-            contents = prettyprint_contents(node, lvl, pp);
+            contents = prettyprint_contents(node, lvl);
         }
     }
 
-    bool keep_whitespace = pp->inset_preservespace(tagname);
+    bool keep_whitespace = PrettyPrintProps::instance().inset_preservespace(tagname);
     if (!keep_whitespace && !is_inline) {
         rtrim(contents);
     }
@@ -1638,7 +1637,7 @@ std::string GumboInterface::prettyprint(GumboNode* node, int lvl, PrettyPrintPro
         std::string selfclosetag = "<" + tagname + atts + "/>";
         if (is_inline) {
             // always add newline after br tags when they are children of structural tags
-	  if ((tagname == "br") && pp->inset_structural(parentname)) {
+	  if ((tagname == "br") && PrettyPrintProps::instance().inset_structural(parentname)) {
               selfclosetag.append("\n");
               if (!in_head && (tagname != "html") && !singlespace) selfclosetag.append("\n");
             }

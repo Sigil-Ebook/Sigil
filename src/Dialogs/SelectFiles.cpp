@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2024 Kevin B, Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B, Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012-2013 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012-2013 Dave Heiland
 **
@@ -103,7 +103,7 @@ SelectFiles::SelectFiles(QString title, QList<Resource *> media_resources, QStri
 {
     ui.setupUi(this);
     setWindowTitle(title);
-    QWebEngineProfile* profile = WebProfileMgr::instance()->GetOneTimeProfile();
+    QWebEngineProfile* profile = WebProfileMgr::instance().GetOneTimeProfile();
     m_WebView->setPage(new SimplePage(profile, m_WebView));
     m_WebView->setContextMenuPolicy(Qt::NoContextMenu);
     m_WebView->setAcceptDrops(false);

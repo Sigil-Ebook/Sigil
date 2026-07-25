@@ -63,7 +63,7 @@ ImageView::ImageView(QWidget *parent)
     m_WebView(new QWebEngineView(this)),
     m_layout(new QVBoxLayout(this))
 {
-    QWebEngineProfile* profile = WebProfileMgr::instance()->GetOneTimeProfile();
+    QWebEngineProfile* profile = WebProfileMgr::instance().GetOneTimeProfile();
     m_WebView->setPage(new SimplePage(profile, m_WebView));
     m_WebView->setContextMenuPolicy(Qt::NoContextMenu);
     m_WebView->setFocusPolicy(Qt::NoFocus);

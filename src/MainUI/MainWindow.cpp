@@ -361,8 +361,7 @@ bool MainWindow::Automate(const QStringList &commands)
 {
     // store away the set of resources selected in BookBrowser at the start
     QList<Resource*> selected_resources = m_BookBrowser->AllSelectedResources();
-    PluginDB *pdb = PluginDB::instance();
-    QHash<QString, Plugin *> plugins = pdb->all_plugins();
+    QHash<QString, Plugin *> plugins = PluginDB::instance().all_plugins();
     QStringList plugin_names = plugins.keys();
     bool has_error = false;
     int countReplaced = -1;
@@ -566,8 +565,6 @@ bool MainWindow::Automate(const QStringList &commands)
 // Actions can be removed
 void MainWindow::loadPluginsMenu()
 {
-    PluginDB *pdb = PluginDB::instance();
-
     m_menuPlugins = ui.menuPlugins;
     m_actionManagePlugins = ui.actionManage_Plugins;
     
@@ -587,7 +584,7 @@ void MainWindow::loadPluginsMenu()
         i++;
     }
 
-    QHash<QString, Plugin *> plugins = pdb->all_plugins();
+    QHash<QString, Plugin *> plugins = PluginDB::instance().all_plugins();
 
     // first set default icons for quick launch plugin buttons
     // Do we need this?  Aren't these set in Form_Files/main.ui
@@ -953,7 +950,7 @@ bool MainWindow::UseStandardFileExtensions()
     foreach(Resource* resource, m_Book->GetFolderKeeper()->GetResourceList()) {
         QString aname = resource->Filename();
         QString mt = resource->GetMediaType();
-        QString ext = MediaTypes::instance()->GetFileExtFromMediaType(mt);
+        QString ext = MediaTypes::instance().GetFileExtFromMediaType(mt);
         if (!ext.isEmpty()) {
             if (!aname.endsWith("." + ext)) {
                 QStringList parts = aname.split('.');
@@ -1035,7 +1032,7 @@ void MainWindow::MoveContentFilesToStdFolders()
     QString MainFolder = m_Book->GetFolderKeeper()->GetFullPathToMainFolder();
     QDir epub_root(MainFolder);
     foreach(Resource* resource, resources) {
-        QString group = MediaTypes::instance()->GetGroupFromMediaType(resource->GetMediaType(), "other");
+        QString group = MediaTypes::instance().GetGroupFromMediaType(resource->GetMediaType(), "other");
         if ((group == "other") || group.isEmpty()) continue;
         QString stdfolder = m_Book->GetFolderKeeper()->GetStdFolderForGroup(group);
         QString filename = resource->Filename();
@@ -1974,8 +1971,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
 #endif
         ShowMessageOnStatusBar(tr("Sigil is closing..."));
 
-        KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
-        sm->removeActionsOf(this);
+        KeyboardShortcutManager::instance().removeActionsOf(this);
 
         // The user may have unsaved search/clip/index/meta entries if dialogs are open.
         // Prompt them to save or discard their changes if any.
@@ -2866,7 +2862,7 @@ bool MainWindow::GenerateNCXGuideFromNav()
         Resource* resource = m_Book->GetFolderKeeper()->GetResourceByBookPathNoThrow(parts.at(0));
         if (resource) html_resource = qobject_cast<HTMLResource *>(resource);
         if (html_resource) {
-            QString guide_code =  Landmarks::instance()->GuideLandMapping(parts.at(2));
+            QString guide_code =  Landmarks::instance().GuideLandMapping(parts.at(2));
             if (!guide_code.isEmpty()) {
                 m_Book->GetOPF()->AddGuideSemanticCode(html_resource, guide_code, false, parts.at(1));
             }
@@ -3470,7 +3466,7 @@ void MainWindow::InsertRole()
         QStringList codes = addmeaning.GetSelectedEntries();
         if (!codes.isEmpty()) {
             QString new_code = codes.at(0);
-            QStringList allowed_tags = AriaRoles::instance()->AllowedTags(new_code);
+            QStringList allowed_tags = AriaRoles::instance().AllowedTags(new_code);
             if (!allowed_tags.isEmpty()) {
                 if (!allowed_tags.contains(tagname)) {
                     Utility::warning(this, tr("Sigil"), tr("The selected role cannot be used on this tag."));
@@ -4325,7 +4321,7 @@ bool MainWindow::CreateHTMLTOC()
 
     // Get Primary language from the OPF and use it to Translate "toc" for title
     QString lang = m_Book->GetOPF()->GetPrimaryBookLanguage();
-    QString title = Landmarks::instance()->GetTitle("toc", lang); 
+    QString title = Landmarks::instance().GetTitle("toc", lang); 
     TOCHTMLWriter toc(tocResource->GetRelativePath(), 
                       css_resource->GetRelativePath(),
                       m_TableOfContents->GetRootEntry(),
@@ -5169,7 +5165,7 @@ void MainWindow::UpdateCursorPositionLabel(int line, int column, int codepoint)
 {
     QString name = "";
     if (line > 0 && column > 0) {
-        name = CodepointNames::instance()->GetName(codepoint);
+        name = CodepointNames::instance().GetName(codepoint);
 	QString cp = " (" + QString("U+%1").arg(codepoint, 4, 16, QLatin1Char('0')).toUpper() + ")";
         QString l = QString::number(line);
         QString c = QString::number(column);
@@ -5235,8 +5231,7 @@ bool MainWindow::MendHTML()
 void MainWindow::ClearIgnoredWords()
 {
     QApplication::setOverrideCursor(Qt::WaitCursor);
-    SpellCheck *sc = SpellCheck::instance();
-    sc->clearIgnoredWords();
+    SpellCheck::instance().clearIgnoredWords();
     // Need to reload any tabs to force spelling to be run again in CodeView
     RefreshSpellingHighlighting();
     QApplication::restoreOverrideCursor();
@@ -5528,7 +5523,7 @@ void MainWindow::WriteSettings()
     settings.setValue("recentfiles", s_RecentFiles);
     settings.setValue("preserveheadingattributes", m_preserveHeadingAttributes);
     settings.setValue("clipboardringhistory", m_ClipboardHistorySelector->GetClipboardHistory(m_ClipboardHistoryLimit));
-    KeyboardShortcutManager::instance()->writeSettings();
+    KeyboardShortcutManager::instance().writeSettings();
     settings.endGroup();
     settings.setClipboardHistoryLimit(m_ClipboardHistoryLimit);
 }
@@ -5592,8 +5587,7 @@ void MainWindow::SetNewBook(QSharedPointer<Book> new_book)
     m_IndexEditor->SetBook(m_Book);
     m_ClipEditor->SetBook(m_Book);
     m_SpellcheckEditor->SetBook(m_Book);
-    SpellCheck *sc = SpellCheck::instance();
-    sc->clearIgnoredWords();
+    SpellCheck::instance().clearIgnoredWords();
     ResetLinkOrStyleBookmark();
     SettingsStore settings;
     settings.setRenameTemplate("");
@@ -5697,7 +5691,7 @@ void MainWindow::CreateNewBook(const QString version, const QStringList &book_pa
         QString filename = bkpath.split("/").last();
         QString extension = filename.split(".").last();
         QString folder = Utility::startingDir(bkpath);
-        QString mt = MediaTypes::instance()->GetMediaTypeFromExtension(extension);
+        QString mt = MediaTypes::instance().GetMediaTypeFromExtension(extension);
         if (filename.endsWith(".opf")) opfbookpath = bkpath;
         if (filename.endsWith(".ncx")) ncxbookpath = bkpath;
         if (filename.endsWith("marker.xhtml")) textdirs << folder;
@@ -6429,198 +6423,197 @@ void MainWindow::ExtendUI()
     statusBar()->addPermanentWidget(m_slZoomSlider);
     statusBar()->addPermanentWidget(zoom_in);
     // Setup userdefined keyboard shortcuts for actions.
-    KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
     // Note: shortcut action Ids should not be translated.
     // File
-    sm->registerAction(this, ui.actionNew, "MainWindow.NewDefault");
-    sm->registerAction(this, ui.actionNewEpub2, "MainWindow.NewEpub2");
-    sm->registerAction(this, ui.actionNewEpub3, "MainWindow.NewEpub3");
-    sm->registerAction(this, ui.actionNewHTMLFile, "MainWindow.NewHTMLFile");
-    sm->registerAction(this, ui.actionNewCSSFile, "MainWindow.NewCSSFile");
-    sm->registerAction(this, ui.actionNewJSFile, "MainWindow.NewJSFile");
-    sm->registerAction(this, ui.actionNewSVGFile, "MainWindow.NewSVGFile");
-    sm->registerAction(this, ui.actionAddExistingFile, "MainWindow.AddExistingFile");
-    sm->registerAction(this, ui.actionStandardize, "MainWindow.StandardizeEpub");
-    sm->registerAction(this, ui.actionStdFileExts, "MainWindow.UseStandardFileExtensions");
-    sm->registerAction(this, ui.actionRebaseManifestIDs, "MainWindow.RebaseManifestIDs");
-    sm->registerAction(this, ui.actionCustomLayout, "MainWindow.CustomLayout");
-    sm->registerAction(this, ui.actionOpen, "MainWindow.Open");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionNew, "MainWindow.NewDefault");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionNewEpub2, "MainWindow.NewEpub2");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionNewEpub3, "MainWindow.NewEpub3");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionNewHTMLFile, "MainWindow.NewHTMLFile");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionNewCSSFile, "MainWindow.NewCSSFile");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionNewJSFile, "MainWindow.NewJSFile");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionNewSVGFile, "MainWindow.NewSVGFile");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionAddExistingFile, "MainWindow.AddExistingFile");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionStandardize, "MainWindow.StandardizeEpub");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionStdFileExts, "MainWindow.UseStandardFileExtensions");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionRebaseManifestIDs, "MainWindow.RebaseManifestIDs");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionCustomLayout, "MainWindow.CustomLayout");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionOpen, "MainWindow.Open");
 #ifndef Q_OS_MAC
-    sm->registerAction(this, ui.actionClose, "MainWindow.Close");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionClose, "MainWindow.Close");
 #endif
-    sm->registerAction(this, ui.actionSave, "MainWindow.Save");
-    sm->registerAction(this, ui.actionSaveAs, "MainWindow.SaveAs");
-    sm->registerAction(this, ui.actionSaveACopy, "MainWindow.SaveACopy");
-    sm->registerAction(this, ui.actionPrintPreview, "MainWindow.PrintPreview");
-    sm->registerAction(this, ui.actionPrint, "MainWindow.Print");
-    sm->registerAction(this, ui.actionExit, "MainWindow.Exit");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionSave, "MainWindow.Save");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionSaveAs, "MainWindow.SaveAs");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionSaveACopy, "MainWindow.SaveACopy");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionPrintPreview, "MainWindow.PrintPreview");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionPrint, "MainWindow.Print");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionExit, "MainWindow.Exit");
     // Edit
-    sm->registerAction(this, ui.actionXEditor, "MainWindow.LaunchExternalXEditor");
-    sm->registerAction(this, ui.actionUndo, "MainWindow.Undo");
-    sm->registerAction(this, ui.actionRedo, "MainWindow.Redo");
-    sm->registerAction(this, ui.actionCut, "MainWindow.Cut");
-    sm->registerAction(this, ui.actionCopy, "MainWindow.Copy");
-    sm->registerAction(this, ui.actionPaste, "MainWindow.Paste");
-    sm->registerAction(this, ui.actionPasteClipboardHistory, "MainWindow.PasteClipboardHistory");
-    sm->registerAction(this, ui.actionInsertId, "MainWindow.InsertId");
-    sm->registerAction(this, ui.actionInsertClip, "MainWindow.InsertClip");
-    sm->registerAction(this, ui.actionInsertRole, "MainWindow.InsertRole");
-    sm->registerAction(this, ui.actionDeleteLine, "MainWindow.DeleteLine");
-    sm->registerAction(this, ui.actionInsertFile, "MainWindow.InsertFile");
-    sm->registerAction(this, ui.actionInsertSpecialCharacter, "MainWindow.InsertSpecialCharacter");
-    sm->registerAction(this, ui.actionInsertHyperlink, "MainWindow.InsertHyperlink");
-    sm->registerAction(this, ui.actionMarkForIndex, "MainWindow.MarkForIndex");
-    sm->registerAction(this, ui.actionSplitSection, "MainWindow.SplitSection");
-    sm->registerAction(this, ui.actionInsertSGFSectionMarker, "MainWindow.InsertSGFSectionMarker");
-    sm->registerAction(this, ui.actionSplitOnSGFSectionMarkers, "MainWindow.SplitOnSGFSectionMarkers");
-    sm->registerAction(this, ui.actionInsertClosingTag, "MainWindow.InsertClosingTag");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionXEditor, "MainWindow.LaunchExternalXEditor");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionUndo, "MainWindow.Undo");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionRedo, "MainWindow.Redo");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionCut, "MainWindow.Cut");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionCopy, "MainWindow.Copy");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionPaste, "MainWindow.Paste");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionPasteClipboardHistory, "MainWindow.PasteClipboardHistory");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionInsertId, "MainWindow.InsertId");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionInsertClip, "MainWindow.InsertClip");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionInsertRole, "MainWindow.InsertRole");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionDeleteLine, "MainWindow.DeleteLine");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionInsertFile, "MainWindow.InsertFile");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionInsertSpecialCharacter, "MainWindow.InsertSpecialCharacter");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionInsertHyperlink, "MainWindow.InsertHyperlink");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionMarkForIndex, "MainWindow.MarkForIndex");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionSplitSection, "MainWindow.SplitSection");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionInsertSGFSectionMarker, "MainWindow.InsertSGFSectionMarker");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionSplitOnSGFSectionMarkers, "MainWindow.SplitOnSGFSectionMarkers");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionInsertClosingTag, "MainWindow.InsertClosingTag");
 #ifndef Q_OS_MAC
-    sm->registerAction(this, ui.actionPreferences, "MainWindow.Preferences");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionPreferences, "MainWindow.Preferences");
 #endif
     //Search
-    sm->registerAction(this, ui.actionFind, "MainWindow.Find");
-    sm->registerAction(this, ui.actionHideFind, "MainWindow.HideFind");
-    sm->registerAction(this, ui.actionFindNext, "MainWindow.FindNext");
-    sm->registerAction(this, ui.actionFindPrevious, "MainWindow.FindPrevious");
-    sm->registerAction(this, ui.actionReplaceCurrent, "MainWindow.ReplaceCurrent");
-    sm->registerAction(this, ui.actionReplaceNext, "MainWindow.ReplaceNext");
-    sm->registerAction(this, ui.actionReplacePrevious, "MainWindow.ReplacePrevious");
-    sm->registerAction(this, ui.actionReplaceAll, "MainWindow.ReplaceAll");
-    sm->registerAction(this, ui.actionCount, "MainWindow.Count");
-    sm->registerAction(this, ui.actionDryRun, "MainWindow.DryRunReplaceAll");
-    sm->registerAction(this, ui.actionFilterReplaceAll, "MainWindow.FilterReplaceAll");
-    sm->registerAction(this, ui.actionRestartSearch, "MainWindow.RestartSearch");
-    sm->registerAction(this, ui.actionMarkSelection, "MainWindow.MarkSelection");
-    sm->registerAction(this, ui.actionFindNextInFile, "MainWindow.FindNextInFile");
-    sm->registerAction(this, ui.actionReplaceNextInFile, "MainWindow.ReplaceNextInFile");
-    sm->registerAction(this, ui.actionReplaceAllInFile, "MainWindow.ReplaceAllInFile");
-    sm->registerAction(this, ui.actionCountInFile, "MainWindow.CountInFile");
-    sm->registerAction(this, ui.actionGoToLine, "MainWindow.GoToLine");
-    sm->registerAction(this, ui.actionBookmarkLocation, "MainWindow.BookmarkLocation");
-    sm->registerAction(this, ui.actionGoToLinkOrStyle, "MainWindow.GoToLinkOrStyle");
-    sm->registerAction(this, ui.actionGoBackFromLinkOrStyle, "MainWindow.GoBackFromLinkOrStyle");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionFind, "MainWindow.Find");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionHideFind, "MainWindow.HideFind");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionFindNext, "MainWindow.FindNext");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionFindPrevious, "MainWindow.FindPrevious");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionReplaceCurrent, "MainWindow.ReplaceCurrent");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionReplaceNext, "MainWindow.ReplaceNext");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionReplacePrevious, "MainWindow.ReplacePrevious");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionReplaceAll, "MainWindow.ReplaceAll");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionCount, "MainWindow.Count");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionDryRun, "MainWindow.DryRunReplaceAll");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionFilterReplaceAll, "MainWindow.FilterReplaceAll");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionRestartSearch, "MainWindow.RestartSearch");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionMarkSelection, "MainWindow.MarkSelection");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionFindNextInFile, "MainWindow.FindNextInFile");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionReplaceNextInFile, "MainWindow.ReplaceNextInFile");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionReplaceAllInFile, "MainWindow.ReplaceAllInFile");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionCountInFile, "MainWindow.CountInFile");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionGoToLine, "MainWindow.GoToLine");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionBookmarkLocation, "MainWindow.BookmarkLocation");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionGoToLinkOrStyle, "MainWindow.GoToLinkOrStyle");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionGoBackFromLinkOrStyle, "MainWindow.GoBackFromLinkOrStyle");
     // Format
-    sm->registerAction(this, ui.actionBold, "MainWindow.Bold");
-    sm->registerAction(this, ui.actionItalic, "MainWindow.Italic");
-    sm->registerAction(this, ui.actionUnderline, "MainWindow.Underline");
-    sm->registerAction(this, ui.actionStrikethrough, "MainWindow.Strikethrough");
-    sm->registerAction(this, ui.actionSubscript, "MainWindow.Subscript");
-    sm->registerAction(this, ui.actionSuperscript, "MainWindow.Superscript");
-    sm->registerAction(this, ui.actionAlignLeft, "MainWindow.AlignLeft");
-    sm->registerAction(this, ui.actionAlignCenter, "MainWindow.AlignCenter");
-    sm->registerAction(this, ui.actionAlignRight, "MainWindow.AlignRight");
-    sm->registerAction(this, ui.actionAlignJustify, "MainWindow.AlignJustify");
-    sm->registerAction(this, ui.actionInsertNumberedList, "MainWindow.InsertNumberedList");
-    sm->registerAction(this, ui.actionInsertBulletedList, "MainWindow.InsertBulletedList");
-    sm->registerAction(this, ui.actionIncreaseIndent, "MainWindow.IncreaseIndent");
-    sm->registerAction(this, ui.actionDecreaseIndent, "MainWindow.DecreaseIndent");
-    sm->registerAction(this, ui.actionTextDirectionLTR, "MainWindow.TextDirectionLTR");
-    sm->registerAction(this, ui.actionTextDirectionRTL, "MainWindow.TextDirectionRTL");
-    sm->registerAction(this, ui.actionTextDirectionDefault, "MainWindow.TextDirectionDefault");
-    sm->registerAction(this, ui.actionRemoveFormatting, "MainWindow.RemoveFormatting");
-    sm->registerAction(this, ui.actionRemoveTagPair, "MainWindow.RemoveTagPair");
-    sm->registerAction(this, ui.actionHeading1, "MainWindow.Heading1");
-    sm->registerAction(this, ui.actionHeading2, "MainWindow.Heading2");
-    sm->registerAction(this, ui.actionHeading3, "MainWindow.Heading3");
-    sm->registerAction(this, ui.actionHeading4, "MainWindow.Heading4");
-    sm->registerAction(this, ui.actionHeading5, "MainWindow.Heading5");
-    sm->registerAction(this, ui.actionHeading6, "MainWindow.Heading6");
-    sm->registerAction(this, ui.actionHeadingNormal, "MainWindow.HeadingNormal");
-    sm->registerAction(this, ui.actionHeadingPreserveAttributes, "MainWindow.HeadingPreserveAttributes");
-    sm->registerAction(this, ui.actionCasingLowercase, "MainWindow.CasingLowercase");
-    sm->registerAction(this, ui.actionCasingUppercase, "MainWindow.CasingUppercase");
-    sm->registerAction(this, ui.actionCasingTitlecase, "MainWindow.CasingTitlecase");
-    sm->registerAction(this, ui.actionCasingCapitalize, "MainWindow.CasingCapitalize");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionBold, "MainWindow.Bold");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionItalic, "MainWindow.Italic");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionUnderline, "MainWindow.Underline");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionStrikethrough, "MainWindow.Strikethrough");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionSubscript, "MainWindow.Subscript");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionSuperscript, "MainWindow.Superscript");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionAlignLeft, "MainWindow.AlignLeft");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionAlignCenter, "MainWindow.AlignCenter");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionAlignRight, "MainWindow.AlignRight");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionAlignJustify, "MainWindow.AlignJustify");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionInsertNumberedList, "MainWindow.InsertNumberedList");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionInsertBulletedList, "MainWindow.InsertBulletedList");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionIncreaseIndent, "MainWindow.IncreaseIndent");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionDecreaseIndent, "MainWindow.DecreaseIndent");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionTextDirectionLTR, "MainWindow.TextDirectionLTR");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionTextDirectionRTL, "MainWindow.TextDirectionRTL");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionTextDirectionDefault, "MainWindow.TextDirectionDefault");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionRemoveFormatting, "MainWindow.RemoveFormatting");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionRemoveTagPair, "MainWindow.RemoveTagPair");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionHeading1, "MainWindow.Heading1");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionHeading2, "MainWindow.Heading2");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionHeading3, "MainWindow.Heading3");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionHeading4, "MainWindow.Heading4");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionHeading5, "MainWindow.Heading5");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionHeading6, "MainWindow.Heading6");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionHeadingNormal, "MainWindow.HeadingNormal");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionHeadingPreserveAttributes, "MainWindow.HeadingPreserveAttributes");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionCasingLowercase, "MainWindow.CasingLowercase");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionCasingUppercase, "MainWindow.CasingUppercase");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionCasingTitlecase, "MainWindow.CasingTitlecase");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionCasingCapitalize, "MainWindow.CasingCapitalize");
     // Tools
-    sm->registerAction(this, ui.actionAddCover, "MainWindow.AddCover");
-    sm->registerAction(this, ui.actionMetaEditor, "MainWindow.MetaEditor");
-    sm->registerAction(this, ui.actionEditTOC, "MainWindow.EditTOC");
-    sm->registerAction(this, ui.actionGenerateTOC, "MainWindow.GenerateTOC");
-    sm->registerAction(this, ui.actionCreateHTMLTOC, "MainWindow.CreateHTMLTOC");
-    sm->registerAction(this, ui.actionWellFormedCheckEpub, "MainWindow.WellFormedCheckEpub");
-    sm->registerAction(this, ui.actionValidateStylesheetsWithW3C, "MainWindow.ValidateStylesheetsWithW3C");
-    sm->registerAction(this, ui.actionAutoSpellCheck, "MainWindow.AutoSpellCheck");
-    sm->registerAction(this, ui.actionMendPrettifyHTML, "MainWindow.MendPrettifyHTML");
-    sm->registerAction(this, ui.actionMendHTML, "MainWindow.MendHTML");
-    sm->registerAction(this, ui.actionUpdateManifestMediaTypes, "MainWindow.UpdateManifestMediaTypes");
-    sm->registerAction(this, ui.actionUpdateManifestProperties, "MainWindow.UpdateManifestProperties");
-    sm->registerAction(this, ui.actionNCXGuideFromNav, "MainWindow.NCXGuideFromNav");
-    sm->registerAction(this, ui.actionRemoveNCXGuide, "MainWindow.RemoveNCXGuide");
-    sm->registerAction(this, ui.actionRemoveNavFromSpine, "MainWindow.RemoveNavFromGuide");
-    sm->registerAction(this, ui.actionAddNavToSpine, "MainWindow.AddNavToSpine");
-    sm->registerAction(this, ui.actionAddNavToSpineNonLinear, "MainWindow.AddNavToSpineNonLinear");
-    sm->registerAction(this, ui.actionSpellcheckEditor, "MainWindow.SpellcheckEditor");
-    sm->registerAction(this, ui.actionSpellcheck, "MainWindow.Spellcheck");
-    sm->registerAction(this, ui.actionAddMisspelledWord, "MainWindow.AddMispelledWord");
-    sm->registerAction(this, ui.actionIgnoreMisspelledWord, "MainWindow.IgnoreMispelledWord");
-    sm->registerAction(this, ui.actionClearIgnoredWords, "MainWindow.ClearIgnoredWords");
-    sm->registerAction(this, ui.actionReports, "MainWindow.Reports");
-    sm->registerAction(this, ui.actionSearchEditor, "MainWindow.SearchEditor");
-    sm->registerAction(this, ui.actionClipEditor, "MainWindow.ClipEditor");
-    sm->registerAction(this, ui.actionAddToIndex, "MainWindow.AddToIndex");
-    sm->registerAction(this, ui.actionMarkForIndex, "MainWindow.MarkForIndex");
-    sm->registerAction(this, ui.actionCreateIndex, "MainWindow.CreateIndex");
-    sm->registerAction(this, ui.actionDeleteUnusedMedia, "MainWindow.DeleteUnusedMedia");
-    sm->registerAction(this, ui.actionDeleteUnusedStyles, "MainWindow.DeleteUnusedStyles");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionAddCover, "MainWindow.AddCover");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionMetaEditor, "MainWindow.MetaEditor");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionEditTOC, "MainWindow.EditTOC");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionGenerateTOC, "MainWindow.GenerateTOC");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionCreateHTMLTOC, "MainWindow.CreateHTMLTOC");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionWellFormedCheckEpub, "MainWindow.WellFormedCheckEpub");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionValidateStylesheetsWithW3C, "MainWindow.ValidateStylesheetsWithW3C");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionAutoSpellCheck, "MainWindow.AutoSpellCheck");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionMendPrettifyHTML, "MainWindow.MendPrettifyHTML");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionMendHTML, "MainWindow.MendHTML");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionUpdateManifestMediaTypes, "MainWindow.UpdateManifestMediaTypes");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionUpdateManifestProperties, "MainWindow.UpdateManifestProperties");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionNCXGuideFromNav, "MainWindow.NCXGuideFromNav");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionRemoveNCXGuide, "MainWindow.RemoveNCXGuide");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionRemoveNavFromSpine, "MainWindow.RemoveNavFromGuide");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionAddNavToSpine, "MainWindow.AddNavToSpine");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionAddNavToSpineNonLinear, "MainWindow.AddNavToSpineNonLinear");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionSpellcheckEditor, "MainWindow.SpellcheckEditor");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionSpellcheck, "MainWindow.Spellcheck");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionAddMisspelledWord, "MainWindow.AddMispelledWord");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionIgnoreMisspelledWord, "MainWindow.IgnoreMispelledWord");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionClearIgnoredWords, "MainWindow.ClearIgnoredWords");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionReports, "MainWindow.Reports");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionSearchEditor, "MainWindow.SearchEditor");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionClipEditor, "MainWindow.ClipEditor");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionAddToIndex, "MainWindow.AddToIndex");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionMarkForIndex, "MainWindow.MarkForIndex");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionCreateIndex, "MainWindow.CreateIndex");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionDeleteUnusedMedia, "MainWindow.DeleteUnusedMedia");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionDeleteUnusedStyles, "MainWindow.DeleteUnusedStyles");
     // View
-    sm->registerAction(this, ui.actionZoomIn, "MainWindow.ZoomIn");
-    sm->registerAction(this, ui.actionZoomOut, "MainWindow.ZoomOut");
-    sm->registerAction(this, ui.actionZoomReset, "MainWindow.ZoomReset");
-    sm->registerAction(this, m_BookBrowser->toggleViewAction(), "MainWindow.BookBrowser");
-    sm->registerAction(this, m_Clips->toggleViewAction(), "MainWindow.ClipsWindow");
-    sm->registerAction(this, m_PreviewWindow->toggleViewAction(), "MainWindow.PreviewWindow");
-    sm->registerAction(this, m_TableOfContents->toggleViewAction(), "MainWindow.TableOfContents");
-    sm->registerAction(this, m_ValidationResultsView->toggleViewAction(), "MainWindow.ValidationResults");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionZoomIn, "MainWindow.ZoomIn");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionZoomOut, "MainWindow.ZoomOut");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionZoomReset, "MainWindow.ZoomReset");
+    KeyboardShortcutManager::instance().registerAction(this, m_BookBrowser->toggleViewAction(), "MainWindow.BookBrowser");
+    KeyboardShortcutManager::instance().registerAction(this, m_Clips->toggleViewAction(), "MainWindow.ClipsWindow");
+    KeyboardShortcutManager::instance().registerAction(this, m_PreviewWindow->toggleViewAction(), "MainWindow.PreviewWindow");
+    KeyboardShortcutManager::instance().registerAction(this, m_TableOfContents->toggleViewAction(), "MainWindow.TableOfContents");
+    KeyboardShortcutManager::instance().registerAction(this, m_ValidationResultsView->toggleViewAction(), "MainWindow.ValidationResults");
     // Window
-    sm->registerAction(this, ui.actionNextTab, "MainWindow.NextTab");
-    sm->registerAction(this, ui.actionPreviousTab, "MainWindow.PreviousTab");
-    sm->registerAction(this, ui.actionCloseTab, "MainWindow.CloseTab");
-    sm->registerAction(this, ui.actionCloseOtherTabs, "MainWindow.CloseOtherTabs");
-    sm->registerAction(this, ui.actionPreviousResource, "MainWindow.PreviousResource");
-    sm->registerAction(this, ui.actionNextResource, "MainWindow.NextResource");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionNextTab, "MainWindow.NextTab");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionPreviousTab, "MainWindow.PreviousTab");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionCloseTab, "MainWindow.CloseTab");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionCloseOtherTabs, "MainWindow.CloseOtherTabs");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionPreviousResource, "MainWindow.PreviousResource");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionNextResource, "MainWindow.NextResource");
     // Checkpoints
-    sm->registerAction(this, ui.actionCommit,             "MainWindow.CreateCheckpoint");
-    sm->registerAction(this, ui.actionCheckout,           "MainWindow.RestoreFromCheckpoint");
-    sm->registerAction(this, ui.actionDiff,               "MainWindow.CompareToCheckpoint");
-    sm->registerAction(this, ui.actionManageRepo,         "MainWindow.ManageCheckpointRepository");
-    sm->registerAction(this, ui.actionEditCheckpointDesc, "MainWindow.EditCheckpointDescription");
-    sm->registerAction(this, ui.actionLog,                "MainWindow.ShowCheckpointLog");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionCommit,             "MainWindow.CreateCheckpoint");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionCheckout,           "MainWindow.RestoreFromCheckpoint");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionDiff,               "MainWindow.CompareToCheckpoint");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionManageRepo,         "MainWindow.ManageCheckpointRepository");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionEditCheckpointDesc, "MainWindow.EditCheckpointDescription");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionLog,                "MainWindow.ShowCheckpointLog");
     // Automation Lists
-    sm->registerAction(this, ui.actionAutomate1,   "MainWindow.RunAutomate1");
-    sm->registerAction(this, ui.actionAutomate2,   "MainWindow.RunAutomate2");
-    sm->registerAction(this, ui.actionAutomate3,   "MainWindow.RunAutomate3");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionAutomate1,   "MainWindow.RunAutomate1");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionAutomate2,   "MainWindow.RunAutomate2");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionAutomate3,   "MainWindow.RunAutomate3");
     // Help
-    sm->registerAction(this, ui.actionUserGuide, "MainWindow.UserGuide");
-    sm->registerAction(this, ui.actionFAQ, "MainWindow.FAQ");
-    sm->registerAction(this, ui.actionTutorials, "MainWindow.FAQ");
-    sm->registerAction(this, ui.actionDonate, "MainWindow.Donate");
-    sm->registerAction(this, ui.actionSigilWebsite, "MainWindow.SigilWebsite");
-    sm->registerAction(this, ui.actionAbout, "MainWindow.About");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionUserGuide, "MainWindow.UserGuide");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionFAQ, "MainWindow.FAQ");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionTutorials, "MainWindow.FAQ");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionDonate, "MainWindow.Donate");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionSigilWebsite, "MainWindow.SigilWebsite");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionAbout, "MainWindow.About");
 
     // Clips
     foreach(QAction * clipaction, m_clactions) {
         QString clip_number = clipaction->data().toString();
-        sm->registerAction(this, clipaction, "MainWindow.Clip" + clip_number);
+        KeyboardShortcutManager::instance().registerAction(this, clipaction, "MainWindow.Clip" + clip_number);
     }
 
     // for plugins
-    sm->registerAction(this, ui.actionPlugin1,  "MainWindow.Plugins.RunPlugin1");
-    sm->registerAction(this, ui.actionPlugin2,  "MainWindow.Plugins.RunPlugin2");
-    sm->registerAction(this, ui.actionPlugin3,  "MainWindow.Plugins.RunPlugin3");
-    sm->registerAction(this, ui.actionPlugin4,  "MainWindow.Plugins.RunPlugin4");
-    sm->registerAction(this, ui.actionPlugin5,  "MainWindow.Plugins.RunPlugin5");
-    sm->registerAction(this, ui.actionPlugin6,  "MainWindow.Plugins.RunPlugin6");
-    sm->registerAction(this, ui.actionPlugin7,  "MainWindow.Plugins.RunPlugin7");
-    sm->registerAction(this, ui.actionPlugin8,  "MainWindow.Plugins.RunPlugin8");
-    sm->registerAction(this, ui.actionPlugin9,  "MainWindow.Plugins.RunPlugin9");
-    sm->registerAction(this, ui.actionPlugin10, "MainWindow.Plugins.RunPlugin10");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionPlugin1,  "MainWindow.Plugins.RunPlugin1");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionPlugin2,  "MainWindow.Plugins.RunPlugin2");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionPlugin3,  "MainWindow.Plugins.RunPlugin3");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionPlugin4,  "MainWindow.Plugins.RunPlugin4");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionPlugin5,  "MainWindow.Plugins.RunPlugin5");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionPlugin6,  "MainWindow.Plugins.RunPlugin6");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionPlugin7,  "MainWindow.Plugins.RunPlugin7");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionPlugin8,  "MainWindow.Plugins.RunPlugin8");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionPlugin9,  "MainWindow.Plugins.RunPlugin9");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionPlugin10, "MainWindow.Plugins.RunPlugin10");
 
     // for keyboard focus navigation
-    sm->registerAction(this, ui.actionFocusCodeView,    "MainWindow.FocusOnCodeView");
-    sm->registerAction(this, ui.actionFocusBookBrowser, "MainWindow.FocusOnBookBrowser");
-    sm->registerAction(this, ui.actionFocusPreview,     "MainWindow.FocusOnPreview");
-    sm->registerAction(this, ui.actionFocusTOC,         "MainWindow.FocusOnTOC");
-    sm->registerAction(this, ui.actionFocusClips,       "MainWindow.FocusOnClips");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionFocusCodeView,    "MainWindow.FocusOnCodeView");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionFocusBookBrowser, "MainWindow.FocusOnBookBrowser");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionFocusPreview,     "MainWindow.FocusOnPreview");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionFocusTOC,         "MainWindow.FocusOnTOC");
+    KeyboardShortcutManager::instance().registerAction(this, ui.actionFocusClips,       "MainWindow.FocusOnClips");
     
     // Headings QToolButton
     ui.tbHeadings->setPopupMode(QToolButton::MenuButtonPopup);
@@ -6641,7 +6634,7 @@ void MainWindow::UpdateClipButton(QAction *ui_action)
     // clipEntry is a simple struct created by GetEntry with new,
     // no reference counting or smart pointers so they must be cleaned up appropriately
     int clip_number = ui_action->data().toInt();
-    ClipEditorModel::clipEntry *clip_entry = ClipEditorModel::instance()->GetEntryFromNumber(clip_number);
+    ClipEditorModel::clipEntry *clip_entry = ClipEditorModel::instance().GetEntryFromNumber(clip_number);
 
     if (clip_entry) {
         ui_action->setText(clip_entry->name);
@@ -6988,8 +6981,7 @@ void MainWindow::ConnectSignalsToSlots()
     connect(m_Reports,       SIGNAL(RPFindTextInTags(QString)), m_FindReplace, SLOT(FindAnyTextInTags(QString)));
 
     // Plugins
-    PluginDB *pdb = PluginDB::instance();
-    connect(pdb, SIGNAL(plugins_changed()), this, SLOT(loadPluginsMenu()));
+    connect(&PluginDB::instance(), SIGNAL(plugins_changed()), this, SLOT(loadPluginsMenu()));
 
 }
 

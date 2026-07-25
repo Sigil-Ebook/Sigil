@@ -319,12 +319,14 @@ set( PARSERS_FILES
     Parsers/HTMLStyleInfo.h
     Parsers/CSSDeNest.cpp
     Parsers/CSSDeNest.h
-    Parsers/qCSSParser.cpp
-    Parsers/qCSSParser.h
-    Parsers/qCSSUtils.cpp
-    Parsers/qCSSUtils.h
-    Parsers/qCSSProperties.cpp
-    Parsers/qCSSProperties.h
+    Parsers/CSSParser.cpp
+    Parsers/CSSParser.h
+    Parsers/CSSUtils.cpp
+    Parsers/CSSUtils.h
+    Parsers/DBuf.h
+    Parsers/cssinterface_defn.h
+    Parsers/css_structure_parser.c
+    Parsers/css_structure_parser.h
     Parsers/GumboInterface.h
     Parsers/GumboInterface.cpp
     Parsers/TagAtts.cpp

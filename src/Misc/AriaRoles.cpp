@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2025 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2025-2026 Kevin B. Hendricks, Stratford, Ontario, Canada
 **
 **  This file is part of Sigil.
 **
@@ -46,17 +46,6 @@ static const QStringList REF_ROLES          = QStringList() << "doc-backlink" <<
                                                   "doc-glossref" << "doc-noteref";
 static const QStringList SECTION_SIDE_ROLES = QStringList() << "doc-dedication" << "doc-example" <<
                                                   "doc-glossary" << "doc-pullquote";
-
-AriaRoles *AriaRoles::m_instance = 0;
-
-AriaRoles *AriaRoles::instance()
-{
-    if (m_instance == 0) {
-        m_instance = new AriaRoles();
-    }
-
-    return m_instance;
-}
 
 AriaRoles::AriaRoles()
 {

@@ -203,6 +203,7 @@ include_directories( BEFORE
                      ${ZLIB_INCLUDE_DIRS}
                      ${PYTHON_INCLUDE_DIRS}
                      ${GUMBO_INCLUDE_DIRS}
+                     ${LEXBOR_INCLUDE_DIRS}
                      ${CMAKE_CURRENT_SOURCE_DIR}
                      ${CMAKE_CURRENT_BINARY_DIR} )
 
@@ -219,7 +220,7 @@ else()
 endif()
 
 # LIBS_TO_LINK for all platforms
-set( LIBS_TO_LINK ${HUNSPELL_LIBRARIES} ${PCRE2_LIBRARIES} ${GUMBO_LIBRARIES} ${MINIZIP_LIBRARIES}
+set( LIBS_TO_LINK ${HUNSPELL_LIBRARIES} ${PCRE2_LIBRARIES} ${GUMBO_LIBRARIES} ${LEXBOR_LIBRARIES} ${MINIZIP_LIBRARIES}
                   Qt6::Widgets  Qt6::Xml  Qt6::PrintSupport  Qt6::WebEngineCore  
                   Qt6::WebEngineWidgets  Qt6::Network  Qt6::Concurrent Qt6::Svg)
 

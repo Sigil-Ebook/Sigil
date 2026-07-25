@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2022-2025 Kevin B. Hendricks, Stratford, Ontario
+**  Copyright (C) 2022-2026 Kevin B. Hendricks, Stratford, Ontario
 **
 **  This file is part of Sigil.
 **
@@ -142,7 +142,7 @@ void ReplacementChooser::CreateTable()
         PythonRoutines pr;
         fsp = pr.SetupInitialFunctionSearchEnvInPython(functionname);
     }
-    SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
+    SPCRE *spcre = PCRECache::instance().getObject(search_regex);
     
     m_current_count = 0;
     foreach(Resource* resource, resources ) {

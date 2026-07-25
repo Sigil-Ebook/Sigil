@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016 Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2016-2026 Kevin B. Hendricks Stratford, ON, Canada 
 **
 **  This file is part of Sigil.
 **
@@ -30,24 +30,6 @@ static const QStringList MODIFICATION_ALIASES = QStringList() << "modified" << "
 static const QStringList CREATION_ALIASES     = QStringList() << "created"  << "creation";
 static const QStringList PUBLICATION_ALIASES  = QStringList() << "issued"   << "published" << "publication";
 static const QStringList SCHEME_LIST          = QStringList() << "ISBN" << "ISSN" << "DOI";
-
-QMutex HTMLMetadata::s_AccessMutex;
-HTMLMetadata *HTMLMetadata::m_Instance = NULL;
-
-HTMLMetadata *HTMLMetadata::Instance()
-{
-    // We use a static local variable
-    // to hold our singleton instance; using a pointer member
-    // variable creates problems with object destruction;
-    QMutexLocker locker(&s_AccessMutex);
-
-    if (m_Instance == 0) {
-        m_Instance = new HTMLMetadata();
-    }
-
-    return m_Instance;
-}
-
 
 
 // Processes metadata from inside xhtml files for the gui

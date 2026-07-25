@@ -113,11 +113,12 @@ Currently these projects include:
 * jQuery.ScrollTo-2.1.2 (src/Resource_Files/javascript/jquery.scrollTo-2.1.2.min.js)
 * MathJax.js Version 3.2.X [required minimum is 3.2.2]: (src/Resource_Files/polyfills)
 
-In addition, Sigil uses the following other packages that have been specifically
+In addition, Sigil uses the following other third party packages that have been specifically
 modified for use inside Sigil:
 
 * Beautiful Soup 4 (src/Resource_Files/plugin_launchers/sigil_bs4)
 * Sigil-gumbo based on Google's Gumbo Parser (internal/gumbo)
+* lexbor (css and core module) from https://github.com/lexbor/lexbor/ current master
 
 
 

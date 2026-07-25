@@ -311,8 +311,7 @@ void MessageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
 
 void VerifyPlugins()
 {
-    PluginDB *pdb = PluginDB::instance();
-    pdb->load_plugins_from_disk();
+    PluginDB::instance().load_plugins_from_disk();
 }
 
 
@@ -563,14 +562,13 @@ int main(int argc, char *argv[])
     app.installEventFilter(filter);
 
     // Set up embedded python integration first thing
-    EmbeddedPython* epython = EmbeddedPython::instance();
-    epython->addToPythonSysPath(epython->embeddedRoot());
-    epython->addToPythonSysPath(PluginDB::launcherRoot() + "/python");
+    EmbeddedPython::instance().addToPythonSysPath(EmbeddedPython::instance().embeddedRoot());
+    EmbeddedPython::instance().addToPythonSysPath(PluginDB::launcherRoot() + "/python");
     // Redirect re module to regex only if user opts in for now
     QString redirect_re = Utility::GetEnvironmentVar("SIGIL_EMBED_PY_USES_REGEX");
     if (!redirect_re.isEmpty()) {
         // Only run this after embeddedRoot is added to PythonSysPath
-        epython->setupRedirects();
+        EmbeddedPython::instance().setupRedirects();
     }
 
     try {
@@ -770,17 +768,14 @@ int main(int argc, char *argv[])
         // Create the required QWebEngineProfiles, Initialize the settings
         // just once, installing both URLInterceptor and URLSchemeHandler as needed
         // to bypass 2mb url limit (singleton)
-        WebProfileMgr* profile_mgr = WebProfileMgr::instance();
-        Q_UNUSED(profile_mgr);
+        WebProfileMgr::instance();
 
-	// Initialize the CodepintNames cache
+	// Initialize the CodepointNames cache
         // just once
-        CodepointNames* cpnames = CodepointNames::instance();
-        Q_UNUSED(cpnames);
+        CodepointNames::instance();
 
 	// Initialize the PrettyPrint settings properties
-        PrettyPrintProps* pp = PrettyPrintProps::instance();
-        Q_UNUSED(pp);
+        PrettyPrintProps::instance();
 
         // Needs to be created on the heap so that
         // the reply has time to return.
@@ -977,9 +972,9 @@ int main(int argc, char *argv[])
             widget->show();
             widget->activateWindow();
             app.exec();
-            // WebProfileMgr::instance()->FlushDiskCaches();
+            // WebProfileMgr::instance().FlushDiskCaches();
             // QCoreApplication::processEvents();
-            // WebProfileMgr::instance()->CleanUpForExit();
+            // WebProfileMgr::instance().CleanUpForExit();
             return 0;
         }
     } catch (std::exception &e) {

@@ -424,8 +424,8 @@ HTMLResource *Book::CreateEmptyNavFile(bool update_opf,
     HTMLResource * html_resource = qobject_cast<HTMLResource *>(resource);
     SettingsStore ss;
     QString defaultLanguage = ss.defaultMetadataLang();
-    QString navtitle = Landmarks::instance()->GetName("toc");
-    QString guidetitle = Landmarks::instance()->GetName("landmarks");
+    QString navtitle = Landmarks::instance().GetName("toc");
+    QString guidetitle = Landmarks::instance().GetName("landmarks");
     QString start = tr("Start");
     QString navtext = 
         EMPTY_NAV_FILE_START.arg(defaultLanguage).arg(defaultLanguage).arg(stylehref) +

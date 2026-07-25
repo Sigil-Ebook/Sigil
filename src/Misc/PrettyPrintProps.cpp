@@ -92,16 +92,6 @@ const QStringList TAGS_TO_PARSE = QStringList() << "indent_string" << "singlespa
 
 const QStringList BOOL_TRUE = QStringList() << "true" << "on" << "1" << "yes";
 
-PrettyPrintProps *PrettyPrintProps::m_instance = 0;
-
-
-PrettyPrintProps *PrettyPrintProps::instance()
-{
-    if (m_instance == 0) {
-        m_instance = new PrettyPrintProps();
-    }
-    return m_instance;
-}
 
 void PrettyPrintProps::ParsePrettyPrintXml()
 {

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2025 Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2025-2026 Kevin B. Hendricks, Stratford, ON, Canada
 **
 **  This file is part of Sigil.
 **
@@ -43,9 +43,9 @@ AddRoles::AddRoles(const QString& current_tag, QWidget *parent)
 
     // Fill the dialog with sorted translated role names
     QStringList names;
-    foreach (QString code, AriaRoles::instance()->GetAllCodes()) {
-        QStringList allowed_tags = AriaRoles::instance()->AllowedTags(code);
-        QString name = AriaRoles::instance()->GetName(code);
+    foreach (QString code, AriaRoles::instance().GetAllCodes()) {
+        QStringList allowed_tags = AriaRoles::instance().AllowedTags(code);
+        QString name = AriaRoles::instance().GetName(code);
         // Some translations are broken, add code in parentheses after translated name
         // To force them to be visually unique without having to read the entire Description
         name = name + " (" + code + ")";
@@ -68,7 +68,7 @@ void AddRoles::UpdateDescription(QListWidgetItem *current)
     QString text;
     QString code = m_Name2Code.value(current->text(), QString());
     if (!code.isEmpty()) {
-        text = AriaRoles::instance()->GetDescriptionByCode(code);
+        text = AriaRoles::instance().GetDescriptionByCode(code);
     }
     if (!text.isEmpty()) {
         ui.lbDescription->setText(text);
