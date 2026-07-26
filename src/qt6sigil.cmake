@@ -259,11 +259,11 @@ endif()
 
 get_target_property(QMAKE_EXECUTABLE Qt6::qmake LOCATION)
 function(QUERY_QMAKE VAR RESULT)
-    execute_process(COMMAND ${QMAKE_EXECUTABLE} -query "${VAR}" RETURN_VALUE return_code OUTPUT_VARIABLE output )
-    if(NOT return_code)
+    execute_process(COMMAND ${QMAKE_EXECUTABLE} -query ${VAR} RESULT_VARIABLE return_code OUTPUT_VARIABLE output )
+    if(return_code EQUAL 0 )
         file(TO_CMAKE_PATH "${output}" output)
         set(${RESULT} ${output} PARENT_SCOPE)
-    endif(NOT return_code)
+    endif(return_code EQUAL 0 )
 endfunction(QUERY_QMAKE)
 
 # For Mac, add frameworks and make a DMG
