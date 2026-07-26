@@ -166,7 +166,6 @@ if( APPLE )
     execute_process(COMMAND cp "${PROJECT_SOURCE_DIR}/Resource_Files/mac/MacOSXBundleInfo.plist" "${PROJECT_BINARY_DIR}" )
 
     # ...and set the Sigil version string
-    # execute_process(COMMAND bash -c "sed -i -e 's/SGVERSION/${SIGIL_FULL_VERSION}/g' \"${PROJECT_BINARY_DIR}/MacOSXBundleInfo.plist\"" )
     execute_process(COMMAND sed -i "" -e "s/SGVERSION/${SIGIL_FULL_VERSION}/g" "${PROJECT_BINARY_DIR}/MacOSXBundleInfo.plist" )
 endif()
 
@@ -260,7 +259,7 @@ endif()
 
 get_target_property(QMAKE_EXECUTABLE Qt6::qmake LOCATION)
 function(QUERY_QMAKE VAR RESULT)
-    execute_process(COMMAND ${QMAKE_EXECUTABLE} -query ${VAR} RETURN_VALUE return_code OUTPUT_VARIABLE output )
+    execute_process(COMMAND ${QMAKE_EXECUTABLE} -query "${VAR}" RETURN_VALUE return_code OUTPUT_VARIABLE output )
     if(NOT return_code)
         file(TO_CMAKE_PATH "${output}" output)
         set(${RESULT} ${output} PARENT_SCOPE)
