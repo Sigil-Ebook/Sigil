@@ -1,0 +1,76 @@
+--- css/syntax/tokenizer.h.orig	2026-06-15 17:02:01
++++ css/syntax/tokenizer.h	2026-07-05 09:52:50
+@@ -16,6 +16,8 @@
+ #include "lexbor/css/syntax/base.h"
+ #include "lexbor/css/syntax/token.h"
+ 
++/* Comment CallBack */
++    typedef void (*lxb_css_syntax_tokenizer_comment_f)(const lxb_css_syntax_token_t *token, void *uctx);
+ 
+ /* State */
+ typedef const lxb_char_t *
+@@ -51,6 +53,8 @@
+     lxb_status_t                       status;
+     bool                               with_comment;
+     bool                               with_unicode_range;
++    lxb_css_syntax_tokenizer_comment_f comment_cb;
++    void                               *uctx;    /* user specified context */
+ };
+ 
+ 
+--- css/syntax/tokenizer.c.orig	2026-06-15 15:23:05
++++ css/syntax/tokenizer.c	2026-07-05 09:51:34
+@@ -32,6 +32,9 @@
+                                               const lxb_char_t *end,
+                                               const lxb_char_t stop_ch);
+ 
++
++lxb_status_t lxb_css_syntax_tokenizer_comment_cb_f(const lxb_char_t *data, size_t len, void *uctx);
++
+ lxb_css_syntax_tokenizer_t *
+ lxb_css_syntax_tokenizer_create(void)
+ {
+@@ -91,7 +94,8 @@
+     tkz->with_unicode_range = false;
+     tkz->status = LXB_STATUS_OK;
+     tkz->opt = LXB_CSS_SYNTAX_TOKENIZER_OPT_UNDEF;
+-
++    tkz->comment_cb = NULL;
++    tkz->uctx = NULL;
+     return LXB_STATUS_OK;
+ }
+ 
+@@ -186,7 +190,12 @@
+ 
+     tkz->in_p = begin;
+ 
+-    if (token->type == LXB_CSS_SYNTAX_TOKEN_COMMENT && !tkz->with_comment) {
++    if (token->type == LXB_CSS_SYNTAX_TOKEN_COMMENT) {
++        if (tkz->with_comment) {
++            if (tkz->comment_cb) {
++                (*tkz->comment_cb)(token, tkz->uctx);
++            }
++        }
+         goto again;
+     }
+ 
+--- css/parser.c.orig	2026-07-05 09:53:15
++++ css/parser.c	2026-07-05 09:55:37
+@@ -95,6 +95,7 @@
+     parser->status = LXB_STATUS_OK;
+     parser->fake_null = false;
+     parser->token_end.type = LXB_CSS_SYNTAX_TOKEN__END;
+ 
+     return LXB_STATUS_OK;
++    parser->uctx = NULL; /* user context */
+ }
+--- css/parser.h.orig	2026-07-05 09:53:24
++++ css/parser.h	2026-07-05 09:54:44
+@@ -163,6 +163,7 @@
+     bool                                loop;
+     bool                                fake_null;
+     bool                                my_tkz;
+ 
+     lxb_status_t                        status;
++    void                                *uctx;  /* user context */
+ };
