@@ -909,6 +909,8 @@ css_consule_tokens(lxb_css_parser_t *parser,
             lxb_css_syntax_parser_consume(parser);
             token = lxb_css_syntax_parser_token(parser);
         }
+        /* but since raw there may be trailing whitespace that needs to be removed */
+        dbuf_rtrim(&actx->tkdata);
     }
 }
 

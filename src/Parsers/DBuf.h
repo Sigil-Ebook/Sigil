@@ -41,6 +41,18 @@ static char* dbuf_cstr(DBuf* src) {
     return cstr;
 }
 
+static void dbuf_rtrim(DBuf* str) {
+    size_t l = str->l;
+    while(l > 0) {
+        uint8_t c = str->d[l-1];
+        if ((c == ' ') || (c == '\t') || (c == '\r') || (c == '\n') || (c == '\f')) {
+            l = l - 1;
+        } else break;
+    }
+    str->l = l;
+    str->d[str->l] = '\0';
+}
+
 static void dbuf_free(DBuf *str) { if (str->d != NULL) free(str->d); str->d = NULL; str->l = 0; str->c = 0; }
 static void dbuf_null(DBuf* str) { str->d[0] = '\0'; str->l = 0; }
 static void dbuf_set(DBuf* str, char * text, size_t len) { dbuf_null(str); dbuf_cat(str, text, len); }
