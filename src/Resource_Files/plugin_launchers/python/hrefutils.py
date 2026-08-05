@@ -13,6 +13,7 @@ from urllib.parse import urlsplit
 # https://www.w3.org/publishing/epub3/epub-spec.html#sec-cmt-supported
 
 ext_mime_map = {
+    '.avif'  : 'image/avif',
     '.bm'    : 'image/bmp',
     '.bmp'   : 'image/bmp',
     '.css'   : 'text/css',
@@ -23,6 +24,7 @@ ext_mime_map = {
     '.jpeg'  : 'image/jpeg',
     '.jpg'   : 'image/jpeg',
     '.js'    : 'application/javascript',
+    '.jxl'   : 'image/jxl',
     '.m4a'   : 'audio/mp4',
     '.m4v'   : 'video/mp4',
     '.mp3'   : 'audio/mpeg',
@@ -66,6 +68,8 @@ mime_group_map = {
     'image/png'                               : 'Images',
     'image/gif'                               : 'Images',
     'image/svg+xml'                           : 'Images',
+    'image/jxl'                               : 'Images',
+    'image/avif'                              : 'Images',
     'image/bmp'                               : 'Images',  # not a core media type
     'image/tiff'                              : 'Images',  # not a core media type
     'image/webp'                              : 'Images',  # not a core media type
