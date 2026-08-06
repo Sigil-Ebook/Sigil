@@ -128,6 +128,9 @@
 #include "Tabs/TabManager.h"
 #include "MainUI/MainApplication.h"
 #include "Widgets/FileDropZone.h"
+#ifdef Q_OS_MAC  // allow MacOS to build its own recent files menu in dock
+extern void addFileToRecentDocs(const QString &filePath);
+#endif
 
 #define DWINGEO if(0)
 #define DBG if(0)
@@ -6099,7 +6102,9 @@ void MainWindow::UpdateUiWithCurrentFile(const QString &fullfilepath, bool just_
     const QString nativeFilePath = QDir::toNativeSeparators(m_CurrentFilePath);
     s_RecentFiles.removeAll(nativeFilePath);
     s_RecentFiles.prepend(nativeFilePath);
-
+#ifdef Q_OS_MAC  // allow MacOS to build its own recent files menu in dock
+    addFileToRecentDocs(nativeFilePath);
+#endif
     while (s_RecentFiles.size() > MAX_RECENT_FILES) {
         s_RecentFiles.removeLast();
     }

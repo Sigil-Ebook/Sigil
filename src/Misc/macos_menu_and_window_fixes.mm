@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019  Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2019-2026  Kevin B. Hendricks, Stratford, Ontario Canada
 **
 **  This file is part of Sigil.
 **
@@ -43,6 +43,16 @@ You may obtain a copy of the License at
 #import <AppKit/AppKit.h>
 #import <AppKit/NSWindow.h>
 #import <Availability.h>
+
+#import <Cocoa/Cocoa.h>
+#import <QString>
+
+// code snippet to use MacOS recent files in dock feature
+void addFileToRecentDocs(const QString &filePath) {
+    NSURL *fileUrl = [NSURL fileURLWithPath:filePath.toNSString()];
+    [[NSDocumentController sharedDocumentController] noteNewRecentDocumentURL:fileUrl];
+}
+
 
 // code taken from: https://www.mail-archive.com/interest@qt-project.org/msg23593.html
 // Disables auto window tabbing where supported, otherwise a no-op.
