@@ -158,6 +158,13 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
         AddLoadWarning(warning);
     }
 
+    // create warning if duplicate file paths exist in the manifest
+    if (!m_DuplicateFilePaths.isEmpty()) {
+        QString dupwarning = QObject::tr("The OPF manifest contains duplicate file paths. You should edit your OPF file's manifest to remove the duplication.");
+        dupwarning = dupwarning + SEP + m_DuplicateFilePaths.join("\n"); 
+        AddLoadWarning(dupwarning);
+    }
+
     LoadFolderStructure();
 
     const QList<Resource *> resources = m_Book->GetFolderKeeper()->GetResourceList();
@@ -872,9 +879,6 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
             } else {
                 if (!m_DuplicateFilePaths.contains(file_path)) {
                     m_DuplicateFilePaths << file_path;
-                    const QString load_warning = QObject::tr("The OPF manifest contains duplicate file paths for: %1").arg(file_path) +
-                  " - " + QObject::tr("You should edit your OPF file's manifest to remove the duplication.");
-                    AddLoadWarning(load_warning);
                 }
             }
         } else {
