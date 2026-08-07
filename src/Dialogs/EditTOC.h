@@ -85,6 +85,7 @@ private:
     void AddEntryToParentItem(const TOCModel::TOCEntry &entry, QStandardItem *parent, int level);
 
     void ExpandChildren(QStandardItem *item);
+    void ReselectAndExpandItems(const QList<QStandardItem*> &items);
 
     void CreateContextMenuActions();
     void SetupContextMenu(const QPoint &point);

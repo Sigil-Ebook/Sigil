@@ -161,6 +161,30 @@ void EditTOC::ExpandChildren(QStandardItem *item)
     ui.TOCTree->expand(item->index());
 }
 
+void EditTOC::ReselectAndExpandItems(const QList<QStandardItem*> &items)
+{
+    // Reselect the now moved items
+    ui.TOCTree->selectionModel()->clear();
+    QItemSelection nselection;
+    foreach (QStandardItem* item, items) {
+        QModelIndex index = item->index();
+        if (index.isValid()) {
+            int row = item->row();
+            QModelIndex parent_index = index.parent();
+            QModelIndex topleft = m_TableOfContents->index(row, 0, parent_index);
+            QModelIndex bottomright = m_TableOfContents->index(row, 1, parent_index);
+            QItemSelection aselection;
+            aselection.select(topleft, bottomright);
+            nselection.merge(aselection,QItemSelectionModel::Select);
+        }
+    }
+    ui.TOCTree->selectionModel()->select(nselection, QItemSelectionModel::Select | QItemSelectionModel::Current);
+    // Expand Children
+    foreach(QStandardItem* item, items) {
+        ExpandChildren(item);
+    }
+}
+
 void EditTOC::MoveLeft()
 {
     if (!ui.TOCTree->selectionModel()->hasSelection()) {
@@ -168,12 +192,9 @@ void EditTOC::MoveLeft()
     }
     QList<QStandardItem*> moved_items;
     QItemSelection selection = ui.TOCTree->selectionModel()->selection();
-    for (const QItemSelectionRange& arange : selection) {
-        qDebug() << "original ranges: " << arange.parent().row() << arange.top() << arange.bottom();
-    }
+
     for(int i = selection.size()-1; i >= 0; i--) {
         QItemSelectionRange range = selection.at(i);
-        qDebug() << "new range: " << range.parent().row() << range.top() << range.bottom();
         QModelIndex parent = range.parent();
         if (!parent.isValid()) continue;
 
@@ -190,7 +211,12 @@ void EditTOC::MoveLeft()
         int row_to_take = top_row;
         int row_to_put = parent_row + 1;
         for (int r = top_row; r <= bottom_row; r++) {
-#if 0        
+
+#if 0
+            // given we are selecting and moving full rows, this should NOT be needed
+            // but was in the original code for some reason, keep until after testing
+            // is complete then discard if truly not needed
+            
             QModelIndex index = m_TableOfContents->index(r, 0, parent);
             if (!index.isValid()) continue;
             QStandardItem* item = m_TableOfContents->itemFromIndex(index);
@@ -201,11 +227,9 @@ void EditTOC::MoveLeft()
                 item->setChild(row_count, 0, row_items[0]);
                 item->setChild(row_count, 1, row_items[1]);
             }
- #endif           
+#endif
             // Make child of grandparent
             QList<QStandardItem *> row_items = parent_item->takeRow(row_to_take);
-            // grandparent_item->insertRow(parent_row+1, row_items);
-            // QModelIndex new_item_index = grandparent_item->child(parent_row + 1)->index();
             grandparent_item->insertRow(row_to_put, row_items);
             QStandardItem* new_item = grandparent_item->child(row_to_put);
             moved_items << new_item;
@@ -213,29 +237,8 @@ void EditTOC::MoveLeft()
         }
     }
     
-    // Reselect the now moved items
-    ui.TOCTree->selectionModel()->clear();
-    QItemSelection nselection;
-    foreach (QStandardItem* item, moved_items) {
-        QModelIndex index = item->index();
-        if (index.isValid()) {
-            int row = item->row();
-            QModelIndex parent_index = index.parent();
-            QModelIndex topleft = m_TableOfContents->index(row, 0, parent_index);
-            QModelIndex bottomright = m_TableOfContents->index(row, 1, parent_index);
-            QItemSelection aselection;
-            aselection.select(topleft, bottomright);
-            nselection.merge(aselection,QItemSelectionModel::Select);
-        }
-    }
-    ui.TOCTree->selectionModel()->select(nselection, QItemSelectionModel::Select | QItemSelectionModel::Current);
-    // Expand Children
-    foreach(QStandardItem* item, moved_items) {
-        ExpandChildren(item);
-    }
-    // ExpandChildren(grandparent_item->child(parent_row + 1));
+    ReselectAndExpandItems(moved_items);
 }
-
 
 void EditTOC::MoveRight()
 {
@@ -250,8 +253,6 @@ void EditTOC::MoveRight()
         if (!parent_item) {
             parent_item = m_TableOfContents->invisibleRootItem();
         }
-        // int leftColumn = range.left();
-        // int rightColumn = range.right();
         int top_row = range.top();
         int bottom_row = range.bottom();
         if (top_row == 0) continue;
@@ -266,26 +267,7 @@ void EditTOC::MoveRight()
             moved_items << new_item;
         }
     }
-    // Reselect the now moved items
-    ui.TOCTree->selectionModel()->clear();
-    QItemSelection nselection;
-    foreach(QStandardItem* item, moved_items) {
-        QModelIndex index = item->index();
-        if (index.isValid()) {
-            int row = item->row();
-            QModelIndex parent_index = index.parent();
-            QModelIndex topleft = m_TableOfContents->index(row, 0, parent_index);
-            QModelIndex bottomright = m_TableOfContents->index(row, 1, parent_index);
-            QItemSelection aselection;
-            aselection.select(topleft, bottomright);
-            nselection.merge(aselection,QItemSelectionModel::Select);
-        }
-    }
-    ui.TOCTree->selectionModel()->select(nselection, QItemSelectionModel::Select | QItemSelectionModel::Current);
-    // Expand Children
-    foreach(QStandardItem* item, moved_items) {
-        ExpandChildren(item);
-    }
+    ReselectAndExpandItems(moved_items);
 }
 
 void EditTOC::MoveUp()
@@ -304,7 +286,6 @@ void EditTOC::MoveUp()
                 parent_item = m_TableOfContents->invisibleRootItem();
             }
             int item_row = item->row();
-
             // Can't move up if this row is already the top one
             if (item_row == 0) continue;
 
@@ -313,26 +294,7 @@ void EditTOC::MoveUp()
             moved_items << item;        
         }
     }
-    // Reselect the now moved items
-    ui.TOCTree->selectionModel()->clear();
-    QItemSelection nselection;
-    foreach(QStandardItem* item, moved_items) {
-        QModelIndex index = item->index();
-        if (index.isValid()) {
-            int row = item->row();
-            QModelIndex parent_index = index.parent();
-            QModelIndex topleft = m_TableOfContents->index(row, 0, parent_index);
-            QModelIndex bottomright = m_TableOfContents->index(row, 1, parent_index);
-            QItemSelection aselection;
-            aselection.select(topleft, bottomright);
-            nselection.merge(aselection,QItemSelectionModel::Select);
-        }
-    }
-    ui.TOCTree->selectionModel()->select(nselection, QItemSelectionModel::Select | QItemSelectionModel::Current);
-    // Expand Children
-    foreach(QStandardItem* item, moved_items) {
-        ExpandChildren(item);
-    }
+    ReselectAndExpandItems(moved_items);
 }
 
 void EditTOC::MoveDown()
@@ -360,26 +322,7 @@ void EditTOC::MoveDown()
             moved_items << item;
         }
     }
-    // Reselect the now moved items
-    ui.TOCTree->selectionModel()->clear();
-    QItemSelection nselection;
-    foreach(QStandardItem* item, moved_items) {
-        QModelIndex index = item->index();
-        if (index.isValid()) {
-            int row = item->row();
-            QModelIndex parent_index = index.parent();
-            QModelIndex topleft = m_TableOfContents->index(row, 0, parent_index);
-            QModelIndex bottomright = m_TableOfContents->index(row, 1, parent_index);
-            QItemSelection aselection;
-            aselection.select(topleft, bottomright);
-            nselection.merge(aselection,QItemSelectionModel::Select);
-        }
-    }
-    ui.TOCTree->selectionModel()->select(nselection, QItemSelectionModel::Select | QItemSelectionModel::Current);
-    // Expand Children
-    foreach(QStandardItem* item, moved_items) {
-        ExpandChildren(item);
-    }
+    ReselectAndExpandItems(moved_items);
 }
 
 void EditTOC::AddEntryAbove()
