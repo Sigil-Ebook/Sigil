@@ -984,7 +984,7 @@ void MetaEditor::loadMetadataElements()
          tr("Custom Element") << "custom-element" << tr("An empty metadata element you can modify.")  << 
          tr("Meta Element (primary)") << "meta" << tr("An empty primary metadata element you can modify.");
     for (int i = 0; i < data.count(); i++) {
-        QString name = data.at(i++);
+        QString name = data.at(i++).trimmed();
         QString code = data.at(i++);
         QString description = data.at(i);
         DescriptiveInfo minfo;
@@ -1032,7 +1032,7 @@ void MetaEditor::loadMetadataProperties()
         tr("Custom Property") << "custom-property" << tr("An empty metadata property or attribute you can modify.");
 
     for (int i = 0; i < data.count(); i++) {
-        QString name = data.at(i++);
+        QString name = data.at(i++).trimmed();
         QString code = data.at(i++);
         QString description = data.at(i);
         DescriptiveInfo minfo;
@@ -1062,7 +1062,7 @@ void MetaEditor::loadMetadataXProperties()
         tr("Collection Type") << "collection-type" << tr("Property used with belongs-to-collection. Indicates the form or nature of a collection.") <<
         tr("Source of") << "source-of" << tr("Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication.");
     for (int i = 0; i < data.count(); i++) {
-        QString name = data.at(i++);
+        QString name = data.at(i++).trimmed();
         QString code = data.at(i++);
         QString description = data.at(i);
         DescriptiveInfo minfo;
@@ -1097,7 +1097,7 @@ void MetaEditor::loadE2MetadataXProperties()
         tr("Universally Unique Identifier") << "UUID"  << tr("Identifier Scheme: Universally Unique Identifier") <<
         tr("Amazon Unique Identifier") <<  "AMAZON" << tr("Identifier Scheme: Amazon Unique Identifier");
     for (int i = 0; i < data.count(); i++) {
-        QString name = data.at(i++);
+        QString name = data.at(i++).trimmed();
         QString code = data.at(i++);
         QString description = data.at(i);
         DescriptiveInfo minfo;
@@ -1153,7 +1153,7 @@ void MetaEditor::loadE2MetadataElements()
          tr("Custom Element") << "custom-element" << tr("An empty element for you to modify");
 
     for (int i = 0; i < data.count(); i++) {
-        QString name = data.at(i++);
+        QString name = data.at(i++).trimmed();
         QString code = data.at(i++);
         QString description = data.at(i);
         DescriptiveInfo meta;
@@ -1187,7 +1187,7 @@ void MetaEditor::loadE2MetadataProperties()
          tr("Custom Attribute") << "custom-property" << tr("An empty metadata attribute you can modify.");
 
     for (int i = 0; i < data.count(); i++) {
-        QString name = data.at(i++);
+        QString name = data.at(i++).trimmed();
         QString code = data.at(i++);
         QString description = data.at(i);
         DescriptiveInfo minfo;
