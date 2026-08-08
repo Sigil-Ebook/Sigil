@@ -238,6 +238,11 @@ void AdjustImage::saveToReverseHistory(QImage imageToSave)
 
 void AdjustImage::resizeImage(int targetW, int targetH)
 {
+    // no size change so don't record a history step or rescale the image
+    if (targetW == m_image.width() && targetH == m_image.height()) {
+        return;
+    }
+
     saveToHistoryWithClear(m_image);
     QPixmap pixmap(m_imageLabel->pixmap());
     pixmap = pixmap.scaled(targetW, targetH, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
@@ -363,7 +368,8 @@ void AdjustImage::toggleFullscreen()
 
 void AdjustImage::doResizeImage()
 {
-    saveToHistoryWithClear(m_image);
+    // only record history once the resize is actually applied in resizeImage()
+    // so canceling the dialog leaves the undo/redo stacks untouched
     int width = m_image.width();
     int height = m_image.height();
     ImageResizeDialog dlg(width, height, this);
