@@ -24,12 +24,13 @@
 #ifndef EDITTOC_H
 #define EDITTOC_H
 
-#include <QtCore/QList>
-#include <QtCore/QSharedPointer>
-#include <QtWidgets/QDialog>
-#include <QtGui/QStandardItemModel>
+#include <QList>
+#include <QSharedPointer>
+#include <QDialog>
+#include <QStandardItemModel>
+#include <QModelIndex>
 #include <QAction>
-#include <QtWidgets/QMenu>
+#include <QMenu>
 #include <QPointer>
 
 #include "MainUI/TOCModel.h"
@@ -46,12 +47,20 @@ class EditTOC : public QDialog
 {
     Q_OBJECT
 
+
+    struct ContiguousRange {
+        QModelIndex parent;
+        int startRow;
+        int endRow;
+    };
+
 public:
 
     EditTOC(QSharedPointer<Book> book, QList<Resource *> resources, QWidget *parent = 0);
 
     ~EditTOC();
 
+        
 protected:
     bool eventFilter(QObject *obj, QEvent *event);
 
@@ -74,9 +83,10 @@ private slots:
     void OpenContextMenu(const QPoint &point);
     
 private:
+    QList<ContiguousRange> getContiguousRanges(const QList<QStandardItem*> &items);
+
     void AddEntry(bool above);
     QModelIndex CheckSelection(int row);
-    QModelIndexList CheckSelections();
 
     TOCModel::TOCEntry ConvertTableToEntries();
     TOCModel::TOCEntry ConvertItemToEntry(QStandardItem *item);
