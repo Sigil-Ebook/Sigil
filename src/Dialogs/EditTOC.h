@@ -83,6 +83,8 @@ private slots:
     void OpenContextMenu(const QPoint &point);
     
 private:
+    void StructureUserSelections();
+    
     QList<ContiguousRange> getContiguousRanges(const QList<QStandardItem*> &items);
 
     void AddEntry(bool above);

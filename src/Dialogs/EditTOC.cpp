@@ -163,6 +163,37 @@ void EditTOC::ExpandChildren(QStandardItem *item)
     ui.TOCTree->expand(item->index());
 }
 
+// Users can select a range of contiguous cells in many ways
+// but Qt's internal selction mechanism does NOT try to group selections into ranges
+// that did not start that way.  This causes broken editing of the TOC
+// Prevent this by always structuring the user's selection to grow contiguous
+// ranges so this code can work correctly
+void EditTOC::StructureUserSelections()
+{
+    if (!ui.TOCTree->selectionModel()->hasSelection()) return;
+
+    QModelIndexList selected_indexes = ui.TOCTree->selectionModel()->selectedRows();
+    QList<QStandardItem*> items_selected;
+    foreach(QModelIndex index, selected_indexes) {
+        if (index.isValid()) {
+            QStandardItem *item = m_TableOfContents->itemFromIndex(index);
+            items_selected << item;
+        }
+    }
+    QItemSelection nselection;
+    QList<EditTOC::ContiguousRange>SelectedRanges = getContiguousRanges(items_selected);
+    ui.TOCTree->selectionModel()->clear();
+    foreach(const EditTOC::ContiguousRange& arange, SelectedRanges) {
+        QModelIndex parent_index = arange.parent;
+        QModelIndex topleft = m_TableOfContents->index(arange.startRow, 0, parent_index);
+        QModelIndex bottomright = m_TableOfContents->index(arange.endRow, 1, parent_index);
+        QItemSelection aselection;
+        aselection.select(topleft, bottomright);
+        nselection.merge(aselection,QItemSelectionModel::Select);
+    }
+    ui.TOCTree->selectionModel()->select(nselection, QItemSelectionModel::Select);
+}
+
 void EditTOC::ReselectAndExpandItems(const QList<QStandardItem*> &items)
 {
     // Reselect the now moved items
@@ -239,6 +270,7 @@ void EditTOC::MoveLeft()
         return;
     }
     QList<QStandardItem*> moved_items;
+    StructureUserSelections();
     QItemSelection selection = ui.TOCTree->selectionModel()->selection();
 
     for(int i = selection.size()-1; i >= 0; i--) {
@@ -294,6 +326,7 @@ void EditTOC::MoveRight()
         return;
     }
     QList<QStandardItem*> moved_items;
+    StructureUserSelections();
     QItemSelection selection = ui.TOCTree->selectionModel()->selection();
     for (const QItemSelectionRange& range : selection) {
         QModelIndex parent = range.parent();
@@ -320,15 +353,16 @@ void EditTOC::MoveRight()
 
 void EditTOC::MoveUp()
 {
-    qDebug() << "In MoveUp with hasSelection: " << ui.TOCTree->selectionModel()->hasSelection();
+    // qDebug() << "In MoveUp with hasSelection: " << ui.TOCTree->selectionModel()->hasSelection();
     if (!ui.TOCTree->selectionModel()->hasSelection()) {
         return;
     }
-    QItemSelection selection = ui.TOCTree->selectionModel()->selection();
-    for (const QItemSelectionRange& range: selection) {
-        qDebug() << "range: " << range.parent().row() << range.top() << range.bottom();
-    }
     QList<QStandardItem*> moved_items;
+    StructureUserSelections();
+    QItemSelection selection = ui.TOCTree->selectionModel()->selection();
+    // for (const QItemSelectionRange& range: selection) {
+    //     qDebug() << "range: " << range.parent().row() << range.top() << range.bottom();
+    // }
     for (const QItemSelectionRange& range : selection) {
         QModelIndex parent = range.parent();
 	    QStandardItem *parent_item = m_TableOfContents->itemFromIndex(parent);
@@ -356,15 +390,16 @@ void EditTOC::MoveUp()
 
 void EditTOC::MoveDown()
 {
-    qDebug() << "In MoveDown with hasSelection: " << ui.TOCTree->selectionModel()->hasSelection();
+    // qDebug() << "In MoveDown with hasSelection: " << ui.TOCTree->selectionModel()->hasSelection();
     if (!ui.TOCTree->selectionModel()->hasSelection()) {
         return;
     }
-    QItemSelection selection = ui.TOCTree->selectionModel()->selection();
-    for (const QItemSelectionRange& range: selection) {
-        qDebug() << "range: " << range.parent().row() << range.top() << range.bottom();
-    }
     QList<QStandardItem*> moved_items;
+    StructureUserSelections();
+    QItemSelection selection = ui.TOCTree->selectionModel()->selection();
+    // for (const QItemSelectionRange& range: selection) {
+    //     qDebug() << "range: " << range.parent().row() << range.top() << range.bottom();
+    // }
     for (const QItemSelectionRange& range : selection) {
         QModelIndex parent = range.parent();
         QStandardItem *parent_item = m_TableOfContents->itemFromIndex(parent);
