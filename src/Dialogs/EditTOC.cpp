@@ -273,6 +273,19 @@ void EditTOC::MoveLeft()
     StructureUserSelections();
     QItemSelection selection = ui.TOCTree->selectionModel()->selection();
 
+    // first walk selection to see if any items at at the boundary and abort the move
+    // Can't move left if you are already a direct child of the root (parent index is invalid)
+    bool at_boundary = false;
+    for(int i = selection.size()-1; i >= 0; i--) {
+        QItemSelectionRange range = selection.at(i);
+        QModelIndex parent = range.parent();
+        if (!parent.isValid()) {
+            at_boundary = true;
+            break;
+        }
+    }
+    if (at_boundary) return;
+
     for(int i = selection.size()-1; i >= 0; i--) {
         QItemSelectionRange range = selection.at(i);
         QModelIndex parent = range.parent();
@@ -291,23 +304,6 @@ void EditTOC::MoveLeft()
         int row_to_take = top_row;
         int row_to_put = parent_row + 1;
         for (int r = top_row; r <= bottom_row; r++) {
-
-#if 0
-            // given we are selecting and moving full rows, this should NOT be needed
-            // but was in the original code for some reason, keep until after testing
-            // is complete then discard if truly not needed
-            
-            QModelIndex index = m_TableOfContents->index(r, 0, parent);
-            if (!index.isValid()) continue;
-            QStandardItem* item = m_TableOfContents->itemFromIndex(index);
-            // Make siblings following the entry into children
-            while (row + 1 < parent_item->rowCount()) {
-                QList<QStandardItem *> row_items = parent_item->takeRow(row + 1);
-                int row_count = item->rowCount();
-                item->setChild(row_count, 0, row_items[0]);
-                item->setChild(row_count, 1, row_items[1]);
-            }
-#endif
             // Make child of grandparent
             QList<QStandardItem *> row_items = parent_item->takeRow(row_to_take);
             grandparent_item->insertRow(row_to_put, row_items);
@@ -328,6 +324,18 @@ void EditTOC::MoveRight()
     QList<QStandardItem*> moved_items;
     StructureUserSelections();
     QItemSelection selection = ui.TOCTree->selectionModel()->selection();
+
+    // first walk selection to see if any items at at the boundary and abort the move
+    // Can't move right (indent) if row above you is already your parent
+    bool at_boundary = false;
+    for (const QItemSelectionRange& range : selection) {
+        if (range.top() == 0) {
+            at_boundary = true;
+            break;
+        }
+    }
+    if (at_boundary) return;
+    
     for (const QItemSelectionRange& range : selection) {
         QModelIndex parent = range.parent();
         QStandardItem *parent_item = m_TableOfContents->itemFromIndex(parent);
@@ -363,6 +371,18 @@ void EditTOC::MoveUp()
     // for (const QItemSelectionRange& range: selection) {
     //     qDebug() << "range: " << range.parent().row() << range.top() << range.bottom();
     // }
+
+    // first walk selection to see if any items at at the boundary and abort the move
+    // Can't move up if this row is already the top most row of its parent
+    bool at_boundary = false;
+    for (const QItemSelectionRange& range : selection) {
+        if (range.top() == 0) {
+            at_boundary	= true;
+            break;
+	    }
+    }
+    if (at_boundary) return;
+    
     for (const QItemSelectionRange& range : selection) {
         QModelIndex parent = range.parent();
 	    QStandardItem *parent_item = m_TableOfContents->itemFromIndex(parent);
@@ -400,6 +420,23 @@ void EditTOC::MoveDown()
     // for (const QItemSelectionRange& range: selection) {
     //     qDebug() << "range: " << range.parent().row() << range.top() << range.bottom();
     // }
+
+    // first walk selection to see if any items at the boundary and abort the move
+    // can't move down if this row is already the last one of its parent
+    bool at_boundary = false;
+    for (const QItemSelectionRange& range : selection) {
+        QModelIndex parent = range.parent();
+        QStandardItem *parent_item = m_TableOfContents->itemFromIndex(parent);
+        if (!parent_item) {
+            parent_item = m_TableOfContents->invisibleRootItem();
+        }
+        if (range.bottom() == parent_item->rowCount() - 1) {
+            at_boundary = true;
+            break;
+        }
+    }
+    if (at_boundary) return;
+
     for (const QItemSelectionRange& range : selection) {
         QModelIndex parent = range.parent();
         QStandardItem *parent_item = m_TableOfContents->itemFromIndex(parent);
