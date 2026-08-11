@@ -83,6 +83,8 @@ private slots:
     void OpenContextMenu(const QPoint &point);
     
 private:
+
+    void sortItemSelectionRanges(QTreeView* treeView, QItemSelection& selection);
     void StructureUserSelections();
     
     QList<ContiguousRange> getContiguousRanges(const QList<QStandardItem*> &items);
