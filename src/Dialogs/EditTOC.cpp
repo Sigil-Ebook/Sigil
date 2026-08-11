@@ -335,8 +335,18 @@ void EditTOC::MoveRight()
         }
     }
     if (at_boundary) return;
-    
-    for (const QItemSelectionRange& range : selection) {
+#if 0
+    for (const QItemSelectionRange& range: selection) {
+        qDebug() << "original range order: " << range.parent().row() << range.top() << range.bottom();
+    }
+#endif
+    // Note:  When moving right ... 
+    //        children MUST be moved BEFORE their original parent or the subsequent range gets invalidated
+    //        even though those Qt ranges use QPersistentIndexes and should auto update!
+    // So walk those ranges in reverse order
+    for(int i = selection.size()-1; i >= 0; i--) {
+        QItemSelectionRange range = selection.at(i);
+        // qDebug() << "actual range: " << range.parent().row() << range.top() << range.bottom();
         QModelIndex parent = range.parent();
         QStandardItem *parent_item = m_TableOfContents->itemFromIndex(parent);
         if (!parent_item) {
