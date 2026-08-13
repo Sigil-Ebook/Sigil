@@ -33,6 +33,8 @@
 #include <QTransform>
 #include <QDebug>
 #include <QFileInfo>
+#include <QFile>
+#include <QLocale>
 #include <QImageWriter>
 #include <QInputDialog>
 #include <QKeySequence>
@@ -97,6 +99,8 @@ AdjustImage::AdjustImage(const QString filepath, const QString& mediatype,  QWid
     setWindowTitle(tr("Adjust Image"));
     if (!filepath.isEmpty()) {
         m_fileName = filepath;
+        m_ffsize = QFile(m_fileName).size() / 1024.0;
+        m_fsize =  QLocale().toString(m_ffsize, 'f', 2);
         m_image = QImage(m_fileName);
         if (m_image.isNull()) {
              QMessageBox::information(this,
@@ -178,7 +182,7 @@ void AdjustImage::UpdateImageDescription()
     } else if (m_image.depth() > 0) {
         colorsInfo = QString(" %1bpp (%2 %3)").arg(m_image.bitPlaneCount()).arg(m_image.colorCount()).arg(colors_shades);
     }
-    QString description = QString("(%1px × %2px) %3%4").arg(m_image.width()).arg(m_image.height()).arg(grayscale_color).arg(colorsInfo);
+    QString description = QString("(%1px × %2px) %3 KB  %4%5").arg(m_image.width()).arg(m_image.height()).arg(m_fsize).arg(grayscale_color).arg(colorsInfo);
     m_description->setText(description);
 }
 
@@ -431,6 +435,8 @@ void AdjustImage::doSave()
         bool success = writer.write(m_image);
         if (success) {
             m_statusBar->showMessage(tr("Image successfully saved."));
+            m_ffsize = QFile(m_fileName).size() / 1024.0;
+            m_fsize =  QLocale().toString(m_ffsize, 'f', 2);
         } else {
             m_statusBar->showMessage(tr("Image save failed: ") + writer.errorString() );
         }
