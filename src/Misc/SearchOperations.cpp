@@ -157,7 +157,9 @@ int SearchOperations::ReplaceHTMLInFile(const QString &search_regex,
     QString new_text;
     QString text = html_resource->GetText();
     std::tie(new_text, count) = PerformGlobalReplace(text, search_regex, replacement);
-    html_resource->SetText(new_text);
+    if (new_text != text) {
+        html_resource->SetText(new_text);
+    }
     return count;
  }
 
@@ -171,7 +173,9 @@ int SearchOperations::ReplaceTextInFile(const QString &search_regex,
     QString new_text;
     QString text = text_resource->GetText();
     std::tie(new_text, count) = PerformGlobalReplace(text, search_regex, replacement);
-    text_resource->SetText(new_text);
+    if (new_text != text) {
+        text_resource->SetText(new_text);
+    }
     return count;
 }
 
@@ -252,12 +256,16 @@ int SearchOperations::FunctionReplaceInAllFiles(const QString &search_regex,
             QWriteLocker locker(&html_resource->GetLock());
             QString text = html_resource->GetText();
             QString new_text = pr.DoFunctionSearchTextReplacementsInPython(fsp, search_regex, bookpath, text);
-            html_resource->SetText(new_text);
+            if (new_text != text) {
+                html_resource->SetText(new_text);
+            }
         } else if (text_resource) {
             QWriteLocker locker(&text_resource->GetLock());
             QString text = text_resource->GetText();
             QString new_text = pr.DoFunctionSearchTextReplacementsInPython(fsp, search_regex, bookpath, text);
-            text_resource->SetText(new_text);
+            if (new_text != text) {
+                text_resource->SetText(new_text);
+            }
         }
     }
     int count = pr.GetCurrentReplacementCountInPython(fsp);
