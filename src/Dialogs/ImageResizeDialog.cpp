@@ -5,13 +5,13 @@
 
 ImageResizeDialog::ImageResizeDialog(int initialW, int initialH, QWidget *parent)
     : QDialog(parent), ratio((double)initialW / initialH) {
-    setWindowTitle("Resize Image");
+    setWindowTitle(tr("Resize Image"));
 
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     
     // Width Input
     QHBoxLayout *wLayout = new QHBoxLayout();
-    wLayout->addWidget(new QLabel("Width:"));
+    wLayout->addWidget(new QLabel(tr("Width:")));
     widthSpin = new QSpinBox();
     widthSpin->setRange(1, 10000);
     widthSpin->setValue(initialW);
@@ -20,7 +20,7 @@ ImageResizeDialog::ImageResizeDialog(int initialW, int initialH, QWidget *parent
 
     // Height Input
     QHBoxLayout *hLayout = new QHBoxLayout();
-    hLayout->addWidget(new QLabel("Height:"));
+    hLayout->addWidget(new QLabel(tr("Height:")));
     heightSpin = new QSpinBox();
     heightSpin->setRange(1, 10000);
     heightSpin->setValue(initialH);
@@ -28,14 +28,14 @@ ImageResizeDialog::ImageResizeDialog(int initialW, int initialH, QWidget *parent
     mainLayout->addLayout(hLayout);
 
     // Aspect Ratio Checkbox
-    aspectCheck = new QCheckBox("Keep Aspect Ratio");
+    aspectCheck = new QCheckBox(tr("Keep Aspect Ratio"));
     aspectCheck->setChecked(true);
     mainLayout->addWidget(aspectCheck);
 
     // Standard Buttons (OK/Cancel)
     QHBoxLayout *btnLayout = new QHBoxLayout();
-    QPushButton *okBtn = new QPushButton("OK");
-    QPushButton *cancelBtn = new QPushButton("Cancel");
+    QPushButton *okBtn = new QPushButton(tr("OK"));
+    QPushButton *cancelBtn = new QPushButton(tr("Cancel"));
     btnLayout->addStretch();
     btnLayout->addWidget(okBtn);
     btnLayout->addWidget(cancelBtn);
