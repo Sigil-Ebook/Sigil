@@ -3,13 +3,32 @@ Sigil-next
      - remove outdated CSS parser and replace it with a modern spec-compliant Lexbor based css parser.
          See https://github.com/lexbor/lexbor. Note: Required upstream changes have been approved
          but are waiting to be merged until other changes requiring a major update are needed
-         (ie size of parser and tokenizer structures needed to grow).  So do NOT replace our
-         internal version of lexbor with an your version of lexbor as it will currently not work.
-         We will keep it internal with our own patches and statically linked to prevent dll issues
+         (ie size of parser and tokenizer structures needed to grow breaking the ABI).  So do *NOT*
+         replace our internal version of lexbor with a released lexbor version as it will currently
+         not work. We will keep it internal with our own patches and statically linked to prevent dll issues
          until those requested changes are properly upstreamed.
          
      - improve bulk addition speed of AddExisting/Drop Zone when replacing already existing images
          by directly using file write with truncation and thereby never touching the opf
+     - speed up Bookbrowser Refresh by bulk adding and removal items. (contributed by rinne1998)
+     - try to allow Sigil dock recent items on  macOS platform
+     - allow multiple selection in the TOC Editor to speed larger changes.
+     - add image initial size to Sigil"s Image tab.
+
+   Bug Fixes
+     - move all singleton C++ classes to use the Meyers form to fix leaks, bugs, and speed startup
+     - prevent leak in Python redirect (contributed by rinne1998)
+     - fix BookBrowser drag and drop errors with non-contiguos selections.
+     - remove use of deprecated cmake features in build process
+     - add code for future support of image/jxf and image/avif formats per epub3.4 spec
+         but neither is directly supported by Qt or QtWebEngine (yet).
+     - group all duplicate manifest entry warnings into a single epub load warning.
+     - fix image editor undo history on resize dialog (contributed by rinne1998)
+     - fix missing translations for the Image Resize dialog (contributed by BeckyDTP)
+     - make sure css templates content survives other imports
+     - avoid unchanged search resource rewrites to prevent undo history being lost (contributed by rinne1998)
+
+
 
 Sigil 2.8.1
    Bug Fixes
