@@ -365,6 +365,7 @@ HTMLResource *Book::CreateEmptyHTMLFile(const QString &folderpath)
         data = CleanSource::Mend(Utility::ReadUnicodeTextFile(template_path), version);
     }
     html_resource->SetText(data);
+    html_resource->SaveToDisk();
     SetModified(true);
     return html_resource;
 }
