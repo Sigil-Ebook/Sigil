@@ -1,4 +1,4 @@
-Sigil-next
+Sigil-2.8.5-beta
    New Features
      - remove outdated CSS parser and replace it with a modern spec-compliant Lexbor based css parser.
          See https://github.com/lexbor/lexbor. Note: Required upstream changes have been approved
