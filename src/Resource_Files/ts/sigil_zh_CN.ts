@@ -283,74 +283,74 @@
         <translation>缩放图像以适应</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="97"/>
-        <location filename="../../Widgets/AdjustImage.cpp" line="103"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="99"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="107"/>
         <source>Adjust Image</source>
         <translation>调整图像</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="104"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="108"/>
         <source>Cannot load %1.</source>
         <translation>无法加载 %1。</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="173"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="177"/>
         <source>shades</source>
         <translation>渐变</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="173"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="177"/>
         <source>colors</source>
         <translation>颜色</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="174"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="178"/>
         <source>Grayscale</source>
         <translation>灰度</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="174"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="178"/>
         <source>Color</source>
         <translation>颜色</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="329"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="338"/>
         <source>(x,y) coordinates:</source>
         <translation>(x,y) 坐标：</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="329"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="338"/>
         <source>Zoom</source>
         <translation>缩放</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="398"/>
-        <location filename="../../Widgets/AdjustImage.cpp" line="427"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="408"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="437"/>
         <source>Image successfully saved.</source>
         <translation>成功保存了图像</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="400"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="410"/>
         <source>Image save failed.</source>
         <translation>图像保存失败</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="411"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="421"/>
         <source>Image Quality</source>
         <translation>图像质量</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="412"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="422"/>
         <source>Enter quality level (0-100):</source>
         <translation>输入画质等级（0-100）</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="414"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="424"/>
         <source>Image save failed. </source>
         <translation>图像保存失败</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="429"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="441"/>
         <source>Image save failed: </source>
         <translation>图像保存失败：</translation>
     </message>
@@ -930,87 +930,87 @@ if a sans-serif font-family specified in your CSS</source>
         <translation>到尾注</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="181"/>
+        <location filename="../../Misc/AriaClips.cpp" line="171"/>
         <source>Aside</source>
         <translation>Aside</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="183"/>
+        <location filename="../../Misc/AriaClips.cpp" line="173"/>
         <source>Aside: Sidebar</source>
         <translation>Aside：侧边栏</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="185"/>
+        <location filename="../../Misc/AriaClips.cpp" line="175"/>
         <source>Aside: Tip</source>
         <translation>Aside：小贴士</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="187"/>
+        <location filename="../../Misc/AriaClips.cpp" line="177"/>
         <source>Backlink from Footnote</source>
         <translation>脚注反向链接</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="189"/>
+        <location filename="../../Misc/AriaClips.cpp" line="179"/>
         <source>Backlink from Endnote</source>
         <translation>尾注反向链接</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="191"/>
+        <location filename="../../Misc/AriaClips.cpp" line="181"/>
         <source>Endnote in li</source>
         <translation>li 中的尾注</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="193"/>
+        <location filename="../../Misc/AriaClips.cpp" line="183"/>
         <source>Footnote in aside</source>
         <translation>aside 中的脚注</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="195"/>
+        <location filename="../../Misc/AriaClips.cpp" line="185"/>
         <source>Footnote in div</source>
         <translation>div 中的脚注</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="197"/>
+        <location filename="../../Misc/AriaClips.cpp" line="187"/>
         <source>Footnote in p</source>
         <translation>p 中的脚注</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="199"/>
+        <location filename="../../Misc/AriaClips.cpp" line="189"/>
         <source>PageBreak in hr</source>
         <translation>hr 中的分页符</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="201"/>
+        <location filename="../../Misc/AriaClips.cpp" line="191"/>
         <source>PageBreak in span</source>
         <translation>span 中的分页符</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="203"/>
+        <location filename="../../Misc/AriaClips.cpp" line="193"/>
         <source>Reference to Footnote</source>
         <translation>脚注提及</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="205"/>
+        <location filename="../../Misc/AriaClips.cpp" line="195"/>
         <source>Reference to Endnote</source>
         <translation>尾注提及</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="207"/>
+        <location filename="../../Misc/AriaClips.cpp" line="197"/>
         <source>Section</source>
         <translation>部分</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="209"/>
+        <location filename="../../Misc/AriaClips.cpp" line="199"/>
         <source>Section: Chapter</source>
         <translation>部分：章节</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="211"/>
+        <location filename="../../Misc/AriaClips.cpp" line="201"/>
         <source>Section: Endnotes</source>
         <translation>部分：尾注</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="213"/>
+        <location filename="../../Misc/AriaClips.cpp" line="203"/>
         <source>Section: Footnotes</source>
         <translation>部分：脚注</translation>
     </message>
@@ -1018,432 +1018,432 @@ if a sans-serif font-family specified in your CSS</source>
 <context>
     <name>AriaRoles</name>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="184"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="173"/>
         <source>Abstract</source>
         <translation>摘要</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="184"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="173"/>
         <source>A short summary of the principle ideas, concepts and conclusions of the work, or of section or excerpt within it.</source>
         <translation>作品主要理念、概念和结论的简短概述，或其中章节或摘要的简短概述</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="185"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="174"/>
         <source>Acknowledgments</source>
         <translation>致谢</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="185"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="174"/>
         <source>A section or statement that acknowledges significant contributions by persons, organizations, governments, and other entities to the realization of the work.</source>
         <translation>感谢个人、机构、政府或其他实体对完成本作品所作重大贡献的部分或声明</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="186"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="175"/>
         <source>Afterword</source>
         <translation>后记</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="186"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="175"/>
         <source>A closing statement from the author or a person of importance, typically providing insight into how the content came to be written, its significance or related events that have transpired since its timeline.</source>
         <translation>作者或重要人物的结束陈词，通常提供内容如何写就、其重要性和其时间线以来已发生的相关事件的洞察</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="187"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="176"/>
         <source>Appendix</source>
         <translation>附录</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="187"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="176"/>
         <source>A section of supplemental information located after the primary content that informs the content but is not central to it.</source>
         <translation>位于主内容之后的补充性信息部分，增添内容丰富性，但并非不可或缺</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="188"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="177"/>
         <source>Back Link</source>
         <translation>反向链接</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="188"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="177"/>
         <source>A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary definition to where a term is used.)</source>
         <translation>允许用户回到内容中有关位置的链接（比如从脚注到其参考，或从术语表定义到使用术语的地方）</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="189"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="178"/>
         <source>Bibliography</source>
         <translation>参考书目</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="189"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="178"/>
         <source>A list of external references cited in the work, which may be to print or digital sources.</source>
         <translation>作品引用的外部参考列表。可能是印刷或数字来源</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="190"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="179"/>
         <source>Bibliography Entry</source>
         <translation>参考书目项</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="190"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="179"/>
         <source>A single reference to an external source in a bibliography. [epub:type ONLY]</source>
         <translation>参考书目中外部源的单一参考  [epub:type ONLY]</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="191"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="180"/>
         <source>Bibliography Reference</source>
         <translation>参考书目参照</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="191"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="180"/>
         <source>A reference to a bibliography entry.</source>
         <translation>参考书目项参照</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="192"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="181"/>
         <source>Chapter</source>
         <translation>章节</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="192"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="181"/>
         <source>A major thematic section of content in a work.</source>
         <translation>作品内容的重要主题部分</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="193"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="182"/>
         <source>Colophon</source>
         <translation>版权页</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="193"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="182"/>
         <source>A short section of production notes particular to the edition (e.g., describing the typeface used), often located at the end of a work.</source>
         <translation>版本特定的制作注记的短小部分（如描述所用字体），经常位于作品结尾</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="194"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="183"/>
         <source>Conclusion</source>
         <translation>结论</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="194"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="183"/>
         <source>A concluding section or statement that summarizes the work or wraps up the narrative.</source>
         <translation>概括作品或结束叙事的结尾部分或声明</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="195"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="184"/>
         <source>Cover</source>
         <translation>封面</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="195"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="184"/>
         <source>An image that sets the mood or tone for the work and typically includes the title and author.</source>
         <translation>设定作品情感或基调的图像，通常包含标题和作者</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="196"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="185"/>
         <source>Credit</source>
         <translation>致谢</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="196"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="185"/>
         <source>An acknowledgement of the source of integrated content from third-party sources, such as photos.  Typically identifies the creator, copyright, and any restrictions on reuse.</source>
         <translation>对源自第三方源的集成内容（如照片）的来源的致谢。通常表明创作者身份、版权及任何重用限制</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="197"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="186"/>
         <source>Credits</source>
         <translation>致谢</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="197"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="186"/>
         <source>A collection of credits.</source>
         <translation>致谢集</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="198"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="187"/>
         <source>Dedication</source>
         <translation>贡献</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="198"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="187"/>
         <source>An inscription at the front of the work, typically addressed in tribute to one or more persons close to the author.</source>
         <translation>作品前的题词，通常致敬一个或多个与作者关系密切的人</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="199"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="188"/>
         <source>Endnote</source>
         <translation>尾注</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="199"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="188"/>
         <source>One of a collection of notes that occur at the end of a work, or a section within it that provides additional context to a referenced passage of text. [epub:type ONLY]</source>
         <translation>出现在作品结尾的附注集之一，或其中给所引用的文本段落提供额外背景信息的部分 [epub:type ONLY]</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="200"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="189"/>
         <source>Endnotes</source>
         <translation>尾注</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="200"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="189"/>
         <source>A collection of notes at the end of a work or a section within it.</source>
         <translation>作品结尾或作品章节末尾的附注集</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="201"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="190"/>
         <source>Epigraph</source>
         <translation>题词</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="201"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="190"/>
         <source>A quotation set at the start of the work or a section that establishes the theme or sets the mood.</source>
         <translation>作品开头的引用集或建立主旨或设定情绪的部分</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="202"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="191"/>
         <source>Epilogue</source>
         <translation>后记</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="202"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="191"/>
         <source>A concluding section of narrative that wraps up or comments on the actions and events of the work, typically from a future perspective.</source>
         <translation>叙述的结束部分，通常从未来视角总结或评论作品操作或事件</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="203"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="192"/>
         <source>Errata</source>
         <translation>勘误表</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="203"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="192"/>
         <source>A set of corrections discovered after initial publication of the work, sometimes referred to as corrigenda.</source>
         <translation>一组在作品初始出版后发现的更正，有时称为 corrigenda</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="204"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="193"/>
         <source>Example</source>
         <translation>示例</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="204"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="193"/>
         <source>An illustration of a key concept of the work, such as a code listing, case study or problem. [aria role ONLY]</source>
         <translation>作品重要概念的阐释，比如 code listing、案例研究或问题 [aria role ONLY]</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="205"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="194"/>
         <source>Footnote</source>
         <translation>脚注</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="205"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="194"/>
         <source>Ancillary information, such as a citation or commentary, that provides additional context to a referenced passage of text.</source>
         <translation>向文本参照段落提供额外背景的补充性信息，比如引述或评论</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="206"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="195"/>
         <source>Footnotes</source>
         <translation>脚注</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="206"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="195"/>
         <source>A collection of footnotes. [epub:type ONLY]</source>
         <translation>脚注集 [epub:type ONLY]</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="207"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="196"/>
         <source>Foreword</source>
         <translation>前言</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="207"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="196"/>
         <source>An introductory section that precedes the work, typically not written by the author of the work.</source>
         <translation>作品之前的介绍性部分，通常不是由作者所写</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="208"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="197"/>
         <source>Glossary</source>
         <translation>术语表</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="208"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="197"/>
         <source>A brief dictionary of new, uncommon, or specialized terms used in the content.</source>
         <translation>内容中使用的新的、不常见、或特殊术语的简明字典</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="209"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="198"/>
         <source>Glossary Reference</source>
         <translation>术语表参考</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="209"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="198"/>
         <source>A reference to a glossary definition.</source>
         <translation>术语表定义参考</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="210"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="199"/>
         <source>Index</source>
         <translation>索引</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="210"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="199"/>
         <source>A navigational aid that provides a detailed list of links to key subjects, names and other important topics covered in the work.</source>
         <translation>提供作品涵盖的关键题材、名称和其他重要话题的详细链接列表的导航助手</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="211"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="200"/>
         <source>Introduction</source>
         <translation>简介</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="211"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="200"/>
         <source>A preliminary section that typically introduces the scope or nature of the work.</source>
         <translation>通常介绍作品范围或本质的初始部分</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="212"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="201"/>
         <source>Note Reference</source>
         <translation>附注参考</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="212"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="201"/>
         <source>A reference to a footnote or endnote, typically appearing as a superscripted number or symbol in the main body of the text.</source>
         <translation>对脚注或尾注的提及，通常作为文本主体中的上标编号或符号出现</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="213"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="202"/>
         <source>Notice</source>
         <translation>须知</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="213"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="202"/>
         <source>Notifies the user of consequences that might arise from an action or event.  Examples include warnings, cautions and dangers.</source>
         <translation>通知用户某一操作或事件的可能后果。比如警告、告诫、危险等。</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="214"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="203"/>
         <source>Pagebreak</source>
         <translation>分页符</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="214"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="203"/>
         <source>A separator denoting the position before which a break occurs between contiguous pages in a statically paginated version of the content.</source>
         <translation>标示特定位置的分隔符，此类位置前内容静态分页版本中的连续页之间出现了中断</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="215"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="204"/>
         <source>Page Footer</source>
         <translation>页脚</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="215"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="204"/>
         <source>A section of text appearing at the bottom of a page that provides context about the current work and location within it. The page footer is distinct from the body text and normally follows a repeating template that contains (possibly truncated) items such as the document title, current section, author name(s), and page number.</source>
         <translation>出现在页面底部的一组文本，提供当前作品的背景和其中的位置。页脚不同于正文文本，通常遵照重复的模板，其中包含这些项目（可能不是全有），比如文档标题、当前部分、作者名和页码。</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="216"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="205"/>
         <source>Page Header</source>
         <translation>页眉</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="216"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="205"/>
         <source>A section of text appearing at the top of a page that provides context about the current work and location within it. The page header is distinct from the body text and normally follows a repeating template that contains (possibly truncated) items such as the document title, current section, author name(s), and page number.</source>
         <translation>出现在页面顶部的一组文本，提供有关当前作品上下文和其中位置。页眉和正文文本不同，通常遵循重复的模板，其中包含这些项目（可能不是全有），如文档标题、当前部分、作者名和页码</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="217"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="206"/>
         <source>Page List</source>
         <translation>页列表</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="217"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="206"/>
         <source>A navigational aid that provides a list of links to the page breaks in the content.</source>
         <translation>向内容中的页面分割提供链接清单的导航助手</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="218"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="207"/>
         <source>Part</source>
         <translation>章</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="218"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="207"/>
         <source>A major structural division in a work that contains a set of related sections dealing with a particular subject, narrative arc, or similar encapsulated theme.</source>
         <translation>作品的主要结构部分，包含涉及特定题材、叙事弧、或类似封装主题的一组有关部分</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="219"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="208"/>
         <source>Preamble</source>
         <translation>序言</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="219"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="208"/>
         <source>A section at the beginning of a work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content. [epub:type ONLY]</source>
         <translation>作品开头的一部分，通常包含关于作评内容范围或本质的解释性和/或介绍性内容。[epub:type ONLY]</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="220"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="209"/>
         <source>Preface</source>
         <translation>序言</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="220"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="209"/>
         <source>An introductory section that precedes the work, typically written by the author of the work.</source>
         <translation>作品前的介绍性部分，通常由作者所写</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="221"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="210"/>
         <source>Prologue</source>
         <translation>前言</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="221"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="210"/>
         <source>An introductory section that sets the background to a work, typically part of the narrative.</source>
         <translation>设定作品背景的介绍性部分，通常是叙事的一部分。</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="222"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="211"/>
         <source>Pull Quote</source>
         <translation>引用摘要</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="222"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="211"/>
         <source>A distinctively placed or highlighted quotation from the current content designed to draw attention to a topic or highlight a key point.</source>
         <translation>当前内容中被特别放置或高亮的引用，旨在吸引对话题的关注或凸显主旨</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="223"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="212"/>
         <source>Questions and Answers</source>
         <translation>问题与回答</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="223"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="212"/>
         <source>A section of content structured as a series of questions and answers, such as an interview or list of frequently asked questions.</source>
         <translation>以系列问答形式构建的一部分内容，比如采访或FAQ列表</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="224"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="213"/>
         <source>Subtitle</source>
         <translation>副标题</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="224"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="213"/>
         <source>An explanatory or alternate title for the work, or a section or components within it.</source>
         <translation>作品的解释性或替代标题，或是其中的一个或多个部分</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="225"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="214"/>
         <source>Tip</source>
         <translation>小贴士</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="225"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="214"/>
         <source>Helpful information that clarifies some aspect of the content or assists in comprehension.</source>
         <translation>澄清某些内容或辅助理解的有用信息</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="226"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="215"/>
         <source>Table of Contents</source>
         <translation>目录</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="226"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="215"/>
         <source>A navigational aid that provides an ordered list of links to the major sectional headings in the content.  A table of contents may cover an entire work, or only a smaller section of it.</source>
         <translation>提供内容中主要栏目标题按顺序排列的链接列表的导航助手。目录可能覆盖整部作品，或只是一小部分。</translation>
     </message>
@@ -1702,7 +1702,7 @@ if a sans-serif font-family specified in your CSS</source>
 <context>
     <name>Book</name>
     <message>
-        <location filename="../../BookManipulation/Book.cpp" line="429"/>
+        <location filename="../../BookManipulation/Book.cpp" line="430"/>
         <source>Start</source>
         <translation>开始</translation>
     </message>
@@ -1718,59 +1718,59 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="98"/>
         <source>Font Obfuscation</source>
-        <translation>字体模糊处理</translation>
+        <translation>字体混淆</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="99"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2359"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2361"/>
         <source>Open With</source>
         <translation>打开方式</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/BookBrowser.cpp" line="193"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="192"/>
         <source>%n file(s)</source>
         <translation><numerusform>%n 个文件</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="305"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="773"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="944"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="979"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1056"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1163"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1474"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1579"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="304"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="772"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="943"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="982"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1059"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1166"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1477"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1582"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="306"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="305"/>
         <source>Are you sure you want to sort the selected files alphanumerically?</source>
         <translation>你确定你选定的文件要按字母数字进行排序吗？</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="307"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="306"/>
         <source>This action cannot be reversed.</source>
         <translation>这个动作不能逆转。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="390"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="389"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>文件“%1”不存在。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="773"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="772"/>
         <source>Javascript is not supported on epub2.</source>
         <translation>epub2不支持Javascript。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="848"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="855"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="847"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="854"/>
         <source>Add Existing Files</source>
         <translation>添加现有文件</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="913"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="912"/>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
@@ -1779,7 +1779,7 @@ if a sans-serif font-family specified in your CSS</source>
 &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="922"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="921"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
@@ -1788,7 +1788,7 @@ if a sans-serif font-family specified in your CSS</source>
 &quot;%1&quot;。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="945"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="944"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
@@ -1797,12 +1797,17 @@ OK to replace?</source>
 点击OK替换？</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="974"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="971"/>
+        <source>Overwrite of image &quot;%1&quot; failed.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="977"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
         <translation>无法删除或替换文件 &quot;%1&quot;。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="979"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="982"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
@@ -1811,7 +1816,7 @@ A file with this name already exists in the book.</source>
 A file with this name already exists in the book.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1057"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1060"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
@@ -1821,373 +1826,373 @@ A file with this name already exists in the book.</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1070"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1073"/>
         <source>File(s) added or replaced.</source>
         <translation>文件已添加或替换。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1107"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1110"/>
         <source>Save As File</source>
         <translation>另存为文件</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1130"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1133"/>
         <source>Unable to save the file.</source>
         <translation>无法保存文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1141"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1144"/>
         <source>Choose the directory to save the files to</source>
         <translation>选择保存文件的目录</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1163"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1166"/>
         <source>One or more files already exists.  OK to overwrite?</source>
         <translation>一个或多个文件已经存在.  是否覆盖?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1180"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1183"/>
         <source>Unable to save files.  Destination may be a directory.</source>
         <translation>无法保存文件。  目标可能是一个目录。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1188"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1191"/>
         <source>Unable to save files.</source>
         <translation>无法保存文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1412"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1415"/>
         <source>Filenames cannot contain these characters: &quot;%1&quot;.</source>
         <translation>文件名不能包含这些字符： &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1474"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1477"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
         <translation>不能重命名文件，这可能导致文件名重复。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1545"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1548"/>
         <source>Destination Folder has invalid path &quot;%1&quot;</source>
         <translation>目标文件夹包含非法路径 &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1579"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1582"/>
         <source>Cannot move files since this would result in duplicate filenames.</source>
         <translation>无法移动文件，因为这将导致文件重名。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1626"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1629"/>
         <source>The Nav document cannot be removed.</source>
         <translation>无法删除 Nav 文档</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1634"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1637"/>
         <source>The NCX cannot be removed.</source>
         <translation>无法删除 NCX</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1641"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1644"/>
         <source>The OPF is required for epub and cannot be removed.</source>
         <translation>epub 要求包含 OPF，无法删除。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1650"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1653"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>您不能删除所有的HTML文件。
 至少必须存在一个。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1798"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1801"/>
         <source>Unable to set file as cover image.</source>
         <translation>未能设置文件为封面图像。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1835"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1838"/>
         <source>(root folder)</source>
         <translation>(根文件夹)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1845"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1848"/>
         <source>FileName</source>
         <translation>文件名</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1848"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1851"/>
         <source>Folder</source>
         <translation>文件夹</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1851"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1854"/>
         <source>Media Type</source>
         <translation>媒体类型</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1854"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1857"/>
         <source>File Size(kb)</source>
         <translation>文件大小(kb)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1857"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1860"/>
         <source>Epub Version</source>
         <translation>Epub 版本</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1874"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1877"/>
         <source>Word Count</source>
         <translation>单词数</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1877"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1880"/>
         <source>Primary Language</source>
         <translation>主要语言</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1884"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1887"/>
         <source>WellFormed</source>
         <translation>符合规范</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1886"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1889"/>
         <source>Yes</source>
         <translation>是</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1888"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1891"/>
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1891"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1894"/>
         <source>Linked Stylesheets</source>
         <translation>关联样式表</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1894"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1897"/>
         <source>Linked Javascripts</source>
         <translation>关联 Javascripts</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1897"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1900"/>
         <source>Linked Images</source>
         <translation>关联图片</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1900"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1903"/>
         <source>Linked Audio</source>
         <translation>关联音频</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1903"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1906"/>
         <source>Linked Video</source>
         <translation>关联视频</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1930"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1933"/>
         <source>Semantics OPF Guide or Nav Landmarks</source>
         <translation>语义 OPF 指南或导航标记</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1939"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1942"/>
         <source>Manifest Properties</source>
         <translation>清单属性</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1942"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1945"/>
         <source>Defined Ids</source>
         <translation>定义的 IDs</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1949"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1961"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1952"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1964"/>
         <source>Description</source>
         <translation>描述</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1952"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1955"/>
         <source>Obfuscation Algorithm</source>
         <translation>混淆算法</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1954"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2207"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1957"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2209"/>
         <source>None</source>
         <translation>无</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2192"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2194"/>
         <source>Select All</source>
         <translation>选择所有</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2193"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2195"/>
         <source>Add Blank HTML File</source>
         <translation>添加空白HTML文件</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2194"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2196"/>
         <source>Add Blank Stylesheet</source>
         <translation>新增空白样式表</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2195"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2197"/>
         <source>Add Blank Javascript</source>
         <translation>添加空白Javascript</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2196"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2198"/>
         <source>Add Blank SVG Image</source>
         <translation>添加空白SVG图片</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2197"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2199"/>
         <source>View Image</source>
         <translation>查看图片</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2198"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2200"/>
         <source>Add Existing Files...</source>
         <translation>添加现有文件...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2199"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2200"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2201"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2202"/>
         <source>Add Copy</source>
         <translation>添加副本</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2201"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2203"/>
         <source>Rename</source>
         <translation>重命名</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2202"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2204"/>
         <source>RegEx Rename</source>
         <translation>RegEx 重命名</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2203"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2205"/>
         <source>Move</source>
         <translation>移动</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2204"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2206"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2205"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2207"/>
         <source>Cover Image</source>
         <translation>封面图片</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2206"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2208"/>
         <source>Merge</source>
         <translation>合并</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2208"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2210"/>
         <source>Use Adobe&apos;s Method</source>
         <translation>使用Adobe的方法</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2209"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2211"/>
         <source>Use IDPF&apos;s Method</source>
         <translation>使用IDPF的方法</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2210"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2212"/>
         <source>Sort</source>
         <translation>排序</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2211"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2213"/>
         <source>Change Reading Order</source>
         <translation>更改阅读顺序</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2212"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2214"/>
         <source>Renumber TOC Entries</source>
         <translation>重新编排目录项</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2213"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2215"/>
         <source>Link Stylesheets...</source>
         <translation>链接样式表...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2214"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2216"/>
         <source>Link Javascripts...</source>
         <translation>链接到Javascript...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2215"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2217"/>
         <source>Add Semantics...</source>
         <translation>添加语义...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2216"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2218"/>
         <source>Get Info...</source>
         <translation>获取信息...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2217"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2219"/>
         <source>Validate with W3C</source>
         <translation>用W3C验证</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2218"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2220"/>
         <source>Save As</source>
         <translation>另存为</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2224"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2399"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2226"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2401"/>
         <source>Other Application</source>
         <translation>其他程序</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2225"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2227"/>
         <source>Clear Editor List</source>
         <translation>清理编辑人员列表</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2234"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2236"/>
         <source>Merge with previous file, or merge multiple files into one.</source>
         <translation>合并先前的文件，或合并多个文件为一个。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2237"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2239"/>
         <source>Rename selected file(s)</source>
         <translation>重命名所选文件</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2239"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2241"/>
         <source>Use Regular Expressions to Rename selected file(s)</source>
         <translation>使用正则表达式来重命名所选文件</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2242"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2244"/>
         <source>Move selected file(s) to a new folder</source>
         <translation>将所选文件移入一个新文件夹</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2244"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2246"/>
         <source>Link Stylesheets to selected file(s).</source>
         <translation>将所选文件与样式表进行链接</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2246"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2248"/>
         <source>Link Javascripts to selected file(s).</source>
         <translation>将Javascript链接到所选文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2248"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2250"/>
         <source>Add Semantics to selected file(s).</source>
         <translation>将语义加入所选文件</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2250"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2252"/>
         <source>Show Information about selected files.</source>
         <translation>显示所选文件的信息</translation>
     </message>
@@ -2472,7 +2477,7 @@ There always has to be at least one.</source>
     <name>ClipEditor</name>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="14"/>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="537"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="536"/>
         <source>Clip Editor</source>
         <translation>剪切板编辑器</translation>
     </message>
@@ -2503,13 +2508,13 @@ There always has to be at least one.</source>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="100"/>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="648"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="647"/>
         <source>Add Entry</source>
         <translation>添加条目</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="110"/>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="649"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="648"/>
         <source>Add Group</source>
         <translation>添加组</translation>
     </message>
@@ -2542,177 +2547,177 @@ There always has to be at least one.</source>
         <translation>下移。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="73"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="72"/>
         <source>Right click on an entry to see a context menu of actions.</source>
         <translation>单击右键一个条目可查看相应操作。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="74"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="73"/>
         <source>You can also right click in your document to select an entry.</source>
         <translation>您还可以在文档中右键单击选择一个条目。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="75"/>
         <source>Name</source>
         <translation>名称</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="75"/>
         <source>Name of your entry or group.</source>
         <translation>条目或组的名称。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
         <source>Number</source>
         <translation>编号</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
         <source>Assignable Shortcut Id.</source>
         <translation>可分配的快捷方式 id</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="78"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
         <source>Text</source>
         <translation>文本</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="78"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
         <source>The text to insert. The text is treated like a Regex replacement expression so \1 can be used to insert the text selected in Code View when you paste the clip.</source>
         <translation>要插入的文本。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="82"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="81"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="82"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="81"/>
         <source>Save your changes.</source>
         <translation>保存更改。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="82"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="81"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
         <translation>如果Sigil的任何其他实例正在运行，他们将自动更新您所做的更改。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="92"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="91"/>
         <source>Cannot save entries.</source>
         <translation>无法保存条目。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="136"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="135"/>
         <source>Clip entries loaded from file.</source>
         <translation>从文件加载剪切板条目。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="199"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="198"/>
         <source>You cannot select an entry and a group containing the entry.</source>
         <translation>您无法选择同时一个条目和一个组进行操作。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="287"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="286"/>
         <source>You cannot Copy or Cut groups - use drag-and-drop.</source>
         <translation>您无法对组进行复制或粘贴—请用鼠标上下拖拽。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="360"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="359"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="360"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="359"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
         <translation>您确定要重新加载所有条目？ 这将覆盖任何未保存的更改。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="378"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="377"/>
         <source>Import Entries</source>
         <translation>导入条目</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="456"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="455"/>
         <source>Export Selected Entries</source>
         <translation>导出选择的条目</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../Dialogs/ClipEditor.cpp" line="537"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="536"/>
         <source>CSS entries added: %n</source>
         <translation><numerusform>加入的CSS项：%n</numerusform></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="650"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="649"/>
         <source>Edit</source>
         <translation>编辑</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="651"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="650"/>
         <source>Cut</source>
         <translation>剪切</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="652"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="651"/>
         <source>Copy</source>
         <translation>复制</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="653"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="652"/>
         <source>Paste</source>
         <translation>粘贴</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="654"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="653"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="655"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="654"/>
         <source>Import</source>
         <translation>导入</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="656"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="655"/>
         <source>Reload</source>
         <translation>重新加载</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="657"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="656"/>
         <source>Export</source>
         <translation>导出</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="658"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="657"/>
         <source>Export All</source>
         <translation>导出所有</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="659"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="658"/>
         <source>Collapse All</source>
         <translation>全部折叠</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="660"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="659"/>
         <source>Expand All</source>
         <translation>全部展开</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="661"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="660"/>
         <source>Autofill</source>
         <translation>自动填充</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="743"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="742"/>
         <source>Clip entries saved.</source>
         <translation>剪切板条目已保存。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="772"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="771"/>
         <source>Sigil: Clip Editor</source>
         <translation>Sigil：剪辑编辑器</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="773"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="772"/>
         <source>The Clip entries may have been modified.
 Do you want to save your changes?</source>
         <translation>剪切板条目可能已经被修改。
@@ -2722,22 +2727,22 @@ Do you want to save your changes?</source>
 <context>
     <name>ClipEditorModel</name>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="73"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="62"/>
         <source>Name</source>
         <translation>名称</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="74"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="63"/>
         <source>Number</source>
         <translation>编号</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="75"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="64"/>
         <source>Text</source>
         <translation>文本</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="737"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="721"/>
         <source>Unable to create file %1</source>
         <translation>无法创建文件 %1</translation>
     </message>
@@ -2778,12 +2783,12 @@ Do you want to save your changes?</source>
         <translation>剪切板</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ClipsWindow.cpp" line="139"/>
+        <location filename="../../MainUI/ClipsWindow.cpp" line="138"/>
         <source>Collapse All</source>
         <translation>全部折叠</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ClipsWindow.cpp" line="140"/>
+        <location filename="../../MainUI/ClipsWindow.cpp" line="139"/>
         <source>Expand All</source>
         <translation>全部展开</translation>
     </message>
@@ -2801,138 +2806,138 @@ Do you want to save your changes?</source>
         <translation>此位置没有开放标记。</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1547"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1546"/>
         <source>Add To Default Dictionary</source>
         <translation>添加到默认字典</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1560"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1559"/>
         <source>Add To Dictionary</source>
         <translation>添加到字典</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1577"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1576"/>
         <source>Ignore</source>
         <translation>忽略</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1639"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1638"/>
         <source>Reformat CSS</source>
         <translation>重排CSS</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1641"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1640"/>
         <source>Multiple Lines Per Style</source>
         <translation>样式多行显示</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1642"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1641"/>
         <source>Single Line Per Style</source>
         <translation>样式单行显示</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1668"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1667"/>
         <source>Rename Selected Class</source>
         <translation>重命名选取的类別</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1690"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1689"/>
         <source>Reformat HTML</source>
         <translation>HTML重新格式化</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1692"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1691"/>
         <source>Mend and Prettify Code</source>
         <translation>改进和美化代码</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1693"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1692"/>
         <source>Mend and Prettify Code - All HTML Files</source>
         <translation>对 所有HTML 执行纠错并统一代码风格</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1694"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1693"/>
         <source>Mend Code</source>
         <translation>纠错</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1695"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1694"/>
         <source>Mend Code - All HTML Files</source>
         <translation>对 所有HTML文件 执行代码纠错</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1725"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1724"/>
         <source>Go To Link Or Style</source>
         <translation>跳转到链接或样式</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1747"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1746"/>
         <source>Toggle Line Wrap Mode</source>
         <translation>切换换行模式</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1769"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1768"/>
         <source>View Image</source>
         <translation>查看图片</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1770"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1769"/>
         <source>Open Tab For Image</source>
         <translation>在新标签也打开图像</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1796"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1795"/>
         <source>Mark Selected Text</source>
         <translation>标识选定文本</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1798"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1797"/>
         <source>Unmark Marked Text</source>
         <translation>取消标识选定文本</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1824"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1823"/>
         <source>Clips</source>
         <translation>剪切板</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1834"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1833"/>
         <source>Add To Clips</source>
         <translation>添加到剪切板</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1972"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1971"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
         <translation>要使用这个功能你必须在一个开放的HTML标记内。
 </translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1982"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1981"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
         <translation>要使用这个功能你必须在一个开放的HTML标记内。</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2046"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2045"/>
         <source>Selected Text is not a valid class name.</source>
         <translation>所选文本不是有效的类别名称。</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2053"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2052"/>
         <source>Rename Class</source>
         <translation>重命名类别</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2054"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2053"/>
         <source>Enter new class name</source>
         <translation>输入新类别名称</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2074"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2073"/>
         <source>Class renamed.</source>
         <translation>类别已重新命名。</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2076"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2075"/>
         <source>Class rename aborted.</source>
         <translation>重命名类别中止。</translation>
     </message>
@@ -3619,7 +3624,7 @@ other end to continue searching.</source>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="81"/>
-        <location filename="../../Dialogs/EditTOC.cpp" line="497"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="726"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
@@ -3654,42 +3659,42 @@ You can also use the right arrow key.</source>
 您也可以使用右箭头键。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="99"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="104"/>
         <source>TOC Entry</source>
         <translation>目录条目</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="100"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="105"/>
         <source>Target</source>
         <translation>目标</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="384"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="613"/>
         <source>[placeholder]</source>
         <translation>[占位符]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="496"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="725"/>
         <source>Rename</source>
         <translation>重命名</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="504"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="733"/>
         <source>Move Up</source>
         <translation>向上移</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="505"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="734"/>
         <source>Move Down</source>
         <translation>向下移</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="511"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="740"/>
         <source>Expand All</source>
         <translation>全部展开</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="512"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="741"/>
         <source>Collapse All</source>
         <translation>全部折叠</translation>
     </message>
@@ -3697,7 +3702,7 @@ You can also use the right arrow key.</source>
 <context>
     <name>EmbeddedPython</name>
     <message>
-        <location filename="../../EmbedPython/EmbeddedPython.cpp" line="739"/>
+        <location filename="../../EmbedPython/EmbeddedPython.cpp" line="729"/>
         <source>Embedded Python Error</source>
         <translation>嵌入的Python出现错误</translation>
     </message>
@@ -4859,362 +4864,362 @@ mended.</source>
 <context>
     <name>GuideItems</name>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="166"/>
+        <location filename="../../Misc/GuideItems.cpp" line="154"/>
         <source>Acknowledgements</source>
         <translation>致谢</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="166"/>
+        <location filename="../../Misc/GuideItems.cpp" line="154"/>
         <source>A passage containing acknowledgments to entities involved in the realization of the work.</source>
         <translation>一段包含对完成工作的实体的感谢的段落。</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="167"/>
+        <location filename="../../Misc/GuideItems.cpp" line="155"/>
         <source>Afterword</source>
         <translation>后记</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="167"/>
+        <location filename="../../Misc/GuideItems.cpp" line="155"/>
         <source>A closing statement from the author or a person of importance to the story, typically providing insight into how the story came to be written, its significance or related events that have transpired since its timeline.</source>
         <translation>作者或对故事有重要意义的人的结束语，通常提供对故事是如何撰写的、其意义或自其时间线以来发生的相关事件的洞察力。</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="168"/>
+        <location filename="../../Misc/GuideItems.cpp" line="156"/>
         <source>Appendix</source>
         <translation>附录</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="168"/>
+        <location filename="../../Misc/GuideItems.cpp" line="156"/>
         <source>Supplemental information.</source>
         <translation>补充信息。</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="169"/>
+        <location filename="../../Misc/GuideItems.cpp" line="157"/>
         <source>Back Matter</source>
         <translation>结文</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="169"/>
+        <location filename="../../Misc/GuideItems.cpp" line="157"/>
         <source>Ancillary material occurring after the main content of a publication, such as indices, appendices, etc.</source>
         <translation>出现在出版物主要内容之后的辅助材料，如索引、附录等。</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="170"/>
+        <location filename="../../Misc/GuideItems.cpp" line="158"/>
         <source>Bibliography</source>
         <translation>参考书目</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="170"/>
+        <location filename="../../Misc/GuideItems.cpp" line="158"/>
         <source>A list of works cited.</source>
         <translation>引用的作品列表。</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="171"/>
+        <location filename="../../Misc/GuideItems.cpp" line="159"/>
         <source>Text</source>
         <translation>文本</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="171"/>
+        <location filename="../../Misc/GuideItems.cpp" line="159"/>
         <source>The start of the main text content of a publication.</source>
         <translation>出版物正文内容的开头。</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="172"/>
+        <location filename="../../Misc/GuideItems.cpp" line="160"/>
         <source>Colophon</source>
         <translation>版权页</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="172"/>
+        <location filename="../../Misc/GuideItems.cpp" line="160"/>
         <source>A brief description usually located at the end of a publication, describing production notes relevant to the edition.</source>
         <translation>一种简短的描述，通常位于出版物的末尾，描述与版本相关的作品注释。</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="173"/>
+        <location filename="../../Misc/GuideItems.cpp" line="161"/>
         <source>Conclusion</source>
         <translation>结论</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="173"/>
+        <location filename="../../Misc/GuideItems.cpp" line="161"/>
         <source>An ending section that typically wraps up the work.</source>
         <translation>一个结束部分，通常用来结束作品。</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="174"/>
+        <location filename="../../Misc/GuideItems.cpp" line="162"/>
         <source>Contributors</source>
         <translation>贡献者</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="174"/>
+        <location filename="../../Misc/GuideItems.cpp" line="162"/>
         <source>A list of contributors to the work.</source>
         <translation>这项工作的贡献者名单。</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="175"/>
+        <location filename="../../Misc/GuideItems.cpp" line="163"/>
         <source>Copyright Page</source>
         <translation>版权页</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="175"/>
+        <location filename="../../Misc/GuideItems.cpp" line="163"/>
         <source>The copyright page of the work.</source>
         <translation>作品版权页</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="176"/>
+        <location filename="../../Misc/GuideItems.cpp" line="164"/>
         <source>Cover</source>
         <translation>封面</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="176"/>
+        <location filename="../../Misc/GuideItems.cpp" line="164"/>
         <source>The publications cover(s), jacket information, etc.</source>
         <translation>出版物封面、书套信息等。</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="177"/>
+        <location filename="../../Misc/GuideItems.cpp" line="165"/>
         <source>Dedication</source>
         <translation>贡献</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="177"/>
+        <location filename="../../Misc/GuideItems.cpp" line="165"/>
         <source>An inscription addressed to one or several particular person(s).</source>
         <translation>写给一个或几个特定的人的题词。</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="178"/>
+        <location filename="../../Misc/GuideItems.cpp" line="166"/>
         <source>Epilogue</source>
         <translation>后记</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="178"/>
+        <location filename="../../Misc/GuideItems.cpp" line="166"/>
         <source>A concluding section that is typically written from a later point in time than the main story, although still part of the narrative.</source>
         <translation>总结部分，通常是在比主要故事晚的时间点撰写的，尽管仍是叙述的一部分。</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="179"/>
+        <location filename="../../Misc/GuideItems.cpp" line="167"/>
         <source>Epigraph</source>
         <translation>题词</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="179"/>
+        <location filename="../../Misc/GuideItems.cpp" line="167"/>
         <source>A quotation that is pertinent but not integral to the text.</source>
         <translation>一个引文，与正文相关但不完整。</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="180"/>
+        <location filename="../../Misc/GuideItems.cpp" line="168"/>
         <source>Errata</source>
         <translation>勘误表</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="180"/>
+        <location filename="../../Misc/GuideItems.cpp" line="168"/>
         <source>Publication errata, in printed works typically a loose sheet inserted by hand; sometimes a bound page that contains corrections for mistakes in the work.</source>
         <translation>出版物勘误表，在印刷作品中，通常是用手插入的散页； 有时是一个装订页，其中包含对工作中的错误的更正。</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="181"/>
+        <location filename="../../Misc/GuideItems.cpp" line="169"/>
         <source>Footnotes</source>
         <translation>脚注</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="181"/>
+        <location filename="../../Misc/GuideItems.cpp" line="169"/>
         <source>A collection of notes appearing at the bottom of a page.</source>
         <translation>一组注释，出现在页面底部。</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="182"/>
+        <location filename="../../Misc/GuideItems.cpp" line="170"/>
         <source>Foreword</source>
         <translation>前言</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="182"/>
+        <location filename="../../Misc/GuideItems.cpp" line="170"/>
         <source>An introductory section that precedes the work, typically not written by the work&apos;s author.</source>
         <translation>作品之前的介绍性部分，通常不是由作品的作者撰写的。</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="183"/>
+        <location filename="../../Misc/GuideItems.cpp" line="171"/>
         <source>Front Matter</source>
         <translation>扉页</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="183"/>
+        <location filename="../../Misc/GuideItems.cpp" line="171"/>
         <source>Preliminary material to the main content of a publication, such as tables of contents, dedications, etc.</source>
         <translation>出版物主要内容的初步材料，例如目录，奉献等。</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="184"/>
+        <location filename="../../Misc/GuideItems.cpp" line="172"/>
         <source>Glossary</source>
         <translation>词汇</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="184"/>
+        <location filename="../../Misc/GuideItems.cpp" line="172"/>
         <source>An alphabetical list of terms in a particular domain of knowledge, with the definitions for those terms.</source>
         <translation>特定知识领域中按字母顺序排列的术语列表，以及这些术语的定义。</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="185"/>
+        <location filename="../../Misc/GuideItems.cpp" line="173"/>
         <source>Half Title Page</source>
         <translation>内封页</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="185"/>
+        <location filename="../../Misc/GuideItems.cpp" line="173"/>
         <source>The half title page of the work which carries just the title itself.</source>
         <translation>作品的半标题页，只有标题本身。</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="186"/>
+        <location filename="../../Misc/GuideItems.cpp" line="174"/>
         <source>Imprimatur</source>
         <translation>出版许可</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="186"/>
+        <location filename="../../Misc/GuideItems.cpp" line="174"/>
         <source>A formal statement authorizing the publication of the work.</source>
         <translation>授权发表作品的正式声明。</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="187"/>
+        <location filename="../../Misc/GuideItems.cpp" line="175"/>
         <source>Imprint</source>
         <translation>出版商名称</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="187"/>
+        <location filename="../../Misc/GuideItems.cpp" line="175"/>
         <source>Information relating to the publication or distribution of the work.</source>
         <translation>与作品出版或发行有关的信息。</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="188"/>
+        <location filename="../../Misc/GuideItems.cpp" line="176"/>
         <source>Index</source>
         <translation>索引</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="188"/>
+        <location filename="../../Misc/GuideItems.cpp" line="176"/>
         <source>A detailed list, usually arranged alphabetically, of the specific information in a publication.</source>
         <translation>出版物中特定信息的详细列表，通常按字母顺序排列。</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="189"/>
+        <location filename="../../Misc/GuideItems.cpp" line="177"/>
         <source>Introduction</source>
         <translation>简介</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="189"/>
+        <location filename="../../Misc/GuideItems.cpp" line="177"/>
         <source>A section in the beginning of the work, typically introducing the reader to the scope or nature of the work&apos;s content.</source>
         <translation>作品开始部分，通常向读者介绍作品内容的范围或性质。</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="190"/>
+        <location filename="../../Misc/GuideItems.cpp" line="178"/>
         <source>List of Illustrations</source>
         <translation>插图列表</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="190"/>
+        <location filename="../../Misc/GuideItems.cpp" line="178"/>
         <source>A listing of illustrations included in the work.</source>
         <translation>作品中包含的插图清单</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="191"/>
+        <location filename="../../Misc/GuideItems.cpp" line="179"/>
         <source>List of Audio Clips</source>
         <translation>音频剪辑列表</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="191"/>
+        <location filename="../../Misc/GuideItems.cpp" line="179"/>
         <source>A listing of audio clips included in the work.</source>
         <translation>作品中包含的音频剪辑列表。</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="192"/>
+        <location filename="../../Misc/GuideItems.cpp" line="180"/>
         <source>List of Tables</source>
         <translation>目录表</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="192"/>
+        <location filename="../../Misc/GuideItems.cpp" line="180"/>
         <source>A listing of tables included in the work.</source>
         <translation>作品中包含的表格清单</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="193"/>
+        <location filename="../../Misc/GuideItems.cpp" line="181"/>
         <source>List of Video Clips</source>
         <translation>视频剪辑列表</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="193"/>
+        <location filename="../../Misc/GuideItems.cpp" line="181"/>
         <source>A listing of video clips included in the work.</source>
         <translation>作品中包含的视频剪辑列表。</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="194"/>
+        <location filename="../../Misc/GuideItems.cpp" line="182"/>
         <source>Notes</source>
         <translation>注释</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="194"/>
+        <location filename="../../Misc/GuideItems.cpp" line="182"/>
         <source>A collection of notes. It can be used to identify footnotes, rear notes, marginal notes, inline notes, and similar when legacy naming conventions are not desired. Status: Deprecated - Replaced by: &apos;footnotes&apos;, &apos;rearnotes&apos;</source>
         <translation>笔记集。当不需要传统的命名约定时，它可以用于标识脚注、尾注、边缘注释、内联注释和类似内容。状态：已弃用-替换为：“脚注”、“后注释”</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="195"/>
+        <location filename="../../Misc/GuideItems.cpp" line="183"/>
         <source>Other Credits</source>
         <translation>其他信誉</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="195"/>
+        <location filename="../../Misc/GuideItems.cpp" line="183"/>
         <source>Acknowledgments of previously published parts of the work, illustration credits, and permission to quote from copyrighted material.</source>
         <translation>对之前发表的作品部分的确认、插图致谢，以及从受版权保护的材料中引用的许可。</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="196"/>
+        <location filename="../../Misc/GuideItems.cpp" line="184"/>
         <source>Preamble</source>
         <translation>序言</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="196"/>
+        <location filename="../../Misc/GuideItems.cpp" line="184"/>
         <source>A section in the beginning of the work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content</source>
         <translation>作品开头的一节，通常包含关于作品内容范围或性质的介绍性和/或解释性散文</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="197"/>
+        <location filename="../../Misc/GuideItems.cpp" line="185"/>
         <source>Preface</source>
         <translation>序言</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="197"/>
+        <location filename="../../Misc/GuideItems.cpp" line="185"/>
         <source>An introductory section that precedes the work, typically written by the work&apos;s author.</source>
         <translation>作品前面的介绍性部分，通常由作品的作者撰写。</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="198"/>
+        <location filename="../../Misc/GuideItems.cpp" line="186"/>
         <source>Prologue</source>
         <translation>前言</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="198"/>
+        <location filename="../../Misc/GuideItems.cpp" line="186"/>
         <source>An introductory section that sets the background to a story, typically part of the narrative.</source>
         <translation>为故事设定背景的介绍性部分，通常是叙述的一部分。</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="199"/>
+        <location filename="../../Misc/GuideItems.cpp" line="187"/>
         <source>Rear Notes</source>
         <translation>后记</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="199"/>
+        <location filename="../../Misc/GuideItems.cpp" line="187"/>
         <source>A collection of notes appearing at the rear (backmatter) of the work, or at the end of a section.</source>
         <translation>出现在作品后面（背面）或某一部分结尾处的笔记集。</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="200"/>
+        <location filename="../../Misc/GuideItems.cpp" line="188"/>
         <source>Title Page</source>
         <translation>标题页</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="200"/>
+        <location filename="../../Misc/GuideItems.cpp" line="188"/>
         <source>A page at the beginning of a book giving its title, authors, publisher and other publication information.</source>
         <translation>在书的开头的一页，给出书名、作者、出版商和其他出版信息。</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="201"/>
+        <location filename="../../Misc/GuideItems.cpp" line="189"/>
         <source>Table of Contents</source>
         <translation>目录</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="201"/>
+        <location filename="../../Misc/GuideItems.cpp" line="189"/>
         <source>A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work&apos;s frontmatter, or at the beginning of a section.</source>
         <translation>一个目录，它是书或文档的标题或部分的列表，按其出现的顺序进行组织。 通常出现在作品的前题或部分开头。</translation>
     </message>
@@ -5513,6 +5518,39 @@ You can then check or uncheck individual headings in the list above.</source>
     </message>
 </context>
 <context>
+    <name>ImageResizeDialog</name>
+    <message>
+        <location filename="../../Dialogs/ImageResizeDialog.cpp" line="8"/>
+        <source>Resize Image</source>
+        <translation>调整图像尺寸</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/ImageResizeDialog.cpp" line="14"/>
+        <source>Width:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/ImageResizeDialog.cpp" line="23"/>
+        <source>Height:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/ImageResizeDialog.cpp" line="31"/>
+        <source>Keep Aspect Ratio</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/ImageResizeDialog.cpp" line="37"/>
+        <source>OK</source>
+        <translation>OK</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/ImageResizeDialog.cpp" line="38"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+</context>
+<context>
     <name>ImageResource</name>
     <message>
         <location filename="../../ResourceObjects/ImageResource.cpp" line="50"/>
@@ -5661,17 +5699,17 @@ You can then check or uncheck individual headings in the list above.</source>
         <translation>epub 中存在但未被列举在清单中的文件，这些文件将被忽略。</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="199"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="206"/>
         <source>This EPUB had HTML files that were not well formed or are missing a DOCTYPE, html, head or body elements.&lt;br/&gt;&lt;br&gt;They were automatically fixed based on your Preference setting to Clean on Open.</source>
         <translation>此 EPUB 中的 HTML 文件畸形或缺少 DOCTYPE、html、head 或 body 元素。&lt;br/&gt;&lt;br&gt;基于你设置的“Clean on Open&quot; 首选项，它们被自动修复了。</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="205"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="212"/>
         <source>This EPUB has HTML files that are not well formed or are missing a DOCTYPE, html, head or body elements.&lt;br/&gt;&lt;/br&gt;Fix these manually or use Sigil&apos;s Mend tool to automatically fixed these errors or omissions.</source>
         <translation>此 EPUB 中的 HTML 文件畸形或缺少 DOCTYPE、html、head 或 body 元素。&lt;br/&gt;&lt;/br&gt;手动修复它们或使用 Sigil 的 Mend 工具自动修复这些错误或缺失。</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="606"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="613"/>
         <source>Epub has missing or improperly specified OPF.</source>
         <translation>Epub缺少或未正确指定OPF。</translation>
     </message>
@@ -5680,7 +5718,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <name>IndexEditor</name>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="14"/>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="288"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="287"/>
         <source>Index Editor</source>
         <translation>索引编辑器</translation>
     </message>
@@ -5696,157 +5734,157 @@ You can then check or uncheck individual headings in the list above.</source>
     </message>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="58"/>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="427"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="426"/>
         <source>Add Entry</source>
         <translation>添加条目</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="67"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="66"/>
         <source>Right click on an entry to see a context menu of actions.</source>
         <translation>右键单击一个条目看到一个上下文菜单的操作。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="68"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="67"/>
         <source>You can also right click in your document to add selected text to the Index.</source>
         <translation>您还可以右键单击把选定的文本添加到索引中。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="69"/>
         <source>Text to Include</source>
         <translation>文本</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="69"/>
         <source>The pattern to match in your document, e.g. &quot;Gutenberg&quot;. This is a regex pattern so &quot;(?i)Gutenberg&quot; ignores case when matching.</source>
         <translation>文档中匹配的模式，例如 “古登堡”, 这是一个正则表达式模式, 所以“((?i)古登堡”忽略匹配时的情况。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="71"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
         <source>Index Entries</source>
         <translation>索引条目</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="71"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
         <source>The entry to create in the Index. Leave blank to use text as is, or enter text to display.  Create multi-level entries by using &apos;/&apos; after a level name, e.g. &quot;Books/Fantasy/Alice in Wonderland&quot; or &quot;Books/Fantasy/&quot;.</source>
         <translation>要在索引中创建条目, 按原样使用文本并留空或输入要显示的文本. 通过在级别名称后使用“/”符号创建多级条目，例如 “书/幻想/爱丽丝梦游仙境”或“书/幻想/”。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="75"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="75"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
         <source>Save your changes.</source>
         <translation>保存更改。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="75"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
         <translation>如果Sigil的任何其他实例正在运行，他们将自动更新您所做的更改。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="85"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="84"/>
         <source>Cannot save entries.</source>
         <translation>无法保存条目</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="127"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="126"/>
         <source>Index entries loaded from file.</source>
         <translation>索引条目已加载。</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../Dialogs/IndexEditor.cpp" line="288"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="287"/>
         <source>Entries added: %n</source>
         <translation><numerusform>已添加条目：%n</numerusform></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="294"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="293"/>
         <source>Index files: *.ini *.txt (*.ini *.txt)</source>
         <translation>索引文件： *.ini *.txt (*.ini *.txt)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="298"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="297"/>
         <source>Load Entries From File</source>
         <translation>从文件加载</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="315"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="314"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="315"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="314"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
         <translation>您确定要重新加载所有条目？ 这会覆盖任何未保存的更改。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="335"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="334"/>
         <source>Save Entries to File</source>
         <translation>保存到文件</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="428"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="427"/>
         <source>Edit</source>
         <translation>编辑</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="429"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="428"/>
         <source>Cut</source>
         <translation>剪切</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="430"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="429"/>
         <source>Copy</source>
         <translation>复制</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="431"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="430"/>
         <source>Paste</source>
         <translation>粘贴</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="432"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="431"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="433"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="432"/>
         <source>Autofill</source>
         <translation>自动填充</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="434"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="433"/>
         <source>Open</source>
         <translation>打开</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="435"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="434"/>
         <source>Reload</source>
         <translation>重新加载</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="436"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="435"/>
         <source>Save As</source>
         <translation>另存为</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="437"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="436"/>
         <source>Select All</source>
         <translation>选择所有</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="514"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="513"/>
         <source>Index entries saved.</source>
         <translation>索引条目已保存</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="543"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="542"/>
         <source>Sigil: Index Editor</source>
         <translation>Sigil：索引编辑器</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="544"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="543"/>
         <source>The Index entries may have been modified.
 Do you want to save your changes?</source>
         <translation>索引条目可能已经修改。
@@ -5856,17 +5894,17 @@ Do you want to save your changes?</source>
 <context>
     <name>IndexEditorModel</name>
     <message>
-        <location filename="../../MiscEditors/IndexEditorModel.cpp" line="64"/>
+        <location filename="../../MiscEditors/IndexEditorModel.cpp" line="52"/>
         <source>Text to Include</source>
         <translation>文本</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/IndexEditorModel.cpp" line="65"/>
+        <location filename="../../MiscEditors/IndexEditorModel.cpp" line="53"/>
         <source>Index Entries</source>
         <translation>索引条目</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/IndexEditorModel.cpp" line="350"/>
+        <location filename="../../MiscEditors/IndexEditorModel.cpp" line="333"/>
         <source>Unable to create file %1</source>
         <translation>无法创建文件 %1</translation>
     </message>
@@ -5958,7 +5996,7 @@ Do you want to save your changes?</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.cpp" line="466"/>
+        <location filename="../../Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.cpp" line="461"/>
         <source>Conflicts with: &lt;b&gt;</source>
         <translation>与之冲突的有：&lt;b&gt;</translation>
     </message>
@@ -5966,492 +6004,492 @@ Do you want to save your changes?</source>
 <context>
     <name>Landmarks</name>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="164"/>
+        <location filename="../../Misc/Landmarks.cpp" line="154"/>
         <source>Acknowledgments</source>
         <translation>致谢</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="164"/>
+        <location filename="../../Misc/Landmarks.cpp" line="154"/>
         <source>A passage containing acknowledgments to entities involved in the realization of the work.</source>
         <translation>一段包含对完成工作的实体的感谢的段落。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="165"/>
+        <location filename="../../Misc/Landmarks.cpp" line="155"/>
         <source>Afterword</source>
         <translation>后记</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="165"/>
+        <location filename="../../Misc/Landmarks.cpp" line="155"/>
         <source>A closing statement from the author or a person of importance to the story, typically providing insight into how the story came to be written, its significance or related events that have transpired since its timeline.</source>
         <translation>作者或对故事有重要意义的人的结束语，通常提供对故事是如何撰写的、其意义或自其时间线以来发生的相关事件的洞察力。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="166"/>
+        <location filename="../../Misc/Landmarks.cpp" line="156"/>
         <source>Annotation</source>
         <translation>评注</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="166"/>
+        <location filename="../../Misc/Landmarks.cpp" line="156"/>
         <source>Explanatory information about passages in the work. Status: Deprecated</source>
         <translation>关于作品段落的解释性信息。状态：已弃用</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="167"/>
+        <location filename="../../Misc/Landmarks.cpp" line="157"/>
         <source>Appendix</source>
         <translation>附录</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="167"/>
+        <location filename="../../Misc/Landmarks.cpp" line="157"/>
         <source>Supplemental information.</source>
         <translation>补充信息。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="168"/>
+        <location filename="../../Misc/Landmarks.cpp" line="158"/>
         <source>Assessment</source>
         <translation>评语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="168"/>
+        <location filename="../../Misc/Landmarks.cpp" line="158"/>
         <source>A test, quiz, or other activity that helps measure a student&apos;s understanding of what is being taught.</source>
         <translation>一项测试，测验或其他活动，有助于衡量学生对所教课程的理解。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="169"/>
+        <location filename="../../Misc/Landmarks.cpp" line="159"/>
         <source>Back Matter</source>
         <translation>结文</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="169"/>
+        <location filename="../../Misc/Landmarks.cpp" line="159"/>
         <source>Ancillary material occurring after the main content of a publication, such as indices, appendices, etc.</source>
         <translation>出现在出版物主要内容之后的辅助材料，如索引、附录等。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="170"/>
+        <location filename="../../Misc/Landmarks.cpp" line="160"/>
         <source>Bibliography</source>
         <translation>参考书目</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="170"/>
+        <location filename="../../Misc/Landmarks.cpp" line="160"/>
         <source>A list of works cited.</source>
         <translation>引用的作品列表。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="171"/>
+        <location filename="../../Misc/Landmarks.cpp" line="161"/>
         <source>Body Matter</source>
         <translation>正文内容</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="171"/>
+        <location filename="../../Misc/Landmarks.cpp" line="161"/>
         <source>The main content of a publication.</source>
         <translation>出版物的主要内容。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="172"/>
+        <location filename="../../Misc/Landmarks.cpp" line="162"/>
         <source>Chapter</source>
         <translation>章节</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="172"/>
+        <location filename="../../Misc/Landmarks.cpp" line="162"/>
         <source>A major structural division of a piece of writing.</source>
         <translation>一篇文章的主要结构部分。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="173"/>
+        <location filename="../../Misc/Landmarks.cpp" line="163"/>
         <source>Colophon</source>
         <translation>版权页</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="173"/>
+        <location filename="../../Misc/Landmarks.cpp" line="163"/>
         <source>A brief description usually located at the end of a publication, describing production notes relevant to the edition.</source>
         <translation>一种简短的描述，通常位于出版物的末尾，描述与版本相关的作品注释。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="174"/>
+        <location filename="../../Misc/Landmarks.cpp" line="164"/>
         <source>Conclusion</source>
         <translation>结论</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="174"/>
+        <location filename="../../Misc/Landmarks.cpp" line="164"/>
         <source>An ending section that typically wraps up the work.</source>
         <translation>一个结束部分，通常用来结束作品。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="175"/>
+        <location filename="../../Misc/Landmarks.cpp" line="165"/>
         <source>Contributors</source>
         <translation>贡献者</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="175"/>
+        <location filename="../../Misc/Landmarks.cpp" line="165"/>
         <source>A list of contributors to the work.</source>
         <translation>这项工作的贡献者名单。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="176"/>
+        <location filename="../../Misc/Landmarks.cpp" line="166"/>
         <source>Copyright Page</source>
         <translation>版权页</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="176"/>
+        <location filename="../../Misc/Landmarks.cpp" line="166"/>
         <source>The copyright page of the work.</source>
         <translation>作品版权页</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="177"/>
+        <location filename="../../Misc/Landmarks.cpp" line="167"/>
         <source>Cover</source>
         <translation>封面</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="177"/>
+        <location filename="../../Misc/Landmarks.cpp" line="167"/>
         <source>The publications cover(s), jacket information, etc.</source>
         <translation>出版物封面、书套信息等。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="178"/>
+        <location filename="../../Misc/Landmarks.cpp" line="168"/>
         <source>Dedication</source>
         <translation>贡献</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="178"/>
+        <location filename="../../Misc/Landmarks.cpp" line="168"/>
         <source>An inscription addressed to one or several particular person(s).</source>
         <translation>写给一个或几个特定的人的题词。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="179"/>
+        <location filename="../../Misc/Landmarks.cpp" line="169"/>
         <source>Division</source>
         <translation>部门</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="179"/>
+        <location filename="../../Misc/Landmarks.cpp" line="169"/>
         <source>A major structural division that may also appear as a substructure of a part (esp. in legislation).</source>
         <translation>一种主要的结构划分，也可以作为一个部分的子结构出现（特别是在立法中）。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="180"/>
+        <location filename="../../Misc/Landmarks.cpp" line="170"/>
         <source>Endnotes</source>
         <translation>尾注</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="180"/>
+        <location filename="../../Misc/Landmarks.cpp" line="170"/>
         <source>A collection of notes at the end of a work or a section within it.</source>
         <translation>作品结尾或作品章节末尾的附注集</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="181"/>
+        <location filename="../../Misc/Landmarks.cpp" line="171"/>
         <source>Epigraph</source>
         <translation>题词</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="181"/>
+        <location filename="../../Misc/Landmarks.cpp" line="171"/>
         <source>A quotation that is pertinent but not integral to the text.</source>
         <translation>一个引文，与正文相关但不完整。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="182"/>
+        <location filename="../../Misc/Landmarks.cpp" line="172"/>
         <source>Epilogue</source>
         <translation>后记</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="182"/>
+        <location filename="../../Misc/Landmarks.cpp" line="172"/>
         <source>A concluding section that is typically written from a later point in time than the main story, although still part of the narrative.</source>
         <translation>总结部分，通常是在比主要故事晚的时间点撰写的，尽管仍是叙述的一部分。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="183"/>
+        <location filename="../../Misc/Landmarks.cpp" line="173"/>
         <source>Errata</source>
         <translation>勘误表</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="183"/>
+        <location filename="../../Misc/Landmarks.cpp" line="173"/>
         <source>Publication errata, in printed works typically a loose sheet inserted by hand; sometimes a bound page that contains corrections for mistakes in the work.</source>
         <translation>出版物勘误表，在印刷作品中，通常是用手插入的散页； 有时是一个装订页，其中包含对工作中的错误的更正。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="184"/>
+        <location filename="../../Misc/Landmarks.cpp" line="174"/>
         <source>Footnotes</source>
         <translation>脚注</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="184"/>
+        <location filename="../../Misc/Landmarks.cpp" line="174"/>
         <source>A collection of notes appearing at the bottom of a page.</source>
         <translation>一组注释，出现在页面底部。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="185"/>
+        <location filename="../../Misc/Landmarks.cpp" line="175"/>
         <source>Foreword</source>
         <translation>前言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="185"/>
+        <location filename="../../Misc/Landmarks.cpp" line="175"/>
         <source>An introductory section that precedes the work, typically not written by the work&apos;s author.</source>
         <translation>作品之前的介绍性部分，通常不是由作品的作者撰写的。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="186"/>
+        <location filename="../../Misc/Landmarks.cpp" line="176"/>
         <source>Front Matter</source>
         <translation>扉页</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="186"/>
+        <location filename="../../Misc/Landmarks.cpp" line="176"/>
         <source>Preliminary material to the main content of a publication, such as tables of contents, dedications, etc.</source>
         <translation>出版物主要内容的初步材料，例如目录，奉献等。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="187"/>
+        <location filename="../../Misc/Landmarks.cpp" line="177"/>
         <source>Glossary</source>
         <translation>词汇</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="187"/>
+        <location filename="../../Misc/Landmarks.cpp" line="177"/>
         <source>An alphabetical list of terms in a particular domain of knowledge, with the definitions for those terms.</source>
         <translation>特定知识领域中按字母顺序排列的术语列表，以及这些术语的定义。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="188"/>
+        <location filename="../../Misc/Landmarks.cpp" line="178"/>
         <source>Half Title Page</source>
         <translation>内封页</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="188"/>
+        <location filename="../../Misc/Landmarks.cpp" line="178"/>
         <source>The half title page of the work which carries just the title itself.</source>
         <translation>作品的半标题页，只有标题本身。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="189"/>
+        <location filename="../../Misc/Landmarks.cpp" line="179"/>
         <source>Imprimatur</source>
         <translation>出版许可</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="189"/>
+        <location filename="../../Misc/Landmarks.cpp" line="179"/>
         <source>A formal statement authorizing the publication of the work.</source>
         <translation>授权发表作品的正式声明。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="190"/>
+        <location filename="../../Misc/Landmarks.cpp" line="180"/>
         <source>Imprint</source>
-        <translation>出版商名称</translation>
+        <translation>出版信息</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="190"/>
+        <location filename="../../Misc/Landmarks.cpp" line="180"/>
         <source>Information relating to the publication or distribution of the work.</source>
         <translation>与作品出版或发行有关的信息。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="191"/>
+        <location filename="../../Misc/Landmarks.cpp" line="181"/>
         <source>Index</source>
         <translation>索引</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="191"/>
+        <location filename="../../Misc/Landmarks.cpp" line="181"/>
         <source>A detailed list, usually arranged alphabetically, of the specific information in a publication.</source>
         <translation>出版物中特定信息的详细列表，通常按字母顺序排列。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="192"/>
+        <location filename="../../Misc/Landmarks.cpp" line="182"/>
         <source>Introduction</source>
         <translation>简介</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="192"/>
+        <location filename="../../Misc/Landmarks.cpp" line="182"/>
         <source>A section in the beginning of the work, typically introducing the reader to the scope or nature of the work&apos;s content.</source>
         <translation>作品开始部分，通常向读者介绍作品内容的范围或性质。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="193"/>
+        <location filename="../../Misc/Landmarks.cpp" line="183"/>
         <source>Landmarks</source>
         <translation>里程碑</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="193"/>
+        <location filename="../../Misc/Landmarks.cpp" line="183"/>
         <source>A collection of references to well-known/recurring components within the publication</source>
         <translation>对出版物中知名/重复出现的组成部分的引用的集合</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="194"/>
+        <location filename="../../Misc/Landmarks.cpp" line="184"/>
         <source>List of Audio Clips</source>
         <translation>音频剪辑列表</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="194"/>
+        <location filename="../../Misc/Landmarks.cpp" line="184"/>
         <source>A listing of audio clips included in the work.</source>
         <translation>作品中包含的音频剪辑列表。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="195"/>
+        <location filename="../../Misc/Landmarks.cpp" line="185"/>
         <source>List of Illustrations</source>
         <translation>插图列表</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="195"/>
+        <location filename="../../Misc/Landmarks.cpp" line="185"/>
         <source>A listing of illustrations included in the work.</source>
         <translation>作品内的插图清单</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="196"/>
+        <location filename="../../Misc/Landmarks.cpp" line="186"/>
         <source>List of Tables</source>
         <translation>目录表</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="196"/>
+        <location filename="../../Misc/Landmarks.cpp" line="186"/>
         <source>A listing of tables included in the work.</source>
         <translation>作品中包含的表格清单</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="197"/>
+        <location filename="../../Misc/Landmarks.cpp" line="187"/>
         <source>List of Video Clips</source>
         <translation>视频剪辑列表</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="197"/>
+        <location filename="../../Misc/Landmarks.cpp" line="187"/>
         <source>A listing of video clips included in the work.</source>
         <translation>作品中包含的视频剪辑列表。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="198"/>
+        <location filename="../../Misc/Landmarks.cpp" line="188"/>
         <source>Notice</source>
         <translation>须知</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="198"/>
+        <location filename="../../Misc/Landmarks.cpp" line="188"/>
         <source>Information that requires special attention, and that must not be skipped or suppressed. Examples include: alert, warning, caution, danger, important.</source>
         <translation>需要特别注意的信息，不能跳过或禁止显示。 示例包括：警报，警告，小心，危险，重要。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="199"/>
+        <location filename="../../Misc/Landmarks.cpp" line="189"/>
         <source>Other Credits</source>
         <translation>其他信誉</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="199"/>
+        <location filename="../../Misc/Landmarks.cpp" line="189"/>
         <source>Acknowledgments of previously published parts of the work, illustration credits, and permission to quote from copyrighted material.</source>
         <translation>对之前发表的作品部分的确认、插图致谢，以及从受版权保护的材料中引用的许可。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="200"/>
+        <location filename="../../Misc/Landmarks.cpp" line="190"/>
         <source>Page List</source>
         <translation>页列表</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="200"/>
+        <location filename="../../Misc/Landmarks.cpp" line="190"/>
         <source>A list of references to pagebreaks (start locations) from a print version of the ebook</source>
         <translation>印刷版电子书中对分页符（起始位置）的引用列表</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="201"/>
+        <location filename="../../Misc/Landmarks.cpp" line="191"/>
         <source>Part</source>
         <translation>章</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="201"/>
+        <location filename="../../Misc/Landmarks.cpp" line="191"/>
         <source>A major structural division of a piece of writing, typically encapsulating a set of related chapters.</source>
         <translation>一篇文章的主要结构部分，通常包含一系列相关章节。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="202"/>
+        <location filename="../../Misc/Landmarks.cpp" line="192"/>
         <source>Preamble</source>
         <translation>序言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="202"/>
+        <location filename="../../Misc/Landmarks.cpp" line="192"/>
         <source>A section in the beginning of the work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content</source>
         <translation>作品开头的一节，通常包含关于作品内容范围或性质的介绍性和/或解释性散文</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="203"/>
+        <location filename="../../Misc/Landmarks.cpp" line="193"/>
         <source>Preface</source>
         <translation>序言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="203"/>
+        <location filename="../../Misc/Landmarks.cpp" line="193"/>
         <source>An introductory section that precedes the work, typically written by the work&apos;s author.</source>
         <translation>作品前面的介绍性部分，通常由作品的作者撰写。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="204"/>
+        <location filename="../../Misc/Landmarks.cpp" line="194"/>
         <source>Prologue</source>
         <translation>前言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="204"/>
+        <location filename="../../Misc/Landmarks.cpp" line="194"/>
         <source>An introductory section that sets the background to a story, typically part of the narrative.</source>
         <translation>为故事设定背景的介绍性部分，通常是叙述的一部分。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="205"/>
+        <location filename="../../Misc/Landmarks.cpp" line="195"/>
         <source>Questions and Answers</source>
         <translation>问题与回答</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="205"/>
+        <location filename="../../Misc/Landmarks.cpp" line="195"/>
         <source>A question and answer section.</source>
         <translation>问答部分。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="206"/>
+        <location filename="../../Misc/Landmarks.cpp" line="196"/>
         <source>Rear Notes</source>
         <translation>后记</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="206"/>
+        <location filename="../../Misc/Landmarks.cpp" line="196"/>
         <source>A collection of notes appearing at the rear (backmatter) of the work, or at the end of a section. Status: Deprecated</source>
         <translation>出现在作品后面（背面）或章节结尾处的附注集。状态：已废弃</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="207"/>
+        <location filename="../../Misc/Landmarks.cpp" line="197"/>
         <source>Revision History</source>
         <translation>版本历史</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="207"/>
+        <location filename="../../Misc/Landmarks.cpp" line="197"/>
         <source>A record of changes made to a work.</source>
         <translation>对作品所做的修改的记录。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="208"/>
+        <location filename="../../Misc/Landmarks.cpp" line="198"/>
         <source>Subchapter</source>
         <translation>分章</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="208"/>
+        <location filename="../../Misc/Landmarks.cpp" line="198"/>
         <source>A major sub-division of a chapter.</source>
         <translation>一章的主要子部分。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="209"/>
+        <location filename="../../Misc/Landmarks.cpp" line="199"/>
         <source>Title Page</source>
         <translation>标题页</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="209"/>
+        <location filename="../../Misc/Landmarks.cpp" line="199"/>
         <source>A page at the beginning of a book giving its title, authors, publisher and other publication information.</source>
         <translation>在书的开头的一页，给出书名、作者、出版商和其他出版信息。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="210"/>
+        <location filename="../../Misc/Landmarks.cpp" line="200"/>
         <source>Table of Contents</source>
         <translation>目录</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="210"/>
+        <location filename="../../Misc/Landmarks.cpp" line="200"/>
         <source>A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work&apos;s frontmatter, or at the beginning of a section.</source>
         <translation>一个目录，它是书或文档的标题或部分的列表，按其出现的顺序进行组织。 通常出现在作品的前题或部分开头。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="211"/>
+        <location filename="../../Misc/Landmarks.cpp" line="201"/>
         <source>Volume</source>
         <translation>卷</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="211"/>
+        <location filename="../../Misc/Landmarks.cpp" line="201"/>
         <source>A component of a collection.</source>
         <translation>作品集一个部分</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="212"/>
+        <location filename="../../Misc/Landmarks.cpp" line="202"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="212"/>
+        <location filename="../../Misc/Landmarks.cpp" line="202"/>
         <source>A warning or caution about specific material. Status: Deprecated - Replaced by &apos;notice&apos;.</source>
         <translation>有关特定材料的警告或注意事项。 状态：已弃用-由“通知”代替。</translation>
     </message>
@@ -6459,1102 +6497,1112 @@ Do you want to save your changes?</source>
 <context>
     <name>Language</name>
     <message>
-        <location filename="../../Misc/Language.cpp" line="105"/>
+        <location filename="../../Misc/Language.cpp" line="95"/>
         <source>Abkhazian</source>
         <translation>阿布哈西亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="106"/>
+        <location filename="../../Misc/Language.cpp" line="96"/>
         <source>Afar</source>
         <translation>阿法尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="107"/>
+        <location filename="../../Misc/Language.cpp" line="97"/>
         <source>Afrikaans</source>
         <translation>南非语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="108"/>
+        <location filename="../../Misc/Language.cpp" line="98"/>
         <source>Akan</source>
         <translation>阿肯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="109"/>
+        <location filename="../../Misc/Language.cpp" line="99"/>
         <source>Albanian</source>
         <translation>阿尔巴尼亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="110"/>
+        <location filename="../../Misc/Language.cpp" line="100"/>
         <source>Amharic</source>
         <translation>阿姆哈拉语</translation>
     </message>
     <message>
+        <location filename="../../Misc/Language.cpp" line="101"/>
+        <location filename="../../Misc/Language.cpp" line="102"/>
+        <location filename="../../Misc/Language.cpp" line="103"/>
+        <location filename="../../Misc/Language.cpp" line="104"/>
+        <location filename="../../Misc/Language.cpp" line="105"/>
+        <location filename="../../Misc/Language.cpp" line="106"/>
+        <location filename="../../Misc/Language.cpp" line="107"/>
+        <location filename="../../Misc/Language.cpp" line="108"/>
+        <location filename="../../Misc/Language.cpp" line="109"/>
+        <location filename="../../Misc/Language.cpp" line="110"/>
         <location filename="../../Misc/Language.cpp" line="111"/>
         <location filename="../../Misc/Language.cpp" line="112"/>
         <location filename="../../Misc/Language.cpp" line="113"/>
         <location filename="../../Misc/Language.cpp" line="114"/>
         <location filename="../../Misc/Language.cpp" line="115"/>
         <location filename="../../Misc/Language.cpp" line="116"/>
-        <location filename="../../Misc/Language.cpp" line="117"/>
-        <location filename="../../Misc/Language.cpp" line="118"/>
-        <location filename="../../Misc/Language.cpp" line="119"/>
-        <location filename="../../Misc/Language.cpp" line="120"/>
-        <location filename="../../Misc/Language.cpp" line="121"/>
-        <location filename="../../Misc/Language.cpp" line="122"/>
-        <location filename="../../Misc/Language.cpp" line="123"/>
-        <location filename="../../Misc/Language.cpp" line="124"/>
-        <location filename="../../Misc/Language.cpp" line="125"/>
-        <location filename="../../Misc/Language.cpp" line="126"/>
         <source>Arabic</source>
         <translation>阿拉伯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="112"/>
+        <location filename="../../Misc/Language.cpp" line="102"/>
         <source>Algeria</source>
         <translation>阿尔及利亚</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="113"/>
+        <location filename="../../Misc/Language.cpp" line="103"/>
         <source>Bahrain</source>
         <translation>巴林</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="114"/>
+        <location filename="../../Misc/Language.cpp" line="104"/>
         <source>Egypt</source>
         <translation>埃及</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="115"/>
+        <location filename="../../Misc/Language.cpp" line="105"/>
         <source>Iraq</source>
         <translation>伊拉克</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="116"/>
+        <location filename="../../Misc/Language.cpp" line="106"/>
         <source>Jordan</source>
         <translation>约旦</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="117"/>
+        <location filename="../../Misc/Language.cpp" line="107"/>
         <source>Kuwait</source>
         <translation>科威特</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="118"/>
+        <location filename="../../Misc/Language.cpp" line="108"/>
         <source>Lebanon</source>
         <translation>黎巴嫩</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="119"/>
+        <location filename="../../Misc/Language.cpp" line="109"/>
         <source>Libya</source>
         <translation>利比亚</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="120"/>
+        <location filename="../../Misc/Language.cpp" line="110"/>
         <source>Morocco</source>
         <translation>摩洛哥</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="121"/>
+        <location filename="../../Misc/Language.cpp" line="111"/>
         <source>Oman</source>
         <translation>阿曼</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="122"/>
+        <location filename="../../Misc/Language.cpp" line="112"/>
         <source>Qatar</source>
         <translation>卡塔尔</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="123"/>
+        <location filename="../../Misc/Language.cpp" line="113"/>
         <source>Syria</source>
         <translation>叙利亚</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="124"/>
+        <location filename="../../Misc/Language.cpp" line="114"/>
         <source>Tunisia</source>
         <translation>突尼斯</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="125"/>
+        <location filename="../../Misc/Language.cpp" line="115"/>
         <source>United Arab Emirates</source>
         <translation>阿拉伯联合酋长国</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="126"/>
+        <location filename="../../Misc/Language.cpp" line="116"/>
         <source>Yemen</source>
         <translation>也门</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="127"/>
+        <location filename="../../Misc/Language.cpp" line="117"/>
         <source>Aragonese</source>
         <translation>阿拉贡语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="128"/>
+        <location filename="../../Misc/Language.cpp" line="118"/>
         <source>Armenian</source>
         <translation>亚美尼亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="129"/>
+        <location filename="../../Misc/Language.cpp" line="119"/>
         <source>Assamese</source>
         <translation>阿萨姆语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="130"/>
+        <location filename="../../Misc/Language.cpp" line="120"/>
         <source>Avaric</source>
         <translation>阿瓦尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="131"/>
+        <location filename="../../Misc/Language.cpp" line="121"/>
         <source>Avestan</source>
         <translation>阿维斯陀语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="132"/>
+        <location filename="../../Misc/Language.cpp" line="122"/>
         <source>Aymara</source>
         <translation>艾马拉语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="133"/>
-        <location filename="../../Misc/Language.cpp" line="134"/>
+        <location filename="../../Misc/Language.cpp" line="123"/>
+        <location filename="../../Misc/Language.cpp" line="124"/>
         <source>Azerbaijani</source>
         <translation>阿塞拜疆语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="134"/>
+        <location filename="../../Misc/Language.cpp" line="124"/>
         <source>Azerbaijan</source>
         <translation>阿塞拜疆</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="135"/>
+        <location filename="../../Misc/Language.cpp" line="125"/>
         <source>Bambara</source>
         <translation>班巴拉语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="136"/>
+        <location filename="../../Misc/Language.cpp" line="126"/>
         <source>Bashkir</source>
         <translation>巴什基尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="137"/>
+        <location filename="../../Misc/Language.cpp" line="127"/>
         <source>Basque</source>
         <translation>巴斯克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="138"/>
+        <location filename="../../Misc/Language.cpp" line="128"/>
         <source>Belarusian</source>
         <translation>白俄罗斯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="139"/>
+        <location filename="../../Misc/Language.cpp" line="129"/>
         <source>Bengali</source>
         <translation>孟加拉语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="140"/>
+        <location filename="../../Misc/Language.cpp" line="130"/>
         <source>Bihari</source>
         <translation>比哈尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="141"/>
+        <location filename="../../Misc/Language.cpp" line="131"/>
         <source>Bislama</source>
         <translation>比斯拉马语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="142"/>
+        <location filename="../../Misc/Language.cpp" line="132"/>
         <source>Bosnian</source>
         <translation>波斯尼亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="143"/>
+        <location filename="../../Misc/Language.cpp" line="133"/>
         <source>Breton</source>
         <translation>布列塔尼语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="144"/>
+        <location filename="../../Misc/Language.cpp" line="134"/>
         <source>Bulgarian</source>
         <translation>保加利亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="145"/>
+        <location filename="../../Misc/Language.cpp" line="135"/>
         <source>Burmese</source>
         <translation>缅甸语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="146"/>
-        <location filename="../../Misc/Language.cpp" line="147"/>
+        <location filename="../../Misc/Language.cpp" line="136"/>
+        <location filename="../../Misc/Language.cpp" line="137"/>
         <source>Catalan</source>
         <translation>加泰罗尼亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="147"/>
-        <location filename="../../Misc/Language.cpp" line="332"/>
+        <location filename="../../Misc/Language.cpp" line="137"/>
+        <location filename="../../Misc/Language.cpp" line="322"/>
         <source>Spain</source>
         <translation>西班牙</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="148"/>
+        <location filename="../../Misc/Language.cpp" line="138"/>
         <source>Central Khmer</source>
         <translation>中央高棉</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="149"/>
+        <location filename="../../Misc/Language.cpp" line="139"/>
         <source>Chamorro</source>
         <translation>查莫罗语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="150"/>
+        <location filename="../../Misc/Language.cpp" line="140"/>
         <source>Chechen</source>
         <translation>车臣语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="151"/>
-        <location filename="../../Misc/Language.cpp" line="152"/>
-        <location filename="../../Misc/Language.cpp" line="153"/>
-        <location filename="../../Misc/Language.cpp" line="154"/>
-        <location filename="../../Misc/Language.cpp" line="155"/>
-        <location filename="../../Misc/Language.cpp" line="156"/>
+        <location filename="../../Misc/Language.cpp" line="141"/>
+        <location filename="../../Misc/Language.cpp" line="142"/>
+        <location filename="../../Misc/Language.cpp" line="143"/>
+        <location filename="../../Misc/Language.cpp" line="144"/>
+        <location filename="../../Misc/Language.cpp" line="145"/>
+        <location filename="../../Misc/Language.cpp" line="146"/>
         <source>Chinese</source>
         <translation>中文</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="152"/>
+        <location filename="../../Misc/Language.cpp" line="142"/>
         <source>China</source>
         <translation>中国</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="153"/>
+        <location filename="../../Misc/Language.cpp" line="143"/>
         <source>Hong Kong</source>
         <translation>中国香港</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="154"/>
+        <location filename="../../Misc/Language.cpp" line="144"/>
         <source>Macau</source>
         <translation>中国澳门</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="155"/>
+        <location filename="../../Misc/Language.cpp" line="145"/>
         <source>Singapore</source>
         <translation>新加坡</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="156"/>
+        <location filename="../../Misc/Language.cpp" line="146"/>
         <source>Taiwan</source>
         <translation>中国台湾</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="157"/>
+        <location filename="../../Misc/Language.cpp" line="147"/>
         <source>Church Slavic</source>
         <translation>教会斯拉夫语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="158"/>
+        <location filename="../../Misc/Language.cpp" line="148"/>
         <source>Chuvash</source>
         <translation>楚瓦什语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="159"/>
+        <location filename="../../Misc/Language.cpp" line="149"/>
         <source>Cornish</source>
         <translation>凯尔特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="160"/>
+        <location filename="../../Misc/Language.cpp" line="150"/>
         <source>Corsican</source>
         <translation>科西嘉语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="161"/>
+        <location filename="../../Misc/Language.cpp" line="151"/>
         <source>Cree</source>
         <translation>克里语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="162"/>
+        <location filename="../../Misc/Language.cpp" line="152"/>
         <source>Croatian</source>
         <translation>克罗地亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="163"/>
+        <location filename="../../Misc/Language.cpp" line="153"/>
         <source>Czech</source>
         <translation>捷克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="164"/>
-        <location filename="../../Misc/Language.cpp" line="165"/>
+        <location filename="../../Misc/Language.cpp" line="154"/>
+        <location filename="../../Misc/Language.cpp" line="155"/>
         <source>Danish</source>
         <translation>丹麦语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="165"/>
+        <location filename="../../Misc/Language.cpp" line="155"/>
         <source>Denmark</source>
         <translation>丹麦</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="166"/>
+        <location filename="../../Misc/Language.cpp" line="156"/>
         <source>Dhivehi</source>
         <translation>迪维希</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="167"/>
-        <location filename="../../Misc/Language.cpp" line="168"/>
-        <location filename="../../Misc/Language.cpp" line="169"/>
+        <location filename="../../Misc/Language.cpp" line="157"/>
+        <location filename="../../Misc/Language.cpp" line="158"/>
+        <location filename="../../Misc/Language.cpp" line="159"/>
         <source>Dutch</source>
         <translation>荷兰语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="168"/>
-        <location filename="../../Misc/Language.cpp" line="191"/>
+        <location filename="../../Misc/Language.cpp" line="158"/>
+        <location filename="../../Misc/Language.cpp" line="181"/>
         <source>Belgium</source>
         <translation>比利时</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="169"/>
+        <location filename="../../Misc/Language.cpp" line="159"/>
         <source>Netherlands</source>
         <translation>荷兰</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="170"/>
+        <location filename="../../Misc/Language.cpp" line="160"/>
         <source>Dzongkha</source>
         <translation>宗喀语（不丹语）</translation>
     </message>
     <message>
+        <location filename="../../Misc/Language.cpp" line="161"/>
+        <location filename="../../Misc/Language.cpp" line="162"/>
+        <location filename="../../Misc/Language.cpp" line="163"/>
+        <location filename="../../Misc/Language.cpp" line="164"/>
+        <location filename="../../Misc/Language.cpp" line="165"/>
+        <location filename="../../Misc/Language.cpp" line="166"/>
+        <location filename="../../Misc/Language.cpp" line="167"/>
+        <location filename="../../Misc/Language.cpp" line="168"/>
+        <location filename="../../Misc/Language.cpp" line="169"/>
+        <location filename="../../Misc/Language.cpp" line="170"/>
         <location filename="../../Misc/Language.cpp" line="171"/>
         <location filename="../../Misc/Language.cpp" line="172"/>
         <location filename="../../Misc/Language.cpp" line="173"/>
-        <location filename="../../Misc/Language.cpp" line="174"/>
-        <location filename="../../Misc/Language.cpp" line="175"/>
-        <location filename="../../Misc/Language.cpp" line="176"/>
-        <location filename="../../Misc/Language.cpp" line="177"/>
-        <location filename="../../Misc/Language.cpp" line="178"/>
-        <location filename="../../Misc/Language.cpp" line="179"/>
-        <location filename="../../Misc/Language.cpp" line="180"/>
-        <location filename="../../Misc/Language.cpp" line="181"/>
-        <location filename="../../Misc/Language.cpp" line="182"/>
-        <location filename="../../Misc/Language.cpp" line="183"/>
         <source>English</source>
         <translation>英语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="172"/>
+        <location filename="../../Misc/Language.cpp" line="162"/>
         <source>Australia</source>
         <translation>澳大利亚</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="173"/>
+        <location filename="../../Misc/Language.cpp" line="163"/>
         <source>Belize</source>
         <translation>伯利兹</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="174"/>
-        <location filename="../../Misc/Language.cpp" line="192"/>
+        <location filename="../../Misc/Language.cpp" line="164"/>
+        <location filename="../../Misc/Language.cpp" line="182"/>
         <source>Canada</source>
         <translation>加拿大</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="175"/>
+        <location filename="../../Misc/Language.cpp" line="165"/>
         <source>Caribbean</source>
         <translation>加勒比</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="176"/>
+        <location filename="../../Misc/Language.cpp" line="166"/>
         <source>Great Britain</source>
         <translation>大不列颠</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="177"/>
+        <location filename="../../Misc/Language.cpp" line="167"/>
         <source>India</source>
         <translation>印度</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="178"/>
-        <location filename="../../Misc/Language.cpp" line="198"/>
+        <location filename="../../Misc/Language.cpp" line="168"/>
+        <location filename="../../Misc/Language.cpp" line="188"/>
         <source>Ireland</source>
         <translation>爱尔兰</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="179"/>
+        <location filename="../../Misc/Language.cpp" line="169"/>
         <source>Jamaica</source>
         <translation>牙买加</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="180"/>
+        <location filename="../../Misc/Language.cpp" line="170"/>
         <source>Philippines</source>
         <translation>菲律宾</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="181"/>
+        <location filename="../../Misc/Language.cpp" line="171"/>
         <source>Trinidad</source>
         <translation>特立尼达</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="182"/>
+        <location filename="../../Misc/Language.cpp" line="172"/>
         <source>South Africa</source>
         <translation>南非</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="183"/>
+        <location filename="../../Misc/Language.cpp" line="173"/>
         <source>United States</source>
         <translation>美国</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="184"/>
+        <location filename="../../Misc/Language.cpp" line="174"/>
         <source>Esperanto</source>
         <translation>世界语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="185"/>
+        <location filename="../../Misc/Language.cpp" line="175"/>
         <source>Estonian</source>
         <translation>爱沙尼亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="186"/>
+        <location filename="../../Misc/Language.cpp" line="176"/>
         <source>Ewe</source>
         <translation>埃维语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="187"/>
+        <location filename="../../Misc/Language.cpp" line="177"/>
         <source>Faroese</source>
         <translation>法罗语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="188"/>
+        <location filename="../../Misc/Language.cpp" line="178"/>
         <source>Fijian</source>
         <translation>斐济语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="189"/>
+        <location filename="../../Misc/Language.cpp" line="179"/>
         <source>Finnish</source>
         <translation>芬兰语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="190"/>
-        <location filename="../../Misc/Language.cpp" line="191"/>
-        <location filename="../../Misc/Language.cpp" line="192"/>
-        <location filename="../../Misc/Language.cpp" line="193"/>
-        <location filename="../../Misc/Language.cpp" line="194"/>
-        <location filename="../../Misc/Language.cpp" line="195"/>
+        <location filename="../../Misc/Language.cpp" line="180"/>
+        <location filename="../../Misc/Language.cpp" line="181"/>
+        <location filename="../../Misc/Language.cpp" line="182"/>
+        <location filename="../../Misc/Language.cpp" line="183"/>
+        <location filename="../../Misc/Language.cpp" line="184"/>
+        <location filename="../../Misc/Language.cpp" line="185"/>
         <source>French</source>
         <translation>法语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="193"/>
+        <location filename="../../Misc/Language.cpp" line="183"/>
         <source>France</source>
         <translation>法国</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="194"/>
-        <location filename="../../Misc/Language.cpp" line="206"/>
+        <location filename="../../Misc/Language.cpp" line="184"/>
+        <location filename="../../Misc/Language.cpp" line="196"/>
         <source>Luxembourg</source>
         <translation>卢森堡</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="195"/>
-        <location filename="../../Misc/Language.cpp" line="207"/>
-        <location filename="../../Misc/Language.cpp" line="232"/>
+        <location filename="../../Misc/Language.cpp" line="185"/>
+        <location filename="../../Misc/Language.cpp" line="197"/>
+        <location filename="../../Misc/Language.cpp" line="222"/>
         <source>Switzerland</source>
         <translation>瑞士</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="196"/>
+        <location filename="../../Misc/Language.cpp" line="186"/>
         <source>Fulah</source>
         <translation>富拉语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="197"/>
-        <location filename="../../Misc/Language.cpp" line="198"/>
+        <location filename="../../Misc/Language.cpp" line="187"/>
+        <location filename="../../Misc/Language.cpp" line="188"/>
         <source>Gaelic</source>
         <translation>盖尔</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="197"/>
+        <location filename="../../Misc/Language.cpp" line="187"/>
         <source>Scotland</source>
         <translation>苏格兰</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="199"/>
+        <location filename="../../Misc/Language.cpp" line="189"/>
         <source>Galician</source>
         <translation>加利西亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="200"/>
+        <location filename="../../Misc/Language.cpp" line="190"/>
         <source>Ganda</source>
         <translation>卢甘达语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="201"/>
+        <location filename="../../Misc/Language.cpp" line="191"/>
         <source>Georgian</source>
         <translation>格鲁吉亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="202"/>
-        <location filename="../../Misc/Language.cpp" line="203"/>
-        <location filename="../../Misc/Language.cpp" line="204"/>
-        <location filename="../../Misc/Language.cpp" line="205"/>
-        <location filename="../../Misc/Language.cpp" line="206"/>
-        <location filename="../../Misc/Language.cpp" line="207"/>
+        <location filename="../../Misc/Language.cpp" line="192"/>
+        <location filename="../../Misc/Language.cpp" line="193"/>
+        <location filename="../../Misc/Language.cpp" line="194"/>
+        <location filename="../../Misc/Language.cpp" line="195"/>
+        <location filename="../../Misc/Language.cpp" line="196"/>
+        <location filename="../../Misc/Language.cpp" line="197"/>
         <source>German</source>
         <translation>德语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="203"/>
+        <location filename="../../Misc/Language.cpp" line="193"/>
         <source>Austria</source>
         <translation>奥地利</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="204"/>
+        <location filename="../../Misc/Language.cpp" line="194"/>
         <source>Germany</source>
         <translation>德国</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="205"/>
+        <location filename="../../Misc/Language.cpp" line="195"/>
         <source>Liechtenstein</source>
         <translation>列支敦士登</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="208"/>
+        <location filename="../../Misc/Language.cpp" line="198"/>
         <source>Greek, Modern</source>
         <translation>希腊，现代</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="209"/>
+        <location filename="../../Misc/Language.cpp" line="199"/>
         <source>Greek</source>
         <translation>希腊语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="210"/>
+        <location filename="../../Misc/Language.cpp" line="200"/>
         <source>Guarani</source>
         <translation>瓜拉尼语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="211"/>
+        <location filename="../../Misc/Language.cpp" line="201"/>
         <source>Gujarati</source>
         <translation>古吉拉特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="212"/>
+        <location filename="../../Misc/Language.cpp" line="202"/>
         <source>Haitian</source>
         <translation>海地语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="213"/>
+        <location filename="../../Misc/Language.cpp" line="203"/>
         <source>Hausa</source>
         <translation>豪萨语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="214"/>
+        <location filename="../../Misc/Language.cpp" line="204"/>
         <source>Hebrew</source>
         <translation>希伯来语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="215"/>
+        <location filename="../../Misc/Language.cpp" line="205"/>
         <source>Herero</source>
         <translation>赫雷罗语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="216"/>
+        <location filename="../../Misc/Language.cpp" line="206"/>
         <source>Hindi</source>
         <translation>印地语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="217"/>
+        <location filename="../../Misc/Language.cpp" line="207"/>
         <source>Hiri Motu</source>
         <translation>希里莫图语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="218"/>
-        <location filename="../../Misc/Language.cpp" line="219"/>
+        <location filename="../../Misc/Language.cpp" line="208"/>
+        <location filename="../../Misc/Language.cpp" line="209"/>
         <source>Hungarian</source>
         <translation>匈牙利语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="219"/>
+        <location filename="../../Misc/Language.cpp" line="209"/>
         <source>Hungary</source>
         <translation>匈牙利</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="220"/>
+        <location filename="../../Misc/Language.cpp" line="210"/>
         <source>Icelandic</source>
         <translation>冰岛语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="221"/>
+        <location filename="../../Misc/Language.cpp" line="211"/>
         <source>Ido</source>
         <translation>伊多语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="222"/>
+        <location filename="../../Misc/Language.cpp" line="212"/>
         <source>Igbo</source>
         <translation>伊博语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="223"/>
+        <location filename="../../Misc/Language.cpp" line="213"/>
         <source>Indonesian</source>
         <translation>印度尼西亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="224"/>
+        <location filename="../../Misc/Language.cpp" line="214"/>
         <source>Indonesian - Indonesia</source>
         <translation>印度尼西亚－印尼语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="225"/>
+        <location filename="../../Misc/Language.cpp" line="215"/>
         <source>Interlingua</source>
         <translation>国际语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="226"/>
+        <location filename="../../Misc/Language.cpp" line="216"/>
         <source>Interlingue</source>
         <translation>西方国际语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="227"/>
+        <location filename="../../Misc/Language.cpp" line="217"/>
         <source>Inuktitut</source>
         <translation>因纽特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="228"/>
+        <location filename="../../Misc/Language.cpp" line="218"/>
         <source>Inupiaq</source>
         <translation>伊努庇克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="229"/>
+        <location filename="../../Misc/Language.cpp" line="219"/>
         <source>Irish</source>
         <translation>爱尔兰语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="230"/>
-        <location filename="../../Misc/Language.cpp" line="231"/>
-        <location filename="../../Misc/Language.cpp" line="232"/>
+        <location filename="../../Misc/Language.cpp" line="220"/>
+        <location filename="../../Misc/Language.cpp" line="221"/>
+        <location filename="../../Misc/Language.cpp" line="222"/>
         <source>Italian</source>
         <translation>意大利语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="231"/>
+        <location filename="../../Misc/Language.cpp" line="221"/>
         <source>Italy</source>
         <translation>意大利</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="233"/>
+        <location filename="../../Misc/Language.cpp" line="223"/>
         <source>Japanese</source>
         <translation>日语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="234"/>
+        <location filename="../../Misc/Language.cpp" line="224"/>
         <source>Javanese</source>
         <translation>爪哇语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="235"/>
+        <location filename="../../Misc/Language.cpp" line="225"/>
         <source>Kalaallisut</source>
         <translation>格陵兰语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="236"/>
+        <location filename="../../Misc/Language.cpp" line="226"/>
         <source>Kannada</source>
         <translation>卡纳达语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="237"/>
+        <location filename="../../Misc/Language.cpp" line="227"/>
         <source>Kanuri</source>
         <translation>卡努里语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="238"/>
+        <location filename="../../Misc/Language.cpp" line="228"/>
         <source>Kashmiri</source>
         <translation>克什米尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="239"/>
+        <location filename="../../Misc/Language.cpp" line="229"/>
         <source>Kazakh</source>
         <translation>哈萨克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="240"/>
+        <location filename="../../Misc/Language.cpp" line="230"/>
         <source>Kikuyu</source>
         <translation>基库尤语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="241"/>
+        <location filename="../../Misc/Language.cpp" line="231"/>
         <source>Kinyarwanda</source>
         <translation>卢旺达语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="242"/>
+        <location filename="../../Misc/Language.cpp" line="232"/>
         <source>Kirghiz</source>
         <translation>吉尔吉斯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="243"/>
+        <location filename="../../Misc/Language.cpp" line="233"/>
         <source>Komi</source>
         <translation>科米语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="244"/>
+        <location filename="../../Misc/Language.cpp" line="234"/>
         <source>Kongo</source>
         <translation>刚果语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="245"/>
+        <location filename="../../Misc/Language.cpp" line="235"/>
         <source>Korean</source>
         <translation>韩国语（朝鲜语）</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="246"/>
+        <location filename="../../Misc/Language.cpp" line="236"/>
         <source>Kuanyama</source>
         <translation>库瓦亚马语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="247"/>
+        <location filename="../../Misc/Language.cpp" line="237"/>
         <source>Kurdish</source>
         <translation>库尔德语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="248"/>
+        <location filename="../../Misc/Language.cpp" line="238"/>
         <source>Lao</source>
         <translation>老挝语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="249"/>
+        <location filename="../../Misc/Language.cpp" line="239"/>
         <source>Latin</source>
         <translation>拉丁语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="250"/>
-        <location filename="../../Misc/Language.cpp" line="251"/>
+        <location filename="../../Misc/Language.cpp" line="240"/>
+        <location filename="../../Misc/Language.cpp" line="241"/>
         <source>Latvian</source>
         <translation>拉脱维亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="251"/>
+        <location filename="../../Misc/Language.cpp" line="241"/>
         <source>Latvia</source>
         <translation>拉托维亚</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="252"/>
+        <location filename="../../Misc/Language.cpp" line="242"/>
         <source>Limburgan</source>
         <translation>林堡语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="253"/>
+        <location filename="../../Misc/Language.cpp" line="243"/>
         <source>Lingala</source>
         <translation>林加拉语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="254"/>
+        <location filename="../../Misc/Language.cpp" line="244"/>
         <source>Lithuanian</source>
         <translation>立陶宛语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="255"/>
+        <location filename="../../Misc/Language.cpp" line="245"/>
         <source>Luba-Katanga</source>
         <translation>卢巴 - 加丹加</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="256"/>
+        <location filename="../../Misc/Language.cpp" line="246"/>
         <source>Luxembourgish</source>
         <translation>卢森堡语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="257"/>
+        <location filename="../../Misc/Language.cpp" line="247"/>
         <source>Macedonian</source>
         <translation>马其顿语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="258"/>
+        <location filename="../../Misc/Language.cpp" line="248"/>
         <source>Malagasy</source>
         <translation>马达加斯加语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="259"/>
+        <location filename="../../Misc/Language.cpp" line="249"/>
         <source>Malayalam</source>
         <translation>马拉雅拉姆语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="260"/>
-        <location filename="../../Misc/Language.cpp" line="261"/>
-        <location filename="../../Misc/Language.cpp" line="262"/>
+        <location filename="../../Misc/Language.cpp" line="250"/>
+        <location filename="../../Misc/Language.cpp" line="251"/>
+        <location filename="../../Misc/Language.cpp" line="252"/>
         <source>Malay</source>
         <translation>马来语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="261"/>
+        <location filename="../../Misc/Language.cpp" line="251"/>
         <source>Brunei</source>
         <translation>文莱</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="262"/>
+        <location filename="../../Misc/Language.cpp" line="252"/>
         <source>Malaysia</source>
         <translation>马来西亚</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="263"/>
+        <location filename="../../Misc/Language.cpp" line="253"/>
         <source>Maltese</source>
         <translation>马耳他语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="264"/>
+        <location filename="../../Misc/Language.cpp" line="254"/>
         <source>Manx</source>
         <translation>曼岛语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="265"/>
+        <location filename="../../Misc/Language.cpp" line="255"/>
         <source>Maori</source>
         <translation>毛利语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="266"/>
+        <location filename="../../Misc/Language.cpp" line="256"/>
         <source>Marathi</source>
         <translation>马拉地语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="267"/>
+        <location filename="../../Misc/Language.cpp" line="257"/>
         <source>Marshallese</source>
         <translation>马绍尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="268"/>
+        <location filename="../../Misc/Language.cpp" line="258"/>
         <source>Mongolian</source>
         <translation>蒙古语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="269"/>
+        <location filename="../../Misc/Language.cpp" line="259"/>
         <source>Nauru</source>
         <translation>瑙鲁语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="270"/>
+        <location filename="../../Misc/Language.cpp" line="260"/>
         <source>Navajo</source>
         <translation>纳瓦霍语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="271"/>
-        <location filename="../../Misc/Language.cpp" line="272"/>
+        <location filename="../../Misc/Language.cpp" line="261"/>
+        <location filename="../../Misc/Language.cpp" line="262"/>
         <source>Ndebele</source>
         <translation>恩德贝莱</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="271"/>
+        <location filename="../../Misc/Language.cpp" line="261"/>
         <source>North</source>
         <translation>北</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="272"/>
+        <location filename="../../Misc/Language.cpp" line="262"/>
         <source>South</source>
         <translation>南</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="273"/>
+        <location filename="../../Misc/Language.cpp" line="263"/>
         <source>Ndonga</source>
         <translation>恩敦加语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="274"/>
+        <location filename="../../Misc/Language.cpp" line="264"/>
         <source>Nepali</source>
         <translation>尼泊尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="275"/>
+        <location filename="../../Misc/Language.cpp" line="265"/>
         <source>Northern, Sami</source>
         <translation>北萨米</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="276"/>
-        <location filename="../../Misc/Language.cpp" line="277"/>
-        <location filename="../../Misc/Language.cpp" line="278"/>
+        <location filename="../../Misc/Language.cpp" line="266"/>
+        <location filename="../../Misc/Language.cpp" line="267"/>
+        <location filename="../../Misc/Language.cpp" line="268"/>
         <source>Norwegian</source>
         <translation>挪威语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="277"/>
+        <location filename="../../Misc/Language.cpp" line="267"/>
         <source>Bokmal</source>
         <translation>巴克摩</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="278"/>
+        <location filename="../../Misc/Language.cpp" line="268"/>
         <source>Nynorsk</source>
         <translation>尼诺斯克</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="279"/>
+        <location filename="../../Misc/Language.cpp" line="269"/>
         <source>Nyanja</source>
         <translation>尼昂加</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="280"/>
+        <location filename="../../Misc/Language.cpp" line="270"/>
         <source>Occitan</source>
         <translation>奥西坦语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="281"/>
+        <location filename="../../Misc/Language.cpp" line="271"/>
         <source>Ojibwa</source>
         <translation>奥吉布瓦语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="282"/>
+        <location filename="../../Misc/Language.cpp" line="272"/>
         <source>Oriya</source>
         <translation>奥里亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="283"/>
+        <location filename="../../Misc/Language.cpp" line="273"/>
         <source>Oromo</source>
         <translation>奥洛莫语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="284"/>
+        <location filename="../../Misc/Language.cpp" line="274"/>
         <source>Ossetian</source>
         <translation>奥塞梯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="285"/>
+        <location filename="../../Misc/Language.cpp" line="275"/>
         <source>Pali</source>
         <translation>巴利语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="286"/>
+        <location filename="../../Misc/Language.cpp" line="276"/>
         <source>Panjabi</source>
         <translation>旁遮普语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="287"/>
+        <location filename="../../Misc/Language.cpp" line="277"/>
         <source>Persian</source>
         <translation>波斯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="288"/>
+        <location filename="../../Misc/Language.cpp" line="278"/>
         <source>Polish</source>
         <translation>波兰语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="289"/>
-        <location filename="../../Misc/Language.cpp" line="290"/>
-        <location filename="../../Misc/Language.cpp" line="291"/>
+        <location filename="../../Misc/Language.cpp" line="279"/>
+        <location filename="../../Misc/Language.cpp" line="280"/>
+        <location filename="../../Misc/Language.cpp" line="281"/>
         <source>Portuguese</source>
         <translation>葡萄牙语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="290"/>
+        <location filename="../../Misc/Language.cpp" line="280"/>
         <source>Brazil</source>
         <translation>巴西</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="291"/>
+        <location filename="../../Misc/Language.cpp" line="281"/>
         <source>Portugal</source>
         <translation>葡萄牙</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="292"/>
+        <location filename="../../Misc/Language.cpp" line="282"/>
         <source>Pushto</source>
         <translation>普什图语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="293"/>
+        <location filename="../../Misc/Language.cpp" line="283"/>
         <source>Quechua</source>
         <translation>科察语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="294"/>
-        <location filename="../../Misc/Language.cpp" line="295"/>
-        <location filename="../../Misc/Language.cpp" line="296"/>
+        <location filename="../../Misc/Language.cpp" line="284"/>
+        <location filename="../../Misc/Language.cpp" line="285"/>
+        <location filename="../../Misc/Language.cpp" line="286"/>
         <source>Romanian</source>
         <translation>罗马尼亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="295"/>
-        <location filename="../../Misc/Language.cpp" line="300"/>
+        <location filename="../../Misc/Language.cpp" line="285"/>
+        <location filename="../../Misc/Language.cpp" line="290"/>
         <source>Moldova</source>
         <translation>摩尔多瓦</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="296"/>
+        <location filename="../../Misc/Language.cpp" line="286"/>
         <source>Romania</source>
         <translation>罗马尼亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="297"/>
+        <location filename="../../Misc/Language.cpp" line="287"/>
         <source>Romansh</source>
         <translation>罗曼斯</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="298"/>
+        <location filename="../../Misc/Language.cpp" line="288"/>
         <source>Rundi</source>
         <translation>隆迪语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="299"/>
-        <location filename="../../Misc/Language.cpp" line="300"/>
+        <location filename="../../Misc/Language.cpp" line="289"/>
+        <location filename="../../Misc/Language.cpp" line="290"/>
         <source>Russian</source>
         <translation>俄语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="301"/>
+        <location filename="../../Misc/Language.cpp" line="291"/>
         <source>Samoan</source>
         <translation>萨摩亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="302"/>
+        <location filename="../../Misc/Language.cpp" line="292"/>
         <source>Sango</source>
         <translation>桑戈语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="303"/>
+        <location filename="../../Misc/Language.cpp" line="293"/>
         <source>Sanskrit</source>
         <translation>梵语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="304"/>
+        <location filename="../../Misc/Language.cpp" line="294"/>
         <source>Sardinian</source>
         <translation>撒丁语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="305"/>
-        <location filename="../../Misc/Language.cpp" line="306"/>
+        <location filename="../../Misc/Language.cpp" line="295"/>
+        <location filename="../../Misc/Language.cpp" line="296"/>
         <source>Serbian</source>
         <translation>塞尔维亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="306"/>
+        <location filename="../../Misc/Language.cpp" line="296"/>
         <source>Serbia</source>
         <translation>塞尔维亚</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="307"/>
+        <location filename="../../Misc/Language.cpp" line="297"/>
         <source>Shona</source>
         <translation>绍纳语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="308"/>
+        <location filename="../../Misc/Language.cpp" line="298"/>
         <source>Sichuan Yi</source>
         <translation>四川彝语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="309"/>
+        <location filename="../../Misc/Language.cpp" line="299"/>
         <source>Sindhi</source>
         <translation>信德语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="310"/>
+        <location filename="../../Misc/Language.cpp" line="300"/>
         <source>Sinhala</source>
         <translation>僧加罗语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="311"/>
+        <location filename="../../Misc/Language.cpp" line="301"/>
         <source>Slovak</source>
         <translation>斯洛伐克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="312"/>
+        <location filename="../../Misc/Language.cpp" line="302"/>
         <source>Slovenian</source>
         <translation>斯洛文尼亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="313"/>
+        <location filename="../../Misc/Language.cpp" line="303"/>
         <source>Somali</source>
         <translation>索马里语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="314"/>
+        <location filename="../../Misc/Language.cpp" line="304"/>
         <source>Sotho, Southern</source>
         <translation>索托，南</translation>
     </message>
     <message>
+        <location filename="../../Misc/Language.cpp" line="305"/>
+        <location filename="../../Misc/Language.cpp" line="306"/>
+        <location filename="../../Misc/Language.cpp" line="307"/>
+        <location filename="../../Misc/Language.cpp" line="308"/>
+        <location filename="../../Misc/Language.cpp" line="309"/>
+        <location filename="../../Misc/Language.cpp" line="310"/>
+        <location filename="../../Misc/Language.cpp" line="311"/>
+        <location filename="../../Misc/Language.cpp" line="312"/>
+        <location filename="../../Misc/Language.cpp" line="313"/>
+        <location filename="../../Misc/Language.cpp" line="314"/>
         <location filename="../../Misc/Language.cpp" line="315"/>
         <location filename="../../Misc/Language.cpp" line="316"/>
         <location filename="../../Misc/Language.cpp" line="317"/>
@@ -7565,1821 +7613,1811 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="322"/>
         <location filename="../../Misc/Language.cpp" line="323"/>
         <location filename="../../Misc/Language.cpp" line="324"/>
-        <location filename="../../Misc/Language.cpp" line="325"/>
-        <location filename="../../Misc/Language.cpp" line="326"/>
-        <location filename="../../Misc/Language.cpp" line="327"/>
-        <location filename="../../Misc/Language.cpp" line="328"/>
-        <location filename="../../Misc/Language.cpp" line="329"/>
-        <location filename="../../Misc/Language.cpp" line="330"/>
-        <location filename="../../Misc/Language.cpp" line="331"/>
-        <location filename="../../Misc/Language.cpp" line="332"/>
-        <location filename="../../Misc/Language.cpp" line="333"/>
-        <location filename="../../Misc/Language.cpp" line="334"/>
         <source>Spanish</source>
         <translation>西班牙语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="316"/>
+        <location filename="../../Misc/Language.cpp" line="306"/>
         <source>Argentina</source>
         <translation>阿根廷</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="317"/>
+        <location filename="../../Misc/Language.cpp" line="307"/>
         <source>Bolivia</source>
         <translation>玻利维亚</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="318"/>
+        <location filename="../../Misc/Language.cpp" line="308"/>
         <source>Chile</source>
         <translation>智利语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="319"/>
+        <location filename="../../Misc/Language.cpp" line="309"/>
         <source>Colombia</source>
         <translation>哥伦比亚</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="320"/>
+        <location filename="../../Misc/Language.cpp" line="310"/>
         <source>Costa Rica</source>
         <translation>哥斯达黎加</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="321"/>
+        <location filename="../../Misc/Language.cpp" line="311"/>
         <source>Dominican Republic</source>
         <translation>多米尼加共和国</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="322"/>
+        <location filename="../../Misc/Language.cpp" line="312"/>
         <source>Ecuador</source>
         <translation>厄瓜多尔</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="323"/>
+        <location filename="../../Misc/Language.cpp" line="313"/>
         <source>El Salvador</source>
         <translation>萨尔瓦多</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="324"/>
+        <location filename="../../Misc/Language.cpp" line="314"/>
         <source>Guatemala</source>
         <translation>危地马拉</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="325"/>
+        <location filename="../../Misc/Language.cpp" line="315"/>
         <source>Honduras</source>
         <translation>洪都拉斯</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="326"/>
+        <location filename="../../Misc/Language.cpp" line="316"/>
         <source>Mexico</source>
         <translation>墨西哥</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="327"/>
+        <location filename="../../Misc/Language.cpp" line="317"/>
         <source>Nicaragua</source>
         <translation>尼加拉瓜</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="328"/>
+        <location filename="../../Misc/Language.cpp" line="318"/>
         <source>Panama</source>
         <translation>巴拿马</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="329"/>
+        <location filename="../../Misc/Language.cpp" line="319"/>
         <source>Paraguay</source>
         <translation>巴拉圭</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="330"/>
+        <location filename="../../Misc/Language.cpp" line="320"/>
         <source>Peru</source>
         <translation>秘鲁</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="331"/>
+        <location filename="../../Misc/Language.cpp" line="321"/>
         <source>Puerto Rico</source>
         <translation>波多黎各</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="333"/>
+        <location filename="../../Misc/Language.cpp" line="323"/>
         <source>Uruguay</source>
         <translation>乌拉圭</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="334"/>
+        <location filename="../../Misc/Language.cpp" line="324"/>
         <source>Venezuela</source>
         <translation>委内瑞拉</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="335"/>
+        <location filename="../../Misc/Language.cpp" line="325"/>
         <source>Sundanese</source>
         <translation>巽他语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="336"/>
+        <location filename="../../Misc/Language.cpp" line="326"/>
         <source>Swahili</source>
         <translation>斯瓦希里语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="337"/>
+        <location filename="../../Misc/Language.cpp" line="327"/>
         <source>Swati</source>
         <translation>斯瓦特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="338"/>
-        <location filename="../../Misc/Language.cpp" line="339"/>
-        <location filename="../../Misc/Language.cpp" line="340"/>
+        <location filename="../../Misc/Language.cpp" line="328"/>
+        <location filename="../../Misc/Language.cpp" line="329"/>
+        <location filename="../../Misc/Language.cpp" line="330"/>
         <source>Swedish</source>
         <translation>瑞典语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="339"/>
+        <location filename="../../Misc/Language.cpp" line="329"/>
         <source>Finland</source>
         <translation>芬兰</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="340"/>
+        <location filename="../../Misc/Language.cpp" line="330"/>
         <source>Sweden</source>
         <translation>瑞典</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="341"/>
+        <location filename="../../Misc/Language.cpp" line="331"/>
         <source>Tagalog</source>
         <translation>他加禄语（菲律宾）</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="342"/>
+        <location filename="../../Misc/Language.cpp" line="332"/>
         <source>Tahitian</source>
         <translation>塔希提语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="343"/>
+        <location filename="../../Misc/Language.cpp" line="333"/>
         <source>Tajik</source>
         <translation>塔吉克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="344"/>
+        <location filename="../../Misc/Language.cpp" line="334"/>
         <source>Tamil</source>
         <translation>泰米尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="345"/>
+        <location filename="../../Misc/Language.cpp" line="335"/>
         <source>Tatar</source>
         <translation>鞑靼语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="346"/>
+        <location filename="../../Misc/Language.cpp" line="336"/>
         <source>Telugu</source>
         <translation>泰卢固语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="347"/>
+        <location filename="../../Misc/Language.cpp" line="337"/>
         <source>Thai</source>
         <translation>泰语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="348"/>
+        <location filename="../../Misc/Language.cpp" line="338"/>
         <source>Tibetan</source>
         <translation>西藏语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="349"/>
+        <location filename="../../Misc/Language.cpp" line="339"/>
         <source>Tigrinya</source>
         <translation>提格里尼亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="350"/>
+        <location filename="../../Misc/Language.cpp" line="340"/>
         <source>Tonga</source>
         <translation>东加语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="351"/>
+        <location filename="../../Misc/Language.cpp" line="341"/>
         <source>Tsonga</source>
         <translation>颂加语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="352"/>
+        <location filename="../../Misc/Language.cpp" line="342"/>
         <source>Tswana</source>
         <translation>茨瓦纳语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="353"/>
-        <location filename="../../Misc/Language.cpp" line="354"/>
+        <location filename="../../Misc/Language.cpp" line="343"/>
+        <location filename="../../Misc/Language.cpp" line="344"/>
         <source>Turkish</source>
         <translation>土耳其语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="354"/>
+        <location filename="../../Misc/Language.cpp" line="344"/>
         <source>Turkey</source>
         <translation>土耳其</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="355"/>
+        <location filename="../../Misc/Language.cpp" line="345"/>
         <source>Turkmen</source>
         <translation>土库曼语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="356"/>
+        <location filename="../../Misc/Language.cpp" line="346"/>
         <source>Twi</source>
         <translation>维特语（加纳）</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="357"/>
+        <location filename="../../Misc/Language.cpp" line="347"/>
         <source>Uighur</source>
         <translation>维吾尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="358"/>
-        <location filename="../../Misc/Language.cpp" line="359"/>
+        <location filename="../../Misc/Language.cpp" line="348"/>
+        <location filename="../../Misc/Language.cpp" line="349"/>
         <source>Ukrainian</source>
         <translation>乌克兰语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="359"/>
+        <location filename="../../Misc/Language.cpp" line="349"/>
         <source>Ukraine</source>
         <translation>乌克兰</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="360"/>
+        <location filename="../../Misc/Language.cpp" line="350"/>
         <source>Urdu</source>
         <translation>乌尔都语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="361"/>
-        <location filename="../../Misc/Language.cpp" line="362"/>
+        <location filename="../../Misc/Language.cpp" line="351"/>
+        <location filename="../../Misc/Language.cpp" line="352"/>
         <source>Uzbek</source>
         <translation>乌兹别克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="362"/>
+        <location filename="../../Misc/Language.cpp" line="352"/>
         <source>Uzbekistan</source>
         <translation>乌兹别克斯坦</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="363"/>
+        <location filename="../../Misc/Language.cpp" line="353"/>
         <source>Venda</source>
         <translation>文达语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="364"/>
+        <location filename="../../Misc/Language.cpp" line="354"/>
         <source>Vietnamese</source>
         <translation>越南语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="365"/>
+        <location filename="../../Misc/Language.cpp" line="355"/>
         <source>Volapuk</source>
         <translation>沃拉普克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="366"/>
+        <location filename="../../Misc/Language.cpp" line="356"/>
         <source>Walloon</source>
         <translation>华隆语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="367"/>
+        <location filename="../../Misc/Language.cpp" line="357"/>
         <source>Welsh</source>
         <translation>威尔士语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="368"/>
+        <location filename="../../Misc/Language.cpp" line="358"/>
         <source>Western Frisian</source>
         <translation>西弗里西语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="369"/>
+        <location filename="../../Misc/Language.cpp" line="359"/>
         <source>Wolof</source>
         <translation>沃洛夫语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="370"/>
+        <location filename="../../Misc/Language.cpp" line="360"/>
         <source>Xhosa</source>
         <translation>科萨语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="371"/>
+        <location filename="../../Misc/Language.cpp" line="361"/>
         <source>Yiddish</source>
         <translation>意第绪语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="372"/>
+        <location filename="../../Misc/Language.cpp" line="362"/>
         <source>Yoruba</source>
         <translation>约鲁巴语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="373"/>
+        <location filename="../../Misc/Language.cpp" line="363"/>
         <source>Zhuang</source>
         <translation>壮语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="374"/>
+        <location filename="../../Misc/Language.cpp" line="364"/>
         <source>Zulu</source>
         <translation>祖鲁语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="375"/>
+        <location filename="../../Misc/Language.cpp" line="365"/>
         <source>Achinese</source>
         <translation>亚齐语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="376"/>
+        <location filename="../../Misc/Language.cpp" line="366"/>
         <source>Acoli</source>
         <translation>阿乔利语 </translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="377"/>
+        <location filename="../../Misc/Language.cpp" line="367"/>
         <source>Adangme</source>
         <translation>阿当梅语 </translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="378"/>
+        <location filename="../../Misc/Language.cpp" line="368"/>
         <source>Adygei, Adyghe</source>
         <translation>阿迪格人，阿迪格语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="379"/>
+        <location filename="../../Misc/Language.cpp" line="369"/>
         <source>Afrihili</source>
         <translation>阿弗里希利语 </translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="380"/>
+        <location filename="../../Misc/Language.cpp" line="370"/>
         <source>Afro-Asiatic languages</source>
         <translation>亚非语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="381"/>
+        <location filename="../../Misc/Language.cpp" line="371"/>
         <source>Ainu</source>
         <translation>阿伊努语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="382"/>
+        <location filename="../../Misc/Language.cpp" line="372"/>
         <source>Akkadian</source>
         <translation>阿卡德语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="383"/>
+        <location filename="../../Misc/Language.cpp" line="373"/>
         <source>Aleut</source>
         <translation>阿留申语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="384"/>
+        <location filename="../../Misc/Language.cpp" line="374"/>
         <source>Algonquian languages</source>
         <translation>阿尔冈昆语族</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="385"/>
+        <location filename="../../Misc/Language.cpp" line="375"/>
         <source>Altaic languages</source>
         <translation>阿尔泰语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="386"/>
+        <location filename="../../Misc/Language.cpp" line="376"/>
         <source>Angika</source>
         <translation>安吉卡语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="387"/>
+        <location filename="../../Misc/Language.cpp" line="377"/>
         <source>Apache languages</source>
         <translation>阿帕契语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="388"/>
+        <location filename="../../Misc/Language.cpp" line="378"/>
         <source>Arapaho</source>
         <translation>阿拉巴霍语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="389"/>
+        <location filename="../../Misc/Language.cpp" line="379"/>
         <source>Arawak</source>
         <translation>阿拉瓦克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="390"/>
+        <location filename="../../Misc/Language.cpp" line="380"/>
         <source>Aromanian, Arumanian, Macedo-Romanian</source>
         <translation>阿罗马尼亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="391"/>
+        <location filename="../../Misc/Language.cpp" line="381"/>
         <source>Artificial languages</source>
         <translation>人工语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="392"/>
+        <location filename="../../Misc/Language.cpp" line="382"/>
         <source>Asturian, Asturleonese, Bable, Leonese</source>
         <translation>莱昂语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="393"/>
+        <location filename="../../Misc/Language.cpp" line="383"/>
         <source>Athapascan languages</source>
         <translation>阿撒巴斯卡语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="394"/>
+        <location filename="../../Misc/Language.cpp" line="384"/>
         <source>Australian languages</source>
         <translation>澳大利亚原住民语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="395"/>
+        <location filename="../../Misc/Language.cpp" line="385"/>
         <source>Austronesian languages</source>
         <translation>南岛语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="396"/>
+        <location filename="../../Misc/Language.cpp" line="386"/>
         <source>Awadhi</source>
         <translation>阿瓦德语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="397"/>
+        <location filename="../../Misc/Language.cpp" line="387"/>
         <source>Balinese</source>
         <translation>巴里语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="398"/>
+        <location filename="../../Misc/Language.cpp" line="388"/>
         <source>Baltic languages</source>
         <translation>波罗的海地区之语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="399"/>
+        <location filename="../../Misc/Language.cpp" line="389"/>
         <source>Baluchi</source>
         <translation>俾路支语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="400"/>
+        <location filename="../../Misc/Language.cpp" line="390"/>
         <source>Bamileke languages</source>
         <translation>巴米累克语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="401"/>
+        <location filename="../../Misc/Language.cpp" line="391"/>
         <source>Banda languages</source>
         <translation>班达语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="402"/>
+        <location filename="../../Misc/Language.cpp" line="392"/>
         <source>Bantu languages</source>
         <translation>班图语支</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="403"/>
+        <location filename="../../Misc/Language.cpp" line="393"/>
         <source>Basa</source>
         <translation>巴萨语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="404"/>
+        <location filename="../../Misc/Language.cpp" line="394"/>
         <source>Batak languages</source>
         <translation>巴达克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="405"/>
+        <location filename="../../Misc/Language.cpp" line="395"/>
         <source>Bedawiyet, Beja</source>
         <translation>别札语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="406"/>
+        <location filename="../../Misc/Language.cpp" line="396"/>
         <source>Bemba</source>
         <translation>别姆巴语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="407"/>
+        <location filename="../../Misc/Language.cpp" line="397"/>
         <source>Berber languages</source>
         <translation>北非&amp;回教土族之语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="408"/>
+        <location filename="../../Misc/Language.cpp" line="398"/>
         <source>Bhojpuri</source>
         <translation>博杰普尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="409"/>
+        <location filename="../../Misc/Language.cpp" line="399"/>
         <source>Bikol</source>
         <translation>（菲律宾岛）比科尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="410"/>
+        <location filename="../../Misc/Language.cpp" line="400"/>
         <source>Bilin, Blin</source>
         <translation>比林语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="411"/>
+        <location filename="../../Misc/Language.cpp" line="401"/>
         <source>Bini, Edo</source>
         <translation>伊多語</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="412"/>
+        <location filename="../../Misc/Language.cpp" line="402"/>
         <source>Bliss, Blissymbols, Blissymbolics</source>
         <translation>布利斯符号</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="413"/>
+        <location filename="../../Misc/Language.cpp" line="403"/>
         <source>Braj</source>
         <translation>布拉杰语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="414"/>
+        <location filename="../../Misc/Language.cpp" line="404"/>
         <source>Buginese</source>
         <translation>布吉语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="415"/>
+        <location filename="../../Misc/Language.cpp" line="405"/>
         <source>Buriat</source>
         <translation>布里亚特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="416"/>
+        <location filename="../../Misc/Language.cpp" line="406"/>
         <source>Caddo</source>
         <translation>比林语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="417"/>
+        <location filename="../../Misc/Language.cpp" line="407"/>
         <source>Caucasian languages</source>
         <translation>高加索诸语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="418"/>
+        <location filename="../../Misc/Language.cpp" line="408"/>
         <source>Cebuano</source>
         <translation>宿务语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="419"/>
+        <location filename="../../Misc/Language.cpp" line="409"/>
         <source>Celtic languages</source>
         <translation>凯尔特语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="420"/>
+        <location filename="../../Misc/Language.cpp" line="410"/>
         <source>Central American Indian languages</source>
         <translation>中美印第安语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="421"/>
+        <location filename="../../Misc/Language.cpp" line="411"/>
         <source>Chagatai</source>
         <translation>查加语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="422"/>
+        <location filename="../../Misc/Language.cpp" line="412"/>
         <source>Chamic languages</source>
         <translation>查米克语种</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="423"/>
+        <location filename="../../Misc/Language.cpp" line="413"/>
         <source>Cherokee</source>
         <translation>彻罗基语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="424"/>
+        <location filename="../../Misc/Language.cpp" line="414"/>
         <source>Cheyenne</source>
         <translation>夏延语(切延内语)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="425"/>
+        <location filename="../../Misc/Language.cpp" line="415"/>
         <source>Chibcha</source>
         <translation>契布卡语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="426"/>
+        <location filename="../../Misc/Language.cpp" line="416"/>
         <source>Chinook jargon</source>
         <translation>契努克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="427"/>
+        <location filename="../../Misc/Language.cpp" line="417"/>
         <source>Chipewyan, Dene Suline</source>
         <translation>契帕瓦族语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="428"/>
+        <location filename="../../Misc/Language.cpp" line="418"/>
         <source>Choctaw</source>
         <translation>乔克托语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="429"/>
+        <location filename="../../Misc/Language.cpp" line="419"/>
         <source>Chuukese</source>
         <translation>楚克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="430"/>
+        <location filename="../../Misc/Language.cpp" line="420"/>
         <source>Classical Nepal Bhasa/Newari, Old Newari</source>
         <translation>尼瓦尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="431"/>
+        <location filename="../../Misc/Language.cpp" line="421"/>
         <source>Classical Syriac</source>
         <translation>叙利亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="432"/>
+        <location filename="../../Misc/Language.cpp" line="422"/>
         <source>Coptic</source>
         <translation>科普特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="433"/>
+        <location filename="../../Misc/Language.cpp" line="423"/>
         <source>Creek</source>
         <translation>克里克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="434"/>
+        <location filename="../../Misc/Language.cpp" line="424"/>
         <source>Creoles and pidgins</source>
         <translation>皮钦语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="435"/>
+        <location filename="../../Misc/Language.cpp" line="425"/>
         <source>Creoles and pidgins- English based</source>
         <translation>英语克里奥尔混合语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="436"/>
+        <location filename="../../Misc/Language.cpp" line="426"/>
         <source>Creoles and pidgins- French-based</source>
         <translation>法语克里奥尔混合语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="437"/>
+        <location filename="../../Misc/Language.cpp" line="427"/>
         <source>Creoles and pidgins- Portuguese-based</source>
         <translation>葡萄牙语克里奥尔混合语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="438"/>
+        <location filename="../../Misc/Language.cpp" line="428"/>
         <source>Crimean Tatar/Turkish</source>
         <translation>土耳其语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="439"/>
+        <location filename="../../Misc/Language.cpp" line="429"/>
         <source>Cushitic languages</source>
         <translation>库希特语族</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="440"/>
+        <location filename="../../Misc/Language.cpp" line="430"/>
         <source>Dakota</source>
         <translation>达科他语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="441"/>
+        <location filename="../../Misc/Language.cpp" line="431"/>
         <source>Dargwa</source>
         <translation>达尔格瓦语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="442"/>
+        <location filename="../../Misc/Language.cpp" line="432"/>
         <source>Delaware</source>
         <translation>特拉瓦印第安人语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="443"/>
+        <location filename="../../Misc/Language.cpp" line="433"/>
         <source>Dimili, Dimli, Zaza, Zazaki, Kirdki, Kirmanjki</source>
         <translation>扎扎其语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="444"/>
+        <location filename="../../Misc/Language.cpp" line="434"/>
         <source>Dinka</source>
         <translation>丁卡语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="445"/>
+        <location filename="../../Misc/Language.cpp" line="435"/>
         <source>Dogri</source>
         <translation>多格拉语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="446"/>
+        <location filename="../../Misc/Language.cpp" line="436"/>
         <source>Dogrib</source>
         <translation>多格里布语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="447"/>
+        <location filename="../../Misc/Language.cpp" line="437"/>
         <source>Dravidian languages</source>
         <translation>达罗毗荼语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="448"/>
+        <location filename="../../Misc/Language.cpp" line="438"/>
         <source>Duala</source>
         <translation>杜阿拉语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="449"/>
+        <location filename="../../Misc/Language.cpp" line="439"/>
         <source>Dutch- Middle (ca.1050-1350)</source>
         <translation>中古荷兰语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="450"/>
+        <location filename="../../Misc/Language.cpp" line="440"/>
         <source>Dyula</source>
         <translation>迪尤拉语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="451"/>
+        <location filename="../../Misc/Language.cpp" line="441"/>
         <source>Eastern Frisian</source>
         <translation>沙特弗里西语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="452"/>
+        <location filename="../../Misc/Language.cpp" line="442"/>
         <source>Efik</source>
         <translation>艾非克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="453"/>
+        <location filename="../../Misc/Language.cpp" line="443"/>
         <source>Egyptian (Ancient)</source>
         <translation>古代埃及语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="454"/>
+        <location filename="../../Misc/Language.cpp" line="444"/>
         <source>Ekajuk</source>
         <translation>艾卡朱克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="455"/>
+        <location filename="../../Misc/Language.cpp" line="445"/>
         <source>Elamite</source>
         <translation>埃兰语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="456"/>
+        <location filename="../../Misc/Language.cpp" line="446"/>
         <source>English- Middle (1100-1500)</source>
         <translation>中古英语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="457"/>
+        <location filename="../../Misc/Language.cpp" line="447"/>
         <source>English- Old (ca.450-1100)</source>
         <translation>古英语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="458"/>
+        <location filename="../../Misc/Language.cpp" line="448"/>
         <source>Erzya</source>
         <translation>厄尔兹亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="459"/>
+        <location filename="../../Misc/Language.cpp" line="449"/>
         <source>Ewondo</source>
         <translation>埃翁多语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="460"/>
+        <location filename="../../Misc/Language.cpp" line="450"/>
         <source>Fang</source>
         <translation>芳格语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="461"/>
+        <location filename="../../Misc/Language.cpp" line="451"/>
         <source>Fanti</source>
         <translation>芳蒂语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="462"/>
+        <location filename="../../Misc/Language.cpp" line="452"/>
         <source>Filipino, Pilipino</source>
         <translation>菲律宾语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="463"/>
+        <location filename="../../Misc/Language.cpp" line="453"/>
         <source>Finno-Ugrian languages</source>
         <translation>芬兰-乌戈尔语族</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="464"/>
+        <location filename="../../Misc/Language.cpp" line="454"/>
         <source>Fon</source>
         <translation>丰语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="465"/>
+        <location filename="../../Misc/Language.cpp" line="455"/>
         <source>French- Middle (ca.1400-1600)</source>
         <translation>中古法语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="466"/>
+        <location filename="../../Misc/Language.cpp" line="456"/>
         <source>French- Old (842-ca.1400)</source>
-        <translation>古法语</translation>
+        <translation>古法语（842—约1400）</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="467"/>
+        <location filename="../../Misc/Language.cpp" line="457"/>
         <source>Friulian</source>
         <translation>弗留利语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="468"/>
+        <location filename="../../Misc/Language.cpp" line="458"/>
         <source>Ga</source>
         <translation>加语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="469"/>
+        <location filename="../../Misc/Language.cpp" line="459"/>
         <source>Galibi Carib</source>
         <translation>加勒比诸语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="470"/>
+        <location filename="../../Misc/Language.cpp" line="460"/>
         <source>Gayo</source>
         <translation>迦约语 </translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="471"/>
+        <location filename="../../Misc/Language.cpp" line="461"/>
         <source>Gbaya</source>
         <translation>巴亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="472"/>
+        <location filename="../../Misc/Language.cpp" line="462"/>
         <source>Geez</source>
         <translation>吉兹语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="473"/>
+        <location filename="../../Misc/Language.cpp" line="463"/>
         <source>German- Middle High (ca.1050-1500)</source>
         <translation>中古高地德语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="474"/>
+        <location filename="../../Misc/Language.cpp" line="464"/>
         <source>German- Old High (ca.750-1050)</source>
         <translation>古高地德语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="475"/>
+        <location filename="../../Misc/Language.cpp" line="465"/>
         <source>Germanic languages</source>
         <translation>日耳曼语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="476"/>
+        <location filename="../../Misc/Language.cpp" line="466"/>
         <source>Gilbertese</source>
         <translation>吉尔伯特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="477"/>
+        <location filename="../../Misc/Language.cpp" line="467"/>
         <source>Gondi</source>
         <translation>冈德语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="478"/>
+        <location filename="../../Misc/Language.cpp" line="468"/>
         <source>Gorontalo</source>
         <translation>哥伦打洛语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="479"/>
+        <location filename="../../Misc/Language.cpp" line="469"/>
         <source>Gothic</source>
         <translation>哥达语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="480"/>
+        <location filename="../../Misc/Language.cpp" line="470"/>
         <source>Grebo</source>
         <translation>格列博语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="481"/>
+        <location filename="../../Misc/Language.cpp" line="471"/>
         <source>Greek- Ancient (to 1453)</source>
         <translation>古希腊罗语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="482"/>
+        <location filename="../../Misc/Language.cpp" line="472"/>
         <source>Gwich&apos;in</source>
         <translation>哥威迅语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="483"/>
+        <location filename="../../Misc/Language.cpp" line="473"/>
         <source>Haida</source>
         <translation>海达语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="484"/>
+        <location filename="../../Misc/Language.cpp" line="474"/>
         <source>Hawaiian</source>
         <translation>夏威夷语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="485"/>
+        <location filename="../../Misc/Language.cpp" line="475"/>
         <source>Hiligaynon</source>
         <translation>希利盖侬语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="486"/>
+        <location filename="../../Misc/Language.cpp" line="476"/>
         <source>Himachali, Western Pahari languages</source>
         <translation>喜马偕尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="487"/>
+        <location filename="../../Misc/Language.cpp" line="477"/>
         <source>Hittite</source>
         <translation>赫梯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="488"/>
+        <location filename="../../Misc/Language.cpp" line="478"/>
         <source>Hmong, Mong</source>
         <translation>苗语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="489"/>
+        <location filename="../../Misc/Language.cpp" line="479"/>
         <source>Hupa</source>
         <translation>胡帕语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="490"/>
+        <location filename="../../Misc/Language.cpp" line="480"/>
         <source>Iban</source>
         <translation>伊班语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="491"/>
+        <location filename="../../Misc/Language.cpp" line="481"/>
         <source>Ijo languages</source>
         <translation>伊乔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="492"/>
+        <location filename="../../Misc/Language.cpp" line="482"/>
         <source>Iloko</source>
         <translation>伊洛卡诺语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="493"/>
+        <location filename="../../Misc/Language.cpp" line="483"/>
         <source>Inari Sami</source>
         <translation>伊纳里-萨米语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="494"/>
+        <location filename="../../Misc/Language.cpp" line="484"/>
         <source>Indic languages</source>
         <translation>印度-雅利安语支</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="495"/>
+        <location filename="../../Misc/Language.cpp" line="485"/>
         <source>Indo-European languages</source>
         <translation>印欧语(系)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="496"/>
+        <location filename="../../Misc/Language.cpp" line="486"/>
         <source>Ingush</source>
         <translation>印古什语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="497"/>
+        <location filename="../../Misc/Language.cpp" line="487"/>
         <source>Iranian languages</source>
         <translation>伊朗诸语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="498"/>
+        <location filename="../../Misc/Language.cpp" line="488"/>
         <source>Irish- Middle (900-1200)</source>
         <translation>中古爱尔兰语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="499"/>
+        <location filename="../../Misc/Language.cpp" line="489"/>
         <source>Irish- Old (to 900)</source>
         <translation>古爱尔兰语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="500"/>
+        <location filename="../../Misc/Language.cpp" line="490"/>
         <source>Iroquoian languages</source>
         <translation>伊拉克依语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="501"/>
+        <location filename="../../Misc/Language.cpp" line="491"/>
         <source>Jingpho, Kachin</source>
         <translation>景颇语、克钦语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="502"/>
+        <location filename="../../Misc/Language.cpp" line="492"/>
         <source>Judeo-Arabic</source>
         <translation>犹太-阿拉伯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="503"/>
+        <location filename="../../Misc/Language.cpp" line="493"/>
         <source>Judeo-Persian</source>
         <translation>犹太-波斯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="504"/>
+        <location filename="../../Misc/Language.cpp" line="494"/>
         <source>Kabardian</source>
         <translation>卡巴尔德语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="505"/>
+        <location filename="../../Misc/Language.cpp" line="495"/>
         <source>Kabyle</source>
         <translation>卡拜尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="506"/>
+        <location filename="../../Misc/Language.cpp" line="496"/>
         <source>Kalmyk, Oirat</source>
         <translation>卡尔梅克语、卫拉特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="507"/>
+        <location filename="../../Misc/Language.cpp" line="497"/>
         <source>Kamba</source>
         <translation>卡姆巴语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="508"/>
+        <location filename="../../Misc/Language.cpp" line="498"/>
         <source>Kapampangan, Pampanga</source>
         <translation>邦板牙语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="509"/>
+        <location filename="../../Misc/Language.cpp" line="499"/>
         <source>Kara-Kalpak</source>
         <translation>卡拉卡尔帕克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="510"/>
+        <location filename="../../Misc/Language.cpp" line="500"/>
         <source>Karachay-Balkar</source>
         <translation>卡拉恰伊-巴尔卡尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="511"/>
+        <location filename="../../Misc/Language.cpp" line="501"/>
         <source>Karelian</source>
         <translation>卡累利阿语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="512"/>
+        <location filename="../../Misc/Language.cpp" line="502"/>
         <source>Karen languages</source>
         <translation>克伦语支</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="513"/>
+        <location filename="../../Misc/Language.cpp" line="503"/>
         <source>Kashubian</source>
         <translation>卡舒比语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="514"/>
+        <location filename="../../Misc/Language.cpp" line="504"/>
         <source>Kawi</source>
         <translation>股爪哇语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="515"/>
+        <location filename="../../Misc/Language.cpp" line="505"/>
         <source>Khasi</source>
         <translation>卡西语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="516"/>
+        <location filename="../../Misc/Language.cpp" line="506"/>
         <source>Khoisan languages</source>
         <translation>科依桑语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="517"/>
+        <location filename="../../Misc/Language.cpp" line="507"/>
         <source>Khotanese, Sakan</source>
         <translation>和阗语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="518"/>
+        <location filename="../../Misc/Language.cpp" line="508"/>
         <source>Kimbundu</source>
         <translation>金邦杜语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="519"/>
+        <location filename="../../Misc/Language.cpp" line="509"/>
         <source>Klingon, tlhIngan-Hol</source>
         <translation>克林贡语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="520"/>
+        <location filename="../../Misc/Language.cpp" line="510"/>
         <source>Konkani</source>
         <translation>贡根语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="521"/>
+        <location filename="../../Misc/Language.cpp" line="511"/>
         <source>Kosraean</source>
         <translation>科斯拉伊语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="522"/>
+        <location filename="../../Misc/Language.cpp" line="512"/>
         <source>Kpelle</source>
         <translation>克佩列语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="523"/>
+        <location filename="../../Misc/Language.cpp" line="513"/>
         <source>Kru languages</source>
         <translation>克鲁语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="524"/>
+        <location filename="../../Misc/Language.cpp" line="514"/>
         <source>Kumyk</source>
         <translation>库米克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="525"/>
+        <location filename="../../Misc/Language.cpp" line="515"/>
         <source>Kurukh</source>
         <translation>库鲁克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="526"/>
+        <location filename="../../Misc/Language.cpp" line="516"/>
         <source>Kutenai</source>
         <translation>库特奈语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="527"/>
+        <location filename="../../Misc/Language.cpp" line="517"/>
         <source>Ladino</source>
         <translation>拉地诺语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="528"/>
+        <location filename="../../Misc/Language.cpp" line="518"/>
         <source>Lahnda</source>
         <translation>印度-雅利安语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="529"/>
+        <location filename="../../Misc/Language.cpp" line="519"/>
         <source>Lamba</source>
         <translation>兰巴语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="530"/>
+        <location filename="../../Misc/Language.cpp" line="520"/>
         <source>Land Dayak languages</source>
         <translation>达雅克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="531"/>
+        <location filename="../../Misc/Language.cpp" line="521"/>
         <source>Lezghian</source>
         <translation>立陶宛语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="532"/>
+        <location filename="../../Misc/Language.cpp" line="522"/>
         <source>Lojban</source>
         <translation>逻辑语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="533"/>
+        <location filename="../../Misc/Language.cpp" line="523"/>
         <source>German-Low, Low Saxon</source>
         <translation>低地德语，古代撒克逊语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="534"/>
+        <location filename="../../Misc/Language.cpp" line="524"/>
         <source>Lower Sorbian</source>
         <translation>下索布语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="535"/>
+        <location filename="../../Misc/Language.cpp" line="525"/>
         <source>Lozi</source>
         <translation>洛奇语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="536"/>
+        <location filename="../../Misc/Language.cpp" line="526"/>
         <source>Luba-Lulua</source>
         <translation>卢巴-卢拉语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="537"/>
+        <location filename="../../Misc/Language.cpp" line="527"/>
         <source>Luiseno</source>
         <translation>卢伊塞诺语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="538"/>
+        <location filename="../../Misc/Language.cpp" line="528"/>
         <source>Lule Sami</source>
         <translation>律勒欧-萨米语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="539"/>
+        <location filename="../../Misc/Language.cpp" line="529"/>
         <source>Lunda</source>
         <translation>隆达语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="540"/>
+        <location filename="../../Misc/Language.cpp" line="530"/>
         <source>Luo (Kenya and Tanzania)</source>
         <translation>卢奥语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="541"/>
+        <location filename="../../Misc/Language.cpp" line="531"/>
         <source>Lushai</source>
         <translation>卢舍依语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="542"/>
+        <location filename="../../Misc/Language.cpp" line="532"/>
         <source>Madurese</source>
         <translation>马都拉语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="543"/>
+        <location filename="../../Misc/Language.cpp" line="533"/>
         <source>Magahi</source>
         <translation>马加伊语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="544"/>
+        <location filename="../../Misc/Language.cpp" line="534"/>
         <source>Maithili</source>
         <translation>迈蒂利语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="545"/>
+        <location filename="../../Misc/Language.cpp" line="535"/>
         <source>Makasar</source>
         <translation>望加锡语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="546"/>
+        <location filename="../../Misc/Language.cpp" line="536"/>
         <source>Manchu</source>
         <translation>满族语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="547"/>
+        <location filename="../../Misc/Language.cpp" line="537"/>
         <source>Mandar</source>
         <translation>曼迪安语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="548"/>
+        <location filename="../../Misc/Language.cpp" line="538"/>
         <source>Mandingo</source>
         <translation>曼丁果语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="549"/>
+        <location filename="../../Misc/Language.cpp" line="539"/>
         <source>Manipuri</source>
         <translation>曼尼普尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="550"/>
+        <location filename="../../Misc/Language.cpp" line="540"/>
         <source>Manobo languages</source>
         <translation>马诺博诸语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="551"/>
+        <location filename="../../Misc/Language.cpp" line="541"/>
         <source>Mapuche/Mapudungun</source>
         <translation>阿劳坎语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="552"/>
+        <location filename="../../Misc/Language.cpp" line="542"/>
         <source>Mari</source>
         <translation>马里语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="553"/>
+        <location filename="../../Misc/Language.cpp" line="543"/>
         <source>Marwari</source>
         <translation>马尔瓦尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="554"/>
+        <location filename="../../Misc/Language.cpp" line="544"/>
         <source>Masai</source>
         <translation>马塞族语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="555"/>
+        <location filename="../../Misc/Language.cpp" line="545"/>
         <source>Mayan languages</source>
         <translation>马雅语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="556"/>
+        <location filename="../../Misc/Language.cpp" line="546"/>
         <source>Mende</source>
         <translation>门德语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="557"/>
+        <location filename="../../Misc/Language.cpp" line="547"/>
         <source>Mi&apos;kmaq, Micmac</source>
         <translation>密克马克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="558"/>
+        <location filename="../../Misc/Language.cpp" line="548"/>
         <source>Minangkabau</source>
         <translation>米南加保语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="559"/>
+        <location filename="../../Misc/Language.cpp" line="549"/>
         <source>Mirandese</source>
         <translation>米兰德斯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="560"/>
+        <location filename="../../Misc/Language.cpp" line="550"/>
         <source>Mohawk</source>
         <translation>莫霍克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="561"/>
+        <location filename="../../Misc/Language.cpp" line="551"/>
         <source>Moksha</source>
         <translation>莫克沙语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="562"/>
+        <location filename="../../Misc/Language.cpp" line="552"/>
         <source>Mon-Khmer languages</source>
         <translation>孟－高棉语族</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="563"/>
+        <location filename="../../Misc/Language.cpp" line="553"/>
         <source>Mongo</source>
         <translation>蒙古语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="564"/>
+        <location filename="../../Misc/Language.cpp" line="554"/>
         <source>Mossi</source>
         <translation>莫西语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="565"/>
+        <location filename="../../Misc/Language.cpp" line="555"/>
         <source>Multiple languages</source>
         <translation>多种语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="566"/>
+        <location filename="../../Misc/Language.cpp" line="556"/>
         <source>Munda languages</source>
         <translation>蒙达诸语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="567"/>
+        <location filename="../../Misc/Language.cpp" line="557"/>
         <source>N&apos;Ko</source>
         <translation>N&apos;Ko</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="568"/>
+        <location filename="../../Misc/Language.cpp" line="558"/>
         <source>Nahuatl languages</source>
         <translation>纳瓦特尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="569"/>
+        <location filename="../../Misc/Language.cpp" line="559"/>
         <source>Neapolitan</source>
         <translation>那不勒斯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="570"/>
+        <location filename="../../Misc/Language.cpp" line="560"/>
         <source>Nepal Bhasa/Newari</source>
         <translation>尼瓦尔语/内瓦里语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="571"/>
+        <location filename="../../Misc/Language.cpp" line="561"/>
         <source>Nias</source>
         <translation>尼亚斯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="572"/>
+        <location filename="../../Misc/Language.cpp" line="562"/>
         <source>Niger-Kordofanian languages</source>
         <translation>尼日尔-科尔多凡语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="573"/>
+        <location filename="../../Misc/Language.cpp" line="563"/>
         <source>Nilo-Saharan languages</source>
         <translation>尼罗-撒哈拉语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="574"/>
+        <location filename="../../Misc/Language.cpp" line="564"/>
         <source>Niuean</source>
         <translation>纽埃语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="575"/>
+        <location filename="../../Misc/Language.cpp" line="565"/>
         <source>No linguistic content/Not applicable</source>
         <translation>无语言内容/不适用</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="576"/>
+        <location filename="../../Misc/Language.cpp" line="566"/>
         <source>Nogai</source>
         <translation>诺盖语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="577"/>
+        <location filename="../../Misc/Language.cpp" line="567"/>
         <source>Norse- Old</source>
         <translation>古诺尔斯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="578"/>
+        <location filename="../../Misc/Language.cpp" line="568"/>
         <source>North American Indian languages</source>
         <translation>北美洲印第安诸语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="579"/>
+        <location filename="../../Misc/Language.cpp" line="569"/>
         <source>Northern Frisian</source>
         <translation>北弗里西亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="580"/>
+        <location filename="../../Misc/Language.cpp" line="570"/>
         <source>Northern Sotho, Sepedi, Pedi</source>
         <translation>北索托语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="581"/>
+        <location filename="../../Misc/Language.cpp" line="571"/>
         <source>Nubian languages</source>
         <translation>努比亚语种</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="582"/>
+        <location filename="../../Misc/Language.cpp" line="572"/>
         <source>Nyamwezi</source>
         <translation>尼亚姆韦齐语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="583"/>
+        <location filename="../../Misc/Language.cpp" line="573"/>
         <source>Nyankole</source>
         <translation>尼扬科莱语 </translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="584"/>
+        <location filename="../../Misc/Language.cpp" line="574"/>
         <source>Nyoro</source>
         <translation>尼奥罗语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="585"/>
+        <location filename="../../Misc/Language.cpp" line="575"/>
         <source>Nzima</source>
         <translation>恩济马语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="586"/>
+        <location filename="../../Misc/Language.cpp" line="576"/>
         <source>Occitan/Provencal- Old (to 1500)</source>
         <translation>欧西坦语/普罗旺斯-古代(至1500)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="587"/>
+        <location filename="../../Misc/Language.cpp" line="577"/>
         <source>Official/Imperial Aramaic (700-300 BCE)</source>
         <translation>阿拉米语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="588"/>
+        <location filename="../../Misc/Language.cpp" line="578"/>
         <source>Osage</source>
         <translation>奥塞奇语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="589"/>
+        <location filename="../../Misc/Language.cpp" line="579"/>
         <source>Otomian languages</source>
         <translation>奥托米语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="590"/>
+        <location filename="../../Misc/Language.cpp" line="580"/>
         <source>Pahlavi</source>
         <translation>巴拉维语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="591"/>
+        <location filename="../../Misc/Language.cpp" line="581"/>
         <source>Palauan</source>
         <translation>帕劳语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="592"/>
+        <location filename="../../Misc/Language.cpp" line="582"/>
         <source>Pangasinan</source>
         <translation>邦阿西楠语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="593"/>
+        <location filename="../../Misc/Language.cpp" line="583"/>
         <source>Papiamento</source>
         <translation>帕皮阿门托语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="594"/>
+        <location filename="../../Misc/Language.cpp" line="584"/>
         <source>Papuan languages</source>
         <translation>巴布亚诸语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="595"/>
+        <location filename="../../Misc/Language.cpp" line="585"/>
         <source>Paraguayan Guaraní</source>
         <translation>巴拉圭瓜拉尼语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="596"/>
+        <location filename="../../Misc/Language.cpp" line="586"/>
         <source>Persian- Old (ca.600-400 B.C.)</source>
         <translation>古波斯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="597"/>
+        <location filename="../../Misc/Language.cpp" line="587"/>
         <source>Philippine languages</source>
         <translation>菲律宾诸语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="598"/>
+        <location filename="../../Misc/Language.cpp" line="588"/>
         <source>Phoenician</source>
         <translation>腓尼基语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="599"/>
+        <location filename="../../Misc/Language.cpp" line="589"/>
         <source>Pohnpeian</source>
         <translation>波纳佩语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="600"/>
+        <location filename="../../Misc/Language.cpp" line="590"/>
         <source>Prakrit languages</source>
         <translation>普拉克利特语种</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="601"/>
+        <location filename="../../Misc/Language.cpp" line="591"/>
         <source>Rajasthani</source>
         <translation>拉贾斯坦语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="602"/>
+        <location filename="../../Misc/Language.cpp" line="592"/>
         <source>Rapanui</source>
         <translation>拉帕努伊语、复活节岛语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="603"/>
+        <location filename="../../Misc/Language.cpp" line="593"/>
         <source>Rarotongan, Cook Islands Maori</source>
         <translation>拉罗汤加语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="604"/>
+        <location filename="../../Misc/Language.cpp" line="594"/>
         <source>Reserved for local use</source>
         <translation>保留供本地使用</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="605"/>
+        <location filename="../../Misc/Language.cpp" line="595"/>
         <source>Romance languages</source>
         <translation>罗曼斯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="606"/>
+        <location filename="../../Misc/Language.cpp" line="596"/>
         <source>Romany</source>
         <translation>吉普赛语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="607"/>
+        <location filename="../../Misc/Language.cpp" line="597"/>
         <source>Salishan languages</source>
         <translation>萨利希语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="608"/>
+        <location filename="../../Misc/Language.cpp" line="598"/>
         <source>Samaritan Aramaic</source>
         <translation>萨玛利亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="609"/>
+        <location filename="../../Misc/Language.cpp" line="599"/>
         <source>Sami languages</source>
         <translation>萨米语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="610"/>
+        <location filename="../../Misc/Language.cpp" line="600"/>
         <source>Sandawe</source>
         <translation>桑达韦语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="611"/>
+        <location filename="../../Misc/Language.cpp" line="601"/>
         <source>Santali</source>
         <translation>桑塔尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="612"/>
+        <location filename="../../Misc/Language.cpp" line="602"/>
         <source>Sasak</source>
         <translation>萨萨克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="613"/>
+        <location filename="../../Misc/Language.cpp" line="603"/>
         <source>Scots</source>
         <translation>苏格兰语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="614"/>
+        <location filename="../../Misc/Language.cpp" line="604"/>
         <source>Selkup</source>
         <translation>塞尔库普语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="615"/>
+        <location filename="../../Misc/Language.cpp" line="605"/>
         <source>Semitic languages</source>
         <translation>闪米特语族</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="616"/>
+        <location filename="../../Misc/Language.cpp" line="606"/>
         <source>Serer</source>
         <translation>谢列尔语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="617"/>
+        <location filename="../../Misc/Language.cpp" line="607"/>
         <source>Shan</source>
         <translation>掸语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="618"/>
+        <location filename="../../Misc/Language.cpp" line="608"/>
         <source>Sicilian</source>
         <translation>西西里语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="619"/>
+        <location filename="../../Misc/Language.cpp" line="609"/>
         <source>Sidamo</source>
         <translation>锡达莫语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="620"/>
+        <location filename="../../Misc/Language.cpp" line="610"/>
         <source>Sign Languages</source>
         <translation>手语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="621"/>
+        <location filename="../../Misc/Language.cpp" line="611"/>
         <source>Siksika</source>
         <translation>西克西卡语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="622"/>
+        <location filename="../../Misc/Language.cpp" line="612"/>
         <source>Sino-Tibetan languages</source>
         <translation>汉藏语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="623"/>
+        <location filename="../../Misc/Language.cpp" line="613"/>
         <source>Siouan languages</source>
         <translation>操苏语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="624"/>
+        <location filename="../../Misc/Language.cpp" line="614"/>
         <source>Skolt Sami</source>
         <translation>斯科特-萨米语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="625"/>
+        <location filename="../../Misc/Language.cpp" line="615"/>
         <source>Slave (Athapascan)</source>
         <translation>史拉维语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="626"/>
+        <location filename="../../Misc/Language.cpp" line="616"/>
         <source>Slavic languages</source>
         <translation>斯拉夫语族</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="627"/>
+        <location filename="../../Misc/Language.cpp" line="617"/>
         <source>Sogdian</source>
         <translation>粟特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="628"/>
+        <location filename="../../Misc/Language.cpp" line="618"/>
         <source>Songhai languages</source>
         <translation>桑海语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="629"/>
+        <location filename="../../Misc/Language.cpp" line="619"/>
         <source>Soninke</source>
         <translation>索宁克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="630"/>
+        <location filename="../../Misc/Language.cpp" line="620"/>
         <source>Sorbian languages</source>
         <translation>索布语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="631"/>
+        <location filename="../../Misc/Language.cpp" line="621"/>
         <source>South American Indian languages</source>
         <translation>南美印第安语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="632"/>
+        <location filename="../../Misc/Language.cpp" line="622"/>
         <source>Southern Altai</source>
         <translation>南阿尔泰语系</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="633"/>
+        <location filename="../../Misc/Language.cpp" line="623"/>
         <source>Southern Sami</source>
         <translation>南萨莫斯语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="634"/>
+        <location filename="../../Misc/Language.cpp" line="624"/>
         <source>Sranan Tongo</source>
         <translation>苏里南汤加语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="635"/>
+        <location filename="../../Misc/Language.cpp" line="625"/>
         <source>Sukuma</source>
         <translation>苏库马方言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="636"/>
+        <location filename="../../Misc/Language.cpp" line="626"/>
         <source>Sumerian</source>
         <translation>闪族语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="637"/>
+        <location filename="../../Misc/Language.cpp" line="627"/>
         <source>Susu</source>
         <translation>苏苏语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="638"/>
+        <location filename="../../Misc/Language.cpp" line="628"/>
         <source>Alsatian, Swiss German, Alemannic</source>
         <translation>阿勒曼尼语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="639"/>
+        <location filename="../../Misc/Language.cpp" line="629"/>
         <source>Syriac</source>
         <translation>古代叙利亚语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="640"/>
+        <location filename="../../Misc/Language.cpp" line="630"/>
         <source>Tai languages</source>
         <translation>泰语支</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="641"/>
+        <location filename="../../Misc/Language.cpp" line="631"/>
         <source>Tamashek</source>
         <translation>塔马奇克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="642"/>
+        <location filename="../../Misc/Language.cpp" line="632"/>
         <source>Tereno</source>
         <translation>特列纳语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="643"/>
+        <location filename="../../Misc/Language.cpp" line="633"/>
         <source>Tetum</source>
         <translation>德顿语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="644"/>
+        <location filename="../../Misc/Language.cpp" line="634"/>
         <source>Tigre</source>
         <translation>提格雷语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="645"/>
+        <location filename="../../Misc/Language.cpp" line="635"/>
         <source>Timne</source>
         <translation>滕内语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="646"/>
+        <location filename="../../Misc/Language.cpp" line="636"/>
         <source>Tiv</source>
         <translation>蒂夫语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="647"/>
+        <location filename="../../Misc/Language.cpp" line="637"/>
         <source>Tlingit</source>
         <translation>特林吉特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="648"/>
+        <location filename="../../Misc/Language.cpp" line="638"/>
         <source>Tok Pisin</source>
         <translation>巴布亚皮钦语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="649"/>
+        <location filename="../../Misc/Language.cpp" line="639"/>
         <source>Tokelau</source>
         <translation>托克劳语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="650"/>
+        <location filename="../../Misc/Language.cpp" line="640"/>
         <source>Tonga (Nyasa)</source>
         <translation>汤加语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="651"/>
+        <location filename="../../Misc/Language.cpp" line="641"/>
         <source>Tsimshian</source>
         <translation>钦西安语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="652"/>
+        <location filename="../../Misc/Language.cpp" line="642"/>
         <source>Tumbuka</source>
         <translation>奇图姆布卡语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="653"/>
+        <location filename="../../Misc/Language.cpp" line="643"/>
         <source>Tupi languages</source>
         <translation>瓜拉尼诸语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="654"/>
+        <location filename="../../Misc/Language.cpp" line="644"/>
         <source>Turkish- Ottoman (1500-1928)</source>
         <translation>土耳其-奥斯曼(1500-1928)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="655"/>
+        <location filename="../../Misc/Language.cpp" line="645"/>
         <source>Tuvalu</source>
         <translation>图瓦卢</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="656"/>
+        <location filename="../../Misc/Language.cpp" line="646"/>
         <source>Tuvinian</source>
         <translation>图瓦语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="657"/>
+        <location filename="../../Misc/Language.cpp" line="647"/>
         <source>Udmurt</source>
         <translation>乌德穆尔特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="658"/>
+        <location filename="../../Misc/Language.cpp" line="648"/>
         <source>Ugaritic</source>
         <translation>乌加里特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="659"/>
+        <location filename="../../Misc/Language.cpp" line="649"/>
         <source>Umbundu</source>
         <translation>姆班杜语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="660"/>
+        <location filename="../../Misc/Language.cpp" line="650"/>
         <source>Uncoded languages</source>
         <translation>未编码的语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="661"/>
+        <location filename="../../Misc/Language.cpp" line="651"/>
         <source>Undetermined</source>
         <translation>待定的</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="662"/>
+        <location filename="../../Misc/Language.cpp" line="652"/>
         <source>Upper Sorbian</source>
         <translation>上索布语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="663"/>
+        <location filename="../../Misc/Language.cpp" line="653"/>
         <source>Vai</source>
         <translation>瓦伊语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="664"/>
+        <location filename="../../Misc/Language.cpp" line="654"/>
         <source>Votic</source>
         <translation>沃提克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="665"/>
+        <location filename="../../Misc/Language.cpp" line="655"/>
         <source>Wakashan languages</source>
         <translation>瓦卡什语种</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="666"/>
+        <location filename="../../Misc/Language.cpp" line="656"/>
         <source>Waray</source>
         <translation>瓦瑞语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="667"/>
+        <location filename="../../Misc/Language.cpp" line="657"/>
         <source>Washo</source>
         <translation>瓦绍语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="668"/>
+        <location filename="../../Misc/Language.cpp" line="658"/>
         <source>Wolaitta, Wolaytta</source>
         <translation>Wolaitta, Wolaytta</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="669"/>
+        <location filename="../../Misc/Language.cpp" line="659"/>
         <source>Yakut</source>
         <translation>雅库特语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="670"/>
+        <location filename="../../Misc/Language.cpp" line="660"/>
         <source>Yao</source>
         <translation>瑶语 (马拉维)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="671"/>
+        <location filename="../../Misc/Language.cpp" line="661"/>
         <source>Yapese</source>
         <translation>雅浦语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="672"/>
+        <location filename="../../Misc/Language.cpp" line="662"/>
         <source>Yupik languages</source>
         <translation>尤皮克语种</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="673"/>
+        <location filename="../../Misc/Language.cpp" line="663"/>
         <source>Zande languages</source>
         <translation>赞德诸语言</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="674"/>
+        <location filename="../../Misc/Language.cpp" line="664"/>
         <source>Zapotec</source>
         <translation>萨巴特克语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="675"/>
+        <location filename="../../Misc/Language.cpp" line="665"/>
         <source>Zenaga</source>
         <translation>哲纳加语</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="676"/>
+        <location filename="../../Misc/Language.cpp" line="666"/>
         <source>Zuni</source>
         <translation>祖尼语</translation>
     </message>
@@ -12444,94 +12482,94 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation>聚焦片段窗口</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="330"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="333"/>
         <source>Error: Automation Already in Use</source>
         <translation>错误：自动执行已在使用中</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="336"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="339"/>
         <source>Missing Automation List</source>
         <translation>丢失自动执行列表</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="377"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="379"/>
         <source>running</source>
         <translation>运行中</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="440"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="442"/>
         <source>skipped since not an epub3</source>
         <translation>跳过，因为不是EPUB3</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="465"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="484"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="508"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="467"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="486"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="510"/>
         <source>Missing or unknown Saved Search name</source>
         <translation>缺少或未知的已保存搜索名称</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="488"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="490"/>
         <source>Conditional search did not run.</source>
         <translation>附条件搜索未运行</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="512"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="514"/>
         <source>Conditional Search did not run.</source>
         <translation>附条件搜索未运行</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="516"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="518"/>
         <source>Missing or unknown plugin or tool</source>
         <translation>缺少或未知的插件或工具</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="521"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="523"/>
         <source>failed</source>
         <translation>失败</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="529"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="531"/>
         <source>Validation tool</source>
         <translation>验证工具</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="530"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="532"/>
         <source>found errors</source>
         <translation>发现错误</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="533"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="535"/>
         <source>Validation tool found errors - Abort or Ignore?</source>
         <translation>验证工具发现错误 - 中止还是忽略？</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="542"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="544"/>
         <source>Aborted due to Validation Errors</source>
         <translation>由于验证错误而中止</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="545"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="547"/>
         <source>Ignored Validation Errors</source>
         <translation>忽略验证错误</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="548"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="550"/>
         <source>Validation Tool Reported No Problems Found</source>
         <translation>验证工具报告未发现任何问题</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="555"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="557"/>
         <source>Automation List Failed</source>
         <translation>自动执行列表运行失败</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="557"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="559"/>
         <source>Automation List Completed</source>
         <translation>自动执行列表运行完成</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="559"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="561"/>
         <source>Automate Log</source>
         <translation>自动执行日志</translation>
     </message>
@@ -12565,44 +12603,44 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../MainUI/MainWindow.cpp" line="910"/>
         <location filename="../../MainUI/MainWindow.cpp" line="991"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1792"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2106"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2348"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2513"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3088"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3184"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3240"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3250"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3274"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3288"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3394"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3410"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3415"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3428"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3447"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3461"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3476"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3480"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3496"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3509"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3514"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3526"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3536"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3541"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3743"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3750"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3766"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3825"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3857"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4056"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5265"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5306"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5312"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5318"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5547"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5567"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5624"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5888"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6094"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2105"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2347"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2512"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3087"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3183"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3239"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3249"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3273"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3287"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3393"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3409"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3414"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3427"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3446"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3460"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3475"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3479"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3495"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3508"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3513"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3525"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3535"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3540"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3742"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3749"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3765"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3824"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3856"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4055"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5263"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5304"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5310"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5316"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5545"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5565"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5621"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5885"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6091"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -12623,17 +12661,17 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="882"/>
         <location filename="../../MainUI/MainWindow.cpp" line="884"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5622"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5624"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6092"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6094"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5619"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5621"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6089"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6091"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] - epub%2 - %3</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="882"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5622"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6092"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5619"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6089"/>
         <source>Sigil [std]</source>
         <translation>Sigil [std]</translation>
     </message>
@@ -12849,461 +12887,461 @@ This action cannot be reversed.</source>
         <translation>Sigil正在关闭...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2042"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2041"/>
         <source>New file created.</source>
         <translation>新文件已创建。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2065"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2064"/>
         <source>Open File</source>
         <translation>打开文件</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2105"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2104"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
         <translation>此文件不再存在，单击“确定”将其删除。
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2188"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2187"/>
         <source>Save File</source>
         <translation>保存文件</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2244"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2243"/>
         <source>Save a Copy</source>
         <translation>保存副本</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2283"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2282"/>
         <source>Epub layout discarded.</source>
         <translation>Epub布局已丢弃。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2290"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2289"/>
         <source>New epub created.</source>
         <translation>已创建新的epub。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2325"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2324"/>
         <source>Go To Line</source>
         <translation>转到行</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2325"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2324"/>
         <source>Line #</source>
         <translation>行</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2348"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2347"/>
         <source>Image does not exist: </source>
         <translation>图片不存在：</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2428"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2427"/>
         <source>or</source>
         <translation>或</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2436"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2435"/>
         <source>No CSS styles named</source>
         <translation>没有CSS样式命名</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2436"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2435"/>
         <source>found, or stylesheet not linked.</source>
         <translation>找到，或样式表未链接。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2509"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2508"/>
         <source>&lt;html&gt;&lt;p&gt;The href &lt;b&gt;%1&lt;/b&gt; found in &lt;b&gt;%2&lt;/b&gt; does not exist (and there may be more). Splitting or merging under these conditions can result in broken links.&lt;/p&gt;&lt;p&gt;Do you still wish to continue?&lt;/p&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;p&gt;在&lt;b&gt;%2&lt;/b&gt;中的href&lt;b&gt;%1&lt;/b&gt;不存在 (并且可能有更多)。在这些条件下拆分或合并可能导致链接断开。&lt;/p&gt;&lt;p&gt;你希望继续吗?&lt;/p&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2532"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2531"/>
         <source>Dropped files added.</source>
         <translation>添加了拖放的文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2546"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2545"/>
         <source>Add Cover</source>
         <translation>添加封面</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2595"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2594"/>
         <source>An existing Cover file has been found.</source>
         <translation>已找到现有封面文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2658"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2657"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
         <translation>未知错误。仅图像文件可以用作封面。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2677"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2676"/>
         <source>Cover added.</source>
         <translation>封面已添加。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2693"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2692"/>
         <source>OPF Manifest Mimetypes Updated.</source>
         <translation>更新了 OPF 清单 Mimetypes</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2702"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2719"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2739"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2762"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2794"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2701"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2718"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2738"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2761"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2793"/>
         <source>Not Available for epub2.</source>
         <translation>不可用于epub2。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2710"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2709"/>
         <source>OPF Manifest Properties Updated.</source>
         <translation>OPF清单属性已更新。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2725"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2724"/>
         <source>Nav removed from OPF Spine.</source>
         <translation>从 OPF 脊骨中删除了 Nav。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2746"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2745"/>
         <source>Nav added to OPF Spine with linear=&quot;no&quot;</source>
         <translation>已添加 Nav 到 OPF 脊骨，带参数 linear=&apos;no&apos; </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2748"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2747"/>
         <source>Nav added to OPF Spine.</source>
         <translation>已添加 Nav 到 OPF 脊骨。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2784"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2783"/>
         <source>NCX and Guide removed.</source>
         <translation>NCX和指南已删除。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2811"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2844"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2810"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2843"/>
         <source>NCX and Guide generation failed.</source>
         <translation>NCX和指南生成失败。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2880"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2879"/>
         <source>NCX and Guide generated.</source>
         <translation>NCX和指南已生成。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2977"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2976"/>
         <source>An existing Index file has been found.</source>
         <translation>已找到现有的索引文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3069"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3068"/>
         <source>Styles deleted.</source>
         <translation>样式表已删除。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3077"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3076"/>
         <source>Reports Being Generated.</source>
         <translation>正在生成报告。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3088"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3087"/>
         <source>Reports cancelled due to XML not well formed.</source>
         <translation>由于XML格式不正确保存报告失败。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3184"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3183"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
         <translation>由于XML格式不正确，删除未使用的媒体文件已取消。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3234"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3233"/>
         <source>Unused media files deleted.</source>
         <translation>已删除未使用的媒体文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3237"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3240"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3236"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3239"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation>没有未使用的图片、视频或音频文件可删。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3250"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3249"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation>由于XML格式不正确删除未使用过的的样式失败。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3272"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3274"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3271"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3273"/>
         <source>There are no unused stylesheet selectors to delete.</source>
         <translation>没有要删除的未使用的样式表选择器。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3288"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3287"/>
         <source>You cannot insert a file at this position.</source>
         <translation>您无法在此处插入文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3295"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3294"/>
         <source>Insert File</source>
         <translation>插入文件</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3348"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3347"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>文件“%1”不存在。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3394"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3415"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3393"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3414"/>
         <source>You cannot insert an id at this position.</source>
         <translation>您无法在此处插入id。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3410"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3409"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation>ID是无效的，必须以字母开头，后面跟_ : - 或 .符号。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3428"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3427"/>
         <source>You can only insert an aria clips in xhtml files.</source>
         <translation>你只能用 xhtml 文件插入 aria 片段</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3447"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3446"/>
         <source>Inserting an aria clip failed.</source>
         <translation>插入 aria 片段失败了</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3461"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3480"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3460"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3479"/>
         <source>You cannot insert an aria role at this position.</source>
         <translation>无法在这个位置插入 aria 角色</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3476"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3475"/>
         <source>The selected role cannot be used on this tag.</source>
         <translation>所选角色无法用于此标签</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3496"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3514"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3495"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3513"/>
         <source>You cannot insert a link at this position.</source>
         <translation>您无法在此处插入链接。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3509"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3508"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>链接无效-不能包含‘&lt;’或‘&gt;’</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3526"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3525"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation>此处无法标记为索引或没有选择文本。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3536"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3535"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>条目无效-不能包含‘&lt;’或‘&gt;’</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3541"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3540"/>
         <source>You cannot mark an index at this position.</source>
         <translation>此处无法标记为索引。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3652"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3664"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3683"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3651"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3663"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3682"/>
         <source>Select the destination to paste into first.</source>
         <translation>选择粘贴到第一个目标。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3672"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3671"/>
         <source>Pasted clip entry %1.</source>
         <translation>剪辑条目 %1已粘贴。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3743"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3742"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>选择了一个资源，并且没有以前要合并的资源。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3751"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3750"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>您确定要合并选定的文件吗？
 这个动作无法逆转。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3766"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3765"/>
         <source>Merge cancelled: XHTML files involved in merge are not well formed.</source>
         <translation>合并取消: 合并中涉及的 XHTML 文件格式不正确。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3825"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3824"/>
         <source>Cannot merge file %1</source>
         <translation>无法合并件 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3839"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3838"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>合并完成，您可能需要更新或修改目录。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3857"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3856"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation>链接样式表已取消：%1，XML格式不正确。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3987"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3986"/>
         <source>Word updated.</source>
         <translation>单词已更新。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4056"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4055"/>
         <source>Link Javascripts cancelled: %1, XML not well formed.</source>
         <translation>链接Javascripts已取消：%1，XML格式不正确。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4166"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4165"/>
         <source>File(s) deleted.</source>
         <translation>文件已删除。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4177"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4176"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>目录编辑被取消。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4182"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4181"/>
         <source>Table Of Contents edited.</source>
         <translation>目录已编辑</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4200"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4199"/>
         <source>Generate TOC cancelled.</source>
         <translation>取消生成目录。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4225"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4224"/>
         <source>Table Of Contents generated.</source>
         <translation>目录已生成。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4227"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4226"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>目录变动不是必要的。 </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4305"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4304"/>
         <source>An existing HTML Table of Contents file has been found.</source>
         <translation>已找到现有的HTML目录文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4390"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4389"/>
         <source>Text selection marked.</source>
         <translation>选中文本已标识。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4392"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4410"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4391"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4409"/>
         <source>Text selection unmarked.</source>
         <translation>选中文本已取消标识。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4459"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4458"/>
         <source>Metadata Editor cancelled.</source>
         <translation>元数据编辑器已取消。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4462"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4461"/>
         <source>Metadata edited.</source>
         <translation>元数据已编辑。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4582"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4581"/>
         <source>RunPlugin</source>
         <translation>运行插件</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4595"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4594"/>
         <source>RunAutomate</source>
         <translation>自动运行</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4621"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4620"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>此EPUB没有包含任何CSS样式表来验证。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4652"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4651"/>
         <source>This EPUB does not contain any CSS stylesheets to reformat.</source>
         <translation>此EPUB文件不包含任何可用于格式化的CSS样式表。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5177"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5176"/>
         <source>%1%2 - Line: %3, Col: %4</source>
         <translation>%1%2 - 行： %3、列： %4</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5265"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5263"/>
         <source>File cannot be split at this position.</source>
         <translation>文件在此处无法分割。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5288"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5286"/>
         <source>Split completed.</source>
         <translation>分割完成。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5306"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5304"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>由于至少有一个不是HTML文件，无法拆分文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5312"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5310"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>无法拆分： %1 XML格式不正确</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5318"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5316"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>由于至少有一个不是HTML文件，无法拆分文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5351"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5349"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>拆分完成，您可能需要更新目录。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5353"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5351"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>没有拆分标记，点击菜单 插入-&gt; 拆分标记。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5548"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5546"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>该文件已被修改。
 是否保存更改？</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5569"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5567"/>
         <source>Should Sigil overwrite this file?</source>
         <translation>Sigil是否应该覆盖此文件？</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5764"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5761"/>
         <source>No importer for file type: %1</source>
         <translation>没有文件类型的导入程序：%1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5771"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5768"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -13317,44 +13355,44 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
 请尝试将代码清理选项设置为打开时纠错并重新打开文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5776"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5773"/>
         <source>Loading file...</source>
         <translation>正在加载文件......</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5790"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5787"/>
         <source>File loaded.</source>
         <translation>文件已加载。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5816"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5813"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>这个文件的创建者使用DRM加密。Sigil无法打开此类文件。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5824"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5821"/>
         <source>Cannot load EPUB: %1</source>
         <translation>无法加载EPUB：%1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5829"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5826"/>
         <source>Cannot load file %1: %2</source>
         <translation>无法加载文件%1：%2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5856"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5853"/>
         <source>Saving EPUB...</source>
         <translation>正在保存EPUB......</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5865"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5862"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil无法保存为文件为“%1”格式。
 请尝试一个不同的格式。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5889"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5886"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to mend on Save.
 
 Do you want to automatically mend the files before saving? Or cancel the Save?</source>
@@ -13363,94 +13401,94 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 你要在保存前自动修补这些文件，还是要取消保存？</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5894"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5891"/>
         <source>Saving EPUB... cancelled</source>
         <translation>正保存 EPUB... 已取消</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5920"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5917"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>EPUB已保存，但并非所有HTML文件被正确生成。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5922"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5919"/>
         <source>EPUB saved.</source>
         <translation>EPUB已保存。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5928"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5925"/>
         <source>Cannot save file %1: %2</source>
         <translation>无法保存文件%1：%2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6061"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6058"/>
         <source>EPUB files (*.epub)</source>
         <translation>EPUB文件(*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6062"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6063"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6064"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6059"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6060"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6061"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>HTML文件(*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6065"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6062"/>
         <source>Text files (*.txt)</source>
         <translation>文本文件(*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6066"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6063"/>
         <source>All files (*.*)</source>
         <translation>所有文件(*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6074"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6071"/>
         <source>EPUB file (*.epub)</source>
         <translation>EPUB文件(*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6176"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6175"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>保留现有的标题属性是：</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6177"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6176"/>
         <source>ON</source>
         <translation>ON</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6177"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6176"/>
         <source>OFF</source>
         <translation>OFF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6202"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6201"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7190"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7187"/>
         <source>Focus changed to CodeView window.</source>
         <translation>焦点更改到代码视图窗口</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7199"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7196"/>
         <source>Focus changed to BookBrowser window.</source>
         <translation>焦点更改到书籍浏览器窗口</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7208"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7205"/>
         <source>Focus changed to Preview window.</source>
         <translation>焦点更改到预览窗口</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7217"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7214"/>
         <source>Focus changed to Table Of Contents window.</source>
         <translation>焦点更改到目录窗口</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7226"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7223"/>
         <source>Focus changed to Clips window.</source>
         <translation>焦点更改到片段窗口</translation>
     </message>
@@ -13621,2658 +13659,2658 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 <context>
     <name>MarcRelators</name>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="111"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="99"/>
         <source>Abridger</source>
         <translation>删节</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="111"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="99"/>
         <source>A person, family, or organization contributing to a resource by shortening or condensing the original work but leaving the nature and content of the original work substantially unchanged. For substantial modifications that result in the creation of a new work, see Author.</source>
         <translation>一个人、家庭或组织通过缩短或浓缩原作而贡献资源，但使原作的性质和内容基本不变。有关导致创作新作品的实质性修改，请参见作者。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="112"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="100"/>
         <source>Actor</source>
         <translation>演员</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="112"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="100"/>
         <source>Use for a person or organization who principally exhibits acting skills in a musical or dramatic presentation or entertainment.</source>
         <translation>用来指在音乐或戏剧表演或娱乐中主要展示演技的人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="113"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="101"/>
         <source>Adapter</source>
         <translation>改编者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="113"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="101"/>
         <source>Use for a person or organization who 1) reworks a musical composition, usually for a different medium, or 2) rewrites novels or stories for motion pictures or other audiovisual medium.</source>
         <translation>供以下人员或组织使用：1）通常重新制作音乐作品，通常用于其他媒体，或2）重写电影或其他视听媒体的小说或故事。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="114"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="102"/>
         <source>Analyst</source>
         <translation>分析员</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="114"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="102"/>
         <source>Use for a person or organization that reviews, examines and interprets data or information in a specific area.</source>
         <translation>用于审查，检查和解释特定区域中的数据或信息的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="115"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="103"/>
         <source>Animator</source>
         <translation>动画制作者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="115"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="103"/>
         <source>Use for a person or organization who draws the two-dimensional figures, manipulates the three dimensional objects and/or also programs the computer to move objects and images for the purpose of animated film processing. Animation cameras, stands, celluloid screens, transparencies and inks are some of the tools of the animator.</source>
         <translation>用于绘制二维图形、操纵三维对象和/或还为动画电影处理目的对计算机进行编程以移动对象和图像的个人或组织。动画摄像机、支架、胶片屏幕、透明胶片和油墨是动画师的一些工具。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="116"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="104"/>
         <source>Annotator</source>
         <translation>注释者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="116"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="104"/>
         <source>Use for a person who writes manuscript annotations on a printed item.</source>
         <translation>用于在打印的项目上写手稿注释的人。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="117"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="105"/>
         <source>Appellant</source>
         <translation>上诉人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="117"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="105"/>
         <source>A person or organization who appeals a lower court&apos;s decision.</source>
         <translation>上诉者对下级法院的判决提出上诉的人或组织</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="118"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="106"/>
         <source>Appellee</source>
         <translation>被上诉人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="118"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="106"/>
         <source>A person or organization against whom an appeal is taken.</source>
         <translation>被上诉的人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="119"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="107"/>
         <source>Applicant</source>
         <translation>申请人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="119"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="107"/>
         <source>Use for a person or organization responsible for the submission of an application or who is named as eligible for the results of the processing of the application (e.g., bestowing of rights, reward, title, position).</source>
         <translation>用于负责提交申请的个人或组织，或被指定为有资格获得申请处理结果的个人或组织（如授予权利、奖励、头衔、职位）。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="120"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="108"/>
         <source>Architect</source>
         <translation>建筑师</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="120"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="108"/>
         <source>Use for a person or organization who designs structures or oversees their construction.</source>
         <translation>用于设计结构或监督其施工的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="121"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="109"/>
         <source>Arranger</source>
         <translation>乐曲改编者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="121"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="109"/>
         <source>Use for a person or organization who transcribes a musical composition, usually for a different medium from that of the original; in an arrangement the musical substance remains essentially unchanged.</source>
         <translation>用于改编音乐作品的人或组织，通常使用与原作不同的媒介；在编曲中，音乐内容基本上保持不变。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="122"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="110"/>
         <source>Art copyist</source>
         <translation>临摹者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="122"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="110"/>
         <source>Use for a person (e.g., a painter or sculptor) who makes copies of works of visual art.</source>
         <translation>用于复制视觉艺术作品的人（如画家或雕塑家）。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="123"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="111"/>
         <source>Art director</source>
         <translation>艺术总监</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="123"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="111"/>
         <source>A person contributing to a motion picture or television production by overseeing the artists and craftspeople who build the sets.</source>
         <translation>监制人通过监督制作电影或电视的艺术家和工匠而为电影或电视制作作出贡献的人。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="124"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="112"/>
         <source>Artist</source>
         <translation>艺术家</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="124"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="112"/>
         <source>Use for a person (e.g., a painter) or organization who conceives, and perhaps also implements, an original graphic design or work of art, if specific codes (e.g., [egr], [etr]) are not desired. For book illustrators, prefer Illustrator [ill]. </source>
         <translation>如果不需要特定的代码（例如[egr]，[etr]），则用于构思（也可能实施）原始图形设计或艺术品的人（例如画家）或组织。 对于书籍插图画家，最好使用Illustrator [ill]。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="125"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="113"/>
         <source>Artistic director</source>
         <translation>艺术总监</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="125"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="113"/>
         <source>Use for a person responsible for controlling the development of the artistic style of an entire production, including the choice of works to be presented and selection of senior production staff.</source>
         <translation>用于负责控制整个作品的艺术风格发展的人员，包括选择要呈现的作品和选择高级制作人员。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="126"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="114"/>
         <source>Assignee</source>
         <translation>受让人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="126"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="114"/>
         <source>Use for a person or organization to whom a license for printing or publishing has been transferred.</source>
         <translation>用于已向其转让印刷或出版许可证的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="127"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="115"/>
         <source>Associated name</source>
         <translation>关联名称</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="127"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="115"/>
         <source>Use for a person or organization associated with or found in an item or collection, which cannot be determined to be that of a Former owner [fmo] or other designated relator indicative of provenance.</source>
         <translation>用于与物品或收藏品有关或在物品或收藏品中发现的人或组织，不能确定为前所有者[fmo]或其他表明出处的指定关系人。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="128"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="116"/>
         <source>Attributed name</source>
         <translation>属性名称</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="128"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="116"/>
         <source>Use for an author, artist, etc., relating him/her to a work for which there is or once was substantial authority for designating that person as author, creator, etc. of the work. </source>
         <translation>用于作家、艺术家等，将他/她与现在或曾经有实质性权力指定该人为该作品的作者、创作者等的作品联系起来。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="129"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="117"/>
         <source>Auctioneer</source>
         <translation>拍卖师</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="129"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="117"/>
         <source>Use for a person or organization in charge of the estimation and public auctioning of goods, particularly books, artistic works, etc.</source>
         <translation>供负责估价和公开拍卖货物的个人或组织使用，特别是图书、艺术品等。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="130"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="118"/>
         <source>Author</source>
         <translation>作者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="130"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="118"/>
         <source>Use for a person or organization chiefly responsible for the intellectual or artistic content of a work, usually printed text. This term may also be used when more than one person or body bears such responsibility. </source>
         <translation>用于主要负责作品的智力或艺术内容的人或组织，通常是印刷文本。当不止一人或多个机构承担此类责任时，也可使用本术语。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="131"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="119"/>
         <source>Author in quotations or text extracts</source>
         <translation>引文或文本摘录中的作者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="131"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="119"/>
         <source>Use for a person or organization whose work is largely quoted or extracted in works to which he or she did not contribute directly. Such quotations are found particularly in exhibition catalogs, collections of photographs, etc.</source>
         <translation>用于其作品大部分被引用或摘录在他或她没有直接贡献的作品中的个人或组织。这样的引用在展览目录、照片集等中尤其常见。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="132"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="120"/>
         <source>Author of afterword, colophon, etc.</source>
         <translation>后记，出版社名称等诸如此类的作者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="132"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="120"/>
         <source>Use for a person or organization responsible for an afterword, postface, colophon, etc. but who is not the chief author of a work.</source>
         <translation>用来指负责后记、后记、科洛芬等的人或组织，但他不是一部作品的主要作者。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="133"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="121"/>
         <source>Author of dialog</source>
         <translation>对话框作者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="133"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="121"/>
         <source>Use for a person or organization responsible for the dialog or spoken commentary for a screenplay or sound recording.</source>
         <translation>用于负责剧本或录音的对话或口头解说的人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="134"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="122"/>
         <source>Author of introduction, etc.</source>
         <translation>引言等的作者。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="134"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="122"/>
         <source>Use for a person or organization responsible for an introduction, preface, foreword, or other critical introductory matter, but who is not the chief author.</source>
         <translation>用来指负责介绍、前言、前言或其他重要介绍性问题但不是主要作者的人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="135"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="123"/>
         <source>Author of screenplay, etc.</source>
         <translation>剧本等的作者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="135"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="123"/>
         <source>Use for a person or organization responsible for a motion picture screenplay, dialog, spoken commentary, etc.</source>
         <translation>用于负责电影剧本、对话、口头解说等的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="136"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="124"/>
         <source>Autographer</source>
         <translation>亲笔签名者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="136"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="124"/>
         <source>A person whose manuscript signature appears on an item.</source>
         <translation>手稿签名出现在作品上的人。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="137"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="125"/>
         <source>Bibliographic antecedent</source>
         <translation>书目前言</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="137"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="125"/>
         <source>Use for a person or organization responsible for a work upon which the work represented by the catalog record is based. This may be appropriate for adaptations, sequels, continuations, indexes, etc.</source>
         <translation>用于对目录记录所代表的工作所基于的工作负责的个人或组织。这可能适用于改编、续集、续集、索引等。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="138"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="126"/>
         <source>Binder</source>
         <translation>装订者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="138"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="126"/>
         <source>Use for a person or organization responsible for the binding of printed or manuscript materials.</source>
         <translation>用于负责印刷或手稿材料装订的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="139"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="127"/>
         <source>Binding designer</source>
         <translation>装订设计者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="139"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="127"/>
         <source>Use for a person or organization responsible for the binding design of a book, including the type of binding, the type of materials used, and any decorative aspects of the binding. </source>
         <translation>供负责书籍装订设计的个人或组织使用，包括装订的类型，使用的材料的类型以及装订的任何装饰性方面。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="140"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="128"/>
         <source>Blurb writer</source>
         <translation>内容简介作者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="140"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="128"/>
         <source>A person or organization responsible for writing a commendation or testimonial for a work, which appears on or within the publication itself, frequently on the back or dust jacket of print publications or on advertising material for all media.</source>
         <translation>负责对出现在出版物本身上或内部的作品进行表彰或推荐的个人或组织，经常出现在印刷出版物的背面或防尘套上，或在所有媒体的广告材料上。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="141"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="129"/>
         <source>Book designer</source>
         <translation>图书设计者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="141"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="129"/>
         <source>Use for a person or organization responsible for the entire graphic design of a book, including arrangement of type and illustration, choice of materials, and process used. </source>
         <translation>用于负责书籍的整个图形设计的人员或组织，包括类型和插图的排列，材料的选择以及所使用的过程。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="142"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="130"/>
         <source>Book producer</source>
         <translation>图书生产商</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="142"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="130"/>
         <source>Use for a person or organization responsible for the production of books and other print media, if specific codes (e.g., [bkd], [egr], [tyd], [prt]) are not desired. </source>
         <translation>如果不需要特定代码（例如[bkd]，[egr]，[tyd]，[prt]），则用于负责书籍和其他印刷介质生产的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="143"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="131"/>
         <source>Bookjacket designer</source>
         <translation>书套设计者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="143"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="131"/>
         <source>Use for a person or organization responsible for the design of flexible covers designed for or published with a book, including the type of materials used, and any decorative aspects of the bookjacket. </source>
         <translation>供负责为书设计或随书出版的柔性封面设计的个人或组织使用，包括所用材料的类型以及书夹的任何装饰性方面。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="144"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="132"/>
         <source>Bookplate designer</source>
         <translation>藏书者标签设计者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="144"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="132"/>
         <source>Use for a person or organization responsible for the design of a book owner&apos;s identification label that is most commonly pasted to the inside front cover of a book. </source>
         <translation>供负责设计书主识别标签的人员或组织使用，通常将其粘贴到书的内封面。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="145"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="133"/>
         <source>Bookseller</source>
         <translation>书商</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="145"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="133"/>
         <source>Use for a person or organization who makes books and other bibliographic materials available for purchase. Interest in the materials is primarily lucrative.</source>
         <translation>用于使书籍和其他书目材料可供购买的个人或组织。 对材料的兴趣主要是因为利益。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="146"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="134"/>
         <source>Braille embosser</source>
         <translation>盲文压纹工</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="146"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="134"/>
         <source>A person, family, or organization involved in manufacturing a resource by embossing Braille cells using a stylus, special embossing printer, or other device.</source>
         <translation>通过使用手写笔，特殊压印打印机或其他设备压印盲文单元来参与制造资源的个人，家庭或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="147"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="135"/>
         <source>Broadcaster</source>
         <translation>播音员</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="147"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="135"/>
         <source>A person, family, or organization involved in broadcasting a resource to an audience via radio, television, webcast, etc.</source>
         <translation>通过广播，电视，网络广播等向观众广播资源的个人，家庭或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="148"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="136"/>
         <source>Calligrapher</source>
         <translation>书法家</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="148"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="136"/>
         <source>Use for a person or organization who writes in an artistic hand, usually as a copyist and or engrosser.</source>
         <translation>用于以艺术手笔书写的个人或组织，通常作为抄写员和/或鉴赏家。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="149"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="137"/>
         <source>Cartographer</source>
         <translation>地图绘制员</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="149"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="137"/>
         <source>Use for a person or organization responsible for the creation of maps and other cartographic materials.</source>
         <translation>用于负责创建地图和其他制图材料的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="150"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="138"/>
         <source>Caster</source>
         <translation>铸工</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="150"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="138"/>
         <source>A person, family, or organization involved in manufacturing a resource by pouring a liquid or molten substance into a mold and leaving it to solidify to take the shape of the mold.</source>
         <translation>通过将液体或熔融物质倒入模具中并使其凝固以形成模具的形状而参与制造资源的个人，家庭或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="151"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="139"/>
         <source>Censor</source>
         <translation>新闻审查官</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="151"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="139"/>
         <source>Use for a censor, bowdlerizer, expurgator, etc., official or private. </source>
         <translation>用于官方或私人的审查官、删改者、订正者等。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="152"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="140"/>
         <source>Choreographer</source>
         <translation>舞蹈编导</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="152"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="140"/>
         <source>Use for a person or organization who composes or arranges dances or other movements (e.g., &quot;master of swords&quot;) for a musical or dramatic presentation or entertainment.</source>
         <translation>用于为音乐或戏剧表演或娱乐而创作或安排舞蹈或其他动作的个人或组织（例如“剑术大师”）。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="153"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="141"/>
         <source>Cinematographer</source>
         <translation>电影摄影师</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="153"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="141"/>
         <source>Use for a person or organization who is in charge of the images captured for a motion picture film. The cinematographer works under the supervision of a director, and may also be referred to as director of photography. Do not confuse with videographer.</source>
         <translation>用于负责为电影胶片拍摄的图像的个人或组织。 摄影者在导演的监督下工作，也可以称为摄影导演。 不要与摄像师混淆。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="154"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="142"/>
         <source>Client</source>
         <translation>委托人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="154"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="142"/>
         <source>Use for a person or organization for whom another person or organization is acting.</source>
         <translation>用于由另一个人或组织代表的人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="155"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="143"/>
         <source>Collection registrar</source>
         <translation>代收登记员</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="155"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="143"/>
         <source>A curator who lists or inventories the items in an aggregate work such as a collection of items or works.</source>
         <translation>列出或清点集合作品(如物品或作品的集合)中的物品的保管人。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="156"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="144"/>
         <source>Collector</source>
         <translation>收藏家</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="156"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="144"/>
         <source>Use for a person or organization who has brought together material from various sources that has been arranged, described, and cataloged as a collection. A collector is neither the creator of the material nor a person to whom manuscripts in the collection may have been addressed.</source>
         <translation>用于将各种来源的资料整理、描述和编目成一个集合的个人或组织。收藏家既不是材料的创造者，也不是收藏品中的手稿可能被寄给的人。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="157"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="145"/>
         <source>Collotyper</source>
         <translation>珂罗版制版人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="157"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="145"/>
         <source>Use for a person or organization responsible for the production of photographic prints from film or other colloid that has ink-receptive and ink-repellent surfaces.</source>
         <translation>用于负责用胶片或其他胶体（具有可接受墨水和拒墨表面）制作照片印刷的一个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="158"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="146"/>
         <source>Colorist</source>
         <translation>着色师</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="158"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="146"/>
         <source>A person or organization responsible for applying color to drawings, prints, photographs, maps, moving images, etc.</source>
         <translation>负责为绘图，印刷品，照片，地图，运动图像等上色的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="159"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="147"/>
         <source>Commentator</source>
         <translation>评论员</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="159"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="147"/>
         <source>Use for a person or organization who provides interpretation, analysis, or a discussion of the subject matter on a recording, motion picture, or other audiovisual medium.</source>
         <translation>用于在记录，电影或其他视听媒体上提供对主题的解释，分析或讨论的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="160"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="148"/>
         <source>Commentator for written text</source>
         <translation>书面文字评论员</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="160"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="148"/>
         <source>Use for a person or organization responsible for the commentary or explanatory notes about a text. For the writer of manuscript annotations in a printed book, use Annotator [ann].</source>
         <translation>用于负责对文本进行评论或解释性注释的个人或组织。 对于印刷书籍中手稿注释的作者，请使用注释器[ann]。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="161"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="149"/>
         <source>Compiler</source>
         <translation>编纂者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="161"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="149"/>
         <source>Use for a person or organization who produces a work or publication by selecting and putting together material from the works of various persons or bodies.</source>
         <translation>用于通过选择和汇总各个人或机构的作品中的资料来制作作品或出版物的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="162"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="150"/>
         <source>Complainant</source>
         <translation>原告</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="162"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="150"/>
         <source>Use for the party who applies to the courts for redress, usually in an equity proceeding.</source>
         <translation>用于向法院申请补偿的当事人，通常在衡平诉讼中。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="163"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="151"/>
         <source>Complainant-appellant</source>
         <translation>原告-上诉人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="163"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="151"/>
         <source>Use for a complainant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
         <translation>通常在股权诉讼中，用于从一个法院或辖区向另一法院或辖区提出上诉以推翻判决的投诉人。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="164"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="152"/>
         <source>Complainant-appellee</source>
         <translation>原告-被上诉人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="164"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="152"/>
         <source>Use for a complainant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
         <translation>通常在股权诉讼中，用于从一个法院或司法管辖区向另一法院或司法管辖区提出上诉的申诉人撤回判决。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="165"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="153"/>
         <source>Composer</source>
         <translation>作曲家</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="165"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="153"/>
         <source>Use for a person or organization who creates a musical work, usually a piece of music in manuscript or printed form.</source>
         <translation>用于创作音乐作品的人或组织，通常是手稿或印刷形式的音乐。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="166"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="154"/>
         <source>Compositor</source>
         <translation>排字工人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="166"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="154"/>
         <source>Use for a person or organization responsible for the creation of metal slug, or molds made of other materials, used to produce the text and images in printed matter. </source>
         <translation>用于负责创建金属块或由其他材料制成的字模的个人或组织，用于产生印刷品中的文字和图像。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="167"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="155"/>
         <source>Conceptor</source>
         <translation>创意设计人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="167"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="155"/>
         <source>Use for a person or organization responsible for the original idea on which a work is based, this includes the scientific author of an audio-visual item and the conceptor of an advertisement.</source>
         <translation>供负责作品所依据的原始概念的个人或组织使用，包括视听项目的科学作者和广告的概念设计者。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="168"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="156"/>
         <source>Conductor</source>
         <translation>乐队指挥</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="168"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="156"/>
         <source>Use for a person who directs a performing group (orchestra, chorus, opera, etc.) in a musical or dramatic presentation or entertainment.</source>
         <translation>用于指导以音乐或戏剧表演或娱乐形式指挥表演团体（乐队，合唱，歌剧等）的人。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="169"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="157"/>
         <source>Conservator</source>
         <translation>文物保护员 </translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="169"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="157"/>
         <source>A person or organization responsible for documenting, preserving, or treating printed or manuscript material, works of art, artifacts, or other media.</source>
         <translation>负责记录，保存或处理印刷或手稿材料，艺术作品，人工制品或其他媒体的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="170"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="158"/>
         <source>Consultant</source>
         <translation>顾问</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="170"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="158"/>
         <source>Use for a person or organization relevant to a resource, who is called upon for professional advice or services in a specialized field of knowledge or training.</source>
         <translation>供与资源有关的个人或组织使用，要求其在专业知识或培训领域寻求专业建议或服务。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="171"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="159"/>
         <source>Consultant to a project</source>
         <translation>项目顾问</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="171"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="159"/>
         <source>Use for a person or organization relevant to a resource, who is engaged specifically to provide an intellectual overview of a strategic or operational task and by analysis, specification, or instruction, to create or propose a cost-effective course of action or solution.</source>
         <translation>供与资源有关的个人或组织使用，专门从事提供战略或运营任务的知识概述并通过分析，规范或指示来创建或提出具有成本效益的行动方案或解决方案。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="172"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="160"/>
         <source>Contestant</source>
         <translation>抗诉人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="172"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="160"/>
         <source>Use for the party who opposes, resists, or disputes, in a court of law, a claim, decision, result, etc.</source>
         <translation>用于法庭上反对、抵制或争执的一方的要求、决定、结果等。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="173"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="161"/>
         <source>Contestant-appellant</source>
         <translation>抗诉-上诉人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="173"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="161"/>
         <source>Use for a contestant who takes an appeal from one court of law or jurisdiction to another to reverse the judgment.</source>
         <translation>用于争诉人从一个法院或司法管辖区上诉到另一个法院或司法管辖区以推翻判决。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="174"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="162"/>
         <source>Contestant-appellee</source>
         <translation>抗诉-被上诉人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="174"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="162"/>
         <source>Use for a contestant against whom an appeal is taken from one court of law or jurisdiction to another to reverse the judgment.</source>
         <translation>用于被从一个法院或司法管辖区上诉到另一个法院或司法管辖区以推翻判决的被诉讼人。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="175"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="163"/>
         <source>Contestee</source>
         <translation>被上诉人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="175"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="163"/>
         <source>Use for the party defending a claim, decision, result, etc. being opposed, resisted, or disputed in a court of law.</source>
         <translation>用于在法庭上被反对、抵制或有争议的主张、决定、结果等的辩护方。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="176"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="164"/>
         <source>Contestee-appellant</source>
         <translation>抗诉-上诉人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="176"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="164"/>
         <source>Use for a contestee who takes an appeal from one court or jurisdiction to another to reverse the judgment.</source>
         <translation>用于有争议的人从一个法院或司法管辖区向另一个法院或司法管辖区提出上诉以推翻判决。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="177"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="165"/>
         <source>Contestee-appellee</source>
         <translation>抗诉-被上诉人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="177"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="165"/>
         <source>Use for a contestee against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment.</source>
         <translation>用于从一个法院或司法管辖区向另一个法院或司法管辖区提出上诉以推翻判决的被抗辩人。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="178"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="166"/>
         <source>Contractor</source>
         <translation>承包商</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="178"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="166"/>
         <source>Use for a person or organization relevant to a resource, who enters into a contract with another person or organization to perform a specific task.</source>
         <translation>用于与资源相关的人员或组织，该人员或组织与另一个人或组织签订合同以执行特定任务。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="179"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="167"/>
         <source>Contributor</source>
         <translation>撰稿人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="179"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="167"/>
         <source>Use for a person or organization one whose work has been contributed to a larger work, such as an anthology, serial publication, or other compilation of individual works. Do not use if the sole function in relation to a work is as author, editor, compiler or translator.</source>
         <translation>用于其作品被贡献给较大型作品的个人或组织，如选集、连载出版物或个人作品的其他汇编。如果与作品相关的唯一功能是作者、编辑、编译或翻译，请不要使用。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="180"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="168"/>
         <source>Copyright claimant</source>
         <translation>版权主张人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="180"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="168"/>
         <source>Use for a person or organization listed as a copyright owner at the time of registration. Copyright can be granted or later transferred to another person or organization, at which time the claimant becomes the copyright holder.</source>
         <translation>供注册时列为版权所有者的个人或组织使用。版权可以授予或稍后转让给另一个人或组织，此时索赔人成为版权所有者。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="181"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="169"/>
         <source>Copyright holder</source>
         <translation>版权所有人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="181"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="169"/>
         <source>Use for a person or organization to whom copy and legal rights have been granted or transferred for the intellectual content of a work. The copyright holder, although not necessarily the creator of the work, usually has the exclusive right to benefit financially from the sale and use of the work to which the associated copyright protection applies.</source>
         <translation>用于对作品的知识内容授予或转让版权和合法权利的个人或组织。著作权人虽然不一定是作品的创作者，但通常拥有从相关版权保护适用的作品的销售和使用中获得经济利益的专有权。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="182"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="170"/>
         <source>Corrector</source>
         <translation>校对人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="182"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="170"/>
         <source>Use for a person or organization who is a corrector of manuscripts, such as the scriptorium official who corrected the work of a scribe. For printed matter, use Proofreader.</source>
         <translation>用于改正手稿的人或组织，如改正抄写员工作的抄写员。对于印刷品，请使用校对器。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="183"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="171"/>
         <source>Correspondent</source>
         <translation>通讯员 </translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="183"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="171"/>
         <source>Use for a person or organization who was either the writer or recipient of a letter or other communication.</source>
         <translation>用于信件或其他通讯的作者或收件人的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="184"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="172"/>
         <source>Costume designer</source>
         <translation>服装设计师</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="184"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="172"/>
         <source>Use for a person or organization who designs or makes costumes, fixes hair, etc., for a musical or dramatic presentation or entertainment.</source>
         <translation>用来指为音乐剧或戏剧表演或娱乐而设计或制作服装、固定头发等的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="185"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="173"/>
         <source>Court governed</source>
         <translation>管辖法院</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="185"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="173"/>
         <source>A court governed by court rules, regardless of their official nature (e.g., laws, administrative regulations.)</source>
         <translation>法院受法院规则管辖，无论其官方性质（例如法律，行政法规）如何。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="186"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="174"/>
         <source>Court reporter</source>
         <translation>法庭记者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="186"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="174"/>
         <source>A person, family, or organization contributing to a resource by preparing a court&apos;s opinions for publication.</source>
         <translation>通过准备法院发表的意见为资源做出贡献的个人，家庭或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="187"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="175"/>
         <source>Cover designer</source>
         <translation>封面设计师</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="187"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="175"/>
         <source>Use for a person or organization responsible for the graphic design of a book cover, album cover, slipcase, box, container, etc. For a person or organization responsible for the graphic design of an entire book, use Book designer; for book jackets, use Bookjacket designer.</source>
         <translation>用于负责书籍封面、相册封面、书架、盒子、容器等的图形设计的个人或组织。用于负责整本书的图形设计的个人或组织，请使用书籍设计器；用于书籍夹套，请使用书籍夹套设计器。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="188"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="176"/>
         <source>Creator</source>
         <translation>创作者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="188"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="176"/>
         <source>Use for a person or organization responsible for the intellectual or artistic content of a work.</source>
         <translation>用于对作品的知识或艺术内容负责的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="189"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="177"/>
         <source>Curator of an exhibition</source>
         <translation>展览的策展人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="189"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="177"/>
         <source>Use for a person or organization responsible for conceiving and organizing an exhibition.</source>
         <translation>用于负责构思和组织展览的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="190"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="178"/>
         <source>Dancer</source>
         <translation>舞蹈演员</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="190"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="178"/>
         <source>Use for a person or organization who principally exhibits dancing skills in a musical or dramatic presentation or entertainment.</source>
         <translation>用于主要在音乐或戏剧表演或娱乐中表现出舞蹈技巧的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="191"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="179"/>
         <source>Data contributor</source>
         <translation>数据贡献者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="191"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="179"/>
         <source>Use for a person or organization that submits data for inclusion in a database or other collection of data.</source>
         <translation>用于提交数据以包含在数据库或其他数据集合中的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="192"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="180"/>
         <source>Data manager</source>
         <translation>数据管理员</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="192"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="180"/>
         <source>Use for a person or organization responsible for managing databases or other data sources.</source>
         <translation>用于负责管理数据库或其他数据源的人员或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="193"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="181"/>
         <source>Dedicatee</source>
         <translation>受赠人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="193"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="181"/>
         <source>Use for a person or organization to whom a book, manuscript, etc., is dedicated (not the recipient of a gift).</source>
         <translation>用来指献给书、手稿等的人或组织(不是礼物的接受者)。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="194"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="182"/>
         <source>Dedicator</source>
         <translation>捐赠人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="194"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="182"/>
         <source>Use for the author of a dedication, which may be a formal statement or in epistolary or verse form.</source>
         <translation>用于捐献的作者，可以是正式的陈述，也可以是书信体或诗句形式。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="195"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="183"/>
         <source>Defendant</source>
         <translation>被告人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="195"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="183"/>
         <source>Use for the party defending or denying allegations made in a suit and against whom relief or recovery is sought in the courts, usually in a legal action.</source>
         <translation>用于辩护或否认诉讼中提出的指控，并在法庭上寻求救济或追偿的一方，通常在法律诉讼中。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="196"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="184"/>
         <source>Defendant-appellant</source>
         <translation>被告-上诉人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="196"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="184"/>
         <source>Use for a defendant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
         <translation>用于被告从一个法院或司法管辖区向另一个法院或司法管辖区上诉以推翻判决，通常在法律诉讼中。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="197"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="185"/>
         <source>Defendant-appellee</source>
         <translation>被告-被上诉人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="197"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="185"/>
         <source>Use for a defendant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
         <translation>用于被告，通常在法律诉讼中，被告从一个法院或司法管辖区向另一个法院或司法管辖区提出上诉，以推翻判决。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="198"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="186"/>
         <source>Degree grantor</source>
         <translation>学位授予人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="198"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="186"/>
         <source>Use for the organization granting a degree for which the thesis or dissertation described was presented.</source>
         <translation>用于授予论文或学位论文所描述的学位的组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="199"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="187"/>
         <source>Delineator</source>
         <translation>描摹者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="199"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="187"/>
         <source>Use for a person or organization executing technical drawings from others&apos; designs.</source>
         <translation>用于执行他人设计的技术图纸的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="200"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="188"/>
         <source>Depicted</source>
         <translation>被描绘物体</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="200"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="188"/>
         <source>Use for an entity depicted or portrayed in a work, particularly in a work of art.</source>
         <translation>用于在作品中描绘或描绘的实体，尤指在艺术作品中。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="201"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="189"/>
         <source>Depositor</source>
         <translation>寄存人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="201"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="189"/>
         <source>Use for a person or organization placing material in the physical custody of a library or repository without transferring the legal title.</source>
         <translation>用于将材料存放在图书馆或储存库的实际保管中而不转移合法所有权的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="202"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="190"/>
         <source>Designer</source>
         <translation>设计师</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="202"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="190"/>
         <source>Use for a person or organization responsible for the design if more specific codes (e.g., [bkd], [tyd]) are not desired.</source>
         <translation>如果不需要更具体的代码（如[bkd]、[tyd]），则用于负责设计的人员或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="203"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="191"/>
         <source>Director</source>
         <translation>导演</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="203"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="191"/>
         <source>Use for a person or organization who is responsible for the general management of a work or who supervises the production of a performance for stage, screen, or sound recording.</source>
         <translation>用于负责作品的总体管理或监督演出的制作以进行舞台，屏幕或录音的人员或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="204"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="192"/>
         <source>Dissertant</source>
         <translation>论文作者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="204"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="192"/>
         <source>Use for a person who presents a thesis for a university or higher-level educational degree.</source>
         <translation>用于提出大学或更高学历学位论文的人。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="205"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="193"/>
         <source>Distribution place</source>
         <translation>发行地点</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="205"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="193"/>
         <source>A place from which a resource, e.g., a serial, is distributed.</source>
         <translation>一种资源（如一系列）的分发地。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="206"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="194"/>
         <source>Distributor</source>
         <translation>分销商</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="206"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="194"/>
         <source>Use for a person or organization that has exclusive or shared marketing rights for an item.</source>
         <translation>用于对某项商品拥有专有或共享营销权的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="207"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="195"/>
         <source>Donor</source>
         <translation>捐赠者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="207"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="195"/>
         <source>Use for a person or organization who is the donor of a book, manuscript, etc., to its present owner. Donors to previous owners are designated as Former owner [fmo] or Inscriber [ins].</source>
         <translation>用于书籍、手稿等的捐赠人或组织。以前所有者的捐赠者被指定为前所有者[fmo]或铭刻者[ins]。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="208"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="196"/>
         <source>Draftsman</source>
         <translation>绘图员</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="208"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="196"/>
         <source>Use for a person or organization who prepares artistic or technical drawings. </source>
         <translation>用于绘制艺术或技术图纸的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="209"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="197"/>
         <source>Dubious author</source>
         <translation>可疑作者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="209"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="197"/>
         <source>Use for a person or organization to which authorship has been dubiously or incorrectly ascribed.</source>
         <translation>用来指作者身份被怀疑或错误地归于其的人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="210"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="198"/>
         <source>Editor</source>
         <translation>编辑</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="210"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="198"/>
         <source>Use for a person or organization who prepares for publication a work not primarily his/her own, such as by elucidating text, adding introductory or other critical matter, or technically directing an editorial staff.</source>
         <translation>用于准备出版主要不是他/她自己的作品的个人或组织，例如通过阐明文本，添加介绍性或其他关键问题或在技术上指导编辑人员。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="211"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="199"/>
         <source>Editor of compilation</source>
         <translation>汇编编辑</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="211"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="199"/>
         <source>A person, family, or organization contributing to a collective or aggregate work by selecting and putting together works, or parts of works, by one or more creators. For compilations of data, information, etc., that result in new works, see compiler.</source>
         <translation>贡献者通过一个或多个创作者选择和组合作品或作品的一部分而为集体或集体作品作出贡献的人、家庭或组织。有关产生新作品的数据、信息等的编译，请参见编译器。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="212"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="200"/>
         <source>Editor of moving image work</source>
         <translation>动态影像作品的编辑</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="212"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="200"/>
         <source>A person, family, or organization responsible for assembling, arranging, and trimming film, video, or other moving image formats, including both visual and audio aspects.</source>
         <translation>负责收集、整理和修剪胶片、视频或其他运动图像格式(包括视觉和音频)的人、家庭或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="213"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="201"/>
         <source>Electrician</source>
         <translation>灯光师</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="213"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="201"/>
         <source>Use for a person responsible for setting up a lighting rig and focusing the lights for a production, and running the lighting at a performance.</source>
         <translation>用于负责设置照明设备、为制作聚焦灯光以及在表演时操作照明的人员。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="214"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="202"/>
         <source>Electrotyper</source>
         <translation>电版技师</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="214"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="202"/>
         <source>Use for a person or organization who creates a duplicate printing surface by pressure molding and electrodepositing of metal that is then backed up with lead for printing.</source>
         <translation>适用于通过对金属进行加压成型和电沉积，然后用铅支持打印的个人或组织来创建复制的打印表面的人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="215"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="203"/>
         <source>Engineer</source>
         <translation>工程师</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="215"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="203"/>
         <source>Use for a person or organization that is responsible for technical planning and design, particularly with construction.</source>
         <translation>用于负责技术规划和设计的个人或组织，尤其是建筑方面的人员或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="216"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="204"/>
         <source>Engraver</source>
         <translation>雕刻工</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="216"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="204"/>
         <source>Use for a person or organization who cuts letters, figures, etc. on a surface, such as a wooden or metal plate, for printing.</source>
         <translation>用于在表面(如木板或金属板)上切割字母、数字等以供印刷的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="217"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="205"/>
         <source>Etcher</source>
         <translation>蚀刻师</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="217"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="205"/>
         <source>Use for a person or organization who produces text or images for printing by subjecting metal, glass, or some other surface to acid or the corrosive action of some other substance.</source>
         <translation>用于通过使金属，玻璃或其他表面受到酸或某些其他物质的腐蚀作用而产生要打印的文本或图像的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="218"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="206"/>
         <source>Event place</source>
         <translation>活动地点</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="218"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="206"/>
         <source>A place where an event such as a conference or a concert took place.</source>
         <translation>举行会议或音乐会等活动的地方。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="219"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="207"/>
         <source>Expert</source>
         <translation>专家</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="219"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="207"/>
         <source>Use for a person or organization in charge of the description and appraisal of the value of goods, particularly rare items, works of art, etc. </source>
         <translation>用于负责描述和评估商品价值的个人或组织，特别是珍稀物品、艺术品等。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="220"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="208"/>
         <source>Facsimilist</source>
         <translation>传真师</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="220"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="208"/>
         <source>Use for a person or organization that executed the facsimile.</source>
         <translation>用于执行传真的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="221"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="209"/>
         <source>Field director</source>
         <translation>现场总监</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="221"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="209"/>
         <source>Use for a person or organization that manages or supervises the work done to collect raw data or do research in an actual setting or environment (typically applies to the natural and social sciences).</source>
         <translation>用于管理或监督在实际环境或环境中收集原始数据或进行研究的工作的个人或组织(通常适用于自然科学和社会科学)。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="222"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="210"/>
         <source>Film director</source>
         <translation>电影导演</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="222"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="210"/>
         <source>A director responsible for the general management and supervision of a filmed performance.</source>
         <translation>负责拍摄的表演的一般管理和监督的导演。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="223"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="211"/>
         <source>Film distributor</source>
         <translation>电影发行商</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="223"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="211"/>
         <source>A person, family, or organization involved in distributing a moving image resource to theatres or other distribution channels.</source>
         <translation>向剧院或其他发行渠道发行视听资源的人，家庭或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="224"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="212"/>
         <source>Film editor</source>
         <translation>电影剪辑师</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="224"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="212"/>
         <source>Use for a person or organization who is an editor of a motion picture film. This term is used regardless of the medium upon which the motion picture is produced or manufactured (e.g., acetate film, video tape). </source>
         <translation>用于电影剪辑人员或组织。该术语的使用与在其上制作或制造电影的介质(例如，醋酸胶片、录像带)无关。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="225"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="213"/>
         <source>Film producer</source>
         <translation>电影制片人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="225"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="213"/>
         <source>A producer responsible for most of the business aspects of a film.</source>
         <translation>负责一部电影的大部分商业方面的制片人。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="226"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="214"/>
         <source>Filmmaker</source>
         <translation>电影制作人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="226"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="214"/>
         <source>A person, family or organization responsible for creating an independent or personal film. A filmmaker is individually responsible for the conception and execution of all aspects of the film.</source>
         <translation>负责创作独立或个人电影的人、家庭或组织。电影制作人单独负责影片各个方面的构思和制作。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="227"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="215"/>
         <source>First party</source>
         <translation>第一部分</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="227"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="215"/>
         <source>Use for a person or organization who is identified as the only party or the party of the first part. In the case of transfer of right, this is the assignor, transferor, licensor, grantor, etc. Multiple parties can be named jointly as the first party.</source>
         <translation>用于确定为第一部分的唯一一方或一方的个人或组织。 在权利转让的情况下，这是指转让人，转让人，许可人，授予人等。可以将多方共同称为第一方。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="228"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="216"/>
         <source>Forger</source>
         <translation>伪造者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="228"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="216"/>
         <source>Use for a person or organization who makes or imitates something of value or importance, especially with the intent to defraud. </source>
         <translation>用于制造或模仿有价值或重要的东西的人或组织，尤指意图诈骗的人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="229"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="217"/>
         <source>Former owner</source>
         <translation>原所有权人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="229"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="217"/>
         <source>Use for a person or organization who owned an item at any time in the past. Includes those to whom the material was once presented. A person or organization giving the item to the present owner is designated as Donor [dnr].</source>
         <translation>用于过去任何时候拥有某物品的个人或组织。 包括曾经向其提供材料的人员。 将物品提供给当前所有者的个人或组织被指定为捐赠者[dnr]。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="230"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="218"/>
         <source>Funder</source>
         <translation>出资人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="230"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="218"/>
         <source>Use for a person or organization that furnished financial support for the production of the work.</source>
         <translation>用于为作品的制作提供财务支持的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="231"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="219"/>
         <source>Geographic information specialist</source>
         <translation>地理信息专家</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="231"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="219"/>
         <source>Use for a person responsible for geographic information system (GIS) development and integration with global positioning system data.</source>
         <translation>供负责地理信息系统（GIS）开发并与全球定位系统数据集成的人员使用。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="232"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="220"/>
         <source>Honoree</source>
         <translation>接受荣誉者 </translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="232"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="220"/>
         <source>Use for a person or organization in memory or honor of whom a book, manuscript, etc. is donated. </source>
         <translation>用于纪念或纪念捐赠书籍，手稿等的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="233"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="221"/>
         <source>Host</source>
         <translation>主持人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="233"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="221"/>
         <source>Use for a person who is invited or regularly leads a program (often broadcast) that includes other guests, performers, etc. (e.g., talk show host).</source>
         <translation>用于受邀或定期主持包括其他嘉宾、表演者等的节目(通常是广播)的人(例如脱口秀主持人)。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="234"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="222"/>
         <source>Host institution</source>
         <translation>主办机构</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="234"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="222"/>
         <source>An organization hosting the event, exhibit, conference, etc., which gave rise to a resource, but having little or no responsibility for the content of the resource.</source>
         <translation>主办活动、展览、会议等的组织，它产生了一种资源，但对资源的内容几乎没有或完全没有责任。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="235"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="223"/>
         <source>Illuminator</source>
         <translation>书稿彩饰师</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="235"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="223"/>
         <source>Use for a person or organization responsible for the decoration of a work (especially manuscript material) with precious metals or color, usually with elaborate designs and motifs.</source>
         <translation>用来指负责用贵金属或颜色装饰作品(特别是手稿材料)的人或组织，通常带有精心设计和图案。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="236"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="224"/>
         <source>Illustrator</source>
         <translation>插图画家</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="236"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="224"/>
         <source>Use for a person or organization who conceives, and perhaps also implements, a design or illustration, usually to accompany a written text.</source>
         <translation>用于构思或可能实施设计或插图的人员或组织，通常随附书面文本。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="237"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="225"/>
         <source>Inscriber</source>
         <translation>题词者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="237"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="225"/>
         <source>Use for a person who has written a statement of dedication or gift.</source>
         <translation>用于已写献词或馈赠声明的人。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="238"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="226"/>
         <source>Instrumentalist</source>
         <translation>乐器演奏者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="238"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="226"/>
         <source>Use for a person or organization who principally plays an instrument in a musical or dramatic presentation or entertainment.</source>
         <translation>用来指主要在音乐或戏剧表演或娱乐中演奏乐器的人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="239"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="227"/>
         <source>Interviewee</source>
         <translation>被采访者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="239"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="227"/>
         <source>Use for a person or organization who is interviewed at a consultation or meeting, usually by a reporter, pollster, or some other information gathering agent.</source>
         <translation>用于在咨询或会议上接受采访的个人或组织，通常由记者、民意调查人员或其他信息收集代理进行采访。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="240"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="228"/>
         <source>Interviewer</source>
         <translation>采访者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="240"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="228"/>
         <source>Use for a person or organization who acts as a reporter, pollster, or other information gathering agent in a consultation or meeting involving one or more individuals.</source>
         <translation>用于在涉及一个或多个个人的咨询或会议中充当记者、民意调查人员或其他信息收集代理的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="241"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="229"/>
         <source>Inventor</source>
         <translation>发明工作者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="241"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="229"/>
         <source>Use for a person or organization who first produces a particular useful item, or develops a new process for obtaining a known item or result.</source>
         <translation>用于首先生产特定有用物品或开发新过程以获得已知物品或结果的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="242"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="230"/>
         <source>Issuing body</source>
         <translation>发行机构</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="242"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="230"/>
         <source>A person, family or organization issuing a work, such as an official organ of the body.</source>
         <translation>发行作品的人、家庭或组织，如官方机构。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="243"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="231"/>
         <source>Judge</source>
         <translation>法官</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="243"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="231"/>
         <source>A person who hears and decides on legal matters in court.</source>
         <translation>聆讯并在法庭上决定法律事务的人。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="244"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="232"/>
         <source>Jurisdiction governed</source>
         <translation>管辖的司法管辖权</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="244"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="232"/>
         <source>A jurisdiction governed by a law, regulation, etc., that was enacted by another jurisdiction.</source>
         <translation>受另一司法管辖区制定的受法律，法规等管辖的司法管辖区。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="245"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="233"/>
         <source>Laboratory</source>
         <translation>实验室</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="245"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="233"/>
         <source>Use for an institution that provides scientific analyses of material samples.</source>
         <translation>用于提供材料样本科学分析的机构。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="246"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="234"/>
         <source>Laboratory director</source>
         <translation>实验室主任</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="246"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="234"/>
         <source>Use for a person or organization that manages or supervises work done in a controlled setting or environment. </source>
         <translation>用于管理或监督在受控环境或环境中完成的工作的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="247"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="235"/>
         <source>Landscape architect</source>
         <translation>景观设计师</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="247"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="235"/>
         <source>Use for a person or organization whose work involves coordinating the arrangement of existing and proposed land features and structures.</source>
         <translation>用于个人或组织，其工作涉及协调现有和建议的土地特征和结构的布置。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="248"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="236"/>
         <source>Lead</source>
         <translation>领导</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="248"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="236"/>
         <source>Use to indicate that a person or organization takes primary responsibility for a particular activity or endeavor. Use with another relator term or code to show the greater importance this person or organization has regarding that particular role. If more than one relator is assigned to a heading, use the Lead relator only if it applies to all the relators.</source>
         <translation>用于表示个人或组织对特定活动或工作负主要责任。 与另一个关系术语或代码一起使用，可以显示此人员或组织对特定角色的重视。 如果为一个标题分配了多个关联者，则仅当潜在顾客关联者适用于所有关联者时才使用。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="249"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="237"/>
         <source>Lender</source>
         <translation>出借人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="249"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="237"/>
         <source>Use for a person or organization permitting the temporary use of a book, manuscript, etc., such as for photocopying or microfilming.</source>
         <translation>用于允许暂时使用书籍，手稿等的个人或组织，例如影印或缩微胶卷。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="250"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="238"/>
         <source>Libelant</source>
         <translation>原告</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="250"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="238"/>
         <source>Use for the party who files a libel in an ecclesiastical or admiralty case.</source>
         <translation>用于在教会或海事案件中提出诉讼的一方。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="251"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="239"/>
         <source>Libelant-appellant</source>
         <translation>原告-上诉人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="251"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="239"/>
         <source>Use for a libelant who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
         <translation>用于一个原告为了扭转判决结果而从一个教会法院或海事法庭上诉另一个人。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="252"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="240"/>
         <source>Libelant-appellee</source>
         <translation>原告-被上诉人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="252"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="240"/>
         <source>Use for a libelant against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
         <translation>用于从一个教会法院或海事法庭向另一个教会法院提出上诉以撤销判决的原告人。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="253"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="241"/>
         <source>Libelee</source>
         <translation>被告</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="253"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="241"/>
         <source>Use for a party against whom a libel has been filed in an ecclesiastical court or admiralty.</source>
         <translation>用于在教会法院或海事法庭中被提出控告的一方</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="254"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="242"/>
         <source>Libelee-appellant</source>
         <translation>被告-上诉人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="254"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="242"/>
         <source>Use for a libelee who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
         <translation>用于从一个教会法院或海事法庭到另一个人的反对判决的原告。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="255"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="243"/>
         <source>Libelee-appellee</source>
         <translation>被告-被上诉人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="255"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="243"/>
         <source>Use for a libelee against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
         <translation>用于被告从一个教会法庭或海事法庭向另一个提出上诉以推翻判决。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="256"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="244"/>
         <source>Librettist</source>
         <translation>剧本作者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="256"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="244"/>
         <source>Use for a person or organization who is a writer of the text of an opera, oratorio, etc.</source>
         <translation>用于作为歌剧，赞美剧等文本作者的人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="257"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="245"/>
         <source>Licensee</source>
         <translation>执照持有者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="257"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="245"/>
         <source>Use for a person or organization who is an original recipient of the right to print or publish.</source>
         <translation>用于最初获得打印或出版权利的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="258"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="246"/>
         <source>Licensor</source>
         <translation>许可人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="258"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="246"/>
         <source>Use for person or organization who is a signer of the license, imprimatur, etc. </source>
         <translation>用于作为许可证批准, 签发的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="259"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="247"/>
         <source>Lighting designer</source>
         <translation>灯光设计师</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="259"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="247"/>
         <source>Use for a person or organization who designs the lighting scheme for a theatrical presentation, entertainment, motion picture, etc.</source>
         <translation>用于为戏剧表演、娱乐、电影等设计照明方案的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="260"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="248"/>
         <source>Lithographer</source>
         <translation>平版画家</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="260"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="248"/>
         <source>Use for a person or organization who prepares the stone or plate for lithographic printing, including a graphic artist creating a design directly on the surface from which printing will be done.</source>
         <translation>用于准备用于平版印刷的石或板的人或组织，包括直接在表面上创建直接在其上进行印刷的图案的图形艺术家。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="261"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="249"/>
         <source>Lyricist</source>
         <translation>歌词作者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="261"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="249"/>
         <source>Use for a person or organization who is the a writer of the text of a song.</source>
         <translation>用来指写歌词的人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="262"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="250"/>
         <source>Manufacture place</source>
         <translation>生产地</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="262"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="250"/>
         <source>The place of manufacture (e.g., printing, duplicating, casting, etc.) of a resource in a published form.</source>
         <translation>以出版形式生产资源(如印刷、复印、铸模等。)的地方。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="263"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="251"/>
         <source>Manufacturer</source>
         <translation>制造商</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="263"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="251"/>
         <source>Use for a person or organization that makes an artifactual work (an object made or modified by one or more persons). Examples of artifactual works include vases, cannons or pieces of furniture.</source>
         <translation>用于进行人为工作的个人或组织 (由一个或多个人制作或修改的对象)。人工作品的例子包括花瓶, 大炮或家具。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="264"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="252"/>
         <source>Marbler</source>
         <translation>大理石制品</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="264"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="252"/>
         <source>The entity responsible for marbling paper, cloth, leather, etc. used in construction of a resource.</source>
         <translation>负责使资源建设中使用的纸张，布料，皮革等大理石花纹化的实体。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="265"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="253"/>
         <source>Markup editor</source>
         <translation>标记编辑</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="265"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="253"/>
         <source>Use for a person or organization performing the coding of SGML, HTML, or XML markup of metadata, text, etc.</source>
         <translation>用于执行元数据、文本等的SGML、HTML或XML标记编码的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="266"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="254"/>
         <source>Medium</source>
         <translation>巫师</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="266"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="254"/>
         <source>A person held to be a channel of communication between the earthly world and a different world.</source>
         <translation>一个被认为是地球世界和另一个世界之间的沟通渠道的人。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="267"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="255"/>
         <source>Metadata contact</source>
         <translation>元数据联系人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="267"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="255"/>
         <source>Use for a person or organization primarily responsible for compiling and maintaining the original description of a metadata set (e.g., geospatial metadata set).</source>
         <translation>用于主要负责编辑和维护元数据集的原始描述 (例如，地理空间元数据集) 的人员或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="268"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="256"/>
         <source>Metal-engraver</source>
         <translation>金属雕刻师</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="268"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="256"/>
         <source>Use for a person or organization responsible for decorations, illustrations, letters, etc. cut on a metal surface for printing or decoration.</source>
         <translation>用于负责印刷或装饰金属表面上的装饰品、插图、字母等的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="269"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="257"/>
         <source>Minute taker</source>
         <translation>会议书记员</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="269"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="257"/>
         <source>A person, family, or organization responsible for recording the minutes of a meeting.</source>
         <translation>负责记录会议记录的人、家庭或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="270"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="258"/>
         <source>Moderator</source>
         <translation>协调人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="270"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="258"/>
         <source>Use for a person who leads a program (often broadcast) where topics are discussed, usually with participation of experts in fields related to the discussion.</source>
         <translation>用于领导一个讨论主题的节目(通常是广播)的人，通常有与讨论相关的领域的专家参与。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="271"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="259"/>
         <source>Monitor</source>
         <translation>核查员</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="271"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="259"/>
         <source>Use for a person or organization that supervises compliance with the contract and is responsible for the report and controls its distribution. Sometimes referred to as the grantee, or controlling agency.</source>
         <translation>用于监督合同合规并对报告负责并控制其分发的个人或组织。 有时称为受让人或控制机构。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="272"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="260"/>
         <source>Music copyist</source>
         <translation>音乐誊写员</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="272"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="260"/>
         <source>Use for a person who transcribes or copies musical notation</source>
         <translation>用于抄写或复制乐谱的人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="273"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="261"/>
         <source>Musical director</source>
         <translation>音乐总监</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="273"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="261"/>
         <source>Use for a person responsible for basic music decisions about a production, including coordinating the work of the composer, the sound editor, and sound mixers, selecting musicians, and organizing and/or conducting sound for rehearsals and performances.</source>
         <translation>用于负责制作基本音乐决策的人员，包括协调作曲家、声音编辑和混音师的工作，选择音乐家，组织和/或指挥排练和表演的声音。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="274"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="262"/>
         <source>Musician</source>
         <translation>音乐家</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="274"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="262"/>
         <source>Use for a person or organization who performs music or contributes to the musical content of a work when it is not possible or desirable to identify the function more precisely.</source>
         <translation>用于在不可能或不可能更精确地识别功能时执行音乐或贡献作品的音乐内容的人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="275"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="263"/>
         <source>Narrator</source>
         <translation>解说员</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="275"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="263"/>
         <source>Use for a person who is a speaker relating the particulars of an act, occurrence, or course of events.</source>
         <translation>用于作为演讲者讲述某一行为、事件或事件过程的人。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="276"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="264"/>
         <source>Onscreen presenter</source>
         <translation>屏幕演示者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="276"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="264"/>
         <source>A performer contributing to an expression of a work by appearing on screen in nonfiction moving image materials or introductions to fiction moving image materials to provide contextual or background information. Use when another term (e.g., Narrator, Host) is either not applicable or not desired.</source>
         <translation>通过出现在非小说移动图像资料的屏幕上或介绍小说移动图像资料以提供上下文或背景信息来对作品表达做出贡献的表演者。 当其他术语 (例如，旁白，主机) 不适用或不需要时使用.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="277"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="265"/>
         <source>Opponent</source>
         <translation>对手</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="277"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="265"/>
         <source>Use for a person or organization responsible for opposing a thesis or dissertation.</source>
         <translation>用于负责反对论文或论文的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="278"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="266"/>
         <source>Organizer of meeting</source>
         <translation>会议主办方</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="278"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="266"/>
         <source>Use for a person or organization responsible for organizing a meeting for which an item is the report or proceedings.</source>
         <translation>用于负责组织一个项目是报告或诉讼的会议的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="279"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="267"/>
         <source>Originator</source>
         <translation>创始人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="279"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="267"/>
         <source>Use for a person or organization performing the work, i.e., the name of a person or organization associated with the intellectual content of the work. This category does not include the publisher or personal affiliation, or sponsor except where it is also the corporate author.</source>
         <translation>用于执行工作的个人或组织，即与工作的智力内容相关联的个人或组织的名称。这一类别不包括出版商或个人从属关系，或赞助商，除非它也是公司作者。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="280"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="268"/>
         <source>Other</source>
         <translation>其他</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="280"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="268"/>
         <source>Use for relator codes from other lists which have no equivalent in the MARC list or for terms which have not been assigned a code.</source>
         <translation>用于MARC列表中没有等效项的其他列表中的关联代码，或未分配代码的术语。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="281"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="269"/>
         <source>Owner</source>
         <translation>所有者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="281"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="269"/>
         <source>Use for a person or organization that currently owns an item or collection.</source>
         <translation>用于当前拥有项目或集合的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="282"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="270"/>
         <source>Panelist</source>
         <translation>专家小组成员</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="282"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="270"/>
         <source> performer contributing to a resource by participating in a program (often broadcast) where topics are discussed, usually with participation of experts in fields related to the discussion.</source>
         <translation>通过参与讨论主题的程序 (通常是广播) 来促进资源的执行者，通常由与讨论相关领域的专家参与。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="283"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="271"/>
         <source>Papermaker</source>
         <translation>造纸者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="283"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="271"/>
         <source>Use for a person or organization responsible for the production of paper, usually from wood, cloth, or other fibrous material.</source>
         <translation>用于负责生产纸张的人员或组织，通常来自木材，布料或其他纤维材料。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="284"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="272"/>
         <source>Patent applicant</source>
         <translation>专利申请人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="284"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="272"/>
         <source>Use for a person or organization that applied for a patent.</source>
         <translation>用于申请专利的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="285"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="273"/>
         <source>Patent holder</source>
         <translation>专利持有人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="285"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="273"/>
         <source>Use for a person or organization that was granted the patent referred to by the item. </source>
         <translation>用于被授予该项所指专利的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="286"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="274"/>
         <source>Patron</source>
         <translation>赞助人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="286"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="274"/>
         <source>Use for a person or organization responsible for commissioning a work. Usually a patron uses his or her means or influence to support the work of artists, writers, etc. This includes those who commission and pay for individual works.</source>
         <translation>用来指负责委托某项工作的人或组织。通常，赞助人使用他或她的手段或影响力来支持艺术家、作家等的作品。这包括那些委托和支付个人作品的人。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="287"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="275"/>
         <source>Performer</source>
         <translation>表演者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="287"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="275"/>
         <source>Use for a person or organization who exhibits musical or acting skills in a musical or dramatic presentation or entertainment, if specific codes for those functions ([act], [dnc], [itr], [voc], etc.) are not used. If specific codes are used, [prf] is used for a person whose principal skill is not known or specified.</source>
         <translation>用于在音乐或戏剧表演或娱乐中展示音乐或表演技能的个人或组织，前提是未使用这些功能的特定代码（[act：演员]、[dnc：舞蹈家]、[itr：乐器演奏家]、[voc：声乐家]等）。如果使用特定的代码，[prf：表演者]用于其主要技能未知或未指定的人。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="288"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="276"/>
         <source>Permitting agency</source>
         <translation>许可代理</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="288"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="276"/>
         <source>Use for an authority (usually a government agency) that issues permits under which work is accomplished.</source>
         <translation>用于颁发完成工作的许可证的权威机构(通常是政府机构)。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="289"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="277"/>
         <source>Photographer</source>
         <translation>摄影师</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="289"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="277"/>
         <source>Use for a person or organization responsible for taking photographs, whether they are used in their original form or as reproductions.</source>
         <translation>用于负责拍摄照片的个人或组织，无论他们是以原始形式使用还是作为复制品。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="290"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="278"/>
         <source>Plaintiff</source>
         <translation>原告</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="290"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="278"/>
         <source>Use for the party who complains or sues in court in a personal action, usually in a legal proceeding.</source>
         <translation>用来指在个人诉讼中(通常是在法律诉讼中)在法庭上投诉或起诉的一方。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="291"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="279"/>
         <source>Plaintiff-appellant</source>
         <translation>原告-上诉人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="291"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="279"/>
         <source>Use for a plaintiff who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
         <translation>用于原告从一个法院或司法管辖区向另一个法院或司法管辖区提起上诉以推翻判决，通常在法律诉讼中。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="292"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="280"/>
         <source>Plaintiff-appellee</source>
         <translation>原告-被上诉人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="292"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="280"/>
         <source>Use for a plaintiff against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
         <translation>通常在法律程序中，用于从一个法院或管辖区向另一法院或管辖区提出上诉的原告来推翻判决。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="293"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="281"/>
         <source>Platemaker</source>
         <translation>制版工</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="293"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="281"/>
         <source>Use for a person or organization responsible for the production of plates, usually for the production of printed images and/or text.</source>
         <translation>用于负责生产印版的个人或组织，通常用于生产印刷图像和/或文本。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="294"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="282"/>
         <source>Praeses</source>
         <translation>校监</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="294"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="282"/>
         <source>A person who is the faculty moderator of an academic disputation, normally proposing a thesis and participating in the ensuing disputation.</source>
         <translation>学术辩论的教员主持人，通常提出论文并参与随后的辩论。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="295"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="283"/>
         <source>Presenter</source>
         <translation>演说者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="295"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="283"/>
         <source>A person or organization mentioned in an &apos;X presents&apos; credit for moving image materials and who is associated with production, finance, or distribution in some way. A vanity credit; in early years, normally the head of a studio.</source>
         <translation>在“某演讲”中提到的个人或组织表示对运动图像材料的信用，并且以某种方式与生产，财务或分配相关联。 虚荣信用; 在早年，通常一个工作室的头。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="296"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="284"/>
         <source>Printer</source>
-        <translation>打印者</translation>
+        <translation>印刷工</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="296"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="284"/>
         <source>Use for a person or organization who prints texts, whether from type or plates.</source>
         <translation>用于打印文本的个人或组织，无论是从类型还是从版面。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="297"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="285"/>
         <source>Printer of plates</source>
-        <translation>制版打印者</translation>
+        <translation>印版印刷工</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="297"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="285"/>
         <source>Use for a person or organization who prints illustrations from plates. </source>
         <translation>用于从印版打印插图的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="298"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="286"/>
         <source>Printmaker</source>
-        <translation>版画复制者</translation>
+        <translation>版画家</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="298"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="286"/>
         <source>Use for a person or organization who makes a relief, intaglio, or planographic printing surface.</source>
         <translation>用于制作浮雕，凹版或平版印刷表面的人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="299"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="287"/>
         <source>Process contact</source>
         <translation>流程联系人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="299"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="287"/>
         <source>Use for a person or organization primarily responsible for performing or initiating a process, such as is done with the collection of metadata sets.</source>
         <translation>用于主要负责执行或启动流程的人员或组织，例如对元数据集合的收集。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="300"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="288"/>
         <source>Producer</source>
         <translation>制片人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="300"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="288"/>
         <source>Use for a person or organization responsible for the making of a motion picture, including business aspects, management of the productions, and the commercial success of the work.</source>
         <translation>用于负责制作电影的个人或组织，包括商业方面、产品管理和作品的商业成功。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="301"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="289"/>
         <source>Production company</source>
         <translation>制片公司</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="301"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="289"/>
         <source>An organization that is responsible for financial, technical, and organizational management of a production for stage, screen, audio recording, television, webcast, etc.</source>
         <translation>负责舞台、银幕、录音、电视、网络广播等制作的财务、技术和组织管理的组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="302"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="290"/>
         <source>Production designer</source>
         <translation>美术指导</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="302"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="290"/>
         <source>A person or organization responsible for designing the overall visual appearance of a moving image production.</source>
         <translation>负责设计运动图像制作的整体视觉外观的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="303"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="291"/>
         <source>Production manager</source>
         <translation>制片经理</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="303"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="291"/>
         <source>Use for a person responsible for all technical and business matters in a production.</source>
         <translation>用于负责作品中的所有技术和业务问题的人员。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="304"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="292"/>
         <source>Production personnel</source>
         <translation>生产人员</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="304"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="292"/>
         <source>Use for a person or organization associated with the production (props, lighting, special effects, etc.) of a musical or dramatic presentation or entertainment.</source>
         <translation>用于与音乐或戏剧演出或娱乐的制作 (道具，灯光，特效等) 相关的人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="305"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="293"/>
         <source>Production place</source>
         <translation>制作地点</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="305"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="293"/>
         <source>The place of production (e.g., inscription, fabrication, construction, etc.) of a resource in an unpublished form.</source>
         <translation>原材料未出版形式的生产地 (例如，铭文，制作，建造等)。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="306"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="294"/>
         <source>Programmer</source>
         <translation>程序员</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="306"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="294"/>
         <source>Use for a person or organization responsible for the creation and/or maintenance of computer program design documents, source code, and machine-executable digital files and supporting documentation.</source>
         <translation>用于负责创建和/或维护计算机程序设计文档、源代码以及机器可执行数字文件和支持文档的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="307"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="295"/>
         <source>Project director</source>
         <translation>项目总监</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="307"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="295"/>
         <source>Use for a person or organization with primary responsibility for all essential aspects of a project, or that manages a very large project that demands senior level responsibility, or that has overall responsibility for managing projects, or provides overall direction to a project manager.</source>
         <translation>用于对项目所有重要方面负主要责任的人员或组织，或管理需要高级职责的大型项目，或负责管理项目的全面责任，或向项目经理提供整体指导。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="308"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="296"/>
         <source>Proofreader</source>
         <translation>校对员</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="308"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="296"/>
         <source>Use for a person who corrects printed matter. For manuscripts, use Corrector [crr].</source>
         <translation>用于更正印刷品的人员。对于手稿，请使用校正器[CRR]。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="309"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="297"/>
         <source>Provider</source>
         <translation>供应者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="309"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="297"/>
         <source>A person or organization who produces, publishes, manufactures, or distributes a resource if specific codes are not desired (e.g. [mfr], [pbl].)</source>
         <translation>如果不需要特定代码 (例如[mfr指制造商], [pbl指出版商]), 则指生产，出版，制造或分发资源的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="310"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="298"/>
         <source>Publication place </source>
         <translation>出版地</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="310"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="298"/>
         <source>The place where a resource is published.</source>
         <translation>发布资源的位置。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="311"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="299"/>
         <source>Publisher</source>
         <translation>出版商</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="311"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="299"/>
         <source>Use for a person or organization that makes printed matter, often text, but also printed music, artwork, etc. available to the public.</source>
         <translation>用于制作印刷品的人或组织，通常是文字，也可以向公众提供印刷的音乐，艺术品等。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="312"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="300"/>
         <source>Publishing director</source>
         <translation>发行主任</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="312"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="300"/>
         <source>Use for a person or organization who presides over the elaboration of a collective work to ensure its coherence or continuity. This includes editors-in-chief, literary editors, editors of series, etc.</source>
         <translation>用于主持编写集体工作以确保其一致性或连续性的个人或组织。这包括主编，文学编辑，系列编辑等。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="313"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="301"/>
         <source>Puppeteer</source>
         <translation>演木偶戏的人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="313"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="301"/>
         <source>Use for a person or organization who manipulates, controls, or directs puppets or marionettes in a musical or dramatic presentation or entertainment.</source>
         <translation>用于在音乐或戏剧表演或娱乐中操纵、控制或指导木偶或提线木偶的人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="314"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="302"/>
         <source>Radio director</source>
         <translation>广播导演</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="314"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="302"/>
         <source>A director responsible for the general management and supervision of a radio program.</source>
         <translation>负责广播节目总体管理和监督的主任。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="315"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="303"/>
         <source>Radio producer</source>
         <translation>电台制作人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="315"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="303"/>
         <source>A producer responsible for most of the business aspects of a radio program.</source>
         <translation>负责广播节目的大部分商业方面的制片人。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="316"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="304"/>
         <source>Recipient</source>
         <translation>收信人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="316"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="304"/>
         <source>Use for a person or organization to whom correspondence is addressed.</source>
         <translation>用于收信人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="317"/>
-        <location filename="../../Misc/MarcRelators.cpp" line="318"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="305"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="306"/>
         <source>Recording engineer</source>
         <translation>录音技师</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="317"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="305"/>
         <source>Use for a person or organization who supervises the technical aspects of a sound or video recording session.</source>
         <translation>用于监督声音或视频录制会话的技术方面的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="318"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="306"/>
         <source>A person contributing to a resource by supervising the technical aspects of a sound or video recording session.</source>
         <translation>通过监督声音或视频录制会话的技术方面来为资源做出贡献的人。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="319"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="307"/>
         <source>Redactor</source>
         <translation>编剧</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="319"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="307"/>
         <source>Use for a person or organization who writes or develops the framework for an item without being intellectually responsible for its content.</source>
         <translation>用于为项目编写或开发框架而不在智力上对其内容负责的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="320"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="308"/>
         <source>Renderer</source>
         <translation>渲染师</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="320"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="308"/>
         <source>Use for a person or organization who prepares drawings of architectural designs (i.e., renderings) in accurate, representational perspective to show what the project will look like when completed.</source>
         <translation>用于以准确的，代表性的角度准备建筑设计图 (即渲染) 的人员或组织，以显示项目在完成时的外观。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="321"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="309"/>
         <source>Reporter</source>
         <translation>记者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="321"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="309"/>
         <source>Use for a person or organization who writes or presents reports of news or current events on air or in print.</source>
         <translation>用于撰写或呈现广播或印刷新闻或时事报道的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="322"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="310"/>
         <source>Repository</source>
         <translation>知识库</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="322"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="310"/>
         <source>Use for an agency that hosts data or material culture objects and provides services to promote long term, consistent and shared use of those data or objects.</source>
         <translation>用于托管数据或物质文化对象并提供服务以促进这些数据或对象的长期、一致和共享使用的机构。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="323"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="311"/>
         <source>Research team head</source>
         <translation>研究组长</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="323"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="311"/>
         <source>Use for a person who directed or managed a research project.</source>
         <translation>用于指导或管理研究项目的人员。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="324"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="312"/>
         <source>Research team member</source>
         <translation>研究组成员</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="324"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="312"/>
         <source>Use for a person who participated in a research project but whose role did not involve direction or management of it.</source>
         <translation>用于参与研究项目的人员, 但不涉及指导或管理角色。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="325"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="313"/>
         <source>Researcher</source>
         <translation>研究员</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="325"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="313"/>
         <source>Use for a person or organization responsible for performing research. </source>
         <translation>用于负责研究的人员或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="326"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="314"/>
         <source>Respondent</source>
         <translation>答辩人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="326"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="314"/>
         <source>Use for the party who makes an answer to the courts pursuant to an application for redress, usually in an equity proceeding.</source>
         <translation>通常在股权诉讼中，用于根据赔偿申请向法院作出答复的当事方。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="327"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="315"/>
         <source>Respondent-appellant</source>
         <translation>答辩人-上诉人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="327"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="315"/>
         <source>Use for a respondent who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
         <translation>通常在股权诉讼中，用于被告从一个法院或司法管辖区向另一法院或司法管辖区提出上诉以推翻判决的用途。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="328"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="316"/>
         <source>Respondent-appellee</source>
         <translation>被申请人-被上诉人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="328"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="316"/>
         <source>Use for a respondent against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
         <translation>对于通过在产权诉讼中，通过一项法院或司法管辖区向另一方提出上诉的被告，用于扭转判决的诉讼。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="329"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="317"/>
         <source>Responsible party</source>
         <translation>责任方</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="329"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="317"/>
         <source>Use for a person or organization legally responsible for the content of the published material.</source>
         <translation>用于对发布资料的内容负法律责任的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="330"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="318"/>
         <source>Restager</source>
         <translation>再编/重演者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="330"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="318"/>
         <source>Use for a person or organization, other than the original choreographer or director, responsible for restaging a choreographic or dramatic work and who contributes minimal new content.</source>
         <translation>用于负责重新编排舞蹈或戏剧作品但是对原作品贡献最少新内容的个人或组织，而不是原始编导或导演。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="331"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="319"/>
         <source>Restorationist</source>
         <translation>修复师</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="331"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="319"/>
         <source>A person, family, or organization responsible for the set of technical, editorial, and intellectual procedures aimed at compensating for the degradation of an item by bringing it back to a state as close as possible to its original condition.</source>
         <translation>负责一系列技术，编辑和智力程序的个人，家庭或组织，旨在通过将其恢复到尽可能接近原始状态的状态来补偿项目的退化。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="332"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="320"/>
         <source>Reviewer</source>
         <translation>审查者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="332"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="320"/>
         <source>Use for a person or organization responsible for the review of a book, motion picture, performance, etc.</source>
         <translation>用于负责审查书籍，电影，表演等的个人或组织</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="333"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="321"/>
         <source>Rubricator</source>
         <translation>加红字标题者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="333"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="321"/>
         <source>Use for a person or organization responsible for parts of a work, often headings or opening parts of a manuscript, that appear in a distinctive color, usually red.</source>
         <translation>用于负责部分工作的人员或组织，通常是以特殊颜色出现的手稿的标题或开头部分，通常为红色。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="334"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="322"/>
         <source>Scenarist</source>
         <translation>编剧家</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="334"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="322"/>
         <source>Use for a person or organization who is the author of a motion picture screenplay.</source>
         <translation>作为电影剧本作者的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="335"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="323"/>
         <source>Scientific advisor</source>
         <translation>科学顾问</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="335"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="323"/>
         <source>Use for a person or organization who brings scientific, pedagogical, or historical competence to the conception and realization on a work, particularly in the case of audio-visual items.</source>
         <translation>用于为科学，教学或历史能力而设计的人或组织，用于对作品的概念和实现，特别是在视听材料的情况下。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="336"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="324"/>
         <source>Scribe</source>
         <translation>抄写员/誊抄器</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="336"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="324"/>
         <source>Use for a person who is an amanuensis and for a writer of manuscripts proper. For a person who makes pen-facsimiles, use Facsimilist [fac].</source>
         <translation>一个为作家手写书稿文案的人. 对于制作笔式传真的人，请使用传真电报 [fac]。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="337"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="325"/>
         <source>Sculptor</source>
         <translation>雕刻家</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="337"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="325"/>
         <source>Use for a person or organization who models or carves figures that are three-dimensional representations.</source>
         <translation>用于建模或雕刻三维表示图形的人员或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="338"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="326"/>
         <source>Second party</source>
         <translation>第二人/方</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="338"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="326"/>
         <source>Use for a person or organization who is identified as the party of the second part. In the case of transfer of right, this is the assignee, transferee, licensee, grantee, etc. Multiple parties can be named jointly as the second party.</source>
         <translation>用于标识为第二部分当事人的个人或组织。在权利转让的情况下，这是受让人、受让人、被许可人、受让人等。多方可以联合命名为第二人。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="339"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="327"/>
         <source>Secretary</source>
         <translation>秘书</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="339"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="327"/>
         <source>Use for a person or organization who is a recorder, redactor, or other person responsible for expressing the views of a organization.</source>
         <translation>用于作为记录员、编辑者或其他负责表达组织观点的人员或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="340"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="328"/>
         <source>Seller</source>
         <translation>卖方</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="340"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="328"/>
         <source>A former owner of an item who sold that item to another owner.</source>
         <translation>将该物品出售给另一位的前拥有人。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="341"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="329"/>
         <source>Set designer</source>
         <translation>布景设计师</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="341"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="329"/>
         <source>Use for a person or organization who translates the rough sketches of the art director into actual architectural structures for a theatrical presentation, entertainment, motion picture, etc. Set designers draw the detailed guides and specifications for building the set.</source>
         <translation>用于将艺术指导的粗略草图转化为实际建筑结构的个人或组织，用于戏剧表演、娱乐、电影等。布景设计者绘制建造布景的详细指南和规范。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="342"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="330"/>
         <source>Setting</source>
         <translation>背景</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="342"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="330"/>
         <source>An entity in which the activity or plot of a work takes place, e.g. a geographic place, a time period, a building, an event.</source>
         <translation>作品活动或情节发生的实体，如地理位置、时间段、建筑物、事件等。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="343"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="331"/>
         <source>Signer</source>
         <translation>签署者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="343"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="331"/>
         <source>Use for a person whose signature appears without a presentation or other statement indicative of provenance. When there is a presentation statement, use Inscriber [ins].</source>
         <translation>用于签名未出现任何出示或其他可证明出处的陈述的人。 如果有演示文稿陈述，请使用落款[ins]。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="344"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="332"/>
         <source>Singer</source>
         <translation>歌唱家</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="344"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="332"/>
         <source>Use for a person or organization who uses his/her/their voice with or without instrumental accompaniment to produce music. A performance may or may not include actual words.</source>
         <translation>用于用他/她/她的声音在有或没有器乐伴奏的情况下创作音乐的个人或组织。一场表演可以包括也可以不包括实际的文字。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="345"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="333"/>
         <source>Sound designer</source>
         <translation>声音设计师</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="345"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="333"/>
         <source>Use for a person who produces and reproduces the sound score (both live and recorded), the installation of microphones, the setting of sound levels, and the coordination of sources of sound for a production.</source>
         <translation>用于生产和再现声音 (包括现场和录音) 的人员，麦克风的安装，声级的设置以及生产的声源的协调。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="346"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="334"/>
         <source>Speaker</source>
         <translation>发言人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="346"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="334"/>
         <source>Use for a person who participates in a program (often broadcast) and makes a formalized contribution or presentation generally prepared in advance.</source>
         <translation>用于参与节目 (经常广播) 提前准备正式演讲的人员。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="347"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="335"/>
         <source>Sponsor</source>
         <translation>主办方</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="347"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="335"/>
         <source>Use for a person or organization that issued a contract or under the auspices of which a work has been written, printed, published, etc.</source>
         <translation>用于签发合同的人员或组织，或其主持人已经编写，印刷，出版等。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="348"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="336"/>
         <source>Stage director</source>
         <translation>舞台导演</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="348"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="336"/>
         <source>A person or organization contributing to a stage resource through the overall management and supervision of a performance.</source>
         <translation>通过对表演的全面管理和监督为舞台资源做出贡献的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="349"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="337"/>
         <source>Stage manager</source>
         <translation>舞台监督</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="349"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="337"/>
         <source>Use for a person who is in charge of everything that occurs on a performance stage, and who acts as chief of all crews and assistant to a director during rehearsals.</source>
         <translation>用于负责演出舞台上发生的一切的人，以及在排练期间担任导演的所有员工和助理的主管。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="350"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="338"/>
         <source>Standards body</source>
         <translation>标准化组织</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="350"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="338"/>
         <source>Use for an organization responsible for the development or enforcement of a standard.</source>
         <translation>用于负责制定或执行标准的组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="351"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="339"/>
         <source>Stereotyper</source>
         <translation>铸版工</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="351"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="339"/>
         <source>Use for a person or organization who creates a new plate for printing by molding or copying another printing surface.</source>
         <translation>用于通过模制或复制另一个打印面来创建新版印刷的人员或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="352"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="340"/>
         <source>Storyteller</source>
         <translation>说书人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="352"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="340"/>
         <source>Use for a person relaying a story with creative and/or theatrical interpretation.</source>
         <translation>通过创意和/或戏剧解释传达故事的人。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="353"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="341"/>
         <source>Supporting host</source>
         <translation>支持方</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="353"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="341"/>
         <source>Use for a person or organization that supports (by allocating facilities, staff, or other resources) a project, program, meeting, event, data objects, material culture objects, or other entities capable of support. </source>
         <translation>用于支持(通过分配设施、人员或其他资源)项目、计划、会议、事件、数据对象、物质文化对象或其他能够支持的实体的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="354"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="342"/>
         <source>Surveyor</source>
         <translation>勘测员</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="354"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="342"/>
         <source>Use for a person or organization who does measurements of tracts of land, etc. to determine location, forms, and boundaries.</source>
         <translation>用于对土地等进行测量的个人或组织，以确定位置，形式和边界.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="355"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="343"/>
         <source>Teacher</source>
         <translation>教师</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="355"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="343"/>
         <source>Use for a person who, in the context of a resource, gives instruction in an intellectual subject or demonstrates while teaching physical skills. </source>
         <translation>用于在资源范围内指导知识性课程或在教授体育技能时演示的人。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="356"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="344"/>
         <source>Technical director</source>
         <translation>技术总监</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="356"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="344"/>
         <source>Use for a person who is ultimately in charge of scenery, props, lights and sound for a production.</source>
         <translation>最终负责风景，道具，灯光和声音的人。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="357"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="345"/>
         <source>Television director</source>
         <translation>电视总监</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="357"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="345"/>
         <source>A director responsible for the general management and supervision of a television program.</source>
         <translation>负责电视节目总体管理和监督的主任。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="358"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="346"/>
         <source>Television producer</source>
         <translation>电视制作人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="358"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="346"/>
         <source>A producer responsible for most of the business aspects of a television program.</source>
         <translation>负责电视节目的大部分业务方面的制片人。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="359"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="347"/>
         <source>Thesis advisor</source>
         <translation>论文顾问</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="359"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="347"/>
         <source>Use for a person under whose supervision a degree candidate develops and presents a thesis, mémoire, or text of a dissertation. </source>
         <translation>用于一名在学位候选人进行监督的人员，并提供论文，记述或论文文本.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="360"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="348"/>
         <source>Transcriber</source>
         <translation>抄录员</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="360"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="348"/>
         <source>Use for a person who prepares a handwritten or typewritten copy from original material, including from dictated or orally recorded material. For makers of pen-facsimiles, use Facsimilist [fac].</source>
         <translation>用于由原始材料包括口述或口头记录的材料，准备手写或打字复制抄写的人员。 对于笔传真机的制造商，请使用传真机[fac]。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="361"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="349"/>
         <source>Translator</source>
         <translation>翻译</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="361"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="349"/>
         <source>Use for a person or organization who renders a text from one language into another, or from an older form of a language into the modern form.</source>
         <translation>将文本从一种语言呈现到另一种语言或从较旧形式的语言转换为现代形式的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="362"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="350"/>
         <source>Type designer</source>
         <translation>类型设计师</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="362"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="350"/>
         <source>Use for a person or organization who designed the type face used in a particular item. </source>
         <translation>用于设计特定项目中使用的类型面孔的人员或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="363"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="351"/>
         <source>Typographer</source>
         <translation>排版师</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="363"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="351"/>
         <source>Use for a person or organization primarily responsible for choice and arrangement of type used in an item. If the typographer is also responsible for other aspects of the graphic design of a book (e.g., Book designer [bkd]), codes for both functions may be needed.</source>
         <translation>用于主要负责项目中使用的类型的选择和排列的人员或组织。 如果打字人员还负责图书设计的其他方面 (例如书籍设计师[bkd])，则可能需要为两种功能编写代码。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="364"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="352"/>
         <source>University place</source>
         <translation>大学地点</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="364"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="352"/>
         <source>A place where a university that is associated with a resource is located, for example, a university where an academic dissertation or thesis was presented.</source>
         <translation>与资源相关联的大学所在的地方，例如提供学术论文或论文的大学。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="365"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="353"/>
         <source>Videographer</source>
         <translation>摄影师</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="365"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="353"/>
         <source>Use for a person or organization in charge of a video production, e.g. the video recording of a stage production as opposed to a commercial motion picture. The videographer may be the camera operator or may supervise one or more camera operators. Do not confuse with cinematographer.</source>
         <translation>用于负责视频制作的个人或组织，例如 与商业电影相反的舞台制作的录像. 摄像师可以是相机操作者，也可以监督一个或多个相机操作者。 不要与摄影师混淆.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="366"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="354"/>
         <source>Voice actor</source>
         <translation>配音演员</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="366"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="354"/>
         <source>An actor contributing to a resource by providing the voice for characters in radio and audio productions and for animated characters in moving image works, as well as by providing voice overs in radio and television commercials, dubbed resources, etc.</source>
         <translation>通过在无线电和音频制作中为角色提供语音，以及通过在动态图像作品中为动画人物提供声音，以及通过在广播电视广告，被称为资源等方面提供语音来贡献资源的演员。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="367"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="355"/>
         <source>Witness</source>
         <translation>证人</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="367"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="355"/>
         <source>Use for a person who verifies the truthfulness of an event or action. </source>
         <translation>用于验证事件或行为的真实性的人。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="368"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="356"/>
         <source>Wood-engraver</source>
         <translation>木雕刻</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="368"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="356"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the end-grain of a wood block.</source>
-        <translation>用于通过在木块末端谷物上切割图像进行打印的人员或组织。</translation>
+        <translation>指通过在木块端面进行浮雕切割制作版画的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="369"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="357"/>
         <source>Woodcutter</source>
         <translation>木刻工</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="369"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="357"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the plank side of a wood block.</source>
-        <translation>用于通过在木块的板面上以浮雕形式切割图像来制作版画的个人或组织。</translation>
+        <translation>指通过在木块板面进行浮雕切割制作版画的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="370"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="358"/>
         <source>Writer of accompanying material</source>
         <translation>随附材料的作者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="370"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="358"/>
         <source>Use for a person or organization who writes significant material which accompanies a sound recording or other audiovisual material.</source>
         <translation>用于撰写伴随录音或其他视听材料的重要材料的个人或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="371"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="359"/>
         <source>Writer of added commentary</source>
         <translation>添加评论作者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="371"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="359"/>
         <source>A person, family, or organization contributing to an expression of a work by providing an interpretation or critical explanation of the original work.</source>
         <translation>一个人，家庭或组织通过提供对原作的解释或批评性解释来促进工作的表达。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="372"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="360"/>
         <source>Writer of added lyrics</source>
         <translation>增加歌词的作者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="372"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="360"/>
         <source>A writer of words added to an expression of a musical work. For lyric writing in collaboration with a composer to form an original work, see lyricist.</source>
         <translation>一个作家的词语添加到一个表达的音乐作品。 为了与作曲家合作撰写原创作品的抒情作品，请参见歌词。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="373"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="361"/>
         <source>Writer of added text</source>
         <translation>添加文本的作者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="373"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="361"/>
         <source>A person, family, or organization contributing to a non-textual resource by providing text for the non-textual work (e.g., writing captions for photographs, descriptions of maps.)</source>
         <translation>通过为非文字作品提供文字 (例如，为照片撰写字幕，地图描述)，为非文字资源作出贡献的个人，家庭或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="374"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="362"/>
         <source>Writer of introduction</source>
         <translation>引言的作者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="374"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="362"/>
         <source>A person, family, or organization contributing to a resource by providing an introduction to the original work.</source>
         <translation>通过提供对原著的介绍来为资源做出贡献的人、家庭或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="375"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="363"/>
         <source>Writer of preface</source>
         <translation>序言作者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="375"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="363"/>
         <source>A person, family, or organization contributing to a resource by providing a preface to the original work.</source>
         <translation>通过提供原始作品的序言，为资源贡献的人，家庭或组织。</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="376"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="364"/>
         <source>Writer of supplementary textual content</source>
         <translation>补充文本内容的作者</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="376"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="364"/>
         <source>A person, family, or organization contributing to a resource by providing supplementary textual content (e.g., an introduction, a preface) to the original work.</source>
         <translation>通过向原始作品提供补充文本内容 (例如介绍，序言)，为资源贡献的个人，家庭或组织。</translation>
     </message>
@@ -17170,7 +17208,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1127"/>
         <source>The main title of the epub publication.  Only one title may exist.</source>
-        <translation>epub出版物的主标题. 只能有一个主标题.。</translation>
+        <translation>epub出版物的主标题，只能有一个主标题。</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1128"/>
@@ -17425,29 +17463,29 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 <context>
     <name>OPFModel</name>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="793"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="809"/>
         <source>A filename cannot contains the character &quot;%1&quot;.</source>
         <translation>文件名不能包含字符“%1”。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="804"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="820"/>
         <source>The filename cannot be empty.</source>
         <translation>文件名不能为空。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="825"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="841"/>
         <source>The filename &quot;%1&quot; is already in use.
 </source>
         <translation>文件名“%1”已在使用中。
 </translation>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="839"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="855"/>
         <source>The book path cannot be empty.</source>
         <translation>图书路径不能为空。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="846"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="862"/>
         <source>That book path &quot;%1&quot; is already in use.
 </source>
         <translation>书本路径 &quot;%1&quot; 已在使用中。
@@ -17498,502 +17536,502 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 <context>
     <name>PCREErrors</name>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="59"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="48"/>
         <source>no error</source>
         <translation>无错误</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="60"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="49"/>
         <source>\ at end of pattern</source>
         <translation>\ 在模板的末尾</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="61"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="50"/>
         <source>\c at end of pattern</source>
         <translation>\c 在模板的末尾</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="62"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="51"/>
         <source>unrecognized character follows \</source>
         <translation>后面有无法识别的字符 \</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="63"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="52"/>
         <source>numbers out of order in {} quantifier</source>
         <translation>{} 量词中的数字顺序混乱</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="65"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="54"/>
         <source>number too big in {} quantifier</source>
         <translation>{} 量词中的数字太大</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="66"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="55"/>
         <source>missing terminating ] for character class</source>
         <translation>字符类缺少终止 ] </translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="67"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="56"/>
         <source>escape sequence is invalid in character class</source>
         <translation>字符类别中的转义字符无效</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="68"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="57"/>
         <source>range out of order in character class</source>
         <translation>字符类中的范围无序</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="69"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="58"/>
         <source>quantifier does not follow a repeatable item</source>
         <translation>量词后面不跟可重复的项</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="72"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="61"/>
         <source>internal error: unexpected repeat</source>
         <translation>内部错误：意外重复</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="73"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="62"/>
         <source>unrecognized character after (? or (?-</source>
         <translation> (? or (?- 后面有无法识别的字符</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="74"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="63"/>
         <source>POSIX named classes are supported only within a class</source>
         <translation>仅在类中支持POSIX命名类</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="75"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="64"/>
         <source>POSIX collating elements are not supported</source>
         <translation>POSIX排序元素不被支持</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="76"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="65"/>
         <source>missing closing parenthesis</source>
         <translation>缺少右括号</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="79"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="68"/>
         <source>reference to non-existent subpattern</source>
         <translation>对不存在的子模式的引用</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="80"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="69"/>
         <source>pattern passed as NULL</source>
         <translation>作为NULL传递的模式</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="81"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="70"/>
         <source>unrecognised compile-time option bit(s)</source>
         <translation>无法识别的编译时间选项位</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="82"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="71"/>
         <source>missing ) after (?# comment</source>
         <translation>注释 (?# 后缺少 ) </translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="83"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="72"/>
         <source>parentheses are too deeply nested</source>
         <translation>圆括号嵌套太深</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="86"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="75"/>
         <source>regular expression is too large</source>
         <translation>正则表达式太大</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="87"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="76"/>
         <source>failed to allocate heap memory</source>
         <translation>无法分配堆内存</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="88"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="77"/>
         <source>unmatched closing parenthesis</source>
         <translation>不匹配的右括号</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="89"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="78"/>
         <source>internal error: code overflow</source>
         <translation>内部错误：代码溢出</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="90"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="79"/>
         <source>missing closing parenthesis for condition</source>
         <translation>缺少条件的右括号</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="93"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="82"/>
         <source>lookbehind assertion is not fixed length</source>
         <translation>后向断言长度不是固定长度</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="94"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="83"/>
         <source>a relative value of zero is not allowed</source>
         <translation>不允许相对值为零</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="95"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="84"/>
         <source>conditional subpattern contains more than two branches</source>
         <translation>条件子模式包含两个以上的分支</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="96"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="85"/>
         <source>assertion expected after (?( or (?(?C)</source>
         <translation> (?(  或  (?(?C) 之后需要预期断言</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="97"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="86"/>
         <source>digit expected after (?+ or (?-<byte value="x0"/></source>
         <translation> (?+ or (?-&lt;byte value=&quot;x0&quot;/&gt;之后需要的位数</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="100"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="89"/>
         <source>unknown POSIX class name</source>
         <translation>未知的POSIX类名称</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="101"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="90"/>
         <source>internal error in pcre2_study(): should not occur</source>
         <translation>pcre2_study()中的内部错误：不应发生</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="102"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="91"/>
         <source>this version of PCRE2 does not have Unicode support</source>
         <translation>此版本的PCRE2不支持Unicode</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="103"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="92"/>
         <source>parentheses are too deeply nested (stack check)</source>
         <translation>圆括号嵌套太深(堆栈检查)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="104"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="93"/>
         <source>character code point value in \x{} or \o{} is too large</source>
         <translation>\x{}或\o{}中的字符代码点值太大</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="107"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="96"/>
         <source>lookbehind is too complicated</source>
         <translation>查找后向断言太复杂了</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="108"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="97"/>
         <source>\C is not allowed in a lookbehind assertion in UTF-16 mode</source>
         <translation>在UTF-16模式下的后向断言中不允许使用\C</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="109"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="98"/>
         <source>PCRE2 does not support \F, \L, \l, \N{name}, \U, or \u</source>
         <translation>PCRE2 不支持 \F, \L, \l, \N{name}, \U, 或 \u</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="110"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="99"/>
         <source>number after (?C is greater than 255</source>
         <translation>(?C 之后的数字大于255</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="111"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="100"/>
         <source>closing parenthesis for (?C expected</source>
         <translation> (?C 的右括号应为</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="114"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="103"/>
         <source>invalid escape sequence in (*VERB) name</source>
         <translation>(*VERB)名称中的转义序列无效</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="115"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="104"/>
         <source>unrecognized character after (?P</source>
         <translation>(?P 后有无法识别的字符</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="116"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="105"/>
         <source>syntax error in subpattern name (missing terminator?)</source>
         <translation>子模式名称中存在语法错误(缺少终止符？)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="117"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="106"/>
         <source>two named subpatterns have the same name (PCRE2_DUPNAMES not set)</source>
         <translation>两个命名的子模式具有相同的名称(PCRE2_DUPNAMES 没有设置)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="118"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="107"/>
         <source>subpattern name must start with a non-digit</source>
         <translation>子模式名称必须以非数字开头</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="121"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="110"/>
         <source>this version of PCRE2 does not have support for \P, \p, or \X</source>
         <translation>此版本的PCRE2不支持 \P, \p, or \X</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="122"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="111"/>
         <source>malformed \P or \p sequence</source>
         <translation>格式错误的 \P 或 \p 序列</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="123"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="112"/>
         <source>unknown property name after \P or \p</source>
         <translation>\P或\p之后的未知属性名称</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="124"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="113"/>
         <source>subpattern name is too long (maximum 32 code units)</source>
         <translation>子模式名称太长(最多32个代码单元)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="125"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="114"/>
         <source>too many named subpatterns (maximum 10000)</source>
         <translation>命名的子模式太多(最多10000个)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="128"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="117"/>
         <source>invalid range in character class</source>
         <translation>字符类中的范围无效</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="129"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="118"/>
         <source>octal value is greater than \377 in 8-bit non-UTF-8 mode</source>
         <translation>在8位非UTF-8模式下，八进制值大于\377</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="130"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="119"/>
         <source>internal error: overran compiling workspace</source>
         <translation>内部错误：溢出的编译工作区</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="131"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="120"/>
         <source>internal error: previously-checked referenced subpattern not found</source>
         <translation>内部错误：未找到以前检查过的引用子模式</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="132"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="121"/>
         <source>DEFINE subpattern contains more than one branch</source>
         <translation>DEFINE子模式包含多个分支</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="135"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="124"/>
         <source>missing opening brace after \o</source>
         <translation>在 \o 之后缺少左大括号</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="136"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="125"/>
         <source>internal error: unknown newline setting</source>
         <translation>内部错误：未知的换行设置</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="137"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="126"/>
         <source>\g is not followed by a braced, angle-bracketed, or quoted name/number or by a plain number</source>
         <translation>\g后面不允许带大括号、尖括号、引用的名称/数字或普通数字</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="138"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="127"/>
         <source>(?R (recursive pattern call) must be followed by a closing parenthesis</source>
         <translation>(?R (递归模式调用)后面必须跟一个右括号</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="139"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="128"/>
         <source>obsolete error (should not occur)</source>
         <translation>过时淘汰的错误(不应发生)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="142"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="131"/>
         <source>(*VERB) not recognized or malformed</source>
         <translation>(*动词)无法识别或格式错误</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="143"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="132"/>
         <source>subpattern number is too big</source>
         <translation>子模式编号太大</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="144"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="133"/>
         <source>subpattern name expected</source>
         <translation>需要子模式名称</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="145"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="134"/>
         <source>internal error: parsed pattern overflow</source>
         <translation>内部错误：已解析的模式溢出</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="146"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="135"/>
         <source>non-octal character in \o{} (closing brace missing?)</source>
         <translation>\o{}中的非八进制字符(是否缺少右大括号？)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="149"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="138"/>
         <source>different names for subpatterns of the same number are not allowed</source>
         <translation>相同编号的子模式不允许使用不同的名称</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="150"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="139"/>
         <source>(*MARK) must have an argument</source>
         <translation>（*MARK）必须有一个参数</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="151"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="140"/>
         <source>non-hex character in \x{} (closing brace missing?)</source>
         <translation>\x{}中的非十六进制字符(是否缺少右大括号？)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="152"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="141"/>
         <source>\c must be followed by a printable ASCII character</source>
         <translation>\c 后面必须跟一个可打印的ASCII字符</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="153"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="142"/>
         <source>\k is not followed by a braced, angle-bracketed, or quoted name</source>
         <translation>\k后面不跟大括号、尖括号或引号的名称</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="156"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="145"/>
         <source>internal error: unknown meta code in check_lookbehinds()</source>
         <translation>内部错误：check_lookbehinds()中的元代码未知</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="157"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="146"/>
         <source>\N is not supported in a class</source>
         <translation>类中不支持\N</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="158"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="147"/>
         <source>callout string is too long</source>
         <translation>标注字符串太长</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="159"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="148"/>
         <source>disallowed Unicode code point (&gt;= 0xd800 &amp;&amp; &lt;= 0xdfff)</source>
         <translation>不允许的Unicode码位(&gt;=0xd800&amp;&lt;=0xdfff)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="160"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="149"/>
         <source>using UTF is disabled by the application</source>
         <translation>应用程序禁止了使用UTF</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="163"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="152"/>
         <source>using UCP is disabled by the application</source>
         <translation>应用程序禁止了使用UCP</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="164"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="153"/>
         <source>name is too long in (*MARK), (*PRUNE), (*SKIP), or (*THEN)</source>
         <translation>(*MARK)、(*PRUNE)、(*SKIP)或(*THEN)中的名称太长</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="165"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="154"/>
         <source>character code point value in \u.... sequence is too large</source>
         <translation>\u…序列中的字符码位值太大</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="166"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="155"/>
         <source>digits missing in \x{} or \o{} or \N{U+}</source>
         <translation>\x{} 或 \o{} 或 \N{U+} 中缺少数字</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="167"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="156"/>
         <source>syntax error or number too big in (?(VERSION condition</source>
         <translation>(?(VERSION 中的语法错误或数字太大</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="170"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="159"/>
         <source>internal error: unknown opcode in auto_possessify()</source>
         <translation>内部错误：auto_possessify() 中的操作码未知</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="171"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="160"/>
         <source>missing terminating delimiter for callout with string argument</source>
         <translation>带有字符串参数的标注缺少终止分隔符</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="172"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="161"/>
         <source>unrecognized string delimiter follows (?C</source>
         <translation> (?C后包含有无法识别的字符串分隔符</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="173"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="162"/>
         <source>using \C is disabled by the application</source>
         <translation>应用程序禁止了使用 \C</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="174"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="163"/>
         <source>(?| and/or (?J: or (?x: parentheses are too deeply nested</source>
         <translation>(?| 和/或 (?J: 或 (?x:  圆括号嵌套太深</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="177"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="166"/>
         <source>using \C is disabled in this PCRE2 library</source>
         <translation>在此PCRE2库中禁止使用\C</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="178"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="167"/>
         <source>regular expression is too complicated</source>
         <translation>正则表达式太复杂</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="179"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="168"/>
         <source>lookbehind assertion is too long</source>
         <translation>后向断言太长</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="180"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="169"/>
         <source>pattern string is longer than the limit set by the application</source>
         <translation>模式字符串长度超过应用程序设置的限制</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="181"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="170"/>
         <source>internal error: unknown code in parsed pattern</source>
         <translation>内部错误：已分析模式中的未知代码</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="184"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="173"/>
         <source>internal error: bad code value in parsed_skip()</source>
         <translation>内部错误：解析的_skip()中的错误代码值</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="185"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="174"/>
         <source>PCRE2_EXTRA_ALLOW_SURROGATE_ESCAPES is not allowed in UTF-16 mode</source>
         <translation>UTF-16模式下不允许使用PCRE2_EXTRA_ALLOW_SURROGATE_ESCAPES</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="186"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="175"/>
         <source>invalid option bits with PCRE2_LITERAL</source>
         <translation>带有PCRE2_LITERAL的选项位无效</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="187"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="176"/>
         <source>\N{U+dddd} is supported only in Unicode (UTF) mode</source>
         <translation>仅在Unicode(UTF)模式下支持 \N{U+dddd} </translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="188"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="177"/>
         <source>invalid hyphen in option setting</source>
         <translation>选项设置中的连字符无效</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="191"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="180"/>
         <source>(*alpha_assertion) not recognized</source>
         <translation>(*alpha_assertion) 无法识别</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="192"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="181"/>
         <source>script runs require Unicode support, which this version of PCRE2 does not have</source>
         <translation>脚本运行需要Unicode支持，而此版本的PCRE2不支持Unicode</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="193"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="182"/>
         <source>too many capturing groups (maximum 65535)</source>
         <translation>体现的组太多(最多65535个)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="194"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="183"/>
         <source>atomic assertion expected after (?( or (?(?C)</source>
         <translation> (?(  或  (?(?C) 之后需要atomic预期断言</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="195"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="184"/>
         <source>\K is not allowed in lookarounds (but see PCRE2_EXTRA_ALLOW_LOOKAROUND_BSK)</source>
         <translation>\K 不允许在正则表达式lookarounds中使用 (但可以参考 PCRE2_EXTRA_ALLOW_LOOKAROUND_BSK)</translation>
     </message>
@@ -18041,178 +18079,178 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
         <translation>状态：</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="129"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="128"/>
         <source>Error: A plugin by that name does not exist</source>
         <translation>错误：不存在同名插件</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="160"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="159"/>
         <source>Error: Interpreter</source>
         <translation>错误：翻译器</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="160"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="159"/>
         <source>has no path set</source>
         <translation>没有设定路径</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="173"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="172"/>
         <source>Installation Error: plugin launcher</source>
         <translation>安装错误: 插件启动器</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="174"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="173"/>
         <source>does not exist</source>
         <translation>不存在</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="179"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="178"/>
         <source>Error: plugin engine</source>
         <translation>错误：插件引擎</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="180"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="179"/>
         <source>is not supported (yet!)</source>
         <translation>（暂）不支持</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="186"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="185"/>
         <source>Status: ready</source>
         <translation>就绪</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="274"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="273"/>
         <source>Error: plugin cannot start</source>
         <translation>错误：插件无法启动</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="423"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="422"/>
         <source>Status: running</source>
         <translation>状态：运行中</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="441"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="440"/>
         <source>Launcher process crashed</source>
         <translation>启动进程崩溃</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="457"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="456"/>
         <source>Status: finished</source>
         <translation>已完成</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="464"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="463"/>
         <source>Status: failed</source>
         <translation>状态：失败</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="470"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="480"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="469"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="479"/>
         <source>Status: No Changes Made</source>
         <translation>状态: 没有改变</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="479"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="478"/>
         <source>Error: Plugin Tried to Remove the Last XHTML file .. aborting changes</source>
         <translation>错误: 插件试图删除上一个XHTML文件...取消改变</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="544"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="633"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="543"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="632"/>
         <source>Status:</source>
         <translation>状态：</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="571"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="570"/>
         <source>Plugin failed to start</source>
         <translation>插件启动失败</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="579"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="578"/>
         <source>Status: error</source>
         <translation>发生错误</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="610"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="609"/>
         <source>Plugin cancelled</source>
         <translation>取消的插件</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="611"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="610"/>
         <source>Status: cancelled</source>
         <translation>已取消</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="705"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="704"/>
         <source>Error Parsing Result XML:  </source>
         <translation>结果XML分析错误: </translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="763"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="778"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="762"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="777"/>
         <source>Status: checking</source>
         <translation>状态：检查中</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="767"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="766"/>
         <source>Incorrect XHTML:</source>
         <translation>错误的 XHTML：</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="767"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="766"/>
         <source>Line/Col</source>
         <translation>行/列</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="796"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="795"/>
         <source>Check Report</source>
         <translation>查看报告</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="797"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="796"/>
         <source>Incorrect XHTML/XML Detected
 Are you Sure You Want to Continue?</source>
         <translation>检测到不正确的XHTML/XML。
 您确定要继续吗？</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="815"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="814"/>
         <source>Status: cleaning up - deleting files</source>
         <translation>清理 - 正在删除文件</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="848"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="847"/>
         <source>Status: deleting</source>
         <translation>状态：正在删除</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="887"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="886"/>
         <source>Status: Loading</source>
         <translation>状态：正在加载</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="895"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="894"/>
         <source>Input Plugin</source>
         <translation>输入插件</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="896"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="895"/>
         <source>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</source>
         <translation>当前书籍未保存内容将会全部丢失...是否确定继续</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="924"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="938"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="923"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="937"/>
         <source>Status: adding</source>
         <translation>状态：正在添加</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="976"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="975"/>
         <source>Status: cleaning up - modifying files</source>
         <translation>清理 - 正在整理文本</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="1013"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="1012"/>
         <source>Status: modifying</source>
         <translation>状态：正在修改</translation>
     </message>
@@ -18338,7 +18376,7 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="391"/>
         <source>Plugin 8:</source>
-        <translation>插件18：</translation>
+        <translation>插件8：</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="401"/>
@@ -18361,57 +18399,57 @@ Are you Sure You Want to Continue?</source>
         <translation>插件10：</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="208"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="204"/>
         <source>Select Plugin Zip Archive</source>
         <translation>选择插件压缩文档</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="210"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="206"/>
         <source>Plugin Files (*.zip)</source>
         <translation>插件 (*.zip)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="228"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="222"/>
         <source>Error: Plugin plugin.xml is invalid or not supported on your operating system.</source>
         <translation>错误：插件plugin.xml无效或您的操作系统不支持。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="231"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="225"/>
         <source>Warning: A plugin by that name already exists</source>
         <translation>警告：已存在同名插件</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="234"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="228"/>
         <source>Error: Plugin Could Not be Unzipped.</source>
         <translation>未能解压插件。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="237"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="231"/>
         <source>Error: Plugin not a valid Sigil plugin.</source>
         <translation>不是有效的Sigil插件</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="275"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="269"/>
         <source>Nothing is Selected.</source>
         <translation>未选定内容。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="323"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="315"/>
         <source>Remove All Plugins</source>
         <translation>移除全部</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="324"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="316"/>
         <source>Are you sure sure you want to remove all of your plugins?</source>
         <translation>是否确定移除全部插件？</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="379"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="371"/>
         <source>Select Interpreter</source>
         <translation>选择翻译器</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="408"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="400"/>
         <source>Incorrect Interpreter Path selected</source>
         <translation>选择的解释器路径不正确</translation>
     </message>
@@ -18487,18 +18525,18 @@ Entities can be separated by lines, commas, or spaces.</source>
 <context>
     <name>PreviewFileDialog</name>
     <message>
-        <location filename="../../Dialogs/PreviewFileDialog.cpp" line="28"/>
+        <location filename="../../Dialogs/PreviewFileDialog.cpp" line="49"/>
         <source>Preview</source>
         <translation>预览</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreviewFileDialog.cpp" line="56"/>
+        <location filename="../../Dialogs/PreviewFileDialog.cpp" line="77"/>
         <source>not an image</source>
         <translation>不是图像</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreviewFileDialog.cpp" line="68"/>
-        <location filename="../../Dialogs/PreviewFileDialog.cpp" line="93"/>
+        <location filename="../../Dialogs/PreviewFileDialog.cpp" line="89"/>
+        <location filename="../../Dialogs/PreviewFileDialog.cpp" line="114"/>
         <source>no preview available</source>
         <translation>无预览可用</translation>
     </message>
@@ -18611,12 +18649,12 @@ Entities can be separated by lines, commas, or spaces.</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../BookManipulation/Book.cpp" line="1683"/>
+        <location filename="../../BookManipulation/Book.cpp" line="1685"/>
         <source>PrettyPrinting...</source>
-        <translation>打印美化...</translation>
+        <translation>美化输出...</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/CleanSource.cpp" line="299"/>
+        <location filename="../../BookManipulation/CleanSource.cpp" line="296"/>
         <source>Mending...</source>
         <translation>修补中...</translation>
     </message>
@@ -18658,117 +18696,112 @@ Entities can be separated by lines, commas, or spaces.</source>
         <translation>无法读取EPUB：%1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="256"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="163"/>
+        <source>The OPF manifest contains duplicate file paths. You should edit your OPF file&apos;s manifest to remove the duplication.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Importers/ImportEPUB.cpp" line="263"/>
         <source>The OPF file does not contain a valid spine.</source>
         <translation>OPF文件不包含有效的书脊。</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="257"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="986"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="264"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="990"/>
         <source>Sigil has created a new one for you.</source>
         <translation>Sigil已经创建了一个新的对象。</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="258"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="265"/>
         <source>Please verify and correct the OPF Spine order.</source>
         <translation>请验证并更正OPF页面顺序。</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="307"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="314"/>
         <source>Error parsing encryption xml.
 Line: %1 Column %2 - %3</source>
         <translation>解析加密xml时出错。
 行： %1 列： %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="427"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="434"/>
         <source>Cannot unzip EPUB: %1</source>
         <translation>无法解压 EPUB： %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="503"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="510"/>
         <source>Possible evil or corrupt epub file name: %1</source>
         <translation>可能是有害或损坏的epub文件名: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="534"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="543"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="563"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="571"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="541"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="550"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="570"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="578"/>
         <source>Cannot extract file: %1</source>
         <translation>无法提取文件： %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="584"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="591"/>
         <source>Cannot open EPUB: %1</source>
         <translation>无法打开EPUB：%1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="638"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="645"/>
         <source>Unable to parse container.xml file.
 Line: %1 Column %2 - %3</source>
         <translation>无法解析container.xml文件。
 行：%1 列%2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="646"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="653"/>
         <source>This epub has multiple renditions (multiple OPF files). Editing this epub in Sigil will produce a normal single rendition epub using only the main (first) OPF file found.</source>
         <translation>此epub有多个格式副本（多个OPF文件）。在Sigil中编辑这个epub将只使用找到的主（第一个）OPF文件生成一个普通的单一格式副本epub。</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="650"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="657"/>
         <source>No appropriate OPF file found</source>
         <translation>没有适当的OPF文件</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="703"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="710"/>
         <source>Unable to read OPF file.
 Line: %1 Column %2 - %3</source>
         <translation>无法读取 OPF文件。
 行：%1 列%2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="837"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="844"/>
         <source>The OPF has an illegal Manifest entry for a file inside the META-INF folder for file &quot;%1&quot;</source>
         <translation>OPF在文件&quot;%1&quot;的META-INF文件夹中的文件有一个非法的Manifest条目</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="838"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="845"/>
         <source>You should edit your OPF file to remove this entry.</source>
         <translation>您应该编辑您的 OPF 文件来删除这个条目。</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="857"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="864"/>
         <source>The OPF manifest contains duplicate ids for: %1</source>
         <translation>OPF文件包含重复的ID: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="858"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="865"/>
         <source>A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.</source>
         <translation>加载EPUB时已经指定了一个临时id，请编辑您的OPF文件移除重复的id。</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="875"/>
-        <source>The OPF manifest contains duplicate file paths for: %1</source>
-        <translation>OPF 清单文件包含下列项的重复文件路径：%1</translation>
-    </message>
-    <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="876"/>
-        <source>You should edit your OPF file&apos;s manifest to remove the duplication.</source>
-        <translation>你应当编辑 OPF 文件的清单文件来删除重复。</translation>
-    </message>
-    <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="958"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="962"/>
         <source>The OPF file did not identify the NCX file correctly.</source>
         <translation>OPF文件没有正确识别NCX文件。</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="959"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="963"/>
         <source>Sigil has used the following file as the NCX:</source>
         <translation>Sigil使用了以下文件作为NCX ：</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="985"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="989"/>
         <source>The OPF file does not contain an NCX file.</source>
         <translation>OPF文件不包含NCX文件。</translation>
     </message>
@@ -18778,33 +18811,33 @@ Line: %1 Column %2 - %3</source>
         <translation>OPF 含有缺少或违背识别的媒体类型。已经生成了临时的媒体类型。你应该编辑你的 OPF 来修复这些。</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="880"/>
-        <location filename="../../main.cpp" line="928"/>
+        <location filename="../../main.cpp" line="875"/>
+        <location filename="../../main.cpp" line="923"/>
         <source>Quit</source>
         <translation>退出</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="890"/>
+        <location filename="../../main.cpp" line="885"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="899"/>
+        <location filename="../../main.cpp" line="894"/>
         <source>Preferences</source>
         <translation>首选项</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="910"/>
+        <location filename="../../main.cpp" line="905"/>
         <source>New</source>
         <translation>新建</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="919"/>
+        <location filename="../../main.cpp" line="914"/>
         <source>Open</source>
         <translation>打开</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="887"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="886"/>
         <source>Adding Existing Files..</source>
         <translation>添加现有文件...</translation>
     </message>
@@ -18820,34 +18853,34 @@ Line: %1 Column %2 - %3</source>
     </message>
     <message>
         <location filename="../../Misc/SearchOperations.cpp" line="65"/>
-        <location filename="../../Misc/SearchOperations.cpp" line="238"/>
+        <location filename="../../Misc/SearchOperations.cpp" line="242"/>
         <source>Replacing search term...</source>
         <translation>替换中...</translation>
     </message>
     <message>
-        <location filename="../../Misc/UpdateChecker.cpp" line="99"/>
+        <location filename="../../Misc/UpdateChecker.cpp" line="98"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/UpdateChecker.cpp" line="100"/>
+        <location filename="../../Misc/UpdateChecker.cpp" line="99"/>
         <source>&lt;p&gt;A newer version of Sigil is available, version &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Would you like to go to the download page?&lt;/p&gt;</source>
         <translation>&lt;p&gt;Sigil有更新版本：&lt;b&gt;%1&lt;/b&gt;。&lt;br/&gt;&lt;p&gt;是否要转到下载页面？&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="485"/>
+        <location filename="../../Misc/Utility.cpp" line="505"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>无法读取文件%1：
 %2。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="678"/>
+        <location filename="../../Misc/Utility.cpp" line="698"/>
         <source>Sigil has encountered a problem.</source>
         <translation>Sigil出现一个问题了。</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="679"/>
+        <location filename="../../Misc/Utility.cpp" line="699"/>
         <source>Sigil may need to close.</source>
         <translation>Sigil可能需要关闭。</translation>
     </message>
@@ -19124,7 +19157,7 @@ and stop at the first successful replace.</source>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="123"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="96"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="95"/>
         <source>Replace</source>
         <translation>替换</translation>
     </message>
@@ -19214,331 +19247,331 @@ including entries in selected groups.</source>
 </translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="91"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="90"/>
         <source>Right click on an entry to see a context menu of actions.</source>
         <translation>右键单击一个条目看到一个上下文菜单的操作。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="92"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="91"/>
         <source>You can also right click on the Find text box in the Find &amp; Replace window to select an entry.</source>
         <translation>您也可以用鼠标右键单击“查找”文本框中，在“查找和替换”窗口中选择一个条目。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="94"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="93"/>
         <source>Name</source>
         <translation>名称</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="94"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="93"/>
         <source>Name of your entry or group.</source>
         <translation>条目或组的名字。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="95"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="94"/>
         <source>Find</source>
         <translation>查找</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="95"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="94"/>
         <source>The text to put into the Find box.</source>
         <translation>在“搜索文档”框中，键入要查找的文本。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="96"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="95"/>
         <source>The text to put into the Replace box.</source>
         <translation>在“替换为”框中，键入替换文本。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="97"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="96"/>
         <source>Controls</source>
         <translation>控制</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="97"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="96"/>
         <source>Two character codes to control the search Mode, Direction, Target and Options.  Codes can be in any order comma or space separated.</source>
         <translation>两个字符代码来控制搜索模式，方向，目标和选项。代码可以是任意顺序的逗号或空格分隔。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="98"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="97"/>
         <source>Mode: Normal</source>
         <translation>模式: 普通</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="99"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="98"/>
         <source>Mode: Regular Expression</source>
         <translation>模式: 正则表达式</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="100"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="99"/>
         <source>Mode: Case Sensitive</source>
         <translation>模式: 区分大小写</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="102"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="101"/>
         <source>Direction: Up</source>
         <translation>方向: 向上</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="103"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="102"/>
         <source>Direction: Down</source>
         <translation>方向: 向下</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="105"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="104"/>
         <source>Target: Current File</source>
         <translation>对象: 当前文件</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="106"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="105"/>
         <source>Target: All HTML Files</source>
         <translation>对象: 所有HTML文件</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="107"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="106"/>
         <source>Target: Selected HTML Files</source>
         <translation>对象: 选定的 HTML 文件</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="108"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="107"/>
         <source>Target: Tabbed HTML Files</source>
         <translation>对象: 选项卡中的HTML文件</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="109"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="108"/>
         <source>Target: All CSS Files</source>
         <translation>对象: 所有CSS文件</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="110"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="109"/>
         <source>Target: Selected CSS Files</source>
         <translation>对象: 选定的 CSS 文件</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="111"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="110"/>
         <source>Target: Tabbed CSS Files</source>
         <translation>对象: 选项卡中的CSS文件</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="112"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="111"/>
         <source>Target: OPF File</source>
         <translation>对象：OPF文件</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="113"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="112"/>
         <source>Target: NCX File</source>
         <translation>对象：NCX文件</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="114"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="113"/>
         <source>Target: Selected SVG Files</source>
         <translation>对象：选定的 SVG 文件</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="115"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="114"/>
         <source>Target: Selected Javascript Files</source>
         <translation>对象：选定的 Javascript 文件</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="116"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="115"/>
         <source>Target: Selected Misc XML Files</source>
         <translation>对象：选定的各类 XML 文件</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="118"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="117"/>
         <source>Option: DotAll</source>
         <translation>选项：DotAll</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="119"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="118"/>
         <source>Option: Minimal Match</source>
         <translation>选项：最小匹配</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="120"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="119"/>
         <source>Option: Auto Tokenise</source>
         <translation>选项：自动标记</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="121"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="120"/>
         <source>Option: Unicode Property</source>
         <translation>选项：Unicode 属性</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="122"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="121"/>
         <source>Option: Wrap</source>
         <translation>选项：换行</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="123"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="122"/>
         <source>Option: Text</source>
         <translation>选项：文本</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="133"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="132"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="133"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="132"/>
         <source>Save your changes.</source>
         <translation>保存更改。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="133"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="132"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
         <translation>如果Sigil的任何其他实例正在运行，他们将自动更新您所做的更改。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="150"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="161"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="149"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="160"/>
         <source>Cannot save entries.</source>
         <translation>无法保存条目。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="239"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="238"/>
         <source>Saved Searches loaded from file.</source>
         <translation>已从文件加载搜索模板。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="276"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="275"/>
         <source>You cannot select more than one entry when using this action.</source>
         <translation>使用此操作时，您不能选择多个条目。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="286"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="285"/>
         <source>You cannot select a group for this action.</source>
         <translation>你无法选择组</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="363"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="362"/>
         <source>You cannot select an entry and a group containing the entry.</source>
         <translation>您无法选择同时一个条目和一个组进行操作。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="479"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="478"/>
         <source>You cannot Copy or Cut groups - use drag-and-drop.</source>
         <translation>您无法对组进行复制或粘贴—请用鼠标上下拖拽。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="556"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="555"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="556"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="555"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
         <translation>您确定要重新加载所有条目？ 这会覆盖任何未保存的更改。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="571"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="668"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="570"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="667"/>
         <source>Sigil INI files (*.ini)</source>
         <translation>Sigil INI文件 (*.ini)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="572"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="669"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="571"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="668"/>
         <source>CSV files (*.csv)</source>
         <translation>CSV文件 (*.csv)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="573"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="670"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="572"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="669"/>
         <source>Text files (*.txt)</source>
         <translation>文本文件(*.txt)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="584"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="583"/>
         <source>Import Search Entries</source>
         <translation>导入的搜索条目</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="681"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="680"/>
         <source>Export Selected Searches</source>
         <translation>导出所选搜索</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="871"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="870"/>
         <source>Add Entry</source>
         <translation>添加条目</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="872"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="871"/>
         <source>Add Group</source>
         <translation>添加组</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="873"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="872"/>
         <source>Edit</source>
         <translation>编辑</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="874"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="873"/>
         <source>Cut</source>
         <translation>剪切</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="875"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="874"/>
         <source>Copy</source>
         <translation>复制</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="876"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="875"/>
         <source>Paste</source>
         <translation>粘贴</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="877"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="876"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="878"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="877"/>
         <source>Import</source>
         <translation>导入</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="879"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="878"/>
         <source>Reload</source>
         <translation>重新加载</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="880"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="879"/>
         <source>Export</source>
         <translation>导出</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="881"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="880"/>
         <source>Export All</source>
         <translation>导出所有</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="882"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="881"/>
         <source>Collapse All</source>
         <translation>全部折叠</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="883"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="882"/>
         <source>Expand All</source>
         <translation>全部展开</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="884"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="883"/>
         <source>Fill Controls</source>
         <translation>填充控件</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="965"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="964"/>
         <source>Search entries saved.</source>
         <translation>搜索模板已保存。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="994"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="993"/>
         <source>Sigil: Saved Searches</source>
         <translation>Sigil：已保存的搜索模板</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="995"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="994"/>
         <source>The Search entries may have been modified.
 Do you want to save your changes?</source>
         <translation>搜索模板可能已经被修改了。
@@ -19548,137 +19581,137 @@ Do you want to save your changes?</source>
 <context>
     <name>SearchEditorModel</name>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="72"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="62"/>
         <source>Name</source>
         <translation>名称</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="73"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="63"/>
         <source>Find</source>
         <translation>查找</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="74"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="64"/>
         <source>Replace</source>
         <translation>替换</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="75"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="65"/>
         <source>Controls</source>
         <translation>控制</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="469"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="452"/>
         <source>Mode: Normal</source>
         <translation>模式: 普通</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="472"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="455"/>
         <source>Mode: Regular Expression</source>
         <translation>模式: 正则表达式</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="475"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="458"/>
         <source>Mode: Case Sensitive</source>
         <translation>模式: 区分大小写</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="478"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="461"/>
         <source>Direction: Up</source>
         <translation>方向: 向上</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="481"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="464"/>
         <source>Direction: Down</source>
         <translation>方向: 向下</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="484"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="467"/>
         <source>Target: Current File</source>
         <translation>对象: 当前文件</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="487"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="470"/>
         <source>Target: All HTML Files</source>
         <translation>对象: 所有HTML文件</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="490"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="473"/>
         <source>Target: Selected HTML Files</source>
         <translation>对象: 选定的 HTML 文件</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="493"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="476"/>
         <source>Target: Tabbed HTML Files</source>
         <translation>对象: 选项卡中的HTML文件</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="496"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="479"/>
         <source>Target: All CSS Files</source>
         <translation>对象: 所有CSS文件</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="499"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="482"/>
         <source>Target: Selected CSS Files</source>
         <translation>对象: 选定的 CSS 文件</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="502"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="485"/>
         <source>Target: Tabbed CSS Files</source>
         <translation>对象: 选项卡中的CSS文件</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="505"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="488"/>
         <source>Target: OPF File</source>
         <translation>对象：OPF文件</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="508"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="491"/>
         <source>Target: NCX File</source>
         <translation>对象：NCX文件</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="511"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="494"/>
         <source>Target: Selected SVG Files</source>
         <translation>对象：选定的 SVG 文件</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="514"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="497"/>
         <source>Target: Selected Javascript Files</source>
         <translation>对象：选定的 Javascript 文件</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="517"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="500"/>
         <source>Target: Selected Misc XML Files</source>
         <translation>对象：选定的各类 XML 文件</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="520"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="503"/>
         <source>Option: DotAll</source>
         <translation>选项：DotAll</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="523"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="506"/>
         <source>Option: Minimal Match</source>
         <translation>选项：最小匹配</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="526"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="509"/>
         <source>Option: Auto Tokenise</source>
         <translation>选项：自动标记</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="529"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="512"/>
         <source>Option: Wrap</source>
         <translation>选项：换行</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="532"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="515"/>
         <source>Option: Text Only</source>
         <translation>选项：仅文本</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="827"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="810"/>
         <source>Unable to create file %1</source>
         <translation>无法创建文件 %1</translation>
     </message>
@@ -21203,7 +21236,7 @@ ID名称必须是唯一的，并且以字母开头。</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="217"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="223"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="222"/>
         <source>Rename</source>
         <translation>重命名</translation>
     </message>
@@ -21289,53 +21322,53 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
         <translation>词典</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="120"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="119"/>
         <source>Add Dictionary</source>
         <translation>添加词典</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="120"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="223"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="119"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="222"/>
         <source>Name:</source>
         <translation>名称：</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="134"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="174"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="236"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="244"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="263"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="133"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="173"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="235"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="243"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="262"/>
         <source>Error</source>
         <translation>错误</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="134"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="236"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="133"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="235"/>
         <source>A user dictionary already exists with this name!</source>
         <translation>用户字典中已经存在此名称！</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="143"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="142"/>
         <source>Add Words</source>
         <translation>所有单词</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="143"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="142"/>
         <source>Words:</source>
         <translation>单词</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="174"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="173"/>
         <source>Could not create file!</source>
         <translation>无法创建文件！</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="244"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="243"/>
         <source>Could not rename file!</source>
         <translation>无法重命名！</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="263"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="262"/>
         <source>You cannot delete the last dictionary.</source>
         <translation>你无法删除最后的词典。</translation>
     </message>
@@ -21366,7 +21399,7 @@ is restarted or a new book is opened.</source>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="65"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="584"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="578"/>
         <source>Ignore</source>
         <translation>忽略</translation>
     </message>
@@ -21449,109 +21482,109 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="169"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="192"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="231"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="191"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="229"/>
         <source>No words selected.</source>
         <translation>未选择任何单词。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="185"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="184"/>
         <source>Ignored word(s).</source>
         <translation>忽略的单词。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="220"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="218"/>
         <source>Added word(s) to dictionary.</source>
         <translation>添加单词到词典。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="222"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="220"/>
         <source>Added word(s) to dictionary. The dictionary is not enabled in Preferences.</source>
         <translation>添加单词到词典。词典未在首选项中开启。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="237"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="235"/>
         <source>The new word cannot contain &quot;&lt;&quot;, &quot;&gt;&quot;, or &quot;&amp;&quot;.</source>
         <translation>新词不能包含“&lt;”、“&gt;”,或“&amp;”。</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="248"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="325"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="246"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="321"/>
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="267"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="265"/>
         <source>Word</source>
         <translation>单词</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="268"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="266"/>
         <source>Count</source>
         <translation>计数</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="269"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="267"/>
         <source>Language</source>
         <translation>语言</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="270"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="268"/>
         <source>Misspelled?</source>
         <translation>拼写错误？</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="323"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="319"/>
         <source>Yes</source>
         <translation>是</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="349"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="345"/>
         <source>Misspelled Words</source>
         <translation>拼错的单词</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="349"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="345"/>
         <source>Total Unique Words</source>
         <translation>唯一字总数</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="585"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="579"/>
         <source>Add to Dictionary</source>
         <translation>添加到词典</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="586"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="580"/>
         <source>Find in Text</source>
         <translation>在文本中查找</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="587"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="581"/>
         <source>Select All</source>
         <translation>选择所有</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="588"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="582"/>
         <source>Save Selected Data</source>
         <translation>保存所选数据</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="589"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="583"/>
         <source>Copy Selected Data to Clipboard</source>
         <translation>复制所选数据到剪贴板</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="681"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="675"/>
         <source>Save Selected Data As Comma Separated File</source>
         <translation>将所选数据保存为逗号隔开的文件</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="694"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="688"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="694"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="688"/>
         <source>Cannot save data file.</source>
         <translation>无法保存数据文件</translation>
     </message>
@@ -21679,12 +21712,12 @@ Use if you edit any HTML files while Spellcheck is open.</source>
 <context>
     <name>Utility</name>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="824"/>
+        <location filename="../../Misc/Utility.cpp" line="844"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="825"/>
+        <location filename="../../Misc/Utility.cpp" line="845"/>
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>
@@ -21726,33 +21759,33 @@ Continue using the requested filename?</source>
         <translation>验证结果导出失败：</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="334"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="332"/>
         <source>Updating Validation Results</source>
         <translation>正在更新验证结果</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="409"/>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="425"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="407"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="423"/>
         <source>Message</source>
         <translation>错误信息</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="410"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="408"/>
         <source>No problems found!</source>
         <translation>没有发现问题！</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="425"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="423"/>
         <source>File</source>
         <translation>文件</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="425"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="423"/>
         <source>Line</source>
         <translation>行</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="425"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="423"/>
         <source>Offset</source>
         <translation>偏移</translation>
     </message>
@@ -21822,1267 +21855,1267 @@ Continue using the requested filename?</source>
 <context>
     <name>XMLEntities</name>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="97"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="87"/>
         <source>quotation mark</source>
         <translation>引号&quot;</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="98"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="88"/>
         <source>ampersand</source>
         <translation>&amp; 符号</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="99"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="89"/>
         <source>apostrophe</source>
         <translation>撇号&apos;</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="100"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="90"/>
         <source>less-than sign</source>
         <translation>小于号&lt;</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="101"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="91"/>
         <source>greater-than sign</source>
         <translation>大于号&gt;</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="102"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="92"/>
         <source>no-break space</source>
         <translation>不换行空格 </translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="103"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="93"/>
         <source>inverted exclamation mark</source>
         <translation>倒置感叹号¡</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="104"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="94"/>
         <source>cent sign</source>
         <translation>美分符号¢</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="105"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="95"/>
         <source>pound sign</source>
         <translation>英磅符号£</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="106"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="96"/>
         <source>currency sign</source>
         <translation>现金符号¤</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="107"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="97"/>
         <source>yen sign</source>
         <translation>人民币符号¥</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="108"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="98"/>
         <source>broken bar</source>
         <translation>间断的竖杠符¦</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="109"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="99"/>
         <source>section sign</source>
         <translation>小节号§</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="110"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="100"/>
         <source>diaeresis</source>
         <translation>分音符号¨</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="111"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="101"/>
         <source>copyright symbol</source>
         <translation>版权所有符号©</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="112"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="102"/>
         <source>feminine ordinal indicator</source>
         <translation>女性序数记号 ª</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="113"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="103"/>
         <source>left-pointing double angle quotation mark</source>
         <translation>左双角引号«</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="114"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="104"/>
         <source>not sign</source>
         <translation>否定符号¬</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="115"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="105"/>
         <source>soft hyphen</source>
         <translation>软连字符­</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="116"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="106"/>
         <source>registered sign</source>
         <translation>注册商标符号®</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="117"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="107"/>
         <source>macron</source>
         <translation>长音符号¯</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="118"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="108"/>
         <source>degree symbol</source>
         <translation>度符号°</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="119"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="109"/>
         <source>plus-minus sign</source>
         <translation>加减号±</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="120"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="110"/>
         <source>superscript two</source>
         <translation>上标2符号²</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="121"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="111"/>
         <source>superscript three</source>
         <translation>上标3符号³</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="122"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="112"/>
         <source>acute accent</source>
         <translation>尖音符号´</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="123"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="113"/>
         <source>micro sign</source>
         <translation>微米符号µ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="124"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="114"/>
         <source>pilcrow sign</source>
         <translation>段落符号 ¶</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="125"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="115"/>
         <source>middle dot</source>
         <translation>中点号符·</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="126"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="116"/>
         <source>cedilla</source>
         <translation>变音符号¸</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="127"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="117"/>
         <source>superscript one</source>
         <translation>上标1符号¹</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="128"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="118"/>
         <source>masculine ordinal indicator</source>
         <translation>阳性序数记号 º</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="129"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="119"/>
         <source>right-pointing double angle quotation mark</source>
         <translation>右双角引号»</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="130"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="120"/>
         <source>vulgar fraction one quarter</source>
         <translation>1/4分数符¼</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="131"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="121"/>
         <source>vulgar fraction one half</source>
         <translation>1/2分数符½</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="132"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="122"/>
         <source>vulgar fraction three quarters</source>
         <translation>3/4分数符¾</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="133"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="123"/>
         <source>inverted question mark</source>
         <translation>倒置问号¿</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="134"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="124"/>
         <source>Latin capital letter A with grave accent</source>
         <translation>拉丁文大写字母A带有重音符号的 À</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="135"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="125"/>
         <source>Latin capital letter A with acute accent</source>
         <translation>拉丁文大写字母A带尖音符号 Á</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="136"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="126"/>
         <source>Latin capital letter A with circumflex</source>
         <translation>拉丁文大写字母A带抑扬音符号 Â</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="137"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="127"/>
         <source>Latin capital letter A with tilde</source>
         <translation>大写拉丁字母A带波浪符 Ã</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="138"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="128"/>
         <source>Latin capital letter A with diaeresis</source>
         <translation>拉丁文大写字母A带分音符 Ä</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="139"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="129"/>
         <source>Latin capital letter A with ring above</source>
         <translation>拉丁文大写字母A带有上圆圈Å</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="140"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="130"/>
         <source>Latin capital letter AE</source>
         <translation>大写拉丁字母AE</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="141"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="131"/>
         <source>Latin capital letter C with cedilla</source>
         <translation>拉丁文大写字母C带有变音符号 Ç</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="142"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="132"/>
         <source>Latin capital letter E with grave accent</source>
         <translation>拉丁文大写字母E带重音符号 È</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="143"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="133"/>
         <source>Latin capital letter E with acute accent</source>
         <translation>拉丁文大写字母E带尖音符号 É</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="144"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="134"/>
         <source>Latin capital letter E with circumflex</source>
         <translation>拉丁文大写字母E带抑扬符号 Ê</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="145"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="135"/>
         <source>Latin capital letter E with diaeresis</source>
         <translation>拉丁文大写字母E带分音符 Ë</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="146"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="136"/>
         <source>Latin capital letter I with grave accent</source>
         <translation>拉丁文大写字母I带重音符号 Ì</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="147"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="137"/>
         <source>Latin capital letter I with acute accent</source>
         <translation>拉丁文大写字母I带尖音符号 Í</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="148"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="138"/>
         <source>Latin capital letter I with circumflex</source>
         <translation>拉丁文大写字母I带抑扬音符号 Î</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="149"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="139"/>
         <source>Latin capital letter I with diaeresis</source>
         <translation>拉丁文大写字母I带分音符 Ï</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="150"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="140"/>
         <source>Latin capital letter Eth</source>
         <translation>大写拉丁字母Eth</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="151"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="141"/>
         <source>Latin capital letter N with tilde</source>
         <translation>大写拉丁字母N带波浪符 Ñ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="152"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="142"/>
         <source>Latin capital letter O with grave accent</source>
         <translation>拉丁文大写字母O带重音符号 Ò</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="153"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="143"/>
         <source>Latin capital letter O with acute accent</source>
         <translation>拉丁文大写字母O带尖音符号 Ó</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="154"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="144"/>
         <source>Latin capital letter O with circumflex</source>
         <translation>拉丁文大写字母O带抑扬音符号 Ô</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="155"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="145"/>
         <source>Latin capital letter O with tilde</source>
         <translation>大写拉丁字母O带波浪符 Õ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="156"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="146"/>
         <source>Latin capital letter O with diaeresis</source>
         <translation>拉丁文大写字母O带分音符 Ö</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="157"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="147"/>
         <source>multiplication sign</source>
         <translation>乘号×</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="158"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="148"/>
         <source>Latin capital letter O with stroke</source>
         <translation>拉丁文大写字母O带斜线 Ø</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="159"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="149"/>
         <source>Latin capital letter U with grave accent</source>
         <translation>拉丁文大写字母U带重音符号 Ù</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="160"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="150"/>
         <source>Latin capital letter U with acute accent</source>
         <translation>拉丁文大写字母U有尖音符号 Ú</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="161"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="151"/>
         <source>Latin capital letter U with circumflex</source>
         <translation>拉丁文大写字母U带抑扬音符号 Û</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="162"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="152"/>
         <source>Latin capital letter U with diaeresis</source>
         <translation>拉丁文大写字母U带分音符 Ü</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="163"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="153"/>
         <source>Latin capital letter Y with acute accent</source>
         <translation>拉丁文大写字母Y带尖音符号 Ý</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="164"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="154"/>
         <source>Latin capital letter THORN</source>
         <translation>拉丁文大写字母 Þ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="165"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="155"/>
         <source>Latin small letter sharp s</source>
         <translation>拉丁文小写字母ß</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="166"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="156"/>
         <source>Latin small letter a with grave accent</source>
         <translation>拉丁文小写字母a带重音符号 à</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="167"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="157"/>
         <source>Latin small letter a with acute accent</source>
         <translation>拉丁文小写字母a带尖音符号 á</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="168"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="158"/>
         <source>Latin small letter a with circumflex</source>
         <translation>拉丁文小写字母a带抑扬音符号 â</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="169"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="159"/>
         <source>Latin small letter a with tilde</source>
         <translation>小写拉丁字母a带波浪符 ã</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="170"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="160"/>
         <source>Latin small letter a with diaeresis</source>
         <translation>拉丁文小写字母a带分音符 ä</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="171"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="161"/>
         <source>Latin small letter a with ring above</source>
         <translation>拉丁文小写字母a带上圆圈å</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="172"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="162"/>
         <source>Latin small letter ae</source>
         <translation>拉丁文小写字母æ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="173"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="163"/>
         <source>Latin small letter c with cedilla</source>
         <translation>拉丁文小写字母c带变音符号 ç</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="174"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="164"/>
         <source>Latin small letter e with grave accent</source>
         <translation>拉丁文小写字母e带重音符号 è</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="175"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="165"/>
         <source>Latin small letter e with acute accent</source>
         <translation>拉丁文小写字母a带尖音符号 á</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="176"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="166"/>
         <source>Latin small letter e with circumflex</source>
         <translation>拉丁文小写字母a带抑扬音符号 â</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="177"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="167"/>
         <source>Latin small letter e with diaeresis</source>
         <translation>拉丁文小写字母a带分音符 ä</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="178"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="168"/>
         <source>Latin small letter i with grave accent</source>
         <translation>拉丁文小写字母i 带重音符 ì</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="179"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="169"/>
         <source>Latin small letter i with acute accent</source>
         <translation>拉丁文小写字母i带尖音符号 í</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="180"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="170"/>
         <source>Latin small letter i with circumflex</source>
         <translation>拉丁文小写字母i带抑扬音符号 î</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="181"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="171"/>
         <source>Latin small letter i with diaeresis</source>
         <translation>拉丁文小写字母i带分音符 ï</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="182"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="172"/>
         <source>Latin small letter eth</source>
         <translation>拉丁文小写字母 ð</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="183"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="173"/>
         <source>Latin small letter n with tilde</source>
         <translation>小写拉丁字母n带波浪符 ñ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="184"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="174"/>
         <source>Latin small letter o with grave accent</source>
         <translation>拉丁文大写字母o带重音符号 ò</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="185"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="175"/>
         <source>Latin small letter o with acute accent</source>
         <translation>拉丁文大写字母o带尖音符号 ó</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="186"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="176"/>
         <source>Latin small letter o with circumflex</source>
         <translation>拉丁文小写字母o带抑扬音符号 ô</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="187"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="177"/>
         <source>Latin small letter o with tilde</source>
         <translation>小写拉丁字母o带波浪符 õ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="188"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="178"/>
         <source>Latin small letter o with diaeresis</source>
         <translation>拉丁文小写字母o带分音符 ö</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="189"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="179"/>
         <source>division sign</source>
         <translation>除号÷</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="190"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="180"/>
         <source>Latin small letter o with stroke</source>
         <translation>拉丁文小写字母o带斜线 ø</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="191"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="181"/>
         <source>Latin small letter u with grave accent</source>
         <translation>拉丁文小写字母u带重音符号 ù</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="192"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="182"/>
         <source>Latin small letter u with acute accent</source>
         <translation>拉丁文小写字母u带尖音符号 ú</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="193"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="183"/>
         <source>Latin small letter u with circumflex</source>
         <translation>拉丁文小写字母u带抑扬音符号 û</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="194"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="184"/>
         <source>Latin small letter u with diaeresis</source>
         <translation>拉丁文小写字母u带分音符 ü</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="195"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="185"/>
         <source>Latin small letter y with acute accent</source>
         <translation>拉丁文小写字母y带尖音符号 ý</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="196"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="186"/>
         <source>Latin small letter thorn</source>
         <translation>拉丁文小写字母 þ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="197"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="187"/>
         <source>Latin small letter y with diaeresis</source>
         <translation>拉丁文小写字母y带分音符 ÿ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="198"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="188"/>
         <source>Latin capital ligature OE</source>
         <translation>大写拉丁连字OE</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="199"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="189"/>
         <source>Latin small ligature oe</source>
         <translation>小写拉丁连字œ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="200"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="190"/>
         <source>Latin capital letter S with caron</source>
         <translation>拉丁文大写字母S带抑扬符 Š</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="201"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="191"/>
         <source>Latin small letter s with caron</source>
         <translation>拉丁文小写字母s带抑扬符 š</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="202"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="192"/>
         <source>Latin capital letter Y with diaeresis</source>
         <translation>拉丁文大写字母Y带分音符 Ÿ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="203"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="193"/>
         <source>Latin small letter f with hook</source>
         <translation>拉丁文小写f带钩ƒ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="204"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="194"/>
         <source>modifier letter circumflex accent</source>
         <translation>修饰字母 抑扬符ˆ 音</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="205"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="195"/>
         <source>small tilde</source>
         <translation>小波浪符 ∼</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="206"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="196"/>
         <source>Greek capital letter Alpha</source>
         <translation>希腊文大写字母Α</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="207"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="197"/>
         <source>Greek capital letter Beta</source>
         <translation>希腊文大写字母Β</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="208"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="198"/>
         <source>Greek capital letter Gamma</source>
         <translation>希腊文大写字母Γ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="209"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="199"/>
         <source>Greek capital letter Delta</source>
         <translation>希腊文大写字母Δ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="210"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="200"/>
         <source>Greek capital letter Epsilon</source>
         <translation>希腊文大写字母Ε</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="211"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="201"/>
         <source>Greek capital letter Zeta</source>
         <translation>希腊文大写字母Ζ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="212"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="202"/>
         <source>Greek capital letter Eta</source>
         <translation>希腊文大写字母Η</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="213"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="203"/>
         <source>Greek capital letter Theta</source>
         <translation>希腊文大写字母Θ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="214"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="204"/>
         <source>Greek capital letter Iota</source>
         <translation>希腊文大写字母Ι</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="215"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="205"/>
         <source>Greek capital letter Kappa</source>
         <translation>希腊文大写字母Κ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="216"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="206"/>
         <source>Greek capital letter Lambda</source>
         <translation>希腊文大写字母∧</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="217"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="207"/>
         <source>Greek capital letter Mu</source>
         <translation>希腊文大写字母Μ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="218"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="208"/>
         <source>Greek capital letter Nu</source>
         <translation>希腊文大写字母Ν</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="219"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="209"/>
         <source>Greek capital letter Xi</source>
         <translation>希腊文大写字母Ξ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="220"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="210"/>
         <source>Greek capital letter Omicron</source>
         <translation>希腊文大写字母Ο</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="221"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="211"/>
         <source>Greek capital letter Pi</source>
         <translation>希腊文大写字母Π</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="222"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="212"/>
         <source>Greek capital letter Rho</source>
         <translation>希腊文大写字母Ρ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="223"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="213"/>
         <source>Greek capital letter Sigma</source>
         <translation>希腊文大写字母Σ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="224"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="214"/>
         <source>Greek capital letter Tau</source>
         <translation>希腊文大写字母Τ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="225"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="215"/>
         <source>Greek capital letter Upsilon</source>
         <translation>希腊文大写字母Υ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="226"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="216"/>
         <source>Greek capital letter Phi</source>
         <translation>希腊文大写字母Φ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="227"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="217"/>
         <source>Greek capital letter Chi</source>
         <translation>希腊文大写字母Χ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="228"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="218"/>
         <source>Greek capital letter Psi</source>
         <translation>希腊文大写字母Ψ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="229"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="219"/>
         <source>Greek capital letter Omega</source>
         <translation>希腊文大写字母Ώ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="230"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="220"/>
         <source>Greek small letter alpha</source>
         <translation>希腊文小写字母α</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="231"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="221"/>
         <source>Greek small letter beta</source>
         <translation>希腊文小写字母β</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="232"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="222"/>
         <source>Greek small letter gamma</source>
         <translation>希腊文小写字母γ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="233"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="223"/>
         <source>Greek small letter delta</source>
         <translation>希腊文小写字母δ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="234"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="224"/>
         <source>Greek small letter epsilon</source>
         <translation>希腊文小写字母ε</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="235"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="225"/>
         <source>Greek small letter zeta</source>
         <translation>希腊文小写字母ζ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="236"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="226"/>
         <source>Greek small letter eta</source>
         <translation>希腊文小写字母η</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="237"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="227"/>
         <source>Greek small letter theta</source>
         <translation>希腊文小写字母θ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="238"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="228"/>
         <source>Greek small letter iota</source>
         <translation>希腊文小写字母ʅ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="239"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="229"/>
         <source>Greek small letter kappa</source>
         <translation>希腊文小写字母κ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="240"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="230"/>
         <source>Greek small letter lambda</source>
         <translation>希腊文小写字母λ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="241"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="231"/>
         <source>Greek small letter mu</source>
         <translation>希腊文小写字母μ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="242"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="232"/>
         <source>Greek small letter nu</source>
         <translation>希腊文小写字母ν</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="243"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="233"/>
         <source>Greek small letter xi</source>
         <translation>希腊文小写字母ξ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="244"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="234"/>
         <source>Greek small letter omicron</source>
         <translation>希腊文小写字母o</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="245"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="235"/>
         <source>Greek small letter pi</source>
         <translation>希腊文小写字母π</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="246"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="236"/>
         <source>Greek small letter rho</source>
         <translation>希腊文小写字母ρ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="247"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="237"/>
         <source>Greek small letter final sigma</source>
         <translation>希腊文小写字母词尾σ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="248"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="238"/>
         <source>Greek small letter sigma</source>
         <translation>希腊文小写字母σ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="249"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="239"/>
         <source>Greek small letter tau</source>
         <translation>希腊文小写字母τ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="250"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="240"/>
         <source>Greek small letter upsilon</source>
         <translation>希腊文小写字母υ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="251"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="241"/>
         <source>Greek small letter phi</source>
         <translation>希腊文小写字母φ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="252"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="242"/>
         <source>Greek small letter chi</source>
         <translation>希腊文小写字母χ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="253"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="243"/>
         <source>Greek small letter psi</source>
         <translation>希腊文小写字母ψ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="254"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="244"/>
         <source>Greek small letter omega</source>
         <translation>希腊小写字母ω</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="255"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="245"/>
         <source>Greek theta symbol</source>
         <translation>希腊文θ符号</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="256"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="246"/>
         <source>Greek Upsilon with hook symbol</source>
         <translation>带钩符号的希腊文υ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="257"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="247"/>
         <source>Greek pi symbol</source>
         <translation>希腊符号π‮</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="258"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="248"/>
         <source>en space</source>
         <translation>半角空格</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="259"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="249"/>
         <source>em space</source>
         <translation>全角空格</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="260"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="250"/>
         <source>thin space</source>
         <translation>窄空格</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="261"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="251"/>
         <source>zero-width non-joiner</source>
         <translation>零宽不连字符</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="262"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="252"/>
         <source>zero-width joiner</source>
         <translation>零宽连字符</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="263"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="253"/>
         <source>left-to-right mark</source>
         <translation>左到右标记</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="264"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="254"/>
         <source>right-to-left mark</source>
         <translation>右到左标记</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="265"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="255"/>
         <source>en dash</source>
         <translation>短破折号–</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="266"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="256"/>
         <source>em dash</source>
         <translation>长破折号—</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="267"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="257"/>
         <source>left single quotation mark</source>
         <translation>左单引号标记  ‘</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="268"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="258"/>
         <source>right single quotation mark</source>
         <translation>右单引号标记 ’</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="269"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="259"/>
         <source>single low-9 quotation mark</source>
         <translation>单下9号引号标记 ‚</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="270"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="260"/>
         <source>left double quotation mark</source>
         <translation>左双引号标记 “</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="271"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="261"/>
         <source>right double quotation mark</source>
         <translation>右双引号标记 ”</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="272"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="262"/>
         <source>double low-9 quotation mark</source>
         <translation>低双引号 „</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="273"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="263"/>
         <source>dagger, obelisk</source>
         <translation>剑号，方尖碑符 †</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="274"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="264"/>
         <source>double dagger, double obelisk</source>
         <translation>双剑号，双方尖碑符‡</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="275"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="265"/>
         <source>bullet</source>
         <translation>弹头</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="276"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="266"/>
         <source>horizontal ellipsis</source>
         <translation>水平省略号 …</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="277"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="267"/>
         <source>per mille sign</source>
         <translation>千分号 ‰</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="278"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="268"/>
         <source>prime</source>
         <translation>撇号′</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="279"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="269"/>
         <source>double prime</source>
         <translation>双撇号″</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="280"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="270"/>
         <source>single left-pointing angle quotation mark</source>
         <translation>单左指向角引号‹</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="281"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="271"/>
         <source>single right-pointing angle quotation mark</source>
         <translation>单右指向角引号›</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="282"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="272"/>
         <source>overline</source>
         <translation>上划线¯</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="283"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="273"/>
         <source>fraction slash</source>
         <translation>分数斜线⁄</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="284"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="274"/>
         <source>euro sign</source>
         <translation>欧元符号€</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="285"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="275"/>
         <source>black-letter capital I</source>
         <translation>黑体字I大写 ℑ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="286"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="276"/>
         <source>script capital P</source>
         <translation>脚本P大写℘</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="287"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="277"/>
         <source>black-letter capital R</source>
         <translation>黑体字R大写ℜ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="288"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="278"/>
         <source>trademark symbol</source>
         <translation>商标符号™</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="289"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="279"/>
         <source>alef symbol</source>
         <translation>阿勒夫符号ℵ</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="290"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="280"/>
         <source>leftwards arrow</source>
         <translation>左箭头←</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="291"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="281"/>
         <source>upwards arrow</source>
         <translation>上箭头↑</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="292"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="282"/>
         <source>rightwards arrow</source>
         <translation>右箭头→</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="293"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="283"/>
         <source>downwards arrow</source>
         <translation>下箭头↓</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="294"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="284"/>
         <source>left right arrow</source>
         <translation>左右箭头↔</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="295"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="285"/>
         <source>downwards arrow with corner leftwards</source>
         <translation>角向左的下箭头↵</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="296"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="286"/>
         <source>leftwards double arrow</source>
         <translation>左向双箭头⇐</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="297"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="287"/>
         <source>upwards double arrow</source>
         <translation>上双箭头⇑</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="298"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="288"/>
         <source>rightwards double arrow</source>
         <translation>右向双箭头⇒</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="299"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="289"/>
         <source>downwards double arrow</source>
         <translation>下双箭头⇓</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="300"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="290"/>
         <source>left right double arrow</source>
         <translation>左右双箭头⇔</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="301"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="291"/>
         <source>for all</source>
         <translation>任意符号∀</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="302"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="292"/>
         <source>partial differential</source>
         <translation>偏微分符∂</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="303"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="293"/>
         <source>there exists</source>
         <translation>存在符∃</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="304"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="294"/>
         <source>empty set</source>
         <translation>空集∅</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="305"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="295"/>
         <source>nabla</source>
         <translation>梯度符号∇</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="306"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="296"/>
         <source>element of</source>
         <translation>属于符∈</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="307"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="297"/>
         <source>not an element of</source>
         <translation>不属于符∉</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="308"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="298"/>
         <source>contains as member</source>
         <translation>包含符∋</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="309"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="299"/>
         <source>n-ary product</source>
         <translation>求积∏</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="310"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="300"/>
         <source>n-ary summation</source>
         <translation>求和∑</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="311"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="301"/>
         <source>minus sign</source>
         <translation>减号−</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="312"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="302"/>
         <source>asterisk operator</source>
         <translation>星号运算符∗</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="313"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="303"/>
         <source>square root</source>
         <translation>平方根√</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="314"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="304"/>
         <source>proportional to</source>
         <translation>成比例∝</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="315"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="305"/>
         <source>infinity</source>
         <translation>无穷∞</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="316"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="306"/>
         <source>angle</source>
         <translation>角∠</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="317"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="307"/>
         <source>logical and</source>
         <translation>逻辑与∧</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="318"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="308"/>
         <source>logical or</source>
         <translation>逻辑或∨</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="319"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="309"/>
         <source>intersection</source>
         <translation>交集∩</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="320"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="310"/>
         <source>union</source>
         <translation>并集∪</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="321"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="311"/>
         <source>integral</source>
         <translation>积分∫</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="322"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="312"/>
         <source>therefore sign</source>
         <translation>所以∴</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="323"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="313"/>
         <source>tilde operator</source>
         <translation>波浪运算符∼</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="324"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="314"/>
         <source>congruent to</source>
         <translation>等价于≅</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="325"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="315"/>
         <source>almost equal to</source>
         <translation>几乎等于≈</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="326"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="316"/>
         <source>not equal to</source>
         <translation>不等于≠</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="327"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="317"/>
         <source>identical to</source>
         <translation>恒等于≡</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="328"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="318"/>
         <source>less-than or equal to</source>
         <translation>小于或等于≤</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="329"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="319"/>
         <source>greater-than or equal to</source>
         <translation>大于或等于≥</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="330"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="320"/>
         <source>subset of</source>
         <translation>子集⊂</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="331"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="321"/>
         <source>superset of</source>
         <translation>超集⊃</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="332"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="322"/>
         <source>not a subset of</source>
         <translation>非子集⊄</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="333"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="323"/>
         <source>subset of or equal to</source>
         <translation>子集或等于⊆</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="334"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="324"/>
         <source>superset of or equal to</source>
         <translation>超集或等于⊇</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="335"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="325"/>
         <source>circled plus</source>
         <translation>直和符⊕</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="336"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="326"/>
         <source>circled times</source>
         <translation>矢量积符⊗</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="337"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="327"/>
         <source>up tack</source>
         <translation>垂直符⊥</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="338"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="328"/>
         <source>dot operator</source>
         <translation>点运算符⋅</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="339"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="329"/>
         <source>left ceiling</source>
         <translation>左天花板符⌈</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="340"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="330"/>
         <source>right ceiling</source>
         <translation>右天花板符⌉</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="341"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="331"/>
         <source>left floor</source>
         <translation>左地板⌊</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="342"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="332"/>
         <source>right floor</source>
         <translation>右地板符⌋</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="343"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="333"/>
         <source>left-pointing angle bracket</source>
         <translation>左尖括号〈</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="344"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="334"/>
         <source>right-pointing angle bracket</source>
         <translation>右尖括号〉</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="345"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="335"/>
         <source>lozenge</source>
         <translation>菱形◊</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="346"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="336"/>
         <source>black spade suit</source>
         <translation>黑桃♠</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="347"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="337"/>
         <source>black club suit</source>
         <translation>黑梅花♣</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="348"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="338"/>
         <source>black heart suit</source>
         <translation>黑心♥</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="349"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="339"/>
         <source>black diamond suit</source>
         <translation>黑方块♦</translation>
     </message>

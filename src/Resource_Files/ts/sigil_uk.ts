@@ -283,74 +283,74 @@
         <translation>Змінити масштаб зображення до розміру вікна відображення.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="97"/>
-        <location filename="../../Widgets/AdjustImage.cpp" line="103"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="99"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="107"/>
         <source>Adjust Image</source>
         <translation>Змінити зображення</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="104"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="108"/>
         <source>Cannot load %1.</source>
         <translation>Неможливо завантажити %1.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="173"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="177"/>
         <source>shades</source>
         <translation>відтінків</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="173"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="177"/>
         <source>colors</source>
         <translation>кольорів</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="174"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="178"/>
         <source>Grayscale</source>
         <translation>Градації сірого</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="174"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="178"/>
         <source>Color</source>
         <translation>Колір</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="329"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="338"/>
         <source>(x,y) coordinates:</source>
         <translation>(x,y) коорд.:</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="329"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="338"/>
         <source>Zoom</source>
         <translation>Масштаб</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="398"/>
-        <location filename="../../Widgets/AdjustImage.cpp" line="427"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="408"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="437"/>
         <source>Image successfully saved.</source>
         <translation>Зображення успішно збережено.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="400"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="410"/>
         <source>Image save failed.</source>
         <translation>Невдала спроба збереження зображення.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="411"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="421"/>
         <source>Image Quality</source>
         <translation>Якість зображення</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="412"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="422"/>
         <source>Enter quality level (0-100):</source>
         <translation>Введіть значення якості (0-100):</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="414"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="424"/>
         <source>Image save failed. </source>
         <translation>Невдала спроба збереження зображення.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="429"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="441"/>
         <source>Image save failed: </source>
         <translation>Збій при збереженні зображення:</translation>
     </message>
@@ -930,87 +930,87 @@ if a sans-serif font-family specified in your CSS</source>
         <translation>До кінцевої виноски</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="181"/>
+        <location filename="../../Misc/AriaClips.cpp" line="171"/>
         <source>Aside</source>
         <translation>Тег Aside</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="183"/>
+        <location filename="../../Misc/AriaClips.cpp" line="173"/>
         <source>Aside: Sidebar</source>
         <translation>Aside: Бічна панель</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="185"/>
+        <location filename="../../Misc/AriaClips.cpp" line="175"/>
         <source>Aside: Tip</source>
         <translation>Aside: Підказка</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="187"/>
+        <location filename="../../Misc/AriaClips.cpp" line="177"/>
         <source>Backlink from Footnote</source>
         <translation>Зворотне посилання з виноски</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="189"/>
+        <location filename="../../Misc/AriaClips.cpp" line="179"/>
         <source>Backlink from Endnote</source>
         <translation>Зворотне посилання з кінцевої виноски</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="191"/>
+        <location filename="../../Misc/AriaClips.cpp" line="181"/>
         <source>Endnote in li</source>
         <translation>Виноска у тегу ‹li›</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="193"/>
+        <location filename="../../Misc/AriaClips.cpp" line="183"/>
         <source>Footnote in aside</source>
         <translation>Виноска у тегу ‹aside›</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="195"/>
+        <location filename="../../Misc/AriaClips.cpp" line="185"/>
         <source>Footnote in div</source>
         <translation>Виноска у тегу ‹div›</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="197"/>
+        <location filename="../../Misc/AriaClips.cpp" line="187"/>
         <source>Footnote in p</source>
         <translation>Виноска у тегу ‹p›</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="199"/>
+        <location filename="../../Misc/AriaClips.cpp" line="189"/>
         <source>PageBreak in hr</source>
         <translation>Розрив сторінки у тегу ‹hr›</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="201"/>
+        <location filename="../../Misc/AriaClips.cpp" line="191"/>
         <source>PageBreak in span</source>
         <translation>Розрив сторінки у тегу ‹span›</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="203"/>
+        <location filename="../../Misc/AriaClips.cpp" line="193"/>
         <source>Reference to Footnote</source>
         <translation>Посилання на виноску</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="205"/>
+        <location filename="../../Misc/AriaClips.cpp" line="195"/>
         <source>Reference to Endnote</source>
         <translation>Посилання на кінцеву виноску</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="207"/>
+        <location filename="../../Misc/AriaClips.cpp" line="197"/>
         <source>Section</source>
         <translation>Розділ</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="209"/>
+        <location filename="../../Misc/AriaClips.cpp" line="199"/>
         <source>Section: Chapter</source>
         <translation>Розділ: Глава</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="211"/>
+        <location filename="../../Misc/AriaClips.cpp" line="201"/>
         <source>Section: Endnotes</source>
         <translation>Розділ: Кінцеві виноски</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="213"/>
+        <location filename="../../Misc/AriaClips.cpp" line="203"/>
         <source>Section: Footnotes</source>
         <translation>Розділ: Виноски</translation>
     </message>
@@ -1018,432 +1018,432 @@ if a sans-serif font-family specified in your CSS</source>
 <context>
     <name>AriaRoles</name>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="184"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="173"/>
         <source>Abstract</source>
         <translation>Анотація</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="184"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="173"/>
         <source>A short summary of the principle ideas, concepts and conclusions of the work, or of section or excerpt within it.</source>
         <translation>Стислий виклад основних ідей, концепцій і висновків твору, розділу або уривка з нього.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="185"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="174"/>
         <source>Acknowledgments</source>
         <translation>Подяки</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="185"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="174"/>
         <source>A section or statement that acknowledges significant contributions by persons, organizations, governments, and other entities to the realization of the work.</source>
         <translation>Розділ або заява, в якій визнається значний внесок певних осіб, організацій, урядів та інших суб&apos;єктів у реалізацію даного твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="186"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="175"/>
         <source>Afterword</source>
         <translation>Післямова</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="186"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="175"/>
         <source>A closing statement from the author or a person of importance, typically providing insight into how the content came to be written, its significance or related events that have transpired since its timeline.</source>
         <translation>Заключне слово автора або важливої для твору особи, що дає уявлення про те, як був написаний текст, його значущість або пов&apos;язані з ним події, що відбулися з моменту його написання.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="187"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="176"/>
         <source>Appendix</source>
         <translation>Додаток</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="187"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="176"/>
         <source>A section of supplemental information located after the primary content that informs the content but is not central to it.</source>
         <translation>Розділ додаткової інформації, розташований після основного змісту, який доповнює його, але не є його центральною частиною.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="188"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="177"/>
         <source>Back Link</source>
         <translation>Зворотне посилання</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="188"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="177"/>
         <source>A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary definition to where a term is used.)</source>
         <translation>Посилання, яке дозволяє користувачеві повернутися до відповідного (пов’язаного з ним) місця у контенті (наприклад, з виноски до посилань на неї або з визначення у глосарії до місця, де використовується цей термін).</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="189"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="178"/>
         <source>Bibliography</source>
         <translation>Бібліографія</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="189"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="178"/>
         <source>A list of external references cited in the work, which may be to print or digital sources.</source>
         <translation>Список зовнішніх посилань, цитованих у творі, які можуть бути друкованими або цифровими джерелами.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="190"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="179"/>
         <source>Bibliography Entry</source>
         <translation>Бібліографічний запис</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="190"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="179"/>
         <source>A single reference to an external source in a bibliography. [epub:type ONLY]</source>
         <translation>Одинарний запис з посиланням на зовнішнє джерело в бібліографії.  [epub:type ONLY]</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="191"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="180"/>
         <source>Bibliography Reference</source>
         <translation>Бібліографічне посилання</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="191"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="180"/>
         <source>A reference to a bibliography entry.</source>
         <translation>Посилання на бібліографічний запис.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="192"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="181"/>
         <source>Chapter</source>
         <translation>Глава</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="192"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="181"/>
         <source>A major thematic section of content in a work.</source>
         <translation>Основний тематичний розділ при викладенні змісту у творі.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="193"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="182"/>
         <source>Colophon</source>
         <translation>Колофон</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="193"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="182"/>
         <source>A short section of production notes particular to the edition (e.g., describing the typeface used), often located at the end of a work.</source>
         <translation>Завершальний напис у книзі або рукописі, що містить відомості про її видання, такі як ім&apos;я друкаря або видавця, дата створення, місцезнаходження, відомості про автора, художників та інших учасників процесу.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="194"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="183"/>
         <source>Conclusion</source>
         <translation>Завершення</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="194"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="183"/>
         <source>A concluding section or statement that summarizes the work or wraps up the narrative.</source>
         <translation>Фінальна частина будь-якого тексту, контенту або твору, в якій підсумовуються результати, узагальнюються основні положення, підводяться підсумки і завершується розповідь.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="195"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="184"/>
         <source>Cover</source>
         <translation>Обкладинка</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="195"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="184"/>
         <source>An image that sets the mood or tone for the work and typically includes the title and author.</source>
         <translation>Зображення, яке задає настрій або тон твору і зазвичай містить назву та ім&apos;я автора.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="196"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="185"/>
         <source>Credit</source>
         <translation>Відзнака</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="196"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="185"/>
         <source>An acknowledgement of the source of integrated content from third-party sources, such as photos.  Typically identifies the creator, copyright, and any restrictions on reuse.</source>
         <translation>Зазначення про походження інтегрованого контенту з сторонніх джерел, наприклад, фотографій. Зазвичай вказується автор, авторські права та будь-які обмеження щодо повторного використання.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="197"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="186"/>
         <source>Credits</source>
         <translation>Відзнаки</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="197"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="186"/>
         <source>A collection of credits.</source>
         <translation>Список відзнак учасників.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="198"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="187"/>
         <source>Dedication</source>
         <translation>Присвячення</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="198"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="187"/>
         <source>An inscription at the front of the work, typically addressed in tribute to one or more persons close to the author.</source>
         <translation>Напис на титульному аркуші твору, зазвичай адресований на знак поваги одній або кільком близьким автору людям.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="199"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="188"/>
         <source>Endnote</source>
         <translation>Кінцева виноска</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="199"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="188"/>
         <source>One of a collection of notes that occur at the end of a work, or a section within it that provides additional context to a referenced passage of text. [epub:type ONLY]</source>
         <translation>Одна примітка зі збірки приміток, які розміщуються у кінці твору, або його розділу, що надає додатковий контекст до згаданого уривку тексту. [epub:type ONLY]</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="200"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="189"/>
         <source>Endnotes</source>
         <translation>Кінцеві виноски</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="200"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="189"/>
         <source>A collection of notes at the end of a work or a section within it.</source>
         <translation>Збірка приміток у кінці твору або його розділу.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="201"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="190"/>
         <source>Epigraph</source>
         <translation>Епіграф</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="201"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="190"/>
         <source>A quotation set at the start of the work or a section that establishes the theme or sets the mood.</source>
         <translation>Цитата, розміщена на початку твору або розділу, яка задає тему або настрій.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="202"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="191"/>
         <source>Epilogue</source>
         <translation>Епілог</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="202"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="191"/>
         <source>A concluding section of narrative that wraps up or comments on the actions and events of the work, typically from a future perspective.</source>
         <translation>Заключна частина оповідання, в якій підбиваються підсумки або дається оцінка дій і подій твору, як правило, з точки зору майбутнього.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="203"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="192"/>
         <source>Errata</source>
         <translation>Список виправлень</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="203"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="192"/>
         <source>A set of corrections discovered after initial publication of the work, sometimes referred to as corrigenda.</source>
         <translation>Список виправлених друкарських помилок або помилок, виявлених після першої публікації твору, іноді званий коригенда.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="204"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="193"/>
         <source>Example</source>
         <translation>Приклад</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="204"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="193"/>
         <source>An illustration of a key concept of the work, such as a code listing, case study or problem. [aria role ONLY]</source>
         <translation>Ілюстрація ключової концепції роботи, наприклад, лістинг коду, приклад з практики або рішення завдання. [ТІЛЬКИ для ролі ARIA]</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="205"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="194"/>
         <source>Footnote</source>
         <translation>Виноска</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="205"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="194"/>
         <source>Ancillary information, such as a citation or commentary, that provides additional context to a referenced passage of text.</source>
         <translation>Допоміжна інформація, така як цитата або коментар, що надає додатковий контекст до уривку тексту, на який посилаються.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="206"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="195"/>
         <source>Footnotes</source>
         <translation>Виноски</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="206"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="195"/>
         <source>A collection of footnotes. [epub:type ONLY]</source>
         <translation>Збірка виносок. [epub:type ONLY]</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="207"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="196"/>
         <source>Foreword</source>
         <translation>Передмова</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="207"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="196"/>
         <source>An introductory section that precedes the work, typically not written by the author of the work.</source>
         <translation>Вступна частина, що передує твору, як правило, написана не автором твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="208"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="197"/>
         <source>Glossary</source>
         <translation>Глосарій</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="208"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="197"/>
         <source>A brief dictionary of new, uncommon, or specialized terms used in the content.</source>
         <translation>Довідковий розділ, що представляє собою короткий словник термінів, абревіатур і виразів, що використовуються у певній галузі знань, тексті або контенті, з їх поясненнями.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="209"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="198"/>
         <source>Glossary Reference</source>
         <translation>Посилання на глосарій</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="209"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="198"/>
         <source>A reference to a glossary definition.</source>
         <translation>Посилання на визначення в глосарії.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="210"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="199"/>
         <source>Index</source>
         <translation>Покажчик</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="210"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="199"/>
         <source>A navigational aid that provides a detailed list of links to key subjects, names and other important topics covered in the work.</source>
         <translation>Допоміжний навігаційний засіб, який надає детальний перелік посилань на ключові теми, імена та інші важливі питання, порушені у творі.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="211"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="200"/>
         <source>Introduction</source>
         <translation>Введення</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="211"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="200"/>
         <source>A preliminary section that typically introduces the scope or nature of the work.</source>
         <translation>Вступний розділ, в якому зазвичай представляється або описується обсяг і характер твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="212"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="201"/>
         <source>Note Reference</source>
         <translation>Посилання на примітку</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="212"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="201"/>
         <source>A reference to a footnote or endnote, typically appearing as a superscripted number or symbol in the main body of the text.</source>
         <translation>Посилання на виноску або кінцеву виноску, зазвичай позначається в основному тексті у вигляді надрядкового числа або символу.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="213"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="202"/>
         <source>Notice</source>
         <translation>Оповіщення</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="213"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="202"/>
         <source>Notifies the user of consequences that might arise from an action or event.  Examples include warnings, cautions and dangers.</source>
         <translation>Сповіщує користувача про наслідки, які можуть виникнути у результаті дії або події. Прикладами слугують попередження, застереження та небезпеки.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="214"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="203"/>
         <source>Pagebreak</source>
         <translation>Розрив сторінки</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="214"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="203"/>
         <source>A separator denoting the position before which a break occurs between contiguous pages in a statically paginated version of the content.</source>
         <translation>Роздільник, що позначає позицію, перед якою відбувається розрив між суміжними сторінками у статично розбитій на сторінки версії контенту.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="215"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="204"/>
         <source>Page Footer</source>
         <translation>Нижній колонтитул сторінки</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="215"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="204"/>
         <source>A section of text appearing at the bottom of a page that provides context about the current work and location within it. The page footer is distinct from the body text and normally follows a repeating template that contains (possibly truncated) items such as the document title, current section, author name(s), and page number.</source>
         <translation>Наскрізний блок тексту, розташований внизу сторінки, який надає контекст про поточний твір і його місце розташування у ньому. Нижній колонтитул відрізняється від основного тексту і зазвичай повторює шаблон, що містить (можливо, скорочені) елементи, такі як назва документа, поточний розділ, ім&apos;я (імена) автора (авторів) і номер сторінки.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="216"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="205"/>
         <source>Page Header</source>
         <translation>Верхній колонтитул сторінки</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="216"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="205"/>
         <source>A section of text appearing at the top of a page that provides context about the current work and location within it. The page header is distinct from the body text and normally follows a repeating template that contains (possibly truncated) items such as the document title, current section, author name(s), and page number.</source>
         <translation>Наскрізний блок тексту, розташований у верхній частині сторінки, який надає контекст про поточний твір та його місце розташування у ньому. Верхній колонтитул відрізняється від основного тексту і зазвичай повторює шаблон, що містить (можливо, скорочені) елементи, такі як назва документа, поточний розділ, ім&apos;я (імена) автора (авторів) і номер сторінки.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="217"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="206"/>
         <source>Page List</source>
         <translation>Список сторінок</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="217"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="206"/>
         <source>A navigational aid that provides a list of links to the page breaks in the content.</source>
         <translation>Навігаційний засіб, який містить список посилань на сторінки у тексті або контенті.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="218"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="207"/>
         <source>Part</source>
         <translation>Частина</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="218"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="207"/>
         <source>A major structural division in a work that contains a set of related sections dealing with a particular subject, narrative arc, or similar encapsulated theme.</source>
         <translation>Основний структурний елемент у творі, що містить набір пов&apos;язаних між собою розділів, присвячених певній темі, сюжетній лінії або аналогічній самостійній темі.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="219"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="208"/>
         <source>Preamble</source>
         <translation>Преамбула</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="219"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="208"/>
         <source>A section at the beginning of a work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content. [epub:type ONLY]</source>
         <translation>Розділ на початку твору, що зазвичай містить вступну та/або пояснювальну інформацію щодо обсягу або характеру змісту твору. [ТІЛЬКИ epub:type]</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="220"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="209"/>
         <source>Preface</source>
         <translation>Передмова</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="220"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="209"/>
         <source>An introductory section that precedes the work, typically written by the author of the work.</source>
         <translation>Вступна частина, що передує твору, зазвичай написана автором твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="221"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="210"/>
         <source>Prologue</source>
         <translation>Пролог</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="221"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="210"/>
         <source>An introductory section that sets the background to a work, typically part of the narrative.</source>
         <translation>Вступна частина, яка встановлює контекст твору, зазвичай є частиною оповіді.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="222"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="211"/>
         <source>Pull Quote</source>
         <translation>Цитата-вставка</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="222"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="211"/>
         <source>A distinctively placed or highlighted quotation from the current content designed to draw attention to a topic or highlight a key point.</source>
         <translation>Виділена або підкреслена цитата з поточного тексту або контенту, призначена для привернення уваги до теми або виділення ключового моменту.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="223"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="212"/>
         <source>Questions and Answers</source>
         <translation>Питання та Відповіді</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="223"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="212"/>
         <source>A section of content structured as a series of questions and answers, such as an interview or list of frequently asked questions.</source>
         <translation>Розділ, який містить структурований у вигляді списку питань і відповідей контент, наприклад, інтерв&apos;ю або перелік поширених запитань.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="224"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="213"/>
         <source>Subtitle</source>
         <translation>Підзаголовок</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="224"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="213"/>
         <source>An explanatory or alternate title for the work, or a section or components within it.</source>
         <translation>Уточнюючий або альтернативний заголовок твору, розділу або його складових частин.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="225"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="214"/>
         <source>Tip</source>
         <translation>Підказка</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="225"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="214"/>
         <source>Helpful information that clarifies some aspect of the content or assists in comprehension.</source>
         <translation>Корисна інформація, яка уточнює певний аспект змісту або допомагає в його розумінні.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="226"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="215"/>
         <source>Table of Contents</source>
         <translation>Зміст</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="226"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="215"/>
         <source>A navigational aid that provides an ordered list of links to the major sectional headings in the content.  A table of contents may cover an entire work, or only a smaller section of it.</source>
         <translation>Навігаційний засіб, що представляє собою впорядкований список посилань на основні розділи тексту або контенту. Зміст може охоплювати весь твір або тільки його невелику частину.</translation>
     </message>
@@ -1702,7 +1702,7 @@ if a sans-serif font-family specified in your CSS</source>
 <context>
     <name>Book</name>
     <message>
-        <location filename="../../BookManipulation/Book.cpp" line="429"/>
+        <location filename="../../BookManipulation/Book.cpp" line="430"/>
         <source>Start</source>
         <translation>Початок</translation>
     </message>
@@ -1722,55 +1722,55 @@ if a sans-serif font-family specified in your CSS</source>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="99"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2359"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2361"/>
         <source>Open With</source>
         <translation>Відкрити за допомогою</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/BookBrowser.cpp" line="193"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="192"/>
         <source>%n file(s)</source>
         <translation><numerusform>%n файл</numerusform><numerusform>%n файли</numerusform><numerusform>%n файлів</numerusform><numerusform>%n файл(и)</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="305"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="773"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="944"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="979"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1056"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1163"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1474"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1579"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="304"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="772"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="943"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="982"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1059"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1166"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1477"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1582"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="306"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="305"/>
         <source>Are you sure you want to sort the selected files alphanumerically?</source>
         <translation>Ви впевнені, що хочете відсортувати обрані файли в абетко-цифровому форматі?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="307"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="306"/>
         <source>This action cannot be reversed.</source>
         <translation>Цю дію не можна буде повернути.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="390"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="389"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Файл «%1» не існує.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="773"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="772"/>
         <source>Javascript is not supported on epub2.</source>
         <translation>Javascript не підтримується в EPUB2.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="848"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="855"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="847"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="854"/>
         <source>Add Existing Files</source>
         <translation>Додати існуючі файли</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="913"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="912"/>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
@@ -1779,7 +1779,7 @@ if a sans-serif font-family specified in your CSS</source>
 «%1».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="922"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="921"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
@@ -1788,7 +1788,7 @@ if a sans-serif font-family specified in your CSS</source>
 «%1».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="945"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="944"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
@@ -1797,12 +1797,17 @@ OK to replace?</source>
 натисніть «ОК», якщо бажаете замінити?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="974"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="971"/>
+        <source>Overwrite of image &quot;%1&quot; failed.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="977"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
         <translation>Неможливо видалити або замінити файл «%1».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="979"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="982"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
@@ -1811,7 +1816,7 @@ A file with this name already exists in the book.</source>
 Файл з цим ім’ям вже є у книзі.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1057"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1060"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
@@ -1820,373 +1825,373 @@ A file with this name already exists in the book.</source>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1070"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1073"/>
         <source>File(s) added or replaced.</source>
         <translation>Файл(и) додано або замінено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1107"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1110"/>
         <source>Save As File</source>
         <translation>Зберегти як файл</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1130"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1133"/>
         <source>Unable to save the file.</source>
         <translation>Неможливо зберегти файл</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1141"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1144"/>
         <source>Choose the directory to save the files to</source>
         <translation>Оберіть каталог для збереження файлів</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1163"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1166"/>
         <source>One or more files already exists.  OK to overwrite?</source>
         <translation>Один або декілька файлів вже існують. Бажаєте перезаписати?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1180"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1183"/>
         <source>Unable to save files.  Destination may be a directory.</source>
         <translation>Неможливо зберегти файли. Місце призначення має бути каталогом.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1188"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1191"/>
         <source>Unable to save files.</source>
         <translation>Неможливо зберегти файли.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1412"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1415"/>
         <source>Filenames cannot contain these characters: &quot;%1&quot;.</source>
         <translation>Імена файлів не можуть містити символи: «%1».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1474"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1477"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
         <translation>Неможливо змінити назву файлу, через можливість повторення імен.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1545"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1548"/>
         <source>Destination Folder has invalid path &quot;%1&quot;</source>
         <translation>У папки призначення недійсний шлях «%1»</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1579"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1582"/>
         <source>Cannot move files since this would result in duplicate filenames.</source>
         <translation>Неможливо перемістити файли, через можливість повторення імен.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1626"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1629"/>
         <source>The Nav document cannot be removed.</source>
         <translation>Документ Nav не може бути видалений.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1634"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1637"/>
         <source>The NCX cannot be removed.</source>
         <translation>NCX не може бути видалений.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1641"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1644"/>
         <source>The OPF is required for epub and cannot be removed.</source>
         <translation>OPF необхідний для ePUB і не може бути видалений.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1650"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1653"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>Ви не можете видалити всі html файли
 Там завжди повинен бути принаймні один.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1798"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1801"/>
         <source>Unable to set file as cover image.</source>
         <translation>Неможливо встановити файл як зображення обкладинки.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1835"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1838"/>
         <source>(root folder)</source>
         <translation>(кореневий каталог)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1845"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1848"/>
         <source>FileName</source>
         <translation>Ім&apos;я файлу</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1848"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1851"/>
         <source>Folder</source>
         <translation>Папка розміщення</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1851"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1854"/>
         <source>Media Type</source>
         <translation>MIME-тип</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1854"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1857"/>
         <source>File Size(kb)</source>
         <translation>Розмір файлу (кБ)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1857"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1860"/>
         <source>Epub Version</source>
         <translation>Версія ePUB</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1874"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1877"/>
         <source>Word Count</source>
         <translation>Кількість слів</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1877"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1880"/>
         <source>Primary Language</source>
         <translation>Основна мова</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1884"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1887"/>
         <source>WellFormed</source>
         <translation>WellFormed</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1886"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1889"/>
         <source>Yes</source>
         <translation>Так</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1888"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1891"/>
         <source>No</source>
         <translation>Ні</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1891"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1894"/>
         <source>Linked Stylesheets</source>
         <translation>Пов&apos;язані Таблиці стилів</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1894"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1897"/>
         <source>Linked Javascripts</source>
         <translation>Підключені скрипти Java</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1897"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1900"/>
         <source>Linked Images</source>
         <translation>Пов&apos;язані зображення</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1900"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1903"/>
         <source>Linked Audio</source>
         <translation>Пов&apos;язаний аудіоматеріал</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1903"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1906"/>
         <source>Linked Video</source>
         <translation>Пов&apos;язаний відеоматеріал</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1930"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1933"/>
         <source>Semantics OPF Guide or Nav Landmarks</source>
         <translation>Семантика OPF Guide або Nav Landmarks</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1939"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1942"/>
         <source>Manifest Properties</source>
         <translation>Властивості Маніфесту</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1942"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1945"/>
         <source>Defined Ids</source>
         <translation>Визначені ідентифікатори (ID)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1949"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1961"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1952"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1964"/>
         <source>Description</source>
         <translation>Опис</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1952"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1955"/>
         <source>Obfuscation Algorithm</source>
         <translation>Алгоритм обфускації</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1954"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2207"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1957"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2209"/>
         <source>None</source>
         <translation>Нема</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2192"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2194"/>
         <source>Select All</source>
         <translation>Вибрати все</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2193"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2195"/>
         <source>Add Blank HTML File</source>
         <translation>Додати порожній файл HTML</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2194"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2196"/>
         <source>Add Blank Stylesheet</source>
         <translation>Додати порожній файл CSS</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2195"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2197"/>
         <source>Add Blank Javascript</source>
         <translation>Додати бланк Javascript</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2196"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2198"/>
         <source>Add Blank SVG Image</source>
         <translation>Додати порожнє SVG зображення</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2197"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2199"/>
         <source>View Image</source>
         <translation>Перегляд зображення</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2198"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2200"/>
         <source>Add Existing Files...</source>
         <translation>Додати існуючі файли…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2199"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2200"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2201"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2202"/>
         <source>Add Copy</source>
         <translation>Додати копію</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2201"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2203"/>
         <source>Rename</source>
         <translation>Перейменувати</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2202"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2204"/>
         <source>RegEx Rename</source>
         <translation>Перейменувати RegEx</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2203"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2205"/>
         <source>Move</source>
         <translation>Перемістити</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2204"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2206"/>
         <source>Delete</source>
         <translation>Видалити</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2205"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2207"/>
         <source>Cover Image</source>
         <translation>Зображення обкладинки</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2206"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2208"/>
         <source>Merge</source>
         <translation>Об&apos;єднати</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2208"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2210"/>
         <source>Use Adobe&apos;s Method</source>
         <translation>Зробити методом Adobe</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2209"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2211"/>
         <source>Use IDPF&apos;s Method</source>
         <translation>Зробити методом IDPF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2210"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2212"/>
         <source>Sort</source>
         <translation>Сортувати</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2211"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2213"/>
         <source>Change Reading Order</source>
         <translation>Змінити послідовність</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2212"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2214"/>
         <source>Renumber TOC Entries</source>
         <translation>Перенумерувати елементи змісту</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2213"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2215"/>
         <source>Link Stylesheets...</source>
         <translation>Зв&apos;язати з Таблицею стилів…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2214"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2216"/>
         <source>Link Javascripts...</source>
         <translation>Підключити Javascripts…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2215"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2217"/>
         <source>Add Semantics...</source>
         <translation>Додати семантику…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2216"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2218"/>
         <source>Get Info...</source>
         <translation>Відомості про файл...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2217"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2219"/>
         <source>Validate with W3C</source>
         <translation>Валідація на сайті W3C</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2218"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2220"/>
         <source>Save As</source>
         <translation>Зберегти як</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2224"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2399"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2226"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2401"/>
         <source>Other Application</source>
         <translation>Інша програма</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2225"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2227"/>
         <source>Clear Editor List</source>
         <translation>Очистити список редакторів</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2234"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2236"/>
         <source>Merge with previous file, or merge multiple files into one.</source>
         <translation>Об’єднати з попереднім файлом або об&apos;єднати декілька файлів в один.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2237"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2239"/>
         <source>Rename selected file(s)</source>
         <translation>Перейменувати вибраний файл(и)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2239"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2241"/>
         <source>Use Regular Expressions to Rename selected file(s)</source>
         <translation>Використовуйте регулярні вирази для перейменування вибраних файлів</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2242"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2244"/>
         <source>Move selected file(s) to a new folder</source>
         <translation>Перемістити вибраний файл(и) до нової папки</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2244"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2246"/>
         <source>Link Stylesheets to selected file(s).</source>
         <translation>Зв&apos;язати Таблицю стилів з вибраними файлами.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2246"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2248"/>
         <source>Link Javascripts to selected file(s).</source>
         <translation>Зв’язати Javascripts з вибраними файлами.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2248"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2250"/>
         <source>Add Semantics to selected file(s).</source>
         <translation>Додати семантику до вибраних файлів.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2250"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2252"/>
         <source>Show Information about selected files.</source>
         <translation>Показати відомості про вибрані файли.</translation>
     </message>
@@ -2471,7 +2476,7 @@ There always has to be at least one.</source>
     <name>ClipEditor</name>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="14"/>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="537"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="536"/>
         <source>Clip Editor</source>
         <translation>Редактор Фрагментів</translation>
     </message>
@@ -2502,13 +2507,13 @@ There always has to be at least one.</source>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="100"/>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="648"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="647"/>
         <source>Add Entry</source>
         <translation>Додати запис</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="110"/>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="649"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="648"/>
         <source>Add Group</source>
         <translation>Додати Групу</translation>
     </message>
@@ -2541,177 +2546,177 @@ There always has to be at least one.</source>
         <translation>Перемістити запис у групі на один щабель вниз.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="73"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="72"/>
         <source>Right click on an entry to see a context menu of actions.</source>
         <translation>Зробіть правий клік миші на запису, щоб побачити контекстне меню дій.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="74"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="73"/>
         <source>You can also right click in your document to select an entry.</source>
         <translation>Ви можете зробити правий клік миші на документі, щоб вибрати запис.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="75"/>
         <source>Name</source>
         <translation>Назва</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="75"/>
         <source>Name of your entry or group.</source>
         <translation>Назва Вашого запису чи групи.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
         <source>Number</source>
         <translation>Номер</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
         <source>Assignable Shortcut Id.</source>
         <translation>Ідентифікатор ярлика, який призначається.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="78"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
         <source>Text</source>
         <translation>Текст</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="78"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
         <source>The text to insert. The text is treated like a Regex replacement expression so \1 can be used to insert the text selected in Code View when you paste the clip.</source>
         <translation>Текст для вставки. Текст трактується як регулярний вираз RegEx, тому \1 можна використовувати для вставки тексту, вибраного у Браузері Коду, коли Ви вставляєте фрагмент.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="82"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="81"/>
         <source>Save</source>
         <translation>Зберегти</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="82"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="81"/>
         <source>Save your changes.</source>
         <translation>Зберегти зміни.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="82"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="81"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
         <translation>Якщо запущені інші екземпляри Sigil, вони будуть автоматично оновлені з Вашими змінами.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="92"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="91"/>
         <source>Cannot save entries.</source>
         <translation>Неможливо зберегти внесені записи.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="136"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="135"/>
         <source>Clip entries loaded from file.</source>
         <translation>Внесений фрагмент, завантажено з файлу.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="199"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="198"/>
         <source>You cannot select an entry and a group containing the entry.</source>
         <translation>Ви не можете вибрати запис та групу, що містить запис.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="287"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="286"/>
         <source>You cannot Copy or Cut groups - use drag-and-drop.</source>
         <translation>Ви не можете копіювати або вирізати групи – використовуйте drag&amp;drop.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="360"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="359"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="360"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="359"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
         <translation>Ви впевнені, що хочете перезавантажити всі записи? Це перезапише всі незбережені зміни.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="378"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="377"/>
         <source>Import Entries</source>
         <translation>Імпорт Записів</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="456"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="455"/>
         <source>Export Selected Entries</source>
         <translation>Експорт вибраних Записів</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../Dialogs/ClipEditor.cpp" line="537"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="536"/>
         <source>CSS entries added: %n</source>
         <translation><numerusform>Додано записів CSS: %n</numerusform><numerusform>Додано записів CSS: %n</numerusform><numerusform>Додано записів CSS: %n</numerusform><numerusform>Додано записів CSS: %n</numerusform></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="650"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="649"/>
         <source>Edit</source>
         <translation>Редагувати</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="651"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="650"/>
         <source>Cut</source>
         <translation>Вирізати</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="652"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="651"/>
         <source>Copy</source>
         <translation>Копіювати</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="653"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="652"/>
         <source>Paste</source>
         <translation>Вставити</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="654"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="653"/>
         <source>Delete</source>
         <translation>Видалити</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="655"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="654"/>
         <source>Import</source>
         <translation>Імпорт</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="656"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="655"/>
         <source>Reload</source>
         <translation>Перезавантажити</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="657"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="656"/>
         <source>Export</source>
         <translation>Експорт</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="658"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="657"/>
         <source>Export All</source>
         <translation>Експортувати все</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="659"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="658"/>
         <source>Collapse All</source>
         <translation>Згорнути все</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="660"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="659"/>
         <source>Expand All</source>
         <translation>Розгорнути все</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="661"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="660"/>
         <source>Autofill</source>
         <translation>Автозаповнення</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="743"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="742"/>
         <source>Clip entries saved.</source>
         <translation>Внесені фрагменти збережені.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="772"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="771"/>
         <source>Sigil: Clip Editor</source>
         <translation>Sigil: Редактор Фрагментів</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="773"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="772"/>
         <source>The Clip entries may have been modified.
 Do you want to save your changes?</source>
         <translation>Внесений фрагмент, можливо, був змінений.
@@ -2721,22 +2726,22 @@ Do you want to save your changes?</source>
 <context>
     <name>ClipEditorModel</name>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="73"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="62"/>
         <source>Name</source>
         <translation>Назва</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="74"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="63"/>
         <source>Number</source>
         <translation>Номер</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="75"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="64"/>
         <source>Text</source>
         <translation>Текст</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="737"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="721"/>
         <source>Unable to create file %1</source>
         <translation>Неможливо створити файл %1</translation>
     </message>
@@ -2777,12 +2782,12 @@ Do you want to save your changes?</source>
         <translation>Фрагменти</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ClipsWindow.cpp" line="139"/>
+        <location filename="../../MainUI/ClipsWindow.cpp" line="138"/>
         <source>Collapse All</source>
         <translation>Згорнути все</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ClipsWindow.cpp" line="140"/>
+        <location filename="../../MainUI/ClipsWindow.cpp" line="139"/>
         <source>Expand All</source>
         <translation>Розгорнути все</translation>
     </message>
@@ -2800,137 +2805,137 @@ Do you want to save your changes?</source>
         <translation>У цій позиції не знайдено відкритих тегів.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1547"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1546"/>
         <source>Add To Default Dictionary</source>
         <translation>Додати до Словника за замовчуванням</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1560"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1559"/>
         <source>Add To Dictionary</source>
         <translation>Додати до Словника</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1577"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1576"/>
         <source>Ignore</source>
         <translation>Ігнорувати</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1639"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1638"/>
         <source>Reformat CSS</source>
         <translation>Переформатувати CSS</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1641"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1640"/>
         <source>Multiple Lines Per Style</source>
         <translation>Багаторядковий Стиль</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1642"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1641"/>
         <source>Single Line Per Style</source>
         <translation>Однорядковий Стиль</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1668"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1667"/>
         <source>Rename Selected Class</source>
         <translation>Перейменувати вибраний клас</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1690"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1689"/>
         <source>Reformat HTML</source>
         <translation>Переформатувати HTML</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1692"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1691"/>
         <source>Mend and Prettify Code</source>
         <translation>Виправити та відформатувати Код</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1693"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1692"/>
         <source>Mend and Prettify Code - All HTML Files</source>
         <translation>Виправити та відформатувати Код – Всі HTML файли</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1694"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1693"/>
         <source>Mend Code</source>
         <translation>Виправити Код</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1695"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1694"/>
         <source>Mend Code - All HTML Files</source>
         <translation>Виправити Код – Всі HTML файли</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1725"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1724"/>
         <source>Go To Link Or Style</source>
         <translation>Перейти до посилання або стилю</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1747"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1746"/>
         <source>Toggle Line Wrap Mode</source>
         <translation>Перемикач режиму перенесення рядків</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1769"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1768"/>
         <source>View Image</source>
         <translation>Перегляд зображення</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1770"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1769"/>
         <source>Open Tab For Image</source>
         <translation>Відкрити вкладку для зображення</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1796"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1795"/>
         <source>Mark Selected Text</source>
         <translation>Позначити вибраний текст</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1798"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1797"/>
         <source>Unmark Marked Text</source>
         <translation>Зняти позначку з відміченого тексту</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1824"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1823"/>
         <source>Clips</source>
         <translation>Фрагменти</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1834"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1833"/>
         <source>Add To Clips</source>
         <translation>Додати до фрагментів</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1972"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1971"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
         <translation>Щоб скористатися цією функцією, Ви повинні знаходитися у відкриваючому HTML-тегу.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1982"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1981"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
         <translation>Щоб скористатися цією функцією, Ви повинні знаходитися всередині відкриваючого HTML-тегу.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2046"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2045"/>
         <source>Selected Text is not a valid class name.</source>
         <translation>Вибраний текст не є допустимою назвою класу.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2053"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2052"/>
         <source>Rename Class</source>
         <translation>Перейменувати клас</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2054"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2053"/>
         <source>Enter new class name</source>
         <translation>Введіть нову назву класу</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2074"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2073"/>
         <source>Class renamed.</source>
         <translation>Клас перейменовано.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2076"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2075"/>
         <source>Class rename aborted.</source>
         <translation>Перейменування класу перервано.</translation>
     </message>
@@ -3617,7 +3622,7 @@ other end to continue searching.</source>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="81"/>
-        <location filename="../../Dialogs/EditTOC.cpp" line="497"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="726"/>
         <source>Delete</source>
         <translation>Видалити</translation>
     </message>
@@ -3652,42 +3657,42 @@ You can also use the right arrow key.</source>
 Ви можете використовувати клавішу зі стрілкою вправо.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="99"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="104"/>
         <source>TOC Entry</source>
         <translation>Запис TOC</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="100"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="105"/>
         <source>Target</source>
         <translation>Адресат</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="384"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="613"/>
         <source>[placeholder]</source>
         <translation>[плейсхолдер]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="496"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="725"/>
         <source>Rename</source>
         <translation>Перейменувати</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="504"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="733"/>
         <source>Move Up</source>
         <translation>Перемістити вгору</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="505"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="734"/>
         <source>Move Down</source>
         <translation>Перемістити вниз</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="511"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="740"/>
         <source>Expand All</source>
         <translation>Розгорнути все</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="512"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="741"/>
         <source>Collapse All</source>
         <translation>Згорнути все</translation>
     </message>
@@ -3695,7 +3700,7 @@ You can also use the right arrow key.</source>
 <context>
     <name>EmbeddedPython</name>
     <message>
-        <location filename="../../EmbedPython/EmbeddedPython.cpp" line="739"/>
+        <location filename="../../EmbedPython/EmbeddedPython.cpp" line="729"/>
         <source>Embedded Python Error</source>
         <translation>Помилка вбудованого Python</translation>
     </message>
@@ -4857,362 +4862,362 @@ mended.</source>
 <context>
     <name>GuideItems</name>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="166"/>
+        <location filename="../../Misc/GuideItems.cpp" line="154"/>
         <source>Acknowledgements</source>
         <translation>Дякування</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="166"/>
+        <location filename="../../Misc/GuideItems.cpp" line="154"/>
         <source>A passage containing acknowledgments to entities involved in the realization of the work.</source>
         <translation>Уривок, який містить подяки суб’єктам, які беруть участь у реалізації твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="167"/>
+        <location filename="../../Misc/GuideItems.cpp" line="155"/>
         <source>Afterword</source>
         <translation>Післямова</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="167"/>
+        <location filename="../../Misc/GuideItems.cpp" line="155"/>
         <source>A closing statement from the author or a person of importance to the story, typically providing insight into how the story came to be written, its significance or related events that have transpired since its timeline.</source>
         <translation>Заключне висловлювання автора чи людини, що має важливе значення для розповіді, як правило, забезпечує розуміння того, як історія була написана, її значення чи пов’язані з нею події, що набули свого часу.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="168"/>
+        <location filename="../../Misc/GuideItems.cpp" line="156"/>
         <source>Appendix</source>
         <translation>Додаток</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="168"/>
+        <location filename="../../Misc/GuideItems.cpp" line="156"/>
         <source>Supplemental information.</source>
         <translation>Додаткова інформація.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="169"/>
+        <location filename="../../Misc/GuideItems.cpp" line="157"/>
         <source>Back Matter</source>
         <translation>Прикінцеві матеріали</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="169"/>
+        <location filename="../../Misc/GuideItems.cpp" line="157"/>
         <source>Ancillary material occurring after the main content of a publication, such as indices, appendices, etc.</source>
         <translation>Допоміжний матеріал, що виникає після основного змісту публікації, наприклад, індекси, додатки тощо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="170"/>
+        <location filename="../../Misc/GuideItems.cpp" line="158"/>
         <source>Bibliography</source>
         <translation>Бібліографія</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="170"/>
+        <location filename="../../Misc/GuideItems.cpp" line="158"/>
         <source>A list of works cited.</source>
         <translation>Список цитованих робіт.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="171"/>
+        <location filename="../../Misc/GuideItems.cpp" line="159"/>
         <source>Text</source>
         <translation>Текст</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="171"/>
+        <location filename="../../Misc/GuideItems.cpp" line="159"/>
         <source>The start of the main text content of a publication.</source>
         <translation>Початок основного текстового змісту публікації.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="172"/>
+        <location filename="../../Misc/GuideItems.cpp" line="160"/>
         <source>Colophon</source>
         <translation>Колофон</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="172"/>
+        <location filename="../../Misc/GuideItems.cpp" line="160"/>
         <source>A brief description usually located at the end of a publication, describing production notes relevant to the edition.</source>
         <translation>Короткий опис, зазвичай розміщений в кінці публікації, описує виробничі нотатки, що стосуються видання.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="173"/>
+        <location filename="../../Misc/GuideItems.cpp" line="161"/>
         <source>Conclusion</source>
         <translation>Завершення</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="173"/>
+        <location filename="../../Misc/GuideItems.cpp" line="161"/>
         <source>An ending section that typically wraps up the work.</source>
         <translation>Кінцевий розділ, який зазвичай завершує роботу.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="174"/>
+        <location filename="../../Misc/GuideItems.cpp" line="162"/>
         <source>Contributors</source>
         <translation>Співавтори</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="174"/>
+        <location filename="../../Misc/GuideItems.cpp" line="162"/>
         <source>A list of contributors to the work.</source>
         <translation>Список співавторів твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="175"/>
+        <location filename="../../Misc/GuideItems.cpp" line="163"/>
         <source>Copyright Page</source>
         <translation>Сторінка авторських прав</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="175"/>
+        <location filename="../../Misc/GuideItems.cpp" line="163"/>
         <source>The copyright page of the work.</source>
         <translation>Сторінка авторських прав на твір.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="176"/>
+        <location filename="../../Misc/GuideItems.cpp" line="164"/>
         <source>Cover</source>
         <translation>Обкладинка</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="176"/>
+        <location filename="../../Misc/GuideItems.cpp" line="164"/>
         <source>The publications cover(s), jacket information, etc.</source>
         <translation>Обкладинка(-ки) видань, інформація на суперобкладинках і т.д.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="177"/>
+        <location filename="../../Misc/GuideItems.cpp" line="165"/>
         <source>Dedication</source>
         <translation>Присвячення</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="177"/>
+        <location filename="../../Misc/GuideItems.cpp" line="165"/>
         <source>An inscription addressed to one or several particular person(s).</source>
         <translation>Напис, адресований одній або декільком окремим особам.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="178"/>
+        <location filename="../../Misc/GuideItems.cpp" line="166"/>
         <source>Epilogue</source>
         <translation>Епілог</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="178"/>
+        <location filename="../../Misc/GuideItems.cpp" line="166"/>
         <source>A concluding section that is typically written from a later point in time than the main story, although still part of the narrative.</source>
         <translation>Заключний розділ, який, як правило, пишеться з пізнішого часу, ніж основний сюжет, хоча все ще є частиною оповідання.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="179"/>
+        <location filename="../../Misc/GuideItems.cpp" line="167"/>
         <source>Epigraph</source>
         <translation>Епіграф</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="179"/>
+        <location filename="../../Misc/GuideItems.cpp" line="167"/>
         <source>A quotation that is pertinent but not integral to the text.</source>
         <translation>Цитата, яка доречна, але не є невід’ємною частиною тексту.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="180"/>
+        <location filename="../../Misc/GuideItems.cpp" line="168"/>
         <source>Errata</source>
         <translation>Друкарські помилки</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="180"/>
+        <location filename="../../Misc/GuideItems.cpp" line="168"/>
         <source>Publication errata, in printed works typically a loose sheet inserted by hand; sometimes a bound page that contains corrections for mistakes in the work.</source>
         <translation>Друкарські помилки видання, у друкованих творах, як правило, вільний аркуш, вставлений вручну; іноді переплетена сторінка, яка містить виправлення помилок у роботі.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="181"/>
+        <location filename="../../Misc/GuideItems.cpp" line="169"/>
         <source>Footnotes</source>
         <translation>Виноски</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="181"/>
+        <location filename="../../Misc/GuideItems.cpp" line="169"/>
         <source>A collection of notes appearing at the bottom of a page.</source>
         <translation>Збірка приміток та пояснень до тексту, що з’являються внизу сторінки.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="182"/>
+        <location filename="../../Misc/GuideItems.cpp" line="170"/>
         <source>Foreword</source>
         <translation>Передмова</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="182"/>
+        <location filename="../../Misc/GuideItems.cpp" line="170"/>
         <source>An introductory section that precedes the work, typically not written by the work&apos;s author.</source>
         <translation>Вступний розділ, що передує твору, як правило, не написаний автором твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="183"/>
+        <location filename="../../Misc/GuideItems.cpp" line="171"/>
         <source>Front Matter</source>
         <translation>Вступні матеріали</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="183"/>
+        <location filename="../../Misc/GuideItems.cpp" line="171"/>
         <source>Preliminary material to the main content of a publication, such as tables of contents, dedications, etc.</source>
         <translation>Попередній матеріал до основного змісту публікації, такий як зміст, присвяти тощо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="184"/>
+        <location filename="../../Misc/GuideItems.cpp" line="172"/>
         <source>Glossary</source>
         <translation>Глосарій</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="184"/>
+        <location filename="../../Misc/GuideItems.cpp" line="172"/>
         <source>An alphabetical list of terms in a particular domain of knowledge, with the definitions for those terms.</source>
         <translation>Алфавітний перелік термінів у певній галузі знань із визначеннями для цих термінів.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="185"/>
+        <location filename="../../Misc/GuideItems.cpp" line="173"/>
         <source>Half Title Page</source>
         <translation>Шмуцтитул</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="185"/>
+        <location filename="../../Misc/GuideItems.cpp" line="173"/>
         <source>The half title page of the work which carries just the title itself.</source>
         <translation>Окрема сторінка, де поміщають заголовок частини, розділу чи розділ книги, а деколи окремих творів, які входять у збірник.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="186"/>
+        <location filename="../../Misc/GuideItems.cpp" line="174"/>
         <source>Imprimatur</source>
         <translation>Дозвіл цензури</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="186"/>
+        <location filename="../../Misc/GuideItems.cpp" line="174"/>
         <source>A formal statement authorizing the publication of the work.</source>
         <translation>Офіційна заява про дозвіл на публікацію твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="187"/>
+        <location filename="../../Misc/GuideItems.cpp" line="175"/>
         <source>Imprint</source>
         <translation>Імпринт</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="187"/>
+        <location filename="../../Misc/GuideItems.cpp" line="175"/>
         <source>Information relating to the publication or distribution of the work.</source>
         <translation>Інформація, що стосується публікації чи розповсюдження твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="188"/>
+        <location filename="../../Misc/GuideItems.cpp" line="176"/>
         <source>Index</source>
         <translation>Покажчик</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="188"/>
+        <location filename="../../Misc/GuideItems.cpp" line="176"/>
         <source>A detailed list, usually arranged alphabetically, of the specific information in a publication.</source>
         <translation>Детальний список, який зазвичай розташований в алфавітному порядку, певної інформації в публікації.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="189"/>
+        <location filename="../../Misc/GuideItems.cpp" line="177"/>
         <source>Introduction</source>
         <translation>Введення</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="189"/>
+        <location filename="../../Misc/GuideItems.cpp" line="177"/>
         <source>A section in the beginning of the work, typically introducing the reader to the scope or nature of the work&apos;s content.</source>
         <translation>Розділ на початку твору, як правило, знайомить читача зі сферою чи характером змісту твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="190"/>
+        <location filename="../../Misc/GuideItems.cpp" line="178"/>
         <source>List of Illustrations</source>
         <translation>Список ілюстрацій</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="190"/>
+        <location filename="../../Misc/GuideItems.cpp" line="178"/>
         <source>A listing of illustrations included in the work.</source>
         <translation>Перелік ілюстрацій, включених до твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="191"/>
+        <location filename="../../Misc/GuideItems.cpp" line="179"/>
         <source>List of Audio Clips</source>
         <translation>Список аудіокліпів</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="191"/>
+        <location filename="../../Misc/GuideItems.cpp" line="179"/>
         <source>A listing of audio clips included in the work.</source>
         <translation>Перелік аудіокліпів, включених до твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="192"/>
+        <location filename="../../Misc/GuideItems.cpp" line="180"/>
         <source>List of Tables</source>
         <translation>Список таблиць</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="192"/>
+        <location filename="../../Misc/GuideItems.cpp" line="180"/>
         <source>A listing of tables included in the work.</source>
         <translation>Перелік таблиць, включених до твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="193"/>
+        <location filename="../../Misc/GuideItems.cpp" line="181"/>
         <source>List of Video Clips</source>
         <translation>Список відеокліпів</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="193"/>
+        <location filename="../../Misc/GuideItems.cpp" line="181"/>
         <source>A listing of video clips included in the work.</source>
         <translation>Перелік відеокліпів, включених до твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="194"/>
+        <location filename="../../Misc/GuideItems.cpp" line="182"/>
         <source>Notes</source>
         <translation>Примітки</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="194"/>
+        <location filename="../../Misc/GuideItems.cpp" line="182"/>
         <source>A collection of notes. It can be used to identify footnotes, rear notes, marginal notes, inline notes, and similar when legacy naming conventions are not desired. Status: Deprecated - Replaced by: &apos;footnotes&apos;, &apos;rearnotes&apos;</source>
         <translation>Збірка нотаток. Її можна використовувати для ідентифікації виносок, задніх нотаток, граничних приміток, вбудованих нотаток тощо, коли застарілі угоди про іменування не бажані. Статус: застарілий - замінено на: «виноски», «замітки»</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="195"/>
+        <location filename="../../Misc/GuideItems.cpp" line="183"/>
         <source>Other Credits</source>
         <translation>Інші подяки</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="195"/>
+        <location filename="../../Misc/GuideItems.cpp" line="183"/>
         <source>Acknowledgments of previously published parts of the work, illustration credits, and permission to quote from copyrighted material.</source>
         <translation>Подяка за раніше опубліковані частини твору, права на ілюстрацій та дозвіл на цитування матеріалів, захищених авторським правом.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="196"/>
+        <location filename="../../Misc/GuideItems.cpp" line="184"/>
         <source>Preamble</source>
         <translation>Преамбула</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="196"/>
+        <location filename="../../Misc/GuideItems.cpp" line="184"/>
         <source>A section in the beginning of the work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content</source>
         <translation>Розділ на початку твору, який зазвичай містить вступну та/або пояснювальну прозу щодо обсягу чи характеру змісту твору</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="197"/>
+        <location filename="../../Misc/GuideItems.cpp" line="185"/>
         <source>Preface</source>
         <translation>Вступ</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="197"/>
+        <location filename="../../Misc/GuideItems.cpp" line="185"/>
         <source>An introductory section that precedes the work, typically written by the work&apos;s author.</source>
         <translation>Вступний розділ, що передує твору, як правило, написаний автором твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="198"/>
+        <location filename="../../Misc/GuideItems.cpp" line="186"/>
         <source>Prologue</source>
         <translation>Пролог</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="198"/>
+        <location filename="../../Misc/GuideItems.cpp" line="186"/>
         <source>An introductory section that sets the background to a story, typically part of the narrative.</source>
         <translation>Вступний розділ, який задає тло сюжету, як правило, є частиною розповіді.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="199"/>
+        <location filename="../../Misc/GuideItems.cpp" line="187"/>
         <source>Rear Notes</source>
         <translation>Прикінцеві примітки</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="199"/>
+        <location filename="../../Misc/GuideItems.cpp" line="187"/>
         <source>A collection of notes appearing at the rear (backmatter) of the work, or at the end of a section.</source>
         <translation>Збірка приміток, що з’являються ззаду (позаду, в кінці) твору або в кінці розділу.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="200"/>
+        <location filename="../../Misc/GuideItems.cpp" line="188"/>
         <source>Title Page</source>
         <translation>Титульний аркуш</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="200"/>
+        <location filename="../../Misc/GuideItems.cpp" line="188"/>
         <source>A page at the beginning of a book giving its title, authors, publisher and other publication information.</source>
         <translation>Сторінка на початку книги, що містить її назву, авторів, видавця та іншу інформацію про видання.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="201"/>
+        <location filename="../../Misc/GuideItems.cpp" line="189"/>
         <source>Table of Contents</source>
         <translation>Зміст</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="201"/>
+        <location filename="../../Misc/GuideItems.cpp" line="189"/>
         <source>A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work&apos;s frontmatter, or at the beginning of a section.</source>
         <translation>Зміст – це перелік заголовків або частин книги чи документа, впорядкованих у тому порядку, в якому вони відображаються. Зазвичай з’являється в передній частині твору або на початку розділу.</translation>
     </message>
@@ -5510,6 +5515,39 @@ You can then check or uncheck individual headings in the list above.</source>
     </message>
 </context>
 <context>
+    <name>ImageResizeDialog</name>
+    <message>
+        <location filename="../../Dialogs/ImageResizeDialog.cpp" line="8"/>
+        <source>Resize Image</source>
+        <translation>Змінити розмір</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/ImageResizeDialog.cpp" line="14"/>
+        <source>Width:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/ImageResizeDialog.cpp" line="23"/>
+        <source>Height:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/ImageResizeDialog.cpp" line="31"/>
+        <source>Keep Aspect Ratio</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/ImageResizeDialog.cpp" line="37"/>
+        <source>OK</source>
+        <translation>OK</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/ImageResizeDialog.cpp" line="38"/>
+        <source>Cancel</source>
+        <translation>Скасувати</translation>
+    </message>
+</context>
+<context>
     <name>ImageResource</name>
     <message>
         <location filename="../../ResourceObjects/ImageResource.cpp" line="50"/>
@@ -5658,17 +5696,17 @@ You can then check or uncheck individual headings in the list above.</source>
         <translation> Якщо ePUB містить файли, які не вказані у маніфесті, вони будуть проігноровані.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="199"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="206"/>
         <source>This EPUB had HTML files that were not well formed or are missing a DOCTYPE, html, head or body elements.&lt;br/&gt;&lt;br&gt;They were automatically fixed based on your Preference setting to Clean on Open.</source>
         <translation>Цей ePUB містив HTML-файли, які були неправильно сформовані або не мали елементів DOCTYPE, html, head або body.&lt;br/&gt;&lt;br&gt;Вони були автоматично виправлені у відповідності з налаштуванням виправляти некоректний код HTML по команді «Відкрити».</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="205"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="212"/>
         <source>This EPUB has HTML files that are not well formed or are missing a DOCTYPE, html, head or body elements.&lt;br/&gt;&lt;/br&gt;Fix these manually or use Sigil&apos;s Mend tool to automatically fixed these errors or omissions.</source>
         <translation>Цей ePUB містить HTML-файли, які були неправильно сформовані або не мають елементів DOCTYPE, html, head або body.&lt;br/&gt;&lt;/br&gt;Виправте їх вручну або скористайтеся наявним у Sigil інструментарієм для автоматичного виправлення цих помилок або пропусків.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="606"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="613"/>
         <source>Epub has missing or improperly specified OPF.</source>
         <translation>ePUB відсутній або неправильно вказаний OPF.</translation>
     </message>
@@ -5677,7 +5715,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <name>IndexEditor</name>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="14"/>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="288"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="287"/>
         <source>Index Editor</source>
         <translation>Редактор Покажчика</translation>
     </message>
@@ -5693,157 +5731,157 @@ You can then check or uncheck individual headings in the list above.</source>
     </message>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="58"/>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="427"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="426"/>
         <source>Add Entry</source>
         <translation>Додати запис</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="67"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="66"/>
         <source>Right click on an entry to see a context menu of actions.</source>
         <translation>Зробіть правий клік миші на запису, щоб побачити контекстне меню дій.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="68"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="67"/>
         <source>You can also right click in your document to add selected text to the Index.</source>
         <translation>Ви можете зробити правий клік миші на документі, щоб додати вибраний текст до Покажчика.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="69"/>
         <source>Text to Include</source>
         <translation>Шаблон тексту</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="69"/>
         <source>The pattern to match in your document, e.g. &quot;Gutenberg&quot;. This is a regex pattern so &quot;(?i)Gutenberg&quot; ignores case when matching.</source>
         <translation>Шаблон, який використовується для пошуку в документі, наприклад «Гутенберг». Це шаблон регулярного виразу, тому «(?i)Гутенберг» ігнорує збіг у тексті.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="71"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
         <source>Index Entries</source>
         <translation>Ключові слова</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="71"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
         <source>The entry to create in the Index. Leave blank to use text as is, or enter text to display.  Create multi-level entries by using &apos;/&apos; after a level name, e.g. &quot;Books/Fantasy/Alice in Wonderland&quot; or &quot;Books/Fantasy/&quot;.</source>
         <translation>Ключові слова Покажчика. Залиште порожнім, щоб використати текст як у шаблоні, або введіть текст який буде внесено до Покажчика. Щоб створити багаторівневі записи, використовуйте «/» після назви рубрики, наприклад «Книги/Фентезі/Alice in Wonderland» або «Книги/Фентезі/».</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="75"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
         <source>Save</source>
         <translation>Зберегти</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="75"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
         <source>Save your changes.</source>
         <translation>Зберегти зміни.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="75"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
         <translation>Якщо запущені інші екземпляри Sigil, вони будуть автоматично оновлені з Вашими змінами.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="85"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="84"/>
         <source>Cannot save entries.</source>
         <translation>Неможливо зберегти внесені записи.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="127"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="126"/>
         <source>Index entries loaded from file.</source>
         <translation>Ключові слова Покажчика, завантажені з файлу.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../Dialogs/IndexEditor.cpp" line="288"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="287"/>
         <source>Entries added: %n</source>
         <translation><numerusform>Додано записів: %n</numerusform><numerusform>Додано записів: %n</numerusform><numerusform>Додано записів: %n</numerusform><numerusform>Додано записів: %n</numerusform></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="294"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="293"/>
         <source>Index files: *.ini *.txt (*.ini *.txt)</source>
         <translation>Файли покажчика: *.ini *.txt (*.ini *.txt)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="298"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="297"/>
         <source>Load Entries From File</source>
         <translation>Завантажити записи з файлу</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="315"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="314"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="315"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="314"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
         <translation>Ви впевнені, що хочете перезавантажити всі записи? Це перезапише всі незбережені зміни.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="335"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="334"/>
         <source>Save Entries to File</source>
         <translation>Зберегти записи у файл</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="428"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="427"/>
         <source>Edit</source>
         <translation>Редагувати</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="429"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="428"/>
         <source>Cut</source>
         <translation>Вирізати</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="430"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="429"/>
         <source>Copy</source>
         <translation>Копіювати</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="431"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="430"/>
         <source>Paste</source>
         <translation>Вставити</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="432"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="431"/>
         <source>Delete</source>
         <translation>Видалити</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="433"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="432"/>
         <source>Autofill</source>
         <translation>Автозаповнення</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="434"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="433"/>
         <source>Open</source>
         <translation>Відкрити</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="435"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="434"/>
         <source>Reload</source>
         <translation>Перезавантажити</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="436"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="435"/>
         <source>Save As</source>
         <translation>Зберегти як</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="437"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="436"/>
         <source>Select All</source>
         <translation>Вибрати все</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="514"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="513"/>
         <source>Index entries saved.</source>
         <translation>Ключові слова покажчика збережено.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="543"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="542"/>
         <source>Sigil: Index Editor</source>
         <translation>Sigil: Редактор Покажчика</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="544"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="543"/>
         <source>The Index entries may have been modified.
 Do you want to save your changes?</source>
         <translation>Покажчик було змінено.
@@ -5853,17 +5891,17 @@ Do you want to save your changes?</source>
 <context>
     <name>IndexEditorModel</name>
     <message>
-        <location filename="../../MiscEditors/IndexEditorModel.cpp" line="64"/>
+        <location filename="../../MiscEditors/IndexEditorModel.cpp" line="52"/>
         <source>Text to Include</source>
         <translation>Шаблон тексту</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/IndexEditorModel.cpp" line="65"/>
+        <location filename="../../MiscEditors/IndexEditorModel.cpp" line="53"/>
         <source>Index Entries</source>
         <translation>Ключові слова</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/IndexEditorModel.cpp" line="350"/>
+        <location filename="../../MiscEditors/IndexEditorModel.cpp" line="333"/>
         <source>Unable to create file %1</source>
         <translation>Неможливо створити файл %1</translation>
     </message>
@@ -5955,7 +5993,7 @@ Do you want to save your changes?</source>
         <translation>Прибрати</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.cpp" line="466"/>
+        <location filename="../../Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.cpp" line="461"/>
         <source>Conflicts with: &lt;b&gt;</source>
         <translation>Конфлікт з: &lt;b&gt;</translation>
     </message>
@@ -5963,492 +6001,492 @@ Do you want to save your changes?</source>
 <context>
     <name>Landmarks</name>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="164"/>
+        <location filename="../../Misc/Landmarks.cpp" line="154"/>
         <source>Acknowledgments</source>
         <translation>Дякування</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="164"/>
+        <location filename="../../Misc/Landmarks.cpp" line="154"/>
         <source>A passage containing acknowledgments to entities involved in the realization of the work.</source>
         <translation>Уривок, який містить подяки суб’єктам, які беруть участь у реалізації твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="165"/>
+        <location filename="../../Misc/Landmarks.cpp" line="155"/>
         <source>Afterword</source>
         <translation>Післямова</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="165"/>
+        <location filename="../../Misc/Landmarks.cpp" line="155"/>
         <source>A closing statement from the author or a person of importance to the story, typically providing insight into how the story came to be written, its significance or related events that have transpired since its timeline.</source>
         <translation>Заключне висловлювання автора чи людини, що має важливе значення для розповіді, як правило, забезпечує розуміння того, як історія була написана, її значення чи пов’язані з нею події, що набули свого часу.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="166"/>
+        <location filename="../../Misc/Landmarks.cpp" line="156"/>
         <source>Annotation</source>
         <translation>Анотація</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="166"/>
+        <location filename="../../Misc/Landmarks.cpp" line="156"/>
         <source>Explanatory information about passages in the work. Status: Deprecated</source>
         <translation>Пояснювальні відомості про уривки у творі. Статус: застарілий</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="167"/>
+        <location filename="../../Misc/Landmarks.cpp" line="157"/>
         <source>Appendix</source>
         <translation>Додаток</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="167"/>
+        <location filename="../../Misc/Landmarks.cpp" line="157"/>
         <source>Supplemental information.</source>
         <translation>Додаткова інформація.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="168"/>
+        <location filename="../../Misc/Landmarks.cpp" line="158"/>
         <source>Assessment</source>
         <translation>Оцінка знань</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="168"/>
+        <location filename="../../Misc/Landmarks.cpp" line="158"/>
         <source>A test, quiz, or other activity that helps measure a student&apos;s understanding of what is being taught.</source>
         <translation>Тест, контрольна або перевірочна робота чи інша діяльність, яка допомагає оцінити розуміння студентом того, що йому викладається.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="169"/>
+        <location filename="../../Misc/Landmarks.cpp" line="159"/>
         <source>Back Matter</source>
         <translation>Прикінцеві матеріали</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="169"/>
+        <location filename="../../Misc/Landmarks.cpp" line="159"/>
         <source>Ancillary material occurring after the main content of a publication, such as indices, appendices, etc.</source>
         <translation>Допоміжний матеріал, що виникає після основного змісту публікації, наприклад, індекси, додатки тощо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="170"/>
+        <location filename="../../Misc/Landmarks.cpp" line="160"/>
         <source>Bibliography</source>
         <translation>Бібліографія</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="170"/>
+        <location filename="../../Misc/Landmarks.cpp" line="160"/>
         <source>A list of works cited.</source>
         <translation>Список цитованих робіт.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="171"/>
+        <location filename="../../Misc/Landmarks.cpp" line="161"/>
         <source>Body Matter</source>
         <translation>Основний текст</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="171"/>
+        <location filename="../../Misc/Landmarks.cpp" line="161"/>
         <source>The main content of a publication.</source>
         <translation>Основний зміст публікації.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="172"/>
+        <location filename="../../Misc/Landmarks.cpp" line="162"/>
         <source>Chapter</source>
         <translation>Розділ</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="172"/>
+        <location filename="../../Misc/Landmarks.cpp" line="162"/>
         <source>A major structural division of a piece of writing.</source>
         <translation>Основна структурна частина твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="173"/>
+        <location filename="../../Misc/Landmarks.cpp" line="163"/>
         <source>Colophon</source>
         <translation>Колофон</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="173"/>
+        <location filename="../../Misc/Landmarks.cpp" line="163"/>
         <source>A brief description usually located at the end of a publication, describing production notes relevant to the edition.</source>
         <translation>Короткий опис, зазвичай розміщений в кінці публікації, описує виробничі нотатки, що стосуються видання.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="174"/>
+        <location filename="../../Misc/Landmarks.cpp" line="164"/>
         <source>Conclusion</source>
         <translation>Завершення</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="174"/>
+        <location filename="../../Misc/Landmarks.cpp" line="164"/>
         <source>An ending section that typically wraps up the work.</source>
         <translation>Кінцевий розділ, який зазвичай завершує роботу.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="175"/>
+        <location filename="../../Misc/Landmarks.cpp" line="165"/>
         <source>Contributors</source>
         <translation>Співавтори</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="175"/>
+        <location filename="../../Misc/Landmarks.cpp" line="165"/>
         <source>A list of contributors to the work.</source>
         <translation>Список співавторів твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="176"/>
+        <location filename="../../Misc/Landmarks.cpp" line="166"/>
         <source>Copyright Page</source>
         <translation>Сторінка авторських прав</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="176"/>
+        <location filename="../../Misc/Landmarks.cpp" line="166"/>
         <source>The copyright page of the work.</source>
         <translation>Сторінка авторських прав на твір.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="177"/>
+        <location filename="../../Misc/Landmarks.cpp" line="167"/>
         <source>Cover</source>
         <translation>Обкладинка</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="177"/>
+        <location filename="../../Misc/Landmarks.cpp" line="167"/>
         <source>The publications cover(s), jacket information, etc.</source>
         <translation>Обкладинка(-ки) видань, інформація на суперобкладинках і т.д.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="178"/>
+        <location filename="../../Misc/Landmarks.cpp" line="168"/>
         <source>Dedication</source>
         <translation>Присвячення</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="178"/>
+        <location filename="../../Misc/Landmarks.cpp" line="168"/>
         <source>An inscription addressed to one or several particular person(s).</source>
         <translation>Напис, адресований одній або декільком окремим особам.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="179"/>
+        <location filename="../../Misc/Landmarks.cpp" line="169"/>
         <source>Division</source>
         <translation>Розділ</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="179"/>
+        <location filename="../../Misc/Landmarks.cpp" line="169"/>
         <source>A major structural division that may also appear as a substructure of a part (esp. in legislation).</source>
         <translation>Основний структурний розділ, який також може виступати як підструктура частини (особливо у законодавстві).</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="180"/>
+        <location filename="../../Misc/Landmarks.cpp" line="170"/>
         <source>Endnotes</source>
         <translation>Кінцеві виноски</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="180"/>
+        <location filename="../../Misc/Landmarks.cpp" line="170"/>
         <source>A collection of notes at the end of a work or a section within it.</source>
         <translation>Збірка приміток у кінці твору або його розділу.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="181"/>
+        <location filename="../../Misc/Landmarks.cpp" line="171"/>
         <source>Epigraph</source>
         <translation>Епіграф</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="181"/>
+        <location filename="../../Misc/Landmarks.cpp" line="171"/>
         <source>A quotation that is pertinent but not integral to the text.</source>
         <translation>Цитата, яка доречна, але не є невід’ємною частиною тексту.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="182"/>
+        <location filename="../../Misc/Landmarks.cpp" line="172"/>
         <source>Epilogue</source>
         <translation>Епілог</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="182"/>
+        <location filename="../../Misc/Landmarks.cpp" line="172"/>
         <source>A concluding section that is typically written from a later point in time than the main story, although still part of the narrative.</source>
         <translation>Заключний розділ, який, як правило, пишеться з пізнішого часу, ніж основний сюжет, хоча все ще є частиною оповідання.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="183"/>
+        <location filename="../../Misc/Landmarks.cpp" line="173"/>
         <source>Errata</source>
         <translation>Друкарські помилки</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="183"/>
+        <location filename="../../Misc/Landmarks.cpp" line="173"/>
         <source>Publication errata, in printed works typically a loose sheet inserted by hand; sometimes a bound page that contains corrections for mistakes in the work.</source>
         <translation>Друкарські помилки видання, у друкованих творах, як правило, вільний аркуш, вставлений вручну; іноді переплетена сторінка, яка містить виправлення помилок у роботі.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="184"/>
+        <location filename="../../Misc/Landmarks.cpp" line="174"/>
         <source>Footnotes</source>
         <translation>Виноски</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="184"/>
+        <location filename="../../Misc/Landmarks.cpp" line="174"/>
         <source>A collection of notes appearing at the bottom of a page.</source>
         <translation>Збірка приміток та пояснень до тексту, що з’являються внизу сторінки.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="185"/>
+        <location filename="../../Misc/Landmarks.cpp" line="175"/>
         <source>Foreword</source>
         <translation>Передмова</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="185"/>
+        <location filename="../../Misc/Landmarks.cpp" line="175"/>
         <source>An introductory section that precedes the work, typically not written by the work&apos;s author.</source>
         <translation>Вступний розділ, що передує твору, як правило, не написаний автором твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="186"/>
+        <location filename="../../Misc/Landmarks.cpp" line="176"/>
         <source>Front Matter</source>
         <translation>Вступні матеріали</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="186"/>
+        <location filename="../../Misc/Landmarks.cpp" line="176"/>
         <source>Preliminary material to the main content of a publication, such as tables of contents, dedications, etc.</source>
         <translation>Попередній матеріал до основного змісту публікації, такий як зміст, присвяти тощо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="187"/>
+        <location filename="../../Misc/Landmarks.cpp" line="177"/>
         <source>Glossary</source>
         <translation>Глосарій</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="187"/>
+        <location filename="../../Misc/Landmarks.cpp" line="177"/>
         <source>An alphabetical list of terms in a particular domain of knowledge, with the definitions for those terms.</source>
         <translation>Алфавітний перелік термінів у певній галузі знань із визначеннями для цих термінів.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="188"/>
+        <location filename="../../Misc/Landmarks.cpp" line="178"/>
         <source>Half Title Page</source>
         <translation>Шмуцтитул</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="188"/>
+        <location filename="../../Misc/Landmarks.cpp" line="178"/>
         <source>The half title page of the work which carries just the title itself.</source>
         <translation>Окрема сторінка, де поміщають заголовок частини, розділу чи розділ книги, а деколи окремих творів, які входять у збірник.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="189"/>
+        <location filename="../../Misc/Landmarks.cpp" line="179"/>
         <source>Imprimatur</source>
         <translation>Дозвіл цензури</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="189"/>
+        <location filename="../../Misc/Landmarks.cpp" line="179"/>
         <source>A formal statement authorizing the publication of the work.</source>
         <translation>Офіційна заява про дозвіл на публікацію твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="190"/>
+        <location filename="../../Misc/Landmarks.cpp" line="180"/>
         <source>Imprint</source>
         <translation>Імпринт</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="190"/>
+        <location filename="../../Misc/Landmarks.cpp" line="180"/>
         <source>Information relating to the publication or distribution of the work.</source>
         <translation>Інформація, що стосується публікації чи розповсюдження твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="191"/>
+        <location filename="../../Misc/Landmarks.cpp" line="181"/>
         <source>Index</source>
         <translation>Покажчик</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="191"/>
+        <location filename="../../Misc/Landmarks.cpp" line="181"/>
         <source>A detailed list, usually arranged alphabetically, of the specific information in a publication.</source>
         <translation>Детальний список, який зазвичай розташований в алфавітному порядку, певної інформації в публікації.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="192"/>
+        <location filename="../../Misc/Landmarks.cpp" line="182"/>
         <source>Introduction</source>
         <translation>Введення</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="192"/>
+        <location filename="../../Misc/Landmarks.cpp" line="182"/>
         <source>A section in the beginning of the work, typically introducing the reader to the scope or nature of the work&apos;s content.</source>
         <translation>Розділ на початку твору, як правило, знайомить читача зі сферою чи характером змісту твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="193"/>
+        <location filename="../../Misc/Landmarks.cpp" line="183"/>
         <source>Landmarks</source>
         <translation>Пам&apos;ятка</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="193"/>
+        <location filename="../../Misc/Landmarks.cpp" line="183"/>
         <source>A collection of references to well-known/recurring components within the publication</source>
         <translation>Збірник посилань на відомі/повторювані компоненти в публікації</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="194"/>
+        <location filename="../../Misc/Landmarks.cpp" line="184"/>
         <source>List of Audio Clips</source>
         <translation>Список аудіокліпів</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="194"/>
+        <location filename="../../Misc/Landmarks.cpp" line="184"/>
         <source>A listing of audio clips included in the work.</source>
         <translation>Перелік аудіокліпів, включених до твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="195"/>
+        <location filename="../../Misc/Landmarks.cpp" line="185"/>
         <source>List of Illustrations</source>
         <translation>Список ілюстрацій</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="195"/>
+        <location filename="../../Misc/Landmarks.cpp" line="185"/>
         <source>A listing of illustrations included in the work.</source>
         <translation>Перелік ілюстрацій, включених до твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="196"/>
+        <location filename="../../Misc/Landmarks.cpp" line="186"/>
         <source>List of Tables</source>
         <translation>Список таблиць</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="196"/>
+        <location filename="../../Misc/Landmarks.cpp" line="186"/>
         <source>A listing of tables included in the work.</source>
         <translation>Перелік таблиць, включених до твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="197"/>
+        <location filename="../../Misc/Landmarks.cpp" line="187"/>
         <source>List of Video Clips</source>
         <translation>Список відеокліпів</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="197"/>
+        <location filename="../../Misc/Landmarks.cpp" line="187"/>
         <source>A listing of video clips included in the work.</source>
         <translation>Перелік відеокліпів, включених до твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="198"/>
+        <location filename="../../Misc/Landmarks.cpp" line="188"/>
         <source>Notice</source>
         <translation>Увага</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="198"/>
+        <location filename="../../Misc/Landmarks.cpp" line="188"/>
         <source>Information that requires special attention, and that must not be skipped or suppressed. Examples include: alert, warning, caution, danger, important.</source>
         <translation>Інформація, яка потребує особливої уваги, і яку не слід пропускати чи приховувати. Приклади включають: тривога, попередження, обережно, небезпечно, важливо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="199"/>
+        <location filename="../../Misc/Landmarks.cpp" line="189"/>
         <source>Other Credits</source>
         <translation>Інші подяки</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="199"/>
+        <location filename="../../Misc/Landmarks.cpp" line="189"/>
         <source>Acknowledgments of previously published parts of the work, illustration credits, and permission to quote from copyrighted material.</source>
         <translation>Подяка за раніше опубліковані частини твору, права на ілюстрацій та дозвіл на цитування матеріалів, захищених авторським правом.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="200"/>
+        <location filename="../../Misc/Landmarks.cpp" line="190"/>
         <source>Page List</source>
         <translation>Список сторінок</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="200"/>
+        <location filename="../../Misc/Landmarks.cpp" line="190"/>
         <source>A list of references to pagebreaks (start locations) from a print version of the ebook</source>
         <translation>Список посилань на розриви сторінок (початкові місця) з версії для друку електронної книги</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="201"/>
+        <location filename="../../Misc/Landmarks.cpp" line="191"/>
         <source>Part</source>
         <translation>Частина</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="201"/>
+        <location filename="../../Misc/Landmarks.cpp" line="191"/>
         <source>A major structural division of a piece of writing, typically encapsulating a set of related chapters.</source>
         <translation>Основний структурний поділ фрагмента написаного, як правило, укладає набір пов&apos;язаних з ним розділів.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="202"/>
+        <location filename="../../Misc/Landmarks.cpp" line="192"/>
         <source>Preamble</source>
         <translation>Преамбула</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="202"/>
+        <location filename="../../Misc/Landmarks.cpp" line="192"/>
         <source>A section in the beginning of the work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content</source>
         <translation>Розділ на початку твору, який зазвичай містить вступну та/або пояснювальну прозу щодо обсягу чи характеру змісту твору</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="203"/>
+        <location filename="../../Misc/Landmarks.cpp" line="193"/>
         <source>Preface</source>
         <translation>Вступ</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="203"/>
+        <location filename="../../Misc/Landmarks.cpp" line="193"/>
         <source>An introductory section that precedes the work, typically written by the work&apos;s author.</source>
         <translation>Вступний розділ, що передує твору, як правило, написаний автором твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="204"/>
+        <location filename="../../Misc/Landmarks.cpp" line="194"/>
         <source>Prologue</source>
         <translation>Пролог</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="204"/>
+        <location filename="../../Misc/Landmarks.cpp" line="194"/>
         <source>An introductory section that sets the background to a story, typically part of the narrative.</source>
         <translation>Вступний розділ, який задає тло сюжету, як правило, є частиною розповіді.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="205"/>
+        <location filename="../../Misc/Landmarks.cpp" line="195"/>
         <source>Questions and Answers</source>
         <translation>Питання та Відповіді</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="205"/>
+        <location filename="../../Misc/Landmarks.cpp" line="195"/>
         <source>A question and answer section.</source>
         <translation>Розділ запитань та відповідей.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="206"/>
+        <location filename="../../Misc/Landmarks.cpp" line="196"/>
         <source>Rear Notes</source>
         <translation>Прикінцеві примітки</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="206"/>
+        <location filename="../../Misc/Landmarks.cpp" line="196"/>
         <source>A collection of notes appearing at the rear (backmatter) of the work, or at the end of a section. Status: Deprecated</source>
         <translation>Збірка приміток, які розміщуються у кінці твору або у кінці розділу. Статус: Застаріло</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="207"/>
+        <location filename="../../Misc/Landmarks.cpp" line="197"/>
         <source>Revision History</source>
         <translation>Історія внесених змін</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="207"/>
+        <location filename="../../Misc/Landmarks.cpp" line="197"/>
         <source>A record of changes made to a work.</source>
         <translation>Перелік змін, внесених до твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="208"/>
+        <location filename="../../Misc/Landmarks.cpp" line="198"/>
         <source>Subchapter</source>
         <translation>Підрозділ</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="208"/>
+        <location filename="../../Misc/Landmarks.cpp" line="198"/>
         <source>A major sub-division of a chapter.</source>
         <translation>Основний підрозділ глави.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="209"/>
+        <location filename="../../Misc/Landmarks.cpp" line="199"/>
         <source>Title Page</source>
         <translation>Титульний аркуш</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="209"/>
+        <location filename="../../Misc/Landmarks.cpp" line="199"/>
         <source>A page at the beginning of a book giving its title, authors, publisher and other publication information.</source>
         <translation>Сторінка на початку книги, що містить її назву, авторів, видавця та іншу інформацію про видання.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="210"/>
+        <location filename="../../Misc/Landmarks.cpp" line="200"/>
         <source>Table of Contents</source>
         <translation>Зміст</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="210"/>
+        <location filename="../../Misc/Landmarks.cpp" line="200"/>
         <source>A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work&apos;s frontmatter, or at the beginning of a section.</source>
         <translation>Зміст – це перелік заголовків або частин книги чи документа, впорядкованих у тому порядку, в якому вони відображаються. Зазвичай з’являється у передній частині твору або на початку розділу.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="211"/>
+        <location filename="../../Misc/Landmarks.cpp" line="201"/>
         <source>Volume</source>
         <translation>Том</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="211"/>
+        <location filename="../../Misc/Landmarks.cpp" line="201"/>
         <source>A component of a collection.</source>
         <translation>Компонент колекції.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="212"/>
+        <location filename="../../Misc/Landmarks.cpp" line="202"/>
         <source>Warning</source>
         <translation>Попередження</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="212"/>
+        <location filename="../../Misc/Landmarks.cpp" line="202"/>
         <source>A warning or caution about specific material. Status: Deprecated - Replaced by &apos;notice&apos;.</source>
         <translation>Попередження або застереження щодо особливого матеріалу. Статус: Депрекація – замінено на «повідомлення».</translation>
     </message>
@@ -6456,1102 +6494,1112 @@ Do you want to save your changes?</source>
 <context>
     <name>Language</name>
     <message>
-        <location filename="../../Misc/Language.cpp" line="105"/>
+        <location filename="../../Misc/Language.cpp" line="95"/>
         <source>Abkhazian</source>
         <translation>Абхазька</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="106"/>
+        <location filename="../../Misc/Language.cpp" line="96"/>
         <source>Afar</source>
         <translation>Афар</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="107"/>
+        <location filename="../../Misc/Language.cpp" line="97"/>
         <source>Afrikaans</source>
         <translation>Африкаанс</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="108"/>
+        <location filename="../../Misc/Language.cpp" line="98"/>
         <source>Akan</source>
         <translation>Акан</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="109"/>
+        <location filename="../../Misc/Language.cpp" line="99"/>
         <source>Albanian</source>
         <translation>Албанська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="110"/>
+        <location filename="../../Misc/Language.cpp" line="100"/>
         <source>Amharic</source>
         <translation>Амхарська</translation>
     </message>
     <message>
+        <location filename="../../Misc/Language.cpp" line="101"/>
+        <location filename="../../Misc/Language.cpp" line="102"/>
+        <location filename="../../Misc/Language.cpp" line="103"/>
+        <location filename="../../Misc/Language.cpp" line="104"/>
+        <location filename="../../Misc/Language.cpp" line="105"/>
+        <location filename="../../Misc/Language.cpp" line="106"/>
+        <location filename="../../Misc/Language.cpp" line="107"/>
+        <location filename="../../Misc/Language.cpp" line="108"/>
+        <location filename="../../Misc/Language.cpp" line="109"/>
+        <location filename="../../Misc/Language.cpp" line="110"/>
         <location filename="../../Misc/Language.cpp" line="111"/>
         <location filename="../../Misc/Language.cpp" line="112"/>
         <location filename="../../Misc/Language.cpp" line="113"/>
         <location filename="../../Misc/Language.cpp" line="114"/>
         <location filename="../../Misc/Language.cpp" line="115"/>
         <location filename="../../Misc/Language.cpp" line="116"/>
-        <location filename="../../Misc/Language.cpp" line="117"/>
-        <location filename="../../Misc/Language.cpp" line="118"/>
-        <location filename="../../Misc/Language.cpp" line="119"/>
-        <location filename="../../Misc/Language.cpp" line="120"/>
-        <location filename="../../Misc/Language.cpp" line="121"/>
-        <location filename="../../Misc/Language.cpp" line="122"/>
-        <location filename="../../Misc/Language.cpp" line="123"/>
-        <location filename="../../Misc/Language.cpp" line="124"/>
-        <location filename="../../Misc/Language.cpp" line="125"/>
-        <location filename="../../Misc/Language.cpp" line="126"/>
         <source>Arabic</source>
         <translation>Арабська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="112"/>
+        <location filename="../../Misc/Language.cpp" line="102"/>
         <source>Algeria</source>
         <translation>Алжир</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="113"/>
+        <location filename="../../Misc/Language.cpp" line="103"/>
         <source>Bahrain</source>
         <translation>Бахрейн</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="114"/>
+        <location filename="../../Misc/Language.cpp" line="104"/>
         <source>Egypt</source>
         <translation>Єгипет</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="115"/>
+        <location filename="../../Misc/Language.cpp" line="105"/>
         <source>Iraq</source>
         <translation>Ірак</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="116"/>
+        <location filename="../../Misc/Language.cpp" line="106"/>
         <source>Jordan</source>
         <translation>Йорданія</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="117"/>
+        <location filename="../../Misc/Language.cpp" line="107"/>
         <source>Kuwait</source>
         <translation>Кувейт</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="118"/>
+        <location filename="../../Misc/Language.cpp" line="108"/>
         <source>Lebanon</source>
         <translation>Ліван</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="119"/>
+        <location filename="../../Misc/Language.cpp" line="109"/>
         <source>Libya</source>
         <translation>Лівія</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="120"/>
+        <location filename="../../Misc/Language.cpp" line="110"/>
         <source>Morocco</source>
         <translation>Марокко</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="121"/>
+        <location filename="../../Misc/Language.cpp" line="111"/>
         <source>Oman</source>
         <translation>Оман</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="122"/>
+        <location filename="../../Misc/Language.cpp" line="112"/>
         <source>Qatar</source>
         <translation>Катар</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="123"/>
+        <location filename="../../Misc/Language.cpp" line="113"/>
         <source>Syria</source>
         <translation>Сирія</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="124"/>
+        <location filename="../../Misc/Language.cpp" line="114"/>
         <source>Tunisia</source>
         <translation>Туніс</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="125"/>
+        <location filename="../../Misc/Language.cpp" line="115"/>
         <source>United Arab Emirates</source>
         <translation>Об&apos;єднані Арабські Емірати</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="126"/>
+        <location filename="../../Misc/Language.cpp" line="116"/>
         <source>Yemen</source>
         <translation>Ємен</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="127"/>
+        <location filename="../../Misc/Language.cpp" line="117"/>
         <source>Aragonese</source>
         <translation>Арагонська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="128"/>
+        <location filename="../../Misc/Language.cpp" line="118"/>
         <source>Armenian</source>
         <translation>Вірменська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="129"/>
+        <location filename="../../Misc/Language.cpp" line="119"/>
         <source>Assamese</source>
         <translation>Асамійська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="130"/>
+        <location filename="../../Misc/Language.cpp" line="120"/>
         <source>Avaric</source>
         <translation>Аварська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="131"/>
+        <location filename="../../Misc/Language.cpp" line="121"/>
         <source>Avestan</source>
         <translation>Авестан</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="132"/>
+        <location filename="../../Misc/Language.cpp" line="122"/>
         <source>Aymara</source>
         <translation>Аймарська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="133"/>
-        <location filename="../../Misc/Language.cpp" line="134"/>
+        <location filename="../../Misc/Language.cpp" line="123"/>
+        <location filename="../../Misc/Language.cpp" line="124"/>
         <source>Azerbaijani</source>
         <translation>Азербайджанська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="134"/>
+        <location filename="../../Misc/Language.cpp" line="124"/>
         <source>Azerbaijan</source>
         <translation>Азербайджан</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="135"/>
+        <location filename="../../Misc/Language.cpp" line="125"/>
         <source>Bambara</source>
         <translation>Бенгальська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="136"/>
+        <location filename="../../Misc/Language.cpp" line="126"/>
         <source>Bashkir</source>
         <translation>Башкирська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="137"/>
+        <location filename="../../Misc/Language.cpp" line="127"/>
         <source>Basque</source>
         <translation>Баскська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="138"/>
+        <location filename="../../Misc/Language.cpp" line="128"/>
         <source>Belarusian</source>
         <translation>Білоруська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="139"/>
+        <location filename="../../Misc/Language.cpp" line="129"/>
         <source>Bengali</source>
         <translation>Бенгальська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="140"/>
+        <location filename="../../Misc/Language.cpp" line="130"/>
         <source>Bihari</source>
         <translation>Біхарі</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="141"/>
+        <location filename="../../Misc/Language.cpp" line="131"/>
         <source>Bislama</source>
         <translation>Біслама</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="142"/>
+        <location filename="../../Misc/Language.cpp" line="132"/>
         <source>Bosnian</source>
         <translation>Боснійська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="143"/>
+        <location filename="../../Misc/Language.cpp" line="133"/>
         <source>Breton</source>
         <translation>Бретонська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="144"/>
+        <location filename="../../Misc/Language.cpp" line="134"/>
         <source>Bulgarian</source>
         <translation>Болгарська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="145"/>
+        <location filename="../../Misc/Language.cpp" line="135"/>
         <source>Burmese</source>
         <translation>Бірманська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="146"/>
-        <location filename="../../Misc/Language.cpp" line="147"/>
+        <location filename="../../Misc/Language.cpp" line="136"/>
+        <location filename="../../Misc/Language.cpp" line="137"/>
         <source>Catalan</source>
         <translation>Каталонська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="147"/>
-        <location filename="../../Misc/Language.cpp" line="332"/>
+        <location filename="../../Misc/Language.cpp" line="137"/>
+        <location filename="../../Misc/Language.cpp" line="322"/>
         <source>Spain</source>
         <translation>Іспанія</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="148"/>
+        <location filename="../../Misc/Language.cpp" line="138"/>
         <source>Central Khmer</source>
         <translation>Кхмерська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="149"/>
+        <location filename="../../Misc/Language.cpp" line="139"/>
         <source>Chamorro</source>
         <translation>Чаморо</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="150"/>
+        <location filename="../../Misc/Language.cpp" line="140"/>
         <source>Chechen</source>
         <translation>Чеченська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="151"/>
-        <location filename="../../Misc/Language.cpp" line="152"/>
-        <location filename="../../Misc/Language.cpp" line="153"/>
-        <location filename="../../Misc/Language.cpp" line="154"/>
-        <location filename="../../Misc/Language.cpp" line="155"/>
-        <location filename="../../Misc/Language.cpp" line="156"/>
+        <location filename="../../Misc/Language.cpp" line="141"/>
+        <location filename="../../Misc/Language.cpp" line="142"/>
+        <location filename="../../Misc/Language.cpp" line="143"/>
+        <location filename="../../Misc/Language.cpp" line="144"/>
+        <location filename="../../Misc/Language.cpp" line="145"/>
+        <location filename="../../Misc/Language.cpp" line="146"/>
         <source>Chinese</source>
         <translation>Китайська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="152"/>
+        <location filename="../../Misc/Language.cpp" line="142"/>
         <source>China</source>
         <translation>Китай</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="153"/>
+        <location filename="../../Misc/Language.cpp" line="143"/>
         <source>Hong Kong</source>
         <translation>Гонконг</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="154"/>
+        <location filename="../../Misc/Language.cpp" line="144"/>
         <source>Macau</source>
         <translation>Макао</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="155"/>
+        <location filename="../../Misc/Language.cpp" line="145"/>
         <source>Singapore</source>
         <translation>Сінгапур</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="156"/>
+        <location filename="../../Misc/Language.cpp" line="146"/>
         <source>Taiwan</source>
         <translation>Тайвань</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="157"/>
+        <location filename="../../Misc/Language.cpp" line="147"/>
         <source>Church Slavic</source>
         <translation>Церковнослов&apos;янська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="158"/>
+        <location filename="../../Misc/Language.cpp" line="148"/>
         <source>Chuvash</source>
         <translation>Чуваська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="159"/>
+        <location filename="../../Misc/Language.cpp" line="149"/>
         <source>Cornish</source>
         <translation>Корнійська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="160"/>
+        <location filename="../../Misc/Language.cpp" line="150"/>
         <source>Corsican</source>
         <translation>Корсиканська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="161"/>
+        <location filename="../../Misc/Language.cpp" line="151"/>
         <source>Cree</source>
         <translation>Крі</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="162"/>
+        <location filename="../../Misc/Language.cpp" line="152"/>
         <source>Croatian</source>
         <translation>Хорватська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="163"/>
+        <location filename="../../Misc/Language.cpp" line="153"/>
         <source>Czech</source>
         <translation>Чеська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="164"/>
-        <location filename="../../Misc/Language.cpp" line="165"/>
+        <location filename="../../Misc/Language.cpp" line="154"/>
+        <location filename="../../Misc/Language.cpp" line="155"/>
         <source>Danish</source>
         <translation>Данська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="165"/>
+        <location filename="../../Misc/Language.cpp" line="155"/>
         <source>Denmark</source>
         <translation>Данія</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="166"/>
+        <location filename="../../Misc/Language.cpp" line="156"/>
         <source>Dhivehi</source>
         <translation>Мальдівська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="167"/>
-        <location filename="../../Misc/Language.cpp" line="168"/>
-        <location filename="../../Misc/Language.cpp" line="169"/>
+        <location filename="../../Misc/Language.cpp" line="157"/>
+        <location filename="../../Misc/Language.cpp" line="158"/>
+        <location filename="../../Misc/Language.cpp" line="159"/>
         <source>Dutch</source>
         <translation>Голландська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="168"/>
-        <location filename="../../Misc/Language.cpp" line="191"/>
+        <location filename="../../Misc/Language.cpp" line="158"/>
+        <location filename="../../Misc/Language.cpp" line="181"/>
         <source>Belgium</source>
         <translation>Бельгія</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="169"/>
+        <location filename="../../Misc/Language.cpp" line="159"/>
         <source>Netherlands</source>
         <translation>Нідерланди</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="170"/>
+        <location filename="../../Misc/Language.cpp" line="160"/>
         <source>Dzongkha</source>
         <translation>Дзонг-ке</translation>
     </message>
     <message>
+        <location filename="../../Misc/Language.cpp" line="161"/>
+        <location filename="../../Misc/Language.cpp" line="162"/>
+        <location filename="../../Misc/Language.cpp" line="163"/>
+        <location filename="../../Misc/Language.cpp" line="164"/>
+        <location filename="../../Misc/Language.cpp" line="165"/>
+        <location filename="../../Misc/Language.cpp" line="166"/>
+        <location filename="../../Misc/Language.cpp" line="167"/>
+        <location filename="../../Misc/Language.cpp" line="168"/>
+        <location filename="../../Misc/Language.cpp" line="169"/>
+        <location filename="../../Misc/Language.cpp" line="170"/>
         <location filename="../../Misc/Language.cpp" line="171"/>
         <location filename="../../Misc/Language.cpp" line="172"/>
         <location filename="../../Misc/Language.cpp" line="173"/>
-        <location filename="../../Misc/Language.cpp" line="174"/>
-        <location filename="../../Misc/Language.cpp" line="175"/>
-        <location filename="../../Misc/Language.cpp" line="176"/>
-        <location filename="../../Misc/Language.cpp" line="177"/>
-        <location filename="../../Misc/Language.cpp" line="178"/>
-        <location filename="../../Misc/Language.cpp" line="179"/>
-        <location filename="../../Misc/Language.cpp" line="180"/>
-        <location filename="../../Misc/Language.cpp" line="181"/>
-        <location filename="../../Misc/Language.cpp" line="182"/>
-        <location filename="../../Misc/Language.cpp" line="183"/>
         <source>English</source>
         <translation>Англійська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="172"/>
+        <location filename="../../Misc/Language.cpp" line="162"/>
         <source>Australia</source>
         <translation>Австралія</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="173"/>
+        <location filename="../../Misc/Language.cpp" line="163"/>
         <source>Belize</source>
         <translation>Беліз</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="174"/>
-        <location filename="../../Misc/Language.cpp" line="192"/>
+        <location filename="../../Misc/Language.cpp" line="164"/>
+        <location filename="../../Misc/Language.cpp" line="182"/>
         <source>Canada</source>
         <translation>Канада</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="175"/>
+        <location filename="../../Misc/Language.cpp" line="165"/>
         <source>Caribbean</source>
         <translation>Антильські острови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="176"/>
+        <location filename="../../Misc/Language.cpp" line="166"/>
         <source>Great Britain</source>
         <translation>Велика Британія</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="177"/>
+        <location filename="../../Misc/Language.cpp" line="167"/>
         <source>India</source>
         <translation>Індія</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="178"/>
-        <location filename="../../Misc/Language.cpp" line="198"/>
+        <location filename="../../Misc/Language.cpp" line="168"/>
+        <location filename="../../Misc/Language.cpp" line="188"/>
         <source>Ireland</source>
         <translation>Ірландія</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="179"/>
+        <location filename="../../Misc/Language.cpp" line="169"/>
         <source>Jamaica</source>
         <translation>Ямайка</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="180"/>
+        <location filename="../../Misc/Language.cpp" line="170"/>
         <source>Philippines</source>
         <translation>Філіппіни</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="181"/>
+        <location filename="../../Misc/Language.cpp" line="171"/>
         <source>Trinidad</source>
         <translation>Трінідад</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="182"/>
+        <location filename="../../Misc/Language.cpp" line="172"/>
         <source>South Africa</source>
         <translation>Південно-Африканська Республіка</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="183"/>
+        <location filename="../../Misc/Language.cpp" line="173"/>
         <source>United States</source>
         <translation>США</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="184"/>
+        <location filename="../../Misc/Language.cpp" line="174"/>
         <source>Esperanto</source>
         <translation>Есперанто</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="185"/>
+        <location filename="../../Misc/Language.cpp" line="175"/>
         <source>Estonian</source>
         <translation>Естонська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="186"/>
+        <location filename="../../Misc/Language.cpp" line="176"/>
         <source>Ewe</source>
         <translation>Еве</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="187"/>
+        <location filename="../../Misc/Language.cpp" line="177"/>
         <source>Faroese</source>
         <translation>Фарерська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="188"/>
+        <location filename="../../Misc/Language.cpp" line="178"/>
         <source>Fijian</source>
         <translation>Фіджійська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="189"/>
+        <location filename="../../Misc/Language.cpp" line="179"/>
         <source>Finnish</source>
         <translation>Фінська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="190"/>
-        <location filename="../../Misc/Language.cpp" line="191"/>
-        <location filename="../../Misc/Language.cpp" line="192"/>
-        <location filename="../../Misc/Language.cpp" line="193"/>
-        <location filename="../../Misc/Language.cpp" line="194"/>
-        <location filename="../../Misc/Language.cpp" line="195"/>
+        <location filename="../../Misc/Language.cpp" line="180"/>
+        <location filename="../../Misc/Language.cpp" line="181"/>
+        <location filename="../../Misc/Language.cpp" line="182"/>
+        <location filename="../../Misc/Language.cpp" line="183"/>
+        <location filename="../../Misc/Language.cpp" line="184"/>
+        <location filename="../../Misc/Language.cpp" line="185"/>
         <source>French</source>
         <translation>Французька</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="193"/>
+        <location filename="../../Misc/Language.cpp" line="183"/>
         <source>France</source>
         <translation>Франція</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="194"/>
-        <location filename="../../Misc/Language.cpp" line="206"/>
+        <location filename="../../Misc/Language.cpp" line="184"/>
+        <location filename="../../Misc/Language.cpp" line="196"/>
         <source>Luxembourg</source>
         <translation>Люксембург</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="195"/>
-        <location filename="../../Misc/Language.cpp" line="207"/>
-        <location filename="../../Misc/Language.cpp" line="232"/>
+        <location filename="../../Misc/Language.cpp" line="185"/>
+        <location filename="../../Misc/Language.cpp" line="197"/>
+        <location filename="../../Misc/Language.cpp" line="222"/>
         <source>Switzerland</source>
         <translation>Швейцарія</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="196"/>
+        <location filename="../../Misc/Language.cpp" line="186"/>
         <source>Fulah</source>
         <translation>Фула</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="197"/>
-        <location filename="../../Misc/Language.cpp" line="198"/>
+        <location filename="../../Misc/Language.cpp" line="187"/>
+        <location filename="../../Misc/Language.cpp" line="188"/>
         <source>Gaelic</source>
         <translation>Гельська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="197"/>
+        <location filename="../../Misc/Language.cpp" line="187"/>
         <source>Scotland</source>
         <translation>Шотландія</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="199"/>
+        <location filename="../../Misc/Language.cpp" line="189"/>
         <source>Galician</source>
         <translation>Галісійська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="200"/>
+        <location filename="../../Misc/Language.cpp" line="190"/>
         <source>Ganda</source>
         <translation>Ганда</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="201"/>
+        <location filename="../../Misc/Language.cpp" line="191"/>
         <source>Georgian</source>
         <translation>Грузинська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="202"/>
-        <location filename="../../Misc/Language.cpp" line="203"/>
-        <location filename="../../Misc/Language.cpp" line="204"/>
-        <location filename="../../Misc/Language.cpp" line="205"/>
-        <location filename="../../Misc/Language.cpp" line="206"/>
-        <location filename="../../Misc/Language.cpp" line="207"/>
+        <location filename="../../Misc/Language.cpp" line="192"/>
+        <location filename="../../Misc/Language.cpp" line="193"/>
+        <location filename="../../Misc/Language.cpp" line="194"/>
+        <location filename="../../Misc/Language.cpp" line="195"/>
+        <location filename="../../Misc/Language.cpp" line="196"/>
+        <location filename="../../Misc/Language.cpp" line="197"/>
         <source>German</source>
         <translation>Німецька</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="203"/>
+        <location filename="../../Misc/Language.cpp" line="193"/>
         <source>Austria</source>
         <translation>Австрія</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="204"/>
+        <location filename="../../Misc/Language.cpp" line="194"/>
         <source>Germany</source>
         <translation>Німеччина</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="205"/>
+        <location filename="../../Misc/Language.cpp" line="195"/>
         <source>Liechtenstein</source>
         <translation>Ліхтенштейн</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="208"/>
+        <location filename="../../Misc/Language.cpp" line="198"/>
         <source>Greek, Modern</source>
         <translation>Грецька, сучасна</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="209"/>
+        <location filename="../../Misc/Language.cpp" line="199"/>
         <source>Greek</source>
         <translation>Греція</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="210"/>
+        <location filename="../../Misc/Language.cpp" line="200"/>
         <source>Guarani</source>
         <translation>Гуарані</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="211"/>
+        <location filename="../../Misc/Language.cpp" line="201"/>
         <source>Gujarati</source>
         <translation>Гуджараті</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="212"/>
+        <location filename="../../Misc/Language.cpp" line="202"/>
         <source>Haitian</source>
         <translation>Гаїтянська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="213"/>
+        <location filename="../../Misc/Language.cpp" line="203"/>
         <source>Hausa</source>
         <translation>Гауса</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="214"/>
+        <location filename="../../Misc/Language.cpp" line="204"/>
         <source>Hebrew</source>
         <translation>Єврейська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="215"/>
+        <location filename="../../Misc/Language.cpp" line="205"/>
         <source>Herero</source>
         <translation>Гереро</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="216"/>
+        <location filename="../../Misc/Language.cpp" line="206"/>
         <source>Hindi</source>
         <translation>Хінді</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="217"/>
+        <location filename="../../Misc/Language.cpp" line="207"/>
         <source>Hiri Motu</source>
         <translation>Хірімоту</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="218"/>
-        <location filename="../../Misc/Language.cpp" line="219"/>
+        <location filename="../../Misc/Language.cpp" line="208"/>
+        <location filename="../../Misc/Language.cpp" line="209"/>
         <source>Hungarian</source>
         <translation>Угорська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="219"/>
+        <location filename="../../Misc/Language.cpp" line="209"/>
         <source>Hungary</source>
         <translation>Угорщина</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="220"/>
+        <location filename="../../Misc/Language.cpp" line="210"/>
         <source>Icelandic</source>
         <translation>Ісландська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="221"/>
+        <location filename="../../Misc/Language.cpp" line="211"/>
         <source>Ido</source>
         <translation>Ідо</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="222"/>
+        <location filename="../../Misc/Language.cpp" line="212"/>
         <source>Igbo</source>
         <translation>Ігбо</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="223"/>
+        <location filename="../../Misc/Language.cpp" line="213"/>
         <source>Indonesian</source>
         <translation>Індонезійська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="224"/>
+        <location filename="../../Misc/Language.cpp" line="214"/>
         <source>Indonesian - Indonesia</source>
         <translation>Індонезійська - Індонезія</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="225"/>
+        <location filename="../../Misc/Language.cpp" line="215"/>
         <source>Interlingua</source>
         <translation>Інтерлінгва</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="226"/>
+        <location filename="../../Misc/Language.cpp" line="216"/>
         <source>Interlingue</source>
         <translation>Окциденталь</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="227"/>
+        <location filename="../../Misc/Language.cpp" line="217"/>
         <source>Inuktitut</source>
         <translation>Інуктітут</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="228"/>
+        <location filename="../../Misc/Language.cpp" line="218"/>
         <source>Inupiaq</source>
         <translation>Інупіак</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="229"/>
+        <location filename="../../Misc/Language.cpp" line="219"/>
         <source>Irish</source>
         <translation>Ірландська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="230"/>
-        <location filename="../../Misc/Language.cpp" line="231"/>
-        <location filename="../../Misc/Language.cpp" line="232"/>
+        <location filename="../../Misc/Language.cpp" line="220"/>
+        <location filename="../../Misc/Language.cpp" line="221"/>
+        <location filename="../../Misc/Language.cpp" line="222"/>
         <source>Italian</source>
         <translation>Італійська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="231"/>
+        <location filename="../../Misc/Language.cpp" line="221"/>
         <source>Italy</source>
         <translation>Італія</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="233"/>
+        <location filename="../../Misc/Language.cpp" line="223"/>
         <source>Japanese</source>
         <translation>Японська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="234"/>
+        <location filename="../../Misc/Language.cpp" line="224"/>
         <source>Javanese</source>
         <translation>Яванська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="235"/>
+        <location filename="../../Misc/Language.cpp" line="225"/>
         <source>Kalaallisut</source>
         <translation>Калаалісут</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="236"/>
+        <location filename="../../Misc/Language.cpp" line="226"/>
         <source>Kannada</source>
         <translation>Каннада</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="237"/>
+        <location filename="../../Misc/Language.cpp" line="227"/>
         <source>Kanuri</source>
         <translation>Канурі</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="238"/>
+        <location filename="../../Misc/Language.cpp" line="228"/>
         <source>Kashmiri</source>
         <translation>Кашмірська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="239"/>
+        <location filename="../../Misc/Language.cpp" line="229"/>
         <source>Kazakh</source>
         <translation>Казахська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="240"/>
+        <location filename="../../Misc/Language.cpp" line="230"/>
         <source>Kikuyu</source>
         <translation>Кікуйю</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="241"/>
+        <location filename="../../Misc/Language.cpp" line="231"/>
         <source>Kinyarwanda</source>
         <translation>Кіньяруанда</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="242"/>
+        <location filename="../../Misc/Language.cpp" line="232"/>
         <source>Kirghiz</source>
         <translation>Киргизька</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="243"/>
+        <location filename="../../Misc/Language.cpp" line="233"/>
         <source>Komi</source>
         <translation>Комі</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="244"/>
+        <location filename="../../Misc/Language.cpp" line="234"/>
         <source>Kongo</source>
         <translation>Конґолезька</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="245"/>
+        <location filename="../../Misc/Language.cpp" line="235"/>
         <source>Korean</source>
         <translation>Корейська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="246"/>
+        <location filename="../../Misc/Language.cpp" line="236"/>
         <source>Kuanyama</source>
         <translation>Кваньяма</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="247"/>
+        <location filename="../../Misc/Language.cpp" line="237"/>
         <source>Kurdish</source>
         <translation>Курдська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="248"/>
+        <location filename="../../Misc/Language.cpp" line="238"/>
         <source>Lao</source>
         <translation>Лаоська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="249"/>
+        <location filename="../../Misc/Language.cpp" line="239"/>
         <source>Latin</source>
         <translation>Латинська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="250"/>
-        <location filename="../../Misc/Language.cpp" line="251"/>
+        <location filename="../../Misc/Language.cpp" line="240"/>
+        <location filename="../../Misc/Language.cpp" line="241"/>
         <source>Latvian</source>
         <translation>Латвійська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="251"/>
+        <location filename="../../Misc/Language.cpp" line="241"/>
         <source>Latvia</source>
         <translation>Латвія</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="252"/>
+        <location filename="../../Misc/Language.cpp" line="242"/>
         <source>Limburgan</source>
         <translation>Лімбурзька</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="253"/>
+        <location filename="../../Misc/Language.cpp" line="243"/>
         <source>Lingala</source>
         <translation>Лінгала</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="254"/>
+        <location filename="../../Misc/Language.cpp" line="244"/>
         <source>Lithuanian</source>
         <translation>Литовська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="255"/>
+        <location filename="../../Misc/Language.cpp" line="245"/>
         <source>Luba-Katanga</source>
         <translation>Луба-катанга</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="256"/>
+        <location filename="../../Misc/Language.cpp" line="246"/>
         <source>Luxembourgish</source>
         <translation>Люксембурзька</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="257"/>
+        <location filename="../../Misc/Language.cpp" line="247"/>
         <source>Macedonian</source>
         <translation>Македонська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="258"/>
+        <location filename="../../Misc/Language.cpp" line="248"/>
         <source>Malagasy</source>
         <translation>Малагасійська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="259"/>
+        <location filename="../../Misc/Language.cpp" line="249"/>
         <source>Malayalam</source>
         <translation>Малайська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="260"/>
-        <location filename="../../Misc/Language.cpp" line="261"/>
-        <location filename="../../Misc/Language.cpp" line="262"/>
+        <location filename="../../Misc/Language.cpp" line="250"/>
+        <location filename="../../Misc/Language.cpp" line="251"/>
+        <location filename="../../Misc/Language.cpp" line="252"/>
         <source>Malay</source>
         <translation>Малайська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="261"/>
+        <location filename="../../Misc/Language.cpp" line="251"/>
         <source>Brunei</source>
         <translation>Бруней</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="262"/>
+        <location filename="../../Misc/Language.cpp" line="252"/>
         <source>Malaysia</source>
         <translation>Малайзія</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="263"/>
+        <location filename="../../Misc/Language.cpp" line="253"/>
         <source>Maltese</source>
         <translation>Мальтійська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="264"/>
+        <location filename="../../Misc/Language.cpp" line="254"/>
         <source>Manx</source>
         <translation>Манкс</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="265"/>
+        <location filename="../../Misc/Language.cpp" line="255"/>
         <source>Maori</source>
         <translation>Маорі</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="266"/>
+        <location filename="../../Misc/Language.cpp" line="256"/>
         <source>Marathi</source>
         <translation>Мараті</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="267"/>
+        <location filename="../../Misc/Language.cpp" line="257"/>
         <source>Marshallese</source>
         <translation>Маршальська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="268"/>
+        <location filename="../../Misc/Language.cpp" line="258"/>
         <source>Mongolian</source>
         <translation>Монгольська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="269"/>
+        <location filename="../../Misc/Language.cpp" line="259"/>
         <source>Nauru</source>
         <translation>Науру</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="270"/>
+        <location filename="../../Misc/Language.cpp" line="260"/>
         <source>Navajo</source>
         <translation>Навахо</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="271"/>
-        <location filename="../../Misc/Language.cpp" line="272"/>
+        <location filename="../../Misc/Language.cpp" line="261"/>
+        <location filename="../../Misc/Language.cpp" line="262"/>
         <source>Ndebele</source>
         <translation>Ндебеле</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="271"/>
+        <location filename="../../Misc/Language.cpp" line="261"/>
         <source>North</source>
         <translation>Північ</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="272"/>
+        <location filename="../../Misc/Language.cpp" line="262"/>
         <source>South</source>
         <translation>Південь</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="273"/>
+        <location filename="../../Misc/Language.cpp" line="263"/>
         <source>Ndonga</source>
         <translation>Ндонга</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="274"/>
+        <location filename="../../Misc/Language.cpp" line="264"/>
         <source>Nepali</source>
         <translation>Непальська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="275"/>
+        <location filename="../../Misc/Language.cpp" line="265"/>
         <source>Northern, Sami</source>
         <translation>Північносаамська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="276"/>
-        <location filename="../../Misc/Language.cpp" line="277"/>
-        <location filename="../../Misc/Language.cpp" line="278"/>
+        <location filename="../../Misc/Language.cpp" line="266"/>
+        <location filename="../../Misc/Language.cpp" line="267"/>
+        <location filename="../../Misc/Language.cpp" line="268"/>
         <source>Norwegian</source>
         <translation>Норвезька</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="277"/>
+        <location filename="../../Misc/Language.cpp" line="267"/>
         <source>Bokmal</source>
         <translation>Букмол</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="278"/>
+        <location filename="../../Misc/Language.cpp" line="268"/>
         <source>Nynorsk</source>
         <translation>Нюношк</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="279"/>
+        <location filename="../../Misc/Language.cpp" line="269"/>
         <source>Nyanja</source>
         <translation>Ньянджа</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="280"/>
+        <location filename="../../Misc/Language.cpp" line="270"/>
         <source>Occitan</source>
         <translation>Оксітанська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="281"/>
+        <location filename="../../Misc/Language.cpp" line="271"/>
         <source>Ojibwa</source>
         <translation>Оджібва</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="282"/>
+        <location filename="../../Misc/Language.cpp" line="272"/>
         <source>Oriya</source>
         <translation>Орія</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="283"/>
+        <location filename="../../Misc/Language.cpp" line="273"/>
         <source>Oromo</source>
         <translation>Оромо</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="284"/>
+        <location filename="../../Misc/Language.cpp" line="274"/>
         <source>Ossetian</source>
         <translation>Осетинська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="285"/>
+        <location filename="../../Misc/Language.cpp" line="275"/>
         <source>Pali</source>
         <translation>Палі</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="286"/>
+        <location filename="../../Misc/Language.cpp" line="276"/>
         <source>Panjabi</source>
         <translation>Панджабська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="287"/>
+        <location filename="../../Misc/Language.cpp" line="277"/>
         <source>Persian</source>
         <translation>Перська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="288"/>
+        <location filename="../../Misc/Language.cpp" line="278"/>
         <source>Polish</source>
         <translation>Польська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="289"/>
-        <location filename="../../Misc/Language.cpp" line="290"/>
-        <location filename="../../Misc/Language.cpp" line="291"/>
+        <location filename="../../Misc/Language.cpp" line="279"/>
+        <location filename="../../Misc/Language.cpp" line="280"/>
+        <location filename="../../Misc/Language.cpp" line="281"/>
         <source>Portuguese</source>
         <translation>Португальська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="290"/>
+        <location filename="../../Misc/Language.cpp" line="280"/>
         <source>Brazil</source>
         <translation>Бразилія</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="291"/>
+        <location filename="../../Misc/Language.cpp" line="281"/>
         <source>Portugal</source>
         <translation>Португалія</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="292"/>
+        <location filename="../../Misc/Language.cpp" line="282"/>
         <source>Pushto</source>
         <translation>Пушту</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="293"/>
+        <location filename="../../Misc/Language.cpp" line="283"/>
         <source>Quechua</source>
         <translation>Кечуа</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="294"/>
-        <location filename="../../Misc/Language.cpp" line="295"/>
-        <location filename="../../Misc/Language.cpp" line="296"/>
+        <location filename="../../Misc/Language.cpp" line="284"/>
+        <location filename="../../Misc/Language.cpp" line="285"/>
+        <location filename="../../Misc/Language.cpp" line="286"/>
         <source>Romanian</source>
         <translation>Румунська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="295"/>
-        <location filename="../../Misc/Language.cpp" line="300"/>
+        <location filename="../../Misc/Language.cpp" line="285"/>
+        <location filename="../../Misc/Language.cpp" line="290"/>
         <source>Moldova</source>
         <translation>Молдова</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="296"/>
+        <location filename="../../Misc/Language.cpp" line="286"/>
         <source>Romania</source>
         <translation>Румунія</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="297"/>
+        <location filename="../../Misc/Language.cpp" line="287"/>
         <source>Romansh</source>
         <translation>Ретороманська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="298"/>
+        <location filename="../../Misc/Language.cpp" line="288"/>
         <source>Rundi</source>
         <translation>Кірунді</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="299"/>
-        <location filename="../../Misc/Language.cpp" line="300"/>
+        <location filename="../../Misc/Language.cpp" line="289"/>
+        <location filename="../../Misc/Language.cpp" line="290"/>
         <source>Russian</source>
         <translation>Російська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="301"/>
+        <location filename="../../Misc/Language.cpp" line="291"/>
         <source>Samoan</source>
         <translation>Самоанська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="302"/>
+        <location filename="../../Misc/Language.cpp" line="292"/>
         <source>Sango</source>
         <translation>Санго</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="303"/>
+        <location filename="../../Misc/Language.cpp" line="293"/>
         <source>Sanskrit</source>
         <translation>Санскрит</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="304"/>
+        <location filename="../../Misc/Language.cpp" line="294"/>
         <source>Sardinian</source>
         <translation>Сардинська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="305"/>
-        <location filename="../../Misc/Language.cpp" line="306"/>
+        <location filename="../../Misc/Language.cpp" line="295"/>
+        <location filename="../../Misc/Language.cpp" line="296"/>
         <source>Serbian</source>
         <translation>Сербська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="306"/>
+        <location filename="../../Misc/Language.cpp" line="296"/>
         <source>Serbia</source>
         <translation>Сербія</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="307"/>
+        <location filename="../../Misc/Language.cpp" line="297"/>
         <source>Shona</source>
         <translation>Шона</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="308"/>
+        <location filename="../../Misc/Language.cpp" line="298"/>
         <source>Sichuan Yi</source>
         <translation>Сичуань</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="309"/>
+        <location filename="../../Misc/Language.cpp" line="299"/>
         <source>Sindhi</source>
         <translation>Синдхі</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="310"/>
+        <location filename="../../Misc/Language.cpp" line="300"/>
         <source>Sinhala</source>
         <translation>Сингала</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="311"/>
+        <location filename="../../Misc/Language.cpp" line="301"/>
         <source>Slovak</source>
         <translation>Словацька</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="312"/>
+        <location filename="../../Misc/Language.cpp" line="302"/>
         <source>Slovenian</source>
         <translation>Словенська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="313"/>
+        <location filename="../../Misc/Language.cpp" line="303"/>
         <source>Somali</source>
         <translation>Сомалійська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="314"/>
+        <location filename="../../Misc/Language.cpp" line="304"/>
         <source>Sotho, Southern</source>
         <translation>Сесото</translation>
     </message>
     <message>
+        <location filename="../../Misc/Language.cpp" line="305"/>
+        <location filename="../../Misc/Language.cpp" line="306"/>
+        <location filename="../../Misc/Language.cpp" line="307"/>
+        <location filename="../../Misc/Language.cpp" line="308"/>
+        <location filename="../../Misc/Language.cpp" line="309"/>
+        <location filename="../../Misc/Language.cpp" line="310"/>
+        <location filename="../../Misc/Language.cpp" line="311"/>
+        <location filename="../../Misc/Language.cpp" line="312"/>
+        <location filename="../../Misc/Language.cpp" line="313"/>
+        <location filename="../../Misc/Language.cpp" line="314"/>
         <location filename="../../Misc/Language.cpp" line="315"/>
         <location filename="../../Misc/Language.cpp" line="316"/>
         <location filename="../../Misc/Language.cpp" line="317"/>
@@ -7562,1821 +7610,1811 @@ Do you want to save your changes?</source>
         <location filename="../../Misc/Language.cpp" line="322"/>
         <location filename="../../Misc/Language.cpp" line="323"/>
         <location filename="../../Misc/Language.cpp" line="324"/>
-        <location filename="../../Misc/Language.cpp" line="325"/>
-        <location filename="../../Misc/Language.cpp" line="326"/>
-        <location filename="../../Misc/Language.cpp" line="327"/>
-        <location filename="../../Misc/Language.cpp" line="328"/>
-        <location filename="../../Misc/Language.cpp" line="329"/>
-        <location filename="../../Misc/Language.cpp" line="330"/>
-        <location filename="../../Misc/Language.cpp" line="331"/>
-        <location filename="../../Misc/Language.cpp" line="332"/>
-        <location filename="../../Misc/Language.cpp" line="333"/>
-        <location filename="../../Misc/Language.cpp" line="334"/>
         <source>Spanish</source>
         <translation>Іспанська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="316"/>
+        <location filename="../../Misc/Language.cpp" line="306"/>
         <source>Argentina</source>
         <translation>Аргентина</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="317"/>
+        <location filename="../../Misc/Language.cpp" line="307"/>
         <source>Bolivia</source>
         <translation>Болівія</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="318"/>
+        <location filename="../../Misc/Language.cpp" line="308"/>
         <source>Chile</source>
         <translation>Чилі</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="319"/>
+        <location filename="../../Misc/Language.cpp" line="309"/>
         <source>Colombia</source>
         <translation>Колумбія</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="320"/>
+        <location filename="../../Misc/Language.cpp" line="310"/>
         <source>Costa Rica</source>
         <translation>Коста-Рика</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="321"/>
+        <location filename="../../Misc/Language.cpp" line="311"/>
         <source>Dominican Republic</source>
         <translation>Домініканська Республіка</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="322"/>
+        <location filename="../../Misc/Language.cpp" line="312"/>
         <source>Ecuador</source>
         <translation>Еквадор</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="323"/>
+        <location filename="../../Misc/Language.cpp" line="313"/>
         <source>El Salvador</source>
         <translation>Сальвадор</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="324"/>
+        <location filename="../../Misc/Language.cpp" line="314"/>
         <source>Guatemala</source>
         <translation>Гватемала</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="325"/>
+        <location filename="../../Misc/Language.cpp" line="315"/>
         <source>Honduras</source>
         <translation>Гондурас</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="326"/>
+        <location filename="../../Misc/Language.cpp" line="316"/>
         <source>Mexico</source>
         <translation>Мексика</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="327"/>
+        <location filename="../../Misc/Language.cpp" line="317"/>
         <source>Nicaragua</source>
         <translation>Нікарагуа</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="328"/>
+        <location filename="../../Misc/Language.cpp" line="318"/>
         <source>Panama</source>
         <translation>Панама</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="329"/>
+        <location filename="../../Misc/Language.cpp" line="319"/>
         <source>Paraguay</source>
         <translation>Парагвай</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="330"/>
+        <location filename="../../Misc/Language.cpp" line="320"/>
         <source>Peru</source>
         <translation>Перу</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="331"/>
+        <location filename="../../Misc/Language.cpp" line="321"/>
         <source>Puerto Rico</source>
         <translation>Пуерто-Рико</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="333"/>
+        <location filename="../../Misc/Language.cpp" line="323"/>
         <source>Uruguay</source>
         <translation>Уругвай</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="334"/>
+        <location filename="../../Misc/Language.cpp" line="324"/>
         <source>Venezuela</source>
         <translation>Венесуела</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="335"/>
+        <location filename="../../Misc/Language.cpp" line="325"/>
         <source>Sundanese</source>
         <translation>Сунданська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="336"/>
+        <location filename="../../Misc/Language.cpp" line="326"/>
         <source>Swahili</source>
         <translation>Суахілі</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="337"/>
+        <location filename="../../Misc/Language.cpp" line="327"/>
         <source>Swati</source>
         <translation>Свазі</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="338"/>
-        <location filename="../../Misc/Language.cpp" line="339"/>
-        <location filename="../../Misc/Language.cpp" line="340"/>
+        <location filename="../../Misc/Language.cpp" line="328"/>
+        <location filename="../../Misc/Language.cpp" line="329"/>
+        <location filename="../../Misc/Language.cpp" line="330"/>
         <source>Swedish</source>
         <translation>Шведська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="339"/>
+        <location filename="../../Misc/Language.cpp" line="329"/>
         <source>Finland</source>
         <translation>Фінляндія</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="340"/>
+        <location filename="../../Misc/Language.cpp" line="330"/>
         <source>Sweden</source>
         <translation>Швеція</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="341"/>
+        <location filename="../../Misc/Language.cpp" line="331"/>
         <source>Tagalog</source>
         <translation>Тсвана</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="342"/>
+        <location filename="../../Misc/Language.cpp" line="332"/>
         <source>Tahitian</source>
         <translation>Таїтянська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="343"/>
+        <location filename="../../Misc/Language.cpp" line="333"/>
         <source>Tajik</source>
         <translation>Таджицька</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="344"/>
+        <location filename="../../Misc/Language.cpp" line="334"/>
         <source>Tamil</source>
         <translation>Тамільська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="345"/>
+        <location filename="../../Misc/Language.cpp" line="335"/>
         <source>Tatar</source>
         <translation>Татарська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="346"/>
+        <location filename="../../Misc/Language.cpp" line="336"/>
         <source>Telugu</source>
         <translation>Телугу</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="347"/>
+        <location filename="../../Misc/Language.cpp" line="337"/>
         <source>Thai</source>
         <translation>Тайська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="348"/>
+        <location filename="../../Misc/Language.cpp" line="338"/>
         <source>Tibetan</source>
         <translation>Тибетська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="349"/>
+        <location filename="../../Misc/Language.cpp" line="339"/>
         <source>Tigrinya</source>
         <translation>Тигринійська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="350"/>
+        <location filename="../../Misc/Language.cpp" line="340"/>
         <source>Tonga</source>
         <translation>Тонга</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="351"/>
+        <location filename="../../Misc/Language.cpp" line="341"/>
         <source>Tsonga</source>
         <translation>Цонґа</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="352"/>
+        <location filename="../../Misc/Language.cpp" line="342"/>
         <source>Tswana</source>
         <translation>Тсвана</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="353"/>
-        <location filename="../../Misc/Language.cpp" line="354"/>
+        <location filename="../../Misc/Language.cpp" line="343"/>
+        <location filename="../../Misc/Language.cpp" line="344"/>
         <source>Turkish</source>
         <translation>Турецька</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="354"/>
+        <location filename="../../Misc/Language.cpp" line="344"/>
         <source>Turkey</source>
         <translation>Туреччина</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="355"/>
+        <location filename="../../Misc/Language.cpp" line="345"/>
         <source>Turkmen</source>
         <translation>Туркменська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="356"/>
+        <location filename="../../Misc/Language.cpp" line="346"/>
         <source>Twi</source>
         <translation>Тві</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="357"/>
+        <location filename="../../Misc/Language.cpp" line="347"/>
         <source>Uighur</source>
         <translation>Уйгур</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="358"/>
-        <location filename="../../Misc/Language.cpp" line="359"/>
+        <location filename="../../Misc/Language.cpp" line="348"/>
+        <location filename="../../Misc/Language.cpp" line="349"/>
         <source>Ukrainian</source>
         <translation>Українська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="359"/>
+        <location filename="../../Misc/Language.cpp" line="349"/>
         <source>Ukraine</source>
         <translation>Україна</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="360"/>
+        <location filename="../../Misc/Language.cpp" line="350"/>
         <source>Urdu</source>
         <translation>Урду</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="361"/>
-        <location filename="../../Misc/Language.cpp" line="362"/>
+        <location filename="../../Misc/Language.cpp" line="351"/>
+        <location filename="../../Misc/Language.cpp" line="352"/>
         <source>Uzbek</source>
         <translation>Узбецька</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="362"/>
+        <location filename="../../Misc/Language.cpp" line="352"/>
         <source>Uzbekistan</source>
         <translation>Узбекистан</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="363"/>
+        <location filename="../../Misc/Language.cpp" line="353"/>
         <source>Venda</source>
         <translation>Венда</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="364"/>
+        <location filename="../../Misc/Language.cpp" line="354"/>
         <source>Vietnamese</source>
         <translation>В&apos;єтнамська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="365"/>
+        <location filename="../../Misc/Language.cpp" line="355"/>
         <source>Volapuk</source>
         <translation>Волапюк</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="366"/>
+        <location filename="../../Misc/Language.cpp" line="356"/>
         <source>Walloon</source>
         <translation>Валлонська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="367"/>
+        <location filename="../../Misc/Language.cpp" line="357"/>
         <source>Welsh</source>
         <translation>Уельська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="368"/>
+        <location filename="../../Misc/Language.cpp" line="358"/>
         <source>Western Frisian</source>
         <translation>Фризька</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="369"/>
+        <location filename="../../Misc/Language.cpp" line="359"/>
         <source>Wolof</source>
         <translation>Волоф</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="370"/>
+        <location filename="../../Misc/Language.cpp" line="360"/>
         <source>Xhosa</source>
         <translation>Хоза</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="371"/>
+        <location filename="../../Misc/Language.cpp" line="361"/>
         <source>Yiddish</source>
         <translation>Ідиш</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="372"/>
+        <location filename="../../Misc/Language.cpp" line="362"/>
         <source>Yoruba</source>
         <translation>Йоруба</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="373"/>
+        <location filename="../../Misc/Language.cpp" line="363"/>
         <source>Zhuang</source>
         <translation>Чжуань</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="374"/>
+        <location filename="../../Misc/Language.cpp" line="364"/>
         <source>Zulu</source>
         <translation>Зулуська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="375"/>
+        <location filename="../../Misc/Language.cpp" line="365"/>
         <source>Achinese</source>
         <translation>Ачеська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="376"/>
+        <location filename="../../Misc/Language.cpp" line="366"/>
         <source>Acoli</source>
         <translation>Ачолі</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="377"/>
+        <location filename="../../Misc/Language.cpp" line="367"/>
         <source>Adangme</source>
         <translation>Дангме</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="378"/>
+        <location filename="../../Misc/Language.cpp" line="368"/>
         <source>Adygei, Adyghe</source>
         <translation>Адигейська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="379"/>
+        <location filename="../../Misc/Language.cpp" line="369"/>
         <source>Afrihili</source>
         <translation>Афрігілі</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="380"/>
+        <location filename="../../Misc/Language.cpp" line="370"/>
         <source>Afro-Asiatic languages</source>
         <translation>Афро-азіатські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="381"/>
+        <location filename="../../Misc/Language.cpp" line="371"/>
         <source>Ainu</source>
         <translation>Айнська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="382"/>
+        <location filename="../../Misc/Language.cpp" line="372"/>
         <source>Akkadian</source>
         <translation>Аккадська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="383"/>
+        <location filename="../../Misc/Language.cpp" line="373"/>
         <source>Aleut</source>
         <translation>Алеутська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="384"/>
+        <location filename="../../Misc/Language.cpp" line="374"/>
         <source>Algonquian languages</source>
         <translation>Алгонкінські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="385"/>
+        <location filename="../../Misc/Language.cpp" line="375"/>
         <source>Altaic languages</source>
         <translation>Алтайські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="386"/>
+        <location filename="../../Misc/Language.cpp" line="376"/>
         <source>Angika</source>
         <translation>Ангіка</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="387"/>
+        <location filename="../../Misc/Language.cpp" line="377"/>
         <source>Apache languages</source>
         <translation>Мова апачів </translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="388"/>
+        <location filename="../../Misc/Language.cpp" line="378"/>
         <source>Arapaho</source>
         <translation>Арапахо</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="389"/>
+        <location filename="../../Misc/Language.cpp" line="379"/>
         <source>Arawak</source>
         <translation>Аравакська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="390"/>
+        <location filename="../../Misc/Language.cpp" line="380"/>
         <source>Aromanian, Arumanian, Macedo-Romanian</source>
         <translation>Арумунська, Аромунська, Македа-румунський</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="391"/>
+        <location filename="../../Misc/Language.cpp" line="381"/>
         <source>Artificial languages</source>
         <translation>Штучна мова</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="392"/>
+        <location filename="../../Misc/Language.cpp" line="382"/>
         <source>Asturian, Asturleonese, Bable, Leonese</source>
         <translation>Астурійська, Астурлеонська, Леонська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="393"/>
+        <location filename="../../Misc/Language.cpp" line="383"/>
         <source>Athapascan languages</source>
         <translation>Атабаскські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="394"/>
+        <location filename="../../Misc/Language.cpp" line="384"/>
         <source>Australian languages</source>
         <translation>Австралійські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="395"/>
+        <location filename="../../Misc/Language.cpp" line="385"/>
         <source>Austronesian languages</source>
         <translation>Австронезійські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="396"/>
+        <location filename="../../Misc/Language.cpp" line="386"/>
         <source>Awadhi</source>
         <translation>Авадхі</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="397"/>
+        <location filename="../../Misc/Language.cpp" line="387"/>
         <source>Balinese</source>
         <translation>Балийська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="398"/>
+        <location filename="../../Misc/Language.cpp" line="388"/>
         <source>Baltic languages</source>
         <translation>Балтійські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="399"/>
+        <location filename="../../Misc/Language.cpp" line="389"/>
         <source>Baluchi</source>
         <translation>Белуджійська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="400"/>
+        <location filename="../../Misc/Language.cpp" line="390"/>
         <source>Bamileke languages</source>
         <translation>Бамілеке мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="401"/>
+        <location filename="../../Misc/Language.cpp" line="391"/>
         <source>Banda languages</source>
         <translation>Банда мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="402"/>
+        <location filename="../../Misc/Language.cpp" line="392"/>
         <source>Bantu languages</source>
         <translation>Банту мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="403"/>
+        <location filename="../../Misc/Language.cpp" line="393"/>
         <source>Basa</source>
         <translation>Корнська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="404"/>
+        <location filename="../../Misc/Language.cpp" line="394"/>
         <source>Batak languages</source>
         <translation>Батакські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="405"/>
+        <location filename="../../Misc/Language.cpp" line="395"/>
         <source>Bedawiyet, Beja</source>
         <translation>Беджа</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="406"/>
+        <location filename="../../Misc/Language.cpp" line="396"/>
         <source>Bemba</source>
         <translation>Бемба</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="407"/>
+        <location filename="../../Misc/Language.cpp" line="397"/>
         <source>Berber languages</source>
         <translation>Берберські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="408"/>
+        <location filename="../../Misc/Language.cpp" line="398"/>
         <source>Bhojpuri</source>
         <translation>Бходжпурі</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="409"/>
+        <location filename="../../Misc/Language.cpp" line="399"/>
         <source>Bikol</source>
         <translation>Бікольська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="410"/>
+        <location filename="../../Misc/Language.cpp" line="400"/>
         <source>Bilin, Blin</source>
         <translation>Білін</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="411"/>
+        <location filename="../../Misc/Language.cpp" line="401"/>
         <source>Bini, Edo</source>
         <translation>Едо</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="412"/>
+        <location filename="../../Misc/Language.cpp" line="402"/>
         <source>Bliss, Blissymbols, Blissymbolics</source>
         <translation>Блісс</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="413"/>
+        <location filename="../../Misc/Language.cpp" line="403"/>
         <source>Braj</source>
         <translation>Брадж</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="414"/>
+        <location filename="../../Misc/Language.cpp" line="404"/>
         <source>Buginese</source>
         <translation>Бугійська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="415"/>
+        <location filename="../../Misc/Language.cpp" line="405"/>
         <source>Buriat</source>
         <translation>Бурятська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="416"/>
+        <location filename="../../Misc/Language.cpp" line="406"/>
         <source>Caddo</source>
         <translation>Каддойські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="417"/>
+        <location filename="../../Misc/Language.cpp" line="407"/>
         <source>Caucasian languages</source>
         <translation>Кавказькі мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="418"/>
+        <location filename="../../Misc/Language.cpp" line="408"/>
         <source>Cebuano</source>
         <translation>Себуанська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="419"/>
+        <location filename="../../Misc/Language.cpp" line="409"/>
         <source>Celtic languages</source>
         <translation>Кельтські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="420"/>
+        <location filename="../../Misc/Language.cpp" line="410"/>
         <source>Central American Indian languages</source>
         <translation>Індіанські мови Центральної Америки</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="421"/>
+        <location filename="../../Misc/Language.cpp" line="411"/>
         <source>Chagatai</source>
         <translation>Чагатайська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="422"/>
+        <location filename="../../Misc/Language.cpp" line="412"/>
         <source>Chamic languages</source>
         <translation>Чамські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="423"/>
+        <location filename="../../Misc/Language.cpp" line="413"/>
         <source>Cherokee</source>
         <translation>Черокі</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="424"/>
+        <location filename="../../Misc/Language.cpp" line="414"/>
         <source>Cheyenne</source>
         <translation>Шеєнська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="425"/>
+        <location filename="../../Misc/Language.cpp" line="415"/>
         <source>Chibcha</source>
         <translation>Чибча</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="426"/>
+        <location filename="../../Misc/Language.cpp" line="416"/>
         <source>Chinook jargon</source>
         <translation>Чинукський жаргон</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="427"/>
+        <location filename="../../Misc/Language.cpp" line="417"/>
         <source>Chipewyan, Dene Suline</source>
         <translation>Чіпевайан, Дене Сулін</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="428"/>
+        <location filename="../../Misc/Language.cpp" line="418"/>
         <source>Choctaw</source>
         <translation>Чоктавська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="429"/>
+        <location filename="../../Misc/Language.cpp" line="419"/>
         <source>Chuukese</source>
         <translation>Трукська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="430"/>
+        <location filename="../../Misc/Language.cpp" line="420"/>
         <source>Classical Nepal Bhasa/Newari, Old Newari</source>
         <translation>Класичний неварі/Неварі</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="431"/>
+        <location filename="../../Misc/Language.cpp" line="421"/>
         <source>Classical Syriac</source>
         <translation>Сирійська мова</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="432"/>
+        <location filename="../../Misc/Language.cpp" line="422"/>
         <source>Coptic</source>
         <translation>Коптська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="433"/>
+        <location filename="../../Misc/Language.cpp" line="423"/>
         <source>Creek</source>
         <translation>Крикська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="434"/>
+        <location filename="../../Misc/Language.cpp" line="424"/>
         <source>Creoles and pidgins</source>
         <translation>Креольська та Піджин</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="435"/>
+        <location filename="../../Misc/Language.cpp" line="425"/>
         <source>Creoles and pidgins- English based</source>
         <translation>Креольська та Піджин – англійська основа</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="436"/>
+        <location filename="../../Misc/Language.cpp" line="426"/>
         <source>Creoles and pidgins- French-based</source>
         <translation>Креольська та Піджин – французська основа</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="437"/>
+        <location filename="../../Misc/Language.cpp" line="427"/>
         <source>Creoles and pidgins- Portuguese-based</source>
         <translation>Креольська та Піджин – португальська основа</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="438"/>
+        <location filename="../../Misc/Language.cpp" line="428"/>
         <source>Crimean Tatar/Turkish</source>
         <translation>Кримськотатарська/Турецька</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="439"/>
+        <location filename="../../Misc/Language.cpp" line="429"/>
         <source>Cushitic languages</source>
         <translation>Кушитські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="440"/>
+        <location filename="../../Misc/Language.cpp" line="430"/>
         <source>Dakota</source>
         <translation>Дакота</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="441"/>
+        <location filename="../../Misc/Language.cpp" line="431"/>
         <source>Dargwa</source>
         <translation>Даргинська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="442"/>
+        <location filename="../../Misc/Language.cpp" line="432"/>
         <source>Delaware</source>
         <translation>Делавер</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="443"/>
+        <location filename="../../Misc/Language.cpp" line="433"/>
         <source>Dimili, Dimli, Zaza, Zazaki, Kirdki, Kirmanjki</source>
         <translation>Димлі, Зазакі</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="444"/>
+        <location filename="../../Misc/Language.cpp" line="434"/>
         <source>Dinka</source>
         <translation>Динка</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="445"/>
+        <location filename="../../Misc/Language.cpp" line="435"/>
         <source>Dogri</source>
         <translation>Догрі</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="446"/>
+        <location filename="../../Misc/Language.cpp" line="436"/>
         <source>Dogrib</source>
         <translation>Догріб</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="447"/>
+        <location filename="../../Misc/Language.cpp" line="437"/>
         <source>Dravidian languages</source>
         <translation>Дравідійські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="448"/>
+        <location filename="../../Misc/Language.cpp" line="438"/>
         <source>Duala</source>
         <translation>Дуала</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="449"/>
+        <location filename="../../Misc/Language.cpp" line="439"/>
         <source>Dutch- Middle (ca.1050-1350)</source>
         <translation>Середньонідерландська (ок. 1050-1350)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="450"/>
+        <location filename="../../Misc/Language.cpp" line="440"/>
         <source>Dyula</source>
         <translation>Дюла</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="451"/>
+        <location filename="../../Misc/Language.cpp" line="441"/>
         <source>Eastern Frisian</source>
         <translation>Фризька</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="452"/>
+        <location filename="../../Misc/Language.cpp" line="442"/>
         <source>Efik</source>
         <translation>Ибібіо</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="453"/>
+        <location filename="../../Misc/Language.cpp" line="443"/>
         <source>Egyptian (Ancient)</source>
         <translation>Єгипетська (стародавня)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="454"/>
+        <location filename="../../Misc/Language.cpp" line="444"/>
         <source>Ekajuk</source>
         <translation>Экаджук</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="455"/>
+        <location filename="../../Misc/Language.cpp" line="445"/>
         <source>Elamite</source>
         <translation>Еламська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="456"/>
+        <location filename="../../Misc/Language.cpp" line="446"/>
         <source>English- Middle (1100-1500)</source>
         <translation>Середньоанглійська (1100-1500)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="457"/>
+        <location filename="../../Misc/Language.cpp" line="447"/>
         <source>English- Old (ca.450-1100)</source>
         <translation>Давньоанглійська (ок. 450-1100)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="458"/>
+        <location filename="../../Misc/Language.cpp" line="448"/>
         <source>Erzya</source>
         <translation>Ерзянська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="459"/>
+        <location filename="../../Misc/Language.cpp" line="449"/>
         <source>Ewondo</source>
         <translation>Евондо</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="460"/>
+        <location filename="../../Misc/Language.cpp" line="450"/>
         <source>Fang</source>
         <translation>Фанг</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="461"/>
+        <location filename="../../Misc/Language.cpp" line="451"/>
         <source>Fanti</source>
         <translation>Фанті</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="462"/>
+        <location filename="../../Misc/Language.cpp" line="452"/>
         <source>Filipino, Pilipino</source>
         <translation>Філіппінська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="463"/>
+        <location filename="../../Misc/Language.cpp" line="453"/>
         <source>Finno-Ugrian languages</source>
         <translation>Фіно-угорські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="464"/>
+        <location filename="../../Misc/Language.cpp" line="454"/>
         <source>Fon</source>
         <translation>Фон</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="465"/>
+        <location filename="../../Misc/Language.cpp" line="455"/>
         <source>French- Middle (ca.1400-1600)</source>
         <translation>Середньофранцузська (ок. 1400-1600)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="466"/>
+        <location filename="../../Misc/Language.cpp" line="456"/>
         <source>French- Old (842-ca.1400)</source>
         <translation>Давньофранцузська (842-ок.1400)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="467"/>
+        <location filename="../../Misc/Language.cpp" line="457"/>
         <source>Friulian</source>
         <translation>Фріульська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="468"/>
+        <location filename="../../Misc/Language.cpp" line="458"/>
         <source>Ga</source>
         <translation>Га</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="469"/>
+        <location filename="../../Misc/Language.cpp" line="459"/>
         <source>Galibi Carib</source>
         <translation>Карибська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="470"/>
+        <location filename="../../Misc/Language.cpp" line="460"/>
         <source>Gayo</source>
         <translation>Гайо</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="471"/>
+        <location filename="../../Misc/Language.cpp" line="461"/>
         <source>Gbaya</source>
         <translation>Гбайя</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="472"/>
+        <location filename="../../Misc/Language.cpp" line="462"/>
         <source>Geez</source>
         <translation>Геез</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="473"/>
+        <location filename="../../Misc/Language.cpp" line="463"/>
         <source>German- Middle High (ca.1050-1500)</source>
         <translation>Середньоверхньонімецька (ок.1050-1500)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="474"/>
+        <location filename="../../Misc/Language.cpp" line="464"/>
         <source>German- Old High (ca.750-1050)</source>
         <translation>Давньоверхньонімецька (ок.750-1050)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="475"/>
+        <location filename="../../Misc/Language.cpp" line="465"/>
         <source>Germanic languages</source>
         <translation>Германські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="476"/>
+        <location filename="../../Misc/Language.cpp" line="466"/>
         <source>Gilbertese</source>
         <translation>Кірибаті</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="477"/>
+        <location filename="../../Misc/Language.cpp" line="467"/>
         <source>Gondi</source>
         <translation>Гонді</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="478"/>
+        <location filename="../../Misc/Language.cpp" line="468"/>
         <source>Gorontalo</source>
         <translation>Горонтало</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="479"/>
+        <location filename="../../Misc/Language.cpp" line="469"/>
         <source>Gothic</source>
         <translation>Готська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="480"/>
+        <location filename="../../Misc/Language.cpp" line="470"/>
         <source>Grebo</source>
         <translation>Гребо</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="481"/>
+        <location filename="../../Misc/Language.cpp" line="471"/>
         <source>Greek- Ancient (to 1453)</source>
         <translation>Давньогрецька (до 1453)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="482"/>
+        <location filename="../../Misc/Language.cpp" line="472"/>
         <source>Gwich&apos;in</source>
         <translation>Гвічін</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="483"/>
+        <location filename="../../Misc/Language.cpp" line="473"/>
         <source>Haida</source>
         <translation>Хайда</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="484"/>
+        <location filename="../../Misc/Language.cpp" line="474"/>
         <source>Hawaiian</source>
         <translation>Гавайська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="485"/>
+        <location filename="../../Misc/Language.cpp" line="475"/>
         <source>Hiligaynon</source>
         <translation>Хілігайнон</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="486"/>
+        <location filename="../../Misc/Language.cpp" line="476"/>
         <source>Himachali, Western Pahari languages</source>
         <translation>Хімачалі</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="487"/>
+        <location filename="../../Misc/Language.cpp" line="477"/>
         <source>Hittite</source>
         <translation>Хетська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="488"/>
+        <location filename="../../Misc/Language.cpp" line="478"/>
         <source>Hmong, Mong</source>
         <translation>Хмонг</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="489"/>
+        <location filename="../../Misc/Language.cpp" line="479"/>
         <source>Hupa</source>
         <translation>Хупа</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="490"/>
+        <location filename="../../Misc/Language.cpp" line="480"/>
         <source>Iban</source>
         <translation>Ібанська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="491"/>
+        <location filename="../../Misc/Language.cpp" line="481"/>
         <source>Ijo languages</source>
         <translation>Мова Іджо</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="492"/>
+        <location filename="../../Misc/Language.cpp" line="482"/>
         <source>Iloko</source>
         <translation>Ілоко</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="493"/>
+        <location filename="../../Misc/Language.cpp" line="483"/>
         <source>Inari Sami</source>
         <translation>Інарі-саамська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="494"/>
+        <location filename="../../Misc/Language.cpp" line="484"/>
         <source>Indic languages</source>
         <translation>Індоарійські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="495"/>
+        <location filename="../../Misc/Language.cpp" line="485"/>
         <source>Indo-European languages</source>
         <translation>Індоєвропейські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="496"/>
+        <location filename="../../Misc/Language.cpp" line="486"/>
         <source>Ingush</source>
         <translation>Інгуська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="497"/>
+        <location filename="../../Misc/Language.cpp" line="487"/>
         <source>Iranian languages</source>
         <translation>Іранські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="498"/>
+        <location filename="../../Misc/Language.cpp" line="488"/>
         <source>Irish- Middle (900-1200)</source>
         <translation>Середньоірландський (900-1200)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="499"/>
+        <location filename="../../Misc/Language.cpp" line="489"/>
         <source>Irish- Old (to 900)</source>
         <translation>Давньоірландсьеий (to 900)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="500"/>
+        <location filename="../../Misc/Language.cpp" line="490"/>
         <source>Iroquoian languages</source>
         <translation>Ірокезькі мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="501"/>
+        <location filename="../../Misc/Language.cpp" line="491"/>
         <source>Jingpho, Kachin</source>
         <translation>Качинська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="502"/>
+        <location filename="../../Misc/Language.cpp" line="492"/>
         <source>Judeo-Arabic</source>
         <translation>Єврейсько-арабська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="503"/>
+        <location filename="../../Misc/Language.cpp" line="493"/>
         <source>Judeo-Persian</source>
         <translation>Єврейсько-перська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="504"/>
+        <location filename="../../Misc/Language.cpp" line="494"/>
         <source>Kabardian</source>
         <translation>Кабардинська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="505"/>
+        <location filename="../../Misc/Language.cpp" line="495"/>
         <source>Kabyle</source>
         <translation>Кабільська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="506"/>
+        <location filename="../../Misc/Language.cpp" line="496"/>
         <source>Kalmyk, Oirat</source>
         <translation>Калмицька</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="507"/>
+        <location filename="../../Misc/Language.cpp" line="497"/>
         <source>Kamba</source>
         <translation>Камба</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="508"/>
+        <location filename="../../Misc/Language.cpp" line="498"/>
         <source>Kapampangan, Pampanga</source>
         <translation>Пампанґанська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="509"/>
+        <location filename="../../Misc/Language.cpp" line="499"/>
         <source>Kara-Kalpak</source>
         <translation>Каракалпацька</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="510"/>
+        <location filename="../../Misc/Language.cpp" line="500"/>
         <source>Karachay-Balkar</source>
         <translation>Карачаєво-балкарська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="511"/>
+        <location filename="../../Misc/Language.cpp" line="501"/>
         <source>Karelian</source>
         <translation>Карельська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="512"/>
+        <location filename="../../Misc/Language.cpp" line="502"/>
         <source>Karen languages</source>
         <translation>Каренські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="513"/>
+        <location filename="../../Misc/Language.cpp" line="503"/>
         <source>Kashubian</source>
         <translation>Кашубська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="514"/>
+        <location filename="../../Misc/Language.cpp" line="504"/>
         <source>Kawi</source>
         <translation>Каві</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="515"/>
+        <location filename="../../Misc/Language.cpp" line="505"/>
         <source>Khasi</source>
         <translation>Кхасі</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="516"/>
+        <location filename="../../Misc/Language.cpp" line="506"/>
         <source>Khoisan languages</source>
         <translation>Койсанські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="517"/>
+        <location filename="../../Misc/Language.cpp" line="507"/>
         <source>Khotanese, Sakan</source>
         <translation>Хотаносакська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="518"/>
+        <location filename="../../Misc/Language.cpp" line="508"/>
         <source>Kimbundu</source>
         <translation>Північна мбунду</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="519"/>
+        <location filename="../../Misc/Language.cpp" line="509"/>
         <source>Klingon, tlhIngan-Hol</source>
         <translation>Клінгонська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="520"/>
+        <location filename="../../Misc/Language.cpp" line="510"/>
         <source>Konkani</source>
         <translation>Конкані</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="521"/>
+        <location filename="../../Misc/Language.cpp" line="511"/>
         <source>Kosraean</source>
         <translation>Косяе</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="522"/>
+        <location filename="../../Misc/Language.cpp" line="512"/>
         <source>Kpelle</source>
         <translation>Кпелле</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="523"/>
+        <location filename="../../Misc/Language.cpp" line="513"/>
         <source>Kru languages</source>
         <translation>Мови Кру</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="524"/>
+        <location filename="../../Misc/Language.cpp" line="514"/>
         <source>Kumyk</source>
         <translation>Кумицька</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="525"/>
+        <location filename="../../Misc/Language.cpp" line="515"/>
         <source>Kurukh</source>
         <translation>Курух</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="526"/>
+        <location filename="../../Misc/Language.cpp" line="516"/>
         <source>Kutenai</source>
         <translation>Кутенай</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="527"/>
+        <location filename="../../Misc/Language.cpp" line="517"/>
         <source>Ladino</source>
         <translation>Ладіно</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="528"/>
+        <location filename="../../Misc/Language.cpp" line="518"/>
         <source>Lahnda</source>
         <translation>Лахнда</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="529"/>
+        <location filename="../../Misc/Language.cpp" line="519"/>
         <source>Lamba</source>
         <translation>Ламба</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="530"/>
+        <location filename="../../Misc/Language.cpp" line="520"/>
         <source>Land Dayak languages</source>
         <translation>Мови Землі Даяк</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="531"/>
+        <location filename="../../Misc/Language.cpp" line="521"/>
         <source>Lezghian</source>
         <translation>Лезгинська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="532"/>
+        <location filename="../../Misc/Language.cpp" line="522"/>
         <source>Lojban</source>
         <translation>Ложбан</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="533"/>
+        <location filename="../../Misc/Language.cpp" line="523"/>
         <source>German-Low, Low Saxon</source>
         <translation>Нижньонімецька</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="534"/>
+        <location filename="../../Misc/Language.cpp" line="524"/>
         <source>Lower Sorbian</source>
         <translation>Нижньолужицька</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="535"/>
+        <location filename="../../Misc/Language.cpp" line="525"/>
         <source>Lozi</source>
         <translation>Лозі</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="536"/>
+        <location filename="../../Misc/Language.cpp" line="526"/>
         <source>Luba-Lulua</source>
         <translation>Луба</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="537"/>
+        <location filename="../../Misc/Language.cpp" line="527"/>
         <source>Luiseno</source>
         <translation>Луісеньо</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="538"/>
+        <location filename="../../Misc/Language.cpp" line="528"/>
         <source>Lule Sami</source>
         <translation>Луле-саамський</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="539"/>
+        <location filename="../../Misc/Language.cpp" line="529"/>
         <source>Lunda</source>
         <translation>Лунда</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="540"/>
+        <location filename="../../Misc/Language.cpp" line="530"/>
         <source>Luo (Kenya and Tanzania)</source>
         <translation>Долуо (Кения и Танзания)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="541"/>
+        <location filename="../../Misc/Language.cpp" line="531"/>
         <source>Lushai</source>
         <translation>Мізо</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="542"/>
+        <location filename="../../Misc/Language.cpp" line="532"/>
         <source>Madurese</source>
         <translation>Мадурська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="543"/>
+        <location filename="../../Misc/Language.cpp" line="533"/>
         <source>Magahi</source>
         <translation>Маґадгі</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="544"/>
+        <location filename="../../Misc/Language.cpp" line="534"/>
         <source>Maithili</source>
         <translation>Майтхілі</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="545"/>
+        <location filename="../../Misc/Language.cpp" line="535"/>
         <source>Makasar</source>
         <translation>Макасарська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="546"/>
+        <location filename="../../Misc/Language.cpp" line="536"/>
         <source>Manchu</source>
         <translation>Маньчжурська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="547"/>
+        <location filename="../../Misc/Language.cpp" line="537"/>
         <source>Mandar</source>
         <translation>Мандарська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="548"/>
+        <location filename="../../Misc/Language.cpp" line="538"/>
         <source>Mandingo</source>
         <translation>Мандінка</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="549"/>
+        <location filename="../../Misc/Language.cpp" line="539"/>
         <source>Manipuri</source>
         <translation>Маніпурі</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="550"/>
+        <location filename="../../Misc/Language.cpp" line="540"/>
         <source>Manobo languages</source>
         <translation>Мови Манобо</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="551"/>
+        <location filename="../../Misc/Language.cpp" line="541"/>
         <source>Mapuche/Mapudungun</source>
         <translation>Мапудунґун</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="552"/>
+        <location filename="../../Misc/Language.cpp" line="542"/>
         <source>Mari</source>
         <translation>Марійська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="553"/>
+        <location filename="../../Misc/Language.cpp" line="543"/>
         <source>Marwari</source>
         <translation>Марварі</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="554"/>
+        <location filename="../../Misc/Language.cpp" line="544"/>
         <source>Masai</source>
         <translation>Масайська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="555"/>
+        <location filename="../../Misc/Language.cpp" line="545"/>
         <source>Mayan languages</source>
         <translation>Майянські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="556"/>
+        <location filename="../../Misc/Language.cpp" line="546"/>
         <source>Mende</source>
         <translation>Менде</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="557"/>
+        <location filename="../../Misc/Language.cpp" line="547"/>
         <source>Mi&apos;kmaq, Micmac</source>
         <translation>Мікмак</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="558"/>
+        <location filename="../../Misc/Language.cpp" line="548"/>
         <source>Minangkabau</source>
         <translation>Мінангкабау</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="559"/>
+        <location filename="../../Misc/Language.cpp" line="549"/>
         <source>Mirandese</source>
         <translation>Мірандська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="560"/>
+        <location filename="../../Misc/Language.cpp" line="550"/>
         <source>Mohawk</source>
         <translation>Могаукська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="561"/>
+        <location filename="../../Misc/Language.cpp" line="551"/>
         <source>Moksha</source>
         <translation>Мокшанська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="562"/>
+        <location filename="../../Misc/Language.cpp" line="552"/>
         <source>Mon-Khmer languages</source>
         <translation>Мон-кхмерські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="563"/>
+        <location filename="../../Misc/Language.cpp" line="553"/>
         <source>Mongo</source>
         <translation>Монго</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="564"/>
+        <location filename="../../Misc/Language.cpp" line="554"/>
         <source>Mossi</source>
         <translation>Мооре</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="565"/>
+        <location filename="../../Misc/Language.cpp" line="555"/>
         <source>Multiple languages</source>
         <translation>Багатомовність</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="566"/>
+        <location filename="../../Misc/Language.cpp" line="556"/>
         <source>Munda languages</source>
         <translation>Мунда мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="567"/>
+        <location filename="../../Misc/Language.cpp" line="557"/>
         <source>N&apos;Ko</source>
         <translation>Нко</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="568"/>
+        <location filename="../../Misc/Language.cpp" line="558"/>
         <source>Nahuatl languages</source>
         <translation>Науатль</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="569"/>
+        <location filename="../../Misc/Language.cpp" line="559"/>
         <source>Neapolitan</source>
         <translation>Неаполітанська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="570"/>
+        <location filename="../../Misc/Language.cpp" line="560"/>
         <source>Nepal Bhasa/Newari</source>
         <translation>Неварська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="571"/>
+        <location filename="../../Misc/Language.cpp" line="561"/>
         <source>Nias</source>
         <translation>Ніасська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="572"/>
+        <location filename="../../Misc/Language.cpp" line="562"/>
         <source>Niger-Kordofanian languages</source>
         <translation>Нігеро-конголезькі мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="573"/>
+        <location filename="../../Misc/Language.cpp" line="563"/>
         <source>Nilo-Saharan languages</source>
         <translation>Ніло-сахарські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="574"/>
+        <location filename="../../Misc/Language.cpp" line="564"/>
         <source>Niuean</source>
         <translation>Ніуе</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="575"/>
+        <location filename="../../Misc/Language.cpp" line="565"/>
         <source>No linguistic content/Not applicable</source>
         <translation>Без мовного змісту / Не застосовується</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="576"/>
+        <location filename="../../Misc/Language.cpp" line="566"/>
         <source>Nogai</source>
         <translation>Ногайська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="577"/>
+        <location filename="../../Misc/Language.cpp" line="567"/>
         <source>Norse- Old</source>
         <translation>Давньоскандинавська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="578"/>
+        <location filename="../../Misc/Language.cpp" line="568"/>
         <source>North American Indian languages</source>
         <translation>Мови індіанців Північної Америки</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="579"/>
+        <location filename="../../Misc/Language.cpp" line="569"/>
         <source>Northern Frisian</source>
         <translation>Північна Фризька</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="580"/>
+        <location filename="../../Misc/Language.cpp" line="570"/>
         <source>Northern Sotho, Sepedi, Pedi</source>
         <translation>Північна сото</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="581"/>
+        <location filename="../../Misc/Language.cpp" line="571"/>
         <source>Nubian languages</source>
         <translation>Нубійські языки</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="582"/>
+        <location filename="../../Misc/Language.cpp" line="572"/>
         <source>Nyamwezi</source>
         <translation>Ньямвезі</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="583"/>
+        <location filename="../../Misc/Language.cpp" line="573"/>
         <source>Nyankole</source>
         <translation>Ньянколе</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="584"/>
+        <location filename="../../Misc/Language.cpp" line="574"/>
         <source>Nyoro</source>
         <translation>Ньоро</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="585"/>
+        <location filename="../../Misc/Language.cpp" line="575"/>
         <source>Nzima</source>
         <translation>Нзіма</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="586"/>
+        <location filename="../../Misc/Language.cpp" line="576"/>
         <source>Occitan/Provencal- Old (to 1500)</source>
         <translation>Давньоокситанська (до 1500)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="587"/>
+        <location filename="../../Misc/Language.cpp" line="577"/>
         <source>Official/Imperial Aramaic (700-300 BCE)</source>
         <translation>Імперська арамійська (700-300 BCE)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="588"/>
+        <location filename="../../Misc/Language.cpp" line="578"/>
         <source>Osage</source>
         <translation>Осейдж</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="589"/>
+        <location filename="../../Misc/Language.cpp" line="579"/>
         <source>Otomian languages</source>
         <translation>Мови Отомі</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="590"/>
+        <location filename="../../Misc/Language.cpp" line="580"/>
         <source>Pahlavi</source>
         <translation>Середньоперська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="591"/>
+        <location filename="../../Misc/Language.cpp" line="581"/>
         <source>Palauan</source>
         <translation>Палауська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="592"/>
+        <location filename="../../Misc/Language.cpp" line="582"/>
         <source>Pangasinan</source>
         <translation>Панґасінанська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="593"/>
+        <location filename="../../Misc/Language.cpp" line="583"/>
         <source>Papiamento</source>
         <translation>Пап&apos;яменто</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="594"/>
+        <location filename="../../Misc/Language.cpp" line="584"/>
         <source>Papuan languages</source>
         <translation>Папуаські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="595"/>
+        <location filename="../../Misc/Language.cpp" line="585"/>
         <source>Paraguayan Guaraní</source>
         <translation>Гуарані</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="596"/>
+        <location filename="../../Misc/Language.cpp" line="586"/>
         <source>Persian- Old (ca.600-400 B.C.)</source>
         <translation>Давньоперська (ок.600-400 до н. е.)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="597"/>
+        <location filename="../../Misc/Language.cpp" line="587"/>
         <source>Philippine languages</source>
         <translation>Філіппінські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="598"/>
+        <location filename="../../Misc/Language.cpp" line="588"/>
         <source>Phoenician</source>
         <translation>Фінікійська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="599"/>
+        <location filename="../../Misc/Language.cpp" line="589"/>
         <source>Pohnpeian</source>
         <translation>Понпейська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="600"/>
+        <location filename="../../Misc/Language.cpp" line="590"/>
         <source>Prakrit languages</source>
         <translation>Пракрити</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="601"/>
+        <location filename="../../Misc/Language.cpp" line="591"/>
         <source>Rajasthani</source>
         <translation>Раджастханська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="602"/>
+        <location filename="../../Misc/Language.cpp" line="592"/>
         <source>Rapanui</source>
         <translation>Рапануйська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="603"/>
+        <location filename="../../Misc/Language.cpp" line="593"/>
         <source>Rarotongan, Cook Islands Maori</source>
         <translation>Кукська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="604"/>
+        <location filename="../../Misc/Language.cpp" line="594"/>
         <source>Reserved for local use</source>
         <translation>Зарезервовано для місцевого використання</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="605"/>
+        <location filename="../../Misc/Language.cpp" line="595"/>
         <source>Romance languages</source>
         <translation>Романські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="606"/>
+        <location filename="../../Misc/Language.cpp" line="596"/>
         <source>Romany</source>
         <translation>Ромська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="607"/>
+        <location filename="../../Misc/Language.cpp" line="597"/>
         <source>Salishan languages</source>
         <translation>Салішські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="608"/>
+        <location filename="../../Misc/Language.cpp" line="598"/>
         <source>Samaritan Aramaic</source>
         <translation>Самарітянин арамійський</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="609"/>
+        <location filename="../../Misc/Language.cpp" line="599"/>
         <source>Sami languages</source>
         <translation>Саамські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="610"/>
+        <location filename="../../Misc/Language.cpp" line="600"/>
         <source>Sandawe</source>
         <translation>Сандаве</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="611"/>
+        <location filename="../../Misc/Language.cpp" line="601"/>
         <source>Santali</source>
         <translation>Санталі</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="612"/>
+        <location filename="../../Misc/Language.cpp" line="602"/>
         <source>Sasak</source>
         <translation>Сасакська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="613"/>
+        <location filename="../../Misc/Language.cpp" line="603"/>
         <source>Scots</source>
         <translation>Шотландська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="614"/>
+        <location filename="../../Misc/Language.cpp" line="604"/>
         <source>Selkup</source>
         <translation>Селькупська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="615"/>
+        <location filename="../../Misc/Language.cpp" line="605"/>
         <source>Semitic languages</source>
         <translation>Семітські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="616"/>
+        <location filename="../../Misc/Language.cpp" line="606"/>
         <source>Serer</source>
         <translation>Серер</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="617"/>
+        <location filename="../../Misc/Language.cpp" line="607"/>
         <source>Shan</source>
         <translation>Шанська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="618"/>
+        <location filename="../../Misc/Language.cpp" line="608"/>
         <source>Sicilian</source>
         <translation>Сицилійська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="619"/>
+        <location filename="../../Misc/Language.cpp" line="609"/>
         <source>Sidamo</source>
         <translation>Сидамо</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="620"/>
+        <location filename="../../Misc/Language.cpp" line="610"/>
         <source>Sign Languages</source>
         <translation>Жестова мова</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="621"/>
+        <location filename="../../Misc/Language.cpp" line="611"/>
         <source>Siksika</source>
         <translation>Сіксіка</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="622"/>
+        <location filename="../../Misc/Language.cpp" line="612"/>
         <source>Sino-Tibetan languages</source>
         <translation>Сино-тибетські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="623"/>
+        <location filename="../../Misc/Language.cpp" line="613"/>
         <source>Siouan languages</source>
         <translation>Сіуанські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="624"/>
+        <location filename="../../Misc/Language.cpp" line="614"/>
         <source>Skolt Sami</source>
         <translation>Колтта-саамська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="625"/>
+        <location filename="../../Misc/Language.cpp" line="615"/>
         <source>Slave (Athapascan)</source>
         <translation>Слейви</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="626"/>
+        <location filename="../../Misc/Language.cpp" line="616"/>
         <source>Slavic languages</source>
         <translation>Слов&apos;янські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="627"/>
+        <location filename="../../Misc/Language.cpp" line="617"/>
         <source>Sogdian</source>
         <translation>Соґдійська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="628"/>
+        <location filename="../../Misc/Language.cpp" line="618"/>
         <source>Songhai languages</source>
         <translation>Сонгайські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="629"/>
+        <location filename="../../Misc/Language.cpp" line="619"/>
         <source>Soninke</source>
         <translation>Сонінке</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="630"/>
+        <location filename="../../Misc/Language.cpp" line="620"/>
         <source>Sorbian languages</source>
         <translation>Лужицькі мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="631"/>
+        <location filename="../../Misc/Language.cpp" line="621"/>
         <source>South American Indian languages</source>
         <translation>Мови індіанців Південної Америки</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="632"/>
+        <location filename="../../Misc/Language.cpp" line="622"/>
         <source>Southern Altai</source>
         <translation>Південноалтайська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="633"/>
+        <location filename="../../Misc/Language.cpp" line="623"/>
         <source>Southern Sami</source>
         <translation>Південносаамська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="634"/>
+        <location filename="../../Misc/Language.cpp" line="624"/>
         <source>Sranan Tongo</source>
         <translation>Сранан-тонго</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="635"/>
+        <location filename="../../Misc/Language.cpp" line="625"/>
         <source>Sukuma</source>
         <translation>Сукума</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="636"/>
+        <location filename="../../Misc/Language.cpp" line="626"/>
         <source>Sumerian</source>
         <translation>Шумерська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="637"/>
+        <location filename="../../Misc/Language.cpp" line="627"/>
         <source>Susu</source>
         <translation>Сусу</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="638"/>
+        <location filename="../../Misc/Language.cpp" line="628"/>
         <source>Alsatian, Swiss German, Alemannic</source>
         <translation>Ельзаський, Швейцарський, Алеманський діалекти</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="639"/>
+        <location filename="../../Misc/Language.cpp" line="629"/>
         <source>Syriac</source>
         <translation>Сирійська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="640"/>
+        <location filename="../../Misc/Language.cpp" line="630"/>
         <source>Tai languages</source>
         <translation>Тайські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="641"/>
+        <location filename="../../Misc/Language.cpp" line="631"/>
         <source>Tamashek</source>
         <translation>Тамашек</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="642"/>
+        <location filename="../../Misc/Language.cpp" line="632"/>
         <source>Tereno</source>
         <translation>Терена</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="643"/>
+        <location filename="../../Misc/Language.cpp" line="633"/>
         <source>Tetum</source>
         <translation>Тетум</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="644"/>
+        <location filename="../../Misc/Language.cpp" line="634"/>
         <source>Tigre</source>
         <translation>Тигре</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="645"/>
+        <location filename="../../Misc/Language.cpp" line="635"/>
         <source>Timne</source>
         <translation>Темне</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="646"/>
+        <location filename="../../Misc/Language.cpp" line="636"/>
         <source>Tiv</source>
         <translation>Тів</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="647"/>
+        <location filename="../../Misc/Language.cpp" line="637"/>
         <source>Tlingit</source>
         <translation>Тлінгітська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="648"/>
+        <location filename="../../Misc/Language.cpp" line="638"/>
         <source>Tok Pisin</source>
         <translation>Ток-пісін</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="649"/>
+        <location filename="../../Misc/Language.cpp" line="639"/>
         <source>Tokelau</source>
         <translation>Токелау</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="650"/>
+        <location filename="../../Misc/Language.cpp" line="640"/>
         <source>Tonga (Nyasa)</source>
         <translation>Тонганська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="651"/>
+        <location filename="../../Misc/Language.cpp" line="641"/>
         <source>Tsimshian</source>
         <translation>Цимшианські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="652"/>
+        <location filename="../../Misc/Language.cpp" line="642"/>
         <source>Tumbuka</source>
         <translation>Тумбука</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="653"/>
+        <location filename="../../Misc/Language.cpp" line="643"/>
         <source>Tupi languages</source>
         <translation>Мова Тупі</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="654"/>
+        <location filename="../../Misc/Language.cpp" line="644"/>
         <source>Turkish- Ottoman (1500-1928)</source>
         <translation>Османська (1500-1928)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="655"/>
+        <location filename="../../Misc/Language.cpp" line="645"/>
         <source>Tuvalu</source>
         <translation>Тувалуанська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="656"/>
+        <location filename="../../Misc/Language.cpp" line="646"/>
         <source>Tuvinian</source>
         <translation>Тувинська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="657"/>
+        <location filename="../../Misc/Language.cpp" line="647"/>
         <source>Udmurt</source>
         <translation>Удмуртська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="658"/>
+        <location filename="../../Misc/Language.cpp" line="648"/>
         <source>Ugaritic</source>
         <translation>Угаритська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="659"/>
+        <location filename="../../Misc/Language.cpp" line="649"/>
         <source>Umbundu</source>
         <translation>Умбунду</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="660"/>
+        <location filename="../../Misc/Language.cpp" line="650"/>
         <source>Uncoded languages</source>
         <translation>Некодовані мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="661"/>
+        <location filename="../../Misc/Language.cpp" line="651"/>
         <source>Undetermined</source>
         <translation>Невизначено</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="662"/>
+        <location filename="../../Misc/Language.cpp" line="652"/>
         <source>Upper Sorbian</source>
         <translation>Верхньолужицька</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="663"/>
+        <location filename="../../Misc/Language.cpp" line="653"/>
         <source>Vai</source>
         <translation>Ваі</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="664"/>
+        <location filename="../../Misc/Language.cpp" line="654"/>
         <source>Votic</source>
         <translation>Водська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="665"/>
+        <location filename="../../Misc/Language.cpp" line="655"/>
         <source>Wakashan languages</source>
         <translation>Вакашські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="666"/>
+        <location filename="../../Misc/Language.cpp" line="656"/>
         <source>Waray</source>
         <translation>Варайська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="667"/>
+        <location filename="../../Misc/Language.cpp" line="657"/>
         <source>Washo</source>
         <translation>Уошо</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="668"/>
+        <location filename="../../Misc/Language.cpp" line="658"/>
         <source>Wolaitta, Wolaytta</source>
         <translation>Воламо, Волайта</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="669"/>
+        <location filename="../../Misc/Language.cpp" line="659"/>
         <source>Yakut</source>
         <translation>Якутська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="670"/>
+        <location filename="../../Misc/Language.cpp" line="660"/>
         <source>Yao</source>
         <translation>Яо</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="671"/>
+        <location filename="../../Misc/Language.cpp" line="661"/>
         <source>Yapese</source>
         <translation>Япійська</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="672"/>
+        <location filename="../../Misc/Language.cpp" line="662"/>
         <source>Yupik languages</source>
         <translation>Юпікські мови</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="673"/>
+        <location filename="../../Misc/Language.cpp" line="663"/>
         <source>Zande languages</source>
         <translation>Занде</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="674"/>
+        <location filename="../../Misc/Language.cpp" line="664"/>
         <source>Zapotec</source>
         <translation>Сапотецька</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="675"/>
+        <location filename="../../Misc/Language.cpp" line="665"/>
         <source>Zenaga</source>
         <translation>Зенага</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="676"/>
+        <location filename="../../Misc/Language.cpp" line="666"/>
         <source>Zuni</source>
         <translation>Зуні</translation>
     </message>
@@ -12441,94 +12479,94 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <translation>Фокус на Фрагменти</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="330"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="333"/>
         <source>Error: Automation Already in Use</source>
         <translation>Помилка: Автоматизація вже використовується</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="336"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="339"/>
         <source>Missing Automation List</source>
         <translation>Список автоматизації відсутній</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="377"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="379"/>
         <source>running</source>
         <translation>виконується</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="440"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="442"/>
         <source>skipped since not an epub3</source>
         <translation>пропущено, оскільки це не EPUB3</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="465"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="484"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="508"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="467"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="486"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="510"/>
         <source>Missing or unknown Saved Search name</source>
         <translation>Відсутня або невідома назва збереженого пошуку</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="488"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="490"/>
         <source>Conditional search did not run.</source>
         <translation>Умовний пошук не виконано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="512"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="514"/>
         <source>Conditional Search did not run.</source>
         <translation>Умовний пошук не виконано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="516"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="518"/>
         <source>Missing or unknown plugin or tool</source>
         <translation>Відсутній або невідомий модуль або інструмент</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="521"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="523"/>
         <source>failed</source>
         <translation>збоїть</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="529"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="531"/>
         <source>Validation tool</source>
         <translation>Інструмент валідації</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="530"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="532"/>
         <source>found errors</source>
         <translation>виявлені помилки</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="533"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="535"/>
         <source>Validation tool found errors - Abort or Ignore?</source>
         <translation>Інструмент валідації виявив помилки – Перервати чи Ігнорувати?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="542"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="544"/>
         <source>Aborted due to Validation Errors</source>
         <translation>Перервано через помилки валідації</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="545"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="547"/>
         <source>Ignored Validation Errors</source>
         <translation>Ігноровані помилки валідації</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="548"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="550"/>
         <source>Validation Tool Reported No Problems Found</source>
         <translation>Інструмент валідації повідомив, що проблем не виявлено</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="555"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="557"/>
         <source>Automation List Failed</source>
         <translation>Помилка списку автоматизації</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="557"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="559"/>
         <source>Automation List Completed</source>
         <translation>Список автоматизації завершено</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="559"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="561"/>
         <source>Automate Log</source>
         <translation>Журнал автоматизації</translation>
     </message>
@@ -12562,44 +12600,44 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../MainUI/MainWindow.cpp" line="910"/>
         <location filename="../../MainUI/MainWindow.cpp" line="991"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1792"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2106"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2348"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2513"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3088"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3184"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3240"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3250"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3274"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3288"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3394"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3410"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3415"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3428"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3447"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3461"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3476"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3480"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3496"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3509"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3514"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3526"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3536"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3541"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3743"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3750"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3766"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3825"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3857"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4056"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5265"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5306"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5312"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5318"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5547"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5567"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5624"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5888"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6094"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2105"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2347"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2512"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3087"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3183"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3239"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3249"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3273"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3287"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3393"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3409"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3414"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3427"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3446"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3460"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3475"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3479"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3495"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3508"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3513"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3525"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3535"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3540"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3742"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3749"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3765"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3824"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3856"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4055"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5263"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5304"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5310"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5316"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5545"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5565"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5621"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5885"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6091"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -12620,17 +12658,17 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="882"/>
         <location filename="../../MainUI/MainWindow.cpp" line="884"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5622"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5624"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6092"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6094"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5619"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5621"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6089"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6091"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] – epub%2 – %3</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="882"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5622"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6092"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5619"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6089"/>
         <source>Sigil [std]</source>
         <translation>Sigil [std]</translation>
     </message>
@@ -12846,461 +12884,461 @@ This action cannot be reversed.</source>
         <translation>Sigil закривається…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2042"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2041"/>
         <source>New file created.</source>
         <translation>Новий файл створено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2065"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2064"/>
         <source>Open File</source>
         <translation>Відкрити файл</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2105"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2104"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
         <translation>Цей файл більше не існує. Натисніть «OK», щоб видалити його з меню.
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2188"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2187"/>
         <source>Save File</source>
         <translation>Зберегти файл</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2244"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2243"/>
         <source>Save a Copy</source>
         <translation>Зберегти як копію</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2283"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2282"/>
         <source>Epub layout discarded.</source>
         <translation>Макет ePUB відхилено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2290"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2289"/>
         <source>New epub created.</source>
         <translation>Нова електронна книга створена.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2325"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2324"/>
         <source>Go To Line</source>
         <translation>Перейти до рядка</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2325"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2324"/>
         <source>Line #</source>
         <translation>Рядок #</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2348"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2347"/>
         <source>Image does not exist: </source>
         <translation>Зображення не існує:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2428"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2427"/>
         <source>or</source>
         <translation>або</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2436"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2435"/>
         <source>No CSS styles named</source>
         <translation>Немає назв стилів CSS</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2436"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2435"/>
         <source>found, or stylesheet not linked.</source>
         <translation>знайдено або таблиця стилів не пов’язана.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2509"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2508"/>
         <source>&lt;html&gt;&lt;p&gt;The href &lt;b&gt;%1&lt;/b&gt; found in &lt;b&gt;%2&lt;/b&gt; does not exist (and there may be more). Splitting or merging under these conditions can result in broken links.&lt;/p&gt;&lt;p&gt;Do you still wish to continue?&lt;/p&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;p&gt;Гіперпосилання &lt;b&gt;%1&lt;/b&gt; знайдене у &lt;b&gt;%2&lt;/b&gt; не існує (і їх може бути більше). Розділення або злиття в цих умовах може призвести до розриву зв’язків або посилань.&lt;/p&gt;&lt;p&gt;Ви все ще хочете продовжувати?&lt;/p&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2532"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2531"/>
         <source>Dropped files added.</source>
         <translation>Скинуті на цільову зону файли додано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2546"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2545"/>
         <source>Add Cover</source>
         <translation>Додати обкладинку</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2595"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2594"/>
         <source>An existing Cover file has been found.</source>
         <translation>Знайдено існуючий файл обкладинки.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2658"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2657"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
         <translation>Неочікувана помилка. Для обкладинки можуть використовуватися лише файли зображень.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2677"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2676"/>
         <source>Cover added.</source>
         <translation>Обкладинку додано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2693"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2692"/>
         <source>OPF Manifest Mimetypes Updated.</source>
         <translation>MIME-типи маніфесту OPF оновлені.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2702"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2719"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2739"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2762"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2794"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2701"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2718"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2738"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2761"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2793"/>
         <source>Not Available for epub2.</source>
         <translation>Недоступно для EPUB2.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2710"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2709"/>
         <source>OPF Manifest Properties Updated.</source>
         <translation>Властивості маніфесту OPF оновлені.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2725"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2724"/>
         <source>Nav removed from OPF Spine.</source>
         <translation>Nav видалено з розділу Spine файлу OPF.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2746"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2745"/>
         <source>Nav added to OPF Spine with linear=&quot;no&quot;</source>
         <translation>Nav додано до розділу Spine файлу OPF з «linear=&quot;no&quot;».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2748"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2747"/>
         <source>Nav added to OPF Spine.</source>
         <translation>Nav додано до розділу Spine файлу OPF.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2784"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2783"/>
         <source>NCX and Guide removed.</source>
         <translation>NCX та Посібник видалені.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2811"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2844"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2810"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2843"/>
         <source>NCX and Guide generation failed.</source>
         <translation>Помилка генерації NCX та Посібника.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2880"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2879"/>
         <source>NCX and Guide generated.</source>
         <translation>NCX та Посібник сгенеровані.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2977"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2976"/>
         <source>An existing Index file has been found.</source>
         <translation>Знайдено існуючий файл покажчика.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3069"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3068"/>
         <source>Styles deleted.</source>
         <translation>Стилі видалено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3077"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3076"/>
         <source>Reports Being Generated.</source>
         <translation>Звіти формуються.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3088"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3087"/>
         <source>Reports cancelled due to XML not well formed.</source>
         <translation>Звіти скасовуються через неправильне формування XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3184"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3183"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
         <translation>Видалення невикористаних медіафайлів скасовано через неправильне формування XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3234"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3233"/>
         <source>Unused media files deleted.</source>
         <translation>Невикористані медіафайли видалено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3237"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3240"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3236"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3239"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation>Немає використаних файлів зображень, відео чи аудіо, які можна видалити.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3250"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3249"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation>Видалення невикористаних стилів скасовано через неправильне формування XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3272"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3274"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3271"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3273"/>
         <source>There are no unused stylesheet selectors to delete.</source>
         <translation>Немає невикористаних селекторів таблиць стилів, які потрібно видалити.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3288"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3287"/>
         <source>You cannot insert a file at this position.</source>
         <translation>Ви не можете вставити файл у цій позиції.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3295"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3294"/>
         <source>Insert File</source>
         <translation>Вставити Файл</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3348"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3347"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Файл «%1» не існує.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3394"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3415"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3393"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3414"/>
         <source>You cannot insert an id at this position.</source>
         <translation>Ви не можете вставити ідентифікатор у цю позицію.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3410"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3409"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation>ID недійсний – повинен починатися з літери, після чого можуть додаватися букви, цифри, знаки  «-», «_», «:», або «.»</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3428"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3427"/>
         <source>You can only insert an aria clips in xhtml files.</source>
         <translation>Фрагменти коду ARIA можна вставляти тільки у файли xhtml.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3447"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3446"/>
         <source>Inserting an aria clip failed.</source>
         <translation>Збій вставки фрагмента коду ARIA.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3461"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3480"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3460"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3479"/>
         <source>You cannot insert an aria role at this position.</source>
         <translation>Ви не можете вставити роль ARIA у цьому місці.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3476"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3475"/>
         <source>The selected role cannot be used on this tag.</source>
         <translation>Вибрану роль не використовується для цього тегу.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3496"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3514"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3495"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3513"/>
         <source>You cannot insert a link at this position.</source>
         <translation>Ви не можете вставити посилання у цю позицію.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3509"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3508"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Посилання недійсне – не може містити «&lt;» або «&gt;»</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3526"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3525"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation>Ви не можете поставити маркер покажчика у цій позиції або не вибрали текст.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3536"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3535"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Запис недійсний – не може містити «&lt;» або «&gt;»</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3541"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3540"/>
         <source>You cannot mark an index at this position.</source>
         <translation>Ви не можете поставити маркер покажчика на цій позиції.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3652"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3664"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3683"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3651"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3663"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3682"/>
         <source>Select the destination to paste into first.</source>
         <translation>Виберіть місце призначення, що слід вставити спочатку.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3672"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3671"/>
         <source>Pasted clip entry %1.</source>
         <translation>Вставлено елемент фрагменту %1.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3743"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3742"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>Вибраний тільки один ресурс,  другий ресурс для об’єднання відсутній.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3751"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3750"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>Ви впевнені, що хочете об&apos;єднати вибрані файли?
 Цю дію неможливо відмінити.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3766"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3765"/>
         <source>Merge cancelled: XHTML files involved in merge are not well formed.</source>
         <translation>Об’єднання скасовано: файли XHTML, залучені до злиття, сформовані неправильно.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3825"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3824"/>
         <source>Cannot merge file %1</source>
         <translation>Неможливо об&apos;єднати файл %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3839"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3838"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>Об’єднання успішно завершено. Можливо, Вам доведеться обновити або відредагувати зміст.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3857"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3856"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation>Зв&apos;язування з Таблицями стилів скасовано: %1, XML неправильно сформований.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3987"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3986"/>
         <source>Word updated.</source>
         <translation>Слово оновлено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4056"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4055"/>
         <source>Link Javascripts cancelled: %1, XML not well formed.</source>
         <translation>Зв&apos;язування з Таблицями стилів скасовано: %1, XML неправильно сформований.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4166"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4165"/>
         <source>File(s) deleted.</source>
         <translation>Файл(и) видалено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4177"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4176"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>Редагування Змісту скасовано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4182"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4181"/>
         <source>Table Of Contents edited.</source>
         <translation>Зміст відредаговано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4200"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4199"/>
         <source>Generate TOC cancelled.</source>
         <translation>Створення Змісту скасовано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4225"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4224"/>
         <source>Table Of Contents generated.</source>
         <translation>Зміст сформовано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4227"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4226"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>Зміни Змісту не потрібні.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4305"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4304"/>
         <source>An existing HTML Table of Contents file has been found.</source>
         <translation>Знайдено існуючий HTML-файл змісту.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4390"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4389"/>
         <source>Text selection marked.</source>
         <translation>Вибраний текст позначений.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4392"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4410"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4391"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4409"/>
         <source>Text selection unmarked.</source>
         <translation>Знято позначення вибраного тексту.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4459"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4458"/>
         <source>Metadata Editor cancelled.</source>
         <translation>Роботу Редактора МетаДаних скасовано.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4462"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4461"/>
         <source>Metadata edited.</source>
         <translation>МетаДані відредаговані.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4582"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4581"/>
         <source>RunPlugin</source>
         <translation>ЗапуститиМодуль</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4595"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4594"/>
         <source>RunAutomate</source>
         <translation>RunAutomate</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4621"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4620"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>Цей ePUB не містить таблиць стилів CSS для валідації.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4652"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4651"/>
         <source>This EPUB does not contain any CSS stylesheets to reformat.</source>
         <translation>Цей ePUB не містить таблиць стилів CSS для переформатування.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5177"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5176"/>
         <source>%1%2 - Line: %3, Col: %4</source>
         <translation>%1%2 - Ряд.: %3, Стовп.: %4</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5265"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5263"/>
         <source>File cannot be split at this position.</source>
         <translation>Файл неможливо розділити з цієї позиції.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5288"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5286"/>
         <source>Split completed.</source>
         <translation>Розділення завершено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5306"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5304"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>Неможливо розділити, оскільки принаймні один файл не є файлом HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5312"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5310"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>Неможливо розділити: %1 XML неправильно сформований</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5318"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5316"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>Неможливо розділити, оскільки принаймні один файл може бути не HTML файлом.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5351"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5349"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Розділення завершено. Можливо, Вам доведеться оновити Зміст.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5353"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5351"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>Не знайдено маркерів розділення файлу. Використовуйте Вставити -&gt; Маркер розділення.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5548"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5546"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>У файл EPUB були внесені зміни.
 Що потрібно зробити?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5569"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5567"/>
         <source>Should Sigil overwrite this file?</source>
         <translation>Чи повинен Sigil перезаписати цей файл?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5764"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5761"/>
         <source>No importer for file type: %1</source>
         <translation>Відсутній контейнер для типу файлу: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5771"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5768"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -13313,44 +13351,44 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
 Активуйте опцію «Відкрити» у параметрі «Виправити некоректний код HTML по команді» налаштувань та перезавантажте файл.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5776"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5773"/>
         <source>Loading file...</source>
         <translation>Завантаження файлу…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5790"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5787"/>
         <source>File loaded.</source>
         <translation>Файл завантажено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5816"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5813"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Той хто створив цей файл зашифрував його за допомогою DRM. Sigil не може відкрити такі файли.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5824"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5821"/>
         <source>Cannot load EPUB: %1</source>
         <translation>Неможливо завантажити ePUB: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5829"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5826"/>
         <source>Cannot load file %1: %2</source>
         <translation>Неможливо завантажити файл %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5856"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5853"/>
         <source>Saving EPUB...</source>
         <translation>Збереження ePUB…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5865"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5862"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil не може зберігати файли типу «%1».
 Будь ласка, виберіть інший формат.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5889"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5886"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to mend on Save.
 
 Do you want to automatically mend the files before saving? Or cancel the Save?</source>
@@ -13359,94 +13397,94 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 Ви хочете автоматично виправити файли перед збереженням? Чи скасувати збереження?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5894"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5891"/>
         <source>Saving EPUB... cancelled</source>
         <translation>Збереження ePUB... скасовано</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5920"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5917"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>ePUB збережено, але не всі файли HTML добре сформовані.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5922"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5919"/>
         <source>EPUB saved.</source>
         <translation>ePUB збережено.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5928"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5925"/>
         <source>Cannot save file %1: %2</source>
         <translation>Неможливо зберегти файл %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6061"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6058"/>
         <source>EPUB files (*.epub)</source>
         <translation>Файли ePUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6062"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6063"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6064"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6059"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6060"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6061"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>Файли HTML (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6065"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6062"/>
         <source>Text files (*.txt)</source>
         <translation>Текстові файли (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6066"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6063"/>
         <source>All files (*.*)</source>
         <translation>Усі файли (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6074"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6071"/>
         <source>EPUB file (*.epub)</source>
         <translation>Файл ePUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6176"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6175"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>Зберегти існуючі атрибути заголовка зараз:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6177"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6176"/>
         <source>ON</source>
         <translation>ON</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6177"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6176"/>
         <source>OFF</source>
         <translation>OFF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6202"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6201"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7190"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7187"/>
         <source>Focus changed to CodeView window.</source>
         <translation>Фокус переключився на вікно «Браузер Коду».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7199"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7196"/>
         <source>Focus changed to BookBrowser window.</source>
         <translation>Фокус переключився на вікно «Структура Книги».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7208"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7205"/>
         <source>Focus changed to Preview window.</source>
         <translation>Фокус переключився на вікно «Перегляд».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7217"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7214"/>
         <source>Focus changed to Table Of Contents window.</source>
         <translation>Фокус переключився на вікно «Зміст».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7226"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7223"/>
         <source>Focus changed to Clips window.</source>
         <translation>Фокус переключився на вікно «Фрагменти».</translation>
     </message>
@@ -13617,2658 +13655,2658 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 <context>
     <name>MarcRelators</name>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="111"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="99"/>
         <source>Abridger</source>
         <translation>Укладач скорочення</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="111"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="99"/>
         <source>A person, family, or organization contributing to a resource by shortening or condensing the original work but leaving the nature and content of the original work substantially unchanged. For substantial modifications that result in the creation of a new work, see Author.</source>
         <translation>Людина, колектив чи організація, яка вносить свій внесок у ресурс, скорочуючи або стискаючи оригінальний твір, але залишаючи характер і зміст оригінального твору істотно незмінними. Про суттєві зміни, які призводять до створення нового твору, див. Автор.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="112"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="100"/>
         <source>Actor</source>
         <translation>Актор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="112"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="100"/>
         <source>Use for a person or organization who principally exhibits acting skills in a musical or dramatic presentation or entertainment.</source>
         <translation>Використовується для людини чи організації, яка в основному демонструє акторські навички у музичній чи драматичній презентації чи розвагах.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="113"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="101"/>
         <source>Adapter</source>
         <translation>Адаптатор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="113"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="101"/>
         <source>Use for a person or organization who 1) reworks a musical composition, usually for a different medium, or 2) rewrites novels or stories for motion pictures or other audiovisual medium.</source>
         <translation>Використовується для людини чи організації, яка 1) перетворює музичну композицію, як правило, для іншого носія, або 2) переписує романи чи оповідання для кінофільмів чи іншого аудіовізуального носія.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="114"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="102"/>
         <source>Analyst</source>
         <translation>Аналітик</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="114"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="102"/>
         <source>Use for a person or organization that reviews, examines and interprets data or information in a specific area.</source>
         <translation>Використовується для людини чи організації, яка переглядає, вивчає та інтерпретує дані чи інформацію в певній області.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="115"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="103"/>
         <source>Animator</source>
         <translation>Аніматор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="115"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="103"/>
         <source>Use for a person or organization who draws the two-dimensional figures, manipulates the three dimensional objects and/or also programs the computer to move objects and images for the purpose of animated film processing. Animation cameras, stands, celluloid screens, transparencies and inks are some of the tools of the animator.</source>
         <translation>Використовується для людини чи організації, яка малює двовимірні фігури, маніпулює тривимірними об&apos;єктами та/або також програмує комп’ютер для переміщення предметів та зображень для обробки анімаційних фільмів. Анімаційні камери, підставки, целюлоїдні екрани, прозорі плівки та чорнила - це деякі інструменти аніматора.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="116"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="104"/>
         <source>Annotator</source>
         <translation>Анотатор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="116"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="104"/>
         <source>Use for a person who writes manuscript annotations on a printed item.</source>
         <translation>Використовується для людини, яка пише рукописні анотації на друковані матеріали.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="117"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="105"/>
         <source>Appellant</source>
         <translation>Апелянт</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="117"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="105"/>
         <source>A person or organization who appeals a lower court&apos;s decision.</source>
         <translation>Особа чи організація, яка оскаржує рішення суду нижчої інстанції.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="118"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="106"/>
         <source>Appellee</source>
         <translation>Відповідач за апеляцією</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="118"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="106"/>
         <source>A person or organization against whom an appeal is taken.</source>
         <translation>Людина або організація, проти якої подано апеляцію.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="119"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="107"/>
         <source>Applicant</source>
         <translation>Заявник</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="119"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="107"/>
         <source>Use for a person or organization responsible for the submission of an application or who is named as eligible for the results of the processing of the application (e.g., bestowing of rights, reward, title, position).</source>
         <translation>Використовується особу чи організацію, відповідальну за подання заяви, або яка названа правомочною за результатами обробки заяви (наприклад, надання прав, винагороди, звання, посади).</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="120"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="108"/>
         <source>Architect</source>
         <translation>Архітектор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="120"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="108"/>
         <source>Use for a person or organization who designs structures or oversees their construction.</source>
         <translation>Використовується для людини чи організації, яка проектує конструкції або контролює їх будівництво.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="121"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="109"/>
         <source>Arranger</source>
         <translation>Аранжувальник</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="121"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="109"/>
         <source>Use for a person or organization who transcribes a musical composition, usually for a different medium from that of the original; in an arrangement the musical substance remains essentially unchanged.</source>
         <translation>Використовується для людини чи організації, яка транскрибує музичну композицію, зазвичай для іншого носія, ніж оригіналу; в аранжуванні музична субстанція залишається по суті незмінною.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="122"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="110"/>
         <source>Art copyist</source>
         <translation>Копіїст</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="122"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="110"/>
         <source>Use for a person (e.g., a painter or sculptor) who makes copies of works of visual art.</source>
         <translation>Використовується для людини (наприклад, художника чи скульптора), яка робить копії творів візуального мистецтва.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="123"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="111"/>
         <source>Art director</source>
         <translation>Арт-директор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="123"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="111"/>
         <source>A person contributing to a motion picture or television production by overseeing the artists and craftspeople who build the sets.</source>
         <translation>Людина, яка бере участь у кінофільмі чи телевізійній продукції, спостерігаючи за художниками та майстрами, які будують декороції.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="124"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="112"/>
         <source>Artist</source>
         <translation>Художник</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="124"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="112"/>
         <source>Use for a person (e.g., a painter) or organization who conceives, and perhaps also implements, an original graphic design or work of art, if specific codes (e.g., [egr], [etr]) are not desired. For book illustrators, prefer Illustrator [ill]. </source>
         <translation>Використовується для людини (наприклад, художника) або організацію, яка замислює і, можливо, також реалізує, оригінальний графічний дизайн або твір мистецтва, якщо конкретні коди (наприклад, [egr], [etr]) не бажані. Для ілюстраторів книг віддайте перевагу Illustrator [ill].</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="125"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="113"/>
         <source>Artistic director</source>
         <translation>Художній керівник</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="125"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="113"/>
         <source>Use for a person responsible for controlling the development of the artistic style of an entire production, including the choice of works to be presented and selection of senior production staff.</source>
         <translation>Використовується для людини, відповідальної за контроль за розвитком художнього стилю цілої продукції, включаючи вибір творів, що підлягають презентуванню, та підбір старшого виробничого персоналу.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="126"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="114"/>
         <source>Assignee</source>
         <translation>Правонаступник</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="126"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="114"/>
         <source>Use for a person or organization to whom a license for printing or publishing has been transferred.</source>
         <translation>Використовується для особи чи організації, якій передано ліцензію на друк чи публікацію.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="127"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="115"/>
         <source>Associated name</source>
         <translation>Асоційована ім’я</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="127"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="115"/>
         <source>Use for a person or organization associated with or found in an item or collection, which cannot be determined to be that of a Former owner [fmo] or other designated relator indicative of provenance.</source>
         <translation>Використовується для особи чи організації, пов’язаних або знайдених у каталозі чи колекції, які не можна визначити як колишнього власника [fmo] чи іншого призначеного релятора, що вказує на першоджерело.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="128"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="116"/>
         <source>Attributed name</source>
         <translation>Можливий автор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="128"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="116"/>
         <source>Use for an author, artist, etc., relating him/her to a work for which there is or once was substantial authority for designating that person as author, creator, etc. of the work. </source>
         <translation>Використовується для автора, художника, тощо, пов’язуючи його з твором, для якого або колись бува значна підстава для визначення цієї людини як автора, письменника, тощо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="129"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="117"/>
         <source>Auctioneer</source>
         <translation>Аукціоніст</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="129"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="117"/>
         <source>Use for a person or organization in charge of the estimation and public auctioning of goods, particularly books, artistic works, etc.</source>
         <translation>Використовується для особи чи організації, яка відповідає за оцінку та публічний аукціон товарів, зокрема книг, художніх творів тощо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="130"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="118"/>
         <source>Author</source>
         <translation>Автор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="130"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="118"/>
         <source>Use for a person or organization chiefly responsible for the intellectual or artistic content of a work, usually printed text. This term may also be used when more than one person or body bears such responsibility. </source>
         <translation>Використовується для людини чи організації, яка несе головну відповідальність за інтелектуальний чи художній зміст твору, як правило, друкованого тексту. Цей термін також може бути використаний, коли таку відповідальність несе більше ніж одна людина чи орган.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="131"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="119"/>
         <source>Author in quotations or text extracts</source>
         <translation>Автор цитат або текстових витягів</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="131"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="119"/>
         <source>Use for a person or organization whose work is largely quoted or extracted in works to which he or she did not contribute directly. Such quotations are found particularly in exhibition catalogs, collections of photographs, etc.</source>
         <translation>Використовується для людини чи організації, чиї роботи значною мірою цитуються чи витягуються у творах, до яких він чи вона не робила безпосереднього внеску. Такі цитати зустрічаються, зокрема, у каталогах виставок, колекціях фотографій тощо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="132"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="120"/>
         <source>Author of afterword, colophon, etc.</source>
         <translation>Автор післямови, колофона, тощо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="132"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="120"/>
         <source>Use for a person or organization responsible for an afterword, postface, colophon, etc. but who is not the chief author of a work.</source>
         <translation>Використовується для особи чи організації, відповідальної за післямову, допис, колофон, тощо, але хто не є головним автором твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="133"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="121"/>
         <source>Author of dialog</source>
         <translation>Автор діалогу</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="133"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="121"/>
         <source>Use for a person or organization responsible for the dialog or spoken commentary for a screenplay or sound recording.</source>
         <translation>Використовується для людини чи організації, відповідальної за діалог або промовний коментар для екранізації чи звукозапису.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="134"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="122"/>
         <source>Author of introduction, etc.</source>
         <translation>Автор вступу, тощо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="134"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="122"/>
         <source>Use for a person or organization responsible for an introduction, preface, foreword, or other critical introductory matter, but who is not the chief author.</source>
         <translation>Використовується для особи чи організації, яка відповідальна за вступ, передмову, пролог чи іншу критичну вступну інформацію, але хто не є головним автором.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="135"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="123"/>
         <source>Author of screenplay, etc.</source>
         <translation>Автор сценарію, тощо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="135"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="123"/>
         <source>Use for a person or organization responsible for a motion picture screenplay, dialog, spoken commentary, etc.</source>
         <translation>Використовується для особи чи організації, яка відповідальна за екранізацію кінофільму, діалог, усний коментар тощо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="136"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="124"/>
         <source>Autographer</source>
         <translation>Людина яка дає автографи</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="136"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="124"/>
         <source>A person whose manuscript signature appears on an item.</source>
         <translation>Людина, рукописний підпис якого з’являється на предметі.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="137"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="125"/>
         <source>Bibliographic antecedent</source>
         <translation>Бібліографічний попередник, антецедент</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="137"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="125"/>
         <source>Use for a person or organization responsible for a work upon which the work represented by the catalog record is based. This may be appropriate for adaptations, sequels, continuations, indexes, etc.</source>
         <translation>Використовується для особи чи організації, відповідальної за роботу, на якій базується робота, представлена в каталозі. Це може бути доречно для адаптацій, продовжень, продовжень, покажчиків тощо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="138"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="126"/>
         <source>Binder</source>
         <translation>Палітурник</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="138"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="126"/>
         <source>Use for a person or organization responsible for the binding of printed or manuscript materials.</source>
         <translation>Використовується для особи чи організації, відповідальної за підшивання/зшивання у політурку друкованих або рукописних матеріалів.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="139"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="127"/>
         <source>Binding designer</source>
         <translation>Дизайнер палітурки</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="139"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="127"/>
         <source>Use for a person or organization responsible for the binding design of a book, including the type of binding, the type of materials used, and any decorative aspects of the binding. </source>
         <translation>Використовується для особи або організації, відповідальної за оформлення палітур книги, включаючи тип палітурки, тип використовуваних матеріалів та будь-які декоративні аспекти палітурки.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="140"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="128"/>
         <source>Blurb writer</source>
         <translation>Автор рекламних написів книги</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="140"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="128"/>
         <source>A person or organization responsible for writing a commendation or testimonial for a work, which appears on or within the publication itself, frequently on the back or dust jacket of print publications or on advertising material for all media.</source>
         <translation>Людина чи організація, відповідальна за написання рекламки або відгуку за твір, який часто з’являється на публікації або в межах неї, часто на задній або суперобкладинці друкованих видань або на рекламних матеріалах для всіх ЗМІ.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="141"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="129"/>
         <source>Book designer</source>
         <translation>Дизайнер книг</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="141"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="129"/>
         <source>Use for a person or organization responsible for the entire graphic design of a book, including arrangement of type and illustration, choice of materials, and process used. </source>
         <translation>Використовується для людини чи організації, відповідальної за весь графічний дизайн книги, включаючи композицію типу та ілюстрації, вибір матеріалів та використовуваний процес.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="142"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="130"/>
         <source>Book producer</source>
         <translation>Виробник книг</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="142"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="130"/>
         <source>Use for a person or organization responsible for the production of books and other print media, if specific codes (e.g., [bkd], [egr], [tyd], [prt]) are not desired. </source>
         <translation>Використовується для особи чи організації, відповідальної за виробництво книг та інших друкованих носіїв інформації, якщо конкретні коди (наприклад, [bkd], [egr], [tyd], [prt]) не бажані.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="143"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="131"/>
         <source>Bookjacket designer</source>
         <translation>Дизайнер суперобкладинки</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="143"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="131"/>
         <source>Use for a person or organization responsible for the design of flexible covers designed for or published with a book, including the type of materials used, and any decorative aspects of the bookjacket. </source>
         <translation>Використовується для особи чи організації, які відповідальні за розробку гнучких обкладинок, розроблених для книги або опублікованих із нею, включаючи тип використовуваних матеріалів та будь-які декоративні аспекти книжкової куртки.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="144"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="132"/>
         <source>Bookplate designer</source>
         <translation>Дизайнер екслібрису</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="144"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="132"/>
         <source>Use for a person or organization responsible for the design of a book owner&apos;s identification label that is most commonly pasted to the inside front cover of a book. </source>
         <translation>Використовується для особи чи організації, відповідальної за оформлення ідентифікаційної етикетки власника книги, яка найчастіше приклеюється до внутрішньої передньої обкладинки книги.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="145"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="133"/>
         <source>Bookseller</source>
         <translation>Продавець книг</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="145"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="133"/>
         <source>Use for a person or organization who makes books and other bibliographic materials available for purchase. Interest in the materials is primarily lucrative.</source>
         <translation>Використовується для особи чи організації, яка робить книги та інші бібліографічні матеріали доступними для придбання. Інтерес до матеріалів є насамперед вигідним.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="146"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="134"/>
         <source>Braille embosser</source>
         <translation>Витискач шрифту Брайля</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="146"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="134"/>
         <source>A person, family, or organization involved in manufacturing a resource by embossing Braille cells using a stylus, special embossing printer, or other device.</source>
         <translation>Людина, колектив чи організація, яка бере участь у виробництві ресурсу шляхом тиснення шрифту Брайля за допомогою стилуса, спеціального принтера для тиснення чи іншого пристрою.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="147"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="135"/>
         <source>Broadcaster</source>
         <translation>Диктор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="147"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="135"/>
         <source>A person, family, or organization involved in broadcasting a resource to an audience via radio, television, webcast, etc.</source>
         <translation>Людина, колектив чи організація, яка бере участь у трансляції ресурсу до аудиторії через радіо, телебачення, веб-трансляцію, тощо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="148"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="136"/>
         <source>Calligrapher</source>
         <translation>Каліграф</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="148"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="136"/>
         <source>Use for a person or organization who writes in an artistic hand, usually as a copyist and or engrosser.</source>
         <translation>Використовується для людини чи організації, яка художньо пише рукою, як правило, як переписувач та чи ентузіаст.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="149"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="137"/>
         <source>Cartographer</source>
         <translation>Картограф</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="149"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="137"/>
         <source>Use for a person or organization responsible for the creation of maps and other cartographic materials.</source>
         <translation>Використовується для особи чи організації, відповідальної за створення карт та інших картографічних матеріалів.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="150"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="138"/>
         <source>Caster</source>
         <translation>Ливарник</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="150"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="138"/>
         <source>A person, family, or organization involved in manufacturing a resource by pouring a liquid or molten substance into a mold and leaving it to solidify to take the shape of the mold.</source>
         <translation>Людина, колектив чи організація, яка бере участь у виробництві ресурсу, наливаючи рідку або розплавлену речовину у форму і залишаючи її твердіти, щоб прийняти форму форми.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="151"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="139"/>
         <source>Censor</source>
         <translation>Цензор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="151"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="139"/>
         <source>Use for a censor, bowdlerizer, expurgator, etc., official or private. </source>
         <translation>Використовується для цензора, офіційного чи приватного.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="152"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="140"/>
         <source>Choreographer</source>
         <translation>Хореограф</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="152"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="140"/>
         <source>Use for a person or organization who composes or arranges dances or other movements (e.g., &quot;master of swords&quot;) for a musical or dramatic presentation or entertainment.</source>
         <translation>Використовується для людини чи організації, яка складає або організовує танці або інші рухи (наприклад, &quot;майстер мечів&quot;) для музичної чи драматичної презентації чи розваг.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="153"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="141"/>
         <source>Cinematographer</source>
         <translation>Кінооператор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="153"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="141"/>
         <source>Use for a person or organization who is in charge of the images captured for a motion picture film. The cinematographer works under the supervision of a director, and may also be referred to as director of photography. Do not confuse with videographer.</source>
         <translation>Використовується для людини чи організації, яка відповідає за зображення, зняті для кінофільму. Кінематограф працює під керівництвом режисера, його також можна назвати директором фотографії. Не плутати з відеооператором.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="154"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="142"/>
         <source>Client</source>
         <translation>Клієнт</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="154"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="142"/>
         <source>Use for a person or organization for whom another person or organization is acting.</source>
         <translation>Використовується для особи чи організації, щодо якої діє інша особа чи організація.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="155"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="143"/>
         <source>Collection registrar</source>
         <translation>Реєстратор колекцій</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="155"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="143"/>
         <source>A curator who lists or inventories the items in an aggregate work such as a collection of items or works.</source>
         <translation>Куратор, який перераховує або інвентаризує предмети в сукупному творі, наприклад колекції предметів чи творів.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="156"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="144"/>
         <source>Collector</source>
         <translation>Колекціонер</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="156"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="144"/>
         <source>Use for a person or organization who has brought together material from various sources that has been arranged, described, and cataloged as a collection. A collector is neither the creator of the material nor a person to whom manuscripts in the collection may have been addressed.</source>
         <translation>Використовується для людини чи організації, яка зібрала матеріали з різних джерел, які були упорядковані, описані та каталогізовані як колекція. Колекціонер не є ні автором матеріалу, ні людиною, до якої могли бути адресовані рукописи в колекції.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="157"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="145"/>
         <source>Collotyper</source>
         <translation>Фототипіст</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="157"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="145"/>
         <source>Use for a person or organization responsible for the production of photographic prints from film or other colloid that has ink-receptive and ink-repellent surfaces.</source>
         <translation>Використовується для особи чи організації, відповідальної за виробництво фототипів із плівки чи іншого колоїду, що має сприйнятливі до чорнила та відштовхувальні поверхні.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="158"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="146"/>
         <source>Colorist</source>
         <translation>Колорист</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="158"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="146"/>
         <source>A person or organization responsible for applying color to drawings, prints, photographs, maps, moving images, etc.</source>
         <translation>Людина чи організація, відповідальна за нанесення кольорів на малюнки, відбитки, фотографії, карти, рухомі зображення тощо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="159"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="147"/>
         <source>Commentator</source>
         <translation>Коментатор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="159"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="147"/>
         <source>Use for a person or organization who provides interpretation, analysis, or a discussion of the subject matter on a recording, motion picture, or other audiovisual medium.</source>
         <translation>Використовується для людини чи організації, яка надає інтерпретацію, аналіз чи обговорення теми на записі, кінофільмі чи іншому аудіовізуальному носії.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="160"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="148"/>
         <source>Commentator for written text</source>
         <translation>Автор коментарів або приміток</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="160"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="148"/>
         <source>Use for a person or organization responsible for the commentary or explanatory notes about a text. For the writer of manuscript annotations in a printed book, use Annotator [ann].</source>
         <translation>Використовується для особи чи організації, які відповідальні за коментарі чи пояснювальні примітки до тексту. Для написання рукописних анотацій у друкованій книзі використовуйте Annotator [ann].</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="161"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="149"/>
         <source>Compiler</source>
         <translation>Укладач</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="161"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="149"/>
         <source>Use for a person or organization who produces a work or publication by selecting and putting together material from the works of various persons or bodies.</source>
         <translation>Використовується для особи чи організації, яка виробляє твір чи публікацію, вибираючи та збираючи матеріал із творів різних осіб чи органів.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="162"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="150"/>
         <source>Complainant</source>
         <translation>Позивач</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="162"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="150"/>
         <source>Use for the party who applies to the courts for redress, usually in an equity proceeding.</source>
         <translation>Використовується для сторони, яка звертається до судів за відшкодування збитків, як правило, в порядку власного капіталу.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="163"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="151"/>
         <source>Complainant-appellant</source>
         <translation>Позивач-апелянт</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="163"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="151"/>
         <source>Use for a complainant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
         <translation>Використовується для скаржника, який приймає апеляцію від одного суду чи юрисдикції до іншого, щоб скасувати рішення, як правило, у порядку власного капіталу.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="164"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="152"/>
         <source>Complainant-appellee</source>
         <translation>Позивач-відповідач</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="164"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="152"/>
         <source>Use for a complainant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
         <translation>Використовується для скаржника, проти якого подається апеляція від одного суду чи юрисдикції до іншого для скасування рішення, як правило, у справі про власний капітал.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="165"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="153"/>
         <source>Composer</source>
         <translation>Композитор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="165"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="153"/>
         <source>Use for a person or organization who creates a musical work, usually a piece of music in manuscript or printed form.</source>
         <translation>Використовується для людини чи організації, яка створює музичний твір, як правило, музичний твір у рукописному чи друкованому вигляді.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="166"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="154"/>
         <source>Compositor</source>
         <translation>Складальник</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="166"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="154"/>
         <source>Use for a person or organization responsible for the creation of metal slug, or molds made of other materials, used to produce the text and images in printed matter. </source>
         <translation>Використовується для особи чи організації, відповідальної за створення металевої слизи, або форми з інших матеріалів, що використовуються для отримання тексту та зображень у друкованій продукції.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="167"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="155"/>
         <source>Conceptor</source>
         <translation>Автор ідеі</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="167"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="155"/>
         <source>Use for a person or organization responsible for the original idea on which a work is based, this includes the scientific author of an audio-visual item and the conceptor of an advertisement.</source>
         <translation>Використовується для людини чи організації, відповідальної за оригінальну ідею, на якій базується твір, сюди входить науковий автор аудіовізуального предмета та концептор реклами.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="168"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="156"/>
         <source>Conductor</source>
         <translation>Диригент</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="168"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="156"/>
         <source>Use for a person who directs a performing group (orchestra, chorus, opera, etc.) in a musical or dramatic presentation or entertainment.</source>
         <translation>Використовується для людини, яка керує виконавською групою (оркестром, хором, оперою тощо) у музичній чи драматичній презентації чи розвагах.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="169"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="157"/>
         <source>Conservator</source>
         <translation>Архіваріус</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="169"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="157"/>
         <source>A person or organization responsible for documenting, preserving, or treating printed or manuscript material, works of art, artifacts, or other media.</source>
         <translation>Особа чи організація, відповідальна за документування, збереження чи обробку друкованих або рукописних матеріалів, творів мистецтва, артефактів чи інших засобів масової інформації.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="170"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="158"/>
         <source>Consultant</source>
         <translation>Консультант</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="170"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="158"/>
         <source>Use for a person or organization relevant to a resource, who is called upon for professional advice or services in a specialized field of knowledge or training.</source>
         <translation>Використовується для людини чи організації, що мають відношення до ресурсу, до якого звертаються за професійними порадами чи послугами в спеціалізованій галузі знань чи навчання.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="171"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="159"/>
         <source>Consultant to a project</source>
         <translation>Консультант проекту</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="171"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="159"/>
         <source>Use for a person or organization relevant to a resource, who is engaged specifically to provide an intellectual overview of a strategic or operational task and by analysis, specification, or instruction, to create or propose a cost-effective course of action or solution.</source>
         <translation>Використовується для людини чи організації, що мають відношення до ресурсу, який спеціально займається інтелектуальним оглядом стратегічного чи оперативного завдання та шляхом аналізу, специфікації чи інструкції, щоб створити або запропонувати рентабельний хід дій чи рішення.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="172"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="160"/>
         <source>Contestant</source>
         <translation>Сторона суперечки</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="172"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="160"/>
         <source>Use for the party who opposes, resists, or disputes, in a court of law, a claim, decision, result, etc.</source>
         <translation>Використовується для сторони, яка виступає проти, чинить опір чи спори, в судовому порядку, позові, рішенні, результаті, тощо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="173"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="161"/>
         <source>Contestant-appellant</source>
         <translation>Відповідач-апелянт</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="173"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="161"/>
         <source>Use for a contestant who takes an appeal from one court of law or jurisdiction to another to reverse the judgment.</source>
         <translation>Використовується для учасника, який подає апеляцію від одного суду чи юрисдикції до іншого, щоб скасувати рішення.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="174"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="162"/>
         <source>Contestant-appellee</source>
         <translation>Скаржник-відповідач</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="174"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="162"/>
         <source>Use for a contestant against whom an appeal is taken from one court of law or jurisdiction to another to reverse the judgment.</source>
         <translation>Використовується для учасника, проти якого подається апеляція з одного суду чи юрисдикції до іншого для скасування рішення.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="175"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="163"/>
         <source>Contestee</source>
         <translation>Сторона яка оспорює</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="175"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="163"/>
         <source>Use for the party defending a claim, decision, result, etc. being opposed, resisted, or disputed in a court of law.</source>
         <translation>Використовується для того, щоб сторона, яка захищала позов, рішення, результат, тощо, виступила проти, протистояла чи оспорювалась у суді.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="176"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="164"/>
         <source>Contestee-appellant</source>
         <translation>Оспорювач-апелянт</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="176"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="164"/>
         <source>Use for a contestee who takes an appeal from one court or jurisdiction to another to reverse the judgment.</source>
         <translation>Використовується для кандидата, який приймає апеляцію від одного суду або юрисдикції до іншого, щоб скасувати рішення.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="177"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="165"/>
         <source>Contestee-appellee</source>
         <translation>Оспорювач-відповідач</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="177"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="165"/>
         <source>Use for a contestee against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment.</source>
         <translation>Використовується для кандидата, проти якого подається апеляція від одного суду чи юрисдикції до іншого для скасування рішення.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="178"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="166"/>
         <source>Contractor</source>
         <translation>Підрядчик</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="178"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="166"/>
         <source>Use for a person or organization relevant to a resource, who enters into a contract with another person or organization to perform a specific task.</source>
         <translation>Використовується для особи чи організації, що має відношення до ресурсу, яка укладає контракт з іншою особою чи організацією для виконання конкретного завдання.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="179"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="167"/>
         <source>Contributor</source>
         <translation>Співавтор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="179"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="167"/>
         <source>Use for a person or organization one whose work has been contributed to a larger work, such as an anthology, serial publication, or other compilation of individual works. Do not use if the sole function in relation to a work is as author, editor, compiler or translator.</source>
         <translation>Використовується для людини чи організації, чиї роботи сприяли більшій роботі, наприклад, антології, серійній публікації чи іншій збірці окремих творів. Не використовуйте, якщо єдиною функцією стосовно твору є автор, редактор, упорядник чи перекладач.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="180"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="168"/>
         <source>Copyright claimant</source>
         <translation>Претендент на авторське право</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="180"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="168"/>
         <source>Use for a person or organization listed as a copyright owner at the time of registration. Copyright can be granted or later transferred to another person or organization, at which time the claimant becomes the copyright holder.</source>
         <translation>Використовується для особи чи організації, зареєстрованих як власник авторських прав на момент реєстрації. Авторські права можуть бути надані або пізніше передані іншій особі чи організації, в цей час заявник стає власником авторських прав.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="181"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="169"/>
         <source>Copyright holder</source>
         <translation>Власник авторських прав</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="181"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="169"/>
         <source>Use for a person or organization to whom copy and legal rights have been granted or transferred for the intellectual content of a work. The copyright holder, although not necessarily the creator of the work, usually has the exclusive right to benefit financially from the sale and use of the work to which the associated copyright protection applies.</source>
         <translation>Використовується для особи чи організації, якій надано чи передано копії та законні права інтелектуального змісту твору. Власник авторських прав, хоч і не обов&apos;язково творець твору, зазвичай має виключне право фінансово виграти від продажу та використання твору, на який поширюється пов&apos;язаний захист авторських прав.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="182"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="170"/>
         <source>Corrector</source>
         <translation>Коректор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="182"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="170"/>
         <source>Use for a person or organization who is a corrector of manuscripts, such as the scriptorium official who corrected the work of a scribe. For printed matter, use Proofreader.</source>
         <translation>Використовується для людини чи організації, яка є коректором рукописів, наприклад, чиновник сценарію, який виправляв роботу писаря. Для друкованої продукції використовуйте коректор.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="183"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="171"/>
         <source>Correspondent</source>
         <translation>Кореспондент</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="183"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="171"/>
         <source>Use for a person or organization who was either the writer or recipient of a letter or other communication.</source>
         <translation>Використовується для людини чи організації, яка була або письменником, або отримувачем листа чи іншого повідомлення.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="184"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="172"/>
         <source>Costume designer</source>
         <translation>Художник по костюмах</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="184"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="172"/>
         <source>Use for a person or organization who designs or makes costumes, fixes hair, etc., for a musical or dramatic presentation or entertainment.</source>
         <translation>Використовується для людини чи організації, яка розробляє або виготовляє костюми, закріплює волосся, тощо, для музичної чи драматичної презентації чи розваг.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="185"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="173"/>
         <source>Court governed</source>
         <translation>Суд діє сообразно</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="185"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="173"/>
         <source>A court governed by court rules, regardless of their official nature (e.g., laws, administrative regulations.)</source>
         <translation>Суд, який регулюється правилами суду, незалежно від їх офіційного характеру (наприклад, закони, адміністративні правила).</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="186"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="174"/>
         <source>Court reporter</source>
         <translation>Судовий секретар</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="186"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="174"/>
         <source>A person, family, or organization contributing to a resource by preparing a court&apos;s opinions for publication.</source>
         <translation>Людина, колектив чи організація, яка бере участь у ресурсі, готуючи висновки суду до публікації.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="187"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="175"/>
         <source>Cover designer</source>
         <translation>Дизайнер обкладинки</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="187"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="175"/>
         <source>Use for a person or organization responsible for the graphic design of a book cover, album cover, slipcase, box, container, etc. For a person or organization responsible for the graphic design of an entire book, use Book designer; for book jackets, use Bookjacket designer.</source>
         <translation>Використовується для особи чи організації, відповідальної за графічний дизайн обкладинки книги, обкладинки альбомів, футляра, коробки, контейнера, тощо. Для особи чи організації, відповідальної за графічний дизайн усієї книги, використовуйте Дизайнер книг; для суперобкладинок використовуйте Дизайнер Bookjacket.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="188"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="176"/>
         <source>Creator</source>
         <translation>Основний Автор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="188"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="176"/>
         <source>Use for a person or organization responsible for the intellectual or artistic content of a work.</source>
         <translation>Використовується для людини чи організації, відповідальної за інтелектуальний чи художній зміст твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="189"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="177"/>
         <source>Curator of an exhibition</source>
         <translation>Організатор виставки</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="189"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="177"/>
         <source>Use for a person or organization responsible for conceiving and organizing an exhibition.</source>
         <translation>Використовується для людини чи організації, відповідальної за планування та організацію виставки.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="190"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="178"/>
         <source>Dancer</source>
         <translation>Танцор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="190"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="178"/>
         <source>Use for a person or organization who principally exhibits dancing skills in a musical or dramatic presentation or entertainment.</source>
         <translation>Використовується для людини чи організації, яка в основному демонструє навички танцю в музичній чи драматичній презентації чи розвазі.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="191"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="179"/>
         <source>Data contributor</source>
         <translation>Поставщик даних</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="191"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="179"/>
         <source>Use for a person or organization that submits data for inclusion in a database or other collection of data.</source>
         <translation>Використовується для людини чи організації, яка подає дані для включення до бази даних чи іншого збору даних.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="192"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="180"/>
         <source>Data manager</source>
         <translation>Менеджер даних</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="192"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="180"/>
         <source>Use for a person or organization responsible for managing databases or other data sources.</source>
         <translation>Використовується для особи чи організації, відповідальної за управління базами даних або іншими джерелами даних.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="193"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="181"/>
         <source>Dedicatee</source>
         <translation>Кому Присвячується</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="193"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="181"/>
         <source>Use for a person or organization to whom a book, manuscript, etc., is dedicated (not the recipient of a gift).</source>
         <translation>Використовується для людини чи організації, якій присвячена книга, рукопис тощо (не отримувач подарунка).</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="194"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="182"/>
         <source>Dedicator</source>
         <translation>Хто Присвячує</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="194"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="182"/>
         <source>Use for the author of a dedication, which may be a formal statement or in epistolary or verse form.</source>
         <translation>Використовується для автора присвяту, яка може бути формальною заявою або в епістолярній чи віршованій формі.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="195"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="183"/>
         <source>Defendant</source>
         <translation>Відповідач</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="195"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="183"/>
         <source>Use for the party defending or denying allegations made in a suit and against whom relief or recovery is sought in the courts, usually in a legal action.</source>
         <translation>Використовується для сторони, яка захищає або заперечує звинувачення, висунуті за позовом, і проти яких вимагається надання допомоги або стягнення у судах, як правило, у судовій справі.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="196"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="184"/>
         <source>Defendant-appellant</source>
         <translation>Відповідач-апелянт</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="196"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="184"/>
         <source>Use for a defendant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
         <translation>Використовується для відповідача, який подає апеляцію від одного суду чи юрисдикції до іншого, щоб скасувати рішення суду, як правило, у судовій справі.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="197"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="185"/>
         <source>Defendant-appellee</source>
         <translation>Відповідач проти якого апеляція</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="197"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="185"/>
         <source>Use for a defendant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
         <translation>Використовується для відповідача, проти якого подається апеляція від одного суду чи юрисдикції до іншого для скасування рішення, як правило, у судовій справі.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="198"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="186"/>
         <source>Degree grantor</source>
         <translation>Той хто надає вчену ступінь</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="198"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="186"/>
         <source>Use for the organization granting a degree for which the thesis or dissertation described was presented.</source>
         <translation>Використовується для організації, яка отримує наукову ступінь, для якої була представлена дисертація чи дисертація.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="199"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="187"/>
         <source>Delineator</source>
         <translation>Кресляр</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="199"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="187"/>
         <source>Use for a person or organization executing technical drawings from others&apos; designs.</source>
         <translation>Використовується для особи чи організації, що виконують технічні креслення з інших проектів.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="200"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="188"/>
         <source>Depicted</source>
         <translation>Предмет зображення</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="200"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="188"/>
         <source>Use for an entity depicted or portrayed in a work, particularly in a work of art.</source>
         <translation>Використовується для сутності, зображеної або зображеної у творі, особливо у творі мистецтва.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="201"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="189"/>
         <source>Depositor</source>
         <translation>Депозитор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="201"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="189"/>
         <source>Use for a person or organization placing material in the physical custody of a library or repository without transferring the legal title.</source>
         <translation>Використовується для особи чи організації, що розміщує матеріали під фізичною опікою бібліотеки чи репозитарія, не передаючи юридичну назву.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="202"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="190"/>
         <source>Designer</source>
         <translation>Дизайнер</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="202"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="190"/>
         <source>Use for a person or organization responsible for the design if more specific codes (e.g., [bkd], [tyd]) are not desired.</source>
         <translation>Використовується для особи чи організації, відповідальної за дизайн, якщо більш конкретні коди (наприклад, [bkd], [tyd]) не бажані.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="203"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="191"/>
         <source>Director</source>
         <translation>Режисер</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="203"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="191"/>
         <source>Use for a person or organization who is responsible for the general management of a work or who supervises the production of a performance for stage, screen, or sound recording.</source>
         <translation>Використовується для особи чи організації, яка відповідає за загальне керівництво твором або контролює постановку вистави для сценічного, екранного чи звукозапису.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="204"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="192"/>
         <source>Dissertant</source>
         <translation>Дисертант</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="204"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="192"/>
         <source>Use for a person who presents a thesis for a university or higher-level educational degree.</source>
         <translation>Використовується для особи, яка представляє дисертацію на здобуття наукового ступеня університету чи вищого рівня.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="205"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="193"/>
         <source>Distribution place</source>
         <translation>Місце дистрибуції</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="205"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="193"/>
         <source>A place from which a resource, e.g., a serial, is distributed.</source>
         <translation>Місце, з якого поширюється ресурс, наприклад, серіал.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="206"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="194"/>
         <source>Distributor</source>
         <translation>Розповсюджувач</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="206"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="194"/>
         <source>Use for a person or organization that has exclusive or shared marketing rights for an item.</source>
         <translation>Використовується для особи чи організації, яка має ексклюзивні або спільні права на маркетинг товару.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="207"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="195"/>
         <source>Donor</source>
         <translation>Дарувальник</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="207"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="195"/>
         <source>Use for a person or organization who is the donor of a book, manuscript, etc., to its present owner. Donors to previous owners are designated as Former owner [fmo] or Inscriber [ins].</source>
         <translation>Використовується для особи чи організації, яка є дарує книги, рукописи, тощо, її теперішньому власнику. Донори попереднім власникам позначаються як колишній власник [fmo] або реєстратор [ins].</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="208"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="196"/>
         <source>Draftsman</source>
         <translation>Рисувальник</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="208"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="196"/>
         <source>Use for a person or organization who prepares artistic or technical drawings. </source>
         <translation>Використовується для людини чи організації, яка готує художні чи технічні малюнки.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="209"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="197"/>
         <source>Dubious author</source>
         <translation>Сумнівний автор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="209"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="197"/>
         <source>Use for a person or organization to which authorship has been dubiously or incorrectly ascribed.</source>
         <translation>Використовується для особи чи організації, якій авторство було присвоєно сумнівно чи неправильно.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="210"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="198"/>
         <source>Editor</source>
         <translation>Редактор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="210"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="198"/>
         <source>Use for a person or organization who prepares for publication a work not primarily his/her own, such as by elucidating text, adding introductory or other critical matter, or technically directing an editorial staff.</source>
         <translation>Використовується для людини чи організації, яка готує до публікації твір не в першу чергу свого власного, наприклад, з’ясовуючи текст, додаючи вступні чи інші критичні питання або технічно керуючи редакцією.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="211"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="199"/>
         <source>Editor of compilation</source>
         <translation>Редактор збірника</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="211"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="199"/>
         <source>A person, family, or organization contributing to a collective or aggregate work by selecting and putting together works, or parts of works, by one or more creators. For compilations of data, information, etc., that result in new works, see compiler.</source>
         <translation>Людина, колектив чи організація, яка дає свій внесок у колективну чи сукупну роботу, вибираючи та складаючи твори або частини творів одним або кількома творцями. Про компіляції даних, інформації тощо, які призводять до нових робіт, див. Компілятор.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="212"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="200"/>
         <source>Editor of moving image work</source>
         <translation>Редактор рухомих зображень</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="212"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="200"/>
         <source>A person, family, or organization responsible for assembling, arranging, and trimming film, video, or other moving image formats, including both visual and audio aspects.</source>
         <translation>Людина, колектив чи організація, відповідальна за збирання, упорядкування та обрізку фільмів, відео чи інших форматів рухомих зображень, включаючи як візуальні, так і аудіо аспекти.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="213"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="201"/>
         <source>Electrician</source>
         <translation>Освітлювач</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="213"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="201"/>
         <source>Use for a person responsible for setting up a lighting rig and focusing the lights for a production, and running the lighting at a performance.</source>
         <translation>Використовується для особи, відповідальної за встановлення освітлювальної установки та фокусування вогнів для виробництва, та керування освітленням на виставі.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="214"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="202"/>
         <source>Electrotyper</source>
         <translation>Виробник гальваностереотипів</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="214"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="202"/>
         <source>Use for a person or organization who creates a duplicate printing surface by pressure molding and electrodepositing of metal that is then backed up with lead for printing.</source>
         <translation>Використовується для людини або організації, яка створює дублюючу поверхню друку шляхом лиття під тиском та електроосадження металу, яке потім резервується свинцем для друку.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="215"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="203"/>
         <source>Engineer</source>
         <translation>Інженер</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="215"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="203"/>
         <source>Use for a person or organization that is responsible for technical planning and design, particularly with construction.</source>
         <translation>Використовується для людини чи організації, яка відповідає за технічне планування та проектування, особливо з будівництвом.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="216"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="204"/>
         <source>Engraver</source>
         <translation>Гравер</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="216"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="204"/>
         <source>Use for a person or organization who cuts letters, figures, etc. on a surface, such as a wooden or metal plate, for printing.</source>
         <translation>Використовується для людини чи організації, яка вирізає букви, цифри тощо на поверхні, наприклад дерев’яну чи металеву тарілку, для друку.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="217"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="205"/>
         <source>Etcher</source>
         <translation>Офортист</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="217"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="205"/>
         <source>Use for a person or organization who produces text or images for printing by subjecting metal, glass, or some other surface to acid or the corrosive action of some other substance.</source>
         <translation>Використовується для людини чи організації, яка виготовляє текст або зображення для друку, піддаючи металу, склу чи іншій поверхні підкислюючи кислоту чи корозійну дію якоїсь іншої речовини.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="218"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="206"/>
         <source>Event place</source>
         <translation>Місце проведення заходів</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="218"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="206"/>
         <source>A place where an event such as a conference or a concert took place.</source>
         <translation>Місце, де відбулася така подія, як конференція чи концерт.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="219"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="207"/>
         <source>Expert</source>
         <translation>Експерт</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="219"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="207"/>
         <source>Use for a person or organization in charge of the description and appraisal of the value of goods, particularly rare items, works of art, etc. </source>
         <translation>Використовується для особи чи організації, що відповідає за опис та оцінку вартості товарів, особливо рідкісних предметів, творів мистецтва тощо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="220"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="208"/>
         <source>Facsimilist</source>
         <translation>Факсміліст</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="220"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="208"/>
         <source>Use for a person or organization that executed the facsimile.</source>
         <translation>Використовується для особи чи організації, яка виконала факсиміле.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="221"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="209"/>
         <source>Field director</source>
         <translation>Керівник польових робіт</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="221"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="209"/>
         <source>Use for a person or organization that manages or supervises the work done to collect raw data or do research in an actual setting or environment (typically applies to the natural and social sciences).</source>
         <translation>Використовується для людини або організації, яка керує або контролює роботу, яку виконують для збору необроблених даних або для проведення досліджень у фактичних умовах чи середовищі (як правило, це стосується природних та соціальних наук).</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="222"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="210"/>
         <source>Film director</source>
         <translation> Кінорежисер</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="222"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="210"/>
         <source>A director responsible for the general management and supervision of a filmed performance.</source>
         <translation>Режисер, відповідальний за загальне керівництво та нагляд за знятим кінофільмом.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="223"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="211"/>
         <source>Film distributor</source>
         <translation>Кінодистриб&apos;ютор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="223"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="211"/>
         <source>A person, family, or organization involved in distributing a moving image resource to theatres or other distribution channels.</source>
         <translation>Людина, колектив чи організація, яка бере участь у розповсюдженні ресурсу рухомих зображень у театрах чи інших каналах розповсюдження.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="224"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="212"/>
         <source>Film editor</source>
         <translation>Режисер монтажу</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="224"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="212"/>
         <source>Use for a person or organization who is an editor of a motion picture film. This term is used regardless of the medium upon which the motion picture is produced or manufactured (e.g., acetate film, video tape). </source>
         <translation>Використовується для людини чи організації, яка є редактором кінофільму. Цей термін використовується незалежно від середовища, на якому виробляється або виготовляється кінофільм (наприклад, ацетатна плівка, відеокасета).</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="225"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="213"/>
         <source>Film producer</source>
         <translation>Кінопродюсер</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="225"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="213"/>
         <source>A producer responsible for most of the business aspects of a film.</source>
         <translation>Продюсер, відповідальний за більшість бізнес-аспектів фільму.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="226"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="214"/>
         <source>Filmmaker</source>
         <translation>Виробник фільмів</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="226"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="214"/>
         <source>A person, family or organization responsible for creating an independent or personal film. A filmmaker is individually responsible for the conception and execution of all aspects of the film.</source>
         <translation>Людина, колектив чи організація, відповідальна за створення незалежного чи особистого фільму. Кінорежисер несе індивідуальну відповідальність за розробку та виконання всіх аспектів фільму.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="227"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="215"/>
         <source>First party</source>
         <translation>Перший правовласник</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="227"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="215"/>
         <source>Use for a person or organization who is identified as the only party or the party of the first part. In the case of transfer of right, this is the assignor, transferor, licensor, grantor, etc. Multiple parties can be named jointly as the first party.</source>
         <translation>Використовується для особи чи організації, які визначені єдиною стороною або стороною першої частини. У разі передачі права - це цедент, передачу, ліцензіат, грантодавець тощо. Кілька сторін можуть бути названі спільно першою стороною.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="228"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="216"/>
         <source>Forger</source>
         <translation>Фальсифікатор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="228"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="216"/>
         <source>Use for a person or organization who makes or imitates something of value or importance, especially with the intent to defraud. </source>
         <translation>Використовується для людини чи організації, яка робить або наслідує щось цінне чи важливе, особливо з наміром обманути.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="229"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="217"/>
         <source>Former owner</source>
         <translation>Колишній власник</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="229"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="217"/>
         <source>Use for a person or organization who owned an item at any time in the past. Includes those to whom the material was once presented. A person or organization giving the item to the present owner is designated as Donor [dnr].</source>
         <translation>Використовується для особи чи організації, яка володіла предметом у будь-який час минулого. Включає тих, кому колись був представлений матеріал. Особа чи організація, яка передає предмет теперішньому власнику, позначається як донор [dnr].</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="230"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="218"/>
         <source>Funder</source>
         <translation>Інвестор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="230"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="218"/>
         <source>Use for a person or organization that furnished financial support for the production of the work.</source>
         <translation>Використовується для людини чи організації, яка надала фінансову підтримку для виробництва твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="231"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="219"/>
         <source>Geographic information specialist</source>
         <translation>Спеціаліст з географічної інформації</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="231"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="219"/>
         <source>Use for a person responsible for geographic information system (GIS) development and integration with global positioning system data.</source>
         <translation>Використовується для особи, відповідальної за розробку та інтеграцію географічної інформаційної системи (ГІС) з даними глобальної системи позиціонування.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="232"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="220"/>
         <source>Honoree</source>
         <translation>Об&apos;єкт честування</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="232"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="220"/>
         <source>Use for a person or organization in memory or honor of whom a book, manuscript, etc. is donated. </source>
         <translation>Використовується для людини чи організації в пам’ять чи честь, кому дарується книга, рукопис тощо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="233"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="221"/>
         <source>Host</source>
         <translation>Гість</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="233"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="221"/>
         <source>Use for a person who is invited or regularly leads a program (often broadcast) that includes other guests, performers, etc. (e.g., talk show host).</source>
         <translation>Використовується для людини, яку запрошують або регулярно ведуть програму (часто транслюється), яка включає інших гостей, виконавців тощо (наприклад, ведучого ток-шоу).</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="234"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="222"/>
         <source>Host institution</source>
         <translation>Приймаюча організація</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="234"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="222"/>
         <source>An organization hosting the event, exhibit, conference, etc., which gave rise to a resource, but having little or no responsibility for the content of the resource.</source>
         <translation>Організація, яка приймає подію, виставку, конференцію тощо, яка породжувала ресурс, але не мала відповідальності за зміст ресурсу.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="235"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="223"/>
         <source>Illuminator</source>
         <translation>Ілюстратор рукописів</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="235"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="223"/>
         <source>Use for a person or organization responsible for the decoration of a work (especially manuscript material) with precious metals or color, usually with elaborate designs and motifs.</source>
         <translation>Використовується для людини чи організації, відповідальної за оздоблення твору (особливо рукописного матеріалу) з дорогоцінними металами чи кольором, як правило, з витонченими конструкціями та мотивами.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="236"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="224"/>
         <source>Illustrator</source>
         <translation>Ілюстратор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="236"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="224"/>
         <source>Use for a person or organization who conceives, and perhaps also implements, a design or illustration, usually to accompany a written text.</source>
         <translation>Використовується для людини чи організації, яка замислює, а можливо, також реалізує, дизайн чи ілюстрацію, як правило, для супроводу письмового тексту.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="237"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="225"/>
         <source>Inscriber</source>
         <translation>Автор напису даріння</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="237"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="225"/>
         <source>Use for a person who has written a statement of dedication or gift.</source>
         <translation>Використовуйте для людини, яка написала напис про посвячення чи подарунок.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="238"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="226"/>
         <source>Instrumentalist</source>
         <translation>Інструменталіст</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="238"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="226"/>
         <source>Use for a person or organization who principally plays an instrument in a musical or dramatic presentation or entertainment.</source>
         <translation>Використовується для людини чи організації, яка в основному грає на інструменті у музичній чи драматичній презентації чи розвагах.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="239"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="227"/>
         <source>Interviewee</source>
         <translation>Той у кого беруть інтерв&apos;ю</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="239"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="227"/>
         <source>Use for a person or organization who is interviewed at a consultation or meeting, usually by a reporter, pollster, or some other information gathering agent.</source>
         <translation>Використовується для особи чи організації, з якою проводять співбесіду на консультації чи зустрічі, як правило, репортером, опитувальником чи іншим агентом збору інформації.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="240"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="228"/>
         <source>Interviewer</source>
         <translation>Інтерв&apos;юєр</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="240"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="228"/>
         <source>Use for a person or organization who acts as a reporter, pollster, or other information gathering agent in a consultation or meeting involving one or more individuals.</source>
         <translation>Використовується для особи чи організації, яка виступає репортером, опитувачем чи іншим агентом збору інформації під час консультацій чи зустрічей за участю однієї чи кількох осіб.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="241"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="229"/>
         <source>Inventor</source>
         <translation>Винахідник</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="241"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="229"/>
         <source>Use for a person or organization who first produces a particular useful item, or develops a new process for obtaining a known item or result.</source>
         <translation>Використовується для людини чи організації, яка вперше виготовляє певний корисний предмет, або розробляє новий процес отримання відомого предмета чи результату.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="242"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="230"/>
         <source>Issuing body</source>
         <translation>Повномочний орган</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="242"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="230"/>
         <source>A person, family or organization issuing a work, such as an official organ of the body.</source>
         <translation>Людина, колектив чи організація, яка видає твір, наприклад, офіційний орган органу.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="243"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="231"/>
         <source>Judge</source>
         <translation>Суддя</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="243"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="231"/>
         <source>A person who hears and decides on legal matters in court.</source>
         <translation>Особа, яка заслуховує та вирішує судові питання у судовому порядку.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="244"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="232"/>
         <source>Jurisdiction governed</source>
         <translation>Юрисдикція яка використовується</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="244"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="232"/>
         <source>A jurisdiction governed by a law, regulation, etc., that was enacted by another jurisdiction.</source>
         <translation>Юрисдикція, що регулюється законом, постановою, тощо, яка була прийнята іншою юрисдикцією.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="245"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="233"/>
         <source>Laboratory</source>
         <translation>Лабораторія</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="245"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="233"/>
         <source>Use for an institution that provides scientific analyses of material samples.</source>
         <translation>Використовується для установи, яка забезпечує науковий аналіз проб матеріалу.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="246"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="234"/>
         <source>Laboratory director</source>
         <translation>Керівник лабораторії</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="246"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="234"/>
         <source>Use for a person or organization that manages or supervises work done in a controlled setting or environment. </source>
         <translation>Використовується для людини чи організації, яка керує або контролює роботу, виконану в контрольованих умовах або оточенні.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="247"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="235"/>
         <source>Landscape architect</source>
         <translation>Ландшафтний архітектор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="247"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="235"/>
         <source>Use for a person or organization whose work involves coordinating the arrangement of existing and proposed land features and structures.</source>
         <translation>Використовується для людини чи організації, робота якої передбачає координацію розташування існуючих та запропонованих земельних особливостей та споруд.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="248"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="236"/>
         <source>Lead</source>
         <translation>Керівник</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="248"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="236"/>
         <source>Use to indicate that a person or organization takes primary responsibility for a particular activity or endeavor. Use with another relator term or code to show the greater importance this person or organization has regarding that particular role. If more than one relator is assigned to a heading, use the Lead relator only if it applies to all the relators.</source>
         <translation>Використовується для вказівки, що людина чи організація несе основну відповідальність за певну діяльність чи починання. Використовуйте з іншим терміном або кодом релятора, щоб показати більшу важливість цієї людини чи організації стосовно цієї конкретної ролі. Якщо до одного заголовку присвоєно більше одного релетера, використовуйте провідний реле тільки в тому випадку, якщо він стосується всіх релеторів.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="249"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="237"/>
         <source>Lender</source>
         <translation>Позикодавець</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="249"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="237"/>
         <source>Use for a person or organization permitting the temporary use of a book, manuscript, etc., such as for photocopying or microfilming.</source>
         <translation>Використовується для особи чи організації, яка дозволяє тимчасове використання книги, рукопису тощо, наприклад, для фотокопіювання чи мікрофільмування.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="250"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="238"/>
         <source>Libelant</source>
         <translation>Позивач у морському та церковному судочинстві</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="250"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="238"/>
         <source>Use for the party who files a libel in an ecclesiastical or admiralty case.</source>
         <translation>Використовується для сторони, яка подає позов у справі церковного чи адміралтейського.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="251"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="239"/>
         <source>Libelant-appellant</source>
         <translation>Позивач-апелянт</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="251"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="239"/>
         <source>Use for a libelant who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
         <translation>Використовується для позивача, який приймає апеляцію від одного церковного суду або адміралтейства до іншого, щоб скасувати рішення.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="252"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="240"/>
         <source>Libelant-appellee</source>
         <translation>Позивач-відповідач</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="252"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="240"/>
         <source>Use for a libelant against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
         <translation>Використовується для позивача, проти якого подається апеляція від одного церковного суду або адміралтейства до іншого, щоб скасувати рішення.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="253"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="241"/>
         <source>Libelee</source>
         <translation>Відповідач у морському та церковному судочинстві</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="253"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="241"/>
         <source>Use for a party against whom a libel has been filed in an ecclesiastical court or admiralty.</source>
         <translation>Використовується для сторони, проти якої було порушено позов у церковному суді або адміралтействі.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="254"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="242"/>
         <source>Libelee-appellant</source>
         <translation>Відповідач-апелянт</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="254"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="242"/>
         <source>Use for a libelee who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
         <translation>Використовується для звільненої особи, яка приймає апеляцію від одного церковного суду або адміралтейства до іншого, щоб скасувати рішення.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="255"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="243"/>
         <source>Libelee-appellee</source>
         <translation>Відповідач за апеляцією</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="255"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="243"/>
         <source>Use for a libelee against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
         <translation>Використовується для звільненого, проти якого подається апеляція від одного церковного суду або адміралтейства до іншого, щоб скасувати рішення.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="256"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="244"/>
         <source>Librettist</source>
         <translation>Лібретист</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="256"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="244"/>
         <source>Use for a person or organization who is a writer of the text of an opera, oratorio, etc.</source>
         <translation>Використовується для людини чи організації, яка є письменником тексту опери, ораторії тощо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="257"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="245"/>
         <source>Licensee</source>
         <translation>Ліцензіат</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="257"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="245"/>
         <source>Use for a person or organization who is an original recipient of the right to print or publish.</source>
         <translation>Використовується для особи чи організації, яка є оригінальним одержувачем права на друк чи публікацію.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="258"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="246"/>
         <source>Licensor</source>
         <translation>Ліцензіар</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="258"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="246"/>
         <source>Use for person or organization who is a signer of the license, imprimatur, etc. </source>
         <translation>Використовується для особи чи організації, яка є підписником ліцензії, імпріматуром тощо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="259"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="247"/>
         <source>Lighting designer</source>
         <translation>Дизайнер освітлення</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="259"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="247"/>
         <source>Use for a person or organization who designs the lighting scheme for a theatrical presentation, entertainment, motion picture, etc.</source>
         <translation>Використовується для людини чи організації, яка розробляє схему освітлення для театральної презентації, розваг, кінофільму тощо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="260"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="248"/>
         <source>Lithographer</source>
         <translation>Літограф</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="260"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="248"/>
         <source>Use for a person or organization who prepares the stone or plate for lithographic printing, including a graphic artist creating a design directly on the surface from which printing will be done.</source>
         <translation>Використовується для людини або організації, яка готує камінь або плиту для літографічного друку, включаючи художника-графіку, що створює дизайн прямо на поверхні, з якої буде зроблено друк.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="261"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="249"/>
         <source>Lyricist</source>
         <translation>Поет-пісняр</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="261"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="249"/>
         <source>Use for a person or organization who is the a writer of the text of a song.</source>
         <translation>Використовується для людини чи організації, яка є автором тексту пісні.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="262"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="250"/>
         <source>Manufacture place</source>
         <translation>Місце виготовлення</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="262"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="250"/>
         <source>The place of manufacture (e.g., printing, duplicating, casting, etc.) of a resource in a published form.</source>
         <translation>Місце виготовлення (наприклад, друкування, тиражування, лиття тощо) ресурсу в опублікованій формі.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="263"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="251"/>
         <source>Manufacturer</source>
         <translation>Виробник</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="263"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="251"/>
         <source>Use for a person or organization that makes an artifactual work (an object made or modified by one or more persons). Examples of artifactual works include vases, cannons or pieces of furniture.</source>
         <translation>Використовується для людини чи організації, яка виготовляє артефактичну роботу (предмет, виготовлений чи модифікований однією чи кількома особами). Приклади артефактичних робіт включають вази, гармати або предмети меблів.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="264"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="252"/>
         <source>Marbler</source>
         <translation>Мраморщик</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="264"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="252"/>
         <source>The entity responsible for marbling paper, cloth, leather, etc. used in construction of a resource.</source>
         <translation>Суб&apos;єкт, відповідальний за мармуровий папір, тканину, шкіру тощо, використовуваний для побудови ресурсу.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="265"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="253"/>
         <source>Markup editor</source>
         <translation>Редактор розмітки</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="265"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="253"/>
         <source>Use for a person or organization performing the coding of SGML, HTML, or XML markup of metadata, text, etc.</source>
         <translation>Використовується для особи чи організації, що виконують кодування SGML, HTML або XML розмітки метаданих, тексту тощо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="266"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="254"/>
         <source>Medium</source>
         <translation>Медіум</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="266"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="254"/>
         <source>A person held to be a channel of communication between the earthly world and a different world.</source>
         <translation>Людина, яка вважається каналом зв&apos;язку між земним та іншим світом.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="267"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="255"/>
         <source>Metadata contact</source>
         <translation>Укладач метаданих</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="267"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="255"/>
         <source>Use for a person or organization primarily responsible for compiling and maintaining the original description of a metadata set (e.g., geospatial metadata set).</source>
         <translation>Використовується для особи чи організації, яка відповідальна за складання та підтримку оригінального опису набору метаданих (наприклад, набору геопросторових метаданих).</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="268"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="256"/>
         <source>Metal-engraver</source>
         <translation>Гравер по металу</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="268"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="256"/>
         <source>Use for a person or organization responsible for decorations, illustrations, letters, etc. cut on a metal surface for printing or decoration.</source>
         <translation>Використовується для особи чи організації, відповідальної за прикраси, ілюстрації, листи тощо, вирізані на металевій поверхні для друку чи прикраси.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="269"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="257"/>
         <source>Minute taker</source>
         <translation>Стенографіст, секретар</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="269"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="257"/>
         <source>A person, family, or organization responsible for recording the minutes of a meeting.</source>
         <translation>Людина, колектив чи організація, відповідальна за запис протоколів наради.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="270"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="258"/>
         <source>Moderator</source>
         <translation>Модератор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="270"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="258"/>
         <source>Use for a person who leads a program (often broadcast) where topics are discussed, usually with participation of experts in fields related to the discussion.</source>
         <translation>Використовується для людини, яка веде програму (часто трансляцію), де обговорюються теми, як правило, за участі експертів у галузях, що стосуються дискусії.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="271"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="259"/>
         <source>Monitor</source>
         <translation>Наглядач</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="271"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="259"/>
         <source>Use for a person or organization that supervises compliance with the contract and is responsible for the report and controls its distribution. Sometimes referred to as the grantee, or controlling agency.</source>
         <translation>Використовується для особи чи організації, яка здійснює нагляд за дотриманням договору та відповідає за звіт та контролює його розповсюдження. Іноді називають грантодавцем або контролюючим агентством.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="272"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="260"/>
         <source>Music copyist</source>
         <translation>Переписувач музики</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="272"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="260"/>
         <source>Use for a person who transcribes or copies musical notation</source>
         <translation>Використовується для людини, яка переписує або копіює музичні нотації</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="273"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="261"/>
         <source>Musical director</source>
         <translation>Мизичний керівник</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="273"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="261"/>
         <source>Use for a person responsible for basic music decisions about a production, including coordinating the work of the composer, the sound editor, and sound mixers, selecting musicians, and organizing and/or conducting sound for rehearsals and performances.</source>
         <translation>Використовується для людини, відповідальної за основні музичні рішення щодо постановки, включаючи координацію роботи композитора, редактора звуку та звукозмішувачів, вибору музикантів, організації та/або проведення звучання для репетицій та виступів.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="274"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="262"/>
         <source>Musician</source>
         <translation>Музикант</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="274"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="262"/>
         <source>Use for a person or organization who performs music or contributes to the musical content of a work when it is not possible or desirable to identify the function more precisely.</source>
         <translation>Використовується для людини чи організації, яка виконує музику або сприяє музичному змісту твору, коли неможливо або бажано більш точно визначити функцію.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="275"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="263"/>
         <source>Narrator</source>
         <translation>Оповідач</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="275"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="263"/>
         <source>Use for a person who is a speaker relating the particulars of an act, occurrence, or course of events.</source>
         <translation>Використовується для особи, яка є оратором, що стосується деталей діяння, події чи ходу подій.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="276"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="264"/>
         <source>Onscreen presenter</source>
         <translation>Ведучий на екрані</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="276"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="264"/>
         <source>A performer contributing to an expression of a work by appearing on screen in nonfiction moving image materials or introductions to fiction moving image materials to provide contextual or background information. Use when another term (e.g., Narrator, Host) is either not applicable or not desired.</source>
         <translation>Виконавець, що вносить свій вираз у твір, з&apos;являючись на екрані в нерухливих матеріалах рухомих зображень або введеннях у художні матеріали з рухомим зображенням, щоб надати контекстуальну чи довідкову інформацію. Використовуйте, коли інший термін (наприклад, Оповідач, Гість) або не застосовується, або не є бажаним.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="277"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="265"/>
         <source>Opponent</source>
         <translation>Опонент</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="277"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="265"/>
         <source>Use for a person or organization responsible for opposing a thesis or dissertation.</source>
         <translation>Використовується для особи чи організації, відповідальної за протидію дисертації чи дисертації.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="278"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="266"/>
         <source>Organizer of meeting</source>
         <translation>Організатор зустрічі</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="278"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="266"/>
         <source>Use for a person or organization responsible for organizing a meeting for which an item is the report or proceedings.</source>
         <translation>Використовується для особи чи організації, відповідальної за організацію зустрічі, щодо якої предмет є доповіддю або провадженням.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="279"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="267"/>
         <source>Originator</source>
         <translation>Ініціатор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="279"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="267"/>
         <source>Use for a person or organization performing the work, i.e., the name of a person or organization associated with the intellectual content of the work. This category does not include the publisher or personal affiliation, or sponsor except where it is also the corporate author.</source>
         <translation>Використовується для людини чи організації, яка виконує роботу, тобто ім’я особи чи організації, пов’язане з інтелектуальним змістом твору. Ця категорія не включає видавця або особисту приналежність або спонсора, за винятком випадків, коли це також корпоративний автор.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="280"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="268"/>
         <source>Other</source>
         <translation>Інші</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="280"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="268"/>
         <source>Use for relator codes from other lists which have no equivalent in the MARC list or for terms which have not been assigned a code.</source>
         <translation>Використовується для реляторних кодів з інших списків, які не мають еквіваленту в списку MARC, або для термінів, яким не було призначено код.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="281"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="269"/>
         <source>Owner</source>
         <translation>Власник</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="281"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="269"/>
         <source>Use for a person or organization that currently owns an item or collection.</source>
         <translation>Використовується для особи чи організації, яка наразі є власником предмета чи колекції.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="282"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="270"/>
         <source>Panelist</source>
         <translation>Учасник дискусії</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="282"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="270"/>
         <source> performer contributing to a resource by participating in a program (often broadcast) where topics are discussed, usually with participation of experts in fields related to the discussion.</source>
         <translation>виконавець, що надає ресурс, беручи участь у програмі (часто транслюється), де обговорюються теми, як правило, за участі експертів у галузях, що стосуються дискусії.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="283"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="271"/>
         <source>Papermaker</source>
         <translation>Виробник паперу</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="283"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="271"/>
         <source>Use for a person or organization responsible for the production of paper, usually from wood, cloth, or other fibrous material.</source>
         <translation>Використовується для особи чи організації, відповідальної за виробництво паперу, як правило, з дерева, тканини або іншого волокнистого матеріалу.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="284"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="272"/>
         <source>Patent applicant</source>
         <translation>Патентний заявник</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="284"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="272"/>
         <source>Use for a person or organization that applied for a patent.</source>
         <translation>Використовується для особи або організації, яка подала заявку на патент.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="285"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="273"/>
         <source>Patent holder</source>
         <translation>Власник патенту</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="285"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="273"/>
         <source>Use for a person or organization that was granted the patent referred to by the item. </source>
         <translation>Використовується для особи або організації, якій було надано патент, на який посилається цей товар.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="286"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="274"/>
         <source>Patron</source>
         <translation>Покровитель</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="286"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="274"/>
         <source>Use for a person or organization responsible for commissioning a work. Usually a patron uses his or her means or influence to support the work of artists, writers, etc. This includes those who commission and pay for individual works.</source>
         <translation>Використовується для особи чи організації, відповідальної за введення в експлуатацію твору. Зазвичай меценат використовує свої засоби чи вплив для підтримки творчості художників, письменників тощо. Сюди входять ті, хто замовляє та оплачує окремі твори.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="287"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="275"/>
         <source>Performer</source>
         <translation>Виконавець</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="287"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="275"/>
         <source>Use for a person or organization who exhibits musical or acting skills in a musical or dramatic presentation or entertainment, if specific codes for those functions ([act], [dnc], [itr], [voc], etc.) are not used. If specific codes are used, [prf] is used for a person whose principal skill is not known or specified.</source>
         <translation>Використовується для людини чи організації, яка проявляє музичні чи акторські навички у музичній чи драматичній презентації чи розвагах, якщо конкретні коди для цих функцій ([act], [dnc], [itr], [voc], тощо) не використовуються . Якщо використовуються конкретні коди, [prf] використовується для особи, основна майстерність якої не відома і не визначена.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="288"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="276"/>
         <source>Permitting agency</source>
         <translation>Дозвільне агентство</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="288"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="276"/>
         <source>Use for an authority (usually a government agency) that issues permits under which work is accomplished.</source>
         <translation>Використовується для органу влади (як правило, урядового органу), який видає дозволи, згідно з якими проводиться робота.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="289"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="277"/>
         <source>Photographer</source>
         <translation>Фотограф</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="289"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="277"/>
         <source>Use for a person or organization responsible for taking photographs, whether they are used in their original form or as reproductions.</source>
         <translation>Використовується для особи чи організації, відповідальної за фотографування, незалежно від того, використовуються вони в оригінальному вигляді або як репродукції.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="290"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="278"/>
         <source>Plaintiff</source>
         <translation>Обвинувач</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="290"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="278"/>
         <source>Use for the party who complains or sues in court in a personal action, usually in a legal proceeding.</source>
         <translation>Використовується для сторони, яка скаржиться або подає позов до суду в особистому позові, як правило, в судовому процесі.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="291"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="279"/>
         <source>Plaintiff-appellant</source>
         <translation>Обвинувач-апелянт</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="291"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="279"/>
         <source>Use for a plaintiff who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
         <translation>Використовується для позивача, який приймає апеляцію від одного суду чи юрисдикції до іншого, щоб скасувати рішення суду, як правило, у судовій справі.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="292"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="280"/>
         <source>Plaintiff-appellee</source>
         <translation>Обвинувач проти якого апеляція</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="292"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="280"/>
         <source>Use for a plaintiff against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
         <translation>Використовується для позивача, щодо якого подається апеляція від одного суду чи юрисдикції до іншого для скасування рішення, як правило, в судовому процесі.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="293"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="281"/>
         <source>Platemaker</source>
         <translation>Виробник печатних форм</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="293"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="281"/>
         <source>Use for a person or organization responsible for the production of plates, usually for the production of printed images and/or text.</source>
         <translation>Використовується для особи чи організації, відповідальної за виготовлення табличок, як правило, для виготовлення друкованих зображень та/або тексту.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="294"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="282"/>
         <source>Praeses</source>
         <translation>Президент</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="294"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="282"/>
         <source>A person who is the faculty moderator of an academic disputation, normally proposing a thesis and participating in the ensuing disputation.</source>
         <translation>Особа, яка є модератором академічної суперечки, яка зазвичай пропонує дисертацію та бере участь у суперечці, що випливає з неї.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="295"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="283"/>
         <source>Presenter</source>
         <translation>Ведучий</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="295"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="283"/>
         <source>A person or organization mentioned in an &apos;X presents&apos; credit for moving image materials and who is associated with production, finance, or distribution in some way. A vanity credit; in early years, normally the head of a studio.</source>
         <translation>Людина чи організація, згадана у «X представляє», які фактично не приймали участі у створенні матеріалів, що рухаються, та які пов’язуються із виробництвом, фінансами чи розповсюдженням. Кредит гонору; в перші роки, як правило, керівники студії.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="296"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="284"/>
         <source>Printer</source>
         <translation>Печатник</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="296"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="284"/>
         <source>Use for a person or organization who prints texts, whether from type or plates.</source>
         <translation>Використовується для людини чи організації, яка друкує тексти, з будь-яких типів чи табличок.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="297"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="285"/>
         <source>Printer of plates</source>
         <translation>Печатник з печатних форм</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="297"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="285"/>
         <source>Use for a person or organization who prints illustrations from plates. </source>
         <translation>Використовується для людини чи організації, яка друкує ілюстрації з табличок.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="298"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="286"/>
         <source>Printmaker</source>
         <translation>Художник-гравер</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="298"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="286"/>
         <source>Use for a person or organization who makes a relief, intaglio, or planographic printing surface.</source>
         <translation>Використовується для людини чи організації, яка робить рельєфну, глибоку чи планографічну поверхню друку.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="299"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="287"/>
         <source>Process contact</source>
         <translation>Організатор процесу</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="299"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="287"/>
         <source>Use for a person or organization primarily responsible for performing or initiating a process, such as is done with the collection of metadata sets.</source>
         <translation>Використовується для людини або організації, відповідальної за виконання або ініціювання процесу, як це робиться зі збиранням наборів метаданих.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="300"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="288"/>
         <source>Producer</source>
         <translation>Продюсер</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="300"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="288"/>
         <source>Use for a person or organization responsible for the making of a motion picture, including business aspects, management of the productions, and the commercial success of the work.</source>
         <translation>Використовується особу чи організацію, відповідальну за створення кінофільму, включаючи бізнес-аспекти, управління виробництвом та комерційний успіх твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="301"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="289"/>
         <source>Production company</source>
         <translation>Продюсерська компанія</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="301"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="289"/>
         <source>An organization that is responsible for financial, technical, and organizational management of a production for stage, screen, audio recording, television, webcast, etc.</source>
         <translation>Організація, яка відповідає за фінансове, технічне та організаційне управління виробництвом для сценичного, екранного, аудіозапису, телебачення, веб-трансляції, тощо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="302"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="290"/>
         <source>Production designer</source>
         <translation>Художник-постановник</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="302"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="290"/>
         <source>A person or organization responsible for designing the overall visual appearance of a moving image production.</source>
         <translation>Людина чи організація, відповідальна за проектування загального візуального вигляду виробництва рухомих зображень.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="303"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="291"/>
         <source>Production manager</source>
         <translation>Керуючий виробництвом</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="303"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="291"/>
         <source>Use for a person responsible for all technical and business matters in a production.</source>
         <translation>Використовується для особи, відповідальної за всі технічні та ділові питання на виробництві.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="304"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="292"/>
         <source>Production personnel</source>
         <translation>Виробничий персонал</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="304"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="292"/>
         <source>Use for a person or organization associated with the production (props, lighting, special effects, etc.) of a musical or dramatic presentation or entertainment.</source>
         <translation>Використовується для людини чи організації, пов’язані із виробництвом (реквізит, освітлення, спецефекти, тощо) музичної чи драматичної презентації чи розваги.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="305"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="293"/>
         <source>Production place</source>
         <translation>Місце виробництва</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="305"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="293"/>
         <source>The place of production (e.g., inscription, fabrication, construction, etc.) of a resource in an unpublished form.</source>
         <translation>Місце виробництва (наприклад, напис, виготовлення, будівництво тощо) ресурсу в неопублікованій формі.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="306"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="294"/>
         <source>Programmer</source>
         <translation>Програміст</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="306"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="294"/>
         <source>Use for a person or organization responsible for the creation and/or maintenance of computer program design documents, source code, and machine-executable digital files and supporting documentation.</source>
         <translation>Використовується для особи чи організації, відповідальної за створення та/або підтримку конструкторських документів на комп&apos;ютерних програм, вихідний код та цифрові файли, що підтримуються машиною, та допоміжну документацію.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="307"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="295"/>
         <source>Project director</source>
         <translation>Керівник проекту</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="307"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="295"/>
         <source>Use for a person or organization with primary responsibility for all essential aspects of a project, or that manages a very large project that demands senior level responsibility, or that has overall responsibility for managing projects, or provides overall direction to a project manager.</source>
         <translation>Використовується особу чи організацію, яка несе основну відповідальність за всі основні аспекти проекту, або керує дуже великим проектом, який вимагає відповідальності вищого рівня, або який несе загальну відповідальність за управління проектами, або забезпечує загальне керівництво керівнику проекту.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="308"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="296"/>
         <source>Proofreader</source>
         <translation>Коректор друкованого тексту</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="308"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="296"/>
         <source>Use for a person who corrects printed matter. For manuscripts, use Corrector [crr].</source>
         <translation>Використовується для особи, яка виправляє друковані видання. Для рукописів використовуйте Коректор [crr].</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="309"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="297"/>
         <source>Provider</source>
         <translation>Провайдер</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="309"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="297"/>
         <source>A person or organization who produces, publishes, manufactures, or distributes a resource if specific codes are not desired (e.g. [mfr], [pbl].)</source>
         <translation>Людина чи організація, яка виробляє, публікує, виготовляє або поширює ресурс, якщо конкретні коди не бажані (наприклад, [mfr], [pbl].)</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="310"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="298"/>
         <source>Publication place </source>
         <translation>Місце публікації</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="310"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="298"/>
         <source>The place where a resource is published.</source>
         <translation>Місце, де публікується ресурс.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="311"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="299"/>
         <source>Publisher</source>
         <translation>Видавець</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="311"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="299"/>
         <source>Use for a person or organization that makes printed matter, often text, but also printed music, artwork, etc. available to the public.</source>
         <translation>Використовується для людини чи організації, яка робить друковані матеріали, найчастіше текст, але також друковану музику, твори мистецтва тощо, доступними для публіки.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="312"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="300"/>
         <source>Publishing director</source>
         <translation>Директор видання</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="312"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="300"/>
         <source>Use for a person or organization who presides over the elaboration of a collective work to ensure its coherence or continuity. This includes editors-in-chief, literary editors, editors of series, etc.</source>
         <translation>Використовується для людини чи організації, яка головує над розробкою колективної роботи, щоб забезпечити її узгодженість або наступність. Сюди входять головні редактори, літературні редактори, редактори серій тощо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="313"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="301"/>
         <source>Puppeteer</source>
         <translation>Кукловод</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="313"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="301"/>
         <source>Use for a person or organization who manipulates, controls, or directs puppets or marionettes in a musical or dramatic presentation or entertainment.</source>
         <translation>Використовується для людини чи організації, яка маніпулює, контролює чи спрямовує ляльок чи маріонет у музичній чи драматичній презентації чи розвагах.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="314"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="302"/>
         <source>Radio director</source>
         <translation>Радіо-директор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="314"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="302"/>
         <source>A director responsible for the general management and supervision of a radio program.</source>
         <translation>Директор, відповідальний за загальне управління та нагляд за радіопрограмою.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="315"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="303"/>
         <source>Radio producer</source>
         <translation>Радіо-продюсер</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="315"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="303"/>
         <source>A producer responsible for most of the business aspects of a radio program.</source>
         <translation>Продюсер, відповідальний за більшість бізнес-аспектів радіопрограми.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="316"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="304"/>
         <source>Recipient</source>
         <translation>Отримувач</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="316"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="304"/>
         <source>Use for a person or organization to whom correspondence is addressed.</source>
         <translation>Використовуйте для людини чи організації, якій адресовано листування.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="317"/>
-        <location filename="../../Misc/MarcRelators.cpp" line="318"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="305"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="306"/>
         <source>Recording engineer</source>
         <translation>Інженер звукозапису</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="317"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="305"/>
         <source>Use for a person or organization who supervises the technical aspects of a sound or video recording session.</source>
         <translation>Використовується для особи чи організації, яка контролює технічні аспекти сеансу запису звуку чи відео.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="318"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="306"/>
         <source>A person contributing to a resource by supervising the technical aspects of a sound or video recording session.</source>
         <translation>Людина, яка працює на ресурсі, контролюючи технічні аспекти сеансу запису звуку чи відео.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="319"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="307"/>
         <source>Redactor</source>
         <translation>Редактор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="319"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="307"/>
         <source>Use for a person or organization who writes or develops the framework for an item without being intellectually responsible for its content.</source>
         <translation>Використовується для людини чи організації, яка пише або розробляє структуру для предмета, не несучи інтелектуальної відповідальності за його зміст.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="320"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="308"/>
         <source>Renderer</source>
         <translation>Виготовитель ескізів</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="320"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="308"/>
         <source>Use for a person or organization who prepares drawings of architectural designs (i.e., renderings) in accurate, representational perspective to show what the project will look like when completed.</source>
         <translation>Використовується для людини чи організації, яка готує креслення архітектурних проектів (тобто рендерінгу) в точній, зображувальній перспективі, щоб показати, як буде виглядати проект, коли буде завершено.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="321"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="309"/>
         <source>Reporter</source>
         <translation>Репортер</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="321"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="309"/>
         <source>Use for a person or organization who writes or presents reports of news or current events on air or in print.</source>
         <translation>Використовується для людини чи організації, яка пише або презентує повідомлення про новини або поточні події в ефірі чи друкованому вигляді.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="322"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="310"/>
         <source>Repository</source>
         <translation>Репозитарій</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="322"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="310"/>
         <source>Use for an agency that hosts data or material culture objects and provides services to promote long term, consistent and shared use of those data or objects.</source>
         <translation>Використовується для агентства, яке розміщує об’єкти даних або матеріальної культури та надає послуги для просування довгострокового, послідовного та спільного використання цих даних чи об&apos;єктів.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="323"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="311"/>
         <source>Research team head</source>
         <translation>Керівник науково-дослідної групи</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="323"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="311"/>
         <source>Use for a person who directed or managed a research project.</source>
         <translation>Використовується для людини, яка керує або керувала дослідницьким проектом.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="324"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="312"/>
         <source>Research team member</source>
         <translation>Член дослідницької групи</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="324"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="312"/>
         <source>Use for a person who participated in a research project but whose role did not involve direction or management of it.</source>
         <translation>Використовується для людини, яка брала участь у дослідницькому проекті, але роль якої не передбачала керівництва чи управління ним.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="325"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="313"/>
         <source>Researcher</source>
         <translation>Дослідник</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="325"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="313"/>
         <source>Use for a person or organization responsible for performing research. </source>
         <translation>Використовується для особи чи організації, відповідальної за проведення досліджень.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="326"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="314"/>
         <source>Respondent</source>
         <translation>Відповідач</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="326"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="314"/>
         <source>Use for the party who makes an answer to the courts pursuant to an application for redress, usually in an equity proceeding.</source>
         <translation>Використовується для сторони, яка подає відповідь до судів відповідно до заяви про відшкодування збитків, як правило, у порядку власного капіталу.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="327"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="315"/>
         <source>Respondent-appellant</source>
         <translation>Відповідач-апелянт</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="327"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="315"/>
         <source>Use for a respondent who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
         <translation>Використовується для відповідача, який звертається з апеляцією до суду чи іншої юрисдикції до іншого, щоб скасувати рішення, як правило, у порядку власного капіталу.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="328"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="316"/>
         <source>Respondent-appellee</source>
         <translation>Відповідач проти якого апеляція</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="328"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="316"/>
         <source>Use for a respondent against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
         <translation>Використовується для відповідача, проти якого подається апеляція від одного суду чи юрисдикції до іншого для скасування рішення, як правило, у справі про власний капітал.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="329"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="317"/>
         <source>Responsible party</source>
         <translation>Юридично відповідальна сторона</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="329"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="317"/>
         <source>Use for a person or organization legally responsible for the content of the published material.</source>
         <translation>Використовується для особи чи організації, що несе юридичну відповідальність за зміст опублікованого матеріалу.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="330"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="318"/>
         <source>Restager</source>
         <translation>Постановщик</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="330"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="318"/>
         <source>Use for a person or organization, other than the original choreographer or director, responsible for restaging a choreographic or dramatic work and who contributes minimal new content.</source>
         <translation>Використовується для людини чи організації, окрім оригінального хореографа чи режисера, відповідального за повторне створення хореографічного чи драматичного твору та який вносить мінімальний зміст.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="331"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="319"/>
         <source>Restorationist</source>
         <translation>Реставратор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="331"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="319"/>
         <source>A person, family, or organization responsible for the set of technical, editorial, and intellectual procedures aimed at compensating for the degradation of an item by bringing it back to a state as close as possible to its original condition.</source>
         <translation>Людина, колектив чи організація, відповідальна за сукупність технічних, редакційних та інтелектуальних процедур, спрямованих на компенсацію деградації предмета, повернення його до стану, максимально наближеного до його початкового стану.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="332"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="320"/>
         <source>Reviewer</source>
         <translation>Рецензент</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="332"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="320"/>
         <source>Use for a person or organization responsible for the review of a book, motion picture, performance, etc.</source>
         <translation>Використовується для людини чи організації, відповідальної за перегляд книги, кінофільму, вистави тощо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="333"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="321"/>
         <source>Rubricator</source>
         <translation>Рубрикатор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="333"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="321"/>
         <source>Use for a person or organization responsible for parts of a work, often headings or opening parts of a manuscript, that appear in a distinctive color, usually red.</source>
         <translation>Використовується для особи чи організації, яка відповідальна за частини твору, часто заголовки або відкриття частин рукопису, які мають виразний колір, зазвичай червоний.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="334"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="322"/>
         <source>Scenarist</source>
         <translation>Сценаріст</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="334"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="322"/>
         <source>Use for a person or organization who is the author of a motion picture screenplay.</source>
         <translation>Використовується для людини чи організації, яка є автором кіносценарію.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="335"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="323"/>
         <source>Scientific advisor</source>
         <translation>Науковий консультант</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="335"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="323"/>
         <source>Use for a person or organization who brings scientific, pedagogical, or historical competence to the conception and realization on a work, particularly in the case of audio-visual items.</source>
         <translation>Використовується для людини чи організації, яка приносить наукову, педагогічну чи історичну компетенцію концепції та реалізації твору, особливо у випадку аудіовізуальних предметів.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="336"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="324"/>
         <source>Scribe</source>
         <translation>Писарь</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="336"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="324"/>
         <source>Use for a person who is an amanuensis and for a writer of manuscripts proper. For a person who makes pen-facsimiles, use Facsimilist [fac].</source>
         <translation>Використовується для людини, яка є амануезісом, і для письменника власних рукописів. Для людини, яка виготовляє перо-факсиміле, використовуйте Факсиміліст [fac].</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="337"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="325"/>
         <source>Sculptor</source>
         <translation>Скульптор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="337"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="325"/>
         <source>Use for a person or organization who models or carves figures that are three-dimensional representations.</source>
         <translation>Використовується для людини чи організації, яка моделює чи вирізає фігури, які є тривимірними зображеннями.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="338"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="326"/>
         <source>Second party</source>
         <translation>Сторона правонаступник</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="338"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="326"/>
         <source>Use for a person or organization who is identified as the party of the second part. In the case of transfer of right, this is the assignee, transferee, licensee, grantee, etc. Multiple parties can be named jointly as the second party.</source>
         <translation>Використовується для особи чи організації, які визначені стороною другої частини. У випадку передачі права це правонаступник, правонаступник, ліцензіат, одержувач коштів та ін. Багато сторін можуть бути названі спільно другою стороною.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="339"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="327"/>
         <source>Secretary</source>
         <translation>Секретар</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="339"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="327"/>
         <source>Use for a person or organization who is a recorder, redactor, or other person responsible for expressing the views of a organization.</source>
         <translation>Використовуєтьсяйте для особи чи організації, яка є секретарем, редактором чи іншою особою, відповідальною за висловлення думок організації.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="340"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="328"/>
         <source>Seller</source>
         <translation>Продавець</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="340"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="328"/>
         <source>A former owner of an item who sold that item to another owner.</source>
         <translation>Колишній власник предмета, який продав цей товар іншому власнику.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="341"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="329"/>
         <source>Set designer</source>
         <translation>Художник-декоратор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="341"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="329"/>
         <source>Use for a person or organization who translates the rough sketches of the art director into actual architectural structures for a theatrical presentation, entertainment, motion picture, etc. Set designers draw the detailed guides and specifications for building the set.</source>
         <translation>Використовується для людини чи організації, яка переводить грубі ескізи художнього директора у актуальні архітектурні споруди для театральної презентації, розваг, кінофільму тощо. Дизайнери оформляють детальні вказівки та технічні характеристики для побудови декорацій.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="342"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="330"/>
         <source>Setting</source>
         <translation>Сеттінг</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="342"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="330"/>
         <source>An entity in which the activity or plot of a work takes place, e.g. a geographic place, a time period, a building, an event.</source>
         <translation>Суб’єкт, у якому відбувається діяльність чи сюжет твору, наприклад географічне місце, часовий період, будівля, подія.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="343"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="331"/>
         <source>Signer</source>
         <translation>Автор підпису</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="343"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="331"/>
         <source>Use for a person whose signature appears without a presentation or other statement indicative of provenance. When there is a presentation statement, use Inscriber [ins].</source>
         <translation>Використовується для особи, підпис якої з’являється без презентації чи іншої заяви, що свідчить про походження. Коли є заява про презентацію, використовуйте Inscriber [ins].</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="344"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="332"/>
         <source>Singer</source>
         <translation>Співак</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="344"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="332"/>
         <source>Use for a person or organization who uses his/her/their voice with or without instrumental accompaniment to produce music. A performance may or may not include actual words.</source>
         <translation>Використовується для людини чи організації, яка використовує свій/її голос з інструментальним супроводом або без нього для створення музики. Виступ може включати або не містити фактичних слів.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="345"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="333"/>
         <source>Sound designer</source>
         <translation>Звукорежисер</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="345"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="333"/>
         <source>Use for a person who produces and reproduces the sound score (both live and recorded), the installation of microphones, the setting of sound levels, and the coordination of sources of sound for a production.</source>
         <translation>Використовується для людини, яка виробляє та відтворює звуковий рейтинг (як живий, так і записаний), встановлення мікрофонів, налаштування рівня звуку та координацію джерел звуку для виробництва.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="346"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="334"/>
         <source>Speaker</source>
         <translation>Диктор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="346"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="334"/>
         <source>Use for a person who participates in a program (often broadcast) and makes a formalized contribution or presentation generally prepared in advance.</source>
         <translation>Використовується для людини, яка бере участь у програмі (часто транслюється) та робить формалізований внесок або презентацію, загалом підготовлену заздалегідь.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="347"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="335"/>
         <source>Sponsor</source>
         <translation>Спонсор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="347"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="335"/>
         <source>Use for a person or organization that issued a contract or under the auspices of which a work has been written, printed, published, etc.</source>
         <translation>Використовується для особи чи організації, яка оформила договір або під егідою якого твір написано, надруковано, опубліковано тощо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="348"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="336"/>
         <source>Stage director</source>
         <translation>Постановщик сцени</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="348"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="336"/>
         <source>A person or organization contributing to a stage resource through the overall management and supervision of a performance.</source>
         <translation>Людина чи організація, що вносить участь у сценічний ресурс шляхом загального управління та нагляду за виконанням.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="349"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="337"/>
         <source>Stage manager</source>
         <translation>Помічник режисера</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="349"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="337"/>
         <source>Use for a person who is in charge of everything that occurs on a performance stage, and who acts as chief of all crews and assistant to a director during rehearsals.</source>
         <translation>Використовується для людини, яка відповідає за все, що відбувається на сцені вистави, і яка виконує функції начальника всіх екіпажів та помічника режисера під час репетицій.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="350"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="338"/>
         <source>Standards body</source>
         <translation>Установа стандартизації</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="350"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="338"/>
         <source>Use for an organization responsible for the development or enforcement of a standard.</source>
         <translation>Використовується для організації, відповідальної за розробку або впровадження стандарту.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="351"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="339"/>
         <source>Stereotyper</source>
         <translation>Виготовитель стеретипів</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="351"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="339"/>
         <source>Use for a person or organization who creates a new plate for printing by molding or copying another printing surface.</source>
         <translation>Використовується для людини або організації, яка створює нову табличку для друку, формуючи або копіюючи іншу друкарську поверхню.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="352"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="340"/>
         <source>Storyteller</source>
         <translation>Оповідач</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="352"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="340"/>
         <source>Use for a person relaying a story with creative and/or theatrical interpretation.</source>
         <translation>Використовується для людини, що передає історію з творчою та/або театральною інтерпретацією.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="353"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="341"/>
         <source>Supporting host</source>
         <translation>Приймаюча сторона</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="353"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="341"/>
         <source>Use for a person or organization that supports (by allocating facilities, staff, or other resources) a project, program, meeting, event, data objects, material culture objects, or other entities capable of support. </source>
         <translation>Використовується для людини чи організації, яка підтримує (виділяючи засоби, персонал чи інші ресурси) проект, програму, зустріч, захід, об’єкти даних, об&apos;єкти матеріальної культури або інші організації, здатні підтримувати.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="354"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="342"/>
         <source>Surveyor</source>
         <translation>Геодезист</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="354"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="342"/>
         <source>Use for a person or organization who does measurements of tracts of land, etc. to determine location, forms, and boundaries.</source>
         <translation>Використовується для особи чи організації, яка проводить вимірювання земельних ділянок тощо, для визначення місця, форм та меж.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="355"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="343"/>
         <source>Teacher</source>
         <translation>Викладач</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="355"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="343"/>
         <source>Use for a person who, in the context of a resource, gives instruction in an intellectual subject or demonstrates while teaching physical skills. </source>
         <translation>Використовується для людини, яка в контексті ресурсу дає інструкції з інтелектуального предмета або демонструє під час викладання фізичних навичок.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="356"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="344"/>
         <source>Technical director</source>
         <translation>Технічний директор</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="356"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="344"/>
         <source>Use for a person who is ultimately in charge of scenery, props, lights and sound for a production.</source>
         <translation>Використовується для людини, яка в кінцевому рахунку відповідає за декорації, реквізит, світло та звук для постановки.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="357"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="345"/>
         <source>Television director</source>
         <translation>Телережисер</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="357"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="345"/>
         <source>A director responsible for the general management and supervision of a television program.</source>
         <translation>Директор, відповідальний за загальне управління та нагляд за телевізійною програмою.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="358"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="346"/>
         <source>Television producer</source>
         <translation>Телепродюсер</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="358"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="346"/>
         <source>A producer responsible for most of the business aspects of a television program.</source>
         <translation>Продюсер, відповідальний за більшість бізнес-аспектів телевізійної програми.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="359"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="347"/>
         <source>Thesis advisor</source>
         <translation>Науковий керівник</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="359"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="347"/>
         <source>Use for a person under whose supervision a degree candidate develops and presents a thesis, mémoire, or text of a dissertation. </source>
         <translation>Використовується для людини, під керівництвом якої кандидат на ступінь розробляє та представляє дисертацію, мемоар або текст дисертації.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="360"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="348"/>
         <source>Transcriber</source>
         <translation>Переписувач</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="360"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="348"/>
         <source>Use for a person who prepares a handwritten or typewritten copy from original material, including from dictated or orally recorded material. For makers of pen-facsimiles, use Facsimilist [fac].</source>
         <translation>Використовується для особи, яка готує рукописну або машинописну копію з оригінального матеріалу, у тому числі з диктованого чи усного записаного матеріалу. Для виробників ручок-факсимілей використовуйте Facsimilist [fac].</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="361"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="349"/>
         <source>Translator</source>
         <translation>Перекладач</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="361"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="349"/>
         <source>Use for a person or organization who renders a text from one language into another, or from an older form of a language into the modern form.</source>
         <translation>Використовується для людини чи організації, яка переводить текст з однієї мови на іншу, або зі старої форми мови в сучасну форму.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="362"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="350"/>
         <source>Type designer</source>
         <translation>Розробник шрифту</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="362"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="350"/>
         <source>Use for a person or organization who designed the type face used in a particular item. </source>
         <translation>Використовується для особи чи організації, яка розробила тип шруфту, який використовується в певному предметі.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="363"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="351"/>
         <source>Typographer</source>
         <translation>Друкар</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="363"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="351"/>
         <source>Use for a person or organization primarily responsible for choice and arrangement of type used in an item. If the typographer is also responsible for other aspects of the graphic design of a book (e.g., Book designer [bkd]), codes for both functions may be needed.</source>
         <translation>Використовується для людини чи організації, яка головним чином відповідає за вибір та розташування типу, що використовується в предметі. Якщо типограф також відповідає за інші аспекти графічного дизайну книги (наприклад, Дизайнер книг [bkd]), можуть знадобитися коди для обох функцій.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="364"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="352"/>
         <source>University place</source>
         <translation>Університет, кампус</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="364"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="352"/>
         <source>A place where a university that is associated with a resource is located, for example, a university where an academic dissertation or thesis was presented.</source>
         <translation>Місце, де знаходиться університет, пов’язаний з ресурсом, наприклад, університет, де була представлена академічна дисертація чи дисертація.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="365"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="353"/>
         <source>Videographer</source>
         <translation>Оператор-постановщик</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="365"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="353"/>
         <source>Use for a person or organization in charge of a video production, e.g. the video recording of a stage production as opposed to a commercial motion picture. The videographer may be the camera operator or may supervise one or more camera operators. Do not confuse with cinematographer.</source>
         <translation>Використовується для людини чи організації, яка займається відеовиробництвом, наприклад відеозапис сценічної постановки на відміну від комерційного кінофільму. Відеограф може бути оператором камери або може контролювати одного або декількох операторів камери. Не плутайте з кінематографістом.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="366"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="354"/>
         <source>Voice actor</source>
         <translation>Актор озвучки</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="366"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="354"/>
         <source>An actor contributing to a resource by providing the voice for characters in radio and audio productions and for animated characters in moving image works, as well as by providing voice overs in radio and television commercials, dubbed resources, etc.</source>
         <translation>Актор, котрий бере участь у ресурсі, надаючи голос персонажам у радіо- та аудіопродукціях та анімованих персонажів у творах з рухомим зображенням, а також надаючи голосові повідомлення у радіо- та телевізійних рекламних роликах, дубляжних ресурсах тощо.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="367"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="355"/>
         <source>Witness</source>
         <translation>Свідок</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="367"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="355"/>
         <source>Use for a person who verifies the truthfulness of an event or action. </source>
         <translation>Використовуйте для людини, яка перевіряє правдивість події чи дії.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="368"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="356"/>
         <source>Wood-engraver</source>
         <translation>Гравер по дереву</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="368"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="356"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the end-grain of a wood block.</source>
         <translation>Використовується для людини або організації, яка робить відбитки, вирізаючи зображення рельєфно на кінці дерев&apos;яного блоку.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="369"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="357"/>
         <source>Woodcutter</source>
         <translation>Ксилограф</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="369"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="357"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the plank side of a wood block.</source>
         <translation>Використовуйте для людини чи організації, яка робить відбитки, вирізаючи зображення рельєфно на дошці з дерев&apos;яного блоку.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="370"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="358"/>
         <source>Writer of accompanying material</source>
         <translation>Письменник супровідного матеріалу</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="370"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="358"/>
         <source>Use for a person or organization who writes significant material which accompanies a sound recording or other audiovisual material.</source>
         <translation>Використовується для особи чи організації, яка пише значні матеріали, які супроводжують звукозапис або інший аудіовізуальний матеріал.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="371"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="359"/>
         <source>Writer of added commentary</source>
         <translation>Автор доданого коментару</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="371"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="359"/>
         <source>A person, family, or organization contributing to an expression of a work by providing an interpretation or critical explanation of the original work.</source>
         <translation>Людина, родина чи організація, яка сприяє вираженню твору, надаючи інтерпретацію або критичне пояснення оригінального твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="372"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="360"/>
         <source>Writer of added lyrics</source>
         <translation>Автор тексту пісні</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="372"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="360"/>
         <source>A writer of words added to an expression of a musical work. For lyric writing in collaboration with a composer to form an original work, see lyricist.</source>
         <translation>Письменник слів що додав вираз до музичного твору. Щодо написання лірики у співпраці з композитором, щоб створити оригінальний твір, див. поета-пісняра.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="373"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="361"/>
         <source>Writer of added text</source>
         <translation>Автор доданого тексту</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="373"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="361"/>
         <source>A person, family, or organization contributing to a non-textual resource by providing text for the non-textual work (e.g., writing captions for photographs, descriptions of maps.)</source>
         <translation>Людина, родина чи організація, яка надає внесок у нетекстовий ресурс, надаючи текст для нетекстової роботи (наприклад, написання підписів для фотографій, описів карт.)</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="374"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="362"/>
         <source>Writer of introduction</source>
         <translation>Автор введення</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="374"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="362"/>
         <source>A person, family, or organization contributing to a resource by providing an introduction to the original work.</source>
         <translation>Людина, родина чи організація, яка бере участь у ресурсі, надаючи ознайомлення з оригінальною роботою.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="375"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="363"/>
         <source>Writer of preface</source>
         <translation>Автор передмови</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="375"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="363"/>
         <source>A person, family, or organization contributing to a resource by providing a preface to the original work.</source>
         <translation>Людина, колектив чи організація, яка бере участь у ресурсі, надаючи передмову до оригінального твору.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="376"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="364"/>
         <source>Writer of supplementary textual content</source>
         <translation>Автор додаткового тектстового вмісту</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="376"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="364"/>
         <source>A person, family, or organization contributing to a resource by providing supplementary textual content (e.g., an introduction, a preface) to the original work.</source>
         <translation>Людина, колектив чи організація, що надає ресурс, надаючи додатковий текстовий вміст (наприклад, вступ, передмова) до оригінального твору.</translation>
     </message>
@@ -17421,29 +17459,29 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 <context>
     <name>OPFModel</name>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="793"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="809"/>
         <source>A filename cannot contains the character &quot;%1&quot;.</source>
         <translation>Ім&apos;я файлу не може містити символ «%1».</translation>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="804"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="820"/>
         <source>The filename cannot be empty.</source>
         <translation>Ім&apos;я файлу не може бути порожнім.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="825"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="841"/>
         <source>The filename &quot;%1&quot; is already in use.
 </source>
         <translation>Ім&apos;я файлу «%1» вже використовується.
 </translation>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="839"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="855"/>
         <source>The book path cannot be empty.</source>
         <translation>Шлях до книги не може бути порожнім.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="846"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="862"/>
         <source>That book path &quot;%1&quot; is already in use.
 </source>
         <translation>Цей шлях до книги «%1» вже використовується.
@@ -17494,502 +17532,502 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 <context>
     <name>PCREErrors</name>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="59"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="48"/>
         <source>no error</source>
         <translation>без помилок</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="60"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="49"/>
         <source>\ at end of pattern</source>
         <translation>\ в кінці шаблону</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="61"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="50"/>
         <source>\c at end of pattern</source>
         <translation>\c в кінці шаблону</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="62"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="51"/>
         <source>unrecognized character follows \</source>
         <translation>нерозпізнаний символ після \</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="63"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="52"/>
         <source>numbers out of order in {} quantifier</source>
         <translation>числа не по порядку в квантифікаторі {}</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="65"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="54"/>
         <source>number too big in {} quantifier</source>
         <translation>дуже великі числа в квантифікаторі {}</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="66"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="55"/>
         <source>missing terminating ] for character class</source>
         <translation>відсутня кінцева ] для символьного класу</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="67"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="56"/>
         <source>escape sequence is invalid in character class</source>
         <translation>escape-послідовність недійсна в символьному класі</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="68"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="57"/>
         <source>range out of order in character class</source>
         <translation>в символьному класі порядок вийшов з діапазону</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="69"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="58"/>
         <source>quantifier does not follow a repeatable item</source>
         <translation>квантифікатор не слідує за повторюваним елементом</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="72"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="61"/>
         <source>internal error: unexpected repeat</source>
         <translation>внутрішня помилка: неочікуваний повтор</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="73"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="62"/>
         <source>unrecognized character after (? or (?-</source>
         <translation>нерозпізнаний символ після (? або (?-</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="74"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="63"/>
         <source>POSIX named classes are supported only within a class</source>
         <translation>Іменовані класи POSIX підтримуються лише в межах класу</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="75"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="64"/>
         <source>POSIX collating elements are not supported</source>
         <translation>Елементи зіставлення POSIX не підтримуються</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="76"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="65"/>
         <source>missing closing parenthesis</source>
         <translation>відсутня закриваюча дужка</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="79"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="68"/>
         <source>reference to non-existent subpattern</source>
         <translation>посилання на неіснуючий субшаблон</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="80"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="69"/>
         <source>pattern passed as NULL</source>
         <translation>шаблон передається як NULL</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="81"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="70"/>
         <source>unrecognised compile-time option bit(s)</source>
         <translation>нерозпізнаний біт(и) параметра часу компіляції</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="82"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="71"/>
         <source>missing ) after (?# comment</source>
         <translation>відсутня ) після (?# коментар</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="83"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="72"/>
         <source>parentheses are too deeply nested</source>
         <translation>дужки занадто глибоко вкладені</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="86"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="75"/>
         <source>regular expression is too large</source>
         <translation>регулярний вираз завеликий</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="87"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="76"/>
         <source>failed to allocate heap memory</source>
         <translation>не вдалося виділити пам&apos;ять купи</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="88"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="77"/>
         <source>unmatched closing parenthesis</source>
         <translation>закриваюча дужка без порівняння</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="89"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="78"/>
         <source>internal error: code overflow</source>
         <translation>внутрішня помилка: переповнення коду</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="90"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="79"/>
         <source>missing closing parenthesis for condition</source>
         <translation>відсутня закриваюча дужка для умови</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="93"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="82"/>
         <source>lookbehind assertion is not fixed length</source>
         <translation>твердження перегдяду назад не є фіксованою довжиною</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="94"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="83"/>
         <source>a relative value of zero is not allowed</source>
         <translation>відносне значення нуля не допускається</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="95"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="84"/>
         <source>conditional subpattern contains more than two branches</source>
         <translation>умовний субшаблон містить більше двох гілок</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="96"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="85"/>
         <source>assertion expected after (?( or (?(?C)</source>
         <translation>після (?( або (?(?C) очікується твердження</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="97"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="86"/>
         <source>digit expected after (?+ or (?-<byte value="x0"/></source>
         <translation>після (?+ або (?- очікується цифра&lt;byte value=&quot;x0&quot;/&gt;</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="100"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="89"/>
         <source>unknown POSIX class name</source>
         <translation>невідома назва класу POSIX</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="101"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="90"/>
         <source>internal error in pcre2_study(): should not occur</source>
         <translation>внутрішня помилка в pcre2_study(): не повинна виникати</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="102"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="91"/>
         <source>this version of PCRE2 does not have Unicode support</source>
         <translation>ця версія PCRE2 не підтримує Unicode</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="103"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="92"/>
         <source>parentheses are too deeply nested (stack check)</source>
         <translation>дужки занадто глибоко вкладені (перевірка стека)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="104"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="93"/>
         <source>character code point value in \x{} or \o{} is too large</source>
         <translation>значення кодової точки символу в \x{} або \o{} завелике</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="107"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="96"/>
         <source>lookbehind is too complicated</source>
         <translation>перегляд назад занадто складний</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="108"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="97"/>
         <source>\C is not allowed in a lookbehind assertion in UTF-16 mode</source>
         <translation>\C не дозволяється в твердженнях перегляду назад в режимі UTF-16</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="109"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="98"/>
         <source>PCRE2 does not support \F, \L, \l, \N{name}, \U, or \u</source>
         <translation>PCRE2 не підтримує \F, \L, \l, \N{name}, \U або \u</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="110"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="99"/>
         <source>number after (?C is greater than 255</source>
         <translation>число після (?C більше 255</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="111"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="100"/>
         <source>closing parenthesis for (?C expected</source>
         <translation>очікується закриваюча дужка для (?C</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="114"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="103"/>
         <source>invalid escape sequence in (*VERB) name</source>
         <translation>недійсна керуюча послідовність у назві (*VERB).</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="115"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="104"/>
         <source>unrecognized character after (?P</source>
         <translation>нерозпізнаний символ після (?P</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="116"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="105"/>
         <source>syntax error in subpattern name (missing terminator?)</source>
         <translation>синтаксична помилка в назві субшаблона (відсутній термінатор)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="117"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="106"/>
         <source>two named subpatterns have the same name (PCRE2_DUPNAMES not set)</source>
         <translation>два іменованих субшаблони мають однакову назву (PCRE2_DUPNAMES не встановлено)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="118"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="107"/>
         <source>subpattern name must start with a non-digit</source>
         <translation>назва субшаблона має починатися не з цифри</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="121"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="110"/>
         <source>this version of PCRE2 does not have support for \P, \p, or \X</source>
         <translation>ця версія PCRE2 не підтримує \P, \p або \X</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="122"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="111"/>
         <source>malformed \P or \p sequence</source>
         <translation>неправильна послідовність \P або \p</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="123"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="112"/>
         <source>unknown property name after \P or \p</source>
         <translation>невідома назва властивості після \P або \p</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="124"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="113"/>
         <source>subpattern name is too long (maximum 32 code units)</source>
         <translation>назва субшаблона задовга (максимум 32 одиниці коду)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="125"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="114"/>
         <source>too many named subpatterns (maximum 10000)</source>
         <translation>забагато іменованих субшаблонів (максимум 10000)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="128"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="117"/>
         <source>invalid range in character class</source>
         <translation>недійсний діапазон у символьному класі</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="129"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="118"/>
         <source>octal value is greater than \377 in 8-bit non-UTF-8 mode</source>
         <translation>вісімкове значення більше за \377 у 8-бітовому не UTF-8 режимі </translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="130"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="119"/>
         <source>internal error: overran compiling workspace</source>
         <translation>внутрішня помилка: переповнена робоча область компіляції</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="131"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="120"/>
         <source>internal error: previously-checked referenced subpattern not found</source>
         <translation>внутрішня помилка: попередньо перевірений субшаблон не знайдено</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="132"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="121"/>
         <source>DEFINE subpattern contains more than one branch</source>
         <translation>DEFINE субшаблона містить більше однієї гілки</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="135"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="124"/>
         <source>missing opening brace after \o</source>
         <translation>відсутня відкриваюча дужка після \o</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="136"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="125"/>
         <source>internal error: unknown newline setting</source>
         <translation>внутрішня помилка: невідоме налаштування нового рядка</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="137"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="126"/>
         <source>\g is not followed by a braced, angle-bracketed, or quoted name/number or by a plain number</source>
         <translation>після \g відсутня назва/номер у дужках, у кутових дужках або в лапках або звичайне число</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="138"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="127"/>
         <source>(?R (recursive pattern call) must be followed by a closing parenthesis</source>
         <translation>(?R (рекурсивний виклик шаблону) повинен мати закриваючу дужку</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="139"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="128"/>
         <source>obsolete error (should not occur)</source>
         <translation>застаріла помилка (не повинна виникати)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="142"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="131"/>
         <source>(*VERB) not recognized or malformed</source>
         <translation>(*VERB) не розпізнано або спотворено</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="143"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="132"/>
         <source>subpattern number is too big</source>
         <translation>номер субшаблона завеликий</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="144"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="133"/>
         <source>subpattern name expected</source>
         <translation>очікується назва субшаблона</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="145"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="134"/>
         <source>internal error: parsed pattern overflow</source>
         <translation>внутрішня помилка: переповнення шаблону при розборі</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="146"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="135"/>
         <source>non-octal character in \o{} (closing brace missing?)</source>
         <translation>не вісімковий символ в \o{} (відсутня закриваюча дужка?)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="149"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="138"/>
         <source>different names for subpatterns of the same number are not allowed</source>
         <translation>різні іменовані субшаблони з одним номером не допускаються</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="150"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="139"/>
         <source>(*MARK) must have an argument</source>
         <translation>(*MARK) повинен мати аргумент</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="151"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="140"/>
         <source>non-hex character in \x{} (closing brace missing?)</source>
         <translation>не шістнадцятковий символ у \x{} (відсутня закриваюча дужка?)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="152"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="141"/>
         <source>\c must be followed by a printable ASCII character</source>
         <translation>за \c повинен слідувати друкований символ ASCII</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="153"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="142"/>
         <source>\k is not followed by a braced, angle-bracketed, or quoted name</source>
         <translation>після \k відсутня назва в дужках, у кутових дужках або в лапках</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="156"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="145"/>
         <source>internal error: unknown meta code in check_lookbehinds()</source>
         <translation>внутрішня помилка: невідомий мета-код у check_lookbehinds()</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="157"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="146"/>
         <source>\N is not supported in a class</source>
         <translation>\N в класі не підтримується</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="158"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="147"/>
         <source>callout string is too long</source>
         <translation>рядок виноски задовгий</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="159"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="148"/>
         <source>disallowed Unicode code point (&gt;= 0xd800 &amp;&amp; &lt;= 0xdfff)</source>
         <translation>заборонена кодова точка Unicode (&gt;= 0xd800 &amp;&amp; &lt;= 0xdfff)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="160"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="149"/>
         <source>using UTF is disabled by the application</source>
         <translation>використання UTF відключено програмою</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="163"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="152"/>
         <source>using UCP is disabled by the application</source>
         <translation>використання UCP відключено програмою</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="164"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="153"/>
         <source>name is too long in (*MARK), (*PRUNE), (*SKIP), or (*THEN)</source>
         <translation>назва занадто довга в (*MARK), (*PRUNE), (*SKIP) або (*THEN)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="165"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="154"/>
         <source>character code point value in \u.... sequence is too large</source>
         <translation>значення кодової точки символу в послідовності \u.... завелике</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="166"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="155"/>
         <source>digits missing in \x{} or \o{} or \N{U+}</source>
         <translation>відсутні цифри в \x{} або \o{} або \N{U+}</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="167"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="156"/>
         <source>syntax error or number too big in (?(VERSION condition</source>
         <translation>синтаксична помилка або завелике число в (?(VERSION condition</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="170"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="159"/>
         <source>internal error: unknown opcode in auto_possessify()</source>
         <translation>внутрішня помилка: невідомий код операції в auto_possessify()</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="171"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="160"/>
         <source>missing terminating delimiter for callout with string argument</source>
         <translation>відсутній кінцевий роздільник для виноски з аргументом рядка</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="172"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="161"/>
         <source>unrecognized string delimiter follows (?C</source>
         <translation>нерозпізнаний роздільник рядка після (?C</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="173"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="162"/>
         <source>using \C is disabled by the application</source>
         <translation>використання \C відключено програмою</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="174"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="163"/>
         <source>(?| and/or (?J: or (?x: parentheses are too deeply nested</source>
         <translation>занадто глибоке вкладення дужок для (?| та/або (?J: або (?x:</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="177"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="166"/>
         <source>using \C is disabled in this PCRE2 library</source>
         <translation>використання \C відключено в цій бібліотеці PCRE2</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="178"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="167"/>
         <source>regular expression is too complicated</source>
         <translation>регулярний вираз занадто складний</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="179"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="168"/>
         <source>lookbehind assertion is too long</source>
         <translation>перегляд назад занадто довгий</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="180"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="169"/>
         <source>pattern string is longer than the limit set by the application</source>
         <translation>шаблон довший за ліміт, встановлений програмою</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="181"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="170"/>
         <source>internal error: unknown code in parsed pattern</source>
         <translation>внутрішня помилка: невідомий код при розборі шаблону</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="184"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="173"/>
         <source>internal error: bad code value in parsed_skip()</source>
         <translation>внутрішня помилка: помилкове значення коду в parsed_skip()</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="185"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="174"/>
         <source>PCRE2_EXTRA_ALLOW_SURROGATE_ESCAPES is not allowed in UTF-16 mode</source>
         <translation>PCRE2_EXTRA_ALLOW_SURROGATE_ESCAPES не дозволено в режимі UTF-16</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="186"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="175"/>
         <source>invalid option bits with PCRE2_LITERAL</source>
         <translation>недійсні біти параметра PCRE2_LITERAL</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="187"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="176"/>
         <source>\N{U+dddd} is supported only in Unicode (UTF) mode</source>
         <translation>\N{U+dddd} підтримується лише в режимі Unicode (UTF).</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="188"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="177"/>
         <source>invalid hyphen in option setting</source>
         <translation>недійсний дефіс у налаштуваннях параметра</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="191"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="180"/>
         <source>(*alpha_assertion) not recognized</source>
         <translation>(*alpha_assertion) не розпізнано</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="192"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="181"/>
         <source>script runs require Unicode support, which this version of PCRE2 does not have</source>
         <translation>для виконання сценаріїв потрібна підтримка Unicode, якої немає в цій версії PCRE2</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="193"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="182"/>
         <source>too many capturing groups (maximum 65535)</source>
         <translation>забагато захоплених груп (максимум 65535)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="194"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="183"/>
         <source>atomic assertion expected after (?( or (?(?C)</source>
         <translation>після (?( або (?(?C) очікується атомарне твердження</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="195"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="184"/>
         <source>\K is not allowed in lookarounds (but see PCRE2_EXTRA_ALLOW_LOOKAROUND_BSK)</source>
         <translation>\K не дозволяється в lookarounds (див. PCRE2_EXTRA_ALLOW_LOOKAROUND_BSK)</translation>
     </message>
@@ -18037,178 +18075,178 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
         <translation>Статус:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="129"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="128"/>
         <source>Error: A plugin by that name does not exist</source>
         <translation>Помилка: Модуль з такою назвою не існує</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="160"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="159"/>
         <source>Error: Interpreter</source>
         <translation>Помилка: Інтерпретатор</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="160"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="159"/>
         <source>has no path set</source>
         <translation>не має встановленого шляху</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="173"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="172"/>
         <source>Installation Error: plugin launcher</source>
         <translation>Помилка установки: запуск модулю</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="174"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="173"/>
         <source>does not exist</source>
         <translation>не існує</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="179"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="178"/>
         <source>Error: plugin engine</source>
         <translation>Помилка: рушій модуля</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="180"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="179"/>
         <source>is not supported (yet!)</source>
         <translation>не підтримується (поки що!)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="186"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="185"/>
         <source>Status: ready</source>
         <translation>Статус: готовність</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="274"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="273"/>
         <source>Error: plugin cannot start</source>
         <translation>Помилка: Модуль не може запуститися</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="423"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="422"/>
         <source>Status: running</source>
         <translation>Статус: виконання</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="441"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="440"/>
         <source>Launcher process crashed</source>
         <translation>Збій у запущенному Процесі</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="457"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="456"/>
         <source>Status: finished</source>
         <translation>Статус: закінчено</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="464"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="463"/>
         <source>Status: failed</source>
         <translation>Статус: неполадка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="470"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="480"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="469"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="479"/>
         <source>Status: No Changes Made</source>
         <translation>Статус: зміни відсутні</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="479"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="478"/>
         <source>Error: Plugin Tried to Remove the Last XHTML file .. aborting changes</source>
         <translation>Помилка: Модуль намагався видалити останній XHTML-файл … подальші зміни перервано</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="544"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="633"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="543"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="632"/>
         <source>Status:</source>
         <translation>Статус:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="571"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="570"/>
         <source>Plugin failed to start</source>
         <translation>Не вдалося запустити модуль</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="579"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="578"/>
         <source>Status: error</source>
         <translation>Статус: помилка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="610"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="609"/>
         <source>Plugin cancelled</source>
         <translation>Модуль відмінено</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="611"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="610"/>
         <source>Status: cancelled</source>
         <translation>Статус: скасовано</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="705"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="704"/>
         <source>Error Parsing Result XML:  </source>
         <translation>Помилка синтаксичного аналізу XML:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="763"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="778"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="762"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="777"/>
         <source>Status: checking</source>
         <translation>Статус: перевірка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="767"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="766"/>
         <source>Incorrect XHTML:</source>
         <translation>Неправильний XHTML:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="767"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="766"/>
         <source>Line/Col</source>
         <translation>Рядок/Стовпець</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="796"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="795"/>
         <source>Check Report</source>
         <translation>Перевірити Звіт</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="797"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="796"/>
         <source>Incorrect XHTML/XML Detected
 Are you Sure You Want to Continue?</source>
         <translation>Виявлено неправильний XHTML/XML
 Ви впевнені, що хочете продовжувати?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="815"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="814"/>
         <source>Status: cleaning up - deleting files</source>
         <translation>Статус: очищення – видалення файлів</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="848"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="847"/>
         <source>Status: deleting</source>
         <translation>Статус: видалення</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="887"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="886"/>
         <source>Status: Loading</source>
         <translation>Статус: Завантаження</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="895"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="894"/>
         <source>Input Plugin</source>
         <translation>Ввести модуль</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="896"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="895"/>
         <source>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</source>
         <translation>Ваша поточна книга буде повністю замінена, можливо з втратою будь-яких незбережених змін … Ви впевнені, що хочете продовжити</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="924"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="938"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="923"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="937"/>
         <source>Status: adding</source>
         <translation>Статус: додавання</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="976"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="975"/>
         <source>Status: cleaning up - modifying files</source>
         <translation>Статус: очищення – модифікація файлів</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="1013"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="1012"/>
         <source>Status: modifying</source>
         <translation>Статус: модифікація</translation>
     </message>
@@ -18357,57 +18395,57 @@ Are you Sure You Want to Continue?</source>
         <translation>Модуль 10:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="208"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="204"/>
         <source>Select Plugin Zip Archive</source>
         <translation>Вибрати zip-архів модулю</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="210"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="206"/>
         <source>Plugin Files (*.zip)</source>
         <translation>Файли модулів (*.zip)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="228"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="222"/>
         <source>Error: Plugin plugin.xml is invalid or not supported on your operating system.</source>
         <translation>Помилка: Модуль plugin.xml недійсний або не підтримується у Вашій операційній системі.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="231"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="225"/>
         <source>Warning: A plugin by that name already exists</source>
         <translation>Попередження: Модуль з такою назвою вже існує</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="234"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="228"/>
         <source>Error: Plugin Could Not be Unzipped.</source>
         <translation>Помилка: Модуль не вдалося розпакувати.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="237"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="231"/>
         <source>Error: Plugin not a valid Sigil plugin.</source>
         <translation>Помилка: Модуль не є дійсним модулем Sigil.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="275"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="269"/>
         <source>Nothing is Selected.</source>
         <translation>Нічого не вибрано.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="323"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="315"/>
         <source>Remove All Plugins</source>
         <translation>Вилучити всі модулі</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="324"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="316"/>
         <source>Are you sure sure you want to remove all of your plugins?</source>
         <translation>Ви впевнені, що хочете видалити всі свої модулі?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="379"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="371"/>
         <source>Select Interpreter</source>
         <translation>Вибрати Інтерпретатор</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="408"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="400"/>
         <source>Incorrect Interpreter Path selected</source>
         <translation>Вибрано неправильний шлях для Інтерпретатора</translation>
     </message>
@@ -18483,18 +18521,18 @@ Entities can be separated by lines, commas, or spaces.</source>
 <context>
     <name>PreviewFileDialog</name>
     <message>
-        <location filename="../../Dialogs/PreviewFileDialog.cpp" line="28"/>
+        <location filename="../../Dialogs/PreviewFileDialog.cpp" line="49"/>
         <source>Preview</source>
         <translation>Перегляд</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreviewFileDialog.cpp" line="56"/>
+        <location filename="../../Dialogs/PreviewFileDialog.cpp" line="77"/>
         <source>not an image</source>
         <translation>це не зображення</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreviewFileDialog.cpp" line="68"/>
-        <location filename="../../Dialogs/PreviewFileDialog.cpp" line="93"/>
+        <location filename="../../Dialogs/PreviewFileDialog.cpp" line="89"/>
+        <location filename="../../Dialogs/PreviewFileDialog.cpp" line="114"/>
         <source>no preview available</source>
         <translation>попередній перегляд недоступний</translation>
     </message>
@@ -18607,12 +18645,12 @@ Entities can be separated by lines, commas, or spaces.</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../BookManipulation/Book.cpp" line="1683"/>
+        <location filename="../../BookManipulation/Book.cpp" line="1685"/>
         <source>PrettyPrinting...</source>
         <translation>PrettyPrinting (форматується)...</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/CleanSource.cpp" line="299"/>
+        <location filename="../../BookManipulation/CleanSource.cpp" line="296"/>
         <source>Mending...</source>
         <translation>Виправляється...</translation>
     </message>
@@ -18654,117 +18692,112 @@ Entities can be separated by lines, commas, or spaces.</source>
         <translation>Неможливо прочитати ePUB: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="256"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="163"/>
+        <source>The OPF manifest contains duplicate file paths. You should edit your OPF file&apos;s manifest to remove the duplication.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Importers/ImportEPUB.cpp" line="263"/>
         <source>The OPF file does not contain a valid spine.</source>
         <translation>Файл OPF не містить чинного списку потоку (spine).</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="257"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="986"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="264"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="990"/>
         <source>Sigil has created a new one for you.</source>
         <translation>Sigil створив для Вас нове.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="258"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="265"/>
         <source>Please verify and correct the OPF Spine order.</source>
         <translation>Будь ласка, перевірте та виправте порядок OPF Spine.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="307"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="314"/>
         <source>Error parsing encryption xml.
 Line: %1 Column %2 - %3</source>
         <translation>Помилка синтаксичного аналізу шифрування xml.
 Рядок: %1 Стовпець %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="427"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="434"/>
         <source>Cannot unzip EPUB: %1</source>
         <translation>Неможливо розпакувати ePUB: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="503"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="510"/>
         <source>Possible evil or corrupt epub file name: %1</source>
         <translation>Можливо невідповідне або пошкоджене ім’я файлу ePUB: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="534"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="543"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="563"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="571"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="541"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="550"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="570"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="578"/>
         <source>Cannot extract file: %1</source>
         <translation>Неможливо витягти файл: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="584"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="591"/>
         <source>Cannot open EPUB: %1</source>
         <translation>Неможливо відкрити ePUB: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="638"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="645"/>
         <source>Unable to parse container.xml file.
 Line: %1 Column %2 - %3</source>
         <translation>Неможливо проаналізувати файл container.xml.
 Рядок: %1 Стовпець %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="646"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="653"/>
         <source>This epub has multiple renditions (multiple OPF files). Editing this epub in Sigil will produce a normal single rendition epub using only the main (first) OPF file found.</source>
         <translation>Ця електронна публікація має множинне тлумачення (декілька файлів OPF). Редагування цього ePUB в Sigil призведе до створення звичайної одиночної версії ePUB з використнням лише основного (першого) знайденого файлу OPF.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="650"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="657"/>
         <source>No appropriate OPF file found</source>
         <translation>Не знайдено відповідного файлу OPF</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="703"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="710"/>
         <source>Unable to read OPF file.
 Line: %1 Column %2 - %3</source>
         <translation>Не вдається прочитати файл OPF.
 Рядок: %1 Стовпець %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="837"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="844"/>
         <source>The OPF has an illegal Manifest entry for a file inside the META-INF folder for file &quot;%1&quot;</source>
         <translation>OPF має некоректний запис Маніфесту для файлу у папці META-INF «%1»</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="838"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="845"/>
         <source>You should edit your OPF file to remove this entry.</source>
         <translation>Вам слід відредагувати файл OPF, щоб вилучити цей запис.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="857"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="864"/>
         <source>The OPF manifest contains duplicate ids for: %1</source>
         <translation>Маніфест OPF містить повторювані ідентифікатори для: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="858"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="865"/>
         <source>A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.</source>
         <translation>Для завантаження цього ePUB призначений тимчасовий ідентифікатор. Потрібно редагувати файл OPF, щоб видалити дублювання.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="875"/>
-        <source>The OPF manifest contains duplicate file paths for: %1</source>
-        <translation>Маніфест OPF містить дублікати шляхів до файлу для: %1</translation>
-    </message>
-    <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="876"/>
-        <source>You should edit your OPF file&apos;s manifest to remove the duplication.</source>
-        <translation>Вам слід відредагувати файл OPF, щоб видалити дублікати.</translation>
-    </message>
-    <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="958"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="962"/>
         <source>The OPF file did not identify the NCX file correctly.</source>
         <translation>Файл OPF неправильно ідентифікував файл NCX.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="959"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="963"/>
         <source>Sigil has used the following file as the NCX:</source>
         <translation>Sigil використовує наступний файл як NCX:</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="985"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="989"/>
         <source>The OPF file does not contain an NCX file.</source>
         <translation>Файл OPF не містить файл NCX.</translation>
     </message>
@@ -18774,33 +18807,33 @@ Line: %1 Column %2 - %3</source>
         <translation>OPF містить неіснуючі або нерозпізнані MIME-типи.  Створено тимчасові MIME-типи. Вам слід відредагувати OPF, щоб виправити їх.</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="880"/>
-        <location filename="../../main.cpp" line="928"/>
+        <location filename="../../main.cpp" line="875"/>
+        <location filename="../../main.cpp" line="923"/>
         <source>Quit</source>
         <translation>Вихід</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="890"/>
+        <location filename="../../main.cpp" line="885"/>
         <source>About</source>
         <translation>Про програму</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="899"/>
+        <location filename="../../main.cpp" line="894"/>
         <source>Preferences</source>
         <translation>Налаштування</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="910"/>
+        <location filename="../../main.cpp" line="905"/>
         <source>New</source>
         <translation>Новий</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="919"/>
+        <location filename="../../main.cpp" line="914"/>
         <source>Open</source>
         <translation>Відкрити</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="887"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="886"/>
         <source>Adding Existing Files..</source>
         <translation>Додавання існуючих файлів…</translation>
     </message>
@@ -18816,34 +18849,34 @@ Line: %1 Column %2 - %3</source>
     </message>
     <message>
         <location filename="../../Misc/SearchOperations.cpp" line="65"/>
-        <location filename="../../Misc/SearchOperations.cpp" line="238"/>
+        <location filename="../../Misc/SearchOperations.cpp" line="242"/>
         <source>Replacing search term...</source>
         <translation>Заміна умов пошуку…</translation>
     </message>
     <message>
-        <location filename="../../Misc/UpdateChecker.cpp" line="99"/>
+        <location filename="../../Misc/UpdateChecker.cpp" line="98"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/UpdateChecker.cpp" line="100"/>
+        <location filename="../../Misc/UpdateChecker.cpp" line="99"/>
         <source>&lt;p&gt;A newer version of Sigil is available, version &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Would you like to go to the download page?&lt;/p&gt;</source>
         <translation>&lt;p&gt;Доступна нова версія Sigil, версія &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Ви хочете перейти на сторінку завантаження?&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="485"/>
+        <location filename="../../Misc/Utility.cpp" line="505"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>Неможливо прочитати файл %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="678"/>
+        <location filename="../../Misc/Utility.cpp" line="698"/>
         <source>Sigil has encountered a problem.</source>
         <translation>У Sigil виникли проблеми.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="679"/>
+        <location filename="../../Misc/Utility.cpp" line="699"/>
         <source>Sigil may need to close.</source>
         <translation>Sigil, має закритися.</translation>
     </message>
@@ -19123,7 +19156,7 @@ and stop at the first successful replace.</source>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="123"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="96"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="95"/>
         <source>Replace</source>
         <translation>Замінити</translation>
     </message>
@@ -19211,331 +19244,331 @@ including entries in selected groups.</source>
         <translation>Натисніть «Застосувати», щоб завантажити «Знайти &amp; Замінити» з вибраним пошуком. Натисніть кнопку «OK», щоб завантажити свій список пошуку, зберегти свої дані та закрити.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="91"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="90"/>
         <source>Right click on an entry to see a context menu of actions.</source>
         <translation>Клацніть правою кнопкою миші на запит, щоб побачити контекстне меню дій.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="92"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="91"/>
         <source>You can also right click on the Find text box in the Find &amp; Replace window to select an entry.</source>
         <translation>Ви також можете клацнути правою кнопкою миші на текстовому полі «Знайти» у вікні «Знайти &amp; Замінити», щоб вибрати запит.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="94"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="93"/>
         <source>Name</source>
         <translation>Назва</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="94"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="93"/>
         <source>Name of your entry or group.</source>
         <translation>Назва Вашого пошукового запиту чи групи.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="95"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="94"/>
         <source>Find</source>
         <translation>Знайти</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="95"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="94"/>
         <source>The text to put into the Find box.</source>
         <translation>Текст, який потрібно помістити у поле вводу «Знайти».</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="96"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="95"/>
         <source>The text to put into the Replace box.</source>
         <translation>Текст, який потрібно помістити у поле вводу «Замінити».</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="97"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="96"/>
         <source>Controls</source>
         <translation>Параметри</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="97"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="96"/>
         <source>Two character codes to control the search Mode, Direction, Target and Options.  Codes can be in any order comma or space separated.</source>
         <translation>Двосимвольні коди для управління режимом, напрямком, метою і параметрами пошуку. Коди можуть розташовуватися в будь-якому порядку через кому або пробіл.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="98"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="97"/>
         <source>Mode: Normal</source>
         <translation>Режим: Звичайний</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="99"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="98"/>
         <source>Mode: Regular Expression</source>
         <translation>Режим: Регулярні вирази</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="100"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="99"/>
         <source>Mode: Case Sensitive</source>
         <translation>Режим: З урахуванням регістру</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="102"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="101"/>
         <source>Direction: Up</source>
         <translation>Напрямок: Вгору</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="103"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="102"/>
         <source>Direction: Down</source>
         <translation>Напрямок: Вниз</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="105"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="104"/>
         <source>Target: Current File</source>
         <translation>Ціль: Поточний файл</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="106"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="105"/>
         <source>Target: All HTML Files</source>
         <translation>Ціль: Всі файли HTML</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="107"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="106"/>
         <source>Target: Selected HTML Files</source>
         <translation>Ціль: Вибрані файли HTML</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="108"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="107"/>
         <source>Target: Tabbed HTML Files</source>
         <translation>Ціль: Файли HTML з вкладками</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="109"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="108"/>
         <source>Target: All CSS Files</source>
         <translation>Ціль: Всі файли CSS</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="110"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="109"/>
         <source>Target: Selected CSS Files</source>
         <translation>Ціль: Вибрані файли CSS</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="111"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="110"/>
         <source>Target: Tabbed CSS Files</source>
         <translation>Ціль: Файли CSS з вкладками</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="112"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="111"/>
         <source>Target: OPF File</source>
         <translation>Ціль: файл OPF</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="113"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="112"/>
         <source>Target: NCX File</source>
         <translation>Ціль: файл NCX</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="114"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="113"/>
         <source>Target: Selected SVG Files</source>
         <translation>Ціль: Вибрані файли SVG</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="115"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="114"/>
         <source>Target: Selected Javascript Files</source>
         <translation>Ціль: Вибрані Javascript файли</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="116"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="115"/>
         <source>Target: Selected Misc XML Files</source>
         <translation>Ціль: Вибрані XML файли у каталозі Misc</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="118"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="117"/>
         <source>Option: DotAll</source>
         <translation>Варіант: DotAll</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="119"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="118"/>
         <source>Option: Minimal Match</source>
         <translation>Варіант: Мінімальний збіг</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="120"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="119"/>
         <source>Option: Auto Tokenise</source>
         <translation>Варіант: Авторозбиття</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="121"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="120"/>
         <source>Option: Unicode Property</source>
         <translation>Варіант: Властивості Unicode</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="122"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="121"/>
         <source>Option: Wrap</source>
         <translation>Варіант: Перенос</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="123"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="122"/>
         <source>Option: Text</source>
         <translation>Варіант: Текст</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="133"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="132"/>
         <source>Save</source>
         <translation>Зберегти</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="133"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="132"/>
         <source>Save your changes.</source>
         <translation>Зберегти зміни.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="133"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="132"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
         <translation>Якщо запущені інші екземпляри Sigil, вони будуть автоматично оновлені з Вашими змінами.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="150"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="161"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="149"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="160"/>
         <source>Cannot save entries.</source>
         <translation>Неможливо зберегти внесені записи.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="239"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="238"/>
         <source>Saved Searches loaded from file.</source>
         <translation>Збережені пошукові запити завантажені з файлу.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="276"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="275"/>
         <source>You cannot select more than one entry when using this action.</source>
         <translation>Ви не можете вибрати більше одного запиту при використанні цієї дії.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="286"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="285"/>
         <source>You cannot select a group for this action.</source>
         <translation>Ви не можете вибрати групу для цієї дії.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="363"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="362"/>
         <source>You cannot select an entry and a group containing the entry.</source>
         <translation>Ви не можете вибрати запит та групу, що містить запит.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="479"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="478"/>
         <source>You cannot Copy or Cut groups - use drag-and-drop.</source>
         <translation>Ви не можете копіювати або вирізати групи – використовуйте drag&amp;drop.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="556"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="555"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="556"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="555"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
         <translation>Ви впевнені, що хочете перезавантажити всі запити? Це перезапише всі незбережені зміни.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="571"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="668"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="570"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="667"/>
         <source>Sigil INI files (*.ini)</source>
         <translation>Файли Sigil INI (*.ini)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="572"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="669"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="571"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="668"/>
         <source>CSV files (*.csv)</source>
         <translation>Файли CSV (*.csv)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="573"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="670"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="572"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="669"/>
         <source>Text files (*.txt)</source>
         <translation>Текстові файли (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="584"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="583"/>
         <source>Import Search Entries</source>
         <translation>Імпорт пошукових запитів</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="681"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="680"/>
         <source>Export Selected Searches</source>
         <translation>Експорт вибраних пошукових запитів</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="871"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="870"/>
         <source>Add Entry</source>
         <translation>Додати запит</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="872"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="871"/>
         <source>Add Group</source>
         <translation>Додати Групу</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="873"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="872"/>
         <source>Edit</source>
         <translation>Редагувати</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="874"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="873"/>
         <source>Cut</source>
         <translation>Вирізати</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="875"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="874"/>
         <source>Copy</source>
         <translation>Копіювати</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="876"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="875"/>
         <source>Paste</source>
         <translation>Вставити</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="877"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="876"/>
         <source>Delete</source>
         <translation>Видалити</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="878"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="877"/>
         <source>Import</source>
         <translation>Імпорт</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="879"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="878"/>
         <source>Reload</source>
         <translation>Перезавантажити</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="880"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="879"/>
         <source>Export</source>
         <translation>Експорт</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="881"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="880"/>
         <source>Export All</source>
         <translation>Експортувати все</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="882"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="881"/>
         <source>Collapse All</source>
         <translation>Згорнути все</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="883"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="882"/>
         <source>Expand All</source>
         <translation>Розгорнути все</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="884"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="883"/>
         <source>Fill Controls</source>
         <translation>Заповнити параметри</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="965"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="964"/>
         <source>Search entries saved.</source>
         <translation>Пошукові запити збережені.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="994"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="993"/>
         <source>Sigil: Saved Searches</source>
         <translation>Sigil: Збережені пошукові запити</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="995"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="994"/>
         <source>The Search entries may have been modified.
 Do you want to save your changes?</source>
         <translation>Пошукові запити були змінені.
@@ -19545,137 +19578,137 @@ Do you want to save your changes?</source>
 <context>
     <name>SearchEditorModel</name>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="72"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="62"/>
         <source>Name</source>
         <translation>Назва</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="73"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="63"/>
         <source>Find</source>
         <translation>Знайти</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="74"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="64"/>
         <source>Replace</source>
         <translation>Замінити</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="75"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="65"/>
         <source>Controls</source>
         <translation>Параметри</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="469"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="452"/>
         <source>Mode: Normal</source>
         <translation>Режим: Звичайний</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="472"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="455"/>
         <source>Mode: Regular Expression</source>
         <translation>Режим: Регулярні вирази:</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="475"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="458"/>
         <source>Mode: Case Sensitive</source>
         <translation>Режим: З урахуванням регістру</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="478"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="461"/>
         <source>Direction: Up</source>
         <translation>Напрямок: Вгору</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="481"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="464"/>
         <source>Direction: Down</source>
         <translation>Напрямок: Вниз</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="484"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="467"/>
         <source>Target: Current File</source>
         <translation>Ціль: Поточний файл</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="487"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="470"/>
         <source>Target: All HTML Files</source>
         <translation>Ціль: Всі файли HTML</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="490"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="473"/>
         <source>Target: Selected HTML Files</source>
         <translation>Ціль: Вибрані файли HTML</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="493"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="476"/>
         <source>Target: Tabbed HTML Files</source>
         <translation>Ціль: Файли HTML з вкладками</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="496"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="479"/>
         <source>Target: All CSS Files</source>
         <translation>Ціль: Всі файли CSS</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="499"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="482"/>
         <source>Target: Selected CSS Files</source>
         <translation>Ціль: Вибрані файли CSS</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="502"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="485"/>
         <source>Target: Tabbed CSS Files</source>
         <translation>Ціль: Файли CSS з вкладками</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="505"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="488"/>
         <source>Target: OPF File</source>
         <translation>Ціль: файл OPF</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="508"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="491"/>
         <source>Target: NCX File</source>
         <translation>Ціль: файл NCX</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="511"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="494"/>
         <source>Target: Selected SVG Files</source>
         <translation>Ціль: Вибрані файли SVG</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="514"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="497"/>
         <source>Target: Selected Javascript Files</source>
         <translation>Ціль: Вибрані Javascript файли</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="517"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="500"/>
         <source>Target: Selected Misc XML Files</source>
         <translation>Ціль: Вибрані XML файли у каталозі Misc</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="520"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="503"/>
         <source>Option: DotAll</source>
         <translation>Варіант: DotAll</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="523"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="506"/>
         <source>Option: Minimal Match</source>
         <translation>Варіант: Мінімальний збіг</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="526"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="509"/>
         <source>Option: Auto Tokenise</source>
         <translation>Варіант: Авторозбиття</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="529"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="512"/>
         <source>Option: Wrap</source>
         <translation>Варіант: Шукати скрізь</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="532"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="515"/>
         <source>Option: Text Only</source>
         <translation>Варіант: Тільки текст</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="827"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="810"/>
         <source>Unable to create file %1</source>
         <translation>Неможливо створити файл %1</translation>
     </message>
@@ -21200,7 +21233,7 @@ ID names must be unique and start with a letter.</source>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="217"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="223"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="222"/>
         <source>Rename</source>
         <translation>Перейменувати</translation>
     </message>
@@ -21287,53 +21320,53 @@ default dictionary or use the shortcuts for Add Misspelled Words.</source>
         <translation>Словник</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="120"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="119"/>
         <source>Add Dictionary</source>
         <translation>Додати Словник</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="120"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="223"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="119"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="222"/>
         <source>Name:</source>
         <translation>Назва:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="134"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="174"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="236"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="244"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="263"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="133"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="173"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="235"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="243"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="262"/>
         <source>Error</source>
         <translation>Помилка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="134"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="236"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="133"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="235"/>
         <source>A user dictionary already exists with this name!</source>
         <translation>Словник користувача з такою назвою вже існує!</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="143"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="142"/>
         <source>Add Words</source>
         <translation>Додати слова</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="143"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="142"/>
         <source>Words:</source>
         <translation>Слова:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="174"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="173"/>
         <source>Could not create file!</source>
         <translation>Не вдалося створити файл!</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="244"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="243"/>
         <source>Could not rename file!</source>
         <translation>Не вдалося перейменувати файл!</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="263"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="262"/>
         <source>You cannot delete the last dictionary.</source>
         <translation>Ви не можете видалити останній словник.</translation>
     </message>
@@ -21364,7 +21397,7 @@ is restarted or a new book is opened.</source>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="65"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="584"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="578"/>
         <source>Ignore</source>
         <translation>Ігнорувати</translation>
     </message>
@@ -21447,109 +21480,109 @@ Use if you edit any HTML files while Spellcheck is open.</source>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="169"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="192"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="231"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="191"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="229"/>
         <source>No words selected.</source>
         <translation>Не вибрано слів.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="185"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="184"/>
         <source>Ignored word(s).</source>
         <translation>Ігнорувати слово(а).</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="220"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="218"/>
         <source>Added word(s) to dictionary.</source>
         <translation>Додати слово(а) до Словника.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="222"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="220"/>
         <source>Added word(s) to dictionary. The dictionary is not enabled in Preferences.</source>
         <translation>Слово (слова) додані до словника. Словник не обрано у налаштуваннях.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="237"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="235"/>
         <source>The new word cannot contain &quot;&lt;&quot;, &quot;&gt;&quot;, or &quot;&amp;&quot;.</source>
         <translation>Нове слово не може містити «&lt;», «&gt;», or «&amp;».</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="248"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="325"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="246"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="321"/>
         <source>No</source>
         <translation>Ні</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="267"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="265"/>
         <source>Word</source>
         <translation>Слово</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="268"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="266"/>
         <source>Count</source>
         <translation>Рахувати</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="269"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="267"/>
         <source>Language</source>
         <translation>Мова</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="270"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="268"/>
         <source>Misspelled?</source>
         <translation>Орфографічна помилка?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="323"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="319"/>
         <source>Yes</source>
         <translation>Так</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="349"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="345"/>
         <source>Misspelled Words</source>
         <translation>Слова з помилками</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="349"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="345"/>
         <source>Total Unique Words</source>
         <translation>Всього унікальних слів</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="585"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="579"/>
         <source>Add to Dictionary</source>
         <translation>Додати до Словника</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="586"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="580"/>
         <source>Find in Text</source>
         <translation>Пошук у Тексті</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="587"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="581"/>
         <source>Select All</source>
         <translation>Вибрати все</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="588"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="582"/>
         <source>Save Selected Data</source>
         <translation>Зберегти вибрані дані</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="589"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="583"/>
         <source>Copy Selected Data to Clipboard</source>
         <translation>Копіювати вибрані дані у буфер обміну</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="681"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="675"/>
         <source>Save Selected Data As Comma Separated File</source>
         <translation>Зберегти вибрані дані у файлі формату CSV</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="694"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="688"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="694"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="688"/>
         <source>Cannot save data file.</source>
         <translation>Не вдалося зберегти файл даних.</translation>
     </message>
@@ -21677,12 +21710,12 @@ Use if you edit any HTML files while Spellcheck is open.</source>
 <context>
     <name>Utility</name>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="824"/>
+        <location filename="../../Misc/Utility.cpp" line="844"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="825"/>
+        <location filename="../../Misc/Utility.cpp" line="845"/>
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>
@@ -21724,33 +21757,33 @@ Continue using the requested filename?</source>
         <translation>Невдалий експорт результатів перевірки:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="334"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="332"/>
         <source>Updating Validation Results</source>
         <translation>Оновлення результатів перевірки</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="409"/>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="425"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="407"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="423"/>
         <source>Message</source>
         <translation>Повідомлення</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="410"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="408"/>
         <source>No problems found!</source>
         <translation>Проблем не знайдено!</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="425"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="423"/>
         <source>File</source>
         <translation>Файл</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="425"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="423"/>
         <source>Line</source>
         <translation>Рядок</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="425"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="423"/>
         <source>Offset</source>
         <translation>Зміщення</translation>
     </message>
@@ -21820,1267 +21853,1267 @@ Continue using the requested filename?</source>
 <context>
     <name>XMLEntities</name>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="97"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="87"/>
         <source>quotation mark</source>
         <translation>лапки</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="98"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="88"/>
         <source>ampersand</source>
         <translation>амперсанд</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="99"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="89"/>
         <source>apostrophe</source>
         <translation>апостроф</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="100"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="90"/>
         <source>less-than sign</source>
         <translation>знак менше</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="101"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="91"/>
         <source>greater-than sign</source>
         <translation>знак більше</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="102"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="92"/>
         <source>no-break space</source>
         <translation>нерозривний пробіл</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="103"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="93"/>
         <source>inverted exclamation mark</source>
         <translation>перевернутий знак оклику</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="104"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="94"/>
         <source>cent sign</source>
         <translation>знак цента</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="105"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="95"/>
         <source>pound sign</source>
         <translation>знак фунта</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="106"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="96"/>
         <source>currency sign</source>
         <translation>знак валюти</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="107"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="97"/>
         <source>yen sign</source>
         <translation>знак єни</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="108"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="98"/>
         <source>broken bar</source>
         <translation>розірвана вертикальна риска</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="109"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="99"/>
         <source>section sign</source>
         <translation>символ параграфа</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="110"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="100"/>
         <source>diaeresis</source>
         <translation>умлаут</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="111"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="101"/>
         <source>copyright symbol</source>
         <translation>символ авторського права</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="112"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="102"/>
         <source>feminine ordinal indicator</source>
         <translation>жіночий порядковий індикатор</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="113"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="103"/>
         <source>left-pointing double angle quotation mark</source>
         <translation>напрямлені вліво подвійні кутові лапки</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="114"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="104"/>
         <source>not sign</source>
         <translation>знак не</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="115"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="105"/>
         <source>soft hyphen</source>
         <translation>м’який дефіс</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="116"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="106"/>
         <source>registered sign</source>
         <translation>зареєстрований товарний знак</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="117"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="107"/>
         <source>macron</source>
         <translation>макрон</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="118"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="108"/>
         <source>degree symbol</source>
         <translation>символ градусу</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="119"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="109"/>
         <source>plus-minus sign</source>
         <translation>знак плюс-мінус</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="120"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="110"/>
         <source>superscript two</source>
         <translation>надрядковий індекс два</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="121"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="111"/>
         <source>superscript three</source>
         <translation>надрядковий індекс три</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="122"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="112"/>
         <source>acute accent</source>
         <translation>акут</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="123"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="113"/>
         <source>micro sign</source>
         <translation>знак мікро</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="124"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="114"/>
         <source>pilcrow sign</source>
         <translation>знак абзацу</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="125"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="115"/>
         <source>middle dot</source>
         <translation>інтерпункт</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="126"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="116"/>
         <source>cedilla</source>
         <translation>седиль</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="127"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="117"/>
         <source>superscript one</source>
         <translation>надрядковий індекс один</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="128"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="118"/>
         <source>masculine ordinal indicator</source>
         <translation>чоловічий порядковий індикатор</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="129"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="119"/>
         <source>right-pointing double angle quotation mark</source>
         <translation>напрямлені вправо подвійні кутові лапки</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="130"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="120"/>
         <source>vulgar fraction one quarter</source>
         <translation>простий дріб «одна чверть»</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="131"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="121"/>
         <source>vulgar fraction one half</source>
         <translation>простий дріб «одна друга»</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="132"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="122"/>
         <source>vulgar fraction three quarters</source>
         <translation>простий дріб «одна третя»</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="133"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="123"/>
         <source>inverted question mark</source>
         <translation>перевернутий знак питання</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="134"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="124"/>
         <source>Latin capital letter A with grave accent</source>
         <translation>Латинська велика A з гравісом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="135"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="125"/>
         <source>Latin capital letter A with acute accent</source>
         <translation>Латинська велика A з акутом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="136"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="126"/>
         <source>Latin capital letter A with circumflex</source>
         <translation>Латинська велика A з циркумфлексом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="137"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="127"/>
         <source>Latin capital letter A with tilde</source>
         <translation>Латинська велика A з тильдою</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="138"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="128"/>
         <source>Latin capital letter A with diaeresis</source>
         <translation>Латинська велика A з тремою</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="139"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="129"/>
         <source>Latin capital letter A with ring above</source>
         <translation>Латинська велика A з кільцем зверху</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="140"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="130"/>
         <source>Latin capital letter AE</source>
         <translation>Латинська велика лігатура AE</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="141"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="131"/>
         <source>Latin capital letter C with cedilla</source>
         <translation>Латинська велика C з седилею</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="142"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="132"/>
         <source>Latin capital letter E with grave accent</source>
         <translation>Латинська велика E з гравісом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="143"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="133"/>
         <source>Latin capital letter E with acute accent</source>
         <translation>Латинська велика E з акутом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="144"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="134"/>
         <source>Latin capital letter E with circumflex</source>
         <translation>Латинська велика E з циркумфлексом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="145"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="135"/>
         <source>Latin capital letter E with diaeresis</source>
         <translation>Латинська велика E з тремою</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="146"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="136"/>
         <source>Latin capital letter I with grave accent</source>
         <translation>Латинська велика I з гравісом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="147"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="137"/>
         <source>Latin capital letter I with acute accent</source>
         <translation>Латинська велика I з акутом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="148"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="138"/>
         <source>Latin capital letter I with circumflex</source>
         <translation>Латинська велика I з циркумфлексом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="149"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="139"/>
         <source>Latin capital letter I with diaeresis</source>
         <translation>Латинська велика I з тремою</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="150"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="140"/>
         <source>Latin capital letter Eth</source>
         <translation>Латинська велика літера «eth»</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="151"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="141"/>
         <source>Latin capital letter N with tilde</source>
         <translation>Латинська велика N з тильдою</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="152"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="142"/>
         <source>Latin capital letter O with grave accent</source>
         <translation>Латинська велика O з гравісом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="153"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="143"/>
         <source>Latin capital letter O with acute accent</source>
         <translation>Латинська велика O з акутом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="154"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="144"/>
         <source>Latin capital letter O with circumflex</source>
         <translation>Латинська велика O з циркумфлексом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="155"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="145"/>
         <source>Latin capital letter O with tilde</source>
         <translation>Латинська велика O з тильдою</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="156"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="146"/>
         <source>Latin capital letter O with diaeresis</source>
         <translation>Латинська велика O з тремою</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="157"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="147"/>
         <source>multiplication sign</source>
         <translation>знак множення</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="158"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="148"/>
         <source>Latin capital letter O with stroke</source>
         <translation>Латинська велика O діагонально перекреслена</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="159"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="149"/>
         <source>Latin capital letter U with grave accent</source>
         <translation>Латинська велика U з гравісом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="160"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="150"/>
         <source>Latin capital letter U with acute accent</source>
         <translation>Латинська велика U з акутом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="161"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="151"/>
         <source>Latin capital letter U with circumflex</source>
         <translation>Латинська велика U з циркумфлексом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="162"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="152"/>
         <source>Latin capital letter U with diaeresis</source>
         <translation>Латинська велика U з тремою</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="163"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="153"/>
         <source>Latin capital letter Y with acute accent</source>
         <translation>Латинська велика Y з акутом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="164"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="154"/>
         <source>Latin capital letter THORN</source>
         <translation>Латинська велика літера Торн (THORN)</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="165"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="155"/>
         <source>Latin small letter sharp s</source>
         <translation>Латинська літера есцет</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="166"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="156"/>
         <source>Latin small letter a with grave accent</source>
         <translation>латинська «a» з гравісом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="167"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="157"/>
         <source>Latin small letter a with acute accent</source>
         <translation>латинська «a» з акутом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="168"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="158"/>
         <source>Latin small letter a with circumflex</source>
         <translation>латинська «a» з циркумфлексом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="169"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="159"/>
         <source>Latin small letter a with tilde</source>
         <translation>латинська «a» з тильдою</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="170"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="160"/>
         <source>Latin small letter a with diaeresis</source>
         <translation>латинська «a» з тремою</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="171"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="161"/>
         <source>Latin small letter a with ring above</source>
         <translation>латинська «a» з кружком зверху</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="172"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="162"/>
         <source>Latin small letter ae</source>
         <translation>Латинська мала літера ае</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="173"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="163"/>
         <source>Latin small letter c with cedilla</source>
         <translation>латинська «c» седилья</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="174"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="164"/>
         <source>Latin small letter e with grave accent</source>
         <translation>латинська «e» з гравісом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="175"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="165"/>
         <source>Latin small letter e with acute accent</source>
         <translation>латинська «e» з акутом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="176"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="166"/>
         <source>Latin small letter e with circumflex</source>
         <translation>латинська «e» з циркумфлексом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="177"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="167"/>
         <source>Latin small letter e with diaeresis</source>
         <translation>латинська «e» з тремою</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="178"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="168"/>
         <source>Latin small letter i with grave accent</source>
         <translation>латинська «i» з гравісом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="179"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="169"/>
         <source>Latin small letter i with acute accent</source>
         <translation>латинська «i» з акутом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="180"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="170"/>
         <source>Latin small letter i with circumflex</source>
         <translation>латинська «i» з циркумфлексом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="181"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="171"/>
         <source>Latin small letter i with diaeresis</source>
         <translation>латинська «i» з тремою</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="182"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="172"/>
         <source>Latin small letter eth</source>
         <translation>латинська «eth»</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="183"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="173"/>
         <source>Latin small letter n with tilde</source>
         <translation>латинська «n» з тильдою</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="184"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="174"/>
         <source>Latin small letter o with grave accent</source>
         <translation>латинська «o» з гравісом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="185"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="175"/>
         <source>Latin small letter o with acute accent</source>
         <translation>латинська «o» з акутом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="186"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="176"/>
         <source>Latin small letter o with circumflex</source>
         <translation>латинська «o» з циркумфлексом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="187"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="177"/>
         <source>Latin small letter o with tilde</source>
         <translation>латинська «o» з тильдою</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="188"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="178"/>
         <source>Latin small letter o with diaeresis</source>
         <translation>латинська «o» з тремою</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="189"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="179"/>
         <source>division sign</source>
         <translation>знак ділення</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="190"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="180"/>
         <source>Latin small letter o with stroke</source>
         <translation>латинська «o» діагонально перекреслена</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="191"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="181"/>
         <source>Latin small letter u with grave accent</source>
         <translation>латинська «u» з гравісом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="192"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="182"/>
         <source>Latin small letter u with acute accent</source>
         <translation>латинська «u» з акутом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="193"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="183"/>
         <source>Latin small letter u with circumflex</source>
         <translation>латинська «u» з циркумфлексом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="194"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="184"/>
         <source>Latin small letter u with diaeresis</source>
         <translation>латинська «u» з тремою</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="195"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="185"/>
         <source>Latin small letter y with acute accent</source>
         <translation>латинська «y» з акутом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="196"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="186"/>
         <source>Latin small letter thorn</source>
         <translation>латинська літера «торн» (thorn)</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="197"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="187"/>
         <source>Latin small letter y with diaeresis</source>
         <translation>латинська «y» з тремою</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="198"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="188"/>
         <source>Latin capital ligature OE</source>
         <translation>Латинська велика лігатура OE</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="199"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="189"/>
         <source>Latin small ligature oe</source>
         <translation>Латинська мала лігатура ае</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="200"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="190"/>
         <source>Latin capital letter S with caron</source>
         <translation>Латинська велика S з птичкою</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="201"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="191"/>
         <source>Latin small letter s with caron</source>
         <translation>латинська s з птичкою</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="202"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="192"/>
         <source>Latin capital letter Y with diaeresis</source>
         <translation>Латинська велика Y з тремою</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="203"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="193"/>
         <source>Latin small letter f with hook</source>
         <translation>латинська f з хвостиком</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="204"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="194"/>
         <source>modifier letter circumflex accent</source>
         <translation>перевернута птичка, циркумфлекс</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="205"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="195"/>
         <source>small tilde</source>
         <translation>мала тильда</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="206"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="196"/>
         <source>Greek capital letter Alpha</source>
         <translation>Грецька велика літера Альфа</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="207"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="197"/>
         <source>Greek capital letter Beta</source>
         <translation>Грецька велика літера Бета</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="208"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="198"/>
         <source>Greek capital letter Gamma</source>
         <translation>Грецька велика літера Гамма</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="209"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="199"/>
         <source>Greek capital letter Delta</source>
         <translation>Грецька велика літера Дельта</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="210"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="200"/>
         <source>Greek capital letter Epsilon</source>
         <translation>Грецька велика літера Епсілон</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="211"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="201"/>
         <source>Greek capital letter Zeta</source>
         <translation>Грецька велика літера Зета</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="212"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="202"/>
         <source>Greek capital letter Eta</source>
         <translation>Грецька велика літера Ета</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="213"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="203"/>
         <source>Greek capital letter Theta</source>
         <translation>Грецька велика літера Тета</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="214"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="204"/>
         <source>Greek capital letter Iota</source>
         <translation>Грецька велика літера Йота</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="215"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="205"/>
         <source>Greek capital letter Kappa</source>
         <translation>Грецька велика літера Каппа</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="216"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="206"/>
         <source>Greek capital letter Lambda</source>
         <translation>Грецька велика літера Лямбда</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="217"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="207"/>
         <source>Greek capital letter Mu</source>
         <translation>Грецька велика літера Мю</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="218"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="208"/>
         <source>Greek capital letter Nu</source>
         <translation>Грецька велика літера Ню</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="219"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="209"/>
         <source>Greek capital letter Xi</source>
         <translation>Грецька велика літера Ксi</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="220"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="210"/>
         <source>Greek capital letter Omicron</source>
         <translation>Грецька велика літера Омікрон</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="221"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="211"/>
         <source>Greek capital letter Pi</source>
         <translation>Грецька велика літера Пі</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="222"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="212"/>
         <source>Greek capital letter Rho</source>
         <translation>Грецька велика літера Ро</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="223"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="213"/>
         <source>Greek capital letter Sigma</source>
         <translation>Грецька велика літера Сигма</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="224"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="214"/>
         <source>Greek capital letter Tau</source>
         <translation>Грецька велика літера Тау</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="225"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="215"/>
         <source>Greek capital letter Upsilon</source>
         <translation>Грецька велика літера Іпсілон</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="226"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="216"/>
         <source>Greek capital letter Phi</source>
         <translation>Грецька велика літера Фі</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="227"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="217"/>
         <source>Greek capital letter Chi</source>
         <translation>Грецька велика літера Хі</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="228"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="218"/>
         <source>Greek capital letter Psi</source>
         <translation>Грецька велика літера Псі</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="229"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="219"/>
         <source>Greek capital letter Omega</source>
         <translation>Грецька велика літера Омега</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="230"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="220"/>
         <source>Greek small letter alpha</source>
         <translation>Грецька мала літера альфа</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="231"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="221"/>
         <source>Greek small letter beta</source>
         <translation>Грецька мала літера бета</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="232"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="222"/>
         <source>Greek small letter gamma</source>
         <translation>Грецька мала літера гамма</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="233"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="223"/>
         <source>Greek small letter delta</source>
         <translation>Грецька мала літера дельта</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="234"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="224"/>
         <source>Greek small letter epsilon</source>
         <translation>Грецька мала літера епсілон</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="235"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="225"/>
         <source>Greek small letter zeta</source>
         <translation>Грецька мала літера зета</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="236"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="226"/>
         <source>Greek small letter eta</source>
         <translation>Грецька мала літера ета</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="237"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="227"/>
         <source>Greek small letter theta</source>
         <translation>Грецька мала літера тета</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="238"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="228"/>
         <source>Greek small letter iota</source>
         <translation>Грецька мала літера йота</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="239"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="229"/>
         <source>Greek small letter kappa</source>
         <translation>Грецька мала літера каппа</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="240"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="230"/>
         <source>Greek small letter lambda</source>
         <translation>Грецька мала літера лямбда</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="241"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="231"/>
         <source>Greek small letter mu</source>
         <translation>Грецька мала літера мю</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="242"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="232"/>
         <source>Greek small letter nu</source>
         <translation>Грецька мала літера ню</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="243"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="233"/>
         <source>Greek small letter xi</source>
         <translation>Грецька мала літера ксі</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="244"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="234"/>
         <source>Greek small letter omicron</source>
         <translation>Грецька мала літера омікрон</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="245"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="235"/>
         <source>Greek small letter pi</source>
         <translation>Грецька мала літера пі</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="246"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="236"/>
         <source>Greek small letter rho</source>
         <translation>Грецька мала літера ро</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="247"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="237"/>
         <source>Greek small letter final sigma</source>
         <translation>Грецька мала літера заключна сигма</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="248"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="238"/>
         <source>Greek small letter sigma</source>
         <translation>Грецька мала літера сигма</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="249"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="239"/>
         <source>Greek small letter tau</source>
         <translation>Грецька мала літера тау</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="250"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="240"/>
         <source>Greek small letter upsilon</source>
         <translation>Грецька маленька літера упсилон</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="251"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="241"/>
         <source>Greek small letter phi</source>
         <translation>Грецька мала літера фі</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="252"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="242"/>
         <source>Greek small letter chi</source>
         <translation>Грецька мала літера хі</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="253"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="243"/>
         <source>Greek small letter psi</source>
         <translation>Грецька мала літера псі</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="254"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="244"/>
         <source>Greek small letter omega</source>
         <translation>Грецька мала літера омега</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="255"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="245"/>
         <source>Greek theta symbol</source>
         <translation>Грецький символ тета</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="256"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="246"/>
         <source>Greek Upsilon with hook symbol</source>
         <translation>Грецький символ упсилон з гачком</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="257"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="247"/>
         <source>Greek pi symbol</source>
         <translation>Грецький символ псі</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="258"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="248"/>
         <source>en space</source>
         <translation>пробіл довжини N</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="259"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="249"/>
         <source>em space</source>
         <translation>пробіл довжини M</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="260"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="250"/>
         <source>thin space</source>
         <translation>вузький пробіл</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="261"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="251"/>
         <source>zero-width non-joiner</source>
         <translation>роздільник нульової ширини</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="262"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="252"/>
         <source>zero-width joiner</source>
         <translation>з&apos;єднувач нульової ширини</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="263"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="253"/>
         <source>left-to-right mark</source>
         <translation>помітка зліва-направо</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="264"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="254"/>
         <source>right-to-left mark</source>
         <translation>помітка справа-наліво</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="265"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="255"/>
         <source>en dash</source>
         <translation>коротке тире</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="266"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="256"/>
         <source>em dash</source>
         <translation>довге тире</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="267"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="257"/>
         <source>left single quotation mark</source>
         <translation>одинарні ліві лапки</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="268"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="258"/>
         <source>right single quotation mark</source>
         <translation>одинарні праві лапки</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="269"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="259"/>
         <source>single low-9 quotation mark</source>
         <translation>одинарні low-9/нижні лапки</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="270"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="260"/>
         <source>left double quotation mark</source>
         <translation>подвійні верхні зовнішні лапки</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="271"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="261"/>
         <source>right double quotation mark</source>
         <translation>подвійні верхні внутрішні лапки</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="272"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="262"/>
         <source>double low-9 quotation mark</source>
         <translation>подвійні low-9/нижні лапки</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="273"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="263"/>
         <source>dagger, obelisk</source>
         <translation>друкарський хрестик</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="274"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="264"/>
         <source>double dagger, double obelisk</source>
         <translation>подвійний dagger</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="275"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="265"/>
         <source>bullet</source>
         <translation>маркер списку</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="276"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="266"/>
         <source>horizontal ellipsis</source>
         <translation>горизонтальні три крапки</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="277"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="267"/>
         <source>per mille sign</source>
         <translation>знак проміле</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="278"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="268"/>
         <source>prime</source>
         <translation>штрих</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="279"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="269"/>
         <source>double prime</source>
         <translation>подвійний штрих</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="280"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="270"/>
         <source>single left-pointing angle quotation mark</source>
         <translation>кутова дужка вліво (бра)</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="281"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="271"/>
         <source>single right-pointing angle quotation mark</source>
         <translation>кутова дужка вправо (кет)</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="282"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="272"/>
         <source>overline</source>
         <translation>верхня риска</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="283"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="273"/>
         <source>fraction slash</source>
         <translation>похила риска</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="284"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="274"/>
         <source>euro sign</source>
         <translation>знак євро</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="285"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="275"/>
         <source>black-letter capital I</source>
         <translation>чорна велика I</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="286"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="276"/>
         <source>script capital P</source>
         <translation>рукописна велика P</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="287"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="277"/>
         <source>black-letter capital R</source>
         <translation>чорна велика R</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="288"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="278"/>
         <source>trademark symbol</source>
         <translation>символ торгової марки</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="289"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="279"/>
         <source>alef symbol</source>
         <translation>символ алеф</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="290"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="280"/>
         <source>leftwards arrow</source>
         <translation>вліво</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="291"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="281"/>
         <source>upwards arrow</source>
         <translation>вверх</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="292"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="282"/>
         <source>rightwards arrow</source>
         <translation>вправо</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="293"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="283"/>
         <source>downwards arrow</source>
         <translation>вниз</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="294"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="284"/>
         <source>left right arrow</source>
         <translation>влево-вправо</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="295"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="285"/>
         <source>downwards arrow with corner leftwards</source>
         <translation>вниз з кутом вправо / повернення каретки</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="296"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="286"/>
         <source>leftwards double arrow</source>
         <translation>подвійна стрілка вліво</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="297"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="287"/>
         <source>upwards double arrow</source>
         <translation>подвійна вверх</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="298"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="288"/>
         <source>rightwards double arrow</source>
         <translation>подвійна вправо</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="299"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="289"/>
         <source>downwards double arrow</source>
         <translation>подвійна вниз</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="300"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="290"/>
         <source>left right double arrow</source>
         <translation>одвійна влево-вправо</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="301"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="291"/>
         <source>for all</source>
         <translation>для всіх</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="302"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="292"/>
         <source>partial differential</source>
         <translation>частковий диференціал</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="303"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="293"/>
         <source>there exists</source>
         <translation>існує</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="304"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="294"/>
         <source>empty set</source>
         <translation>пуста множина / діаметр</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="305"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="295"/>
         <source>nabla</source>
         <translation>набла</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="306"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="296"/>
         <source>element of</source>
         <translation>елемент з</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="307"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="297"/>
         <source>not an element of</source>
         <translation>не є елементом</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="308"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="298"/>
         <source>contains as member</source>
         <translation>містить у собі елемент</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="309"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="299"/>
         <source>n-ary product</source>
         <translation>n-арний добуток</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="310"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="300"/>
         <source>n-ary summation</source>
         <translation>n-арна сума</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="311"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="301"/>
         <source>minus sign</source>
         <translation>знак мінус</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="312"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="302"/>
         <source>asterisk operator</source>
         <translation>зірочка</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="313"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="303"/>
         <source>square root</source>
         <translation>квадратний корінь</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="314"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="304"/>
         <source>proportional to</source>
         <translation>пропорційно до</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="315"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="305"/>
         <source>infinity</source>
         <translation>нескінченність</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="316"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="306"/>
         <source>angle</source>
         <translation>кут</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="317"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="307"/>
         <source>logical and</source>
         <translation>логічне та</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="318"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="308"/>
         <source>logical or</source>
         <translation>логічне або</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="319"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="309"/>
         <source>intersection</source>
         <translation>перетин</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="320"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="310"/>
         <source>union</source>
         <translation>об&apos;єднання</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="321"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="311"/>
         <source>integral</source>
         <translation>інтеграл</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="322"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="312"/>
         <source>therefore sign</source>
         <translation>знак випливає</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="323"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="313"/>
         <source>tilde operator</source>
         <translation>оператор тильда / подібно</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="324"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="314"/>
         <source>congruent to</source>
         <translation>наближено дорівнює</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="325"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="315"/>
         <source>almost equal to</source>
         <translation>наближено (асимптотично) дорівнює</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="326"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="316"/>
         <source>not equal to</source>
         <translation>не дорівнює</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="327"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="317"/>
         <source>identical to</source>
         <translation>ідентично</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="328"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="318"/>
         <source>less-than or equal to</source>
         <translation>менше чи дорівнює</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="329"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="319"/>
         <source>greater-than or equal to</source>
         <translation>більше чи дорівнює</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="330"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="320"/>
         <source>subset of</source>
         <translation>підмножина</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="331"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="321"/>
         <source>superset of</source>
         <translation>включає в себе</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="332"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="322"/>
         <source>not a subset of</source>
         <translation>не є підмножиною</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="333"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="323"/>
         <source>subset of or equal to</source>
         <translation>підмножина чи еквівалентно</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="334"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="324"/>
         <source>superset of or equal to</source>
         <translation>включає в себе чи еквівалентно</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="335"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="325"/>
         <source>circled plus</source>
         <translation>пряма сума (плюс у кружечку)</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="336"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="326"/>
         <source>circled times</source>
         <translation>векторний добуток (знак множення в кружечку)</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="337"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="327"/>
         <source>up tack</source>
         <translation>перпендикуляр</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="338"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="328"/>
         <source>dot operator</source>
         <translation>оператор крапка</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="339"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="329"/>
         <source>left ceiling</source>
         <translation>ліва дужка округлення вверх</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="340"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="330"/>
         <source>right ceiling</source>
         <translation>права дужка округлення вверх</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="341"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="331"/>
         <source>left floor</source>
         <translation>ліва дужка округлення вниз</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="342"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="332"/>
         <source>right floor</source>
         <translation>права книжка округлення вниз</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="343"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="333"/>
         <source>left-pointing angle bracket</source>
         <translation>кутова дужка вліво</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="344"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="334"/>
         <source>right-pointing angle bracket</source>
         <translation>кутова дужка вправо</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="345"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="335"/>
         <source>lozenge</source>
         <translation>ромб</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="346"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="336"/>
         <source>black spade suit</source>
         <translation>закрашена масть піка</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="347"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="337"/>
         <source>black club suit</source>
         <translation>закрашена масть трефа</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="348"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="338"/>
         <source>black heart suit</source>
         <translation>закрашена масть чирва</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="349"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="339"/>
         <source>black diamond suit</source>
         <translation>закрашена масть бубна</translation>
     </message>

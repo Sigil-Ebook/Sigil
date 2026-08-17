@@ -283,74 +283,74 @@
         <translation>Zoom image to fit.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="97"/>
-        <location filename="../../Widgets/AdjustImage.cpp" line="103"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="99"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="107"/>
         <source>Adjust Image</source>
         <translation>Adjust Image</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="104"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="108"/>
         <source>Cannot load %1.</source>
         <translation>Cannot load %1.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="173"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="177"/>
         <source>shades</source>
         <translation>shades</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="173"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="177"/>
         <source>colors</source>
         <translation>colors</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="174"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="178"/>
         <source>Grayscale</source>
         <translation>Grayscale</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="174"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="178"/>
         <source>Color</source>
         <translation>Color</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="329"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="338"/>
         <source>(x,y) coordinates:</source>
         <translation>(x,y) coordinates:</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="329"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="338"/>
         <source>Zoom</source>
         <translation>Zoom</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="398"/>
-        <location filename="../../Widgets/AdjustImage.cpp" line="427"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="408"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="437"/>
         <source>Image successfully saved.</source>
         <translation>Image successfully saved.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="400"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="410"/>
         <source>Image save failed.</source>
         <translation>Image save failed.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="411"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="421"/>
         <source>Image Quality</source>
         <translation>Image Quality</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="412"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="422"/>
         <source>Enter quality level (0-100):</source>
         <translation>Enter quality level (0-100):</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="414"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="424"/>
         <source>Image save failed. </source>
         <translation>Image save failed. </translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="429"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="441"/>
         <source>Image save failed: </source>
         <translation>Image save failed: </translation>
     </message>
@@ -930,87 +930,87 @@ if a sans-serif font-family specified in your CSS</translation>
         <translation>To endnote</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="181"/>
+        <location filename="../../Misc/AriaClips.cpp" line="171"/>
         <source>Aside</source>
         <translation>Aside</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="183"/>
+        <location filename="../../Misc/AriaClips.cpp" line="173"/>
         <source>Aside: Sidebar</source>
         <translation>Aside: Sidebar</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="185"/>
+        <location filename="../../Misc/AriaClips.cpp" line="175"/>
         <source>Aside: Tip</source>
         <translation>Aside: Tip</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="187"/>
+        <location filename="../../Misc/AriaClips.cpp" line="177"/>
         <source>Backlink from Footnote</source>
         <translation>Backlink from Footnote</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="189"/>
+        <location filename="../../Misc/AriaClips.cpp" line="179"/>
         <source>Backlink from Endnote</source>
         <translation>Backlink from Endnote</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="191"/>
+        <location filename="../../Misc/AriaClips.cpp" line="181"/>
         <source>Endnote in li</source>
         <translation>Endnote in li</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="193"/>
+        <location filename="../../Misc/AriaClips.cpp" line="183"/>
         <source>Footnote in aside</source>
         <translation>Footnote in aside</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="195"/>
+        <location filename="../../Misc/AriaClips.cpp" line="185"/>
         <source>Footnote in div</source>
         <translation>Footnote in div</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="197"/>
+        <location filename="../../Misc/AriaClips.cpp" line="187"/>
         <source>Footnote in p</source>
         <translation>Footnote in p</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="199"/>
+        <location filename="../../Misc/AriaClips.cpp" line="189"/>
         <source>PageBreak in hr</source>
         <translation>PageBreak in hr</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="201"/>
+        <location filename="../../Misc/AriaClips.cpp" line="191"/>
         <source>PageBreak in span</source>
         <translation>PageBreak in span</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="203"/>
+        <location filename="../../Misc/AriaClips.cpp" line="193"/>
         <source>Reference to Footnote</source>
         <translation>Reference to Footnote</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="205"/>
+        <location filename="../../Misc/AriaClips.cpp" line="195"/>
         <source>Reference to Endnote</source>
         <translation>Reference to Endnote</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="207"/>
+        <location filename="../../Misc/AriaClips.cpp" line="197"/>
         <source>Section</source>
         <translation>Section</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="209"/>
+        <location filename="../../Misc/AriaClips.cpp" line="199"/>
         <source>Section: Chapter</source>
         <translation>Section: Chapter</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="211"/>
+        <location filename="../../Misc/AriaClips.cpp" line="201"/>
         <source>Section: Endnotes</source>
         <translation>Section: Endnotes</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaClips.cpp" line="213"/>
+        <location filename="../../Misc/AriaClips.cpp" line="203"/>
         <source>Section: Footnotes</source>
         <translation>Section: Footnotes</translation>
     </message>
@@ -1018,432 +1018,432 @@ if a sans-serif font-family specified in your CSS</translation>
 <context>
     <name>AriaRoles</name>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="184"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="173"/>
         <source>Abstract</source>
         <translation>Abstract</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="184"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="173"/>
         <source>A short summary of the principle ideas, concepts and conclusions of the work, or of section or excerpt within it.</source>
         <translation>A short summary of the principle ideas, concepts and conclusions of the work, or of section or excerpt within it.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="185"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="174"/>
         <source>Acknowledgments</source>
         <translation>Acknowledgments</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="185"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="174"/>
         <source>A section or statement that acknowledges significant contributions by persons, organizations, governments, and other entities to the realization of the work.</source>
         <translation>A section or statement that acknowledges significant contributions by persons, organizations, governments, and other entities to the realization of the work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="186"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="175"/>
         <source>Afterword</source>
         <translation>Afterword</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="186"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="175"/>
         <source>A closing statement from the author or a person of importance, typically providing insight into how the content came to be written, its significance or related events that have transpired since its timeline.</source>
         <translation>A closing statement from the author or a person of importance, typically providing insight into how the content came to be written, its significance or related events that have transpired since its timeline.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="187"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="176"/>
         <source>Appendix</source>
         <translation>Appendix</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="187"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="176"/>
         <source>A section of supplemental information located after the primary content that informs the content but is not central to it.</source>
         <translation>A section of supplemental information located after the primary content that informs the content but is not central to it.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="188"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="177"/>
         <source>Back Link</source>
         <translation>Back Link</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="188"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="177"/>
         <source>A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary definition to where a term is used.)</source>
         <translation>A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary definition to where a term is used.)</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="189"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="178"/>
         <source>Bibliography</source>
         <translation>Bibliography</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="189"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="178"/>
         <source>A list of external references cited in the work, which may be to print or digital sources.</source>
         <translation>A list of external references cited in the work, which may be to print or digital sources.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="190"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="179"/>
         <source>Bibliography Entry</source>
         <translation>Bibliography Entry</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="190"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="179"/>
         <source>A single reference to an external source in a bibliography. [epub:type ONLY]</source>
         <translation>A single reference to an external source in a bibliography. [epub:type ONLY]</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="191"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="180"/>
         <source>Bibliography Reference</source>
         <translation>Bibliography Reference</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="191"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="180"/>
         <source>A reference to a bibliography entry.</source>
         <translation>A reference to a bibliography entry.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="192"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="181"/>
         <source>Chapter</source>
         <translation>Chapter</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="192"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="181"/>
         <source>A major thematic section of content in a work.</source>
         <translation>A major thematic section of content in a work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="193"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="182"/>
         <source>Colophon</source>
         <translation>Colophon</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="193"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="182"/>
         <source>A short section of production notes particular to the edition (e.g., describing the typeface used), often located at the end of a work.</source>
         <translation>A short section of production notes particular to the edition (e.g., describing the typeface used), often located at the end of a work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="194"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="183"/>
         <source>Conclusion</source>
         <translation>Conclusion</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="194"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="183"/>
         <source>A concluding section or statement that summarizes the work or wraps up the narrative.</source>
         <translation>A concluding section or statement that summarizes the work or wraps up the narrative.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="195"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="184"/>
         <source>Cover</source>
         <translation>Cover</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="195"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="184"/>
         <source>An image that sets the mood or tone for the work and typically includes the title and author.</source>
         <translation>An image that sets the mood or tone for the work and typically includes the title and author.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="196"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="185"/>
         <source>Credit</source>
         <translation>Credit</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="196"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="185"/>
         <source>An acknowledgement of the source of integrated content from third-party sources, such as photos.  Typically identifies the creator, copyright, and any restrictions on reuse.</source>
         <translation>An acknowledgement of the source of integrated content from third-party sources, such as photos.  Typically identifies the creator, copyright, and any restrictions on reuse.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="197"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="186"/>
         <source>Credits</source>
         <translation>Credits</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="197"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="186"/>
         <source>A collection of credits.</source>
         <translation>A collection of credits.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="198"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="187"/>
         <source>Dedication</source>
         <translation>Dedication</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="198"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="187"/>
         <source>An inscription at the front of the work, typically addressed in tribute to one or more persons close to the author.</source>
         <translation>An inscription at the front of the work, typically addressed in tribute to one or more persons close to the author.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="199"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="188"/>
         <source>Endnote</source>
         <translation>Endnote</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="199"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="188"/>
         <source>One of a collection of notes that occur at the end of a work, or a section within it that provides additional context to a referenced passage of text. [epub:type ONLY]</source>
         <translation>One of a collection of notes that occur at the end of a work, or a section within it that provides additional context to a referenced passage of text. [epub:type ONLY]</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="200"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="189"/>
         <source>Endnotes</source>
         <translation>Endnotes</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="200"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="189"/>
         <source>A collection of notes at the end of a work or a section within it.</source>
         <translation>A collection of notes at the end of a work or a section within it.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="201"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="190"/>
         <source>Epigraph</source>
         <translation>Epigraph</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="201"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="190"/>
         <source>A quotation set at the start of the work or a section that establishes the theme or sets the mood.</source>
         <translation>A quotation set at the start of the work or a section that establishes the theme or sets the mood.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="202"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="191"/>
         <source>Epilogue</source>
         <translation>Epilogue</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="202"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="191"/>
         <source>A concluding section of narrative that wraps up or comments on the actions and events of the work, typically from a future perspective.</source>
         <translation>A concluding section of narrative that wraps up or comments on the actions and events of the work, typically from a future perspective.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="203"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="192"/>
         <source>Errata</source>
         <translation>Errata</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="203"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="192"/>
         <source>A set of corrections discovered after initial publication of the work, sometimes referred to as corrigenda.</source>
         <translation>A set of corrections discovered after initial publication of the work, sometimes referred to as corrigenda.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="204"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="193"/>
         <source>Example</source>
         <translation>Example</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="204"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="193"/>
         <source>An illustration of a key concept of the work, such as a code listing, case study or problem. [aria role ONLY]</source>
         <translation>An illustration of a key concept of the work, such as a code listing, case study or problem. [aria role ONLY]</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="205"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="194"/>
         <source>Footnote</source>
         <translation>Footnote</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="205"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="194"/>
         <source>Ancillary information, such as a citation or commentary, that provides additional context to a referenced passage of text.</source>
         <translation>Ancillary information, such as a citation or commentary, that provides additional context to a referenced passage of text.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="206"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="195"/>
         <source>Footnotes</source>
         <translation>Footnotes</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="206"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="195"/>
         <source>A collection of footnotes. [epub:type ONLY]</source>
         <translation>A collection of footnotes. [epub:type ONLY]</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="207"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="196"/>
         <source>Foreword</source>
         <translation>Foreword</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="207"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="196"/>
         <source>An introductory section that precedes the work, typically not written by the author of the work.</source>
         <translation>An introductory section that precedes the work, typically not written by the author of the work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="208"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="197"/>
         <source>Glossary</source>
         <translation>Glossary</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="208"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="197"/>
         <source>A brief dictionary of new, uncommon, or specialized terms used in the content.</source>
         <translation>A brief dictionary of new, uncommon, or specialized terms used in the content.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="209"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="198"/>
         <source>Glossary Reference</source>
         <translation>Glossary Reference</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="209"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="198"/>
         <source>A reference to a glossary definition.</source>
         <translation>A reference to a glossary definition.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="210"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="199"/>
         <source>Index</source>
         <translation>Index</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="210"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="199"/>
         <source>A navigational aid that provides a detailed list of links to key subjects, names and other important topics covered in the work.</source>
         <translation>A navigational aid that provides a detailed list of links to key subjects, names and other important topics covered in the work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="211"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="200"/>
         <source>Introduction</source>
         <translation>Introduction</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="211"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="200"/>
         <source>A preliminary section that typically introduces the scope or nature of the work.</source>
         <translation>A preliminary section that typically introduces the scope or nature of the work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="212"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="201"/>
         <source>Note Reference</source>
         <translation>Note Reference</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="212"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="201"/>
         <source>A reference to a footnote or endnote, typically appearing as a superscripted number or symbol in the main body of the text.</source>
         <translation>A reference to a footnote or endnote, typically appearing as a superscripted number or symbol in the main body of the text.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="213"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="202"/>
         <source>Notice</source>
         <translation>Notice</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="213"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="202"/>
         <source>Notifies the user of consequences that might arise from an action or event.  Examples include warnings, cautions and dangers.</source>
         <translation>Notifies the user of consequences that might arise from an action or event.  Examples include warnings, cautions and dangers.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="214"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="203"/>
         <source>Pagebreak</source>
         <translation>Pagebreak</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="214"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="203"/>
         <source>A separator denoting the position before which a break occurs between contiguous pages in a statically paginated version of the content.</source>
         <translation>A separator denoting the position before which a break occurs between contiguous pages in a statically paginated version of the content.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="215"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="204"/>
         <source>Page Footer</source>
         <translation>Page Footer</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="215"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="204"/>
         <source>A section of text appearing at the bottom of a page that provides context about the current work and location within it. The page footer is distinct from the body text and normally follows a repeating template that contains (possibly truncated) items such as the document title, current section, author name(s), and page number.</source>
         <translation>A section of text appearing at the bottom of a page that provides context about the current work and location within it. The page footer is distinct from the body text and normally follows a repeating template that contains (possibly truncated) items such as the document title, current section, author name(s), and page number.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="216"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="205"/>
         <source>Page Header</source>
         <translation>Page Header</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="216"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="205"/>
         <source>A section of text appearing at the top of a page that provides context about the current work and location within it. The page header is distinct from the body text and normally follows a repeating template that contains (possibly truncated) items such as the document title, current section, author name(s), and page number.</source>
         <translation>A section of text appearing at the top of a page that provides context about the current work and location within it. The page header is distinct from the body text and normally follows a repeating template that contains (possibly truncated) items such as the document title, current section, author name(s), and page number.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="217"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="206"/>
         <source>Page List</source>
         <translation>Page List</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="217"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="206"/>
         <source>A navigational aid that provides a list of links to the page breaks in the content.</source>
         <translation>A navigational aid that provides a list of links to the page breaks in the content.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="218"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="207"/>
         <source>Part</source>
         <translation>Part</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="218"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="207"/>
         <source>A major structural division in a work that contains a set of related sections dealing with a particular subject, narrative arc, or similar encapsulated theme.</source>
         <translation>A major structural division in a work that contains a set of related sections dealing with a particular subject, narrative arc, or similar encapsulated theme.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="219"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="208"/>
         <source>Preamble</source>
         <translation>Preamble</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="219"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="208"/>
         <source>A section at the beginning of a work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content. [epub:type ONLY]</source>
         <translation>A section at the beginning of a work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content. [epub:type ONLY]</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="220"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="209"/>
         <source>Preface</source>
         <translation>Preface</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="220"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="209"/>
         <source>An introductory section that precedes the work, typically written by the author of the work.</source>
         <translation>An introductory section that precedes the work, typically written by the author of the work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="221"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="210"/>
         <source>Prologue</source>
         <translation>Prologue</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="221"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="210"/>
         <source>An introductory section that sets the background to a work, typically part of the narrative.</source>
         <translation>An introductory section that sets the background to a work, typically part of the narrative.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="222"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="211"/>
         <source>Pull Quote</source>
         <translation>Pull Quote</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="222"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="211"/>
         <source>A distinctively placed or highlighted quotation from the current content designed to draw attention to a topic or highlight a key point.</source>
         <translation>A distinctively placed or highlighted quotation from the current content designed to draw attention to a topic or highlight a key point.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="223"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="212"/>
         <source>Questions and Answers</source>
         <translation>Questions and Answers</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="223"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="212"/>
         <source>A section of content structured as a series of questions and answers, such as an interview or list of frequently asked questions.</source>
         <translation>A section of content structured as a series of questions and answers, such as an interview or list of frequently asked questions.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="224"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="213"/>
         <source>Subtitle</source>
         <translation>Subtitle</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="224"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="213"/>
         <source>An explanatory or alternate title for the work, or a section or components within it.</source>
         <translation>An explanatory or alternate title for the work, or a section or components within it.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="225"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="214"/>
         <source>Tip</source>
         <translation>Tip</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="225"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="214"/>
         <source>Helpful information that clarifies some aspect of the content or assists in comprehension.</source>
         <translation>Helpful information that clarifies some aspect of the content or assists in comprehension.</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="226"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="215"/>
         <source>Table of Contents</source>
         <translation>Table of Contents</translation>
     </message>
     <message>
-        <location filename="../../Misc/AriaRoles.cpp" line="226"/>
+        <location filename="../../Misc/AriaRoles.cpp" line="215"/>
         <source>A navigational aid that provides an ordered list of links to the major sectional headings in the content.  A table of contents may cover an entire work, or only a smaller section of it.</source>
         <translation>A navigational aid that provides an ordered list of links to the major sectional headings in the content.  A table of contents may cover an entire work, or only a smaller section of it.</translation>
     </message>
@@ -1702,7 +1702,7 @@ if a sans-serif font-family specified in your CSS</translation>
 <context>
     <name>Book</name>
     <message>
-        <location filename="../../BookManipulation/Book.cpp" line="429"/>
+        <location filename="../../BookManipulation/Book.cpp" line="430"/>
         <source>Start</source>
         <translation>Start</translation>
     </message>
@@ -1722,55 +1722,55 @@ if a sans-serif font-family specified in your CSS</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="99"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2359"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2361"/>
         <source>Open With</source>
         <translation>Open With</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../MainUI/BookBrowser.cpp" line="193"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="192"/>
         <source>%n file(s)</source>
         <translation><numerusform>%n file(s)</numerusform><numerusform>%n file(s)</numerusform></translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="305"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="773"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="944"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="979"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1056"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1163"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1474"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1579"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="304"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="772"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="943"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="982"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1059"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1166"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1477"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1582"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="306"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="305"/>
         <source>Are you sure you want to sort the selected files alphanumerically?</source>
         <translation>Are you sure you want to sort the selected files alphanumerically?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="307"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="306"/>
         <source>This action cannot be reversed.</source>
         <translation>This action cannot be reversed.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="390"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="389"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>The file &quot;%1&quot; does not exist.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="773"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="772"/>
         <source>Javascript is not supported on epub2.</source>
         <translation>Javascript is not supported on epub2.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="848"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="855"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="847"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="854"/>
         <source>Add Existing Files</source>
         <translation>Add Existing Files</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="913"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="912"/>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
@@ -1779,7 +1779,7 @@ if a sans-serif font-family specified in your CSS</translation>
 &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="922"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="921"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
@@ -1788,7 +1788,7 @@ if a sans-serif font-family specified in your CSS</translation>
 &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="945"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="944"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
@@ -1797,12 +1797,17 @@ OK to replace?</source>
 OK to replace?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="974"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="971"/>
+        <source>Overwrite of image &quot;%1&quot; failed.</source>
+        <translation>Overwrite of image &quot;%1&quot; failed.</translation>
+    </message>
+    <message>
+        <location filename="../../MainUI/BookBrowser.cpp" line="977"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
         <translation>Unable to delete or replace file &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="979"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="982"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
@@ -1811,7 +1816,7 @@ A file with this name already exists in the book.</source>
 A file with this name already exists in the book.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1057"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1060"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
@@ -1820,373 +1825,373 @@ A file with this name already exists in the book.</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1070"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1073"/>
         <source>File(s) added or replaced.</source>
         <translation>File(s) added or replaced.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1107"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1110"/>
         <source>Save As File</source>
         <translation>Save As File</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1130"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1133"/>
         <source>Unable to save the file.</source>
         <translation>Unable to save the file.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1141"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1144"/>
         <source>Choose the directory to save the files to</source>
         <translation>Choose the directory to save the files to</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1163"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1166"/>
         <source>One or more files already exists.  OK to overwrite?</source>
         <translation>One or more files already exists.  OK to overwrite?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1180"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1183"/>
         <source>Unable to save files.  Destination may be a directory.</source>
         <translation>Unable to save files.  Destination may be a directory.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1188"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1191"/>
         <source>Unable to save files.</source>
         <translation>Unable to save files.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1412"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1415"/>
         <source>Filenames cannot contain these characters: &quot;%1&quot;.</source>
         <translation>Filenames cannot contain these characters: &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1474"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1477"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
         <translation>Cannot rename files since this would result in duplicate filenames.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1545"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1548"/>
         <source>Destination Folder has invalid path &quot;%1&quot;</source>
         <translation>Destination Folder has invalid path &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1579"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1582"/>
         <source>Cannot move files since this would result in duplicate filenames.</source>
         <translation>Cannot move files since this would result in duplicate filenames.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1626"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1629"/>
         <source>The Nav document cannot be removed.</source>
         <translation>The Nav document cannot be removed.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1634"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1637"/>
         <source>The NCX cannot be removed.</source>
         <translation>The NCX cannot be removed.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1641"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1644"/>
         <source>The OPF is required for epub and cannot be removed.</source>
         <translation>The OPF is required for epub and cannot be removed.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1650"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1653"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>You cannot remove all html files.
 There always has to be at least one.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1798"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1801"/>
         <source>Unable to set file as cover image.</source>
         <translation>Unable to set file as cover image.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1835"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1838"/>
         <source>(root folder)</source>
         <translation>(root folder)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1845"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1848"/>
         <source>FileName</source>
         <translation>FileName</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1848"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1851"/>
         <source>Folder</source>
         <translation>Folder</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1851"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1854"/>
         <source>Media Type</source>
         <translation>Media Type</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1854"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1857"/>
         <source>File Size(kb)</source>
         <translation>File Size(kb)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1857"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1860"/>
         <source>Epub Version</source>
         <translation>Epub Version</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1874"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1877"/>
         <source>Word Count</source>
         <translation>Word Count</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1877"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1880"/>
         <source>Primary Language</source>
         <translation>Primary Language</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1884"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1887"/>
         <source>WellFormed</source>
         <translation>WellFormed</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1886"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1889"/>
         <source>Yes</source>
         <translation>Yes</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1888"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1891"/>
         <source>No</source>
         <translation>No</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1891"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1894"/>
         <source>Linked Stylesheets</source>
         <translation>Linked Stylesheets</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1894"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1897"/>
         <source>Linked Javascripts</source>
         <translation>Linked Javascripts</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1897"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1900"/>
         <source>Linked Images</source>
         <translation>Linked Images</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1900"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1903"/>
         <source>Linked Audio</source>
         <translation>Linked Audio</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1903"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1906"/>
         <source>Linked Video</source>
         <translation>Linked Video</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1930"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1933"/>
         <source>Semantics OPF Guide or Nav Landmarks</source>
         <translation>Semantics OPF Guide or Nav Landmarks</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1939"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1942"/>
         <source>Manifest Properties</source>
         <translation>Manifest Properties</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1942"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1945"/>
         <source>Defined Ids</source>
         <translation>Defined Ids</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1949"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1961"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1952"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1964"/>
         <source>Description</source>
         <translation>Description</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1952"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1955"/>
         <source>Obfuscation Algorithm</source>
         <translation>Obfuscation Algorithm</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1954"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2207"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1957"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2209"/>
         <source>None</source>
         <translation>None</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2192"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2194"/>
         <source>Select All</source>
         <translation>Select All</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2193"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2195"/>
         <source>Add Blank HTML File</source>
         <translation>Add Blank HTML File</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2194"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2196"/>
         <source>Add Blank Stylesheet</source>
         <translation>Add Blank Stylesheet</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2195"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2197"/>
         <source>Add Blank Javascript</source>
         <translation>Add Blank Javascript</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2196"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2198"/>
         <source>Add Blank SVG Image</source>
         <translation>Add Blank SVG Image</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2197"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2199"/>
         <source>View Image</source>
         <translation>View Image</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2198"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2200"/>
         <source>Add Existing Files...</source>
         <translation>Add Existing Files...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2199"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2200"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2201"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2202"/>
         <source>Add Copy</source>
         <translation>Add Copy</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2201"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2203"/>
         <source>Rename</source>
         <translation>Rename</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2202"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2204"/>
         <source>RegEx Rename</source>
         <translation>RegEx Rename</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2203"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2205"/>
         <source>Move</source>
         <translation>Move</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2204"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2206"/>
         <source>Delete</source>
         <translation>Delete</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2205"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2207"/>
         <source>Cover Image</source>
         <translation>Cover Image</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2206"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2208"/>
         <source>Merge</source>
         <translation>Merge</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2208"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2210"/>
         <source>Use Adobe&apos;s Method</source>
         <translation>Use Adobe&apos;s Method</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2209"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2211"/>
         <source>Use IDPF&apos;s Method</source>
         <translation>Use IDPF&apos;s Method</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2210"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2212"/>
         <source>Sort</source>
         <translation>Sort</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2211"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2213"/>
         <source>Change Reading Order</source>
         <translation>Change Reading Order</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2212"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2214"/>
         <source>Renumber TOC Entries</source>
         <translation>Renumber TOC Entries</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2213"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2215"/>
         <source>Link Stylesheets...</source>
         <translation>Link Stylesheets...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2214"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2216"/>
         <source>Link Javascripts...</source>
         <translation>Link Javascripts...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2215"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2217"/>
         <source>Add Semantics...</source>
         <translation>Add Semantics...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2216"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2218"/>
         <source>Get Info...</source>
         <translation>Get Info...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2217"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2219"/>
         <source>Validate with W3C</source>
         <translation>Validate with W3C</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2218"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2220"/>
         <source>Save As</source>
         <translation>Save As</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2224"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2399"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2226"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2401"/>
         <source>Other Application</source>
         <translation>Other Application</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2225"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2227"/>
         <source>Clear Editor List</source>
         <translation>Clear Editor List</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2234"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2236"/>
         <source>Merge with previous file, or merge multiple files into one.</source>
         <translation>Merge with previous file, or merge multiple files into one.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2237"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2239"/>
         <source>Rename selected file(s)</source>
         <translation>Rename selected file(s)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2239"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2241"/>
         <source>Use Regular Expressions to Rename selected file(s)</source>
         <translation>Use Regular Expressions to Rename selected file(s)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2242"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2244"/>
         <source>Move selected file(s) to a new folder</source>
         <translation>Move selected file(s) to a new folder</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2244"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2246"/>
         <source>Link Stylesheets to selected file(s).</source>
         <translation>Link Stylesheets to selected file(s).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2246"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2248"/>
         <source>Link Javascripts to selected file(s).</source>
         <translation>Link Javascripts to selected file(s).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2248"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2250"/>
         <source>Add Semantics to selected file(s).</source>
         <translation>Add Semantics to selected file(s).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2250"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2252"/>
         <source>Show Information about selected files.</source>
         <translation>Show Information about selected files.</translation>
     </message>
@@ -2471,7 +2476,7 @@ There always has to be at least one.</translation>
     <name>ClipEditor</name>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="14"/>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="537"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="536"/>
         <source>Clip Editor</source>
         <translation>Clip Editor</translation>
     </message>
@@ -2502,13 +2507,13 @@ There always has to be at least one.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="100"/>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="648"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="647"/>
         <source>Add Entry</source>
         <translation>Add Entry</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ClipEditor.ui" line="110"/>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="649"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="648"/>
         <source>Add Group</source>
         <translation>Add Group</translation>
     </message>
@@ -2541,177 +2546,177 @@ There always has to be at least one.</translation>
         <translation>Move an entry down one in the group.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="73"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="72"/>
         <source>Right click on an entry to see a context menu of actions.</source>
         <translation>Right click on an entry to see a context menu of actions.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="74"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="73"/>
         <source>You can also right click in your document to select an entry.</source>
         <translation>You can also right click in your document to select an entry.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="75"/>
         <source>Name</source>
         <translation>Name</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="75"/>
         <source>Name of your entry or group.</source>
         <translation>Name of your entry or group.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
         <source>Number</source>
         <translation>Number</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="76"/>
         <source>Assignable Shortcut Id.</source>
         <translation>Assignable Shortcut Id.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="78"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
         <source>Text</source>
         <translation>Text</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="78"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="77"/>
         <source>The text to insert. The text is treated like a Regex replacement expression so \1 can be used to insert the text selected in Code View when you paste the clip.</source>
         <translation>The text to insert. The text is treated like a Regex replacement expression so \1 can be used to insert the text selected in Code View when you paste the clip.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="82"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="81"/>
         <source>Save</source>
         <translation>Save</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="82"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="81"/>
         <source>Save your changes.</source>
         <translation>Save your changes.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="82"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="81"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
         <translation>If any other instances of Sigil are running they will be automatically updated with your changes.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="92"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="91"/>
         <source>Cannot save entries.</source>
         <translation>Cannot save entries.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="136"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="135"/>
         <source>Clip entries loaded from file.</source>
         <translation>Clip entries loaded from file.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="199"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="198"/>
         <source>You cannot select an entry and a group containing the entry.</source>
         <translation>You cannot select an entry and a group containing the entry.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="287"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="286"/>
         <source>You cannot Copy or Cut groups - use drag-and-drop.</source>
         <translation>You cannot Copy or Cut groups - use drag-and-drop.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="360"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="359"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="360"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="359"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
         <translation>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="378"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="377"/>
         <source>Import Entries</source>
         <translation>Import Entries</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="456"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="455"/>
         <source>Export Selected Entries</source>
         <translation>Export Selected Entries</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../Dialogs/ClipEditor.cpp" line="537"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="536"/>
         <source>CSS entries added: %n</source>
         <translation><numerusform>CSS entries added: %n</numerusform><numerusform>CSS entries added: %n</numerusform></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="650"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="649"/>
         <source>Edit</source>
         <translation>Edit</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="651"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="650"/>
         <source>Cut</source>
         <translation>Cut</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="652"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="651"/>
         <source>Copy</source>
         <translation>Copy</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="653"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="652"/>
         <source>Paste</source>
         <translation>Paste</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="654"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="653"/>
         <source>Delete</source>
         <translation>Delete</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="655"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="654"/>
         <source>Import</source>
         <translation>Import</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="656"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="655"/>
         <source>Reload</source>
         <translation>Reload</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="657"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="656"/>
         <source>Export</source>
         <translation>Export</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="658"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="657"/>
         <source>Export All</source>
         <translation>Export All</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="659"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="658"/>
         <source>Collapse All</source>
         <translation>Collapse All</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="660"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="659"/>
         <source>Expand All</source>
         <translation>Expand All</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="661"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="660"/>
         <source>Autofill</source>
         <translation>Autofill</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="743"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="742"/>
         <source>Clip entries saved.</source>
         <translation>Clip entries saved.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="772"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="771"/>
         <source>Sigil: Clip Editor</source>
         <translation>Sigil: Clip Editor</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/ClipEditor.cpp" line="773"/>
+        <location filename="../../Dialogs/ClipEditor.cpp" line="772"/>
         <source>The Clip entries may have been modified.
 Do you want to save your changes?</source>
         <translation>The Clip entries may have been modified.
@@ -2721,22 +2726,22 @@ Do you want to save your changes?</translation>
 <context>
     <name>ClipEditorModel</name>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="73"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="62"/>
         <source>Name</source>
         <translation>Name</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="74"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="63"/>
         <source>Number</source>
         <translation>Number</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="75"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="64"/>
         <source>Text</source>
         <translation>Text</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="737"/>
+        <location filename="../../MiscEditors/ClipEditorModel.cpp" line="721"/>
         <source>Unable to create file %1</source>
         <translation>Unable to create file %1</translation>
     </message>
@@ -2777,12 +2782,12 @@ Do you want to save your changes?</translation>
         <translation>Clips</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ClipsWindow.cpp" line="139"/>
+        <location filename="../../MainUI/ClipsWindow.cpp" line="138"/>
         <source>Collapse All</source>
         <translation>Collapse All</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ClipsWindow.cpp" line="140"/>
+        <location filename="../../MainUI/ClipsWindow.cpp" line="139"/>
         <source>Expand All</source>
         <translation>Expand All</translation>
     </message>
@@ -2800,137 +2805,137 @@ Do you want to save your changes?</translation>
         <translation>No open tags found at this position.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1547"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1546"/>
         <source>Add To Default Dictionary</source>
         <translation>Add To Default Dictionary</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1560"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1559"/>
         <source>Add To Dictionary</source>
         <translation>Add To Dictionary</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1577"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1576"/>
         <source>Ignore</source>
         <translation>Ignore</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1639"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1638"/>
         <source>Reformat CSS</source>
         <translation>Reformat CSS</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1641"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1640"/>
         <source>Multiple Lines Per Style</source>
         <translation>Multiple Lines Per Style</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1642"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1641"/>
         <source>Single Line Per Style</source>
         <translation>Single Line Per Style</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1668"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1667"/>
         <source>Rename Selected Class</source>
         <translation>Rename Selected Class</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1690"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1689"/>
         <source>Reformat HTML</source>
         <translation>Reformat HTML</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1692"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1691"/>
         <source>Mend and Prettify Code</source>
         <translation>Mend and Prettify Code</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1693"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1692"/>
         <source>Mend and Prettify Code - All HTML Files</source>
         <translation>Mend and Prettify Code - All HTML Files</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1694"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1693"/>
         <source>Mend Code</source>
         <translation>Mend Code</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1695"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1694"/>
         <source>Mend Code - All HTML Files</source>
         <translation>Mend Code - All HTML Files</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1725"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1724"/>
         <source>Go To Link Or Style</source>
         <translation>Go To Link Or Style</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1747"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1746"/>
         <source>Toggle Line Wrap Mode</source>
         <translation>Toggle Line Wrap Mode</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1769"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1768"/>
         <source>View Image</source>
         <translation>View Image</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1770"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1769"/>
         <source>Open Tab For Image</source>
         <translation>Open Tab For Image</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1796"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1795"/>
         <source>Mark Selected Text</source>
         <translation>Mark Selected Text</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1798"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1797"/>
         <source>Unmark Marked Text</source>
         <translation>Unmark Marked Text</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1824"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1823"/>
         <source>Clips</source>
         <translation>Clips</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1834"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1833"/>
         <source>Add To Clips</source>
         <translation>Add To Clips</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1972"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1971"/>
         <source>You must be in an opening HTML tag to use this feature.</source>
         <translation>You must be in an opening HTML tag to use this feature.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1982"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1981"/>
         <source>You must be inside an opening HTML tag to use this feature.</source>
         <translation>You must be inside an opening HTML tag to use this feature.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2046"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2045"/>
         <source>Selected Text is not a valid class name.</source>
         <translation>Selected Text is not a valid class name.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2053"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2052"/>
         <source>Rename Class</source>
         <translation>Rename Class</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2054"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2053"/>
         <source>Enter new class name</source>
         <translation>Enter new class name</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2074"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2073"/>
         <source>Class renamed.</source>
         <translation>Class renamed.</translation>
     </message>
     <message>
-        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2076"/>
+        <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2075"/>
         <source>Class rename aborted.</source>
         <translation>Class rename aborted.</translation>
     </message>
@@ -3617,7 +3622,7 @@ other end to continue searching.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EditTOC.ui" line="81"/>
-        <location filename="../../Dialogs/EditTOC.cpp" line="497"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="726"/>
         <source>Delete</source>
         <translation>Delete</translation>
     </message>
@@ -3652,42 +3657,42 @@ You can also use the right arrow key.</source>
 You can also use the right arrow key.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="99"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="104"/>
         <source>TOC Entry</source>
         <translation>TOC Entry</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="100"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="105"/>
         <source>Target</source>
         <translation>Target</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="384"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="613"/>
         <source>[placeholder]</source>
         <translation>[placeholder]</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="496"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="725"/>
         <source>Rename</source>
         <translation>Rename</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="504"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="733"/>
         <source>Move Up</source>
         <translation>Move Up</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="505"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="734"/>
         <source>Move Down</source>
         <translation>Move Down</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="511"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="740"/>
         <source>Expand All</source>
         <translation>Expand All</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/EditTOC.cpp" line="512"/>
+        <location filename="../../Dialogs/EditTOC.cpp" line="741"/>
         <source>Collapse All</source>
         <translation>Collapse All</translation>
     </message>
@@ -3695,7 +3700,7 @@ You can also use the right arrow key.</translation>
 <context>
     <name>EmbeddedPython</name>
     <message>
-        <location filename="../../EmbedPython/EmbeddedPython.cpp" line="739"/>
+        <location filename="../../EmbedPython/EmbeddedPython.cpp" line="729"/>
         <source>Embedded Python Error</source>
         <translation>Embedded Python Error</translation>
     </message>
@@ -4857,362 +4862,362 @@ mended.</translation>
 <context>
     <name>GuideItems</name>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="166"/>
+        <location filename="../../Misc/GuideItems.cpp" line="154"/>
         <source>Acknowledgements</source>
         <translation>Acknowledgements</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="166"/>
+        <location filename="../../Misc/GuideItems.cpp" line="154"/>
         <source>A passage containing acknowledgments to entities involved in the realization of the work.</source>
         <translation>A passage containing acknowledgments to entities involved in the realization of the work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="167"/>
+        <location filename="../../Misc/GuideItems.cpp" line="155"/>
         <source>Afterword</source>
         <translation>Afterword</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="167"/>
+        <location filename="../../Misc/GuideItems.cpp" line="155"/>
         <source>A closing statement from the author or a person of importance to the story, typically providing insight into how the story came to be written, its significance or related events that have transpired since its timeline.</source>
         <translation>A closing statement from the author or a person of importance to the story, typically providing insight into how the story came to be written, its significance or related events that have transpired since its timeline.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="168"/>
+        <location filename="../../Misc/GuideItems.cpp" line="156"/>
         <source>Appendix</source>
         <translation>Appendix</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="168"/>
+        <location filename="../../Misc/GuideItems.cpp" line="156"/>
         <source>Supplemental information.</source>
         <translation>Supplemental information.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="169"/>
+        <location filename="../../Misc/GuideItems.cpp" line="157"/>
         <source>Back Matter</source>
         <translation>Back Matter</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="169"/>
+        <location filename="../../Misc/GuideItems.cpp" line="157"/>
         <source>Ancillary material occurring after the main content of a publication, such as indices, appendices, etc.</source>
         <translation>Ancillary material occurring after the main content of a publication, such as indices, appendices, etc.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="170"/>
+        <location filename="../../Misc/GuideItems.cpp" line="158"/>
         <source>Bibliography</source>
         <translation>Bibliography</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="170"/>
+        <location filename="../../Misc/GuideItems.cpp" line="158"/>
         <source>A list of works cited.</source>
         <translation>A list of works cited.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="171"/>
+        <location filename="../../Misc/GuideItems.cpp" line="159"/>
         <source>Text</source>
         <translation>Text</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="171"/>
+        <location filename="../../Misc/GuideItems.cpp" line="159"/>
         <source>The start of the main text content of a publication.</source>
         <translation>The start of the main text content of a publication.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="172"/>
+        <location filename="../../Misc/GuideItems.cpp" line="160"/>
         <source>Colophon</source>
         <translation>Colophon</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="172"/>
+        <location filename="../../Misc/GuideItems.cpp" line="160"/>
         <source>A brief description usually located at the end of a publication, describing production notes relevant to the edition.</source>
         <translation>A brief description usually located at the end of a publication, describing production notes relevant to the edition.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="173"/>
+        <location filename="../../Misc/GuideItems.cpp" line="161"/>
         <source>Conclusion</source>
         <translation>Conclusion</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="173"/>
+        <location filename="../../Misc/GuideItems.cpp" line="161"/>
         <source>An ending section that typically wraps up the work.</source>
         <translation>An ending section that typically wraps up the work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="174"/>
+        <location filename="../../Misc/GuideItems.cpp" line="162"/>
         <source>Contributors</source>
         <translation>Contributors</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="174"/>
+        <location filename="../../Misc/GuideItems.cpp" line="162"/>
         <source>A list of contributors to the work.</source>
         <translation>A list of contributors to the work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="175"/>
+        <location filename="../../Misc/GuideItems.cpp" line="163"/>
         <source>Copyright Page</source>
         <translation>Copyright Page</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="175"/>
+        <location filename="../../Misc/GuideItems.cpp" line="163"/>
         <source>The copyright page of the work.</source>
         <translation>The copyright page of the work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="176"/>
+        <location filename="../../Misc/GuideItems.cpp" line="164"/>
         <source>Cover</source>
         <translation>Cover</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="176"/>
+        <location filename="../../Misc/GuideItems.cpp" line="164"/>
         <source>The publications cover(s), jacket information, etc.</source>
         <translation>The publications cover(s), jacket information, etc.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="177"/>
+        <location filename="../../Misc/GuideItems.cpp" line="165"/>
         <source>Dedication</source>
         <translation>Dedication</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="177"/>
+        <location filename="../../Misc/GuideItems.cpp" line="165"/>
         <source>An inscription addressed to one or several particular person(s).</source>
         <translation>An inscription addressed to one or several particular person(s).</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="178"/>
+        <location filename="../../Misc/GuideItems.cpp" line="166"/>
         <source>Epilogue</source>
         <translation>Epilogue</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="178"/>
+        <location filename="../../Misc/GuideItems.cpp" line="166"/>
         <source>A concluding section that is typically written from a later point in time than the main story, although still part of the narrative.</source>
         <translation>A concluding section that is typically written from a later point in time than the main story, although still part of the narrative.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="179"/>
+        <location filename="../../Misc/GuideItems.cpp" line="167"/>
         <source>Epigraph</source>
         <translation>Epigraph</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="179"/>
+        <location filename="../../Misc/GuideItems.cpp" line="167"/>
         <source>A quotation that is pertinent but not integral to the text.</source>
         <translation>A quotation that is pertinent but not integral to the text.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="180"/>
+        <location filename="../../Misc/GuideItems.cpp" line="168"/>
         <source>Errata</source>
         <translation>Errata</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="180"/>
+        <location filename="../../Misc/GuideItems.cpp" line="168"/>
         <source>Publication errata, in printed works typically a loose sheet inserted by hand; sometimes a bound page that contains corrections for mistakes in the work.</source>
         <translation>Publication errata, in printed works typically a loose sheet inserted by hand; sometimes a bound page that contains corrections for mistakes in the work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="181"/>
+        <location filename="../../Misc/GuideItems.cpp" line="169"/>
         <source>Footnotes</source>
         <translation>Footnotes</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="181"/>
+        <location filename="../../Misc/GuideItems.cpp" line="169"/>
         <source>A collection of notes appearing at the bottom of a page.</source>
         <translation>A collection of notes appearing at the bottom of a page.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="182"/>
+        <location filename="../../Misc/GuideItems.cpp" line="170"/>
         <source>Foreword</source>
         <translation>Foreword</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="182"/>
+        <location filename="../../Misc/GuideItems.cpp" line="170"/>
         <source>An introductory section that precedes the work, typically not written by the work&apos;s author.</source>
         <translation>An introductory section that precedes the work, typically not written by the work&apos;s author.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="183"/>
+        <location filename="../../Misc/GuideItems.cpp" line="171"/>
         <source>Front Matter</source>
         <translation>Front Matter</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="183"/>
+        <location filename="../../Misc/GuideItems.cpp" line="171"/>
         <source>Preliminary material to the main content of a publication, such as tables of contents, dedications, etc.</source>
         <translation>Preliminary material to the main content of a publication, such as tables of contents, dedications, etc.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="184"/>
+        <location filename="../../Misc/GuideItems.cpp" line="172"/>
         <source>Glossary</source>
         <translation>Glossary</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="184"/>
+        <location filename="../../Misc/GuideItems.cpp" line="172"/>
         <source>An alphabetical list of terms in a particular domain of knowledge, with the definitions for those terms.</source>
         <translation>An alphabetical list of terms in a particular domain of knowledge, with the definitions for those terms.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="185"/>
+        <location filename="../../Misc/GuideItems.cpp" line="173"/>
         <source>Half Title Page</source>
         <translation>Half Title Page</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="185"/>
+        <location filename="../../Misc/GuideItems.cpp" line="173"/>
         <source>The half title page of the work which carries just the title itself.</source>
         <translation>The half title page of the work which carries just the title itself.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="186"/>
+        <location filename="../../Misc/GuideItems.cpp" line="174"/>
         <source>Imprimatur</source>
         <translation>Imprimatur</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="186"/>
+        <location filename="../../Misc/GuideItems.cpp" line="174"/>
         <source>A formal statement authorizing the publication of the work.</source>
         <translation>A formal statement authorizing the publication of the work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="187"/>
+        <location filename="../../Misc/GuideItems.cpp" line="175"/>
         <source>Imprint</source>
         <translation>Imprint</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="187"/>
+        <location filename="../../Misc/GuideItems.cpp" line="175"/>
         <source>Information relating to the publication or distribution of the work.</source>
         <translation>Information relating to the publication or distribution of the work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="188"/>
+        <location filename="../../Misc/GuideItems.cpp" line="176"/>
         <source>Index</source>
         <translation>Index</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="188"/>
+        <location filename="../../Misc/GuideItems.cpp" line="176"/>
         <source>A detailed list, usually arranged alphabetically, of the specific information in a publication.</source>
         <translation>A detailed list, usually arranged alphabetically, of the specific information in a publication.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="189"/>
+        <location filename="../../Misc/GuideItems.cpp" line="177"/>
         <source>Introduction</source>
         <translation>Introduction</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="189"/>
+        <location filename="../../Misc/GuideItems.cpp" line="177"/>
         <source>A section in the beginning of the work, typically introducing the reader to the scope or nature of the work&apos;s content.</source>
         <translation>A section in the beginning of the work, typically introducing the reader to the scope or nature of the work&apos;s content.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="190"/>
+        <location filename="../../Misc/GuideItems.cpp" line="178"/>
         <source>List of Illustrations</source>
         <translation>List of Illustrations</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="190"/>
+        <location filename="../../Misc/GuideItems.cpp" line="178"/>
         <source>A listing of illustrations included in the work.</source>
         <translation>A listing of illustrations included in the work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="191"/>
+        <location filename="../../Misc/GuideItems.cpp" line="179"/>
         <source>List of Audio Clips</source>
         <translation>List of Audio Clips</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="191"/>
+        <location filename="../../Misc/GuideItems.cpp" line="179"/>
         <source>A listing of audio clips included in the work.</source>
         <translation>A listing of audio clips included in the work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="192"/>
+        <location filename="../../Misc/GuideItems.cpp" line="180"/>
         <source>List of Tables</source>
         <translation>List of Tables</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="192"/>
+        <location filename="../../Misc/GuideItems.cpp" line="180"/>
         <source>A listing of tables included in the work.</source>
         <translation>A listing of tables included in the work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="193"/>
+        <location filename="../../Misc/GuideItems.cpp" line="181"/>
         <source>List of Video Clips</source>
         <translation>List of Video Clips</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="193"/>
+        <location filename="../../Misc/GuideItems.cpp" line="181"/>
         <source>A listing of video clips included in the work.</source>
         <translation>A listing of video clips included in the work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="194"/>
+        <location filename="../../Misc/GuideItems.cpp" line="182"/>
         <source>Notes</source>
         <translation>Notes</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="194"/>
+        <location filename="../../Misc/GuideItems.cpp" line="182"/>
         <source>A collection of notes. It can be used to identify footnotes, rear notes, marginal notes, inline notes, and similar when legacy naming conventions are not desired. Status: Deprecated - Replaced by: &apos;footnotes&apos;, &apos;rearnotes&apos;</source>
         <translation>A collection of notes. It can be used to identify footnotes, rear notes, marginal notes, inline notes, and similar when legacy naming conventions are not desired. Status: Deprecated - Replaced by: &apos;footnotes&apos;, &apos;rearnotes&apos;</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="195"/>
+        <location filename="../../Misc/GuideItems.cpp" line="183"/>
         <source>Other Credits</source>
         <translation>Other Credits</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="195"/>
+        <location filename="../../Misc/GuideItems.cpp" line="183"/>
         <source>Acknowledgments of previously published parts of the work, illustration credits, and permission to quote from copyrighted material.</source>
         <translation>Acknowledgments of previously published parts of the work, illustration credits, and permission to quote from copyrighted material.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="196"/>
+        <location filename="../../Misc/GuideItems.cpp" line="184"/>
         <source>Preamble</source>
         <translation>Preamble</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="196"/>
+        <location filename="../../Misc/GuideItems.cpp" line="184"/>
         <source>A section in the beginning of the work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content</source>
         <translation>A section in the beginning of the work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="197"/>
+        <location filename="../../Misc/GuideItems.cpp" line="185"/>
         <source>Preface</source>
         <translation>Preface</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="197"/>
+        <location filename="../../Misc/GuideItems.cpp" line="185"/>
         <source>An introductory section that precedes the work, typically written by the work&apos;s author.</source>
         <translation>An introductory section that precedes the work, typically written by the work&apos;s author.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="198"/>
+        <location filename="../../Misc/GuideItems.cpp" line="186"/>
         <source>Prologue</source>
         <translation>Prologue</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="198"/>
+        <location filename="../../Misc/GuideItems.cpp" line="186"/>
         <source>An introductory section that sets the background to a story, typically part of the narrative.</source>
         <translation>An introductory section that sets the background to a story, typically part of the narrative.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="199"/>
+        <location filename="../../Misc/GuideItems.cpp" line="187"/>
         <source>Rear Notes</source>
         <translation>Rear Notes</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="199"/>
+        <location filename="../../Misc/GuideItems.cpp" line="187"/>
         <source>A collection of notes appearing at the rear (backmatter) of the work, or at the end of a section.</source>
         <translation>A collection of notes appearing at the rear (backmatter) of the work, or at the end of a section.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="200"/>
+        <location filename="../../Misc/GuideItems.cpp" line="188"/>
         <source>Title Page</source>
         <translation>Title Page</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="200"/>
+        <location filename="../../Misc/GuideItems.cpp" line="188"/>
         <source>A page at the beginning of a book giving its title, authors, publisher and other publication information.</source>
         <translation>A page at the beginning of a book giving its title, authors, publisher and other publication information.</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="201"/>
+        <location filename="../../Misc/GuideItems.cpp" line="189"/>
         <source>Table of Contents</source>
         <translation>Table of Contents</translation>
     </message>
     <message>
-        <location filename="../../Misc/GuideItems.cpp" line="201"/>
+        <location filename="../../Misc/GuideItems.cpp" line="189"/>
         <source>A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work&apos;s frontmatter, or at the beginning of a section.</source>
         <translation>A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work&apos;s frontmatter, or at the beginning of a section.</translation>
     </message>
@@ -5510,6 +5515,39 @@ You can then check or uncheck individual headings in the list above.</translatio
     </message>
 </context>
 <context>
+    <name>ImageResizeDialog</name>
+    <message>
+        <location filename="../../Dialogs/ImageResizeDialog.cpp" line="8"/>
+        <source>Resize Image</source>
+        <translation>Resize Image</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/ImageResizeDialog.cpp" line="14"/>
+        <source>Width:</source>
+        <translation>Width:</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/ImageResizeDialog.cpp" line="23"/>
+        <source>Height:</source>
+        <translation>Height:</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/ImageResizeDialog.cpp" line="31"/>
+        <source>Keep Aspect Ratio</source>
+        <translation>Keep Aspect Ratio</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/ImageResizeDialog.cpp" line="37"/>
+        <source>OK</source>
+        <translation>OK</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/ImageResizeDialog.cpp" line="38"/>
+        <source>Cancel</source>
+        <translation>Cancel</translation>
+    </message>
+</context>
+<context>
     <name>ImageResource</name>
     <message>
         <location filename="../../ResourceObjects/ImageResource.cpp" line="50"/>
@@ -5658,17 +5696,17 @@ You can then check or uncheck individual headings in the list above.</translatio
         <translation>Files exist in epub that are not listed in the manifest, they will be ignored.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="199"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="206"/>
         <source>This EPUB had HTML files that were not well formed or are missing a DOCTYPE, html, head or body elements.&lt;br/&gt;&lt;br&gt;They were automatically fixed based on your Preference setting to Clean on Open.</source>
         <translation>This EPUB had HTML files that were not well formed or are missing a DOCTYPE, html, head or body elements.&lt;br/&gt;&lt;br&gt;They were automatically fixed based on your Preference setting to Clean on Open.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="205"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="212"/>
         <source>This EPUB has HTML files that are not well formed or are missing a DOCTYPE, html, head or body elements.&lt;br/&gt;&lt;/br&gt;Fix these manually or use Sigil&apos;s Mend tool to automatically fixed these errors or omissions.</source>
         <translation>This EPUB has HTML files that are not well formed or are missing a DOCTYPE, html, head or body elements.&lt;br/&gt;&lt;/br&gt;Fix these manually or use Sigil&apos;s Mend tool to automatically fixed these errors or omissions.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="606"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="613"/>
         <source>Epub has missing or improperly specified OPF.</source>
         <translation>Epub has missing or improperly specified OPF.</translation>
     </message>
@@ -5677,7 +5715,7 @@ You can then check or uncheck individual headings in the list above.</translatio
     <name>IndexEditor</name>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="14"/>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="288"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="287"/>
         <source>Index Editor</source>
         <translation>Index Editor</translation>
     </message>
@@ -5693,157 +5731,157 @@ You can then check or uncheck individual headings in the list above.</translatio
     </message>
     <message>
         <location filename="../../Form_Files/IndexEditor.ui" line="58"/>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="427"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="426"/>
         <source>Add Entry</source>
         <translation>Add Entry</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="67"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="66"/>
         <source>Right click on an entry to see a context menu of actions.</source>
         <translation>Right click on an entry to see a context menu of actions.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="68"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="67"/>
         <source>You can also right click in your document to add selected text to the Index.</source>
         <translation>You can also right click in your document to add selected text to the Index.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="69"/>
         <source>Text to Include</source>
         <translation>Text to Include</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="69"/>
         <source>The pattern to match in your document, e.g. &quot;Gutenberg&quot;. This is a regex pattern so &quot;(?i)Gutenberg&quot; ignores case when matching.</source>
         <translation>The pattern to match in your document, e.g. &quot;Gutenberg&quot;. This is a regex pattern so &quot;(?i)Gutenberg&quot; ignores case when matching.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="71"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
         <source>Index Entries</source>
         <translation>Index Entries</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="71"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="70"/>
         <source>The entry to create in the Index. Leave blank to use text as is, or enter text to display.  Create multi-level entries by using &apos;/&apos; after a level name, e.g. &quot;Books/Fantasy/Alice in Wonderland&quot; or &quot;Books/Fantasy/&quot;.</source>
         <translation>The entry to create in the Index. Leave blank to use text as is, or enter text to display.  Create multi-level entries by using &apos;/&apos; after a level name, e.g. &quot;Books/Fantasy/Alice in Wonderland&quot; or &quot;Books/Fantasy/&quot;.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="75"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
         <source>Save</source>
         <translation>Save</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="75"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
         <source>Save your changes.</source>
         <translation>Save your changes.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="75"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="74"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
         <translation>If any other instances of Sigil are running they will be automatically updated with your changes.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="85"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="84"/>
         <source>Cannot save entries.</source>
         <translation>Cannot save entries.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="127"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="126"/>
         <source>Index entries loaded from file.</source>
         <translation>Index entries loaded from file.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../../Dialogs/IndexEditor.cpp" line="288"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="287"/>
         <source>Entries added: %n</source>
         <translation><numerusform>Entries added: %n</numerusform><numerusform>Entries added: %n</numerusform></translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="294"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="293"/>
         <source>Index files: *.ini *.txt (*.ini *.txt)</source>
         <translation>Index files: *.ini *.txt (*.ini *.txt)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="298"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="297"/>
         <source>Load Entries From File</source>
         <translation>Load Entries From File</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="315"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="314"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="315"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="314"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
         <translation>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="335"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="334"/>
         <source>Save Entries to File</source>
         <translation>Save Entries to File</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="428"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="427"/>
         <source>Edit</source>
         <translation>Edit</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="429"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="428"/>
         <source>Cut</source>
         <translation>Cut</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="430"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="429"/>
         <source>Copy</source>
         <translation>Copy</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="431"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="430"/>
         <source>Paste</source>
         <translation>Paste</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="432"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="431"/>
         <source>Delete</source>
         <translation>Delete</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="433"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="432"/>
         <source>Autofill</source>
         <translation>Autofill</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="434"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="433"/>
         <source>Open</source>
         <translation>Open</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="435"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="434"/>
         <source>Reload</source>
         <translation>Reload</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="436"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="435"/>
         <source>Save As</source>
         <translation>Save As</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="437"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="436"/>
         <source>Select All</source>
         <translation>Select All</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="514"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="513"/>
         <source>Index entries saved.</source>
         <translation>Index entries saved.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="543"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="542"/>
         <source>Sigil: Index Editor</source>
         <translation>Sigil: Index Editor</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/IndexEditor.cpp" line="544"/>
+        <location filename="../../Dialogs/IndexEditor.cpp" line="543"/>
         <source>The Index entries may have been modified.
 Do you want to save your changes?</source>
         <translation>The Index entries may have been modified.
@@ -5853,17 +5891,17 @@ Do you want to save your changes?</translation>
 <context>
     <name>IndexEditorModel</name>
     <message>
-        <location filename="../../MiscEditors/IndexEditorModel.cpp" line="64"/>
+        <location filename="../../MiscEditors/IndexEditorModel.cpp" line="52"/>
         <source>Text to Include</source>
         <translation>Text to Include</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/IndexEditorModel.cpp" line="65"/>
+        <location filename="../../MiscEditors/IndexEditorModel.cpp" line="53"/>
         <source>Index Entries</source>
         <translation>Index Entries</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/IndexEditorModel.cpp" line="350"/>
+        <location filename="../../MiscEditors/IndexEditorModel.cpp" line="333"/>
         <source>Unable to create file %1</source>
         <translation>Unable to create file %1</translation>
     </message>
@@ -5955,7 +5993,7 @@ Do you want to save your changes?</translation>
         <translation>Remove</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.cpp" line="466"/>
+        <location filename="../../Dialogs/PreferenceWidgets/KeyboardShortcutsWidget.cpp" line="461"/>
         <source>Conflicts with: &lt;b&gt;</source>
         <translation>Conflicts with: &lt;b&gt;</translation>
     </message>
@@ -5963,492 +6001,492 @@ Do you want to save your changes?</translation>
 <context>
     <name>Landmarks</name>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="164"/>
+        <location filename="../../Misc/Landmarks.cpp" line="154"/>
         <source>Acknowledgments</source>
         <translation>Acknowledgments</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="164"/>
+        <location filename="../../Misc/Landmarks.cpp" line="154"/>
         <source>A passage containing acknowledgments to entities involved in the realization of the work.</source>
         <translation>A passage containing acknowledgments to entities involved in the realization of the work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="165"/>
+        <location filename="../../Misc/Landmarks.cpp" line="155"/>
         <source>Afterword</source>
         <translation>Afterword</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="165"/>
+        <location filename="../../Misc/Landmarks.cpp" line="155"/>
         <source>A closing statement from the author or a person of importance to the story, typically providing insight into how the story came to be written, its significance or related events that have transpired since its timeline.</source>
         <translation>A closing statement from the author or a person of importance to the story, typically providing insight into how the story came to be written, its significance or related events that have transpired since its timeline.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="166"/>
+        <location filename="../../Misc/Landmarks.cpp" line="156"/>
         <source>Annotation</source>
         <translation>Annotation</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="166"/>
+        <location filename="../../Misc/Landmarks.cpp" line="156"/>
         <source>Explanatory information about passages in the work. Status: Deprecated</source>
         <translation>Explanatory information about passages in the work. Status: Deprecated</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="167"/>
+        <location filename="../../Misc/Landmarks.cpp" line="157"/>
         <source>Appendix</source>
         <translation>Appendix</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="167"/>
+        <location filename="../../Misc/Landmarks.cpp" line="157"/>
         <source>Supplemental information.</source>
         <translation>Supplemental information.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="168"/>
+        <location filename="../../Misc/Landmarks.cpp" line="158"/>
         <source>Assessment</source>
         <translation>Assessment</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="168"/>
+        <location filename="../../Misc/Landmarks.cpp" line="158"/>
         <source>A test, quiz, or other activity that helps measure a student&apos;s understanding of what is being taught.</source>
         <translation>A test, quiz, or other activity that helps measure a student&apos;s understanding of what is being taught.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="169"/>
+        <location filename="../../Misc/Landmarks.cpp" line="159"/>
         <source>Back Matter</source>
         <translation>Back Matter</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="169"/>
+        <location filename="../../Misc/Landmarks.cpp" line="159"/>
         <source>Ancillary material occurring after the main content of a publication, such as indices, appendices, etc.</source>
         <translation>Ancillary material occurring after the main content of a publication, such as indices, appendices, etc.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="170"/>
+        <location filename="../../Misc/Landmarks.cpp" line="160"/>
         <source>Bibliography</source>
         <translation>Bibliography</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="170"/>
+        <location filename="../../Misc/Landmarks.cpp" line="160"/>
         <source>A list of works cited.</source>
         <translation>A list of works cited.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="171"/>
+        <location filename="../../Misc/Landmarks.cpp" line="161"/>
         <source>Body Matter</source>
         <translation>Body Matter</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="171"/>
+        <location filename="../../Misc/Landmarks.cpp" line="161"/>
         <source>The main content of a publication.</source>
         <translation>The main content of a publication.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="172"/>
+        <location filename="../../Misc/Landmarks.cpp" line="162"/>
         <source>Chapter</source>
         <translation>Chapter</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="172"/>
+        <location filename="../../Misc/Landmarks.cpp" line="162"/>
         <source>A major structural division of a piece of writing.</source>
         <translation>A major structural division of a piece of writing.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="173"/>
+        <location filename="../../Misc/Landmarks.cpp" line="163"/>
         <source>Colophon</source>
         <translation>Colophon</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="173"/>
+        <location filename="../../Misc/Landmarks.cpp" line="163"/>
         <source>A brief description usually located at the end of a publication, describing production notes relevant to the edition.</source>
         <translation>A brief description usually located at the end of a publication, describing production notes relevant to the edition.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="174"/>
+        <location filename="../../Misc/Landmarks.cpp" line="164"/>
         <source>Conclusion</source>
         <translation>Conclusion</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="174"/>
+        <location filename="../../Misc/Landmarks.cpp" line="164"/>
         <source>An ending section that typically wraps up the work.</source>
         <translation>An ending section that typically wraps up the work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="175"/>
+        <location filename="../../Misc/Landmarks.cpp" line="165"/>
         <source>Contributors</source>
         <translation>Contributors</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="175"/>
+        <location filename="../../Misc/Landmarks.cpp" line="165"/>
         <source>A list of contributors to the work.</source>
         <translation>A list of contributors to the work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="176"/>
+        <location filename="../../Misc/Landmarks.cpp" line="166"/>
         <source>Copyright Page</source>
         <translation>Copyright Page</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="176"/>
+        <location filename="../../Misc/Landmarks.cpp" line="166"/>
         <source>The copyright page of the work.</source>
         <translation>The copyright page of the work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="177"/>
+        <location filename="../../Misc/Landmarks.cpp" line="167"/>
         <source>Cover</source>
         <translation>Cover</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="177"/>
+        <location filename="../../Misc/Landmarks.cpp" line="167"/>
         <source>The publications cover(s), jacket information, etc.</source>
         <translation>The publications cover(s), jacket information, etc.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="178"/>
+        <location filename="../../Misc/Landmarks.cpp" line="168"/>
         <source>Dedication</source>
         <translation>Dedication</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="178"/>
+        <location filename="../../Misc/Landmarks.cpp" line="168"/>
         <source>An inscription addressed to one or several particular person(s).</source>
         <translation>An inscription addressed to one or several particular person(s).</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="179"/>
+        <location filename="../../Misc/Landmarks.cpp" line="169"/>
         <source>Division</source>
         <translation>Division</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="179"/>
+        <location filename="../../Misc/Landmarks.cpp" line="169"/>
         <source>A major structural division that may also appear as a substructure of a part (esp. in legislation).</source>
         <translation>A major structural division that may also appear as a substructure of a part (esp. in legislation).</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="180"/>
+        <location filename="../../Misc/Landmarks.cpp" line="170"/>
         <source>Endnotes</source>
         <translation>Endnotes</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="180"/>
+        <location filename="../../Misc/Landmarks.cpp" line="170"/>
         <source>A collection of notes at the end of a work or a section within it.</source>
         <translation>A collection of notes at the end of a work or a section within it.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="181"/>
+        <location filename="../../Misc/Landmarks.cpp" line="171"/>
         <source>Epigraph</source>
         <translation>Epigraph</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="181"/>
+        <location filename="../../Misc/Landmarks.cpp" line="171"/>
         <source>A quotation that is pertinent but not integral to the text.</source>
         <translation>A quotation that is pertinent but not integral to the text.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="182"/>
+        <location filename="../../Misc/Landmarks.cpp" line="172"/>
         <source>Epilogue</source>
         <translation>Epilogue</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="182"/>
+        <location filename="../../Misc/Landmarks.cpp" line="172"/>
         <source>A concluding section that is typically written from a later point in time than the main story, although still part of the narrative.</source>
         <translation>A concluding section that is typically written from a later point in time than the main story, although still part of the narrative.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="183"/>
+        <location filename="../../Misc/Landmarks.cpp" line="173"/>
         <source>Errata</source>
         <translation>Errata</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="183"/>
+        <location filename="../../Misc/Landmarks.cpp" line="173"/>
         <source>Publication errata, in printed works typically a loose sheet inserted by hand; sometimes a bound page that contains corrections for mistakes in the work.</source>
         <translation>Publication errata, in printed works typically a loose sheet inserted by hand; sometimes a bound page that contains corrections for mistakes in the work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="184"/>
+        <location filename="../../Misc/Landmarks.cpp" line="174"/>
         <source>Footnotes</source>
         <translation>Footnotes</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="184"/>
+        <location filename="../../Misc/Landmarks.cpp" line="174"/>
         <source>A collection of notes appearing at the bottom of a page.</source>
         <translation>A collection of notes appearing at the bottom of a page.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="185"/>
+        <location filename="../../Misc/Landmarks.cpp" line="175"/>
         <source>Foreword</source>
         <translation>Foreword</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="185"/>
+        <location filename="../../Misc/Landmarks.cpp" line="175"/>
         <source>An introductory section that precedes the work, typically not written by the work&apos;s author.</source>
         <translation>An introductory section that precedes the work, typically not written by the work&apos;s author.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="186"/>
+        <location filename="../../Misc/Landmarks.cpp" line="176"/>
         <source>Front Matter</source>
         <translation>Front Matter</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="186"/>
+        <location filename="../../Misc/Landmarks.cpp" line="176"/>
         <source>Preliminary material to the main content of a publication, such as tables of contents, dedications, etc.</source>
         <translation>Preliminary material to the main content of a publication, such as tables of contents, dedications, etc.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="187"/>
+        <location filename="../../Misc/Landmarks.cpp" line="177"/>
         <source>Glossary</source>
         <translation>Glossary</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="187"/>
+        <location filename="../../Misc/Landmarks.cpp" line="177"/>
         <source>An alphabetical list of terms in a particular domain of knowledge, with the definitions for those terms.</source>
         <translation>An alphabetical list of terms in a particular domain of knowledge, with the definitions for those terms.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="188"/>
+        <location filename="../../Misc/Landmarks.cpp" line="178"/>
         <source>Half Title Page</source>
         <translation>Half Title Page</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="188"/>
+        <location filename="../../Misc/Landmarks.cpp" line="178"/>
         <source>The half title page of the work which carries just the title itself.</source>
         <translation>The half title page of the work which carries just the title itself.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="189"/>
+        <location filename="../../Misc/Landmarks.cpp" line="179"/>
         <source>Imprimatur</source>
         <translation>Imprimatur</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="189"/>
+        <location filename="../../Misc/Landmarks.cpp" line="179"/>
         <source>A formal statement authorizing the publication of the work.</source>
         <translation>A formal statement authorizing the publication of the work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="190"/>
+        <location filename="../../Misc/Landmarks.cpp" line="180"/>
         <source>Imprint</source>
         <translation>Imprint</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="190"/>
+        <location filename="../../Misc/Landmarks.cpp" line="180"/>
         <source>Information relating to the publication or distribution of the work.</source>
         <translation>Information relating to the publication or distribution of the work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="191"/>
+        <location filename="../../Misc/Landmarks.cpp" line="181"/>
         <source>Index</source>
         <translation>Index</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="191"/>
+        <location filename="../../Misc/Landmarks.cpp" line="181"/>
         <source>A detailed list, usually arranged alphabetically, of the specific information in a publication.</source>
         <translation>A detailed list, usually arranged alphabetically, of the specific information in a publication.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="192"/>
+        <location filename="../../Misc/Landmarks.cpp" line="182"/>
         <source>Introduction</source>
         <translation>Introduction</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="192"/>
+        <location filename="../../Misc/Landmarks.cpp" line="182"/>
         <source>A section in the beginning of the work, typically introducing the reader to the scope or nature of the work&apos;s content.</source>
         <translation>A section in the beginning of the work, typically introducing the reader to the scope or nature of the work&apos;s content.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="193"/>
+        <location filename="../../Misc/Landmarks.cpp" line="183"/>
         <source>Landmarks</source>
         <translation>Landmarks</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="193"/>
+        <location filename="../../Misc/Landmarks.cpp" line="183"/>
         <source>A collection of references to well-known/recurring components within the publication</source>
         <translation>A collection of references to well-known/recurring components within the publication</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="194"/>
+        <location filename="../../Misc/Landmarks.cpp" line="184"/>
         <source>List of Audio Clips</source>
         <translation>List of Audio Clips</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="194"/>
+        <location filename="../../Misc/Landmarks.cpp" line="184"/>
         <source>A listing of audio clips included in the work.</source>
         <translation>A listing of audio clips included in the work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="195"/>
+        <location filename="../../Misc/Landmarks.cpp" line="185"/>
         <source>List of Illustrations</source>
         <translation>List of Illustrations</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="195"/>
+        <location filename="../../Misc/Landmarks.cpp" line="185"/>
         <source>A listing of illustrations included in the work.</source>
         <translation>A listing of illustrations included in the work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="196"/>
+        <location filename="../../Misc/Landmarks.cpp" line="186"/>
         <source>List of Tables</source>
         <translation>List of Tables</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="196"/>
+        <location filename="../../Misc/Landmarks.cpp" line="186"/>
         <source>A listing of tables included in the work.</source>
         <translation>A listing of tables included in the work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="197"/>
+        <location filename="../../Misc/Landmarks.cpp" line="187"/>
         <source>List of Video Clips</source>
         <translation>List of Video Clips</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="197"/>
+        <location filename="../../Misc/Landmarks.cpp" line="187"/>
         <source>A listing of video clips included in the work.</source>
         <translation>A listing of video clips included in the work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="198"/>
+        <location filename="../../Misc/Landmarks.cpp" line="188"/>
         <source>Notice</source>
         <translation>Notice</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="198"/>
+        <location filename="../../Misc/Landmarks.cpp" line="188"/>
         <source>Information that requires special attention, and that must not be skipped or suppressed. Examples include: alert, warning, caution, danger, important.</source>
         <translation>Information that requires special attention, and that must not be skipped or suppressed. Examples include: alert, warning, caution, danger, important.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="199"/>
+        <location filename="../../Misc/Landmarks.cpp" line="189"/>
         <source>Other Credits</source>
         <translation>Other Credits</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="199"/>
+        <location filename="../../Misc/Landmarks.cpp" line="189"/>
         <source>Acknowledgments of previously published parts of the work, illustration credits, and permission to quote from copyrighted material.</source>
         <translation>Acknowledgments of previously published parts of the work, illustration credits, and permission to quote from copyrighted material.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="200"/>
+        <location filename="../../Misc/Landmarks.cpp" line="190"/>
         <source>Page List</source>
         <translation>Page List</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="200"/>
+        <location filename="../../Misc/Landmarks.cpp" line="190"/>
         <source>A list of references to pagebreaks (start locations) from a print version of the ebook</source>
         <translation>A list of references to pagebreaks (start locations) from a print version of the ebook</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="201"/>
+        <location filename="../../Misc/Landmarks.cpp" line="191"/>
         <source>Part</source>
         <translation>Part</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="201"/>
+        <location filename="../../Misc/Landmarks.cpp" line="191"/>
         <source>A major structural division of a piece of writing, typically encapsulating a set of related chapters.</source>
         <translation>A major structural division of a piece of writing, typically encapsulating a set of related chapters.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="202"/>
+        <location filename="../../Misc/Landmarks.cpp" line="192"/>
         <source>Preamble</source>
         <translation>Preamble</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="202"/>
+        <location filename="../../Misc/Landmarks.cpp" line="192"/>
         <source>A section in the beginning of the work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content</source>
         <translation>A section in the beginning of the work, typically containing introductory and/or explanatory prose regarding the scope or nature of the work&apos;s content</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="203"/>
+        <location filename="../../Misc/Landmarks.cpp" line="193"/>
         <source>Preface</source>
         <translation>Preface</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="203"/>
+        <location filename="../../Misc/Landmarks.cpp" line="193"/>
         <source>An introductory section that precedes the work, typically written by the work&apos;s author.</source>
         <translation>An introductory section that precedes the work, typically written by the work&apos;s author.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="204"/>
+        <location filename="../../Misc/Landmarks.cpp" line="194"/>
         <source>Prologue</source>
         <translation>Prologue</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="204"/>
+        <location filename="../../Misc/Landmarks.cpp" line="194"/>
         <source>An introductory section that sets the background to a story, typically part of the narrative.</source>
         <translation>An introductory section that sets the background to a story, typically part of the narrative.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="205"/>
+        <location filename="../../Misc/Landmarks.cpp" line="195"/>
         <source>Questions and Answers</source>
         <translation>Questions and Answers</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="205"/>
+        <location filename="../../Misc/Landmarks.cpp" line="195"/>
         <source>A question and answer section.</source>
         <translation>A question and answer section.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="206"/>
+        <location filename="../../Misc/Landmarks.cpp" line="196"/>
         <source>Rear Notes</source>
         <translation>Rear Notes</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="206"/>
+        <location filename="../../Misc/Landmarks.cpp" line="196"/>
         <source>A collection of notes appearing at the rear (backmatter) of the work, or at the end of a section. Status: Deprecated</source>
         <translation>A collection of notes appearing at the rear (backmatter) of the work, or at the end of a section. Status: Deprecated</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="207"/>
+        <location filename="../../Misc/Landmarks.cpp" line="197"/>
         <source>Revision History</source>
         <translation>Revision History</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="207"/>
+        <location filename="../../Misc/Landmarks.cpp" line="197"/>
         <source>A record of changes made to a work.</source>
         <translation>A record of changes made to a work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="208"/>
+        <location filename="../../Misc/Landmarks.cpp" line="198"/>
         <source>Subchapter</source>
         <translation>Subchapter</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="208"/>
+        <location filename="../../Misc/Landmarks.cpp" line="198"/>
         <source>A major sub-division of a chapter.</source>
         <translation>A major sub-division of a chapter.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="209"/>
+        <location filename="../../Misc/Landmarks.cpp" line="199"/>
         <source>Title Page</source>
         <translation>Title Page</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="209"/>
+        <location filename="../../Misc/Landmarks.cpp" line="199"/>
         <source>A page at the beginning of a book giving its title, authors, publisher and other publication information.</source>
         <translation>A page at the beginning of a book giving its title, authors, publisher and other publication information.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="210"/>
+        <location filename="../../Misc/Landmarks.cpp" line="200"/>
         <source>Table of Contents</source>
         <translation>Table of Contents</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="210"/>
+        <location filename="../../Misc/Landmarks.cpp" line="200"/>
         <source>A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work&apos;s frontmatter, or at the beginning of a section.</source>
         <translation>A table of contents which is a list of the headings or parts of the book or document, organized in the order in which they appear. Typically appearing in the work&apos;s frontmatter, or at the beginning of a section.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="211"/>
+        <location filename="../../Misc/Landmarks.cpp" line="201"/>
         <source>Volume</source>
         <translation>Volume</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="211"/>
+        <location filename="../../Misc/Landmarks.cpp" line="201"/>
         <source>A component of a collection.</source>
         <translation>A component of a collection.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="212"/>
+        <location filename="../../Misc/Landmarks.cpp" line="202"/>
         <source>Warning</source>
         <translation>Warning</translation>
     </message>
     <message>
-        <location filename="../../Misc/Landmarks.cpp" line="212"/>
+        <location filename="../../Misc/Landmarks.cpp" line="202"/>
         <source>A warning or caution about specific material. Status: Deprecated - Replaced by &apos;notice&apos;.</source>
         <translation>A warning or caution about specific material. Status: Deprecated - Replaced by &apos;notice&apos;.</translation>
     </message>
@@ -6456,1102 +6494,1112 @@ Do you want to save your changes?</translation>
 <context>
     <name>Language</name>
     <message>
-        <location filename="../../Misc/Language.cpp" line="105"/>
+        <location filename="../../Misc/Language.cpp" line="95"/>
         <source>Abkhazian</source>
         <translation>Abkhazian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="106"/>
+        <location filename="../../Misc/Language.cpp" line="96"/>
         <source>Afar</source>
         <translation>Afar</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="107"/>
+        <location filename="../../Misc/Language.cpp" line="97"/>
         <source>Afrikaans</source>
         <translation>Afrikaans</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="108"/>
+        <location filename="../../Misc/Language.cpp" line="98"/>
         <source>Akan</source>
         <translation>Akan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="109"/>
+        <location filename="../../Misc/Language.cpp" line="99"/>
         <source>Albanian</source>
         <translation>Albanian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="110"/>
+        <location filename="../../Misc/Language.cpp" line="100"/>
         <source>Amharic</source>
         <translation>Amharic</translation>
     </message>
     <message>
+        <location filename="../../Misc/Language.cpp" line="101"/>
+        <location filename="../../Misc/Language.cpp" line="102"/>
+        <location filename="../../Misc/Language.cpp" line="103"/>
+        <location filename="../../Misc/Language.cpp" line="104"/>
+        <location filename="../../Misc/Language.cpp" line="105"/>
+        <location filename="../../Misc/Language.cpp" line="106"/>
+        <location filename="../../Misc/Language.cpp" line="107"/>
+        <location filename="../../Misc/Language.cpp" line="108"/>
+        <location filename="../../Misc/Language.cpp" line="109"/>
+        <location filename="../../Misc/Language.cpp" line="110"/>
         <location filename="../../Misc/Language.cpp" line="111"/>
         <location filename="../../Misc/Language.cpp" line="112"/>
         <location filename="../../Misc/Language.cpp" line="113"/>
         <location filename="../../Misc/Language.cpp" line="114"/>
         <location filename="../../Misc/Language.cpp" line="115"/>
         <location filename="../../Misc/Language.cpp" line="116"/>
-        <location filename="../../Misc/Language.cpp" line="117"/>
-        <location filename="../../Misc/Language.cpp" line="118"/>
-        <location filename="../../Misc/Language.cpp" line="119"/>
-        <location filename="../../Misc/Language.cpp" line="120"/>
-        <location filename="../../Misc/Language.cpp" line="121"/>
-        <location filename="../../Misc/Language.cpp" line="122"/>
-        <location filename="../../Misc/Language.cpp" line="123"/>
-        <location filename="../../Misc/Language.cpp" line="124"/>
-        <location filename="../../Misc/Language.cpp" line="125"/>
-        <location filename="../../Misc/Language.cpp" line="126"/>
         <source>Arabic</source>
         <translation>Arabic</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="112"/>
+        <location filename="../../Misc/Language.cpp" line="102"/>
         <source>Algeria</source>
         <translation>Algeria</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="113"/>
+        <location filename="../../Misc/Language.cpp" line="103"/>
         <source>Bahrain</source>
         <translation>Bahrain</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="114"/>
+        <location filename="../../Misc/Language.cpp" line="104"/>
         <source>Egypt</source>
         <translation>Egypt</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="115"/>
+        <location filename="../../Misc/Language.cpp" line="105"/>
         <source>Iraq</source>
         <translation>Iraq</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="116"/>
+        <location filename="../../Misc/Language.cpp" line="106"/>
         <source>Jordan</source>
         <translation>Jordan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="117"/>
+        <location filename="../../Misc/Language.cpp" line="107"/>
         <source>Kuwait</source>
         <translation>Kuwait</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="118"/>
+        <location filename="../../Misc/Language.cpp" line="108"/>
         <source>Lebanon</source>
         <translation>Lebanon</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="119"/>
+        <location filename="../../Misc/Language.cpp" line="109"/>
         <source>Libya</source>
         <translation>Libya</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="120"/>
+        <location filename="../../Misc/Language.cpp" line="110"/>
         <source>Morocco</source>
         <translation>Morocco</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="121"/>
+        <location filename="../../Misc/Language.cpp" line="111"/>
         <source>Oman</source>
         <translation>Oman</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="122"/>
+        <location filename="../../Misc/Language.cpp" line="112"/>
         <source>Qatar</source>
         <translation>Qatar</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="123"/>
+        <location filename="../../Misc/Language.cpp" line="113"/>
         <source>Syria</source>
         <translation>Syria</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="124"/>
+        <location filename="../../Misc/Language.cpp" line="114"/>
         <source>Tunisia</source>
         <translation>Tunisia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="125"/>
+        <location filename="../../Misc/Language.cpp" line="115"/>
         <source>United Arab Emirates</source>
         <translation>United Arab Emirates</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="126"/>
+        <location filename="../../Misc/Language.cpp" line="116"/>
         <source>Yemen</source>
         <translation>Yemen</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="127"/>
+        <location filename="../../Misc/Language.cpp" line="117"/>
         <source>Aragonese</source>
         <translation>Aragonese</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="128"/>
+        <location filename="../../Misc/Language.cpp" line="118"/>
         <source>Armenian</source>
         <translation>Armenian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="129"/>
+        <location filename="../../Misc/Language.cpp" line="119"/>
         <source>Assamese</source>
         <translation>Assamese</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="130"/>
+        <location filename="../../Misc/Language.cpp" line="120"/>
         <source>Avaric</source>
         <translation>Avaric</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="131"/>
+        <location filename="../../Misc/Language.cpp" line="121"/>
         <source>Avestan</source>
         <translation>Avestan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="132"/>
+        <location filename="../../Misc/Language.cpp" line="122"/>
         <source>Aymara</source>
         <translation>Aymara</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="133"/>
-        <location filename="../../Misc/Language.cpp" line="134"/>
+        <location filename="../../Misc/Language.cpp" line="123"/>
+        <location filename="../../Misc/Language.cpp" line="124"/>
         <source>Azerbaijani</source>
         <translation>Azerbaijani</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="134"/>
+        <location filename="../../Misc/Language.cpp" line="124"/>
         <source>Azerbaijan</source>
         <translation>Azerbaijan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="135"/>
+        <location filename="../../Misc/Language.cpp" line="125"/>
         <source>Bambara</source>
         <translation>Bambara</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="136"/>
+        <location filename="../../Misc/Language.cpp" line="126"/>
         <source>Bashkir</source>
         <translation>Bashkir</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="137"/>
+        <location filename="../../Misc/Language.cpp" line="127"/>
         <source>Basque</source>
         <translation>Basque</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="138"/>
+        <location filename="../../Misc/Language.cpp" line="128"/>
         <source>Belarusian</source>
         <translation>Belarusian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="139"/>
+        <location filename="../../Misc/Language.cpp" line="129"/>
         <source>Bengali</source>
         <translation>Bengali</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="140"/>
+        <location filename="../../Misc/Language.cpp" line="130"/>
         <source>Bihari</source>
         <translation>Bihari</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="141"/>
+        <location filename="../../Misc/Language.cpp" line="131"/>
         <source>Bislama</source>
         <translation>Bislama</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="142"/>
+        <location filename="../../Misc/Language.cpp" line="132"/>
         <source>Bosnian</source>
         <translation>Bosnian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="143"/>
+        <location filename="../../Misc/Language.cpp" line="133"/>
         <source>Breton</source>
         <translation>Breton</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="144"/>
+        <location filename="../../Misc/Language.cpp" line="134"/>
         <source>Bulgarian</source>
         <translation>Bulgarian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="145"/>
+        <location filename="../../Misc/Language.cpp" line="135"/>
         <source>Burmese</source>
         <translation>Burmese</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="146"/>
-        <location filename="../../Misc/Language.cpp" line="147"/>
+        <location filename="../../Misc/Language.cpp" line="136"/>
+        <location filename="../../Misc/Language.cpp" line="137"/>
         <source>Catalan</source>
         <translation>Catalan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="147"/>
-        <location filename="../../Misc/Language.cpp" line="332"/>
+        <location filename="../../Misc/Language.cpp" line="137"/>
+        <location filename="../../Misc/Language.cpp" line="322"/>
         <source>Spain</source>
         <translation>Spain</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="148"/>
+        <location filename="../../Misc/Language.cpp" line="138"/>
         <source>Central Khmer</source>
         <translation>Central Khmer</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="149"/>
+        <location filename="../../Misc/Language.cpp" line="139"/>
         <source>Chamorro</source>
         <translation>Chamorro</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="150"/>
+        <location filename="../../Misc/Language.cpp" line="140"/>
         <source>Chechen</source>
         <translation>Chechen</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="151"/>
-        <location filename="../../Misc/Language.cpp" line="152"/>
-        <location filename="../../Misc/Language.cpp" line="153"/>
-        <location filename="../../Misc/Language.cpp" line="154"/>
-        <location filename="../../Misc/Language.cpp" line="155"/>
-        <location filename="../../Misc/Language.cpp" line="156"/>
+        <location filename="../../Misc/Language.cpp" line="141"/>
+        <location filename="../../Misc/Language.cpp" line="142"/>
+        <location filename="../../Misc/Language.cpp" line="143"/>
+        <location filename="../../Misc/Language.cpp" line="144"/>
+        <location filename="../../Misc/Language.cpp" line="145"/>
+        <location filename="../../Misc/Language.cpp" line="146"/>
         <source>Chinese</source>
         <translation>Chinese</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="152"/>
+        <location filename="../../Misc/Language.cpp" line="142"/>
         <source>China</source>
         <translation>China</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="153"/>
+        <location filename="../../Misc/Language.cpp" line="143"/>
         <source>Hong Kong</source>
         <translation>Hong Kong</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="154"/>
+        <location filename="../../Misc/Language.cpp" line="144"/>
         <source>Macau</source>
         <translation>Macau</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="155"/>
+        <location filename="../../Misc/Language.cpp" line="145"/>
         <source>Singapore</source>
         <translation>Singapore</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="156"/>
+        <location filename="../../Misc/Language.cpp" line="146"/>
         <source>Taiwan</source>
         <translation>Taiwan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="157"/>
+        <location filename="../../Misc/Language.cpp" line="147"/>
         <source>Church Slavic</source>
         <translation>Church Slavic</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="158"/>
+        <location filename="../../Misc/Language.cpp" line="148"/>
         <source>Chuvash</source>
         <translation>Chuvash</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="159"/>
+        <location filename="../../Misc/Language.cpp" line="149"/>
         <source>Cornish</source>
         <translation>Cornish</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="160"/>
+        <location filename="../../Misc/Language.cpp" line="150"/>
         <source>Corsican</source>
         <translation>Corsican</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="161"/>
+        <location filename="../../Misc/Language.cpp" line="151"/>
         <source>Cree</source>
         <translation>Cree</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="162"/>
+        <location filename="../../Misc/Language.cpp" line="152"/>
         <source>Croatian</source>
         <translation>Croatian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="163"/>
+        <location filename="../../Misc/Language.cpp" line="153"/>
         <source>Czech</source>
         <translation>Czech</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="164"/>
-        <location filename="../../Misc/Language.cpp" line="165"/>
+        <location filename="../../Misc/Language.cpp" line="154"/>
+        <location filename="../../Misc/Language.cpp" line="155"/>
         <source>Danish</source>
         <translation>Danish</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="165"/>
+        <location filename="../../Misc/Language.cpp" line="155"/>
         <source>Denmark</source>
         <translation>Denmark</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="166"/>
+        <location filename="../../Misc/Language.cpp" line="156"/>
         <source>Dhivehi</source>
         <translation>Dhivehi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="167"/>
-        <location filename="../../Misc/Language.cpp" line="168"/>
-        <location filename="../../Misc/Language.cpp" line="169"/>
+        <location filename="../../Misc/Language.cpp" line="157"/>
+        <location filename="../../Misc/Language.cpp" line="158"/>
+        <location filename="../../Misc/Language.cpp" line="159"/>
         <source>Dutch</source>
         <translation>Dutch</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="168"/>
-        <location filename="../../Misc/Language.cpp" line="191"/>
+        <location filename="../../Misc/Language.cpp" line="158"/>
+        <location filename="../../Misc/Language.cpp" line="181"/>
         <source>Belgium</source>
         <translation>Belgium</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="169"/>
+        <location filename="../../Misc/Language.cpp" line="159"/>
         <source>Netherlands</source>
         <translation>Netherlands</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="170"/>
+        <location filename="../../Misc/Language.cpp" line="160"/>
         <source>Dzongkha</source>
         <translation>Dzongkha</translation>
     </message>
     <message>
+        <location filename="../../Misc/Language.cpp" line="161"/>
+        <location filename="../../Misc/Language.cpp" line="162"/>
+        <location filename="../../Misc/Language.cpp" line="163"/>
+        <location filename="../../Misc/Language.cpp" line="164"/>
+        <location filename="../../Misc/Language.cpp" line="165"/>
+        <location filename="../../Misc/Language.cpp" line="166"/>
+        <location filename="../../Misc/Language.cpp" line="167"/>
+        <location filename="../../Misc/Language.cpp" line="168"/>
+        <location filename="../../Misc/Language.cpp" line="169"/>
+        <location filename="../../Misc/Language.cpp" line="170"/>
         <location filename="../../Misc/Language.cpp" line="171"/>
         <location filename="../../Misc/Language.cpp" line="172"/>
         <location filename="../../Misc/Language.cpp" line="173"/>
-        <location filename="../../Misc/Language.cpp" line="174"/>
-        <location filename="../../Misc/Language.cpp" line="175"/>
-        <location filename="../../Misc/Language.cpp" line="176"/>
-        <location filename="../../Misc/Language.cpp" line="177"/>
-        <location filename="../../Misc/Language.cpp" line="178"/>
-        <location filename="../../Misc/Language.cpp" line="179"/>
-        <location filename="../../Misc/Language.cpp" line="180"/>
-        <location filename="../../Misc/Language.cpp" line="181"/>
-        <location filename="../../Misc/Language.cpp" line="182"/>
-        <location filename="../../Misc/Language.cpp" line="183"/>
         <source>English</source>
         <translation>English</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="172"/>
+        <location filename="../../Misc/Language.cpp" line="162"/>
         <source>Australia</source>
         <translation>Australia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="173"/>
+        <location filename="../../Misc/Language.cpp" line="163"/>
         <source>Belize</source>
         <translation>Belize</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="174"/>
-        <location filename="../../Misc/Language.cpp" line="192"/>
+        <location filename="../../Misc/Language.cpp" line="164"/>
+        <location filename="../../Misc/Language.cpp" line="182"/>
         <source>Canada</source>
         <translation>Canada</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="175"/>
+        <location filename="../../Misc/Language.cpp" line="165"/>
         <source>Caribbean</source>
         <translation>Caribbean</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="176"/>
+        <location filename="../../Misc/Language.cpp" line="166"/>
         <source>Great Britain</source>
         <translation>Great Britain</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="177"/>
+        <location filename="../../Misc/Language.cpp" line="167"/>
         <source>India</source>
         <translation>India</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="178"/>
-        <location filename="../../Misc/Language.cpp" line="198"/>
+        <location filename="../../Misc/Language.cpp" line="168"/>
+        <location filename="../../Misc/Language.cpp" line="188"/>
         <source>Ireland</source>
         <translation>Ireland</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="179"/>
+        <location filename="../../Misc/Language.cpp" line="169"/>
         <source>Jamaica</source>
         <translation>Jamaica</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="180"/>
+        <location filename="../../Misc/Language.cpp" line="170"/>
         <source>Philippines</source>
         <translation>Philippines</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="181"/>
+        <location filename="../../Misc/Language.cpp" line="171"/>
         <source>Trinidad</source>
         <translation>Trinidad</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="182"/>
+        <location filename="../../Misc/Language.cpp" line="172"/>
         <source>South Africa</source>
         <translation>South Africa</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="183"/>
+        <location filename="../../Misc/Language.cpp" line="173"/>
         <source>United States</source>
         <translation>United States</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="184"/>
+        <location filename="../../Misc/Language.cpp" line="174"/>
         <source>Esperanto</source>
         <translation>Esperanto</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="185"/>
+        <location filename="../../Misc/Language.cpp" line="175"/>
         <source>Estonian</source>
         <translation>Estonian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="186"/>
+        <location filename="../../Misc/Language.cpp" line="176"/>
         <source>Ewe</source>
         <translation>Ewe</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="187"/>
+        <location filename="../../Misc/Language.cpp" line="177"/>
         <source>Faroese</source>
         <translation>Faroese</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="188"/>
+        <location filename="../../Misc/Language.cpp" line="178"/>
         <source>Fijian</source>
         <translation>Fijian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="189"/>
+        <location filename="../../Misc/Language.cpp" line="179"/>
         <source>Finnish</source>
         <translation>Finnish</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="190"/>
-        <location filename="../../Misc/Language.cpp" line="191"/>
-        <location filename="../../Misc/Language.cpp" line="192"/>
-        <location filename="../../Misc/Language.cpp" line="193"/>
-        <location filename="../../Misc/Language.cpp" line="194"/>
-        <location filename="../../Misc/Language.cpp" line="195"/>
+        <location filename="../../Misc/Language.cpp" line="180"/>
+        <location filename="../../Misc/Language.cpp" line="181"/>
+        <location filename="../../Misc/Language.cpp" line="182"/>
+        <location filename="../../Misc/Language.cpp" line="183"/>
+        <location filename="../../Misc/Language.cpp" line="184"/>
+        <location filename="../../Misc/Language.cpp" line="185"/>
         <source>French</source>
         <translation>French</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="193"/>
+        <location filename="../../Misc/Language.cpp" line="183"/>
         <source>France</source>
         <translation>France</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="194"/>
-        <location filename="../../Misc/Language.cpp" line="206"/>
+        <location filename="../../Misc/Language.cpp" line="184"/>
+        <location filename="../../Misc/Language.cpp" line="196"/>
         <source>Luxembourg</source>
         <translation>Luxembourg</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="195"/>
-        <location filename="../../Misc/Language.cpp" line="207"/>
-        <location filename="../../Misc/Language.cpp" line="232"/>
+        <location filename="../../Misc/Language.cpp" line="185"/>
+        <location filename="../../Misc/Language.cpp" line="197"/>
+        <location filename="../../Misc/Language.cpp" line="222"/>
         <source>Switzerland</source>
         <translation>Switzerland</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="196"/>
+        <location filename="../../Misc/Language.cpp" line="186"/>
         <source>Fulah</source>
         <translation>Fulah</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="197"/>
-        <location filename="../../Misc/Language.cpp" line="198"/>
+        <location filename="../../Misc/Language.cpp" line="187"/>
+        <location filename="../../Misc/Language.cpp" line="188"/>
         <source>Gaelic</source>
         <translation>Gaelic</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="197"/>
+        <location filename="../../Misc/Language.cpp" line="187"/>
         <source>Scotland</source>
         <translation>Scotland</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="199"/>
+        <location filename="../../Misc/Language.cpp" line="189"/>
         <source>Galician</source>
         <translation>Galician</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="200"/>
+        <location filename="../../Misc/Language.cpp" line="190"/>
         <source>Ganda</source>
         <translation>Ganda</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="201"/>
+        <location filename="../../Misc/Language.cpp" line="191"/>
         <source>Georgian</source>
         <translation>Georgian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="202"/>
-        <location filename="../../Misc/Language.cpp" line="203"/>
-        <location filename="../../Misc/Language.cpp" line="204"/>
-        <location filename="../../Misc/Language.cpp" line="205"/>
-        <location filename="../../Misc/Language.cpp" line="206"/>
-        <location filename="../../Misc/Language.cpp" line="207"/>
+        <location filename="../../Misc/Language.cpp" line="192"/>
+        <location filename="../../Misc/Language.cpp" line="193"/>
+        <location filename="../../Misc/Language.cpp" line="194"/>
+        <location filename="../../Misc/Language.cpp" line="195"/>
+        <location filename="../../Misc/Language.cpp" line="196"/>
+        <location filename="../../Misc/Language.cpp" line="197"/>
         <source>German</source>
         <translation>German</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="203"/>
+        <location filename="../../Misc/Language.cpp" line="193"/>
         <source>Austria</source>
         <translation>Austria</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="204"/>
+        <location filename="../../Misc/Language.cpp" line="194"/>
         <source>Germany</source>
         <translation>Germany</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="205"/>
+        <location filename="../../Misc/Language.cpp" line="195"/>
         <source>Liechtenstein</source>
         <translation>Liechtenstein</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="208"/>
+        <location filename="../../Misc/Language.cpp" line="198"/>
         <source>Greek, Modern</source>
         <translation>Greek, Modern</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="209"/>
+        <location filename="../../Misc/Language.cpp" line="199"/>
         <source>Greek</source>
         <translation>Greek</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="210"/>
+        <location filename="../../Misc/Language.cpp" line="200"/>
         <source>Guarani</source>
         <translation>Guarani</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="211"/>
+        <location filename="../../Misc/Language.cpp" line="201"/>
         <source>Gujarati</source>
         <translation>Gujarati</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="212"/>
+        <location filename="../../Misc/Language.cpp" line="202"/>
         <source>Haitian</source>
         <translation>Haitian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="213"/>
+        <location filename="../../Misc/Language.cpp" line="203"/>
         <source>Hausa</source>
         <translation>Hausa</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="214"/>
+        <location filename="../../Misc/Language.cpp" line="204"/>
         <source>Hebrew</source>
         <translation>Hebrew</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="215"/>
+        <location filename="../../Misc/Language.cpp" line="205"/>
         <source>Herero</source>
         <translation>Herero</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="216"/>
+        <location filename="../../Misc/Language.cpp" line="206"/>
         <source>Hindi</source>
         <translation>Hindi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="217"/>
+        <location filename="../../Misc/Language.cpp" line="207"/>
         <source>Hiri Motu</source>
         <translation>Hiri Motu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="218"/>
-        <location filename="../../Misc/Language.cpp" line="219"/>
+        <location filename="../../Misc/Language.cpp" line="208"/>
+        <location filename="../../Misc/Language.cpp" line="209"/>
         <source>Hungarian</source>
         <translation>Hungarian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="219"/>
+        <location filename="../../Misc/Language.cpp" line="209"/>
         <source>Hungary</source>
         <translation>Hungary</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="220"/>
+        <location filename="../../Misc/Language.cpp" line="210"/>
         <source>Icelandic</source>
         <translation>Icelandic</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="221"/>
+        <location filename="../../Misc/Language.cpp" line="211"/>
         <source>Ido</source>
         <translation>Ido</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="222"/>
+        <location filename="../../Misc/Language.cpp" line="212"/>
         <source>Igbo</source>
         <translation>Igbo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="223"/>
+        <location filename="../../Misc/Language.cpp" line="213"/>
         <source>Indonesian</source>
         <translation>Indonesian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="224"/>
+        <location filename="../../Misc/Language.cpp" line="214"/>
         <source>Indonesian - Indonesia</source>
         <translation>Indonesian - Indonesia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="225"/>
+        <location filename="../../Misc/Language.cpp" line="215"/>
         <source>Interlingua</source>
         <translation>Interlingua</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="226"/>
+        <location filename="../../Misc/Language.cpp" line="216"/>
         <source>Interlingue</source>
         <translation>Interlingue</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="227"/>
+        <location filename="../../Misc/Language.cpp" line="217"/>
         <source>Inuktitut</source>
         <translation>Inuktitut</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="228"/>
+        <location filename="../../Misc/Language.cpp" line="218"/>
         <source>Inupiaq</source>
         <translation>Inupiaq</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="229"/>
+        <location filename="../../Misc/Language.cpp" line="219"/>
         <source>Irish</source>
         <translation>Irish</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="230"/>
-        <location filename="../../Misc/Language.cpp" line="231"/>
-        <location filename="../../Misc/Language.cpp" line="232"/>
+        <location filename="../../Misc/Language.cpp" line="220"/>
+        <location filename="../../Misc/Language.cpp" line="221"/>
+        <location filename="../../Misc/Language.cpp" line="222"/>
         <source>Italian</source>
         <translation>Italian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="231"/>
+        <location filename="../../Misc/Language.cpp" line="221"/>
         <source>Italy</source>
         <translation>Italy</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="233"/>
+        <location filename="../../Misc/Language.cpp" line="223"/>
         <source>Japanese</source>
         <translation>Japanese</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="234"/>
+        <location filename="../../Misc/Language.cpp" line="224"/>
         <source>Javanese</source>
         <translation>Javanese</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="235"/>
+        <location filename="../../Misc/Language.cpp" line="225"/>
         <source>Kalaallisut</source>
         <translation>Kalaallisut</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="236"/>
+        <location filename="../../Misc/Language.cpp" line="226"/>
         <source>Kannada</source>
         <translation>Kannada</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="237"/>
+        <location filename="../../Misc/Language.cpp" line="227"/>
         <source>Kanuri</source>
         <translation>Kanuri</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="238"/>
+        <location filename="../../Misc/Language.cpp" line="228"/>
         <source>Kashmiri</source>
         <translation>Kashmiri</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="239"/>
+        <location filename="../../Misc/Language.cpp" line="229"/>
         <source>Kazakh</source>
         <translation>Kazakh</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="240"/>
+        <location filename="../../Misc/Language.cpp" line="230"/>
         <source>Kikuyu</source>
         <translation>Kikuyu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="241"/>
+        <location filename="../../Misc/Language.cpp" line="231"/>
         <source>Kinyarwanda</source>
         <translation>Kinyarwanda</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="242"/>
+        <location filename="../../Misc/Language.cpp" line="232"/>
         <source>Kirghiz</source>
         <translation>Kirghiz</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="243"/>
+        <location filename="../../Misc/Language.cpp" line="233"/>
         <source>Komi</source>
         <translation>Komi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="244"/>
+        <location filename="../../Misc/Language.cpp" line="234"/>
         <source>Kongo</source>
         <translation>Kongo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="245"/>
+        <location filename="../../Misc/Language.cpp" line="235"/>
         <source>Korean</source>
         <translation>Korean</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="246"/>
+        <location filename="../../Misc/Language.cpp" line="236"/>
         <source>Kuanyama</source>
         <translation>Kuanyama</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="247"/>
+        <location filename="../../Misc/Language.cpp" line="237"/>
         <source>Kurdish</source>
         <translation>Kurdish</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="248"/>
+        <location filename="../../Misc/Language.cpp" line="238"/>
         <source>Lao</source>
         <translation>Lao</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="249"/>
+        <location filename="../../Misc/Language.cpp" line="239"/>
         <source>Latin</source>
         <translation>Latin</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="250"/>
-        <location filename="../../Misc/Language.cpp" line="251"/>
+        <location filename="../../Misc/Language.cpp" line="240"/>
+        <location filename="../../Misc/Language.cpp" line="241"/>
         <source>Latvian</source>
         <translation>Latvian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="251"/>
+        <location filename="../../Misc/Language.cpp" line="241"/>
         <source>Latvia</source>
         <translation>Latvia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="252"/>
+        <location filename="../../Misc/Language.cpp" line="242"/>
         <source>Limburgan</source>
         <translation>Limburgan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="253"/>
+        <location filename="../../Misc/Language.cpp" line="243"/>
         <source>Lingala</source>
         <translation>Lingala</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="254"/>
+        <location filename="../../Misc/Language.cpp" line="244"/>
         <source>Lithuanian</source>
         <translation>Lithuanian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="255"/>
+        <location filename="../../Misc/Language.cpp" line="245"/>
         <source>Luba-Katanga</source>
         <translation>Luba-Katanga</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="256"/>
+        <location filename="../../Misc/Language.cpp" line="246"/>
         <source>Luxembourgish</source>
         <translation>Luxembourgish</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="257"/>
+        <location filename="../../Misc/Language.cpp" line="247"/>
         <source>Macedonian</source>
         <translation>Macedonian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="258"/>
+        <location filename="../../Misc/Language.cpp" line="248"/>
         <source>Malagasy</source>
         <translation>Malagasy</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="259"/>
+        <location filename="../../Misc/Language.cpp" line="249"/>
         <source>Malayalam</source>
         <translation>Malayalam</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="260"/>
-        <location filename="../../Misc/Language.cpp" line="261"/>
-        <location filename="../../Misc/Language.cpp" line="262"/>
+        <location filename="../../Misc/Language.cpp" line="250"/>
+        <location filename="../../Misc/Language.cpp" line="251"/>
+        <location filename="../../Misc/Language.cpp" line="252"/>
         <source>Malay</source>
         <translation>Malay</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="261"/>
+        <location filename="../../Misc/Language.cpp" line="251"/>
         <source>Brunei</source>
         <translation>Brunei</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="262"/>
+        <location filename="../../Misc/Language.cpp" line="252"/>
         <source>Malaysia</source>
         <translation>Malaysia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="263"/>
+        <location filename="../../Misc/Language.cpp" line="253"/>
         <source>Maltese</source>
         <translation>Maltese</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="264"/>
+        <location filename="../../Misc/Language.cpp" line="254"/>
         <source>Manx</source>
         <translation>Manx</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="265"/>
+        <location filename="../../Misc/Language.cpp" line="255"/>
         <source>Maori</source>
         <translation>Maori</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="266"/>
+        <location filename="../../Misc/Language.cpp" line="256"/>
         <source>Marathi</source>
         <translation>Marathi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="267"/>
+        <location filename="../../Misc/Language.cpp" line="257"/>
         <source>Marshallese</source>
         <translation>Marshallese</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="268"/>
+        <location filename="../../Misc/Language.cpp" line="258"/>
         <source>Mongolian</source>
         <translation>Mongolian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="269"/>
+        <location filename="../../Misc/Language.cpp" line="259"/>
         <source>Nauru</source>
         <translation>Nauru</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="270"/>
+        <location filename="../../Misc/Language.cpp" line="260"/>
         <source>Navajo</source>
         <translation>Navajo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="271"/>
-        <location filename="../../Misc/Language.cpp" line="272"/>
+        <location filename="../../Misc/Language.cpp" line="261"/>
+        <location filename="../../Misc/Language.cpp" line="262"/>
         <source>Ndebele</source>
         <translation>Ndebele</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="271"/>
+        <location filename="../../Misc/Language.cpp" line="261"/>
         <source>North</source>
         <translation>North</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="272"/>
+        <location filename="../../Misc/Language.cpp" line="262"/>
         <source>South</source>
         <translation>South</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="273"/>
+        <location filename="../../Misc/Language.cpp" line="263"/>
         <source>Ndonga</source>
         <translation>Ndonga</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="274"/>
+        <location filename="../../Misc/Language.cpp" line="264"/>
         <source>Nepali</source>
         <translation>Nepali</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="275"/>
+        <location filename="../../Misc/Language.cpp" line="265"/>
         <source>Northern, Sami</source>
         <translation>Northern, Sami</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="276"/>
-        <location filename="../../Misc/Language.cpp" line="277"/>
-        <location filename="../../Misc/Language.cpp" line="278"/>
+        <location filename="../../Misc/Language.cpp" line="266"/>
+        <location filename="../../Misc/Language.cpp" line="267"/>
+        <location filename="../../Misc/Language.cpp" line="268"/>
         <source>Norwegian</source>
         <translation>Norwegian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="277"/>
+        <location filename="../../Misc/Language.cpp" line="267"/>
         <source>Bokmal</source>
         <translation>Bokmal</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="278"/>
+        <location filename="../../Misc/Language.cpp" line="268"/>
         <source>Nynorsk</source>
         <translation>Nynorsk</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="279"/>
+        <location filename="../../Misc/Language.cpp" line="269"/>
         <source>Nyanja</source>
         <translation>Nyanja</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="280"/>
+        <location filename="../../Misc/Language.cpp" line="270"/>
         <source>Occitan</source>
         <translation>Occitan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="281"/>
+        <location filename="../../Misc/Language.cpp" line="271"/>
         <source>Ojibwa</source>
         <translation>Ojibwa</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="282"/>
+        <location filename="../../Misc/Language.cpp" line="272"/>
         <source>Oriya</source>
         <translation>Oriya</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="283"/>
+        <location filename="../../Misc/Language.cpp" line="273"/>
         <source>Oromo</source>
         <translation>Oromo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="284"/>
+        <location filename="../../Misc/Language.cpp" line="274"/>
         <source>Ossetian</source>
         <translation>Ossetian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="285"/>
+        <location filename="../../Misc/Language.cpp" line="275"/>
         <source>Pali</source>
         <translation>Pali</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="286"/>
+        <location filename="../../Misc/Language.cpp" line="276"/>
         <source>Panjabi</source>
         <translation>Panjabi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="287"/>
+        <location filename="../../Misc/Language.cpp" line="277"/>
         <source>Persian</source>
         <translation>Persian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="288"/>
+        <location filename="../../Misc/Language.cpp" line="278"/>
         <source>Polish</source>
         <translation>Polish</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="289"/>
-        <location filename="../../Misc/Language.cpp" line="290"/>
-        <location filename="../../Misc/Language.cpp" line="291"/>
+        <location filename="../../Misc/Language.cpp" line="279"/>
+        <location filename="../../Misc/Language.cpp" line="280"/>
+        <location filename="../../Misc/Language.cpp" line="281"/>
         <source>Portuguese</source>
         <translation>Portuguese</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="290"/>
+        <location filename="../../Misc/Language.cpp" line="280"/>
         <source>Brazil</source>
         <translation>Brazil</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="291"/>
+        <location filename="../../Misc/Language.cpp" line="281"/>
         <source>Portugal</source>
         <translation>Portugal</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="292"/>
+        <location filename="../../Misc/Language.cpp" line="282"/>
         <source>Pushto</source>
         <translation>Pushto</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="293"/>
+        <location filename="../../Misc/Language.cpp" line="283"/>
         <source>Quechua</source>
         <translation>Quechua</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="294"/>
-        <location filename="../../Misc/Language.cpp" line="295"/>
-        <location filename="../../Misc/Language.cpp" line="296"/>
+        <location filename="../../Misc/Language.cpp" line="284"/>
+        <location filename="../../Misc/Language.cpp" line="285"/>
+        <location filename="../../Misc/Language.cpp" line="286"/>
         <source>Romanian</source>
         <translation>Romanian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="295"/>
-        <location filename="../../Misc/Language.cpp" line="300"/>
+        <location filename="../../Misc/Language.cpp" line="285"/>
+        <location filename="../../Misc/Language.cpp" line="290"/>
         <source>Moldova</source>
         <translation>Moldova</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="296"/>
+        <location filename="../../Misc/Language.cpp" line="286"/>
         <source>Romania</source>
         <translation>Romania</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="297"/>
+        <location filename="../../Misc/Language.cpp" line="287"/>
         <source>Romansh</source>
         <translation>Romansh</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="298"/>
+        <location filename="../../Misc/Language.cpp" line="288"/>
         <source>Rundi</source>
         <translation>Rundi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="299"/>
-        <location filename="../../Misc/Language.cpp" line="300"/>
+        <location filename="../../Misc/Language.cpp" line="289"/>
+        <location filename="../../Misc/Language.cpp" line="290"/>
         <source>Russian</source>
         <translation>Russian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="301"/>
+        <location filename="../../Misc/Language.cpp" line="291"/>
         <source>Samoan</source>
         <translation>Samoan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="302"/>
+        <location filename="../../Misc/Language.cpp" line="292"/>
         <source>Sango</source>
         <translation>Sango</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="303"/>
+        <location filename="../../Misc/Language.cpp" line="293"/>
         <source>Sanskrit</source>
         <translation>Sanskrit</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="304"/>
+        <location filename="../../Misc/Language.cpp" line="294"/>
         <source>Sardinian</source>
         <translation>Sardinian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="305"/>
-        <location filename="../../Misc/Language.cpp" line="306"/>
+        <location filename="../../Misc/Language.cpp" line="295"/>
+        <location filename="../../Misc/Language.cpp" line="296"/>
         <source>Serbian</source>
         <translation>Serbian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="306"/>
+        <location filename="../../Misc/Language.cpp" line="296"/>
         <source>Serbia</source>
         <translation>Serbia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="307"/>
+        <location filename="../../Misc/Language.cpp" line="297"/>
         <source>Shona</source>
         <translation>Shona</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="308"/>
+        <location filename="../../Misc/Language.cpp" line="298"/>
         <source>Sichuan Yi</source>
         <translation>Sichuan Yi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="309"/>
+        <location filename="../../Misc/Language.cpp" line="299"/>
         <source>Sindhi</source>
         <translation>Sindhi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="310"/>
+        <location filename="../../Misc/Language.cpp" line="300"/>
         <source>Sinhala</source>
         <translation>Sinhala</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="311"/>
+        <location filename="../../Misc/Language.cpp" line="301"/>
         <source>Slovak</source>
         <translation>Slovak</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="312"/>
+        <location filename="../../Misc/Language.cpp" line="302"/>
         <source>Slovenian</source>
         <translation>Slovenian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="313"/>
+        <location filename="../../Misc/Language.cpp" line="303"/>
         <source>Somali</source>
         <translation>Somali</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="314"/>
+        <location filename="../../Misc/Language.cpp" line="304"/>
         <source>Sotho, Southern</source>
         <translation>Sotho, Southern</translation>
     </message>
     <message>
+        <location filename="../../Misc/Language.cpp" line="305"/>
+        <location filename="../../Misc/Language.cpp" line="306"/>
+        <location filename="../../Misc/Language.cpp" line="307"/>
+        <location filename="../../Misc/Language.cpp" line="308"/>
+        <location filename="../../Misc/Language.cpp" line="309"/>
+        <location filename="../../Misc/Language.cpp" line="310"/>
+        <location filename="../../Misc/Language.cpp" line="311"/>
+        <location filename="../../Misc/Language.cpp" line="312"/>
+        <location filename="../../Misc/Language.cpp" line="313"/>
+        <location filename="../../Misc/Language.cpp" line="314"/>
         <location filename="../../Misc/Language.cpp" line="315"/>
         <location filename="../../Misc/Language.cpp" line="316"/>
         <location filename="../../Misc/Language.cpp" line="317"/>
@@ -7562,1821 +7610,1811 @@ Do you want to save your changes?</translation>
         <location filename="../../Misc/Language.cpp" line="322"/>
         <location filename="../../Misc/Language.cpp" line="323"/>
         <location filename="../../Misc/Language.cpp" line="324"/>
-        <location filename="../../Misc/Language.cpp" line="325"/>
-        <location filename="../../Misc/Language.cpp" line="326"/>
-        <location filename="../../Misc/Language.cpp" line="327"/>
-        <location filename="../../Misc/Language.cpp" line="328"/>
-        <location filename="../../Misc/Language.cpp" line="329"/>
-        <location filename="../../Misc/Language.cpp" line="330"/>
-        <location filename="../../Misc/Language.cpp" line="331"/>
-        <location filename="../../Misc/Language.cpp" line="332"/>
-        <location filename="../../Misc/Language.cpp" line="333"/>
-        <location filename="../../Misc/Language.cpp" line="334"/>
         <source>Spanish</source>
         <translation>Spanish</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="316"/>
+        <location filename="../../Misc/Language.cpp" line="306"/>
         <source>Argentina</source>
         <translation>Argentina</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="317"/>
+        <location filename="../../Misc/Language.cpp" line="307"/>
         <source>Bolivia</source>
         <translation>Bolivia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="318"/>
+        <location filename="../../Misc/Language.cpp" line="308"/>
         <source>Chile</source>
         <translation>Chile</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="319"/>
+        <location filename="../../Misc/Language.cpp" line="309"/>
         <source>Colombia</source>
         <translation>Colombia</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="320"/>
+        <location filename="../../Misc/Language.cpp" line="310"/>
         <source>Costa Rica</source>
         <translation>Costa Rica</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="321"/>
+        <location filename="../../Misc/Language.cpp" line="311"/>
         <source>Dominican Republic</source>
         <translation>Dominican Republic</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="322"/>
+        <location filename="../../Misc/Language.cpp" line="312"/>
         <source>Ecuador</source>
         <translation>Ecuador</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="323"/>
+        <location filename="../../Misc/Language.cpp" line="313"/>
         <source>El Salvador</source>
         <translation>El Salvador</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="324"/>
+        <location filename="../../Misc/Language.cpp" line="314"/>
         <source>Guatemala</source>
         <translation>Guatemala</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="325"/>
+        <location filename="../../Misc/Language.cpp" line="315"/>
         <source>Honduras</source>
         <translation>Honduras</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="326"/>
+        <location filename="../../Misc/Language.cpp" line="316"/>
         <source>Mexico</source>
         <translation>Mexico</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="327"/>
+        <location filename="../../Misc/Language.cpp" line="317"/>
         <source>Nicaragua</source>
         <translation>Nicaragua</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="328"/>
+        <location filename="../../Misc/Language.cpp" line="318"/>
         <source>Panama</source>
         <translation>Panama</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="329"/>
+        <location filename="../../Misc/Language.cpp" line="319"/>
         <source>Paraguay</source>
         <translation>Paraguay</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="330"/>
+        <location filename="../../Misc/Language.cpp" line="320"/>
         <source>Peru</source>
         <translation>Peru</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="331"/>
+        <location filename="../../Misc/Language.cpp" line="321"/>
         <source>Puerto Rico</source>
         <translation>Puerto Rico</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="333"/>
+        <location filename="../../Misc/Language.cpp" line="323"/>
         <source>Uruguay</source>
         <translation>Uruguay</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="334"/>
+        <location filename="../../Misc/Language.cpp" line="324"/>
         <source>Venezuela</source>
         <translation>Venezuela</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="335"/>
+        <location filename="../../Misc/Language.cpp" line="325"/>
         <source>Sundanese</source>
         <translation>Sundanese</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="336"/>
+        <location filename="../../Misc/Language.cpp" line="326"/>
         <source>Swahili</source>
         <translation>Swahili</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="337"/>
+        <location filename="../../Misc/Language.cpp" line="327"/>
         <source>Swati</source>
         <translation>Swati</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="338"/>
-        <location filename="../../Misc/Language.cpp" line="339"/>
-        <location filename="../../Misc/Language.cpp" line="340"/>
+        <location filename="../../Misc/Language.cpp" line="328"/>
+        <location filename="../../Misc/Language.cpp" line="329"/>
+        <location filename="../../Misc/Language.cpp" line="330"/>
         <source>Swedish</source>
         <translation>Swedish</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="339"/>
+        <location filename="../../Misc/Language.cpp" line="329"/>
         <source>Finland</source>
         <translation>Finland</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="340"/>
+        <location filename="../../Misc/Language.cpp" line="330"/>
         <source>Sweden</source>
         <translation>Sweden</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="341"/>
+        <location filename="../../Misc/Language.cpp" line="331"/>
         <source>Tagalog</source>
         <translation>Tagalog</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="342"/>
+        <location filename="../../Misc/Language.cpp" line="332"/>
         <source>Tahitian</source>
         <translation>Tahitian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="343"/>
+        <location filename="../../Misc/Language.cpp" line="333"/>
         <source>Tajik</source>
         <translation>Tajik</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="344"/>
+        <location filename="../../Misc/Language.cpp" line="334"/>
         <source>Tamil</source>
         <translation>Tamil</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="345"/>
+        <location filename="../../Misc/Language.cpp" line="335"/>
         <source>Tatar</source>
         <translation>Tatar</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="346"/>
+        <location filename="../../Misc/Language.cpp" line="336"/>
         <source>Telugu</source>
         <translation>Telugu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="347"/>
+        <location filename="../../Misc/Language.cpp" line="337"/>
         <source>Thai</source>
         <translation>Thai</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="348"/>
+        <location filename="../../Misc/Language.cpp" line="338"/>
         <source>Tibetan</source>
         <translation>Tibetan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="349"/>
+        <location filename="../../Misc/Language.cpp" line="339"/>
         <source>Tigrinya</source>
         <translation>Tigrinya</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="350"/>
+        <location filename="../../Misc/Language.cpp" line="340"/>
         <source>Tonga</source>
         <translation>Tonga</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="351"/>
+        <location filename="../../Misc/Language.cpp" line="341"/>
         <source>Tsonga</source>
         <translation>Tsonga</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="352"/>
+        <location filename="../../Misc/Language.cpp" line="342"/>
         <source>Tswana</source>
         <translation>Tswana</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="353"/>
-        <location filename="../../Misc/Language.cpp" line="354"/>
+        <location filename="../../Misc/Language.cpp" line="343"/>
+        <location filename="../../Misc/Language.cpp" line="344"/>
         <source>Turkish</source>
         <translation>Turkish</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="354"/>
+        <location filename="../../Misc/Language.cpp" line="344"/>
         <source>Turkey</source>
         <translation>Turkey</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="355"/>
+        <location filename="../../Misc/Language.cpp" line="345"/>
         <source>Turkmen</source>
         <translation>Turkmen</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="356"/>
+        <location filename="../../Misc/Language.cpp" line="346"/>
         <source>Twi</source>
         <translation>Twi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="357"/>
+        <location filename="../../Misc/Language.cpp" line="347"/>
         <source>Uighur</source>
         <translation>Uighur</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="358"/>
-        <location filename="../../Misc/Language.cpp" line="359"/>
+        <location filename="../../Misc/Language.cpp" line="348"/>
+        <location filename="../../Misc/Language.cpp" line="349"/>
         <source>Ukrainian</source>
         <translation>Ukrainian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="359"/>
+        <location filename="../../Misc/Language.cpp" line="349"/>
         <source>Ukraine</source>
         <translation>Ukraine</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="360"/>
+        <location filename="../../Misc/Language.cpp" line="350"/>
         <source>Urdu</source>
         <translation>Urdu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="361"/>
-        <location filename="../../Misc/Language.cpp" line="362"/>
+        <location filename="../../Misc/Language.cpp" line="351"/>
+        <location filename="../../Misc/Language.cpp" line="352"/>
         <source>Uzbek</source>
         <translation>Uzbek</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="362"/>
+        <location filename="../../Misc/Language.cpp" line="352"/>
         <source>Uzbekistan</source>
         <translation>Uzbekistan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="363"/>
+        <location filename="../../Misc/Language.cpp" line="353"/>
         <source>Venda</source>
         <translation>Venda</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="364"/>
+        <location filename="../../Misc/Language.cpp" line="354"/>
         <source>Vietnamese</source>
         <translation>Vietnamese</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="365"/>
+        <location filename="../../Misc/Language.cpp" line="355"/>
         <source>Volapuk</source>
         <translation>Volapuk</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="366"/>
+        <location filename="../../Misc/Language.cpp" line="356"/>
         <source>Walloon</source>
         <translation>Walloon</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="367"/>
+        <location filename="../../Misc/Language.cpp" line="357"/>
         <source>Welsh</source>
         <translation>Welsh</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="368"/>
+        <location filename="../../Misc/Language.cpp" line="358"/>
         <source>Western Frisian</source>
         <translation>Western Frisian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="369"/>
+        <location filename="../../Misc/Language.cpp" line="359"/>
         <source>Wolof</source>
         <translation>Wolof</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="370"/>
+        <location filename="../../Misc/Language.cpp" line="360"/>
         <source>Xhosa</source>
         <translation>Xhosa</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="371"/>
+        <location filename="../../Misc/Language.cpp" line="361"/>
         <source>Yiddish</source>
         <translation>Yiddish</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="372"/>
+        <location filename="../../Misc/Language.cpp" line="362"/>
         <source>Yoruba</source>
         <translation>Yoruba</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="373"/>
+        <location filename="../../Misc/Language.cpp" line="363"/>
         <source>Zhuang</source>
         <translation>Zhuang</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="374"/>
+        <location filename="../../Misc/Language.cpp" line="364"/>
         <source>Zulu</source>
         <translation>Zulu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="375"/>
+        <location filename="../../Misc/Language.cpp" line="365"/>
         <source>Achinese</source>
         <translation>Achinese</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="376"/>
+        <location filename="../../Misc/Language.cpp" line="366"/>
         <source>Acoli</source>
         <translation>Acoli</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="377"/>
+        <location filename="../../Misc/Language.cpp" line="367"/>
         <source>Adangme</source>
         <translation>Adangme</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="378"/>
+        <location filename="../../Misc/Language.cpp" line="368"/>
         <source>Adygei, Adyghe</source>
         <translation>Adygei, Adyghe</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="379"/>
+        <location filename="../../Misc/Language.cpp" line="369"/>
         <source>Afrihili</source>
         <translation>Afrihili</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="380"/>
+        <location filename="../../Misc/Language.cpp" line="370"/>
         <source>Afro-Asiatic languages</source>
         <translation>Afro-Asiatic languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="381"/>
+        <location filename="../../Misc/Language.cpp" line="371"/>
         <source>Ainu</source>
         <translation>Ainu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="382"/>
+        <location filename="../../Misc/Language.cpp" line="372"/>
         <source>Akkadian</source>
         <translation>Akkadian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="383"/>
+        <location filename="../../Misc/Language.cpp" line="373"/>
         <source>Aleut</source>
         <translation>Aleut</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="384"/>
+        <location filename="../../Misc/Language.cpp" line="374"/>
         <source>Algonquian languages</source>
         <translation>Algonquian languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="385"/>
+        <location filename="../../Misc/Language.cpp" line="375"/>
         <source>Altaic languages</source>
         <translation>Altaic languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="386"/>
+        <location filename="../../Misc/Language.cpp" line="376"/>
         <source>Angika</source>
         <translation>Angika</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="387"/>
+        <location filename="../../Misc/Language.cpp" line="377"/>
         <source>Apache languages</source>
         <translation>Apache languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="388"/>
+        <location filename="../../Misc/Language.cpp" line="378"/>
         <source>Arapaho</source>
         <translation>Arapaho</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="389"/>
+        <location filename="../../Misc/Language.cpp" line="379"/>
         <source>Arawak</source>
         <translation>Arawak</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="390"/>
+        <location filename="../../Misc/Language.cpp" line="380"/>
         <source>Aromanian, Arumanian, Macedo-Romanian</source>
         <translation>Aromanian, Arumanian, Macedo-Romanian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="391"/>
+        <location filename="../../Misc/Language.cpp" line="381"/>
         <source>Artificial languages</source>
         <translation>Artificial languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="392"/>
+        <location filename="../../Misc/Language.cpp" line="382"/>
         <source>Asturian, Asturleonese, Bable, Leonese</source>
         <translation>Asturian, Asturleonese, Bable, Leonese</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="393"/>
+        <location filename="../../Misc/Language.cpp" line="383"/>
         <source>Athapascan languages</source>
         <translation>Athapascan languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="394"/>
+        <location filename="../../Misc/Language.cpp" line="384"/>
         <source>Australian languages</source>
         <translation>Australian languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="395"/>
+        <location filename="../../Misc/Language.cpp" line="385"/>
         <source>Austronesian languages</source>
         <translation>Austronesian languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="396"/>
+        <location filename="../../Misc/Language.cpp" line="386"/>
         <source>Awadhi</source>
         <translation>Awadhi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="397"/>
+        <location filename="../../Misc/Language.cpp" line="387"/>
         <source>Balinese</source>
         <translation>Balinese</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="398"/>
+        <location filename="../../Misc/Language.cpp" line="388"/>
         <source>Baltic languages</source>
         <translation>Baltic languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="399"/>
+        <location filename="../../Misc/Language.cpp" line="389"/>
         <source>Baluchi</source>
         <translation>Baluchi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="400"/>
+        <location filename="../../Misc/Language.cpp" line="390"/>
         <source>Bamileke languages</source>
         <translation>Bamileke languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="401"/>
+        <location filename="../../Misc/Language.cpp" line="391"/>
         <source>Banda languages</source>
         <translation>Banda languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="402"/>
+        <location filename="../../Misc/Language.cpp" line="392"/>
         <source>Bantu languages</source>
         <translation>Bantu languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="403"/>
+        <location filename="../../Misc/Language.cpp" line="393"/>
         <source>Basa</source>
         <translation>Basa</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="404"/>
+        <location filename="../../Misc/Language.cpp" line="394"/>
         <source>Batak languages</source>
         <translation>Batak languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="405"/>
+        <location filename="../../Misc/Language.cpp" line="395"/>
         <source>Bedawiyet, Beja</source>
         <translation>Bedawiyet, Beja</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="406"/>
+        <location filename="../../Misc/Language.cpp" line="396"/>
         <source>Bemba</source>
         <translation>Bemba</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="407"/>
+        <location filename="../../Misc/Language.cpp" line="397"/>
         <source>Berber languages</source>
         <translation>Berber languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="408"/>
+        <location filename="../../Misc/Language.cpp" line="398"/>
         <source>Bhojpuri</source>
         <translation>Bhojpuri</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="409"/>
+        <location filename="../../Misc/Language.cpp" line="399"/>
         <source>Bikol</source>
         <translation>Bikol</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="410"/>
+        <location filename="../../Misc/Language.cpp" line="400"/>
         <source>Bilin, Blin</source>
         <translation>Bilin, Blin</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="411"/>
+        <location filename="../../Misc/Language.cpp" line="401"/>
         <source>Bini, Edo</source>
         <translation>Bini, Edo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="412"/>
+        <location filename="../../Misc/Language.cpp" line="402"/>
         <source>Bliss, Blissymbols, Blissymbolics</source>
         <translation>Bliss, Blissymbols, Blissymbolics</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="413"/>
+        <location filename="../../Misc/Language.cpp" line="403"/>
         <source>Braj</source>
         <translation>Braj</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="414"/>
+        <location filename="../../Misc/Language.cpp" line="404"/>
         <source>Buginese</source>
         <translation>Buginese</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="415"/>
+        <location filename="../../Misc/Language.cpp" line="405"/>
         <source>Buriat</source>
         <translation>Buriat</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="416"/>
+        <location filename="../../Misc/Language.cpp" line="406"/>
         <source>Caddo</source>
         <translation>Caddo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="417"/>
+        <location filename="../../Misc/Language.cpp" line="407"/>
         <source>Caucasian languages</source>
         <translation>Caucasian languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="418"/>
+        <location filename="../../Misc/Language.cpp" line="408"/>
         <source>Cebuano</source>
         <translation>Cebuano</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="419"/>
+        <location filename="../../Misc/Language.cpp" line="409"/>
         <source>Celtic languages</source>
         <translation>Celtic languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="420"/>
+        <location filename="../../Misc/Language.cpp" line="410"/>
         <source>Central American Indian languages</source>
         <translation>Central American Indian languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="421"/>
+        <location filename="../../Misc/Language.cpp" line="411"/>
         <source>Chagatai</source>
         <translation>Chagatai</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="422"/>
+        <location filename="../../Misc/Language.cpp" line="412"/>
         <source>Chamic languages</source>
         <translation>Chamic languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="423"/>
+        <location filename="../../Misc/Language.cpp" line="413"/>
         <source>Cherokee</source>
         <translation>Cherokee</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="424"/>
+        <location filename="../../Misc/Language.cpp" line="414"/>
         <source>Cheyenne</source>
         <translation>Cheyenne</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="425"/>
+        <location filename="../../Misc/Language.cpp" line="415"/>
         <source>Chibcha</source>
         <translation>Chibcha</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="426"/>
+        <location filename="../../Misc/Language.cpp" line="416"/>
         <source>Chinook jargon</source>
         <translation>Chinook jargon</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="427"/>
+        <location filename="../../Misc/Language.cpp" line="417"/>
         <source>Chipewyan, Dene Suline</source>
         <translation>Chipewyan, Dene Suline</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="428"/>
+        <location filename="../../Misc/Language.cpp" line="418"/>
         <source>Choctaw</source>
         <translation>Choctaw</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="429"/>
+        <location filename="../../Misc/Language.cpp" line="419"/>
         <source>Chuukese</source>
         <translation>Chuukese</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="430"/>
+        <location filename="../../Misc/Language.cpp" line="420"/>
         <source>Classical Nepal Bhasa/Newari, Old Newari</source>
         <translation>Classical Nepal Bhasa/Newari, Old Newari</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="431"/>
+        <location filename="../../Misc/Language.cpp" line="421"/>
         <source>Classical Syriac</source>
         <translation>Classical Syriac</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="432"/>
+        <location filename="../../Misc/Language.cpp" line="422"/>
         <source>Coptic</source>
         <translation>Coptic</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="433"/>
+        <location filename="../../Misc/Language.cpp" line="423"/>
         <source>Creek</source>
         <translation>Creek</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="434"/>
+        <location filename="../../Misc/Language.cpp" line="424"/>
         <source>Creoles and pidgins</source>
         <translation>Creoles and pidgins</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="435"/>
+        <location filename="../../Misc/Language.cpp" line="425"/>
         <source>Creoles and pidgins- English based</source>
         <translation>Creoles and pidgins- English based</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="436"/>
+        <location filename="../../Misc/Language.cpp" line="426"/>
         <source>Creoles and pidgins- French-based</source>
         <translation>Creoles and pidgins- French-based</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="437"/>
+        <location filename="../../Misc/Language.cpp" line="427"/>
         <source>Creoles and pidgins- Portuguese-based</source>
         <translation>Creoles and pidgins- Portuguese-based</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="438"/>
+        <location filename="../../Misc/Language.cpp" line="428"/>
         <source>Crimean Tatar/Turkish</source>
         <translation>Crimean Tatar/Turkish</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="439"/>
+        <location filename="../../Misc/Language.cpp" line="429"/>
         <source>Cushitic languages</source>
         <translation>Cushitic languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="440"/>
+        <location filename="../../Misc/Language.cpp" line="430"/>
         <source>Dakota</source>
         <translation>Dakota</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="441"/>
+        <location filename="../../Misc/Language.cpp" line="431"/>
         <source>Dargwa</source>
         <translation>Dargwa</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="442"/>
+        <location filename="../../Misc/Language.cpp" line="432"/>
         <source>Delaware</source>
         <translation>Delaware</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="443"/>
+        <location filename="../../Misc/Language.cpp" line="433"/>
         <source>Dimili, Dimli, Zaza, Zazaki, Kirdki, Kirmanjki</source>
         <translation>Dimili, Dimli, Zaza, Zazaki, Kirdki, Kirmanjki</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="444"/>
+        <location filename="../../Misc/Language.cpp" line="434"/>
         <source>Dinka</source>
         <translation>Dinka</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="445"/>
+        <location filename="../../Misc/Language.cpp" line="435"/>
         <source>Dogri</source>
         <translation>Dogri</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="446"/>
+        <location filename="../../Misc/Language.cpp" line="436"/>
         <source>Dogrib</source>
         <translation>Dogrib</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="447"/>
+        <location filename="../../Misc/Language.cpp" line="437"/>
         <source>Dravidian languages</source>
         <translation>Dravidian languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="448"/>
+        <location filename="../../Misc/Language.cpp" line="438"/>
         <source>Duala</source>
         <translation>Duala</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="449"/>
+        <location filename="../../Misc/Language.cpp" line="439"/>
         <source>Dutch- Middle (ca.1050-1350)</source>
         <translation>Dutch- Middle (ca.1050-1350)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="450"/>
+        <location filename="../../Misc/Language.cpp" line="440"/>
         <source>Dyula</source>
         <translation>Dyula</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="451"/>
+        <location filename="../../Misc/Language.cpp" line="441"/>
         <source>Eastern Frisian</source>
         <translation>Eastern Frisian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="452"/>
+        <location filename="../../Misc/Language.cpp" line="442"/>
         <source>Efik</source>
         <translation>Efik</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="453"/>
+        <location filename="../../Misc/Language.cpp" line="443"/>
         <source>Egyptian (Ancient)</source>
         <translation>Egyptian (Ancient)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="454"/>
+        <location filename="../../Misc/Language.cpp" line="444"/>
         <source>Ekajuk</source>
         <translation>Ekajuk</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="455"/>
+        <location filename="../../Misc/Language.cpp" line="445"/>
         <source>Elamite</source>
         <translation>Elamite</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="456"/>
+        <location filename="../../Misc/Language.cpp" line="446"/>
         <source>English- Middle (1100-1500)</source>
         <translation>English- Middle (1100-1500)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="457"/>
+        <location filename="../../Misc/Language.cpp" line="447"/>
         <source>English- Old (ca.450-1100)</source>
         <translation>English- Old (ca.450-1100)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="458"/>
+        <location filename="../../Misc/Language.cpp" line="448"/>
         <source>Erzya</source>
         <translation>Erzya</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="459"/>
+        <location filename="../../Misc/Language.cpp" line="449"/>
         <source>Ewondo</source>
         <translation>Ewondo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="460"/>
+        <location filename="../../Misc/Language.cpp" line="450"/>
         <source>Fang</source>
         <translation>Fang</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="461"/>
+        <location filename="../../Misc/Language.cpp" line="451"/>
         <source>Fanti</source>
         <translation>Fanti</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="462"/>
+        <location filename="../../Misc/Language.cpp" line="452"/>
         <source>Filipino, Pilipino</source>
         <translation>Filipino, Pilipino</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="463"/>
+        <location filename="../../Misc/Language.cpp" line="453"/>
         <source>Finno-Ugrian languages</source>
         <translation>Finno-Ugrian languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="464"/>
+        <location filename="../../Misc/Language.cpp" line="454"/>
         <source>Fon</source>
         <translation>Fon</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="465"/>
+        <location filename="../../Misc/Language.cpp" line="455"/>
         <source>French- Middle (ca.1400-1600)</source>
         <translation>French- Middle (ca.1400-1600)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="466"/>
+        <location filename="../../Misc/Language.cpp" line="456"/>
         <source>French- Old (842-ca.1400)</source>
         <translation>French- Old (842-ca.1400)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="467"/>
+        <location filename="../../Misc/Language.cpp" line="457"/>
         <source>Friulian</source>
         <translation>Friulian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="468"/>
+        <location filename="../../Misc/Language.cpp" line="458"/>
         <source>Ga</source>
         <translation>Ga</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="469"/>
+        <location filename="../../Misc/Language.cpp" line="459"/>
         <source>Galibi Carib</source>
         <translation>Galibi Carib</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="470"/>
+        <location filename="../../Misc/Language.cpp" line="460"/>
         <source>Gayo</source>
         <translation>Gayo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="471"/>
+        <location filename="../../Misc/Language.cpp" line="461"/>
         <source>Gbaya</source>
         <translation>Gbaya</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="472"/>
+        <location filename="../../Misc/Language.cpp" line="462"/>
         <source>Geez</source>
         <translation>Geez</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="473"/>
+        <location filename="../../Misc/Language.cpp" line="463"/>
         <source>German- Middle High (ca.1050-1500)</source>
         <translation>German- Middle High (ca.1050-1500)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="474"/>
+        <location filename="../../Misc/Language.cpp" line="464"/>
         <source>German- Old High (ca.750-1050)</source>
         <translation>German- Old High (ca.750-1050)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="475"/>
+        <location filename="../../Misc/Language.cpp" line="465"/>
         <source>Germanic languages</source>
         <translation>Germanic languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="476"/>
+        <location filename="../../Misc/Language.cpp" line="466"/>
         <source>Gilbertese</source>
         <translation>Gilbertese</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="477"/>
+        <location filename="../../Misc/Language.cpp" line="467"/>
         <source>Gondi</source>
         <translation>Gondi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="478"/>
+        <location filename="../../Misc/Language.cpp" line="468"/>
         <source>Gorontalo</source>
         <translation>Gorontalo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="479"/>
+        <location filename="../../Misc/Language.cpp" line="469"/>
         <source>Gothic</source>
         <translation>Gothic</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="480"/>
+        <location filename="../../Misc/Language.cpp" line="470"/>
         <source>Grebo</source>
         <translation>Grebo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="481"/>
+        <location filename="../../Misc/Language.cpp" line="471"/>
         <source>Greek- Ancient (to 1453)</source>
         <translation>Greek- Ancient (to 1453)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="482"/>
+        <location filename="../../Misc/Language.cpp" line="472"/>
         <source>Gwich&apos;in</source>
         <translation>Gwich&apos;in</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="483"/>
+        <location filename="../../Misc/Language.cpp" line="473"/>
         <source>Haida</source>
         <translation>Haida</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="484"/>
+        <location filename="../../Misc/Language.cpp" line="474"/>
         <source>Hawaiian</source>
         <translation>Hawaiian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="485"/>
+        <location filename="../../Misc/Language.cpp" line="475"/>
         <source>Hiligaynon</source>
         <translation>Hiligaynon</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="486"/>
+        <location filename="../../Misc/Language.cpp" line="476"/>
         <source>Himachali, Western Pahari languages</source>
         <translation>Himachali, Western Pahari languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="487"/>
+        <location filename="../../Misc/Language.cpp" line="477"/>
         <source>Hittite</source>
         <translation>Hittite</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="488"/>
+        <location filename="../../Misc/Language.cpp" line="478"/>
         <source>Hmong, Mong</source>
         <translation>Hmong, Mong</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="489"/>
+        <location filename="../../Misc/Language.cpp" line="479"/>
         <source>Hupa</source>
         <translation>Hupa</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="490"/>
+        <location filename="../../Misc/Language.cpp" line="480"/>
         <source>Iban</source>
         <translation>Iban</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="491"/>
+        <location filename="../../Misc/Language.cpp" line="481"/>
         <source>Ijo languages</source>
         <translation>Ijo languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="492"/>
+        <location filename="../../Misc/Language.cpp" line="482"/>
         <source>Iloko</source>
         <translation>Iloko</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="493"/>
+        <location filename="../../Misc/Language.cpp" line="483"/>
         <source>Inari Sami</source>
         <translation>Inari Sami</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="494"/>
+        <location filename="../../Misc/Language.cpp" line="484"/>
         <source>Indic languages</source>
         <translation>Indic languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="495"/>
+        <location filename="../../Misc/Language.cpp" line="485"/>
         <source>Indo-European languages</source>
         <translation>Indo-European languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="496"/>
+        <location filename="../../Misc/Language.cpp" line="486"/>
         <source>Ingush</source>
         <translation>Ingush</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="497"/>
+        <location filename="../../Misc/Language.cpp" line="487"/>
         <source>Iranian languages</source>
         <translation>Iranian languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="498"/>
+        <location filename="../../Misc/Language.cpp" line="488"/>
         <source>Irish- Middle (900-1200)</source>
         <translation>Irish- Middle (900-1200)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="499"/>
+        <location filename="../../Misc/Language.cpp" line="489"/>
         <source>Irish- Old (to 900)</source>
         <translation>Irish- Old (to 900)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="500"/>
+        <location filename="../../Misc/Language.cpp" line="490"/>
         <source>Iroquoian languages</source>
         <translation>Iroquoian languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="501"/>
+        <location filename="../../Misc/Language.cpp" line="491"/>
         <source>Jingpho, Kachin</source>
         <translation>Jingpho, Kachin</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="502"/>
+        <location filename="../../Misc/Language.cpp" line="492"/>
         <source>Judeo-Arabic</source>
         <translation>Judeo-Arabic</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="503"/>
+        <location filename="../../Misc/Language.cpp" line="493"/>
         <source>Judeo-Persian</source>
         <translation>Judeo-Persian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="504"/>
+        <location filename="../../Misc/Language.cpp" line="494"/>
         <source>Kabardian</source>
         <translation>Kabardian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="505"/>
+        <location filename="../../Misc/Language.cpp" line="495"/>
         <source>Kabyle</source>
         <translation>Kabyle</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="506"/>
+        <location filename="../../Misc/Language.cpp" line="496"/>
         <source>Kalmyk, Oirat</source>
         <translation>Kalmyk, Oirat</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="507"/>
+        <location filename="../../Misc/Language.cpp" line="497"/>
         <source>Kamba</source>
         <translation>Kamba</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="508"/>
+        <location filename="../../Misc/Language.cpp" line="498"/>
         <source>Kapampangan, Pampanga</source>
         <translation>Kapampangan, Pampanga</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="509"/>
+        <location filename="../../Misc/Language.cpp" line="499"/>
         <source>Kara-Kalpak</source>
         <translation>Kara-Kalpak</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="510"/>
+        <location filename="../../Misc/Language.cpp" line="500"/>
         <source>Karachay-Balkar</source>
         <translation>Karachay-Balkar</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="511"/>
+        <location filename="../../Misc/Language.cpp" line="501"/>
         <source>Karelian</source>
         <translation>Karelian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="512"/>
+        <location filename="../../Misc/Language.cpp" line="502"/>
         <source>Karen languages</source>
         <translation>Karen languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="513"/>
+        <location filename="../../Misc/Language.cpp" line="503"/>
         <source>Kashubian</source>
         <translation>Kashubian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="514"/>
+        <location filename="../../Misc/Language.cpp" line="504"/>
         <source>Kawi</source>
         <translation>Kawi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="515"/>
+        <location filename="../../Misc/Language.cpp" line="505"/>
         <source>Khasi</source>
         <translation>Khasi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="516"/>
+        <location filename="../../Misc/Language.cpp" line="506"/>
         <source>Khoisan languages</source>
         <translation>Khoisan languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="517"/>
+        <location filename="../../Misc/Language.cpp" line="507"/>
         <source>Khotanese, Sakan</source>
         <translation>Khotanese, Sakan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="518"/>
+        <location filename="../../Misc/Language.cpp" line="508"/>
         <source>Kimbundu</source>
         <translation>Kimbundu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="519"/>
+        <location filename="../../Misc/Language.cpp" line="509"/>
         <source>Klingon, tlhIngan-Hol</source>
         <translation>Klingon, tlhIngan-Hol</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="520"/>
+        <location filename="../../Misc/Language.cpp" line="510"/>
         <source>Konkani</source>
         <translation>Konkani</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="521"/>
+        <location filename="../../Misc/Language.cpp" line="511"/>
         <source>Kosraean</source>
         <translation>Kosraean</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="522"/>
+        <location filename="../../Misc/Language.cpp" line="512"/>
         <source>Kpelle</source>
         <translation>Kpelle</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="523"/>
+        <location filename="../../Misc/Language.cpp" line="513"/>
         <source>Kru languages</source>
         <translation>Kru languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="524"/>
+        <location filename="../../Misc/Language.cpp" line="514"/>
         <source>Kumyk</source>
         <translation>Kumyk</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="525"/>
+        <location filename="../../Misc/Language.cpp" line="515"/>
         <source>Kurukh</source>
         <translation>Kurukh</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="526"/>
+        <location filename="../../Misc/Language.cpp" line="516"/>
         <source>Kutenai</source>
         <translation>Kutenai</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="527"/>
+        <location filename="../../Misc/Language.cpp" line="517"/>
         <source>Ladino</source>
         <translation>Ladino</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="528"/>
+        <location filename="../../Misc/Language.cpp" line="518"/>
         <source>Lahnda</source>
         <translation>Lahnda</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="529"/>
+        <location filename="../../Misc/Language.cpp" line="519"/>
         <source>Lamba</source>
         <translation>Lamba</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="530"/>
+        <location filename="../../Misc/Language.cpp" line="520"/>
         <source>Land Dayak languages</source>
         <translation>Land Dayak languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="531"/>
+        <location filename="../../Misc/Language.cpp" line="521"/>
         <source>Lezghian</source>
         <translation>Lezghian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="532"/>
+        <location filename="../../Misc/Language.cpp" line="522"/>
         <source>Lojban</source>
         <translation>Lojban</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="533"/>
+        <location filename="../../Misc/Language.cpp" line="523"/>
         <source>German-Low, Low Saxon</source>
         <translation>German-Low, Low Saxon</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="534"/>
+        <location filename="../../Misc/Language.cpp" line="524"/>
         <source>Lower Sorbian</source>
         <translation>Lower Sorbian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="535"/>
+        <location filename="../../Misc/Language.cpp" line="525"/>
         <source>Lozi</source>
         <translation>Lozi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="536"/>
+        <location filename="../../Misc/Language.cpp" line="526"/>
         <source>Luba-Lulua</source>
         <translation>Luba-Lulua</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="537"/>
+        <location filename="../../Misc/Language.cpp" line="527"/>
         <source>Luiseno</source>
         <translation>Luiseno</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="538"/>
+        <location filename="../../Misc/Language.cpp" line="528"/>
         <source>Lule Sami</source>
         <translation>Lule Sami</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="539"/>
+        <location filename="../../Misc/Language.cpp" line="529"/>
         <source>Lunda</source>
         <translation>Lunda</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="540"/>
+        <location filename="../../Misc/Language.cpp" line="530"/>
         <source>Luo (Kenya and Tanzania)</source>
         <translation>Luo (Kenya and Tanzania)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="541"/>
+        <location filename="../../Misc/Language.cpp" line="531"/>
         <source>Lushai</source>
         <translation>Lushai</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="542"/>
+        <location filename="../../Misc/Language.cpp" line="532"/>
         <source>Madurese</source>
         <translation>Madurese</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="543"/>
+        <location filename="../../Misc/Language.cpp" line="533"/>
         <source>Magahi</source>
         <translation>Magahi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="544"/>
+        <location filename="../../Misc/Language.cpp" line="534"/>
         <source>Maithili</source>
         <translation>Maithili</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="545"/>
+        <location filename="../../Misc/Language.cpp" line="535"/>
         <source>Makasar</source>
         <translation>Makasar</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="546"/>
+        <location filename="../../Misc/Language.cpp" line="536"/>
         <source>Manchu</source>
         <translation>Manchu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="547"/>
+        <location filename="../../Misc/Language.cpp" line="537"/>
         <source>Mandar</source>
         <translation>Mandar</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="548"/>
+        <location filename="../../Misc/Language.cpp" line="538"/>
         <source>Mandingo</source>
         <translation>Mandingo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="549"/>
+        <location filename="../../Misc/Language.cpp" line="539"/>
         <source>Manipuri</source>
         <translation>Manipuri</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="550"/>
+        <location filename="../../Misc/Language.cpp" line="540"/>
         <source>Manobo languages</source>
         <translation>Manobo languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="551"/>
+        <location filename="../../Misc/Language.cpp" line="541"/>
         <source>Mapuche/Mapudungun</source>
         <translation>Mapuche/Mapudungun</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="552"/>
+        <location filename="../../Misc/Language.cpp" line="542"/>
         <source>Mari</source>
         <translation>Mari</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="553"/>
+        <location filename="../../Misc/Language.cpp" line="543"/>
         <source>Marwari</source>
         <translation>Marwari</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="554"/>
+        <location filename="../../Misc/Language.cpp" line="544"/>
         <source>Masai</source>
         <translation>Masai</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="555"/>
+        <location filename="../../Misc/Language.cpp" line="545"/>
         <source>Mayan languages</source>
         <translation>Mayan languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="556"/>
+        <location filename="../../Misc/Language.cpp" line="546"/>
         <source>Mende</source>
         <translation>Mende</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="557"/>
+        <location filename="../../Misc/Language.cpp" line="547"/>
         <source>Mi&apos;kmaq, Micmac</source>
         <translation>Mi&apos;kmaq, Micmac</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="558"/>
+        <location filename="../../Misc/Language.cpp" line="548"/>
         <source>Minangkabau</source>
         <translation>Minangkabau</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="559"/>
+        <location filename="../../Misc/Language.cpp" line="549"/>
         <source>Mirandese</source>
         <translation>Mirandese</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="560"/>
+        <location filename="../../Misc/Language.cpp" line="550"/>
         <source>Mohawk</source>
         <translation>Mohawk</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="561"/>
+        <location filename="../../Misc/Language.cpp" line="551"/>
         <source>Moksha</source>
         <translation>Moksha</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="562"/>
+        <location filename="../../Misc/Language.cpp" line="552"/>
         <source>Mon-Khmer languages</source>
         <translation>Mon-Khmer languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="563"/>
+        <location filename="../../Misc/Language.cpp" line="553"/>
         <source>Mongo</source>
         <translation>Mongo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="564"/>
+        <location filename="../../Misc/Language.cpp" line="554"/>
         <source>Mossi</source>
         <translation>Mossi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="565"/>
+        <location filename="../../Misc/Language.cpp" line="555"/>
         <source>Multiple languages</source>
         <translation>Multiple languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="566"/>
+        <location filename="../../Misc/Language.cpp" line="556"/>
         <source>Munda languages</source>
         <translation>Munda languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="567"/>
+        <location filename="../../Misc/Language.cpp" line="557"/>
         <source>N&apos;Ko</source>
         <translation>N&apos;Ko</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="568"/>
+        <location filename="../../Misc/Language.cpp" line="558"/>
         <source>Nahuatl languages</source>
         <translation>Nahuatl languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="569"/>
+        <location filename="../../Misc/Language.cpp" line="559"/>
         <source>Neapolitan</source>
         <translation>Neapolitan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="570"/>
+        <location filename="../../Misc/Language.cpp" line="560"/>
         <source>Nepal Bhasa/Newari</source>
         <translation>Nepal Bhasa/Newari</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="571"/>
+        <location filename="../../Misc/Language.cpp" line="561"/>
         <source>Nias</source>
         <translation>Nias</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="572"/>
+        <location filename="../../Misc/Language.cpp" line="562"/>
         <source>Niger-Kordofanian languages</source>
         <translation>Niger-Kordofanian languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="573"/>
+        <location filename="../../Misc/Language.cpp" line="563"/>
         <source>Nilo-Saharan languages</source>
         <translation>Nilo-Saharan languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="574"/>
+        <location filename="../../Misc/Language.cpp" line="564"/>
         <source>Niuean</source>
         <translation>Niuean</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="575"/>
+        <location filename="../../Misc/Language.cpp" line="565"/>
         <source>No linguistic content/Not applicable</source>
         <translation>No linguistic content/Not applicable</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="576"/>
+        <location filename="../../Misc/Language.cpp" line="566"/>
         <source>Nogai</source>
         <translation>Nogai</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="577"/>
+        <location filename="../../Misc/Language.cpp" line="567"/>
         <source>Norse- Old</source>
         <translation>Norse- Old</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="578"/>
+        <location filename="../../Misc/Language.cpp" line="568"/>
         <source>North American Indian languages</source>
         <translation>North American Indian languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="579"/>
+        <location filename="../../Misc/Language.cpp" line="569"/>
         <source>Northern Frisian</source>
         <translation>Northern Frisian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="580"/>
+        <location filename="../../Misc/Language.cpp" line="570"/>
         <source>Northern Sotho, Sepedi, Pedi</source>
         <translation>Northern Sotho, Sepedi, Pedi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="581"/>
+        <location filename="../../Misc/Language.cpp" line="571"/>
         <source>Nubian languages</source>
         <translation>Nubian languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="582"/>
+        <location filename="../../Misc/Language.cpp" line="572"/>
         <source>Nyamwezi</source>
         <translation>Nyamwezi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="583"/>
+        <location filename="../../Misc/Language.cpp" line="573"/>
         <source>Nyankole</source>
         <translation>Nyankole</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="584"/>
+        <location filename="../../Misc/Language.cpp" line="574"/>
         <source>Nyoro</source>
         <translation>Nyoro</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="585"/>
+        <location filename="../../Misc/Language.cpp" line="575"/>
         <source>Nzima</source>
         <translation>Nzima</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="586"/>
+        <location filename="../../Misc/Language.cpp" line="576"/>
         <source>Occitan/Provencal- Old (to 1500)</source>
         <translation>Occitan/Provencal- Old (to 1500)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="587"/>
+        <location filename="../../Misc/Language.cpp" line="577"/>
         <source>Official/Imperial Aramaic (700-300 BCE)</source>
         <translation>Official/Imperial Aramaic (700-300 BCE)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="588"/>
+        <location filename="../../Misc/Language.cpp" line="578"/>
         <source>Osage</source>
         <translation>Osage</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="589"/>
+        <location filename="../../Misc/Language.cpp" line="579"/>
         <source>Otomian languages</source>
         <translation>Otomian languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="590"/>
+        <location filename="../../Misc/Language.cpp" line="580"/>
         <source>Pahlavi</source>
         <translation>Pahlavi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="591"/>
+        <location filename="../../Misc/Language.cpp" line="581"/>
         <source>Palauan</source>
         <translation>Palauan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="592"/>
+        <location filename="../../Misc/Language.cpp" line="582"/>
         <source>Pangasinan</source>
         <translation>Pangasinan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="593"/>
+        <location filename="../../Misc/Language.cpp" line="583"/>
         <source>Papiamento</source>
         <translation>Papiamento</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="594"/>
+        <location filename="../../Misc/Language.cpp" line="584"/>
         <source>Papuan languages</source>
         <translation>Papuan languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="595"/>
+        <location filename="../../Misc/Language.cpp" line="585"/>
         <source>Paraguayan Guaraní</source>
         <translation>Paraguayan Guaraní</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="596"/>
+        <location filename="../../Misc/Language.cpp" line="586"/>
         <source>Persian- Old (ca.600-400 B.C.)</source>
         <translation>Persian- Old (ca.600-400 B.C.)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="597"/>
+        <location filename="../../Misc/Language.cpp" line="587"/>
         <source>Philippine languages</source>
         <translation>Philippine languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="598"/>
+        <location filename="../../Misc/Language.cpp" line="588"/>
         <source>Phoenician</source>
         <translation>Phoenician</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="599"/>
+        <location filename="../../Misc/Language.cpp" line="589"/>
         <source>Pohnpeian</source>
         <translation>Pohnpeian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="600"/>
+        <location filename="../../Misc/Language.cpp" line="590"/>
         <source>Prakrit languages</source>
         <translation>Prakrit languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="601"/>
+        <location filename="../../Misc/Language.cpp" line="591"/>
         <source>Rajasthani</source>
         <translation>Rajasthani</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="602"/>
+        <location filename="../../Misc/Language.cpp" line="592"/>
         <source>Rapanui</source>
         <translation>Rapanui</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="603"/>
+        <location filename="../../Misc/Language.cpp" line="593"/>
         <source>Rarotongan, Cook Islands Maori</source>
         <translation>Rarotongan, Cook Islands Maori</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="604"/>
+        <location filename="../../Misc/Language.cpp" line="594"/>
         <source>Reserved for local use</source>
         <translation>Reserved for local use</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="605"/>
+        <location filename="../../Misc/Language.cpp" line="595"/>
         <source>Romance languages</source>
         <translation>Romance languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="606"/>
+        <location filename="../../Misc/Language.cpp" line="596"/>
         <source>Romany</source>
         <translation>Romany</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="607"/>
+        <location filename="../../Misc/Language.cpp" line="597"/>
         <source>Salishan languages</source>
         <translation>Salishan languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="608"/>
+        <location filename="../../Misc/Language.cpp" line="598"/>
         <source>Samaritan Aramaic</source>
         <translation>Samaritan Aramaic</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="609"/>
+        <location filename="../../Misc/Language.cpp" line="599"/>
         <source>Sami languages</source>
         <translation>Sami languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="610"/>
+        <location filename="../../Misc/Language.cpp" line="600"/>
         <source>Sandawe</source>
         <translation>Sandawe</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="611"/>
+        <location filename="../../Misc/Language.cpp" line="601"/>
         <source>Santali</source>
         <translation>Santali</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="612"/>
+        <location filename="../../Misc/Language.cpp" line="602"/>
         <source>Sasak</source>
         <translation>Sasak</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="613"/>
+        <location filename="../../Misc/Language.cpp" line="603"/>
         <source>Scots</source>
         <translation>Scots</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="614"/>
+        <location filename="../../Misc/Language.cpp" line="604"/>
         <source>Selkup</source>
         <translation>Selkup</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="615"/>
+        <location filename="../../Misc/Language.cpp" line="605"/>
         <source>Semitic languages</source>
         <translation>Semitic languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="616"/>
+        <location filename="../../Misc/Language.cpp" line="606"/>
         <source>Serer</source>
         <translation>Serer</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="617"/>
+        <location filename="../../Misc/Language.cpp" line="607"/>
         <source>Shan</source>
         <translation>Shan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="618"/>
+        <location filename="../../Misc/Language.cpp" line="608"/>
         <source>Sicilian</source>
         <translation>Sicilian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="619"/>
+        <location filename="../../Misc/Language.cpp" line="609"/>
         <source>Sidamo</source>
         <translation>Sidamo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="620"/>
+        <location filename="../../Misc/Language.cpp" line="610"/>
         <source>Sign Languages</source>
         <translation>Sign Languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="621"/>
+        <location filename="../../Misc/Language.cpp" line="611"/>
         <source>Siksika</source>
         <translation>Siksika</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="622"/>
+        <location filename="../../Misc/Language.cpp" line="612"/>
         <source>Sino-Tibetan languages</source>
         <translation>Sino-Tibetan languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="623"/>
+        <location filename="../../Misc/Language.cpp" line="613"/>
         <source>Siouan languages</source>
         <translation>Siouan languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="624"/>
+        <location filename="../../Misc/Language.cpp" line="614"/>
         <source>Skolt Sami</source>
         <translation>Skolt Sami</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="625"/>
+        <location filename="../../Misc/Language.cpp" line="615"/>
         <source>Slave (Athapascan)</source>
         <translation>Slave (Athapascan)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="626"/>
+        <location filename="../../Misc/Language.cpp" line="616"/>
         <source>Slavic languages</source>
         <translation>Slavic languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="627"/>
+        <location filename="../../Misc/Language.cpp" line="617"/>
         <source>Sogdian</source>
         <translation>Sogdian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="628"/>
+        <location filename="../../Misc/Language.cpp" line="618"/>
         <source>Songhai languages</source>
         <translation>Songhai languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="629"/>
+        <location filename="../../Misc/Language.cpp" line="619"/>
         <source>Soninke</source>
         <translation>Soninke</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="630"/>
+        <location filename="../../Misc/Language.cpp" line="620"/>
         <source>Sorbian languages</source>
         <translation>Sorbian languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="631"/>
+        <location filename="../../Misc/Language.cpp" line="621"/>
         <source>South American Indian languages</source>
         <translation>South American Indian languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="632"/>
+        <location filename="../../Misc/Language.cpp" line="622"/>
         <source>Southern Altai</source>
         <translation>Southern Altai</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="633"/>
+        <location filename="../../Misc/Language.cpp" line="623"/>
         <source>Southern Sami</source>
         <translation>Southern Sami</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="634"/>
+        <location filename="../../Misc/Language.cpp" line="624"/>
         <source>Sranan Tongo</source>
         <translation>Sranan Tongo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="635"/>
+        <location filename="../../Misc/Language.cpp" line="625"/>
         <source>Sukuma</source>
         <translation>Sukuma</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="636"/>
+        <location filename="../../Misc/Language.cpp" line="626"/>
         <source>Sumerian</source>
         <translation>Sumerian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="637"/>
+        <location filename="../../Misc/Language.cpp" line="627"/>
         <source>Susu</source>
         <translation>Susu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="638"/>
+        <location filename="../../Misc/Language.cpp" line="628"/>
         <source>Alsatian, Swiss German, Alemannic</source>
         <translation>Alsatian, Swiss German, Alemannic</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="639"/>
+        <location filename="../../Misc/Language.cpp" line="629"/>
         <source>Syriac</source>
         <translation>Syriac</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="640"/>
+        <location filename="../../Misc/Language.cpp" line="630"/>
         <source>Tai languages</source>
         <translation>Tai languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="641"/>
+        <location filename="../../Misc/Language.cpp" line="631"/>
         <source>Tamashek</source>
         <translation>Tamashek</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="642"/>
+        <location filename="../../Misc/Language.cpp" line="632"/>
         <source>Tereno</source>
         <translation>Tereno</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="643"/>
+        <location filename="../../Misc/Language.cpp" line="633"/>
         <source>Tetum</source>
         <translation>Tetum</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="644"/>
+        <location filename="../../Misc/Language.cpp" line="634"/>
         <source>Tigre</source>
         <translation>Tigre</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="645"/>
+        <location filename="../../Misc/Language.cpp" line="635"/>
         <source>Timne</source>
         <translation>Timne</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="646"/>
+        <location filename="../../Misc/Language.cpp" line="636"/>
         <source>Tiv</source>
         <translation>Tiv</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="647"/>
+        <location filename="../../Misc/Language.cpp" line="637"/>
         <source>Tlingit</source>
         <translation>Tlingit</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="648"/>
+        <location filename="../../Misc/Language.cpp" line="638"/>
         <source>Tok Pisin</source>
         <translation>Tok Pisin</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="649"/>
+        <location filename="../../Misc/Language.cpp" line="639"/>
         <source>Tokelau</source>
         <translation>Tokelau</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="650"/>
+        <location filename="../../Misc/Language.cpp" line="640"/>
         <source>Tonga (Nyasa)</source>
         <translation>Tonga (Nyasa)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="651"/>
+        <location filename="../../Misc/Language.cpp" line="641"/>
         <source>Tsimshian</source>
         <translation>Tsimshian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="652"/>
+        <location filename="../../Misc/Language.cpp" line="642"/>
         <source>Tumbuka</source>
         <translation>Tumbuka</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="653"/>
+        <location filename="../../Misc/Language.cpp" line="643"/>
         <source>Tupi languages</source>
         <translation>Tupi languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="654"/>
+        <location filename="../../Misc/Language.cpp" line="644"/>
         <source>Turkish- Ottoman (1500-1928)</source>
         <translation>Turkish- Ottoman (1500-1928)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="655"/>
+        <location filename="../../Misc/Language.cpp" line="645"/>
         <source>Tuvalu</source>
         <translation>Tuvalu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="656"/>
+        <location filename="../../Misc/Language.cpp" line="646"/>
         <source>Tuvinian</source>
         <translation>Tuvinian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="657"/>
+        <location filename="../../Misc/Language.cpp" line="647"/>
         <source>Udmurt</source>
         <translation>Udmurt</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="658"/>
+        <location filename="../../Misc/Language.cpp" line="648"/>
         <source>Ugaritic</source>
         <translation>Ugaritic</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="659"/>
+        <location filename="../../Misc/Language.cpp" line="649"/>
         <source>Umbundu</source>
         <translation>Umbundu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="660"/>
+        <location filename="../../Misc/Language.cpp" line="650"/>
         <source>Uncoded languages</source>
         <translation>Uncoded languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="661"/>
+        <location filename="../../Misc/Language.cpp" line="651"/>
         <source>Undetermined</source>
         <translation>Undetermined</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="662"/>
+        <location filename="../../Misc/Language.cpp" line="652"/>
         <source>Upper Sorbian</source>
         <translation>Upper Sorbian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="663"/>
+        <location filename="../../Misc/Language.cpp" line="653"/>
         <source>Vai</source>
         <translation>Vai</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="664"/>
+        <location filename="../../Misc/Language.cpp" line="654"/>
         <source>Votic</source>
         <translation>Votic</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="665"/>
+        <location filename="../../Misc/Language.cpp" line="655"/>
         <source>Wakashan languages</source>
         <translation>Wakashan languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="666"/>
+        <location filename="../../Misc/Language.cpp" line="656"/>
         <source>Waray</source>
         <translation>Waray</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="667"/>
+        <location filename="../../Misc/Language.cpp" line="657"/>
         <source>Washo</source>
         <translation>Washo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="668"/>
+        <location filename="../../Misc/Language.cpp" line="658"/>
         <source>Wolaitta, Wolaytta</source>
         <translation>Wolaitta, Wolaytta</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="669"/>
+        <location filename="../../Misc/Language.cpp" line="659"/>
         <source>Yakut</source>
         <translation>Yakut</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="670"/>
+        <location filename="../../Misc/Language.cpp" line="660"/>
         <source>Yao</source>
         <translation>Yao</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="671"/>
+        <location filename="../../Misc/Language.cpp" line="661"/>
         <source>Yapese</source>
         <translation>Yapese</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="672"/>
+        <location filename="../../Misc/Language.cpp" line="662"/>
         <source>Yupik languages</source>
         <translation>Yupik languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="673"/>
+        <location filename="../../Misc/Language.cpp" line="663"/>
         <source>Zande languages</source>
         <translation>Zande languages</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="674"/>
+        <location filename="../../Misc/Language.cpp" line="664"/>
         <source>Zapotec</source>
         <translation>Zapotec</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="675"/>
+        <location filename="../../Misc/Language.cpp" line="665"/>
         <source>Zenaga</source>
         <translation>Zenaga</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="676"/>
+        <location filename="../../Misc/Language.cpp" line="666"/>
         <source>Zuni</source>
         <translation>Zuni</translation>
     </message>
@@ -12441,94 +12479,94 @@ Stylesheets that are listed first take precedence over later stylesheets.</trans
         <translation>Focus on Clips Window</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="330"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="333"/>
         <source>Error: Automation Already in Use</source>
         <translation>Error: Automation Already in Use</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="336"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="339"/>
         <source>Missing Automation List</source>
         <translation>Missing Automation List</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="377"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="379"/>
         <source>running</source>
         <translation>running</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="440"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="442"/>
         <source>skipped since not an epub3</source>
         <translation>skipped since not an epub3</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="465"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="484"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="508"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="467"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="486"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="510"/>
         <source>Missing or unknown Saved Search name</source>
         <translation>Missing or unknown Saved Search name</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="488"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="490"/>
         <source>Conditional search did not run.</source>
         <translation>Conditional search did not run.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="512"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="514"/>
         <source>Conditional Search did not run.</source>
         <translation>Conditional Search did not run.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="516"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="518"/>
         <source>Missing or unknown plugin or tool</source>
         <translation>Missing or unknown plugin or tool</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="521"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="523"/>
         <source>failed</source>
         <translation>failed</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="529"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="531"/>
         <source>Validation tool</source>
         <translation>Validation tool</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="530"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="532"/>
         <source>found errors</source>
         <translation>found errors</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="533"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="535"/>
         <source>Validation tool found errors - Abort or Ignore?</source>
         <translation>Validation tool found errors - Abort or Ignore?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="542"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="544"/>
         <source>Aborted due to Validation Errors</source>
         <translation>Aborted due to Validation Errors</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="545"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="547"/>
         <source>Ignored Validation Errors</source>
         <translation>Ignored Validation Errors</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="548"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="550"/>
         <source>Validation Tool Reported No Problems Found</source>
         <translation>Validation Tool Reported No Problems Found</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="555"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="557"/>
         <source>Automation List Failed</source>
         <translation>Automation List Failed</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="557"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="559"/>
         <source>Automation List Completed</source>
         <translation>Automation List Completed</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="559"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="561"/>
         <source>Automate Log</source>
         <translation>Automate Log</translation>
     </message>
@@ -12562,44 +12600,44 @@ Stylesheets that are listed first take precedence over later stylesheets.</trans
         <location filename="../../MainUI/MainWindow.cpp" line="910"/>
         <location filename="../../MainUI/MainWindow.cpp" line="991"/>
         <location filename="../../MainUI/MainWindow.cpp" line="1792"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2106"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2348"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2513"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3088"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3184"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3240"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3250"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3274"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3288"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3394"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3410"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3415"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3428"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3447"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3461"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3476"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3480"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3496"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3509"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3514"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3526"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3536"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3541"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3743"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3750"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3766"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3825"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3857"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4056"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5265"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5306"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5312"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5318"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5547"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5567"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5624"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5888"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6094"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2105"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2347"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2512"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3087"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3183"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3239"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3249"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3273"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3287"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3393"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3409"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3414"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3427"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3446"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3460"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3475"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3479"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3495"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3508"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3513"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3525"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3535"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3540"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3742"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3749"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3765"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3824"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3856"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4055"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5263"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5304"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5310"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5316"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5545"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5565"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5621"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5885"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6091"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -12620,17 +12658,17 @@ This action cannot be reversed.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="882"/>
         <location filename="../../MainUI/MainWindow.cpp" line="884"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5622"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5624"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6092"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6094"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5619"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5621"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6089"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6091"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] - epub%2 - %3</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="882"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5622"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6092"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5619"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6089"/>
         <source>Sigil [std]</source>
         <translation>Sigil [std]</translation>
     </message>
@@ -12846,461 +12884,461 @@ This action cannot be reversed.</translation>
         <translation>Sigil is closing...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2042"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2041"/>
         <source>New file created.</source>
         <translation>New file created.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2065"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2064"/>
         <source>Open File</source>
         <translation>Open File</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2105"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2104"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
         <translation>This file no longer exists. Click OK to remove it from the menu.
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2188"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2187"/>
         <source>Save File</source>
         <translation>Save File</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2244"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2243"/>
         <source>Save a Copy</source>
         <translation>Save a Copy</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2283"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2282"/>
         <source>Epub layout discarded.</source>
         <translation>Epub layout discarded.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2290"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2289"/>
         <source>New epub created.</source>
         <translation>New epub created.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2325"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2324"/>
         <source>Go To Line</source>
         <translation>Go To Line</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2325"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2324"/>
         <source>Line #</source>
         <translation>Line #</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2348"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2347"/>
         <source>Image does not exist: </source>
         <translation>Image does not exist: </translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2428"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2427"/>
         <source>or</source>
         <translation>or</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2436"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2435"/>
         <source>No CSS styles named</source>
         <translation>No CSS styles named</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2436"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2435"/>
         <source>found, or stylesheet not linked.</source>
         <translation>found, or stylesheet not linked.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2509"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2508"/>
         <source>&lt;html&gt;&lt;p&gt;The href &lt;b&gt;%1&lt;/b&gt; found in &lt;b&gt;%2&lt;/b&gt; does not exist (and there may be more). Splitting or merging under these conditions can result in broken links.&lt;/p&gt;&lt;p&gt;Do you still wish to continue?&lt;/p&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;p&gt;The href &lt;b&gt;%1&lt;/b&gt; found in &lt;b&gt;%2&lt;/b&gt; does not exist (and there may be more). Splitting or merging under these conditions can result in broken links.&lt;/p&gt;&lt;p&gt;Do you still wish to continue?&lt;/p&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2532"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2531"/>
         <source>Dropped files added.</source>
         <translation>Dropped files added.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2546"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2545"/>
         <source>Add Cover</source>
         <translation>Add Cover</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2595"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2594"/>
         <source>An existing Cover file has been found.</source>
         <translation>An existing Cover file has been found.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2658"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2657"/>
         <source>Unexpected error. Only image files can be used for the cover.</source>
         <translation>Unexpected error. Only image files can be used for the cover.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2677"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2676"/>
         <source>Cover added.</source>
         <translation>Cover added.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2693"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2692"/>
         <source>OPF Manifest Mimetypes Updated.</source>
         <translation>OPF Manifest Mimetypes Updated.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2702"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2719"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2739"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2762"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2794"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2701"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2718"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2738"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2761"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2793"/>
         <source>Not Available for epub2.</source>
         <translation>Not Available for epub2.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2710"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2709"/>
         <source>OPF Manifest Properties Updated.</source>
         <translation>OPF Manifest Properties Updated.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2725"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2724"/>
         <source>Nav removed from OPF Spine.</source>
         <translation>Nav removed from OPF Spine.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2746"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2745"/>
         <source>Nav added to OPF Spine with linear=&quot;no&quot;</source>
         <translation>Nav added to OPF Spine with linear=&quot;no&quot;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2748"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2747"/>
         <source>Nav added to OPF Spine.</source>
         <translation>Nav added to OPF Spine.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2784"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2783"/>
         <source>NCX and Guide removed.</source>
         <translation>NCX and Guide removed.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2811"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2844"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2810"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2843"/>
         <source>NCX and Guide generation failed.</source>
         <translation>NCX and Guide generation failed.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2880"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2879"/>
         <source>NCX and Guide generated.</source>
         <translation>NCX and Guide generated.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2977"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2976"/>
         <source>An existing Index file has been found.</source>
         <translation>An existing Index file has been found.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3069"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3068"/>
         <source>Styles deleted.</source>
         <translation>Styles deleted.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3077"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3076"/>
         <source>Reports Being Generated.</source>
         <translation>Reports Being Generated.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3088"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3087"/>
         <source>Reports cancelled due to XML not well formed.</source>
         <translation>Reports cancelled due to XML not well formed.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3184"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3183"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
         <translation>Delete Unused Media Files cancelled due to XML not well formed.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3234"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3233"/>
         <source>Unused media files deleted.</source>
         <translation>Unused media files deleted.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3237"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3240"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3236"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3239"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation>There are no unused image, video or audio files to delete.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3250"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3249"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation>Delete Unused Styles cancelled due to XML not well formed.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3272"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3274"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3271"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3273"/>
         <source>There are no unused stylesheet selectors to delete.</source>
         <translation>There are no unused stylesheet selectors to delete.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3288"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3287"/>
         <source>You cannot insert a file at this position.</source>
         <translation>You cannot insert a file at this position.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3295"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3294"/>
         <source>Insert File</source>
         <translation>Insert File</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3348"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3347"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>The file &quot;%1&quot; does not exist.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3394"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3415"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3393"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3414"/>
         <source>You cannot insert an id at this position.</source>
         <translation>You cannot insert an id at this position.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3410"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3409"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation>ID is invalid - must start with a letter, followed by letter number _ : - or .</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3428"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3427"/>
         <source>You can only insert an aria clips in xhtml files.</source>
         <translation>You can only insert an aria clips in xhtml files.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3447"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3446"/>
         <source>Inserting an aria clip failed.</source>
         <translation>Inserting an aria clip failed.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3461"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3480"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3460"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3479"/>
         <source>You cannot insert an aria role at this position.</source>
         <translation>You cannot insert an aria role at this position.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3476"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3475"/>
         <source>The selected role cannot be used on this tag.</source>
         <translation>The selected role cannot be used on this tag.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3496"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3514"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3495"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3513"/>
         <source>You cannot insert a link at this position.</source>
         <translation>You cannot insert a link at this position.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3509"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3508"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3526"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3525"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation>You cannot mark an index at this position or without selecting text.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3536"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3535"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3541"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3540"/>
         <source>You cannot mark an index at this position.</source>
         <translation>You cannot mark an index at this position.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3652"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3664"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3683"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3651"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3663"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3682"/>
         <source>Select the destination to paste into first.</source>
         <translation>Select the destination to paste into first.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3672"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3671"/>
         <source>Pasted clip entry %1.</source>
         <translation>Pasted clip entry %1.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3743"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3742"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>One resource selected and there is no previous resource to merge into.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3751"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3750"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>Are you sure you want to merge the selected files?
 This action cannot be reversed.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3766"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3765"/>
         <source>Merge cancelled: XHTML files involved in merge are not well formed.</source>
         <translation>Merge cancelled: XHTML files involved in merge are not well formed.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3825"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3824"/>
         <source>Cannot merge file %1</source>
         <translation>Cannot merge file %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3839"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3838"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>Merge completed. You may need to regenerate or edit your Table Of Contents.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3857"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3856"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation>Link Stylesheets cancelled: %1, XML not well formed.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3987"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3986"/>
         <source>Word updated.</source>
         <translation>Word updated.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4056"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4055"/>
         <source>Link Javascripts cancelled: %1, XML not well formed.</source>
         <translation>Link Javascripts cancelled: %1, XML not well formed.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4166"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4165"/>
         <source>File(s) deleted.</source>
         <translation>File(s) deleted.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4177"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4176"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>Edit Table of Contents cancelled.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4182"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4181"/>
         <source>Table Of Contents edited.</source>
         <translation>Table Of Contents edited.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4200"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4199"/>
         <source>Generate TOC cancelled.</source>
         <translation>Generate TOC cancelled.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4225"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4224"/>
         <source>Table Of Contents generated.</source>
         <translation>Table Of Contents generated.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4227"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4226"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>No Table Of Contents changes were necessary.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4305"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4304"/>
         <source>An existing HTML Table of Contents file has been found.</source>
         <translation>An existing HTML Table of Contents file has been found.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4390"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4389"/>
         <source>Text selection marked.</source>
         <translation>Text selection marked.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4392"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4410"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4391"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4409"/>
         <source>Text selection unmarked.</source>
         <translation>Text selection unmarked.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4459"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4458"/>
         <source>Metadata Editor cancelled.</source>
         <translation>Metadata Editor cancelled.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4462"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4461"/>
         <source>Metadata edited.</source>
         <translation>Metadata edited.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4582"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4581"/>
         <source>RunPlugin</source>
         <translation>RunPlugin</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4595"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4594"/>
         <source>RunAutomate</source>
         <translation>RunAutomate</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4621"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4620"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>This EPUB does not contain any CSS stylesheets to validate.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4652"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4651"/>
         <source>This EPUB does not contain any CSS stylesheets to reformat.</source>
         <translation>This EPUB does not contain any CSS stylesheets to reformat.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5177"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5176"/>
         <source>%1%2 - Line: %3, Col: %4</source>
         <translation>%1%2 - Line: %3, Col: %4</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5265"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5263"/>
         <source>File cannot be split at this position.</source>
         <translation>File cannot be split at this position.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5288"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5286"/>
         <source>Split completed.</source>
         <translation>Split completed.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5306"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5304"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>Cannot split since at least one file is not an HTML file.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5312"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5310"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>Cannot split: %1 XML is not well formed</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5318"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5316"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>Cannot split since at least one file may not be an HTML file.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5351"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5349"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Split completed. You may need to update the Table of Contents.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5353"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5351"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>No split file markers found. Use Insert-&gt;Split Marker.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5548"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5546"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>The document has been modified.
 Do you want to save your changes?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5569"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5567"/>
         <source>Should Sigil overwrite this file?</source>
         <translation>Should Sigil overwrite this file?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5764"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5761"/>
         <source>No importer for file type: %1</source>
         <translation>No importer for file type: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5771"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5768"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -13313,44 +13351,44 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
 Try setting the Clean Source preference to Mend XHTML Source Code on Open and reloading the file.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5776"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5773"/>
         <source>Loading file...</source>
         <translation>Loading file...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5790"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5787"/>
         <source>File loaded.</source>
         <translation>File loaded.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5816"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5813"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5824"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5821"/>
         <source>Cannot load EPUB: %1</source>
         <translation>Cannot load EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5829"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5826"/>
         <source>Cannot load file %1: %2</source>
         <translation>Cannot load file %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5856"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5853"/>
         <source>Saving EPUB...</source>
         <translation>Saving EPUB...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5865"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5862"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5889"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5886"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to mend on Save.
 
 Do you want to automatically mend the files before saving? Or cancel the Save?</source>
@@ -13359,94 +13397,94 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 Do you want to automatically mend the files before saving? Or cancel the Save?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5894"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5891"/>
         <source>Saving EPUB... cancelled</source>
         <translation>Saving EPUB... cancelled</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5920"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5917"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>EPUB saved, but not all HTML files are well formed.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5922"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5919"/>
         <source>EPUB saved.</source>
         <translation>EPUB saved.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5928"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5925"/>
         <source>Cannot save file %1: %2</source>
         <translation>Cannot save file %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6061"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6058"/>
         <source>EPUB files (*.epub)</source>
         <translation>EPUB files (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6062"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6063"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6064"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6059"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6060"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6061"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>HTML files (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6065"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6062"/>
         <source>Text files (*.txt)</source>
         <translation>Text files (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6066"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6063"/>
         <source>All files (*.*)</source>
         <translation>All files (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6074"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6071"/>
         <source>EPUB file (*.epub)</source>
         <translation>EPUB file (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6176"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6175"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>Preserve existing heading attributes is now:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6177"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6176"/>
         <source>ON</source>
         <translation>ON</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6177"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6176"/>
         <source>OFF</source>
         <translation>OFF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6202"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6201"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7190"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7187"/>
         <source>Focus changed to CodeView window.</source>
         <translation>Focus changed to CodeView window.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7199"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7196"/>
         <source>Focus changed to BookBrowser window.</source>
         <translation>Focus changed to BookBrowser window.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7208"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7205"/>
         <source>Focus changed to Preview window.</source>
         <translation>Focus changed to Preview window.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7217"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7214"/>
         <source>Focus changed to Table Of Contents window.</source>
         <translation>Focus changed to Table Of Contents window.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7226"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7223"/>
         <source>Focus changed to Clips window.</source>
         <translation>Focus changed to Clips window.</translation>
     </message>
@@ -13617,2658 +13655,2658 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 <context>
     <name>MarcRelators</name>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="111"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="99"/>
         <source>Abridger</source>
         <translation>Abridger</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="111"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="99"/>
         <source>A person, family, or organization contributing to a resource by shortening or condensing the original work but leaving the nature and content of the original work substantially unchanged. For substantial modifications that result in the creation of a new work, see Author.</source>
         <translation>A person, family, or organization contributing to a resource by shortening or condensing the original work but leaving the nature and content of the original work substantially unchanged. For substantial modifications that result in the creation of a new work, see Author.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="112"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="100"/>
         <source>Actor</source>
         <translation>Actor</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="112"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="100"/>
         <source>Use for a person or organization who principally exhibits acting skills in a musical or dramatic presentation or entertainment.</source>
         <translation>Use for a person or organization who principally exhibits acting skills in a musical or dramatic presentation or entertainment.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="113"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="101"/>
         <source>Adapter</source>
         <translation>Adapter</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="113"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="101"/>
         <source>Use for a person or organization who 1) reworks a musical composition, usually for a different medium, or 2) rewrites novels or stories for motion pictures or other audiovisual medium.</source>
         <translation>Use for a person or organization who 1) reworks a musical composition, usually for a different medium, or 2) rewrites novels or stories for motion pictures or other audiovisual medium.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="114"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="102"/>
         <source>Analyst</source>
         <translation>Analyst</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="114"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="102"/>
         <source>Use for a person or organization that reviews, examines and interprets data or information in a specific area.</source>
         <translation>Use for a person or organization that reviews, examines and interprets data or information in a specific area.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="115"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="103"/>
         <source>Animator</source>
         <translation>Animator</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="115"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="103"/>
         <source>Use for a person or organization who draws the two-dimensional figures, manipulates the three dimensional objects and/or also programs the computer to move objects and images for the purpose of animated film processing. Animation cameras, stands, celluloid screens, transparencies and inks are some of the tools of the animator.</source>
         <translation>Use for a person or organization who draws the two-dimensional figures, manipulates the three dimensional objects and/or also programs the computer to move objects and images for the purpose of animated film processing. Animation cameras, stands, celluloid screens, transparencies and inks are some of the tools of the animator.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="116"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="104"/>
         <source>Annotator</source>
         <translation>Annotator</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="116"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="104"/>
         <source>Use for a person who writes manuscript annotations on a printed item.</source>
         <translation>Use for a person who writes manuscript annotations on a printed item.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="117"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="105"/>
         <source>Appellant</source>
         <translation>Appellant</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="117"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="105"/>
         <source>A person or organization who appeals a lower court&apos;s decision.</source>
         <translation>A person or organization who appeals a lower court&apos;s decision.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="118"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="106"/>
         <source>Appellee</source>
         <translation>Appellee</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="118"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="106"/>
         <source>A person or organization against whom an appeal is taken.</source>
         <translation>A person or organization against whom an appeal is taken.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="119"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="107"/>
         <source>Applicant</source>
         <translation>Applicant</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="119"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="107"/>
         <source>Use for a person or organization responsible for the submission of an application or who is named as eligible for the results of the processing of the application (e.g., bestowing of rights, reward, title, position).</source>
         <translation>Use for a person or organization responsible for the submission of an application or who is named as eligible for the results of the processing of the application (e.g., bestowing of rights, reward, title, position).</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="120"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="108"/>
         <source>Architect</source>
         <translation>Architect</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="120"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="108"/>
         <source>Use for a person or organization who designs structures or oversees their construction.</source>
         <translation>Use for a person or organization who designs structures or oversees their construction.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="121"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="109"/>
         <source>Arranger</source>
         <translation>Arranger</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="121"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="109"/>
         <source>Use for a person or organization who transcribes a musical composition, usually for a different medium from that of the original; in an arrangement the musical substance remains essentially unchanged.</source>
         <translation>Use for a person or organization who transcribes a musical composition, usually for a different medium from that of the original; in an arrangement the musical substance remains essentially unchanged.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="122"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="110"/>
         <source>Art copyist</source>
         <translation>Art copyist</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="122"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="110"/>
         <source>Use for a person (e.g., a painter or sculptor) who makes copies of works of visual art.</source>
         <translation>Use for a person (e.g., a painter or sculptor) who makes copies of works of visual art.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="123"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="111"/>
         <source>Art director</source>
         <translation>Art director</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="123"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="111"/>
         <source>A person contributing to a motion picture or television production by overseeing the artists and craftspeople who build the sets.</source>
         <translation>A person contributing to a motion picture or television production by overseeing the artists and craftspeople who build the sets.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="124"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="112"/>
         <source>Artist</source>
         <translation>Artist</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="124"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="112"/>
         <source>Use for a person (e.g., a painter) or organization who conceives, and perhaps also implements, an original graphic design or work of art, if specific codes (e.g., [egr], [etr]) are not desired. For book illustrators, prefer Illustrator [ill]. </source>
         <translation>Use for a person (e.g., a painter) or organization who conceives, and perhaps also implements, an original graphic design or work of art, if specific codes (e.g., [egr], [etr]) are not desired. For book illustrators, prefer Illustrator [ill]. </translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="125"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="113"/>
         <source>Artistic director</source>
         <translation>Artistic director</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="125"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="113"/>
         <source>Use for a person responsible for controlling the development of the artistic style of an entire production, including the choice of works to be presented and selection of senior production staff.</source>
         <translation>Use for a person responsible for controlling the development of the artistic style of an entire production, including the choice of works to be presented and selection of senior production staff.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="126"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="114"/>
         <source>Assignee</source>
         <translation>Assignee</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="126"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="114"/>
         <source>Use for a person or organization to whom a license for printing or publishing has been transferred.</source>
         <translation>Use for a person or organization to whom a license for printing or publishing has been transferred.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="127"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="115"/>
         <source>Associated name</source>
         <translation>Associated name</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="127"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="115"/>
         <source>Use for a person or organization associated with or found in an item or collection, which cannot be determined to be that of a Former owner [fmo] or other designated relator indicative of provenance.</source>
         <translation>Use for a person or organization associated with or found in an item or collection, which cannot be determined to be that of a Former owner [fmo] or other designated relator indicative of provenance.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="128"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="116"/>
         <source>Attributed name</source>
         <translation>Attributed name</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="128"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="116"/>
         <source>Use for an author, artist, etc., relating him/her to a work for which there is or once was substantial authority for designating that person as author, creator, etc. of the work. </source>
         <translation>Use for an author, artist, etc., relating him/her to a work for which there is or once was substantial authority for designating that person as author, creator, etc. of the work. </translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="129"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="117"/>
         <source>Auctioneer</source>
         <translation>Auctioneer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="129"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="117"/>
         <source>Use for a person or organization in charge of the estimation and public auctioning of goods, particularly books, artistic works, etc.</source>
         <translation>Use for a person or organization in charge of the estimation and public auctioning of goods, particularly books, artistic works, etc.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="130"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="118"/>
         <source>Author</source>
         <translation>Author</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="130"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="118"/>
         <source>Use for a person or organization chiefly responsible for the intellectual or artistic content of a work, usually printed text. This term may also be used when more than one person or body bears such responsibility. </source>
         <translation>Use for a person or organization chiefly responsible for the intellectual or artistic content of a work, usually printed text. This term may also be used when more than one person or body bears such responsibility. </translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="131"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="119"/>
         <source>Author in quotations or text extracts</source>
         <translation>Author in quotations or text extracts</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="131"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="119"/>
         <source>Use for a person or organization whose work is largely quoted or extracted in works to which he or she did not contribute directly. Such quotations are found particularly in exhibition catalogs, collections of photographs, etc.</source>
         <translation>Use for a person or organization whose work is largely quoted or extracted in works to which he or she did not contribute directly. Such quotations are found particularly in exhibition catalogs, collections of photographs, etc.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="132"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="120"/>
         <source>Author of afterword, colophon, etc.</source>
         <translation>Author of afterword, colophon, etc.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="132"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="120"/>
         <source>Use for a person or organization responsible for an afterword, postface, colophon, etc. but who is not the chief author of a work.</source>
         <translation>Use for a person or organization responsible for an afterword, postface, colophon, etc. but who is not the chief author of a work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="133"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="121"/>
         <source>Author of dialog</source>
         <translation>Author of dialog</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="133"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="121"/>
         <source>Use for a person or organization responsible for the dialog or spoken commentary for a screenplay or sound recording.</source>
         <translation>Use for a person or organization responsible for the dialog or spoken commentary for a screenplay or sound recording.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="134"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="122"/>
         <source>Author of introduction, etc.</source>
         <translation>Author of introduction, etc.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="134"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="122"/>
         <source>Use for a person or organization responsible for an introduction, preface, foreword, or other critical introductory matter, but who is not the chief author.</source>
         <translation>Use for a person or organization responsible for an introduction, preface, foreword, or other critical introductory matter, but who is not the chief author.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="135"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="123"/>
         <source>Author of screenplay, etc.</source>
         <translation>Author of screenplay, etc.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="135"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="123"/>
         <source>Use for a person or organization responsible for a motion picture screenplay, dialog, spoken commentary, etc.</source>
         <translation>Use for a person or organization responsible for a motion picture screenplay, dialog, spoken commentary, etc.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="136"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="124"/>
         <source>Autographer</source>
         <translation>Autographer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="136"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="124"/>
         <source>A person whose manuscript signature appears on an item.</source>
         <translation>A person whose manuscript signature appears on an item.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="137"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="125"/>
         <source>Bibliographic antecedent</source>
         <translation>Bibliographic antecedent</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="137"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="125"/>
         <source>Use for a person or organization responsible for a work upon which the work represented by the catalog record is based. This may be appropriate for adaptations, sequels, continuations, indexes, etc.</source>
         <translation>Use for a person or organization responsible for a work upon which the work represented by the catalog record is based. This may be appropriate for adaptations, sequels, continuations, indexes, etc.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="138"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="126"/>
         <source>Binder</source>
         <translation>Binder</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="138"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="126"/>
         <source>Use for a person or organization responsible for the binding of printed or manuscript materials.</source>
         <translation>Use for a person or organization responsible for the binding of printed or manuscript materials.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="139"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="127"/>
         <source>Binding designer</source>
         <translation>Binding designer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="139"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="127"/>
         <source>Use for a person or organization responsible for the binding design of a book, including the type of binding, the type of materials used, and any decorative aspects of the binding. </source>
         <translation>Use for a person or organization responsible for the binding design of a book, including the type of binding, the type of materials used, and any decorative aspects of the binding. </translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="140"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="128"/>
         <source>Blurb writer</source>
         <translation>Blurb writer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="140"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="128"/>
         <source>A person or organization responsible for writing a commendation or testimonial for a work, which appears on or within the publication itself, frequently on the back or dust jacket of print publications or on advertising material for all media.</source>
         <translation>A person or organization responsible for writing a commendation or testimonial for a work, which appears on or within the publication itself, frequently on the back or dust jacket of print publications or on advertising material for all media.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="141"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="129"/>
         <source>Book designer</source>
         <translation>Book designer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="141"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="129"/>
         <source>Use for a person or organization responsible for the entire graphic design of a book, including arrangement of type and illustration, choice of materials, and process used. </source>
         <translation>Use for a person or organization responsible for the entire graphic design of a book, including arrangement of type and illustration, choice of materials, and process used. </translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="142"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="130"/>
         <source>Book producer</source>
         <translation>Book producer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="142"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="130"/>
         <source>Use for a person or organization responsible for the production of books and other print media, if specific codes (e.g., [bkd], [egr], [tyd], [prt]) are not desired. </source>
         <translation>Use for a person or organization responsible for the production of books and other print media, if specific codes (e.g., [bkd], [egr], [tyd], [prt]) are not desired. </translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="143"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="131"/>
         <source>Bookjacket designer</source>
         <translation>Bookjacket designer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="143"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="131"/>
         <source>Use for a person or organization responsible for the design of flexible covers designed for or published with a book, including the type of materials used, and any decorative aspects of the bookjacket. </source>
         <translation>Use for a person or organization responsible for the design of flexible covers designed for or published with a book, including the type of materials used, and any decorative aspects of the bookjacket. </translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="144"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="132"/>
         <source>Bookplate designer</source>
         <translation>Bookplate designer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="144"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="132"/>
         <source>Use for a person or organization responsible for the design of a book owner&apos;s identification label that is most commonly pasted to the inside front cover of a book. </source>
         <translation>Use for a person or organization responsible for the design of a book owner&apos;s identification label that is most commonly pasted to the inside front cover of a book. </translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="145"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="133"/>
         <source>Bookseller</source>
         <translation>Bookseller</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="145"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="133"/>
         <source>Use for a person or organization who makes books and other bibliographic materials available for purchase. Interest in the materials is primarily lucrative.</source>
         <translation>Use for a person or organization who makes books and other bibliographic materials available for purchase. Interest in the materials is primarily lucrative.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="146"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="134"/>
         <source>Braille embosser</source>
         <translation>Braille embosser</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="146"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="134"/>
         <source>A person, family, or organization involved in manufacturing a resource by embossing Braille cells using a stylus, special embossing printer, or other device.</source>
         <translation>A person, family, or organization involved in manufacturing a resource by embossing Braille cells using a stylus, special embossing printer, or other device.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="147"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="135"/>
         <source>Broadcaster</source>
         <translation>Broadcaster</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="147"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="135"/>
         <source>A person, family, or organization involved in broadcasting a resource to an audience via radio, television, webcast, etc.</source>
         <translation>A person, family, or organization involved in broadcasting a resource to an audience via radio, television, webcast, etc.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="148"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="136"/>
         <source>Calligrapher</source>
         <translation>Calligrapher</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="148"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="136"/>
         <source>Use for a person or organization who writes in an artistic hand, usually as a copyist and or engrosser.</source>
         <translation>Use for a person or organization who writes in an artistic hand, usually as a copyist and or engrosser.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="149"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="137"/>
         <source>Cartographer</source>
         <translation>Cartographer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="149"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="137"/>
         <source>Use for a person or organization responsible for the creation of maps and other cartographic materials.</source>
         <translation>Use for a person or organization responsible for the creation of maps and other cartographic materials.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="150"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="138"/>
         <source>Caster</source>
         <translation>Caster</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="150"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="138"/>
         <source>A person, family, or organization involved in manufacturing a resource by pouring a liquid or molten substance into a mold and leaving it to solidify to take the shape of the mold.</source>
         <translation>A person, family, or organization involved in manufacturing a resource by pouring a liquid or molten substance into a mold and leaving it to solidify to take the shape of the mold.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="151"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="139"/>
         <source>Censor</source>
         <translation>Censor</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="151"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="139"/>
         <source>Use for a censor, bowdlerizer, expurgator, etc., official or private. </source>
         <translation>Use for a censor, bowdlerizer, expurgator, etc., official or private. </translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="152"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="140"/>
         <source>Choreographer</source>
         <translation>Choreographer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="152"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="140"/>
         <source>Use for a person or organization who composes or arranges dances or other movements (e.g., &quot;master of swords&quot;) for a musical or dramatic presentation or entertainment.</source>
         <translation>Use for a person or organization who composes or arranges dances or other movements (e.g., &quot;master of swords&quot;) for a musical or dramatic presentation or entertainment.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="153"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="141"/>
         <source>Cinematographer</source>
         <translation>Cinematographer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="153"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="141"/>
         <source>Use for a person or organization who is in charge of the images captured for a motion picture film. The cinematographer works under the supervision of a director, and may also be referred to as director of photography. Do not confuse with videographer.</source>
         <translation>Use for a person or organization who is in charge of the images captured for a motion picture film. The cinematographer works under the supervision of a director, and may also be referred to as director of photography. Do not confuse with videographer.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="154"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="142"/>
         <source>Client</source>
         <translation>Client</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="154"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="142"/>
         <source>Use for a person or organization for whom another person or organization is acting.</source>
         <translation>Use for a person or organization for whom another person or organization is acting.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="155"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="143"/>
         <source>Collection registrar</source>
         <translation>Collection registrar</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="155"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="143"/>
         <source>A curator who lists or inventories the items in an aggregate work such as a collection of items or works.</source>
         <translation>A curator who lists or inventories the items in an aggregate work such as a collection of items or works.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="156"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="144"/>
         <source>Collector</source>
         <translation>Collector</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="156"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="144"/>
         <source>Use for a person or organization who has brought together material from various sources that has been arranged, described, and cataloged as a collection. A collector is neither the creator of the material nor a person to whom manuscripts in the collection may have been addressed.</source>
         <translation>Use for a person or organization who has brought together material from various sources that has been arranged, described, and cataloged as a collection. A collector is neither the creator of the material nor a person to whom manuscripts in the collection may have been addressed.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="157"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="145"/>
         <source>Collotyper</source>
         <translation>Collotyper</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="157"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="145"/>
         <source>Use for a person or organization responsible for the production of photographic prints from film or other colloid that has ink-receptive and ink-repellent surfaces.</source>
         <translation>Use for a person or organization responsible for the production of photographic prints from film or other colloid that has ink-receptive and ink-repellent surfaces.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="158"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="146"/>
         <source>Colorist</source>
         <translation>Colorist</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="158"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="146"/>
         <source>A person or organization responsible for applying color to drawings, prints, photographs, maps, moving images, etc.</source>
         <translation>A person or organization responsible for applying color to drawings, prints, photographs, maps, moving images, etc.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="159"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="147"/>
         <source>Commentator</source>
         <translation>Commentator</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="159"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="147"/>
         <source>Use for a person or organization who provides interpretation, analysis, or a discussion of the subject matter on a recording, motion picture, or other audiovisual medium.</source>
         <translation>Use for a person or organization who provides interpretation, analysis, or a discussion of the subject matter on a recording, motion picture, or other audiovisual medium.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="160"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="148"/>
         <source>Commentator for written text</source>
         <translation>Commentator for written text</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="160"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="148"/>
         <source>Use for a person or organization responsible for the commentary or explanatory notes about a text. For the writer of manuscript annotations in a printed book, use Annotator [ann].</source>
         <translation>Use for a person or organization responsible for the commentary or explanatory notes about a text. For the writer of manuscript annotations in a printed book, use Annotator [ann].</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="161"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="149"/>
         <source>Compiler</source>
         <translation>Compiler</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="161"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="149"/>
         <source>Use for a person or organization who produces a work or publication by selecting and putting together material from the works of various persons or bodies.</source>
         <translation>Use for a person or organization who produces a work or publication by selecting and putting together material from the works of various persons or bodies.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="162"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="150"/>
         <source>Complainant</source>
         <translation>Complainant</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="162"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="150"/>
         <source>Use for the party who applies to the courts for redress, usually in an equity proceeding.</source>
         <translation>Use for the party who applies to the courts for redress, usually in an equity proceeding.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="163"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="151"/>
         <source>Complainant-appellant</source>
         <translation>Complainant-appellant</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="163"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="151"/>
         <source>Use for a complainant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
         <translation>Use for a complainant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="164"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="152"/>
         <source>Complainant-appellee</source>
         <translation>Complainant-appellee</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="164"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="152"/>
         <source>Use for a complainant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
         <translation>Use for a complainant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="165"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="153"/>
         <source>Composer</source>
         <translation>Composer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="165"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="153"/>
         <source>Use for a person or organization who creates a musical work, usually a piece of music in manuscript or printed form.</source>
         <translation>Use for a person or organization who creates a musical work, usually a piece of music in manuscript or printed form.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="166"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="154"/>
         <source>Compositor</source>
         <translation>Compositor</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="166"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="154"/>
         <source>Use for a person or organization responsible for the creation of metal slug, or molds made of other materials, used to produce the text and images in printed matter. </source>
         <translation>Use for a person or organization responsible for the creation of metal slug, or molds made of other materials, used to produce the text and images in printed matter. </translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="167"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="155"/>
         <source>Conceptor</source>
         <translation>Conceptor</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="167"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="155"/>
         <source>Use for a person or organization responsible for the original idea on which a work is based, this includes the scientific author of an audio-visual item and the conceptor of an advertisement.</source>
         <translation>Use for a person or organization responsible for the original idea on which a work is based, this includes the scientific author of an audio-visual item and the conceptor of an advertisement.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="168"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="156"/>
         <source>Conductor</source>
         <translation>Conductor</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="168"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="156"/>
         <source>Use for a person who directs a performing group (orchestra, chorus, opera, etc.) in a musical or dramatic presentation or entertainment.</source>
         <translation>Use for a person who directs a performing group (orchestra, chorus, opera, etc.) in a musical or dramatic presentation or entertainment.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="169"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="157"/>
         <source>Conservator</source>
         <translation>Conservator</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="169"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="157"/>
         <source>A person or organization responsible for documenting, preserving, or treating printed or manuscript material, works of art, artifacts, or other media.</source>
         <translation>A person or organization responsible for documenting, preserving, or treating printed or manuscript material, works of art, artifacts, or other media.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="170"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="158"/>
         <source>Consultant</source>
         <translation>Consultant</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="170"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="158"/>
         <source>Use for a person or organization relevant to a resource, who is called upon for professional advice or services in a specialized field of knowledge or training.</source>
         <translation>Use for a person or organization relevant to a resource, who is called upon for professional advice or services in a specialized field of knowledge or training.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="171"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="159"/>
         <source>Consultant to a project</source>
         <translation>Consultant to a project</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="171"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="159"/>
         <source>Use for a person or organization relevant to a resource, who is engaged specifically to provide an intellectual overview of a strategic or operational task and by analysis, specification, or instruction, to create or propose a cost-effective course of action or solution.</source>
         <translation>Use for a person or organization relevant to a resource, who is engaged specifically to provide an intellectual overview of a strategic or operational task and by analysis, specification, or instruction, to create or propose a cost-effective course of action or solution.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="172"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="160"/>
         <source>Contestant</source>
         <translation>Contestant</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="172"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="160"/>
         <source>Use for the party who opposes, resists, or disputes, in a court of law, a claim, decision, result, etc.</source>
         <translation>Use for the party who opposes, resists, or disputes, in a court of law, a claim, decision, result, etc.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="173"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="161"/>
         <source>Contestant-appellant</source>
         <translation>Contestant-appellant</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="173"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="161"/>
         <source>Use for a contestant who takes an appeal from one court of law or jurisdiction to another to reverse the judgment.</source>
         <translation>Use for a contestant who takes an appeal from one court of law or jurisdiction to another to reverse the judgment.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="174"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="162"/>
         <source>Contestant-appellee</source>
         <translation>Contestant-appellee</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="174"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="162"/>
         <source>Use for a contestant against whom an appeal is taken from one court of law or jurisdiction to another to reverse the judgment.</source>
         <translation>Use for a contestant against whom an appeal is taken from one court of law or jurisdiction to another to reverse the judgment.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="175"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="163"/>
         <source>Contestee</source>
         <translation>Contestee</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="175"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="163"/>
         <source>Use for the party defending a claim, decision, result, etc. being opposed, resisted, or disputed in a court of law.</source>
         <translation>Use for the party defending a claim, decision, result, etc. being opposed, resisted, or disputed in a court of law.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="176"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="164"/>
         <source>Contestee-appellant</source>
         <translation>Contestee-appellant</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="176"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="164"/>
         <source>Use for a contestee who takes an appeal from one court or jurisdiction to another to reverse the judgment.</source>
         <translation>Use for a contestee who takes an appeal from one court or jurisdiction to another to reverse the judgment.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="177"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="165"/>
         <source>Contestee-appellee</source>
         <translation>Contestee-appellee</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="177"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="165"/>
         <source>Use for a contestee against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment.</source>
         <translation>Use for a contestee against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="178"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="166"/>
         <source>Contractor</source>
         <translation>Contractor</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="178"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="166"/>
         <source>Use for a person or organization relevant to a resource, who enters into a contract with another person or organization to perform a specific task.</source>
         <translation>Use for a person or organization relevant to a resource, who enters into a contract with another person or organization to perform a specific task.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="179"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="167"/>
         <source>Contributor</source>
         <translation>Contributor</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="179"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="167"/>
         <source>Use for a person or organization one whose work has been contributed to a larger work, such as an anthology, serial publication, or other compilation of individual works. Do not use if the sole function in relation to a work is as author, editor, compiler or translator.</source>
         <translation>Use for a person or organization one whose work has been contributed to a larger work, such as an anthology, serial publication, or other compilation of individual works. Do not use if the sole function in relation to a work is as author, editor, compiler or translator.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="180"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="168"/>
         <source>Copyright claimant</source>
         <translation>Copyright claimant</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="180"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="168"/>
         <source>Use for a person or organization listed as a copyright owner at the time of registration. Copyright can be granted or later transferred to another person or organization, at which time the claimant becomes the copyright holder.</source>
         <translation>Use for a person or organization listed as a copyright owner at the time of registration. Copyright can be granted or later transferred to another person or organization, at which time the claimant becomes the copyright holder.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="181"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="169"/>
         <source>Copyright holder</source>
         <translation>Copyright holder</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="181"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="169"/>
         <source>Use for a person or organization to whom copy and legal rights have been granted or transferred for the intellectual content of a work. The copyright holder, although not necessarily the creator of the work, usually has the exclusive right to benefit financially from the sale and use of the work to which the associated copyright protection applies.</source>
         <translation>Use for a person or organization to whom copy and legal rights have been granted or transferred for the intellectual content of a work. The copyright holder, although not necessarily the creator of the work, usually has the exclusive right to benefit financially from the sale and use of the work to which the associated copyright protection applies.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="182"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="170"/>
         <source>Corrector</source>
         <translation>Corrector</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="182"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="170"/>
         <source>Use for a person or organization who is a corrector of manuscripts, such as the scriptorium official who corrected the work of a scribe. For printed matter, use Proofreader.</source>
         <translation>Use for a person or organization who is a corrector of manuscripts, such as the scriptorium official who corrected the work of a scribe. For printed matter, use Proofreader.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="183"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="171"/>
         <source>Correspondent</source>
         <translation>Correspondent</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="183"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="171"/>
         <source>Use for a person or organization who was either the writer or recipient of a letter or other communication.</source>
         <translation>Use for a person or organization who was either the writer or recipient of a letter or other communication.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="184"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="172"/>
         <source>Costume designer</source>
         <translation>Costume designer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="184"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="172"/>
         <source>Use for a person or organization who designs or makes costumes, fixes hair, etc., for a musical or dramatic presentation or entertainment.</source>
         <translation>Use for a person or organization who designs or makes costumes, fixes hair, etc., for a musical or dramatic presentation or entertainment.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="185"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="173"/>
         <source>Court governed</source>
         <translation>Court governed</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="185"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="173"/>
         <source>A court governed by court rules, regardless of their official nature (e.g., laws, administrative regulations.)</source>
         <translation>A court governed by court rules, regardless of their official nature (e.g., laws, administrative regulations.)</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="186"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="174"/>
         <source>Court reporter</source>
         <translation>Court reporter</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="186"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="174"/>
         <source>A person, family, or organization contributing to a resource by preparing a court&apos;s opinions for publication.</source>
         <translation>A person, family, or organization contributing to a resource by preparing a court&apos;s opinions for publication.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="187"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="175"/>
         <source>Cover designer</source>
         <translation>Cover designer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="187"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="175"/>
         <source>Use for a person or organization responsible for the graphic design of a book cover, album cover, slipcase, box, container, etc. For a person or organization responsible for the graphic design of an entire book, use Book designer; for book jackets, use Bookjacket designer.</source>
         <translation>Use for a person or organization responsible for the graphic design of a book cover, album cover, slipcase, box, container, etc. For a person or organization responsible for the graphic design of an entire book, use Book designer; for book jackets, use Bookjacket designer.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="188"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="176"/>
         <source>Creator</source>
         <translation>Creator</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="188"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="176"/>
         <source>Use for a person or organization responsible for the intellectual or artistic content of a work.</source>
         <translation>Use for a person or organization responsible for the intellectual or artistic content of a work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="189"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="177"/>
         <source>Curator of an exhibition</source>
         <translation>Curator of an exhibition</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="189"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="177"/>
         <source>Use for a person or organization responsible for conceiving and organizing an exhibition.</source>
         <translation>Use for a person or organization responsible for conceiving and organizing an exhibition.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="190"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="178"/>
         <source>Dancer</source>
         <translation>Dancer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="190"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="178"/>
         <source>Use for a person or organization who principally exhibits dancing skills in a musical or dramatic presentation or entertainment.</source>
         <translation>Use for a person or organization who principally exhibits dancing skills in a musical or dramatic presentation or entertainment.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="191"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="179"/>
         <source>Data contributor</source>
         <translation>Data contributor</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="191"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="179"/>
         <source>Use for a person or organization that submits data for inclusion in a database or other collection of data.</source>
         <translation>Use for a person or organization that submits data for inclusion in a database or other collection of data.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="192"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="180"/>
         <source>Data manager</source>
         <translation>Data manager</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="192"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="180"/>
         <source>Use for a person or organization responsible for managing databases or other data sources.</source>
         <translation>Use for a person or organization responsible for managing databases or other data sources.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="193"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="181"/>
         <source>Dedicatee</source>
         <translation>Dedicatee</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="193"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="181"/>
         <source>Use for a person or organization to whom a book, manuscript, etc., is dedicated (not the recipient of a gift).</source>
         <translation>Use for a person or organization to whom a book, manuscript, etc., is dedicated (not the recipient of a gift).</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="194"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="182"/>
         <source>Dedicator</source>
         <translation>Dedicator</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="194"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="182"/>
         <source>Use for the author of a dedication, which may be a formal statement or in epistolary or verse form.</source>
         <translation>Use for the author of a dedication, which may be a formal statement or in epistolary or verse form.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="195"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="183"/>
         <source>Defendant</source>
         <translation>Defendant</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="195"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="183"/>
         <source>Use for the party defending or denying allegations made in a suit and against whom relief or recovery is sought in the courts, usually in a legal action.</source>
         <translation>Use for the party defending or denying allegations made in a suit and against whom relief or recovery is sought in the courts, usually in a legal action.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="196"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="184"/>
         <source>Defendant-appellant</source>
         <translation>Defendant-appellant</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="196"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="184"/>
         <source>Use for a defendant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
         <translation>Use for a defendant who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="197"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="185"/>
         <source>Defendant-appellee</source>
         <translation>Defendant-appellee</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="197"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="185"/>
         <source>Use for a defendant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</source>
         <translation>Use for a defendant against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal action.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="198"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="186"/>
         <source>Degree grantor</source>
         <translation>Degree grantor</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="198"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="186"/>
         <source>Use for the organization granting a degree for which the thesis or dissertation described was presented.</source>
         <translation>Use for the organization granting a degree for which the thesis or dissertation described was presented.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="199"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="187"/>
         <source>Delineator</source>
         <translation>Delineator</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="199"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="187"/>
         <source>Use for a person or organization executing technical drawings from others&apos; designs.</source>
         <translation>Use for a person or organization executing technical drawings from others&apos; designs.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="200"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="188"/>
         <source>Depicted</source>
         <translation>Depicted</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="200"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="188"/>
         <source>Use for an entity depicted or portrayed in a work, particularly in a work of art.</source>
         <translation>Use for an entity depicted or portrayed in a work, particularly in a work of art.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="201"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="189"/>
         <source>Depositor</source>
         <translation>Depositor</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="201"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="189"/>
         <source>Use for a person or organization placing material in the physical custody of a library or repository without transferring the legal title.</source>
         <translation>Use for a person or organization placing material in the physical custody of a library or repository without transferring the legal title.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="202"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="190"/>
         <source>Designer</source>
         <translation>Designer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="202"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="190"/>
         <source>Use for a person or organization responsible for the design if more specific codes (e.g., [bkd], [tyd]) are not desired.</source>
         <translation>Use for a person or organization responsible for the design if more specific codes (e.g., [bkd], [tyd]) are not desired.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="203"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="191"/>
         <source>Director</source>
         <translation>Director</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="203"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="191"/>
         <source>Use for a person or organization who is responsible for the general management of a work or who supervises the production of a performance for stage, screen, or sound recording.</source>
         <translation>Use for a person or organization who is responsible for the general management of a work or who supervises the production of a performance for stage, screen, or sound recording.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="204"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="192"/>
         <source>Dissertant</source>
         <translation>Dissertant</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="204"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="192"/>
         <source>Use for a person who presents a thesis for a university or higher-level educational degree.</source>
         <translation>Use for a person who presents a thesis for a university or higher-level educational degree.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="205"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="193"/>
         <source>Distribution place</source>
         <translation>Distribution place</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="205"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="193"/>
         <source>A place from which a resource, e.g., a serial, is distributed.</source>
         <translation>A place from which a resource, e.g., a serial, is distributed.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="206"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="194"/>
         <source>Distributor</source>
         <translation>Distributor</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="206"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="194"/>
         <source>Use for a person or organization that has exclusive or shared marketing rights for an item.</source>
         <translation>Use for a person or organization that has exclusive or shared marketing rights for an item.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="207"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="195"/>
         <source>Donor</source>
         <translation>Donor</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="207"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="195"/>
         <source>Use for a person or organization who is the donor of a book, manuscript, etc., to its present owner. Donors to previous owners are designated as Former owner [fmo] or Inscriber [ins].</source>
         <translation>Use for a person or organization who is the donor of a book, manuscript, etc., to its present owner. Donors to previous owners are designated as Former owner [fmo] or Inscriber [ins].</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="208"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="196"/>
         <source>Draftsman</source>
         <translation>Draftsman</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="208"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="196"/>
         <source>Use for a person or organization who prepares artistic or technical drawings. </source>
         <translation>Use for a person or organization who prepares artistic or technical drawings. </translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="209"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="197"/>
         <source>Dubious author</source>
         <translation>Dubious author</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="209"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="197"/>
         <source>Use for a person or organization to which authorship has been dubiously or incorrectly ascribed.</source>
         <translation>Use for a person or organization to which authorship has been dubiously or incorrectly ascribed.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="210"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="198"/>
         <source>Editor</source>
         <translation>Editor</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="210"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="198"/>
         <source>Use for a person or organization who prepares for publication a work not primarily his/her own, such as by elucidating text, adding introductory or other critical matter, or technically directing an editorial staff.</source>
         <translation>Use for a person or organization who prepares for publication a work not primarily his/her own, such as by elucidating text, adding introductory or other critical matter, or technically directing an editorial staff.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="211"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="199"/>
         <source>Editor of compilation</source>
         <translation>Editor of compilation</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="211"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="199"/>
         <source>A person, family, or organization contributing to a collective or aggregate work by selecting and putting together works, or parts of works, by one or more creators. For compilations of data, information, etc., that result in new works, see compiler.</source>
         <translation>A person, family, or organization contributing to a collective or aggregate work by selecting and putting together works, or parts of works, by one or more creators. For compilations of data, information, etc., that result in new works, see compiler.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="212"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="200"/>
         <source>Editor of moving image work</source>
         <translation>Editor of moving image work</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="212"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="200"/>
         <source>A person, family, or organization responsible for assembling, arranging, and trimming film, video, or other moving image formats, including both visual and audio aspects.</source>
         <translation>A person, family, or organization responsible for assembling, arranging, and trimming film, video, or other moving image formats, including both visual and audio aspects.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="213"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="201"/>
         <source>Electrician</source>
         <translation>Electrician</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="213"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="201"/>
         <source>Use for a person responsible for setting up a lighting rig and focusing the lights for a production, and running the lighting at a performance.</source>
         <translation>Use for a person responsible for setting up a lighting rig and focusing the lights for a production, and running the lighting at a performance.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="214"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="202"/>
         <source>Electrotyper</source>
         <translation>Electrotyper</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="214"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="202"/>
         <source>Use for a person or organization who creates a duplicate printing surface by pressure molding and electrodepositing of metal that is then backed up with lead for printing.</source>
         <translation>Use for a person or organization who creates a duplicate printing surface by pressure molding and electrodepositing of metal that is then backed up with lead for printing.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="215"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="203"/>
         <source>Engineer</source>
         <translation>Engineer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="215"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="203"/>
         <source>Use for a person or organization that is responsible for technical planning and design, particularly with construction.</source>
         <translation>Use for a person or organization that is responsible for technical planning and design, particularly with construction.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="216"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="204"/>
         <source>Engraver</source>
         <translation>Engraver</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="216"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="204"/>
         <source>Use for a person or organization who cuts letters, figures, etc. on a surface, such as a wooden or metal plate, for printing.</source>
         <translation>Use for a person or organization who cuts letters, figures, etc. on a surface, such as a wooden or metal plate, for printing.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="217"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="205"/>
         <source>Etcher</source>
         <translation>Etcher</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="217"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="205"/>
         <source>Use for a person or organization who produces text or images for printing by subjecting metal, glass, or some other surface to acid or the corrosive action of some other substance.</source>
         <translation>Use for a person or organization who produces text or images for printing by subjecting metal, glass, or some other surface to acid or the corrosive action of some other substance.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="218"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="206"/>
         <source>Event place</source>
         <translation>Event place</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="218"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="206"/>
         <source>A place where an event such as a conference or a concert took place.</source>
         <translation>A place where an event such as a conference or a concert took place.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="219"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="207"/>
         <source>Expert</source>
         <translation>Expert</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="219"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="207"/>
         <source>Use for a person or organization in charge of the description and appraisal of the value of goods, particularly rare items, works of art, etc. </source>
         <translation>Use for a person or organization in charge of the description and appraisal of the value of goods, particularly rare items, works of art, etc. </translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="220"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="208"/>
         <source>Facsimilist</source>
         <translation>Facsimilist</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="220"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="208"/>
         <source>Use for a person or organization that executed the facsimile.</source>
         <translation>Use for a person or organization that executed the facsimile.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="221"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="209"/>
         <source>Field director</source>
         <translation>Field director</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="221"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="209"/>
         <source>Use for a person or organization that manages or supervises the work done to collect raw data or do research in an actual setting or environment (typically applies to the natural and social sciences).</source>
         <translation>Use for a person or organization that manages or supervises the work done to collect raw data or do research in an actual setting or environment (typically applies to the natural and social sciences).</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="222"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="210"/>
         <source>Film director</source>
         <translation>Film director</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="222"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="210"/>
         <source>A director responsible for the general management and supervision of a filmed performance.</source>
         <translation>A director responsible for the general management and supervision of a filmed performance.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="223"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="211"/>
         <source>Film distributor</source>
         <translation>Film distributor</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="223"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="211"/>
         <source>A person, family, or organization involved in distributing a moving image resource to theatres or other distribution channels.</source>
         <translation>A person, family, or organization involved in distributing a moving image resource to theatres or other distribution channels.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="224"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="212"/>
         <source>Film editor</source>
         <translation>Film editor</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="224"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="212"/>
         <source>Use for a person or organization who is an editor of a motion picture film. This term is used regardless of the medium upon which the motion picture is produced or manufactured (e.g., acetate film, video tape). </source>
         <translation>Use for a person or organization who is an editor of a motion picture film. This term is used regardless of the medium upon which the motion picture is produced or manufactured (e.g., acetate film, video tape). </translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="225"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="213"/>
         <source>Film producer</source>
         <translation>Film producer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="225"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="213"/>
         <source>A producer responsible for most of the business aspects of a film.</source>
         <translation>A producer responsible for most of the business aspects of a film.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="226"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="214"/>
         <source>Filmmaker</source>
         <translation>Filmmaker</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="226"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="214"/>
         <source>A person, family or organization responsible for creating an independent or personal film. A filmmaker is individually responsible for the conception and execution of all aspects of the film.</source>
         <translation>A person, family or organization responsible for creating an independent or personal film. A filmmaker is individually responsible for the conception and execution of all aspects of the film.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="227"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="215"/>
         <source>First party</source>
         <translation>First party</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="227"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="215"/>
         <source>Use for a person or organization who is identified as the only party or the party of the first part. In the case of transfer of right, this is the assignor, transferor, licensor, grantor, etc. Multiple parties can be named jointly as the first party.</source>
         <translation>Use for a person or organization who is identified as the only party or the party of the first part. In the case of transfer of right, this is the assignor, transferor, licensor, grantor, etc. Multiple parties can be named jointly as the first party.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="228"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="216"/>
         <source>Forger</source>
         <translation>Forger</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="228"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="216"/>
         <source>Use for a person or organization who makes or imitates something of value or importance, especially with the intent to defraud. </source>
         <translation>Use for a person or organization who makes or imitates something of value or importance, especially with the intent to defraud. </translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="229"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="217"/>
         <source>Former owner</source>
         <translation>Former owner</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="229"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="217"/>
         <source>Use for a person or organization who owned an item at any time in the past. Includes those to whom the material was once presented. A person or organization giving the item to the present owner is designated as Donor [dnr].</source>
         <translation>Use for a person or organization who owned an item at any time in the past. Includes those to whom the material was once presented. A person or organization giving the item to the present owner is designated as Donor [dnr].</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="230"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="218"/>
         <source>Funder</source>
         <translation>Funder</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="230"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="218"/>
         <source>Use for a person or organization that furnished financial support for the production of the work.</source>
         <translation>Use for a person or organization that furnished financial support for the production of the work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="231"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="219"/>
         <source>Geographic information specialist</source>
         <translation>Geographic information specialist</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="231"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="219"/>
         <source>Use for a person responsible for geographic information system (GIS) development and integration with global positioning system data.</source>
         <translation>Use for a person responsible for geographic information system (GIS) development and integration with global positioning system data.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="232"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="220"/>
         <source>Honoree</source>
         <translation>Honoree</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="232"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="220"/>
         <source>Use for a person or organization in memory or honor of whom a book, manuscript, etc. is donated. </source>
         <translation>Use for a person or organization in memory or honor of whom a book, manuscript, etc. is donated. </translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="233"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="221"/>
         <source>Host</source>
         <translation>Host</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="233"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="221"/>
         <source>Use for a person who is invited or regularly leads a program (often broadcast) that includes other guests, performers, etc. (e.g., talk show host).</source>
         <translation>Use for a person who is invited or regularly leads a program (often broadcast) that includes other guests, performers, etc. (e.g., talk show host).</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="234"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="222"/>
         <source>Host institution</source>
         <translation>Host institution</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="234"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="222"/>
         <source>An organization hosting the event, exhibit, conference, etc., which gave rise to a resource, but having little or no responsibility for the content of the resource.</source>
         <translation>An organization hosting the event, exhibit, conference, etc., which gave rise to a resource, but having little or no responsibility for the content of the resource.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="235"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="223"/>
         <source>Illuminator</source>
         <translation>Illuminator</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="235"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="223"/>
         <source>Use for a person or organization responsible for the decoration of a work (especially manuscript material) with precious metals or color, usually with elaborate designs and motifs.</source>
         <translation>Use for a person or organization responsible for the decoration of a work (especially manuscript material) with precious metals or color, usually with elaborate designs and motifs.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="236"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="224"/>
         <source>Illustrator</source>
         <translation>Illustrator</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="236"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="224"/>
         <source>Use for a person or organization who conceives, and perhaps also implements, a design or illustration, usually to accompany a written text.</source>
         <translation>Use for a person or organization who conceives, and perhaps also implements, a design or illustration, usually to accompany a written text.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="237"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="225"/>
         <source>Inscriber</source>
         <translation>Inscriber</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="237"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="225"/>
         <source>Use for a person who has written a statement of dedication or gift.</source>
         <translation>Use for a person who has written a statement of dedication or gift.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="238"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="226"/>
         <source>Instrumentalist</source>
         <translation>Instrumentalist</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="238"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="226"/>
         <source>Use for a person or organization who principally plays an instrument in a musical or dramatic presentation or entertainment.</source>
         <translation>Use for a person or organization who principally plays an instrument in a musical or dramatic presentation or entertainment.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="239"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="227"/>
         <source>Interviewee</source>
         <translation>Interviewee</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="239"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="227"/>
         <source>Use for a person or organization who is interviewed at a consultation or meeting, usually by a reporter, pollster, or some other information gathering agent.</source>
         <translation>Use for a person or organization who is interviewed at a consultation or meeting, usually by a reporter, pollster, or some other information gathering agent.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="240"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="228"/>
         <source>Interviewer</source>
         <translation>Interviewer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="240"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="228"/>
         <source>Use for a person or organization who acts as a reporter, pollster, or other information gathering agent in a consultation or meeting involving one or more individuals.</source>
         <translation>Use for a person or organization who acts as a reporter, pollster, or other information gathering agent in a consultation or meeting involving one or more individuals.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="241"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="229"/>
         <source>Inventor</source>
         <translation>Inventor</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="241"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="229"/>
         <source>Use for a person or organization who first produces a particular useful item, or develops a new process for obtaining a known item or result.</source>
         <translation>Use for a person or organization who first produces a particular useful item, or develops a new process for obtaining a known item or result.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="242"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="230"/>
         <source>Issuing body</source>
         <translation>Issuing body</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="242"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="230"/>
         <source>A person, family or organization issuing a work, such as an official organ of the body.</source>
         <translation>A person, family or organization issuing a work, such as an official organ of the body.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="243"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="231"/>
         <source>Judge</source>
         <translation>Judge</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="243"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="231"/>
         <source>A person who hears and decides on legal matters in court.</source>
         <translation>A person who hears and decides on legal matters in court.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="244"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="232"/>
         <source>Jurisdiction governed</source>
         <translation>Jurisdiction governed</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="244"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="232"/>
         <source>A jurisdiction governed by a law, regulation, etc., that was enacted by another jurisdiction.</source>
         <translation>A jurisdiction governed by a law, regulation, etc., that was enacted by another jurisdiction.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="245"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="233"/>
         <source>Laboratory</source>
         <translation>Laboratory</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="245"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="233"/>
         <source>Use for an institution that provides scientific analyses of material samples.</source>
         <translation>Use for an institution that provides scientific analyses of material samples.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="246"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="234"/>
         <source>Laboratory director</source>
         <translation>Laboratory director</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="246"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="234"/>
         <source>Use for a person or organization that manages or supervises work done in a controlled setting or environment. </source>
         <translation>Use for a person or organization that manages or supervises work done in a controlled setting or environment. </translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="247"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="235"/>
         <source>Landscape architect</source>
         <translation>Landscape architect</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="247"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="235"/>
         <source>Use for a person or organization whose work involves coordinating the arrangement of existing and proposed land features and structures.</source>
         <translation>Use for a person or organization whose work involves coordinating the arrangement of existing and proposed land features and structures.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="248"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="236"/>
         <source>Lead</source>
         <translation>Lead</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="248"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="236"/>
         <source>Use to indicate that a person or organization takes primary responsibility for a particular activity or endeavor. Use with another relator term or code to show the greater importance this person or organization has regarding that particular role. If more than one relator is assigned to a heading, use the Lead relator only if it applies to all the relators.</source>
         <translation>Use to indicate that a person or organization takes primary responsibility for a particular activity or endeavor. Use with another relator term or code to show the greater importance this person or organization has regarding that particular role. If more than one relator is assigned to a heading, use the Lead relator only if it applies to all the relators.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="249"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="237"/>
         <source>Lender</source>
         <translation>Lender</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="249"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="237"/>
         <source>Use for a person or organization permitting the temporary use of a book, manuscript, etc., such as for photocopying or microfilming.</source>
         <translation>Use for a person or organization permitting the temporary use of a book, manuscript, etc., such as for photocopying or microfilming.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="250"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="238"/>
         <source>Libelant</source>
         <translation>Libelant</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="250"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="238"/>
         <source>Use for the party who files a libel in an ecclesiastical or admiralty case.</source>
         <translation>Use for the party who files a libel in an ecclesiastical or admiralty case.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="251"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="239"/>
         <source>Libelant-appellant</source>
         <translation>Libelant-appellant</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="251"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="239"/>
         <source>Use for a libelant who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
         <translation>Use for a libelant who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="252"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="240"/>
         <source>Libelant-appellee</source>
         <translation>Libelant-appellee</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="252"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="240"/>
         <source>Use for a libelant against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
         <translation>Use for a libelant against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="253"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="241"/>
         <source>Libelee</source>
         <translation>Libelee</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="253"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="241"/>
         <source>Use for a party against whom a libel has been filed in an ecclesiastical court or admiralty.</source>
         <translation>Use for a party against whom a libel has been filed in an ecclesiastical court or admiralty.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="254"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="242"/>
         <source>Libelee-appellant</source>
         <translation>Libelee-appellant</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="254"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="242"/>
         <source>Use for a libelee who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
         <translation>Use for a libelee who takes an appeal from one ecclesiastical court or admiralty to another to reverse the judgment.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="255"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="243"/>
         <source>Libelee-appellee</source>
         <translation>Libelee-appellee</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="255"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="243"/>
         <source>Use for a libelee against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</source>
         <translation>Use for a libelee against whom an appeal is taken from one ecclesiastical court or admiralty to another to reverse the judgment.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="256"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="244"/>
         <source>Librettist</source>
         <translation>Librettist</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="256"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="244"/>
         <source>Use for a person or organization who is a writer of the text of an opera, oratorio, etc.</source>
         <translation>Use for a person or organization who is a writer of the text of an opera, oratorio, etc.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="257"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="245"/>
         <source>Licensee</source>
         <translation>Licensee</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="257"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="245"/>
         <source>Use for a person or organization who is an original recipient of the right to print or publish.</source>
         <translation>Use for a person or organization who is an original recipient of the right to print or publish.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="258"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="246"/>
         <source>Licensor</source>
         <translation>Licensor</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="258"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="246"/>
         <source>Use for person or organization who is a signer of the license, imprimatur, etc. </source>
         <translation>Use for person or organization who is a signer of the license, imprimatur, etc. </translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="259"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="247"/>
         <source>Lighting designer</source>
         <translation>Lighting designer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="259"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="247"/>
         <source>Use for a person or organization who designs the lighting scheme for a theatrical presentation, entertainment, motion picture, etc.</source>
         <translation>Use for a person or organization who designs the lighting scheme for a theatrical presentation, entertainment, motion picture, etc.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="260"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="248"/>
         <source>Lithographer</source>
         <translation>Lithographer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="260"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="248"/>
         <source>Use for a person or organization who prepares the stone or plate for lithographic printing, including a graphic artist creating a design directly on the surface from which printing will be done.</source>
         <translation>Use for a person or organization who prepares the stone or plate for lithographic printing, including a graphic artist creating a design directly on the surface from which printing will be done.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="261"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="249"/>
         <source>Lyricist</source>
         <translation>Lyricist</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="261"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="249"/>
         <source>Use for a person or organization who is the a writer of the text of a song.</source>
         <translation>Use for a person or organization who is the a writer of the text of a song.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="262"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="250"/>
         <source>Manufacture place</source>
         <translation>Manufacture place</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="262"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="250"/>
         <source>The place of manufacture (e.g., printing, duplicating, casting, etc.) of a resource in a published form.</source>
         <translation>The place of manufacture (e.g., printing, duplicating, casting, etc.) of a resource in a published form.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="263"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="251"/>
         <source>Manufacturer</source>
         <translation>Manufacturer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="263"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="251"/>
         <source>Use for a person or organization that makes an artifactual work (an object made or modified by one or more persons). Examples of artifactual works include vases, cannons or pieces of furniture.</source>
         <translation>Use for a person or organization that makes an artifactual work (an object made or modified by one or more persons). Examples of artifactual works include vases, cannons or pieces of furniture.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="264"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="252"/>
         <source>Marbler</source>
         <translation>Marbler</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="264"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="252"/>
         <source>The entity responsible for marbling paper, cloth, leather, etc. used in construction of a resource.</source>
         <translation>The entity responsible for marbling paper, cloth, leather, etc. used in construction of a resource.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="265"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="253"/>
         <source>Markup editor</source>
         <translation>Markup editor</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="265"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="253"/>
         <source>Use for a person or organization performing the coding of SGML, HTML, or XML markup of metadata, text, etc.</source>
         <translation>Use for a person or organization performing the coding of SGML, HTML, or XML markup of metadata, text, etc.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="266"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="254"/>
         <source>Medium</source>
         <translation>Medium</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="266"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="254"/>
         <source>A person held to be a channel of communication between the earthly world and a different world.</source>
         <translation>A person held to be a channel of communication between the earthly world and a different world.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="267"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="255"/>
         <source>Metadata contact</source>
         <translation>Metadata contact</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="267"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="255"/>
         <source>Use for a person or organization primarily responsible for compiling and maintaining the original description of a metadata set (e.g., geospatial metadata set).</source>
         <translation>Use for a person or organization primarily responsible for compiling and maintaining the original description of a metadata set (e.g., geospatial metadata set).</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="268"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="256"/>
         <source>Metal-engraver</source>
         <translation>Metal-engraver</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="268"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="256"/>
         <source>Use for a person or organization responsible for decorations, illustrations, letters, etc. cut on a metal surface for printing or decoration.</source>
         <translation>Use for a person or organization responsible for decorations, illustrations, letters, etc. cut on a metal surface for printing or decoration.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="269"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="257"/>
         <source>Minute taker</source>
         <translation>Minute taker</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="269"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="257"/>
         <source>A person, family, or organization responsible for recording the minutes of a meeting.</source>
         <translation>A person, family, or organization responsible for recording the minutes of a meeting.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="270"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="258"/>
         <source>Moderator</source>
         <translation>Moderator</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="270"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="258"/>
         <source>Use for a person who leads a program (often broadcast) where topics are discussed, usually with participation of experts in fields related to the discussion.</source>
         <translation>Use for a person who leads a program (often broadcast) where topics are discussed, usually with participation of experts in fields related to the discussion.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="271"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="259"/>
         <source>Monitor</source>
         <translation>Monitor</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="271"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="259"/>
         <source>Use for a person or organization that supervises compliance with the contract and is responsible for the report and controls its distribution. Sometimes referred to as the grantee, or controlling agency.</source>
         <translation>Use for a person or organization that supervises compliance with the contract and is responsible for the report and controls its distribution. Sometimes referred to as the grantee, or controlling agency.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="272"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="260"/>
         <source>Music copyist</source>
         <translation>Music copyist</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="272"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="260"/>
         <source>Use for a person who transcribes or copies musical notation</source>
         <translation>Use for a person who transcribes or copies musical notation</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="273"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="261"/>
         <source>Musical director</source>
         <translation>Musical director</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="273"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="261"/>
         <source>Use for a person responsible for basic music decisions about a production, including coordinating the work of the composer, the sound editor, and sound mixers, selecting musicians, and organizing and/or conducting sound for rehearsals and performances.</source>
         <translation>Use for a person responsible for basic music decisions about a production, including coordinating the work of the composer, the sound editor, and sound mixers, selecting musicians, and organizing and/or conducting sound for rehearsals and performances.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="274"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="262"/>
         <source>Musician</source>
         <translation>Musician</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="274"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="262"/>
         <source>Use for a person or organization who performs music or contributes to the musical content of a work when it is not possible or desirable to identify the function more precisely.</source>
         <translation>Use for a person or organization who performs music or contributes to the musical content of a work when it is not possible or desirable to identify the function more precisely.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="275"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="263"/>
         <source>Narrator</source>
         <translation>Narrator</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="275"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="263"/>
         <source>Use for a person who is a speaker relating the particulars of an act, occurrence, or course of events.</source>
         <translation>Use for a person who is a speaker relating the particulars of an act, occurrence, or course of events.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="276"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="264"/>
         <source>Onscreen presenter</source>
         <translation>Onscreen presenter</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="276"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="264"/>
         <source>A performer contributing to an expression of a work by appearing on screen in nonfiction moving image materials or introductions to fiction moving image materials to provide contextual or background information. Use when another term (e.g., Narrator, Host) is either not applicable or not desired.</source>
         <translation>A performer contributing to an expression of a work by appearing on screen in nonfiction moving image materials or introductions to fiction moving image materials to provide contextual or background information. Use when another term (e.g., Narrator, Host) is either not applicable or not desired.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="277"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="265"/>
         <source>Opponent</source>
         <translation>Opponent</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="277"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="265"/>
         <source>Use for a person or organization responsible for opposing a thesis or dissertation.</source>
         <translation>Use for a person or organization responsible for opposing a thesis or dissertation.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="278"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="266"/>
         <source>Organizer of meeting</source>
         <translation>Organizer of meeting</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="278"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="266"/>
         <source>Use for a person or organization responsible for organizing a meeting for which an item is the report or proceedings.</source>
         <translation>Use for a person or organization responsible for organizing a meeting for which an item is the report or proceedings.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="279"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="267"/>
         <source>Originator</source>
         <translation>Originator</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="279"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="267"/>
         <source>Use for a person or organization performing the work, i.e., the name of a person or organization associated with the intellectual content of the work. This category does not include the publisher or personal affiliation, or sponsor except where it is also the corporate author.</source>
         <translation>Use for a person or organization performing the work, i.e., the name of a person or organization associated with the intellectual content of the work. This category does not include the publisher or personal affiliation, or sponsor except where it is also the corporate author.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="280"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="268"/>
         <source>Other</source>
         <translation>Other</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="280"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="268"/>
         <source>Use for relator codes from other lists which have no equivalent in the MARC list or for terms which have not been assigned a code.</source>
         <translation>Use for relator codes from other lists which have no equivalent in the MARC list or for terms which have not been assigned a code.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="281"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="269"/>
         <source>Owner</source>
         <translation>Owner</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="281"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="269"/>
         <source>Use for a person or organization that currently owns an item or collection.</source>
         <translation>Use for a person or organization that currently owns an item or collection.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="282"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="270"/>
         <source>Panelist</source>
         <translation>Panelist</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="282"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="270"/>
         <source> performer contributing to a resource by participating in a program (often broadcast) where topics are discussed, usually with participation of experts in fields related to the discussion.</source>
         <translation> performer contributing to a resource by participating in a program (often broadcast) where topics are discussed, usually with participation of experts in fields related to the discussion.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="283"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="271"/>
         <source>Papermaker</source>
         <translation>Papermaker</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="283"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="271"/>
         <source>Use for a person or organization responsible for the production of paper, usually from wood, cloth, or other fibrous material.</source>
         <translation>Use for a person or organization responsible for the production of paper, usually from wood, cloth, or other fibrous material.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="284"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="272"/>
         <source>Patent applicant</source>
         <translation>Patent applicant</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="284"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="272"/>
         <source>Use for a person or organization that applied for a patent.</source>
         <translation>Use for a person or organization that applied for a patent.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="285"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="273"/>
         <source>Patent holder</source>
         <translation>Patent holder</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="285"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="273"/>
         <source>Use for a person or organization that was granted the patent referred to by the item. </source>
         <translation>Use for a person or organization that was granted the patent referred to by the item. </translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="286"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="274"/>
         <source>Patron</source>
         <translation>Patron</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="286"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="274"/>
         <source>Use for a person or organization responsible for commissioning a work. Usually a patron uses his or her means or influence to support the work of artists, writers, etc. This includes those who commission and pay for individual works.</source>
         <translation>Use for a person or organization responsible for commissioning a work. Usually a patron uses his or her means or influence to support the work of artists, writers, etc. This includes those who commission and pay for individual works.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="287"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="275"/>
         <source>Performer</source>
         <translation>Performer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="287"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="275"/>
         <source>Use for a person or organization who exhibits musical or acting skills in a musical or dramatic presentation or entertainment, if specific codes for those functions ([act], [dnc], [itr], [voc], etc.) are not used. If specific codes are used, [prf] is used for a person whose principal skill is not known or specified.</source>
         <translation>Use for a person or organization who exhibits musical or acting skills in a musical or dramatic presentation or entertainment, if specific codes for those functions ([act], [dnc], [itr], [voc], etc.) are not used. If specific codes are used, [prf] is used for a person whose principal skill is not known or specified.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="288"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="276"/>
         <source>Permitting agency</source>
         <translation>Permitting agency</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="288"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="276"/>
         <source>Use for an authority (usually a government agency) that issues permits under which work is accomplished.</source>
         <translation>Use for an authority (usually a government agency) that issues permits under which work is accomplished.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="289"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="277"/>
         <source>Photographer</source>
         <translation>Photographer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="289"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="277"/>
         <source>Use for a person or organization responsible for taking photographs, whether they are used in their original form or as reproductions.</source>
         <translation>Use for a person or organization responsible for taking photographs, whether they are used in their original form or as reproductions.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="290"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="278"/>
         <source>Plaintiff</source>
         <translation>Plaintiff</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="290"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="278"/>
         <source>Use for the party who complains or sues in court in a personal action, usually in a legal proceeding.</source>
         <translation>Use for the party who complains or sues in court in a personal action, usually in a legal proceeding.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="291"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="279"/>
         <source>Plaintiff-appellant</source>
         <translation>Plaintiff-appellant</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="291"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="279"/>
         <source>Use for a plaintiff who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
         <translation>Use for a plaintiff who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="292"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="280"/>
         <source>Plaintiff-appellee</source>
         <translation>Plaintiff-appellee</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="292"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="280"/>
         <source>Use for a plaintiff against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
         <translation>Use for a plaintiff against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="293"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="281"/>
         <source>Platemaker</source>
         <translation>Platemaker</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="293"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="281"/>
         <source>Use for a person or organization responsible for the production of plates, usually for the production of printed images and/or text.</source>
         <translation>Use for a person or organization responsible for the production of plates, usually for the production of printed images and/or text.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="294"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="282"/>
         <source>Praeses</source>
         <translation>Praeses</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="294"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="282"/>
         <source>A person who is the faculty moderator of an academic disputation, normally proposing a thesis and participating in the ensuing disputation.</source>
         <translation>A person who is the faculty moderator of an academic disputation, normally proposing a thesis and participating in the ensuing disputation.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="295"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="283"/>
         <source>Presenter</source>
         <translation>Presenter</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="295"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="283"/>
         <source>A person or organization mentioned in an &apos;X presents&apos; credit for moving image materials and who is associated with production, finance, or distribution in some way. A vanity credit; in early years, normally the head of a studio.</source>
         <translation>A person or organization mentioned in an &apos;X presents&apos; credit for moving image materials and who is associated with production, finance, or distribution in some way. A vanity credit; in early years, normally the head of a studio.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="296"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="284"/>
         <source>Printer</source>
         <translation>Printer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="296"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="284"/>
         <source>Use for a person or organization who prints texts, whether from type or plates.</source>
         <translation>Use for a person or organization who prints texts, whether from type or plates.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="297"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="285"/>
         <source>Printer of plates</source>
         <translation>Printer of plates</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="297"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="285"/>
         <source>Use for a person or organization who prints illustrations from plates. </source>
         <translation>Use for a person or organization who prints illustrations from plates. </translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="298"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="286"/>
         <source>Printmaker</source>
         <translation>Printmaker</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="298"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="286"/>
         <source>Use for a person or organization who makes a relief, intaglio, or planographic printing surface.</source>
         <translation>Use for a person or organization who makes a relief, intaglio, or planographic printing surface.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="299"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="287"/>
         <source>Process contact</source>
         <translation>Process contact</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="299"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="287"/>
         <source>Use for a person or organization primarily responsible for performing or initiating a process, such as is done with the collection of metadata sets.</source>
         <translation>Use for a person or organization primarily responsible for performing or initiating a process, such as is done with the collection of metadata sets.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="300"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="288"/>
         <source>Producer</source>
         <translation>Producer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="300"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="288"/>
         <source>Use for a person or organization responsible for the making of a motion picture, including business aspects, management of the productions, and the commercial success of the work.</source>
         <translation>Use for a person or organization responsible for the making of a motion picture, including business aspects, management of the productions, and the commercial success of the work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="301"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="289"/>
         <source>Production company</source>
         <translation>Production company</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="301"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="289"/>
         <source>An organization that is responsible for financial, technical, and organizational management of a production for stage, screen, audio recording, television, webcast, etc.</source>
         <translation>An organization that is responsible for financial, technical, and organizational management of a production for stage, screen, audio recording, television, webcast, etc.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="302"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="290"/>
         <source>Production designer</source>
         <translation>Production designer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="302"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="290"/>
         <source>A person or organization responsible for designing the overall visual appearance of a moving image production.</source>
         <translation>A person or organization responsible for designing the overall visual appearance of a moving image production.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="303"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="291"/>
         <source>Production manager</source>
         <translation>Production manager</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="303"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="291"/>
         <source>Use for a person responsible for all technical and business matters in a production.</source>
         <translation>Use for a person responsible for all technical and business matters in a production.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="304"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="292"/>
         <source>Production personnel</source>
         <translation>Production personnel</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="304"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="292"/>
         <source>Use for a person or organization associated with the production (props, lighting, special effects, etc.) of a musical or dramatic presentation or entertainment.</source>
         <translation>Use for a person or organization associated with the production (props, lighting, special effects, etc.) of a musical or dramatic presentation or entertainment.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="305"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="293"/>
         <source>Production place</source>
         <translation>Production place</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="305"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="293"/>
         <source>The place of production (e.g., inscription, fabrication, construction, etc.) of a resource in an unpublished form.</source>
         <translation>The place of production (e.g., inscription, fabrication, construction, etc.) of a resource in an unpublished form.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="306"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="294"/>
         <source>Programmer</source>
         <translation>Programmer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="306"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="294"/>
         <source>Use for a person or organization responsible for the creation and/or maintenance of computer program design documents, source code, and machine-executable digital files and supporting documentation.</source>
         <translation>Use for a person or organization responsible for the creation and/or maintenance of computer program design documents, source code, and machine-executable digital files and supporting documentation.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="307"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="295"/>
         <source>Project director</source>
         <translation>Project director</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="307"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="295"/>
         <source>Use for a person or organization with primary responsibility for all essential aspects of a project, or that manages a very large project that demands senior level responsibility, or that has overall responsibility for managing projects, or provides overall direction to a project manager.</source>
         <translation>Use for a person or organization with primary responsibility for all essential aspects of a project, or that manages a very large project that demands senior level responsibility, or that has overall responsibility for managing projects, or provides overall direction to a project manager.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="308"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="296"/>
         <source>Proofreader</source>
         <translation>Proofreader</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="308"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="296"/>
         <source>Use for a person who corrects printed matter. For manuscripts, use Corrector [crr].</source>
         <translation>Use for a person who corrects printed matter. For manuscripts, use Corrector [crr].</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="309"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="297"/>
         <source>Provider</source>
         <translation>Provider</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="309"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="297"/>
         <source>A person or organization who produces, publishes, manufactures, or distributes a resource if specific codes are not desired (e.g. [mfr], [pbl].)</source>
         <translation>A person or organization who produces, publishes, manufactures, or distributes a resource if specific codes are not desired (e.g. [mfr], [pbl].)</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="310"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="298"/>
         <source>Publication place </source>
         <translation>Publication place </translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="310"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="298"/>
         <source>The place where a resource is published.</source>
         <translation>The place where a resource is published.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="311"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="299"/>
         <source>Publisher</source>
         <translation>Publisher</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="311"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="299"/>
         <source>Use for a person or organization that makes printed matter, often text, but also printed music, artwork, etc. available to the public.</source>
         <translation>Use for a person or organization that makes printed matter, often text, but also printed music, artwork, etc. available to the public.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="312"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="300"/>
         <source>Publishing director</source>
         <translation>Publishing director</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="312"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="300"/>
         <source>Use for a person or organization who presides over the elaboration of a collective work to ensure its coherence or continuity. This includes editors-in-chief, literary editors, editors of series, etc.</source>
         <translation>Use for a person or organization who presides over the elaboration of a collective work to ensure its coherence or continuity. This includes editors-in-chief, literary editors, editors of series, etc.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="313"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="301"/>
         <source>Puppeteer</source>
         <translation>Puppeteer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="313"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="301"/>
         <source>Use for a person or organization who manipulates, controls, or directs puppets or marionettes in a musical or dramatic presentation or entertainment.</source>
         <translation>Use for a person or organization who manipulates, controls, or directs puppets or marionettes in a musical or dramatic presentation or entertainment.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="314"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="302"/>
         <source>Radio director</source>
         <translation>Radio director</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="314"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="302"/>
         <source>A director responsible for the general management and supervision of a radio program.</source>
         <translation>A director responsible for the general management and supervision of a radio program.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="315"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="303"/>
         <source>Radio producer</source>
         <translation>Radio producer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="315"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="303"/>
         <source>A producer responsible for most of the business aspects of a radio program.</source>
         <translation>A producer responsible for most of the business aspects of a radio program.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="316"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="304"/>
         <source>Recipient</source>
         <translation>Recipient</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="316"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="304"/>
         <source>Use for a person or organization to whom correspondence is addressed.</source>
         <translation>Use for a person or organization to whom correspondence is addressed.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="317"/>
-        <location filename="../../Misc/MarcRelators.cpp" line="318"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="305"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="306"/>
         <source>Recording engineer</source>
         <translation>Recording engineer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="317"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="305"/>
         <source>Use for a person or organization who supervises the technical aspects of a sound or video recording session.</source>
         <translation>Use for a person or organization who supervises the technical aspects of a sound or video recording session.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="318"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="306"/>
         <source>A person contributing to a resource by supervising the technical aspects of a sound or video recording session.</source>
         <translation>A person contributing to a resource by supervising the technical aspects of a sound or video recording session.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="319"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="307"/>
         <source>Redactor</source>
         <translation>Redactor</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="319"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="307"/>
         <source>Use for a person or organization who writes or develops the framework for an item without being intellectually responsible for its content.</source>
         <translation>Use for a person or organization who writes or develops the framework for an item without being intellectually responsible for its content.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="320"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="308"/>
         <source>Renderer</source>
         <translation>Renderer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="320"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="308"/>
         <source>Use for a person or organization who prepares drawings of architectural designs (i.e., renderings) in accurate, representational perspective to show what the project will look like when completed.</source>
         <translation>Use for a person or organization who prepares drawings of architectural designs (i.e., renderings) in accurate, representational perspective to show what the project will look like when completed.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="321"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="309"/>
         <source>Reporter</source>
         <translation>Reporter</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="321"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="309"/>
         <source>Use for a person or organization who writes or presents reports of news or current events on air or in print.</source>
         <translation>Use for a person or organization who writes or presents reports of news or current events on air or in print.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="322"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="310"/>
         <source>Repository</source>
         <translation>Repository</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="322"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="310"/>
         <source>Use for an agency that hosts data or material culture objects and provides services to promote long term, consistent and shared use of those data or objects.</source>
         <translation>Use for an agency that hosts data or material culture objects and provides services to promote long term, consistent and shared use of those data or objects.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="323"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="311"/>
         <source>Research team head</source>
         <translation>Research team head</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="323"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="311"/>
         <source>Use for a person who directed or managed a research project.</source>
         <translation>Use for a person who directed or managed a research project.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="324"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="312"/>
         <source>Research team member</source>
         <translation>Research team member</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="324"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="312"/>
         <source>Use for a person who participated in a research project but whose role did not involve direction or management of it.</source>
         <translation>Use for a person who participated in a research project but whose role did not involve direction or management of it.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="325"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="313"/>
         <source>Researcher</source>
         <translation>Researcher</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="325"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="313"/>
         <source>Use for a person or organization responsible for performing research. </source>
         <translation>Use for a person or organization responsible for performing research. </translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="326"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="314"/>
         <source>Respondent</source>
         <translation>Respondent</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="326"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="314"/>
         <source>Use for the party who makes an answer to the courts pursuant to an application for redress, usually in an equity proceeding.</source>
         <translation>Use for the party who makes an answer to the courts pursuant to an application for redress, usually in an equity proceeding.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="327"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="315"/>
         <source>Respondent-appellant</source>
         <translation>Respondent-appellant</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="327"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="315"/>
         <source>Use for a respondent who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
         <translation>Use for a respondent who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="328"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="316"/>
         <source>Respondent-appellee</source>
         <translation>Respondent-appellee</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="328"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="316"/>
         <source>Use for a respondent against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</source>
         <translation>Use for a respondent against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in an equity proceeding.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="329"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="317"/>
         <source>Responsible party</source>
         <translation>Responsible party</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="329"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="317"/>
         <source>Use for a person or organization legally responsible for the content of the published material.</source>
         <translation>Use for a person or organization legally responsible for the content of the published material.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="330"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="318"/>
         <source>Restager</source>
         <translation>Restager</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="330"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="318"/>
         <source>Use for a person or organization, other than the original choreographer or director, responsible for restaging a choreographic or dramatic work and who contributes minimal new content.</source>
         <translation>Use for a person or organization, other than the original choreographer or director, responsible for restaging a choreographic or dramatic work and who contributes minimal new content.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="331"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="319"/>
         <source>Restorationist</source>
         <translation>Restorationist</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="331"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="319"/>
         <source>A person, family, or organization responsible for the set of technical, editorial, and intellectual procedures aimed at compensating for the degradation of an item by bringing it back to a state as close as possible to its original condition.</source>
         <translation>A person, family, or organization responsible for the set of technical, editorial, and intellectual procedures aimed at compensating for the degradation of an item by bringing it back to a state as close as possible to its original condition.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="332"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="320"/>
         <source>Reviewer</source>
         <translation>Reviewer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="332"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="320"/>
         <source>Use for a person or organization responsible for the review of a book, motion picture, performance, etc.</source>
         <translation>Use for a person or organization responsible for the review of a book, motion picture, performance, etc.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="333"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="321"/>
         <source>Rubricator</source>
         <translation>Rubricator</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="333"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="321"/>
         <source>Use for a person or organization responsible for parts of a work, often headings or opening parts of a manuscript, that appear in a distinctive color, usually red.</source>
         <translation>Use for a person or organization responsible for parts of a work, often headings or opening parts of a manuscript, that appear in a distinctive color, usually red.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="334"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="322"/>
         <source>Scenarist</source>
         <translation>Scenarist</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="334"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="322"/>
         <source>Use for a person or organization who is the author of a motion picture screenplay.</source>
         <translation>Use for a person or organization who is the author of a motion picture screenplay.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="335"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="323"/>
         <source>Scientific advisor</source>
         <translation>Scientific advisor</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="335"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="323"/>
         <source>Use for a person or organization who brings scientific, pedagogical, or historical competence to the conception and realization on a work, particularly in the case of audio-visual items.</source>
         <translation>Use for a person or organization who brings scientific, pedagogical, or historical competence to the conception and realization on a work, particularly in the case of audio-visual items.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="336"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="324"/>
         <source>Scribe</source>
         <translation>Scribe</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="336"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="324"/>
         <source>Use for a person who is an amanuensis and for a writer of manuscripts proper. For a person who makes pen-facsimiles, use Facsimilist [fac].</source>
         <translation>Use for a person who is an amanuensis and for a writer of manuscripts proper. For a person who makes pen-facsimiles, use Facsimilist [fac].</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="337"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="325"/>
         <source>Sculptor</source>
         <translation>Sculptor</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="337"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="325"/>
         <source>Use for a person or organization who models or carves figures that are three-dimensional representations.</source>
         <translation>Use for a person or organization who models or carves figures that are three-dimensional representations.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="338"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="326"/>
         <source>Second party</source>
         <translation>Second party</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="338"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="326"/>
         <source>Use for a person or organization who is identified as the party of the second part. In the case of transfer of right, this is the assignee, transferee, licensee, grantee, etc. Multiple parties can be named jointly as the second party.</source>
         <translation>Use for a person or organization who is identified as the party of the second part. In the case of transfer of right, this is the assignee, transferee, licensee, grantee, etc. Multiple parties can be named jointly as the second party.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="339"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="327"/>
         <source>Secretary</source>
         <translation>Secretary</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="339"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="327"/>
         <source>Use for a person or organization who is a recorder, redactor, or other person responsible for expressing the views of a organization.</source>
         <translation>Use for a person or organization who is a recorder, redactor, or other person responsible for expressing the views of a organization.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="340"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="328"/>
         <source>Seller</source>
         <translation>Seller</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="340"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="328"/>
         <source>A former owner of an item who sold that item to another owner.</source>
         <translation>A former owner of an item who sold that item to another owner.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="341"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="329"/>
         <source>Set designer</source>
         <translation>Set designer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="341"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="329"/>
         <source>Use for a person or organization who translates the rough sketches of the art director into actual architectural structures for a theatrical presentation, entertainment, motion picture, etc. Set designers draw the detailed guides and specifications for building the set.</source>
         <translation>Use for a person or organization who translates the rough sketches of the art director into actual architectural structures for a theatrical presentation, entertainment, motion picture, etc. Set designers draw the detailed guides and specifications for building the set.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="342"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="330"/>
         <source>Setting</source>
         <translation>Setting</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="342"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="330"/>
         <source>An entity in which the activity or plot of a work takes place, e.g. a geographic place, a time period, a building, an event.</source>
         <translation>An entity in which the activity or plot of a work takes place, e.g. a geographic place, a time period, a building, an event.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="343"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="331"/>
         <source>Signer</source>
         <translation>Signer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="343"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="331"/>
         <source>Use for a person whose signature appears without a presentation or other statement indicative of provenance. When there is a presentation statement, use Inscriber [ins].</source>
         <translation>Use for a person whose signature appears without a presentation or other statement indicative of provenance. When there is a presentation statement, use Inscriber [ins].</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="344"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="332"/>
         <source>Singer</source>
         <translation>Singer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="344"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="332"/>
         <source>Use for a person or organization who uses his/her/their voice with or without instrumental accompaniment to produce music. A performance may or may not include actual words.</source>
         <translation>Use for a person or organization who uses his/her/their voice with or without instrumental accompaniment to produce music. A performance may or may not include actual words.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="345"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="333"/>
         <source>Sound designer</source>
         <translation>Sound designer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="345"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="333"/>
         <source>Use for a person who produces and reproduces the sound score (both live and recorded), the installation of microphones, the setting of sound levels, and the coordination of sources of sound for a production.</source>
         <translation>Use for a person who produces and reproduces the sound score (both live and recorded), the installation of microphones, the setting of sound levels, and the coordination of sources of sound for a production.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="346"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="334"/>
         <source>Speaker</source>
         <translation>Speaker</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="346"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="334"/>
         <source>Use for a person who participates in a program (often broadcast) and makes a formalized contribution or presentation generally prepared in advance.</source>
         <translation>Use for a person who participates in a program (often broadcast) and makes a formalized contribution or presentation generally prepared in advance.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="347"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="335"/>
         <source>Sponsor</source>
         <translation>Sponsor</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="347"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="335"/>
         <source>Use for a person or organization that issued a contract or under the auspices of which a work has been written, printed, published, etc.</source>
         <translation>Use for a person or organization that issued a contract or under the auspices of which a work has been written, printed, published, etc.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="348"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="336"/>
         <source>Stage director</source>
         <translation>Stage director</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="348"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="336"/>
         <source>A person or organization contributing to a stage resource through the overall management and supervision of a performance.</source>
         <translation>A person or organization contributing to a stage resource through the overall management and supervision of a performance.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="349"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="337"/>
         <source>Stage manager</source>
         <translation>Stage manager</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="349"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="337"/>
         <source>Use for a person who is in charge of everything that occurs on a performance stage, and who acts as chief of all crews and assistant to a director during rehearsals.</source>
         <translation>Use for a person who is in charge of everything that occurs on a performance stage, and who acts as chief of all crews and assistant to a director during rehearsals.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="350"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="338"/>
         <source>Standards body</source>
         <translation>Standards body</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="350"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="338"/>
         <source>Use for an organization responsible for the development or enforcement of a standard.</source>
         <translation>Use for an organization responsible for the development or enforcement of a standard.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="351"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="339"/>
         <source>Stereotyper</source>
         <translation>Stereotyper</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="351"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="339"/>
         <source>Use for a person or organization who creates a new plate for printing by molding or copying another printing surface.</source>
         <translation>Use for a person or organization who creates a new plate for printing by molding or copying another printing surface.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="352"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="340"/>
         <source>Storyteller</source>
         <translation>Storyteller</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="352"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="340"/>
         <source>Use for a person relaying a story with creative and/or theatrical interpretation.</source>
         <translation>Use for a person relaying a story with creative and/or theatrical interpretation.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="353"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="341"/>
         <source>Supporting host</source>
         <translation>Supporting host</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="353"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="341"/>
         <source>Use for a person or organization that supports (by allocating facilities, staff, or other resources) a project, program, meeting, event, data objects, material culture objects, or other entities capable of support. </source>
         <translation>Use for a person or organization that supports (by allocating facilities, staff, or other resources) a project, program, meeting, event, data objects, material culture objects, or other entities capable of support. </translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="354"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="342"/>
         <source>Surveyor</source>
         <translation>Surveyor</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="354"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="342"/>
         <source>Use for a person or organization who does measurements of tracts of land, etc. to determine location, forms, and boundaries.</source>
         <translation>Use for a person or organization who does measurements of tracts of land, etc. to determine location, forms, and boundaries.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="355"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="343"/>
         <source>Teacher</source>
         <translation>Teacher</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="355"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="343"/>
         <source>Use for a person who, in the context of a resource, gives instruction in an intellectual subject or demonstrates while teaching physical skills. </source>
         <translation>Use for a person who, in the context of a resource, gives instruction in an intellectual subject or demonstrates while teaching physical skills. </translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="356"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="344"/>
         <source>Technical director</source>
         <translation>Technical director</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="356"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="344"/>
         <source>Use for a person who is ultimately in charge of scenery, props, lights and sound for a production.</source>
         <translation>Use for a person who is ultimately in charge of scenery, props, lights and sound for a production.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="357"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="345"/>
         <source>Television director</source>
         <translation>Television director</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="357"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="345"/>
         <source>A director responsible for the general management and supervision of a television program.</source>
         <translation>A director responsible for the general management and supervision of a television program.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="358"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="346"/>
         <source>Television producer</source>
         <translation>Television producer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="358"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="346"/>
         <source>A producer responsible for most of the business aspects of a television program.</source>
         <translation>A producer responsible for most of the business aspects of a television program.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="359"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="347"/>
         <source>Thesis advisor</source>
         <translation>Thesis advisor</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="359"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="347"/>
         <source>Use for a person under whose supervision a degree candidate develops and presents a thesis, mémoire, or text of a dissertation. </source>
         <translation>Use for a person under whose supervision a degree candidate develops and presents a thesis, mémoire, or text of a dissertation. </translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="360"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="348"/>
         <source>Transcriber</source>
         <translation>Transcriber</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="360"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="348"/>
         <source>Use for a person who prepares a handwritten or typewritten copy from original material, including from dictated or orally recorded material. For makers of pen-facsimiles, use Facsimilist [fac].</source>
         <translation>Use for a person who prepares a handwritten or typewritten copy from original material, including from dictated or orally recorded material. For makers of pen-facsimiles, use Facsimilist [fac].</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="361"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="349"/>
         <source>Translator</source>
         <translation>Translator</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="361"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="349"/>
         <source>Use for a person or organization who renders a text from one language into another, or from an older form of a language into the modern form.</source>
         <translation>Use for a person or organization who renders a text from one language into another, or from an older form of a language into the modern form.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="362"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="350"/>
         <source>Type designer</source>
         <translation>Type designer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="362"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="350"/>
         <source>Use for a person or organization who designed the type face used in a particular item. </source>
         <translation>Use for a person or organization who designed the type face used in a particular item. </translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="363"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="351"/>
         <source>Typographer</source>
         <translation>Typographer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="363"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="351"/>
         <source>Use for a person or organization primarily responsible for choice and arrangement of type used in an item. If the typographer is also responsible for other aspects of the graphic design of a book (e.g., Book designer [bkd]), codes for both functions may be needed.</source>
         <translation>Use for a person or organization primarily responsible for choice and arrangement of type used in an item. If the typographer is also responsible for other aspects of the graphic design of a book (e.g., Book designer [bkd]), codes for both functions may be needed.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="364"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="352"/>
         <source>University place</source>
         <translation>University place</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="364"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="352"/>
         <source>A place where a university that is associated with a resource is located, for example, a university where an academic dissertation or thesis was presented.</source>
         <translation>A place where a university that is associated with a resource is located, for example, a university where an academic dissertation or thesis was presented.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="365"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="353"/>
         <source>Videographer</source>
         <translation>Videographer</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="365"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="353"/>
         <source>Use for a person or organization in charge of a video production, e.g. the video recording of a stage production as opposed to a commercial motion picture. The videographer may be the camera operator or may supervise one or more camera operators. Do not confuse with cinematographer.</source>
         <translation>Use for a person or organization in charge of a video production, e.g. the video recording of a stage production as opposed to a commercial motion picture. The videographer may be the camera operator or may supervise one or more camera operators. Do not confuse with cinematographer.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="366"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="354"/>
         <source>Voice actor</source>
         <translation>Voice actor</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="366"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="354"/>
         <source>An actor contributing to a resource by providing the voice for characters in radio and audio productions and for animated characters in moving image works, as well as by providing voice overs in radio and television commercials, dubbed resources, etc.</source>
         <translation>An actor contributing to a resource by providing the voice for characters in radio and audio productions and for animated characters in moving image works, as well as by providing voice overs in radio and television commercials, dubbed resources, etc.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="367"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="355"/>
         <source>Witness</source>
         <translation>Witness</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="367"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="355"/>
         <source>Use for a person who verifies the truthfulness of an event or action. </source>
         <translation>Use for a person who verifies the truthfulness of an event or action. </translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="368"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="356"/>
         <source>Wood-engraver</source>
         <translation>Wood-engraver</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="368"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="356"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the end-grain of a wood block.</source>
         <translation>Use for a person or organization who makes prints by cutting the image in relief on the end-grain of a wood block.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="369"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="357"/>
         <source>Woodcutter</source>
         <translation>Woodcutter</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="369"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="357"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the plank side of a wood block.</source>
         <translation>Use for a person or organization who makes prints by cutting the image in relief on the plank side of a wood block.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="370"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="358"/>
         <source>Writer of accompanying material</source>
         <translation>Writer of accompanying material</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="370"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="358"/>
         <source>Use for a person or organization who writes significant material which accompanies a sound recording or other audiovisual material.</source>
         <translation>Use for a person or organization who writes significant material which accompanies a sound recording or other audiovisual material.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="371"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="359"/>
         <source>Writer of added commentary</source>
         <translation>Writer of added commentary</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="371"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="359"/>
         <source>A person, family, or organization contributing to an expression of a work by providing an interpretation or critical explanation of the original work.</source>
         <translation>A person, family, or organization contributing to an expression of a work by providing an interpretation or critical explanation of the original work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="372"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="360"/>
         <source>Writer of added lyrics</source>
         <translation>Writer of added lyrics</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="372"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="360"/>
         <source>A writer of words added to an expression of a musical work. For lyric writing in collaboration with a composer to form an original work, see lyricist.</source>
         <translation>A writer of words added to an expression of a musical work. For lyric writing in collaboration with a composer to form an original work, see lyricist.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="373"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="361"/>
         <source>Writer of added text</source>
         <translation>Writer of added text</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="373"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="361"/>
         <source>A person, family, or organization contributing to a non-textual resource by providing text for the non-textual work (e.g., writing captions for photographs, descriptions of maps.)</source>
         <translation>A person, family, or organization contributing to a non-textual resource by providing text for the non-textual work (e.g., writing captions for photographs, descriptions of maps.)</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="374"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="362"/>
         <source>Writer of introduction</source>
         <translation>Writer of introduction</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="374"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="362"/>
         <source>A person, family, or organization contributing to a resource by providing an introduction to the original work.</source>
         <translation>A person, family, or organization contributing to a resource by providing an introduction to the original work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="375"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="363"/>
         <source>Writer of preface</source>
         <translation>Writer of preface</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="375"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="363"/>
         <source>A person, family, or organization contributing to a resource by providing a preface to the original work.</source>
         <translation>A person, family, or organization contributing to a resource by providing a preface to the original work.</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="376"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="364"/>
         <source>Writer of supplementary textual content</source>
         <translation>Writer of supplementary textual content</translation>
     </message>
     <message>
-        <location filename="../../Misc/MarcRelators.cpp" line="376"/>
+        <location filename="../../Misc/MarcRelators.cpp" line="364"/>
         <source>A person, family, or organization contributing to a resource by providing supplementary textual content (e.g., an introduction, a preface) to the original work.</source>
         <translation>A person, family, or organization contributing to a resource by providing supplementary textual content (e.g., an introduction, a preface) to the original work.</translation>
     </message>
@@ -17421,29 +17459,29 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 <context>
     <name>OPFModel</name>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="793"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="809"/>
         <source>A filename cannot contains the character &quot;%1&quot;.</source>
         <translation>A filename cannot contains the character &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="804"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="820"/>
         <source>The filename cannot be empty.</source>
         <translation>The filename cannot be empty.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="825"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="841"/>
         <source>The filename &quot;%1&quot; is already in use.
 </source>
         <translation>The filename &quot;%1&quot; is already in use.
 </translation>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="839"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="855"/>
         <source>The book path cannot be empty.</source>
         <translation>The book path cannot be empty.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/OPFModel.cpp" line="846"/>
+        <location filename="../../MainUI/OPFModel.cpp" line="862"/>
         <source>That book path &quot;%1&quot; is already in use.
 </source>
         <translation>That book path &quot;%1&quot; is already in use.
@@ -17494,502 +17532,502 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 <context>
     <name>PCREErrors</name>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="59"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="48"/>
         <source>no error</source>
         <translation>no error</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="60"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="49"/>
         <source>\ at end of pattern</source>
         <translation>\ at end of pattern</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="61"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="50"/>
         <source>\c at end of pattern</source>
         <translation>\c at end of pattern</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="62"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="51"/>
         <source>unrecognized character follows \</source>
         <translation>unrecognized character follows \</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="63"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="52"/>
         <source>numbers out of order in {} quantifier</source>
         <translation>numbers out of order in {} quantifier</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="65"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="54"/>
         <source>number too big in {} quantifier</source>
         <translation>number too big in {} quantifier</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="66"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="55"/>
         <source>missing terminating ] for character class</source>
         <translation>missing terminating ] for character class</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="67"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="56"/>
         <source>escape sequence is invalid in character class</source>
         <translation>escape sequence is invalid in character class</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="68"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="57"/>
         <source>range out of order in character class</source>
         <translation>range out of order in character class</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="69"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="58"/>
         <source>quantifier does not follow a repeatable item</source>
         <translation>quantifier does not follow a repeatable item</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="72"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="61"/>
         <source>internal error: unexpected repeat</source>
         <translation>internal error: unexpected repeat</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="73"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="62"/>
         <source>unrecognized character after (? or (?-</source>
         <translation>unrecognized character after (? or (?-</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="74"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="63"/>
         <source>POSIX named classes are supported only within a class</source>
         <translation>POSIX named classes are supported only within a class</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="75"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="64"/>
         <source>POSIX collating elements are not supported</source>
         <translation>POSIX collating elements are not supported</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="76"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="65"/>
         <source>missing closing parenthesis</source>
         <translation>missing closing parenthesis</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="79"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="68"/>
         <source>reference to non-existent subpattern</source>
         <translation>reference to non-existent subpattern</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="80"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="69"/>
         <source>pattern passed as NULL</source>
         <translation>pattern passed as NULL</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="81"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="70"/>
         <source>unrecognised compile-time option bit(s)</source>
         <translation>unrecognised compile-time option bit(s)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="82"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="71"/>
         <source>missing ) after (?# comment</source>
         <translation>missing ) after (?# comment</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="83"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="72"/>
         <source>parentheses are too deeply nested</source>
         <translation>parentheses are too deeply nested</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="86"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="75"/>
         <source>regular expression is too large</source>
         <translation>regular expression is too large</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="87"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="76"/>
         <source>failed to allocate heap memory</source>
         <translation>failed to allocate heap memory</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="88"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="77"/>
         <source>unmatched closing parenthesis</source>
         <translation>unmatched closing parenthesis</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="89"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="78"/>
         <source>internal error: code overflow</source>
         <translation>internal error: code overflow</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="90"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="79"/>
         <source>missing closing parenthesis for condition</source>
         <translation>missing closing parenthesis for condition</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="93"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="82"/>
         <source>lookbehind assertion is not fixed length</source>
         <translation>lookbehind assertion is not fixed length</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="94"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="83"/>
         <source>a relative value of zero is not allowed</source>
         <translation>a relative value of zero is not allowed</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="95"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="84"/>
         <source>conditional subpattern contains more than two branches</source>
         <translation>conditional subpattern contains more than two branches</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="96"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="85"/>
         <source>assertion expected after (?( or (?(?C)</source>
         <translation>assertion expected after (?( or (?(?C)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="97"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="86"/>
         <source>digit expected after (?+ or (?-<byte value="x0"/></source>
         <translation>digit expected after (?+ or (?-&lt;byte value=&quot;x0&quot;/&gt;</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="100"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="89"/>
         <source>unknown POSIX class name</source>
         <translation>unknown POSIX class name</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="101"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="90"/>
         <source>internal error in pcre2_study(): should not occur</source>
         <translation>internal error in pcre2_study(): should not occur</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="102"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="91"/>
         <source>this version of PCRE2 does not have Unicode support</source>
         <translation>this version of PCRE2 does not have Unicode support</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="103"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="92"/>
         <source>parentheses are too deeply nested (stack check)</source>
         <translation>parentheses are too deeply nested (stack check)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="104"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="93"/>
         <source>character code point value in \x{} or \o{} is too large</source>
         <translation>character code point value in \x{} or \o{} is too large</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="107"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="96"/>
         <source>lookbehind is too complicated</source>
         <translation>lookbehind is too complicated</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="108"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="97"/>
         <source>\C is not allowed in a lookbehind assertion in UTF-16 mode</source>
         <translation>\C is not allowed in a lookbehind assertion in UTF-16 mode</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="109"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="98"/>
         <source>PCRE2 does not support \F, \L, \l, \N{name}, \U, or \u</source>
         <translation>PCRE2 does not support \F, \L, \l, \N{name}, \U, or \u</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="110"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="99"/>
         <source>number after (?C is greater than 255</source>
         <translation>number after (?C is greater than 255</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="111"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="100"/>
         <source>closing parenthesis for (?C expected</source>
         <translation>closing parenthesis for (?C expected</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="114"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="103"/>
         <source>invalid escape sequence in (*VERB) name</source>
         <translation>invalid escape sequence in (*VERB) name</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="115"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="104"/>
         <source>unrecognized character after (?P</source>
         <translation>unrecognized character after (?P</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="116"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="105"/>
         <source>syntax error in subpattern name (missing terminator?)</source>
         <translation>syntax error in subpattern name (missing terminator?)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="117"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="106"/>
         <source>two named subpatterns have the same name (PCRE2_DUPNAMES not set)</source>
         <translation>two named subpatterns have the same name (PCRE2_DUPNAMES not set)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="118"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="107"/>
         <source>subpattern name must start with a non-digit</source>
         <translation>subpattern name must start with a non-digit</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="121"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="110"/>
         <source>this version of PCRE2 does not have support for \P, \p, or \X</source>
         <translation>this version of PCRE2 does not have support for \P, \p, or \X</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="122"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="111"/>
         <source>malformed \P or \p sequence</source>
         <translation>malformed \P or \p sequence</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="123"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="112"/>
         <source>unknown property name after \P or \p</source>
         <translation>unknown property name after \P or \p</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="124"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="113"/>
         <source>subpattern name is too long (maximum 32 code units)</source>
         <translation>subpattern name is too long (maximum 32 code units)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="125"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="114"/>
         <source>too many named subpatterns (maximum 10000)</source>
         <translation>too many named subpatterns (maximum 10000)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="128"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="117"/>
         <source>invalid range in character class</source>
         <translation>invalid range in character class</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="129"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="118"/>
         <source>octal value is greater than \377 in 8-bit non-UTF-8 mode</source>
         <translation>octal value is greater than \377 in 8-bit non-UTF-8 mode</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="130"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="119"/>
         <source>internal error: overran compiling workspace</source>
         <translation>internal error: overran compiling workspace</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="131"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="120"/>
         <source>internal error: previously-checked referenced subpattern not found</source>
         <translation>internal error: previously-checked referenced subpattern not found</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="132"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="121"/>
         <source>DEFINE subpattern contains more than one branch</source>
         <translation>DEFINE subpattern contains more than one branch</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="135"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="124"/>
         <source>missing opening brace after \o</source>
         <translation>missing opening brace after \o</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="136"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="125"/>
         <source>internal error: unknown newline setting</source>
         <translation>internal error: unknown newline setting</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="137"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="126"/>
         <source>\g is not followed by a braced, angle-bracketed, or quoted name/number or by a plain number</source>
         <translation>\g is not followed by a braced, angle-bracketed, or quoted name/number or by a plain number</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="138"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="127"/>
         <source>(?R (recursive pattern call) must be followed by a closing parenthesis</source>
         <translation>(?R (recursive pattern call) must be followed by a closing parenthesis</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="139"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="128"/>
         <source>obsolete error (should not occur)</source>
         <translation>obsolete error (should not occur)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="142"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="131"/>
         <source>(*VERB) not recognized or malformed</source>
         <translation>(*VERB) not recognized or malformed</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="143"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="132"/>
         <source>subpattern number is too big</source>
         <translation>subpattern number is too big</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="144"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="133"/>
         <source>subpattern name expected</source>
         <translation>subpattern name expected</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="145"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="134"/>
         <source>internal error: parsed pattern overflow</source>
         <translation>internal error: parsed pattern overflow</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="146"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="135"/>
         <source>non-octal character in \o{} (closing brace missing?)</source>
         <translation>non-octal character in \o{} (closing brace missing?)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="149"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="138"/>
         <source>different names for subpatterns of the same number are not allowed</source>
         <translation>different names for subpatterns of the same number are not allowed</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="150"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="139"/>
         <source>(*MARK) must have an argument</source>
         <translation>(*MARK) must have an argument</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="151"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="140"/>
         <source>non-hex character in \x{} (closing brace missing?)</source>
         <translation>non-hex character in \x{} (closing brace missing?)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="152"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="141"/>
         <source>\c must be followed by a printable ASCII character</source>
         <translation>\c must be followed by a printable ASCII character</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="153"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="142"/>
         <source>\k is not followed by a braced, angle-bracketed, or quoted name</source>
         <translation>\k is not followed by a braced, angle-bracketed, or quoted name</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="156"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="145"/>
         <source>internal error: unknown meta code in check_lookbehinds()</source>
         <translation>internal error: unknown meta code in check_lookbehinds()</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="157"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="146"/>
         <source>\N is not supported in a class</source>
         <translation>\N is not supported in a class</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="158"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="147"/>
         <source>callout string is too long</source>
         <translation>callout string is too long</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="159"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="148"/>
         <source>disallowed Unicode code point (&gt;= 0xd800 &amp;&amp; &lt;= 0xdfff)</source>
         <translation>disallowed Unicode code point (&gt;= 0xd800 &amp;&amp; &lt;= 0xdfff)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="160"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="149"/>
         <source>using UTF is disabled by the application</source>
         <translation>using UTF is disabled by the application</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="163"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="152"/>
         <source>using UCP is disabled by the application</source>
         <translation>using UCP is disabled by the application</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="164"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="153"/>
         <source>name is too long in (*MARK), (*PRUNE), (*SKIP), or (*THEN)</source>
         <translation>name is too long in (*MARK), (*PRUNE), (*SKIP), or (*THEN)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="165"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="154"/>
         <source>character code point value in \u.... sequence is too large</source>
         <translation>character code point value in \u.... sequence is too large</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="166"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="155"/>
         <source>digits missing in \x{} or \o{} or \N{U+}</source>
         <translation>digits missing in \x{} or \o{} or \N{U+}</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="167"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="156"/>
         <source>syntax error or number too big in (?(VERSION condition</source>
         <translation>syntax error or number too big in (?(VERSION condition</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="170"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="159"/>
         <source>internal error: unknown opcode in auto_possessify()</source>
         <translation>internal error: unknown opcode in auto_possessify()</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="171"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="160"/>
         <source>missing terminating delimiter for callout with string argument</source>
         <translation>missing terminating delimiter for callout with string argument</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="172"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="161"/>
         <source>unrecognized string delimiter follows (?C</source>
         <translation>unrecognized string delimiter follows (?C</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="173"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="162"/>
         <source>using \C is disabled by the application</source>
         <translation>using \C is disabled by the application</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="174"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="163"/>
         <source>(?| and/or (?J: or (?x: parentheses are too deeply nested</source>
         <translation>(?| and/or (?J: or (?x: parentheses are too deeply nested</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="177"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="166"/>
         <source>using \C is disabled in this PCRE2 library</source>
         <translation>using \C is disabled in this PCRE2 library</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="178"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="167"/>
         <source>regular expression is too complicated</source>
         <translation>regular expression is too complicated</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="179"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="168"/>
         <source>lookbehind assertion is too long</source>
         <translation>lookbehind assertion is too long</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="180"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="169"/>
         <source>pattern string is longer than the limit set by the application</source>
         <translation>pattern string is longer than the limit set by the application</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="181"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="170"/>
         <source>internal error: unknown code in parsed pattern</source>
         <translation>internal error: unknown code in parsed pattern</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="184"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="173"/>
         <source>internal error: bad code value in parsed_skip()</source>
         <translation>internal error: bad code value in parsed_skip()</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="185"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="174"/>
         <source>PCRE2_EXTRA_ALLOW_SURROGATE_ESCAPES is not allowed in UTF-16 mode</source>
         <translation>PCRE2_EXTRA_ALLOW_SURROGATE_ESCAPES is not allowed in UTF-16 mode</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="186"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="175"/>
         <source>invalid option bits with PCRE2_LITERAL</source>
         <translation>invalid option bits with PCRE2_LITERAL</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="187"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="176"/>
         <source>\N{U+dddd} is supported only in Unicode (UTF) mode</source>
         <translation>\N{U+dddd} is supported only in Unicode (UTF) mode</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="188"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="177"/>
         <source>invalid hyphen in option setting</source>
         <translation>invalid hyphen in option setting</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="191"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="180"/>
         <source>(*alpha_assertion) not recognized</source>
         <translation>(*alpha_assertion) not recognized</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="192"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="181"/>
         <source>script runs require Unicode support, which this version of PCRE2 does not have</source>
         <translation>script runs require Unicode support, which this version of PCRE2 does not have</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="193"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="182"/>
         <source>too many capturing groups (maximum 65535)</source>
         <translation>too many capturing groups (maximum 65535)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="194"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="183"/>
         <source>atomic assertion expected after (?( or (?(?C)</source>
         <translation>atomic assertion expected after (?( or (?(?C)</translation>
     </message>
     <message>
-        <location filename="../../PCRE2/PCREErrors.cpp" line="195"/>
+        <location filename="../../PCRE2/PCREErrors.cpp" line="184"/>
         <source>\K is not allowed in lookarounds (but see PCRE2_EXTRA_ALLOW_LOOKAROUND_BSK)</source>
         <translation>\K is not allowed in lookarounds (but see PCRE2_EXTRA_ALLOW_LOOKAROUND_BSK)</translation>
     </message>
@@ -18037,178 +18075,178 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
         <translation>Status: </translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="129"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="128"/>
         <source>Error: A plugin by that name does not exist</source>
         <translation>Error: A plugin by that name does not exist</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="160"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="159"/>
         <source>Error: Interpreter</source>
         <translation>Error: Interpreter</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="160"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="159"/>
         <source>has no path set</source>
         <translation>has no path set</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="173"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="172"/>
         <source>Installation Error: plugin launcher</source>
         <translation>Installation Error: plugin launcher</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="174"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="173"/>
         <source>does not exist</source>
         <translation>does not exist</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="179"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="178"/>
         <source>Error: plugin engine</source>
         <translation>Error: plugin engine</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="180"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="179"/>
         <source>is not supported (yet!)</source>
         <translation>is not supported (yet!)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="186"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="185"/>
         <source>Status: ready</source>
         <translation>Status: ready</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="274"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="273"/>
         <source>Error: plugin cannot start</source>
         <translation>Error: plugin cannot start</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="423"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="422"/>
         <source>Status: running</source>
         <translation>Status: running</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="441"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="440"/>
         <source>Launcher process crashed</source>
         <translation>Launcher process crashed</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="457"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="456"/>
         <source>Status: finished</source>
         <translation>Status: finished</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="464"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="463"/>
         <source>Status: failed</source>
         <translation>Status: failed</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="470"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="480"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="469"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="479"/>
         <source>Status: No Changes Made</source>
         <translation>Status: No Changes Made</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="479"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="478"/>
         <source>Error: Plugin Tried to Remove the Last XHTML file .. aborting changes</source>
         <translation>Error: Plugin Tried to Remove the Last XHTML file .. aborting changes</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="544"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="633"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="543"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="632"/>
         <source>Status:</source>
         <translation>Status:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="571"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="570"/>
         <source>Plugin failed to start</source>
         <translation>Plugin failed to start</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="579"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="578"/>
         <source>Status: error</source>
         <translation>Status: error</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="610"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="609"/>
         <source>Plugin cancelled</source>
         <translation>Plugin cancelled</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="611"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="610"/>
         <source>Status: cancelled</source>
         <translation>Status: cancelled</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="705"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="704"/>
         <source>Error Parsing Result XML:  </source>
         <translation>Error Parsing Result XML:  </translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="763"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="778"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="762"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="777"/>
         <source>Status: checking</source>
         <translation>Status: checking</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="767"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="766"/>
         <source>Incorrect XHTML:</source>
         <translation>Incorrect XHTML:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="767"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="766"/>
         <source>Line/Col</source>
         <translation>Line/Col</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="796"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="795"/>
         <source>Check Report</source>
         <translation>Check Report</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="797"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="796"/>
         <source>Incorrect XHTML/XML Detected
 Are you Sure You Want to Continue?</source>
         <translation>Incorrect XHTML/XML Detected
 Are you Sure You Want to Continue?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="815"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="814"/>
         <source>Status: cleaning up - deleting files</source>
         <translation>Status: cleaning up - deleting files</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="848"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="847"/>
         <source>Status: deleting</source>
         <translation>Status: deleting</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="887"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="886"/>
         <source>Status: Loading</source>
         <translation>Status: Loading</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="895"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="894"/>
         <source>Input Plugin</source>
         <translation>Input Plugin</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="896"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="895"/>
         <source>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</source>
         <translation>Your current book will be completely replaced losing any unsaved changes ...  Are you sure you want to proceed</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="924"/>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="938"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="923"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="937"/>
         <source>Status: adding</source>
         <translation>Status: adding</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="976"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="975"/>
         <source>Status: cleaning up - modifying files</source>
         <translation>Status: cleaning up - modifying files</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PluginRunner.cpp" line="1013"/>
+        <location filename="../../Dialogs/PluginRunner.cpp" line="1012"/>
         <source>Status: modifying</source>
         <translation>Status: modifying</translation>
     </message>
@@ -18357,57 +18395,57 @@ Are you Sure You Want to Continue?</translation>
         <translation>Plugin 10:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="208"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="204"/>
         <source>Select Plugin Zip Archive</source>
         <translation>Select Plugin Zip Archive</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="210"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="206"/>
         <source>Plugin Files (*.zip)</source>
         <translation>Plugin Files (*.zip)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="228"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="222"/>
         <source>Error: Plugin plugin.xml is invalid or not supported on your operating system.</source>
         <translation>Error: Plugin plugin.xml is invalid or not supported on your operating system.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="231"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="225"/>
         <source>Warning: A plugin by that name already exists</source>
         <translation>Warning: A plugin by that name already exists</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="234"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="228"/>
         <source>Error: Plugin Could Not be Unzipped.</source>
         <translation>Error: Plugin Could Not be Unzipped.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="237"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="231"/>
         <source>Error: Plugin not a valid Sigil plugin.</source>
         <translation>Error: Plugin not a valid Sigil plugin.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="275"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="269"/>
         <source>Nothing is Selected.</source>
         <translation>Nothing is Selected.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="323"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="315"/>
         <source>Remove All Plugins</source>
         <translation>Remove All Plugins</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="324"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="316"/>
         <source>Are you sure sure you want to remove all of your plugins?</source>
         <translation>Are you sure sure you want to remove all of your plugins?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="379"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="371"/>
         <source>Select Interpreter</source>
         <translation>Select Interpreter</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="408"/>
+        <location filename="../../Dialogs/PreferenceWidgets/PluginWidget.cpp" line="400"/>
         <source>Incorrect Interpreter Path selected</source>
         <translation>Incorrect Interpreter Path selected</translation>
     </message>
@@ -18483,18 +18521,18 @@ Entities can be separated by lines, commas, or spaces.</translation>
 <context>
     <name>PreviewFileDialog</name>
     <message>
-        <location filename="../../Dialogs/PreviewFileDialog.cpp" line="28"/>
+        <location filename="../../Dialogs/PreviewFileDialog.cpp" line="49"/>
         <source>Preview</source>
         <translation>Preview</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreviewFileDialog.cpp" line="56"/>
+        <location filename="../../Dialogs/PreviewFileDialog.cpp" line="77"/>
         <source>not an image</source>
         <translation>not an image</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreviewFileDialog.cpp" line="68"/>
-        <location filename="../../Dialogs/PreviewFileDialog.cpp" line="93"/>
+        <location filename="../../Dialogs/PreviewFileDialog.cpp" line="89"/>
+        <location filename="../../Dialogs/PreviewFileDialog.cpp" line="114"/>
         <source>no preview available</source>
         <translation>no preview available</translation>
     </message>
@@ -18607,12 +18645,12 @@ Entities can be separated by lines, commas, or spaces.</translation>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../BookManipulation/Book.cpp" line="1683"/>
+        <location filename="../../BookManipulation/Book.cpp" line="1685"/>
         <source>PrettyPrinting...</source>
         <translation>PrettyPrinting...</translation>
     </message>
     <message>
-        <location filename="../../BookManipulation/CleanSource.cpp" line="299"/>
+        <location filename="../../BookManipulation/CleanSource.cpp" line="296"/>
         <source>Mending...</source>
         <translation>Mending...</translation>
     </message>
@@ -18654,117 +18692,112 @@ Entities can be separated by lines, commas, or spaces.</translation>
         <translation>Cannot read EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="256"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="163"/>
+        <source>The OPF manifest contains duplicate file paths. You should edit your OPF file&apos;s manifest to remove the duplication.</source>
+        <translation>The OPF manifest contains duplicate file paths. You should edit your OPF file&apos;s manifest to remove the duplication.</translation>
+    </message>
+    <message>
+        <location filename="../../Importers/ImportEPUB.cpp" line="263"/>
         <source>The OPF file does not contain a valid spine.</source>
         <translation>The OPF file does not contain a valid spine.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="257"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="986"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="264"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="990"/>
         <source>Sigil has created a new one for you.</source>
         <translation>Sigil has created a new one for you.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="258"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="265"/>
         <source>Please verify and correct the OPF Spine order.</source>
         <translation>Please verify and correct the OPF Spine order.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="307"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="314"/>
         <source>Error parsing encryption xml.
 Line: %1 Column %2 - %3</source>
         <translation>Error parsing encryption xml.
 Line: %1 Column %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="427"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="434"/>
         <source>Cannot unzip EPUB: %1</source>
         <translation>Cannot unzip EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="503"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="510"/>
         <source>Possible evil or corrupt epub file name: %1</source>
         <translation>Possible evil or corrupt epub file name: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="534"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="543"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="563"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="571"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="541"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="550"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="570"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="578"/>
         <source>Cannot extract file: %1</source>
         <translation>Cannot extract file: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="584"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="591"/>
         <source>Cannot open EPUB: %1</source>
         <translation>Cannot open EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="638"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="645"/>
         <source>Unable to parse container.xml file.
 Line: %1 Column %2 - %3</source>
         <translation>Unable to parse container.xml file.
 Line: %1 Column %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="646"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="653"/>
         <source>This epub has multiple renditions (multiple OPF files). Editing this epub in Sigil will produce a normal single rendition epub using only the main (first) OPF file found.</source>
         <translation>This epub has multiple renditions (multiple OPF files). Editing this epub in Sigil will produce a normal single rendition epub using only the main (first) OPF file found.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="650"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="657"/>
         <source>No appropriate OPF file found</source>
         <translation>No appropriate OPF file found</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="703"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="710"/>
         <source>Unable to read OPF file.
 Line: %1 Column %2 - %3</source>
         <translation>Unable to read OPF file.
 Line: %1 Column %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="837"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="844"/>
         <source>The OPF has an illegal Manifest entry for a file inside the META-INF folder for file &quot;%1&quot;</source>
         <translation>The OPF has an illegal Manifest entry for a file inside the META-INF folder for file &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="838"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="845"/>
         <source>You should edit your OPF file to remove this entry.</source>
         <translation>You should edit your OPF file to remove this entry.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="857"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="864"/>
         <source>The OPF manifest contains duplicate ids for: %1</source>
         <translation>The OPF manifest contains duplicate ids for: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="858"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="865"/>
         <source>A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.</source>
         <translation>A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="875"/>
-        <source>The OPF manifest contains duplicate file paths for: %1</source>
-        <translation>The OPF manifest contains duplicate file paths for: %1</translation>
-    </message>
-    <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="876"/>
-        <source>You should edit your OPF file&apos;s manifest to remove the duplication.</source>
-        <translation>You should edit your OPF file&apos;s manifest to remove the duplication.</translation>
-    </message>
-    <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="958"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="962"/>
         <source>The OPF file did not identify the NCX file correctly.</source>
         <translation>The OPF file did not identify the NCX file correctly.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="959"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="963"/>
         <source>Sigil has used the following file as the NCX:</source>
         <translation>Sigil has used the following file as the NCX:</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="985"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="989"/>
         <source>The OPF file does not contain an NCX file.</source>
         <translation>The OPF file does not contain an NCX file.</translation>
     </message>
@@ -18774,33 +18807,33 @@ Line: %1 Column %2 - %3</translation>
         <translation>The OPF contains missing or unrecognized media types.  Temporary media types have been generated. You should edit your OPF to fix these.</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="880"/>
-        <location filename="../../main.cpp" line="928"/>
+        <location filename="../../main.cpp" line="875"/>
+        <location filename="../../main.cpp" line="923"/>
         <source>Quit</source>
         <translation>Quit</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="890"/>
+        <location filename="../../main.cpp" line="885"/>
         <source>About</source>
         <translation>About</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="899"/>
+        <location filename="../../main.cpp" line="894"/>
         <source>Preferences</source>
         <translation>Preferences</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="910"/>
+        <location filename="../../main.cpp" line="905"/>
         <source>New</source>
         <translation>New</translation>
     </message>
     <message>
-        <location filename="../../main.cpp" line="919"/>
+        <location filename="../../main.cpp" line="914"/>
         <source>Open</source>
         <translation>Open</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="887"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="886"/>
         <source>Adding Existing Files..</source>
         <translation>Adding Existing Files..</translation>
     </message>
@@ -18816,34 +18849,34 @@ Line: %1 Column %2 - %3</translation>
     </message>
     <message>
         <location filename="../../Misc/SearchOperations.cpp" line="65"/>
-        <location filename="../../Misc/SearchOperations.cpp" line="238"/>
+        <location filename="../../Misc/SearchOperations.cpp" line="242"/>
         <source>Replacing search term...</source>
         <translation>Replacing search term...</translation>
     </message>
     <message>
-        <location filename="../../Misc/UpdateChecker.cpp" line="99"/>
+        <location filename="../../Misc/UpdateChecker.cpp" line="98"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/UpdateChecker.cpp" line="100"/>
+        <location filename="../../Misc/UpdateChecker.cpp" line="99"/>
         <source>&lt;p&gt;A newer version of Sigil is available, version &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Would you like to go to the download page?&lt;/p&gt;</source>
         <translation>&lt;p&gt;A newer version of Sigil is available, version &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Would you like to go to the download page?&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="485"/>
+        <location filename="../../Misc/Utility.cpp" line="505"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>Cannot read file %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="678"/>
+        <location filename="../../Misc/Utility.cpp" line="698"/>
         <source>Sigil has encountered a problem.</source>
         <translation>Sigil has encountered a problem.</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="679"/>
+        <location filename="../../Misc/Utility.cpp" line="699"/>
         <source>Sigil may need to close.</source>
         <translation>Sigil may need to close.</translation>
     </message>
@@ -19123,7 +19156,7 @@ and stop at the first successful replace.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SearchEditor.ui" line="123"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="96"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="95"/>
         <source>Replace</source>
         <translation>Replace</translation>
     </message>
@@ -19211,331 +19244,331 @@ including entries in selected groups.</translation>
         <translation>Click Apply to load Find &amp; Replace with the selected search.  Click OK to load your search, save your data, and close.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="91"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="90"/>
         <source>Right click on an entry to see a context menu of actions.</source>
         <translation>Right click on an entry to see a context menu of actions.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="92"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="91"/>
         <source>You can also right click on the Find text box in the Find &amp; Replace window to select an entry.</source>
         <translation>You can also right click on the Find text box in the Find &amp; Replace window to select an entry.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="94"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="93"/>
         <source>Name</source>
         <translation>Name</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="94"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="93"/>
         <source>Name of your entry or group.</source>
         <translation>Name of your entry or group.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="95"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="94"/>
         <source>Find</source>
         <translation>Find</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="95"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="94"/>
         <source>The text to put into the Find box.</source>
         <translation>The text to put into the Find box.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="96"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="95"/>
         <source>The text to put into the Replace box.</source>
         <translation>The text to put into the Replace box.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="97"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="96"/>
         <source>Controls</source>
         <translation>Controls</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="97"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="96"/>
         <source>Two character codes to control the search Mode, Direction, Target and Options.  Codes can be in any order comma or space separated.</source>
         <translation>Two character codes to control the search Mode, Direction, Target and Options.  Codes can be in any order comma or space separated.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="98"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="97"/>
         <source>Mode: Normal</source>
         <translation>Mode: Normal</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="99"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="98"/>
         <source>Mode: Regular Expression</source>
         <translation>Mode: Regular Expression</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="100"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="99"/>
         <source>Mode: Case Sensitive</source>
         <translation>Mode: Case Sensitive</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="102"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="101"/>
         <source>Direction: Up</source>
         <translation>Direction: Up</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="103"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="102"/>
         <source>Direction: Down</source>
         <translation>Direction: Down</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="105"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="104"/>
         <source>Target: Current File</source>
         <translation>Target: Current File</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="106"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="105"/>
         <source>Target: All HTML Files</source>
         <translation>Target: All HTML Files</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="107"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="106"/>
         <source>Target: Selected HTML Files</source>
         <translation>Target: Selected HTML Files</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="108"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="107"/>
         <source>Target: Tabbed HTML Files</source>
         <translation>Target: Tabbed HTML Files</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="109"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="108"/>
         <source>Target: All CSS Files</source>
         <translation>Target: All CSS Files</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="110"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="109"/>
         <source>Target: Selected CSS Files</source>
         <translation>Target: Selected CSS Files</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="111"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="110"/>
         <source>Target: Tabbed CSS Files</source>
         <translation>Target: Tabbed CSS Files</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="112"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="111"/>
         <source>Target: OPF File</source>
         <translation>Target: OPF File</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="113"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="112"/>
         <source>Target: NCX File</source>
         <translation>Target: NCX File</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="114"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="113"/>
         <source>Target: Selected SVG Files</source>
         <translation>Target: Selected SVG Files</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="115"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="114"/>
         <source>Target: Selected Javascript Files</source>
         <translation>Target: Selected Javascript Files</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="116"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="115"/>
         <source>Target: Selected Misc XML Files</source>
         <translation>Target: Selected Misc XML Files</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="118"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="117"/>
         <source>Option: DotAll</source>
         <translation>Option: DotAll</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="119"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="118"/>
         <source>Option: Minimal Match</source>
         <translation>Option: Minimal Match</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="120"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="119"/>
         <source>Option: Auto Tokenise</source>
         <translation>Option: Auto Tokenise</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="121"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="120"/>
         <source>Option: Unicode Property</source>
         <translation>Option: Unicode Property</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="122"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="121"/>
         <source>Option: Wrap</source>
         <translation>Option: Wrap</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="123"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="122"/>
         <source>Option: Text</source>
         <translation>Option: Text</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="133"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="132"/>
         <source>Save</source>
         <translation>Save</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="133"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="132"/>
         <source>Save your changes.</source>
         <translation>Save your changes.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="133"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="132"/>
         <source>If any other instances of Sigil are running they will be automatically updated with your changes.</source>
         <translation>If any other instances of Sigil are running they will be automatically updated with your changes.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="150"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="161"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="149"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="160"/>
         <source>Cannot save entries.</source>
         <translation>Cannot save entries.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="239"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="238"/>
         <source>Saved Searches loaded from file.</source>
         <translation>Saved Searches loaded from file.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="276"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="275"/>
         <source>You cannot select more than one entry when using this action.</source>
         <translation>You cannot select more than one entry when using this action.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="286"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="285"/>
         <source>You cannot select a group for this action.</source>
         <translation>You cannot select a group for this action.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="363"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="362"/>
         <source>You cannot select an entry and a group containing the entry.</source>
         <translation>You cannot select an entry and a group containing the entry.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="479"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="478"/>
         <source>You cannot Copy or Cut groups - use drag-and-drop.</source>
         <translation>You cannot Copy or Cut groups - use drag-and-drop.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="556"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="555"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="556"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="555"/>
         <source>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</source>
         <translation>Are you sure you want to reload all entries?  This will overwrite any unsaved changes.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="571"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="668"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="570"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="667"/>
         <source>Sigil INI files (*.ini)</source>
         <translation>Sigil INI files (*.ini)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="572"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="669"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="571"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="668"/>
         <source>CSV files (*.csv)</source>
         <translation>CSV files (*.csv)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="573"/>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="670"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="572"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="669"/>
         <source>Text files (*.txt)</source>
         <translation>Text files (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="584"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="583"/>
         <source>Import Search Entries</source>
         <translation>Import Search Entries</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="681"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="680"/>
         <source>Export Selected Searches</source>
         <translation>Export Selected Searches</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="871"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="870"/>
         <source>Add Entry</source>
         <translation>Add Entry</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="872"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="871"/>
         <source>Add Group</source>
         <translation>Add Group</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="873"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="872"/>
         <source>Edit</source>
         <translation>Edit</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="874"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="873"/>
         <source>Cut</source>
         <translation>Cut</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="875"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="874"/>
         <source>Copy</source>
         <translation>Copy</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="876"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="875"/>
         <source>Paste</source>
         <translation>Paste</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="877"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="876"/>
         <source>Delete</source>
         <translation>Delete</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="878"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="877"/>
         <source>Import</source>
         <translation>Import</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="879"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="878"/>
         <source>Reload</source>
         <translation>Reload</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="880"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="879"/>
         <source>Export</source>
         <translation>Export</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="881"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="880"/>
         <source>Export All</source>
         <translation>Export All</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="882"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="881"/>
         <source>Collapse All</source>
         <translation>Collapse All</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="883"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="882"/>
         <source>Expand All</source>
         <translation>Expand All</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="884"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="883"/>
         <source>Fill Controls</source>
         <translation>Fill Controls</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="965"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="964"/>
         <source>Search entries saved.</source>
         <translation>Search entries saved.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="994"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="993"/>
         <source>Sigil: Saved Searches</source>
         <translation>Sigil: Saved Searches</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SearchEditor.cpp" line="995"/>
+        <location filename="../../Dialogs/SearchEditor.cpp" line="994"/>
         <source>The Search entries may have been modified.
 Do you want to save your changes?</source>
         <translation>The Search entries may have been modified.
@@ -19545,137 +19578,137 @@ Do you want to save your changes?</translation>
 <context>
     <name>SearchEditorModel</name>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="72"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="62"/>
         <source>Name</source>
         <translation>Name</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="73"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="63"/>
         <source>Find</source>
         <translation>Find</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="74"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="64"/>
         <source>Replace</source>
         <translation>Replace</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="75"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="65"/>
         <source>Controls</source>
         <translation>Controls</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="469"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="452"/>
         <source>Mode: Normal</source>
         <translation>Mode: Normal</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="472"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="455"/>
         <source>Mode: Regular Expression</source>
         <translation>Mode: Regular Expression</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="475"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="458"/>
         <source>Mode: Case Sensitive</source>
         <translation>Mode: Case Sensitive</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="478"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="461"/>
         <source>Direction: Up</source>
         <translation>Direction: Up</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="481"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="464"/>
         <source>Direction: Down</source>
         <translation>Direction: Down</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="484"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="467"/>
         <source>Target: Current File</source>
         <translation>Target: Current File</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="487"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="470"/>
         <source>Target: All HTML Files</source>
         <translation>Target: All HTML Files</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="490"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="473"/>
         <source>Target: Selected HTML Files</source>
         <translation>Target: Selected HTML Files</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="493"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="476"/>
         <source>Target: Tabbed HTML Files</source>
         <translation>Target: Tabbed HTML Files</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="496"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="479"/>
         <source>Target: All CSS Files</source>
         <translation>Target: All CSS Files</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="499"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="482"/>
         <source>Target: Selected CSS Files</source>
         <translation>Target: Selected CSS Files</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="502"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="485"/>
         <source>Target: Tabbed CSS Files</source>
         <translation>Target: Tabbed CSS Files</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="505"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="488"/>
         <source>Target: OPF File</source>
         <translation>Target: OPF File</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="508"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="491"/>
         <source>Target: NCX File</source>
         <translation>Target: NCX File</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="511"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="494"/>
         <source>Target: Selected SVG Files</source>
         <translation>Target: Selected SVG Files</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="514"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="497"/>
         <source>Target: Selected Javascript Files</source>
         <translation>Target: Selected Javascript Files</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="517"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="500"/>
         <source>Target: Selected Misc XML Files</source>
         <translation>Target: Selected Misc XML Files</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="520"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="503"/>
         <source>Option: DotAll</source>
         <translation>Option: DotAll</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="523"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="506"/>
         <source>Option: Minimal Match</source>
         <translation>Option: Minimal Match</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="526"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="509"/>
         <source>Option: Auto Tokenise</source>
         <translation>Option: Auto Tokenise</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="529"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="512"/>
         <source>Option: Wrap</source>
         <translation>Option: Wrap</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="532"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="515"/>
         <source>Option: Text Only</source>
         <translation>Option: Text Only</translation>
     </message>
     <message>
-        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="827"/>
+        <location filename="../../MiscEditors/SearchEditorModel.cpp" line="810"/>
         <source>Unable to create file %1</source>
         <translation>Unable to create file %1</translation>
     </message>
@@ -21200,7 +21233,7 @@ ID names must be unique and start with a letter.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="217"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="223"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="222"/>
         <source>Rename</source>
         <translation>Rename</translation>
     </message>
@@ -21287,53 +21320,53 @@ default dictionary or use the shortcuts for Add Misspelled Words.</translation>
         <translation>Dictionary</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="120"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="119"/>
         <source>Add Dictionary</source>
         <translation>Add Dictionary</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="120"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="223"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="119"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="222"/>
         <source>Name:</source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="134"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="174"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="236"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="244"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="263"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="133"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="173"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="235"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="243"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="262"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="134"/>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="236"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="133"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="235"/>
         <source>A user dictionary already exists with this name!</source>
         <translation>A user dictionary already exists with this name!</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="143"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="142"/>
         <source>Add Words</source>
         <translation>Add Words</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="143"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="142"/>
         <source>Words:</source>
         <translation>Words:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="174"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="173"/>
         <source>Could not create file!</source>
         <translation>Could not create file!</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="244"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="243"/>
         <source>Could not rename file!</source>
         <translation>Could not rename file!</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="263"/>
+        <location filename="../../Dialogs/PreferenceWidgets/SpellCheckWidget.cpp" line="262"/>
         <source>You cannot delete the last dictionary.</source>
         <translation>You cannot delete the last dictionary.</translation>
     </message>
@@ -21364,7 +21397,7 @@ is restarted or a new book is opened.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="65"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="584"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="578"/>
         <source>Ignore</source>
         <translation>Ignore</translation>
     </message>
@@ -21447,109 +21480,109 @@ Use if you edit any HTML files while Spellcheck is open.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SpellcheckEditor.cpp" line="169"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="192"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="231"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="191"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="229"/>
         <source>No words selected.</source>
         <translation>No words selected.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="185"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="184"/>
         <source>Ignored word(s).</source>
         <translation>Ignored word(s).</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="220"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="218"/>
         <source>Added word(s) to dictionary.</source>
         <translation>Added word(s) to dictionary.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="222"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="220"/>
         <source>Added word(s) to dictionary. The dictionary is not enabled in Preferences.</source>
         <translation>Added word(s) to dictionary. The dictionary is not enabled in Preferences.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="237"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="235"/>
         <source>The new word cannot contain &quot;&lt;&quot;, &quot;&gt;&quot;, or &quot;&amp;&quot;.</source>
         <translation>The new word cannot contain &quot;&lt;&quot;, &quot;&gt;&quot;, or &quot;&amp;&quot;.</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="248"/>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="325"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="246"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="321"/>
         <source>No</source>
         <translation>No</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="267"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="265"/>
         <source>Word</source>
         <translation>Word</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="268"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="266"/>
         <source>Count</source>
         <translation>Count</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="269"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="267"/>
         <source>Language</source>
         <translation>Language</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="270"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="268"/>
         <source>Misspelled?</source>
         <translation>Misspelled?</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="323"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="319"/>
         <source>Yes</source>
         <translation>Yes</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="349"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="345"/>
         <source>Misspelled Words</source>
         <translation>Misspelled Words</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="349"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="345"/>
         <source>Total Unique Words</source>
         <translation>Total Unique Words</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="585"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="579"/>
         <source>Add to Dictionary</source>
         <translation>Add to Dictionary</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="586"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="580"/>
         <source>Find in Text</source>
         <translation>Find in Text</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="587"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="581"/>
         <source>Select All</source>
         <translation>Select All</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="588"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="582"/>
         <source>Save Selected Data</source>
         <translation>Save Selected Data</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="589"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="583"/>
         <source>Copy Selected Data to Clipboard</source>
         <translation>Copy Selected Data to Clipboard</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="681"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="675"/>
         <source>Save Selected Data As Comma Separated File</source>
         <translation>Save Selected Data As Comma Separated File</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="694"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="688"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="694"/>
+        <location filename="../../Dialogs/SpellcheckEditor.cpp" line="688"/>
         <source>Cannot save data file.</source>
         <translation>Cannot save data file.</translation>
     </message>
@@ -21677,12 +21710,12 @@ Use if you edit any HTML files while Spellcheck is open.</translation>
 <context>
     <name>Utility</name>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="824"/>
+        <location filename="../../Misc/Utility.cpp" line="844"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
     <message>
-        <location filename="../../Misc/Utility.cpp" line="825"/>
+        <location filename="../../Misc/Utility.cpp" line="845"/>
         <source>The requested file name contains non-ASCII characters. You should only use ASCII characters in filenames. Using non-ASCII characters can prevent the EPUB from working with some readers.
 
 Continue using the requested filename?</source>
@@ -21724,33 +21757,33 @@ Continue using the requested filename?</translation>
         <translation>Export of Validation Results failed: </translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="334"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="332"/>
         <source>Updating Validation Results</source>
         <translation>Updating Validation Results</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="409"/>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="425"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="407"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="423"/>
         <source>Message</source>
         <translation>Message</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="410"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="408"/>
         <source>No problems found!</source>
         <translation>No problems found!</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="425"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="423"/>
         <source>File</source>
         <translation>File</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="425"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="423"/>
         <source>Line</source>
         <translation>Line</translation>
     </message>
     <message>
-        <location filename="../../MainUI/ValidationResultsView.cpp" line="425"/>
+        <location filename="../../MainUI/ValidationResultsView.cpp" line="423"/>
         <source>Offset</source>
         <translation>Offset</translation>
     </message>
@@ -21820,1267 +21853,1267 @@ Continue using the requested filename?</translation>
 <context>
     <name>XMLEntities</name>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="97"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="87"/>
         <source>quotation mark</source>
         <translation>quotation mark</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="98"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="88"/>
         <source>ampersand</source>
         <translation>ampersand</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="99"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="89"/>
         <source>apostrophe</source>
         <translation>apostrophe</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="100"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="90"/>
         <source>less-than sign</source>
         <translation>less-than sign</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="101"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="91"/>
         <source>greater-than sign</source>
         <translation>greater-than sign</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="102"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="92"/>
         <source>no-break space</source>
         <translation>no-break space</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="103"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="93"/>
         <source>inverted exclamation mark</source>
         <translation>inverted exclamation mark</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="104"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="94"/>
         <source>cent sign</source>
         <translation>cent sign</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="105"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="95"/>
         <source>pound sign</source>
         <translation>pound sign</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="106"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="96"/>
         <source>currency sign</source>
         <translation>currency sign</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="107"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="97"/>
         <source>yen sign</source>
         <translation>yen sign</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="108"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="98"/>
         <source>broken bar</source>
         <translation>broken bar</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="109"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="99"/>
         <source>section sign</source>
         <translation>section sign</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="110"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="100"/>
         <source>diaeresis</source>
         <translation>diaeresis</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="111"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="101"/>
         <source>copyright symbol</source>
         <translation>copyright symbol</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="112"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="102"/>
         <source>feminine ordinal indicator</source>
         <translation>feminine ordinal indicator</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="113"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="103"/>
         <source>left-pointing double angle quotation mark</source>
         <translation>left-pointing double angle quotation mark</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="114"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="104"/>
         <source>not sign</source>
         <translation>not sign</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="115"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="105"/>
         <source>soft hyphen</source>
         <translation>soft hyphen</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="116"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="106"/>
         <source>registered sign</source>
         <translation>registered sign</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="117"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="107"/>
         <source>macron</source>
         <translation>macron</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="118"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="108"/>
         <source>degree symbol</source>
         <translation>degree symbol</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="119"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="109"/>
         <source>plus-minus sign</source>
         <translation>plus-minus sign</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="120"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="110"/>
         <source>superscript two</source>
         <translation>superscript two</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="121"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="111"/>
         <source>superscript three</source>
         <translation>superscript three</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="122"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="112"/>
         <source>acute accent</source>
         <translation>acute accent</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="123"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="113"/>
         <source>micro sign</source>
         <translation>micro sign</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="124"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="114"/>
         <source>pilcrow sign</source>
         <translation>pilcrow sign</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="125"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="115"/>
         <source>middle dot</source>
         <translation>middle dot</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="126"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="116"/>
         <source>cedilla</source>
         <translation>cedilla</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="127"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="117"/>
         <source>superscript one</source>
         <translation>superscript one</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="128"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="118"/>
         <source>masculine ordinal indicator</source>
         <translation>masculine ordinal indicator</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="129"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="119"/>
         <source>right-pointing double angle quotation mark</source>
         <translation>right-pointing double angle quotation mark</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="130"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="120"/>
         <source>vulgar fraction one quarter</source>
         <translation>vulgar fraction one quarter</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="131"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="121"/>
         <source>vulgar fraction one half</source>
         <translation>vulgar fraction one half</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="132"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="122"/>
         <source>vulgar fraction three quarters</source>
         <translation>vulgar fraction three quarters</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="133"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="123"/>
         <source>inverted question mark</source>
         <translation>inverted question mark</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="134"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="124"/>
         <source>Latin capital letter A with grave accent</source>
         <translation>Latin capital letter A with grave accent</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="135"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="125"/>
         <source>Latin capital letter A with acute accent</source>
         <translation>Latin capital letter A with acute accent</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="136"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="126"/>
         <source>Latin capital letter A with circumflex</source>
         <translation>Latin capital letter A with circumflex</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="137"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="127"/>
         <source>Latin capital letter A with tilde</source>
         <translation>Latin capital letter A with tilde</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="138"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="128"/>
         <source>Latin capital letter A with diaeresis</source>
         <translation>Latin capital letter A with diaeresis</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="139"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="129"/>
         <source>Latin capital letter A with ring above</source>
         <translation>Latin capital letter A with ring above</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="140"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="130"/>
         <source>Latin capital letter AE</source>
         <translation>Latin capital letter AE</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="141"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="131"/>
         <source>Latin capital letter C with cedilla</source>
         <translation>Latin capital letter C with cedilla</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="142"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="132"/>
         <source>Latin capital letter E with grave accent</source>
         <translation>Latin capital letter E with grave accent</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="143"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="133"/>
         <source>Latin capital letter E with acute accent</source>
         <translation>Latin capital letter E with acute accent</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="144"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="134"/>
         <source>Latin capital letter E with circumflex</source>
         <translation>Latin capital letter E with circumflex</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="145"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="135"/>
         <source>Latin capital letter E with diaeresis</source>
         <translation>Latin capital letter E with diaeresis</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="146"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="136"/>
         <source>Latin capital letter I with grave accent</source>
         <translation>Latin capital letter I with grave accent</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="147"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="137"/>
         <source>Latin capital letter I with acute accent</source>
         <translation>Latin capital letter I with acute accent</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="148"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="138"/>
         <source>Latin capital letter I with circumflex</source>
         <translation>Latin capital letter I with circumflex</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="149"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="139"/>
         <source>Latin capital letter I with diaeresis</source>
         <translation>Latin capital letter I with diaeresis</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="150"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="140"/>
         <source>Latin capital letter Eth</source>
         <translation>Latin capital letter Eth</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="151"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="141"/>
         <source>Latin capital letter N with tilde</source>
         <translation>Latin capital letter N with tilde</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="152"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="142"/>
         <source>Latin capital letter O with grave accent</source>
         <translation>Latin capital letter O with grave accent</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="153"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="143"/>
         <source>Latin capital letter O with acute accent</source>
         <translation>Latin capital letter O with acute accent</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="154"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="144"/>
         <source>Latin capital letter O with circumflex</source>
         <translation>Latin capital letter O with circumflex</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="155"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="145"/>
         <source>Latin capital letter O with tilde</source>
         <translation>Latin capital letter O with tilde</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="156"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="146"/>
         <source>Latin capital letter O with diaeresis</source>
         <translation>Latin capital letter O with diaeresis</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="157"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="147"/>
         <source>multiplication sign</source>
         <translation>multiplication sign</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="158"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="148"/>
         <source>Latin capital letter O with stroke</source>
         <translation>Latin capital letter O with stroke</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="159"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="149"/>
         <source>Latin capital letter U with grave accent</source>
         <translation>Latin capital letter U with grave accent</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="160"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="150"/>
         <source>Latin capital letter U with acute accent</source>
         <translation>Latin capital letter U with acute accent</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="161"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="151"/>
         <source>Latin capital letter U with circumflex</source>
         <translation>Latin capital letter U with circumflex</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="162"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="152"/>
         <source>Latin capital letter U with diaeresis</source>
         <translation>Latin capital letter U with diaeresis</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="163"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="153"/>
         <source>Latin capital letter Y with acute accent</source>
         <translation>Latin capital letter Y with acute accent</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="164"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="154"/>
         <source>Latin capital letter THORN</source>
         <translation>Latin capital letter THORN</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="165"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="155"/>
         <source>Latin small letter sharp s</source>
         <translation>Latin small letter sharp s</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="166"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="156"/>
         <source>Latin small letter a with grave accent</source>
         <translation>Latin small letter a with grave accent</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="167"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="157"/>
         <source>Latin small letter a with acute accent</source>
         <translation>Latin small letter a with acute accent</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="168"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="158"/>
         <source>Latin small letter a with circumflex</source>
         <translation>Latin small letter a with circumflex</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="169"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="159"/>
         <source>Latin small letter a with tilde</source>
         <translation>Latin small letter a with tilde</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="170"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="160"/>
         <source>Latin small letter a with diaeresis</source>
         <translation>Latin small letter a with diaeresis</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="171"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="161"/>
         <source>Latin small letter a with ring above</source>
         <translation>Latin small letter a with ring above</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="172"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="162"/>
         <source>Latin small letter ae</source>
         <translation>Latin small letter ae</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="173"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="163"/>
         <source>Latin small letter c with cedilla</source>
         <translation>Latin small letter c with cedilla</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="174"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="164"/>
         <source>Latin small letter e with grave accent</source>
         <translation>Latin small letter e with grave accent</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="175"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="165"/>
         <source>Latin small letter e with acute accent</source>
         <translation>Latin small letter e with acute accent</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="176"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="166"/>
         <source>Latin small letter e with circumflex</source>
         <translation>Latin small letter e with circumflex</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="177"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="167"/>
         <source>Latin small letter e with diaeresis</source>
         <translation>Latin small letter e with diaeresis</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="178"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="168"/>
         <source>Latin small letter i with grave accent</source>
         <translation>Latin small letter i with grave accent</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="179"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="169"/>
         <source>Latin small letter i with acute accent</source>
         <translation>Latin small letter i with acute accent</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="180"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="170"/>
         <source>Latin small letter i with circumflex</source>
         <translation>Latin small letter i with circumflex</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="181"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="171"/>
         <source>Latin small letter i with diaeresis</source>
         <translation>Latin small letter i with diaeresis</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="182"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="172"/>
         <source>Latin small letter eth</source>
         <translation>Latin small letter eth</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="183"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="173"/>
         <source>Latin small letter n with tilde</source>
         <translation>Latin small letter n with tilde</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="184"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="174"/>
         <source>Latin small letter o with grave accent</source>
         <translation>Latin small letter o with grave accent</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="185"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="175"/>
         <source>Latin small letter o with acute accent</source>
         <translation>Latin small letter o with acute accent</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="186"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="176"/>
         <source>Latin small letter o with circumflex</source>
         <translation>Latin small letter o with circumflex</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="187"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="177"/>
         <source>Latin small letter o with tilde</source>
         <translation>Latin small letter o with tilde</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="188"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="178"/>
         <source>Latin small letter o with diaeresis</source>
         <translation>Latin small letter o with diaeresis</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="189"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="179"/>
         <source>division sign</source>
         <translation>division sign</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="190"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="180"/>
         <source>Latin small letter o with stroke</source>
         <translation>Latin small letter o with stroke</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="191"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="181"/>
         <source>Latin small letter u with grave accent</source>
         <translation>Latin small letter u with grave accent</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="192"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="182"/>
         <source>Latin small letter u with acute accent</source>
         <translation>Latin small letter u with acute accent</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="193"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="183"/>
         <source>Latin small letter u with circumflex</source>
         <translation>Latin small letter u with circumflex</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="194"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="184"/>
         <source>Latin small letter u with diaeresis</source>
         <translation>Latin small letter u with diaeresis</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="195"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="185"/>
         <source>Latin small letter y with acute accent</source>
         <translation>Latin small letter y with acute accent</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="196"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="186"/>
         <source>Latin small letter thorn</source>
         <translation>Latin small letter thorn</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="197"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="187"/>
         <source>Latin small letter y with diaeresis</source>
         <translation>Latin small letter y with diaeresis</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="198"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="188"/>
         <source>Latin capital ligature OE</source>
         <translation>Latin capital ligature OE</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="199"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="189"/>
         <source>Latin small ligature oe</source>
         <translation>Latin small ligature oe</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="200"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="190"/>
         <source>Latin capital letter S with caron</source>
         <translation>Latin capital letter S with caron</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="201"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="191"/>
         <source>Latin small letter s with caron</source>
         <translation>Latin small letter s with caron</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="202"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="192"/>
         <source>Latin capital letter Y with diaeresis</source>
         <translation>Latin capital letter Y with diaeresis</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="203"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="193"/>
         <source>Latin small letter f with hook</source>
         <translation>Latin small letter f with hook</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="204"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="194"/>
         <source>modifier letter circumflex accent</source>
         <translation>modifier letter circumflex accent</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="205"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="195"/>
         <source>small tilde</source>
         <translation>small tilde</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="206"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="196"/>
         <source>Greek capital letter Alpha</source>
         <translation>Greek capital letter Alpha</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="207"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="197"/>
         <source>Greek capital letter Beta</source>
         <translation>Greek capital letter Beta</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="208"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="198"/>
         <source>Greek capital letter Gamma</source>
         <translation>Greek capital letter Gamma</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="209"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="199"/>
         <source>Greek capital letter Delta</source>
         <translation>Greek capital letter Delta</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="210"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="200"/>
         <source>Greek capital letter Epsilon</source>
         <translation>Greek capital letter Epsilon</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="211"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="201"/>
         <source>Greek capital letter Zeta</source>
         <translation>Greek capital letter Zeta</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="212"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="202"/>
         <source>Greek capital letter Eta</source>
         <translation>Greek capital letter Eta</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="213"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="203"/>
         <source>Greek capital letter Theta</source>
         <translation>Greek capital letter Theta</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="214"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="204"/>
         <source>Greek capital letter Iota</source>
         <translation>Greek capital letter Iota</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="215"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="205"/>
         <source>Greek capital letter Kappa</source>
         <translation>Greek capital letter Kappa</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="216"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="206"/>
         <source>Greek capital letter Lambda</source>
         <translation>Greek capital letter Lambda</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="217"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="207"/>
         <source>Greek capital letter Mu</source>
         <translation>Greek capital letter Mu</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="218"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="208"/>
         <source>Greek capital letter Nu</source>
         <translation>Greek capital letter Nu</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="219"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="209"/>
         <source>Greek capital letter Xi</source>
         <translation>Greek capital letter Xi</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="220"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="210"/>
         <source>Greek capital letter Omicron</source>
         <translation>Greek capital letter Omicron</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="221"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="211"/>
         <source>Greek capital letter Pi</source>
         <translation>Greek capital letter Pi</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="222"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="212"/>
         <source>Greek capital letter Rho</source>
         <translation>Greek capital letter Rho</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="223"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="213"/>
         <source>Greek capital letter Sigma</source>
         <translation>Greek capital letter Sigma</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="224"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="214"/>
         <source>Greek capital letter Tau</source>
         <translation>Greek capital letter Tau</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="225"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="215"/>
         <source>Greek capital letter Upsilon</source>
         <translation>Greek capital letter Upsilon</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="226"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="216"/>
         <source>Greek capital letter Phi</source>
         <translation>Greek capital letter Phi</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="227"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="217"/>
         <source>Greek capital letter Chi</source>
         <translation>Greek capital letter Chi</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="228"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="218"/>
         <source>Greek capital letter Psi</source>
         <translation>Greek capital letter Psi</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="229"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="219"/>
         <source>Greek capital letter Omega</source>
         <translation>Greek capital letter Omega</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="230"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="220"/>
         <source>Greek small letter alpha</source>
         <translation>Greek small letter alpha</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="231"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="221"/>
         <source>Greek small letter beta</source>
         <translation>Greek small letter beta</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="232"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="222"/>
         <source>Greek small letter gamma</source>
         <translation>Greek small letter gamma</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="233"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="223"/>
         <source>Greek small letter delta</source>
         <translation>Greek small letter delta</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="234"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="224"/>
         <source>Greek small letter epsilon</source>
         <translation>Greek small letter epsilon</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="235"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="225"/>
         <source>Greek small letter zeta</source>
         <translation>Greek small letter zeta</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="236"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="226"/>
         <source>Greek small letter eta</source>
         <translation>Greek small letter eta</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="237"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="227"/>
         <source>Greek small letter theta</source>
         <translation>Greek small letter theta</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="238"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="228"/>
         <source>Greek small letter iota</source>
         <translation>Greek small letter iota</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="239"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="229"/>
         <source>Greek small letter kappa</source>
         <translation>Greek small letter kappa</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="240"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="230"/>
         <source>Greek small letter lambda</source>
         <translation>Greek small letter lambda</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="241"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="231"/>
         <source>Greek small letter mu</source>
         <translation>Greek small letter mu</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="242"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="232"/>
         <source>Greek small letter nu</source>
         <translation>Greek small letter nu</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="243"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="233"/>
         <source>Greek small letter xi</source>
         <translation>Greek small letter xi</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="244"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="234"/>
         <source>Greek small letter omicron</source>
         <translation>Greek small letter omicron</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="245"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="235"/>
         <source>Greek small letter pi</source>
         <translation>Greek small letter pi</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="246"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="236"/>
         <source>Greek small letter rho</source>
         <translation>Greek small letter rho</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="247"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="237"/>
         <source>Greek small letter final sigma</source>
         <translation>Greek small letter final sigma</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="248"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="238"/>
         <source>Greek small letter sigma</source>
         <translation>Greek small letter sigma</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="249"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="239"/>
         <source>Greek small letter tau</source>
         <translation>Greek small letter tau</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="250"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="240"/>
         <source>Greek small letter upsilon</source>
         <translation>Greek small letter upsilon</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="251"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="241"/>
         <source>Greek small letter phi</source>
         <translation>Greek small letter phi</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="252"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="242"/>
         <source>Greek small letter chi</source>
         <translation>Greek small letter chi</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="253"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="243"/>
         <source>Greek small letter psi</source>
         <translation>Greek small letter psi</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="254"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="244"/>
         <source>Greek small letter omega</source>
         <translation>Greek small letter omega</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="255"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="245"/>
         <source>Greek theta symbol</source>
         <translation>Greek theta symbol</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="256"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="246"/>
         <source>Greek Upsilon with hook symbol</source>
         <translation>Greek Upsilon with hook symbol</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="257"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="247"/>
         <source>Greek pi symbol</source>
         <translation>Greek pi symbol</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="258"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="248"/>
         <source>en space</source>
         <translation>en space</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="259"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="249"/>
         <source>em space</source>
         <translation>em space</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="260"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="250"/>
         <source>thin space</source>
         <translation>thin space</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="261"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="251"/>
         <source>zero-width non-joiner</source>
         <translation>zero-width non-joiner</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="262"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="252"/>
         <source>zero-width joiner</source>
         <translation>zero-width joiner</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="263"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="253"/>
         <source>left-to-right mark</source>
         <translation>left-to-right mark</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="264"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="254"/>
         <source>right-to-left mark</source>
         <translation>right-to-left mark</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="265"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="255"/>
         <source>en dash</source>
         <translation>en dash</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="266"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="256"/>
         <source>em dash</source>
         <translation>em dash</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="267"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="257"/>
         <source>left single quotation mark</source>
         <translation>left single quotation mark</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="268"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="258"/>
         <source>right single quotation mark</source>
         <translation>right single quotation mark</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="269"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="259"/>
         <source>single low-9 quotation mark</source>
         <translation>single low-9 quotation mark</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="270"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="260"/>
         <source>left double quotation mark</source>
         <translation>left double quotation mark</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="271"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="261"/>
         <source>right double quotation mark</source>
         <translation>right double quotation mark</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="272"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="262"/>
         <source>double low-9 quotation mark</source>
         <translation>double low-9 quotation mark</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="273"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="263"/>
         <source>dagger, obelisk</source>
         <translation>dagger, obelisk</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="274"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="264"/>
         <source>double dagger, double obelisk</source>
         <translation>double dagger, double obelisk</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="275"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="265"/>
         <source>bullet</source>
         <translation>bullet</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="276"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="266"/>
         <source>horizontal ellipsis</source>
         <translation>horizontal ellipsis</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="277"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="267"/>
         <source>per mille sign</source>
         <translation>per mille sign</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="278"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="268"/>
         <source>prime</source>
         <translation>prime</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="279"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="269"/>
         <source>double prime</source>
         <translation>double prime</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="280"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="270"/>
         <source>single left-pointing angle quotation mark</source>
         <translation>single left-pointing angle quotation mark</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="281"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="271"/>
         <source>single right-pointing angle quotation mark</source>
         <translation>single right-pointing angle quotation mark</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="282"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="272"/>
         <source>overline</source>
         <translation>overline</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="283"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="273"/>
         <source>fraction slash</source>
         <translation>fraction slash</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="284"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="274"/>
         <source>euro sign</source>
         <translation>euro sign</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="285"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="275"/>
         <source>black-letter capital I</source>
         <translation>black-letter capital I</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="286"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="276"/>
         <source>script capital P</source>
         <translation>script capital P</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="287"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="277"/>
         <source>black-letter capital R</source>
         <translation>black-letter capital R</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="288"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="278"/>
         <source>trademark symbol</source>
         <translation>trademark symbol</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="289"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="279"/>
         <source>alef symbol</source>
         <translation>alef symbol</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="290"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="280"/>
         <source>leftwards arrow</source>
         <translation>leftwards arrow</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="291"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="281"/>
         <source>upwards arrow</source>
         <translation>upwards arrow</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="292"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="282"/>
         <source>rightwards arrow</source>
         <translation>rightwards arrow</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="293"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="283"/>
         <source>downwards arrow</source>
         <translation>downwards arrow</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="294"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="284"/>
         <source>left right arrow</source>
         <translation>left right arrow</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="295"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="285"/>
         <source>downwards arrow with corner leftwards</source>
         <translation>downwards arrow with corner leftwards</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="296"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="286"/>
         <source>leftwards double arrow</source>
         <translation>leftwards double arrow</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="297"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="287"/>
         <source>upwards double arrow</source>
         <translation>upwards double arrow</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="298"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="288"/>
         <source>rightwards double arrow</source>
         <translation>rightwards double arrow</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="299"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="289"/>
         <source>downwards double arrow</source>
         <translation>downwards double arrow</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="300"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="290"/>
         <source>left right double arrow</source>
         <translation>left right double arrow</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="301"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="291"/>
         <source>for all</source>
         <translation>for all</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="302"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="292"/>
         <source>partial differential</source>
         <translation>partial differential</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="303"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="293"/>
         <source>there exists</source>
         <translation>there exists</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="304"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="294"/>
         <source>empty set</source>
         <translation>empty set</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="305"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="295"/>
         <source>nabla</source>
         <translation>nabla</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="306"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="296"/>
         <source>element of</source>
         <translation>element of</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="307"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="297"/>
         <source>not an element of</source>
         <translation>not an element of</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="308"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="298"/>
         <source>contains as member</source>
         <translation>contains as member</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="309"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="299"/>
         <source>n-ary product</source>
         <translation>n-ary product</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="310"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="300"/>
         <source>n-ary summation</source>
         <translation>n-ary summation</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="311"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="301"/>
         <source>minus sign</source>
         <translation>minus sign</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="312"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="302"/>
         <source>asterisk operator</source>
         <translation>asterisk operator</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="313"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="303"/>
         <source>square root</source>
         <translation>square root</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="314"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="304"/>
         <source>proportional to</source>
         <translation>proportional to</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="315"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="305"/>
         <source>infinity</source>
         <translation>infinity</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="316"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="306"/>
         <source>angle</source>
         <translation>angle</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="317"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="307"/>
         <source>logical and</source>
         <translation>logical and</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="318"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="308"/>
         <source>logical or</source>
         <translation>logical or</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="319"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="309"/>
         <source>intersection</source>
         <translation>intersection</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="320"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="310"/>
         <source>union</source>
         <translation>union</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="321"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="311"/>
         <source>integral</source>
         <translation>integral</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="322"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="312"/>
         <source>therefore sign</source>
         <translation>therefore sign</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="323"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="313"/>
         <source>tilde operator</source>
         <translation>tilde operator</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="324"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="314"/>
         <source>congruent to</source>
         <translation>congruent to</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="325"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="315"/>
         <source>almost equal to</source>
         <translation>almost equal to</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="326"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="316"/>
         <source>not equal to</source>
         <translation>not equal to</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="327"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="317"/>
         <source>identical to</source>
         <translation>identical to</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="328"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="318"/>
         <source>less-than or equal to</source>
         <translation>less-than or equal to</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="329"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="319"/>
         <source>greater-than or equal to</source>
         <translation>greater-than or equal to</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="330"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="320"/>
         <source>subset of</source>
         <translation>subset of</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="331"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="321"/>
         <source>superset of</source>
         <translation>superset of</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="332"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="322"/>
         <source>not a subset of</source>
         <translation>not a subset of</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="333"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="323"/>
         <source>subset of or equal to</source>
         <translation>subset of or equal to</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="334"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="324"/>
         <source>superset of or equal to</source>
         <translation>superset of or equal to</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="335"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="325"/>
         <source>circled plus</source>
         <translation>circled plus</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="336"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="326"/>
         <source>circled times</source>
         <translation>circled times</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="337"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="327"/>
         <source>up tack</source>
         <translation>up tack</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="338"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="328"/>
         <source>dot operator</source>
         <translation>dot operator</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="339"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="329"/>
         <source>left ceiling</source>
         <translation>left ceiling</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="340"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="330"/>
         <source>right ceiling</source>
         <translation>right ceiling</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="341"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="331"/>
         <source>left floor</source>
         <translation>left floor</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="342"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="332"/>
         <source>right floor</source>
         <translation>right floor</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="343"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="333"/>
         <source>left-pointing angle bracket</source>
         <translation>left-pointing angle bracket</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="344"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="334"/>
         <source>right-pointing angle bracket</source>
         <translation>right-pointing angle bracket</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="345"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="335"/>
         <source>lozenge</source>
         <translation>lozenge</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="346"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="336"/>
         <source>black spade suit</source>
         <translation>black spade suit</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="347"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="337"/>
         <source>black club suit</source>
         <translation>black club suit</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="348"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="338"/>
         <source>black heart suit</source>
         <translation>black heart suit</translation>
     </message>
     <message>
-        <location filename="../../Misc/XMLEntities.cpp" line="349"/>
+        <location filename="../../Misc/XMLEntities.cpp" line="339"/>
         <source>black diamond suit</source>
         <translation>black diamond suit</translation>
     </message>
