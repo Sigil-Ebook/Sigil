@@ -82,7 +82,9 @@ AdjustImage::AdjustImage(const QString filepath, const QString& mediatype,  QWid
 
     m_scrollArea = new QScrollArea;
     m_scrollArea->setBackgroundRole(QPalette::Dark);
+    m_scrollArea->setAlignment(Qt::AlignCenter);
     m_scrollArea->setWidget(m_imageLabel);
+    m_scrollArea->setWidgetResizable(true);
 
     m_description = new QLabel;
     m_statusBar->addPermanentWidget(m_description);
