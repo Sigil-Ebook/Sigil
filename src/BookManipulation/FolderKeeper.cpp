@@ -132,14 +132,51 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath,
                                                bool update_opf, 
                                                const QString &mimetype, 
                                                const QString &bookpath,
-                                               const QString &folderpath)
+                                               const QString &folderpath,
+                                               const QString &allowed_root)
 {
-    if (!QFileInfo(fullfilepath).exists()) {
-        throw(FileDoesNotExist(fullfilepath.toStdString()));
+    QString source_fullpath = fullfilepath;
+    auto validate_epub_source = [&]() {
+        if (allowed_root.isEmpty()) {
+            return;
+        }
+
+        const QString canonical_root = QFileInfo(allowed_root).canonicalFilePath();
+        const QString source_reference = QDir(canonical_root).relativeFilePath(source_fullpath);
+        QString validated_path;
+        QString error_message;
+        if (!Utility::ResolveEPUBPath(canonical_root,
+                                      canonical_root,
+                                      source_reference,
+                                      &validated_path,
+                                      &error_message,
+                                      false)) {
+            throw (EPUBLoadParseError(QString(QObject::tr("Invalid EPUB source path '%1': %2"))
+                                      .arg(source_fullpath, error_message).toStdString()));
+        }
+        source_fullpath = validated_path;
+    };
+
+    // Validate before and after the existence check so that callers cannot
+    // use a source that was resolved outside the extracted EPUB root.
+    validate_epub_source();
+    if (!QFileInfo(source_fullpath).exists()) {
+        if (!allowed_root.isEmpty()) {
+            throw (EPUBLoadParseError(QString(QObject::tr("EPUB resource does not exist inside the extracted root: %1"))
+                                      .arg(source_fullpath).toStdString()));
+        }
+        throw(FileDoesNotExist(source_fullpath.toStdString()));
+    }
+    if (!allowed_root.isEmpty()) {
+        validate_epub_source();
+        if (!QFileInfo(source_fullpath).exists()) {
+            throw (EPUBLoadParseError(QString(QObject::tr("EPUB resource disappeared before loading: %1"))
+                                      .arg(source_fullpath).toStdString()));
+        }
     }
 
     // initialize base file information
-    QString norm_file_path = fullfilepath;
+    QString norm_file_path = source_fullpath;
     QFileInfo fi(norm_file_path);
     QString filename = fi.fileName();
 
@@ -197,12 +234,20 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath,
             }
         }
 
-        if (fullfilepath.contains(FILE_EXCEPTIONS)) {
+        // Revalidate immediately before constructing the Resource.
+        if (!allowed_root.isEmpty()) {
+            validate_epub_source();
+            if (!QFileInfo(source_fullpath).exists()) {
+                throw (EPUBLoadParseError(QString(QObject::tr("EPUB resource disappeared before creating its Resource: %1"))
+                                          .arg(source_fullpath).toStdString()));
+            }
+        }
+
+        if (source_fullpath.contains(FILE_EXCEPTIONS)) {
             // This is used for all files inside the META-INF directory
-            // This is a big hack that assumes the new and old filepaths use root paths
-            // of the same length. I can't see how to fix this without refactoring
-            // a lot of the code to provide a more generalised interface.
-            new_file_path = m_FullPathToMainFolder % fullfilepath.right(fullfilepath.size() - m_FullPathToMainFolder.size());
+            // and keeps the source's root-relative location.
+            const QString relative_source_path = QDir(m_FullPathToMainFolder).relativeFilePath(source_fullpath);
+            new_file_path = m_FullPathToMainFolder + "/" + relative_source_path;
             resource = new Resource(m_FullPathToMainFolder, new_file_path);
         } else if (resdesc == "MiscTextResource") {
             resource = new MiscTextResource(m_FullPathToMainFolder, new_file_path);
@@ -235,7 +280,7 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath,
         // Note:  m_FullPathToMainFolder **never** ends with a "/"
         QString book_path = bookpath;
         if (book_path.isEmpty()) {
-            book_path = new_file_path.right(new_file_path.length() - m_FullPathToMainFolder.length() - 1);
+            book_path = QDir(m_FullPathToMainFolder).relativeFilePath(new_file_path);
         }
         m_Path2Resource[ book_path ] = resource;
         resource->SetEpubVersion(m_OPF->GetEpubVersion());
@@ -248,9 +293,17 @@ Resource *FolderKeeper::AddContentFileToFolder(const QString &fullfilepath,
     }
 
     // skip copy if unpacking zip already put it in the right place
-    if (fullfilepath != new_file_path) {
+    // Validate again immediately before copying the source file.
+    if (!allowed_root.isEmpty()) {
+        validate_epub_source();
+        if (!QFileInfo(source_fullpath).exists()) {
+            throw (EPUBLoadParseError(QString(QObject::tr("EPUB resource disappeared before copying: %1"))
+                                      .arg(source_fullpath).toStdString()));
+        }
+    }
+    if (source_fullpath != new_file_path) {
 
-        QFile::copy(fullfilepath, new_file_path);
+        QFile::copy(source_fullpath, new_file_path);
         QFile::setPermissions(new_file_path, QFileDevice::ReadOwner | QFileDevice::WriteOwner |
                                              QFileDevice::ReadUser | QFileDevice::WriteUser |
                                              QFileDevice::ReadOther);

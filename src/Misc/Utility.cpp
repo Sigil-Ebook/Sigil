@@ -1106,6 +1106,133 @@ QString Utility::resolveRelativeSegmentsInFilePath(const QString& file_path, con
 }
 
 
+namespace {
+
+bool EpubPathIsInside(const QString &root_path, const QString &candidate_path)
+{
+    QString root = QDir::cleanPath(root_path);
+    QString candidate = QDir::cleanPath(candidate_path);
+    if (root.isEmpty() || candidate.isEmpty()) {
+        return false;
+    }
+
+    const QString root_without_separator = root;
+    if (root != "/" && !root.endsWith('/')) root += '/';
+
+#ifdef Q_OS_WIN
+    const Qt::CaseSensitivity sensitivity = Qt::CaseInsensitive;
+#else
+    const Qt::CaseSensitivity sensitivity = Qt::CaseSensitive;
+#endif
+    return candidate.compare(root_without_separator, sensitivity) == 0 ||
+           candidate.startsWith(root, sensitivity);
+}
+
+void SetEpubPathError(QString *error_message, const QString &message)
+{
+    if (error_message) {
+        *error_message = message;
+    }
+}
+
+}
+
+
+bool Utility::ResolveEPUBPath(const QString &epub_root,
+                              const QString &base_dir,
+                              const QString &reference,
+                              QString *resolved_path,
+                              QString *error_message,
+                              bool decode_reference)
+{
+    if (!resolved_path) {
+        SetEpubPathError(error_message, QObject::tr("No output was supplied for EPUB path validation."));
+        return false;
+    }
+    resolved_path->clear();
+
+    const QString root = QFileInfo(epub_root).canonicalFilePath();
+    if (root.isEmpty()) {
+        SetEpubPathError(error_message, QObject::tr("The extracted EPUB root has no canonical path: %1").arg(epub_root));
+        return false;
+    }
+
+    const QString canonical_base = QFileInfo(base_dir).canonicalFilePath();
+    if (canonical_base.isEmpty() || !EpubPathIsInside(root, canonical_base)) {
+        SetEpubPathError(error_message, QObject::tr("The EPUB path base is outside the extracted root: %1").arg(base_dir));
+        return false;
+    }
+
+    QString decoded = decode_reference ? URLDecodePath(reference) : reference;
+    decoded = decoded.normalized(QString::NormalizationForm_C);
+    if (decoded.isEmpty()) {
+        SetEpubPathError(error_message, QObject::tr("The EPUB path is empty."));
+        return false;
+    }
+
+    // EPUB local paths are URL paths. Backslashes, absolute paths, drive
+    // prefixes, UNC paths, and URI schemes must never reach the filesystem.
+    if (decoded.contains('\\')) {
+        SetEpubPathError(error_message, QObject::tr("Backslashes are not allowed in EPUB paths: %1").arg(reference));
+        return false;
+    }
+    if (QDir::isAbsolutePath(decoded) || decoded.startsWith('/') || decoded.startsWith("//")) {
+        SetEpubPathError(error_message, QObject::tr("Absolute or UNC EPUB paths are not allowed: %1").arg(reference));
+        return false;
+    }
+    static const QRegularExpression URI_OR_DRIVE_PREFIX("^[A-Za-z][A-Za-z0-9+.-]*:");
+    if (URI_OR_DRIVE_PREFIX.match(decoded).hasMatch()) {
+        SetEpubPathError(error_message, QObject::tr("Drive and URI paths are not allowed in EPUB paths: %1").arg(reference));
+        return false;
+    }
+
+    const QString candidate = QDir::cleanPath(QDir(canonical_base).absoluteFilePath(decoded));
+    if (candidate.isEmpty() || !EpubPathIsInside(root, candidate)) {
+        SetEpubPathError(error_message, QObject::tr("EPUB path escapes the extracted root: %1").arg(reference));
+        return false;
+    }
+
+    QFileInfo candidate_info(candidate);
+    if (candidate_info.exists()) {
+        const QString canonical_candidate = candidate_info.canonicalFilePath();
+        if (canonical_candidate.isEmpty() || !EpubPathIsInside(root, canonical_candidate)) {
+            SetEpubPathError(error_message, QObject::tr("EPUB path resolves outside the extracted root: %1").arg(reference));
+            return false;
+        }
+        *resolved_path = canonical_candidate;
+        return true;
+    }
+
+    // The final file may not exist yet (for example before a generated NCX is
+    // written). Canonicalize the nearest existing parent so symlinks cannot
+    // redirect a later read or copy outside the EPUB root.
+    QString probe = candidate;
+    QFileInfo probe_info(probe);
+    while (!probe_info.exists()) {
+        if (probe_info.isSymLink() && probe_info.canonicalFilePath().isEmpty()) {
+            SetEpubPathError(error_message, QObject::tr("EPUB path contains a broken symbolic link: %1").arg(reference));
+            return false;
+        }
+        const QString parent = probe_info.dir().absolutePath();
+        if (parent.isEmpty() || parent == probe) {
+            SetEpubPathError(error_message, QObject::tr("EPUB path has no existing parent directory: %1").arg(reference));
+            return false;
+        }
+        probe = parent;
+        probe_info.setFile(probe);
+    }
+
+    const QString canonical_parent = probe_info.canonicalFilePath();
+    if (canonical_parent.isEmpty() || !EpubPathIsInside(root, canonical_parent)) {
+        SetEpubPathError(error_message, QObject::tr("EPUB path parent resolves outside the extracted root: %1").arg(reference));
+        return false;
+    }
+
+    *resolved_path = candidate;
+    return true;
+}
+
+
 // Generate relative path to destination from starting directory path
 // Both paths should be cannonical
 QString Utility::relativePath(const QString & destination, const QString & start_dir)

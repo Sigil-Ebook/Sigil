@@ -163,6 +163,14 @@ private:
     void ProcessFontFiles(const QList<Resource *> &resources,
                           const QHash<QString, QString> &encrypted_files);
 
+    /** Resolve an EPUB-local path and throw a diagnostic import error on failure. */
+    QString ResolveLocalEPUBPath(const QString &base_dir,
+                                 const QString &reference,
+                                 bool decode_reference = true) const;
+
+    /** Return a root-relative path without fixed-length string slicing. */
+    QString RelativeEPUBPath(const QString &full_path) const;
+
     static std::pair<HTMLResource*, bool> InitialLoadAndCheckOneHTMLFile(HTMLResource *hresource, bool checkit);
 
     /**

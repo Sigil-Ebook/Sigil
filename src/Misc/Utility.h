@@ -221,6 +221,26 @@ public:
     // works with absolute or book paths
     static QString resolveRelativeSegmentsInFilePath(const QString& file_path, const QString &sep);
 
+    /**
+     * Resolve an EPUB-internal path and prove that it remains below the
+     * extracted EPUB root. The reference is URL/XML decoded by default.
+     *
+     * @param epub_root Absolute extracted EPUB root directory.
+     * @param base_dir Absolute directory from which a relative reference is
+     *                 resolved.
+     * @param reference EPUB-internal relative path.
+     * @param resolved_path Receives the safe absolute path on success.
+     * @param error_message Receives a diagnostic failure reason when supplied.
+     * @param decode_reference Whether URL/XML decoding should be performed.
+     * @return true only when the path is safe to use.
+     */
+    static bool ResolveEPUBPath(const QString &epub_root,
+                                const QString &base_dir,
+                                const QString &reference,
+                                QString *resolved_path,
+                                QString *error_message = nullptr,
+                                bool decode_reference = true);
+
     // start_folder is the book path (internal to epub) to the starting folder
     static QString buildBookPath(const QString& dest_relpath, const QString& start_folder);
 
