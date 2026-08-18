@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2011  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2011      John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **
@@ -37,24 +38,28 @@ class QShortcut;
  * Manages keyboard shortcuts for the application.
  *
  * Example:
- * KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
- * sm->registerAction(ui.actionAbout, "main.actionAbout", tr("Show the about dialog."));
- * sm->setKeySequence("main.actionAbout", QKeySequence("Ctrl+1"));
- * sm->registerAction(ui.actionFind, "main.actionFind", tr("Find matching text."));
- * sm->setKeySequence("main.actionFind", QKeySequence("Ctrl+2));
+ * KeyboardShortcutManager::instance().registerAction(ui.actionAbout, "main.actionAbout", tr("Show the about dialog."));
+ * KeyboardShortcutManager::instance().setKeySequence("main.actionAbout", QKeySequence("Ctrl+1"));
+ * KeyboardShortcutManager::instance().registerAction(ui.actionFind, "main.actionFind", tr("Find matching text."));
+ * KeyboardShortcutManager::instance().setKeySequence("main.actionFind", QKeySequence("Ctrl+2));
  *
  * The manager will save and load previously set KeyboardShortcut's associated
  * with an id.
  */
+
+/* Singleton */
+
 class KeyboardShortcutManager
 {
 public:
-    /**
-     * The accessor function to access the manager.
-     */
-    static KeyboardShortcutManager *instance();
-    ~KeyboardShortcutManager();
+    static KeyboardShortcutManager& instance() {
+        static KeyboardShortcutManager the_instance;
+        return the_instance;
+    }
 
+    KeyboardShortcutManager(const KeyboardShortcutManager&) = delete;
+    KeyboardShortcutManager& operator=(const KeyboardShortcutManager&) = delete;
+    
     /**
      * Register an action with an id.
      *
@@ -194,6 +199,7 @@ private:
      * Private constructor
      */
     KeyboardShortcutManager();
+    ~KeyboardShortcutManager();
 
     /**
      * Create a generic KeyboardShortcut.
@@ -219,7 +225,6 @@ private:
     // application code.
     QHash<QString, KeyboardShortcut> m_savedShortcuts;
 
-    static KeyboardShortcutManager *m_instance;
 };
 
 #endif // KEYBOARDSHORTCUTMANAHER_H

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2025 Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2025-2026 Kevin B. Hendricks, Stratford, ON, Canada
 **
 **  This file is part of Sigil.
 **
@@ -42,8 +42,13 @@ class AriaClips
     Q_DECLARE_TR_FUNCTIONS(AriaClips)
 
 public:
+    static AriaClips& instance() {
+        static AriaClips the_instance;
+        return the_instance;
+    }
 
-    static AriaClips *instance();
+    AriaClips(const AriaClips&) = delete;
+    AriaClips& operator=(const AriaClips&) = delete;
 
     QString GetName(const QString &code);
     QString GetTitle(const QString &code, const QString &lang);
@@ -61,6 +66,7 @@ public:
 private:
 
     AriaClips();
+    ~AriaClips() = default;
 
     void SetAriaClipsMap();
 
@@ -75,9 +81,6 @@ private:
     QStringList m_sortedNames;
     
     QHash<QString,QString> m_CodeToRawTitle;
-
-    static AriaClips *m_instance;
-
 
 };
 

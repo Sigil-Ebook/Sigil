@@ -1,7 +1,8 @@
 /************************************************************************
 **
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012 Dave Heiland
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2012      John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012      Dave Heiland
 **
 **  This file is part of Sigil.
 **
@@ -116,8 +117,6 @@ private:
     QAction *m_Reload;
     QAction *m_SaveAs;
     QAction *m_SelectAll;
-
-    IndexEditorModel *m_IndexEditorModel;
 
     QSharedPointer<Book> m_Book;
 

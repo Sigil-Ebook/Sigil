@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **
@@ -56,8 +56,7 @@ void IndexEditor::SetBook(QSharedPointer <Book> book)
 
 void IndexEditor::SetupIndexEditorTree()
 {
-    m_IndexEditorModel = IndexEditorModel::instance();
-    ui.IndexEditorTree->setModel(m_IndexEditorModel);
+    ui.IndexEditorTree->setModel(&IndexEditorModel::instance());
     ui.IndexEditorTree->setContextMenuPolicy(Qt::CustomContextMenu);
     ui.IndexEditorTree->setSortingEnabled(true);
     ui.IndexEditorTree->sortByColumn(0, Qt::AscendingOrder);
@@ -79,7 +78,7 @@ void IndexEditor::SetupIndexEditorTree()
 
 bool IndexEditor::SaveData(QList<IndexEditorModel::indexEntry *> entries, QString filename)
 {
-    QString message = m_IndexEditorModel->SaveData(entries, filename);
+    QString message = IndexEditorModel::instance().SaveData(entries, filename);
 
     if (!message.isEmpty()) {
         Utility::DisplayStdErrorDialog(tr("Cannot save entries.") + "\n\n" + message);
@@ -98,8 +97,8 @@ void IndexEditor::showEvent(QShowEvent *event)
         ui.IndexEditorTree->resizeColumnToContents(column);
     }
 
-    if (m_IndexEditorModel->rowCount() > 0) {
-        QModelIndex first = m_IndexEditorModel->index(0, 0, QModelIndex());
+    if (IndexEditorModel::instance().rowCount() > 0) {
+        QModelIndex first = IndexEditorModel::instance().index(0, 0, QModelIndex());
         ui.IndexEditorTree->setCurrentIndex(first);
     }
 }
@@ -143,7 +142,7 @@ QList<IndexEditorModel::indexEntry *> IndexEditor::GetSelectedEntries()
     QList<IndexEditorModel::indexEntry *> selected_entries;
 
     if (ui.IndexEditorTree->selectionModel()->hasSelection()) {
-        selected_entries = m_IndexEditorModel->GetEntries(GetSelectedItems());
+        selected_entries = IndexEditorModel::instance().GetEntries(GetSelectedItems());
     }
 
     return selected_entries;
@@ -156,7 +155,7 @@ QList<QStandardItem *> IndexEditor::GetSelectedItems()
     QModelIndexList selected_indexes = ui.IndexEditorTree->selectionModel()->selectedRows(0);
     QList<QStandardItem *> selected_items;
     foreach(QModelIndex index, selected_indexes) {
-        selected_items.append(m_IndexEditorModel->itemFromIndex(index));
+        selected_items.append(IndexEditorModel::instance().itemFromIndex(index));
     }
     return selected_items;
 }
@@ -181,7 +180,7 @@ QStandardItem *IndexEditor::AddEntry(bool is_group, IndexEditorModel::indexEntry
         }
     }
 
-    new_item = m_IndexEditorModel->AddEntryToModel(index_entry, parent_item, row);
+    new_item = IndexEditorModel::instance().AddEntryToModel(index_entry, parent_item, row);
     QModelIndex new_index = new_item->index();
     // Select the added item and set it for editing
     ui.IndexEditorTree->selectionModel()->clear();
@@ -239,8 +238,8 @@ void IndexEditor::Delete()
     }
 
     // Deleting all entries can be done much quicker than deleting one by one.
-    if (SelectedRowsCount() == m_IndexEditorModel->invisibleRootItem()->rowCount()) {
-        m_IndexEditorModel->ClearData();
+    if (SelectedRowsCount() == IndexEditorModel::instance().invisibleRootItem()->rowCount()) {
+        IndexEditorModel::instance().ClearData();
     }
 
     // Delete one at a time as selection may not be contiguous
@@ -252,18 +251,18 @@ void IndexEditor::Delete()
 
         if (index.isValid()) {
             row = index.row();
-            m_IndexEditorModel->removeRows(row, 1, index.parent());
+            IndexEditorModel::instance().removeRows(row, 1, index.parent());
         }
     }
 
-    int row_count = m_IndexEditorModel->invisibleRootItem()->rowCount();
+    int row_count = IndexEditorModel::instance().invisibleRootItem()->rowCount();
 
     if (row_count && row >= 0) {
         if (row >= row_count) {
             row = row_count - 1;
         }
 
-        QModelIndex select_index = m_IndexEditorModel->index(row, 0);
+        QModelIndex select_index = IndexEditorModel::instance().index(row, 0);
         ui.IndexEditorTree->setCurrentIndex(select_index);
         ui.IndexEditorTree->selectionModel()->select(select_index, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
     }
@@ -281,7 +280,7 @@ void IndexEditor::AutoFill()
         IndexEditorModel::indexEntry *entry = new IndexEditorModel::indexEntry();
         entry->pattern = word;
         entry->index_entry = "";
-        m_IndexEditorModel->AddEntryToModel(entry);
+        IndexEditorModel::instance().AddEntryToModel(entry);
         count++;
     }
     ui.IndexEditorTree->sortByColumn(0, Qt::AscendingOrder);
@@ -303,7 +302,7 @@ void IndexEditor::Open()
 
     // Load the file and save the last folder opened
     if (!filename.isEmpty()) {
-        m_IndexEditorModel->LoadInitialData(filename);
+        IndexEditorModel::instance().LoadInitialData(filename);
         m_LastFolderOpen = QFileInfo(filename).absolutePath();
         WriteSettings();
     }
@@ -315,7 +314,7 @@ void IndexEditor::Reload()
     button_pressed = Utility::warning(this, tr("Sigil"), tr("Are you sure you want to reload all entries?  This will overwrite any unsaved changes."), QMessageBox::Ok | QMessageBox::Cancel);
 
     if (button_pressed == QMessageBox::Ok) {
-        m_IndexEditorModel->LoadInitialData();
+        IndexEditorModel::instance().LoadInitialData();
     }
 }
 
@@ -362,11 +361,11 @@ void IndexEditor::SaveAs()
 void IndexEditor::FilterEditTextChangedSlot(const QString &text)
 {
     const QString lowercaseText = text.toLower();
-    QModelIndex root_index = m_IndexEditorModel->indexFromItem(m_IndexEditorModel->invisibleRootItem());
+    QModelIndex root_index = IndexEditorModel::instance().indexFromItem(IndexEditorModel::instance().invisibleRootItem());
 
-    for (int row = 0; row < m_IndexEditorModel->invisibleRootItem()->rowCount(); row++) {
-        QStandardItem *item = m_IndexEditorModel->item(row, 0);
-        IndexEditorModel::indexEntry *entry = m_IndexEditorModel->GetEntry(item);
+    for (int row = 0; row < IndexEditorModel::instance().invisibleRootItem()->rowCount(); row++) {
+        QStandardItem *item = IndexEditorModel::instance().item(row, 0);
+        IndexEditorModel::indexEntry *entry = IndexEditorModel::instance().GetEntry(item);
         bool hidden = !(text.isEmpty() || entry->pattern.toLower().contains(lowercaseText) ||
                         entry->index_entry.toLower().contains(lowercaseText));
         ui.IndexEditorTree->setRowHidden(item->row(), root_index, hidden);
@@ -474,7 +473,7 @@ void IndexEditor::OpenContextMenu(const QPoint &point)
 void IndexEditor::SetupContextMenu(const QPoint &point)
 {
     int selected_rows_count = SelectedRowsCount();
-    int total_row_count = m_IndexEditorModel->invisibleRootItem()->rowCount();
+    int total_row_count = IndexEditorModel::instance().invisibleRootItem()->rowCount();
     m_ContextMenu->addAction(m_AddEntry);
     m_ContextMenu->addSeparator();
     m_ContextMenu->addAction(m_Edit);
@@ -535,7 +534,7 @@ void IndexEditor::ForceClose()
 
 bool IndexEditor::MaybeSaveDialogSaysProceed(bool is_forced)
 {
-    if (m_IndexEditorModel->IsDataModified()) {
+    if (IndexEditorModel::instance().IsDataModified()) {
         QMessageBox::StandardButton button_pressed;
         QMessageBox::StandardButtons buttons = is_forced ? QMessageBox::Save | QMessageBox::Discard
                                                : QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel;
@@ -551,7 +550,7 @@ bool IndexEditor::MaybeSaveDialogSaysProceed(bool is_forced)
         } else if (button_pressed == QMessageBox::Cancel) {
             return false;
         } else {
-            m_IndexEditorModel->LoadInitialData();
+            IndexEditorModel::instance().LoadInitialData();
         }
     }
 
@@ -578,5 +577,5 @@ void IndexEditor::ConnectSignalsSlots()
     connect(m_Reload,    SIGNAL(triggered()), this, SLOT(Reload()));
     connect(m_SaveAs,    SIGNAL(triggered()), this, SLOT(SaveAs()));
     connect(m_SelectAll, SIGNAL(triggered()), this, SLOT(SelectAll()));
-    connect(m_IndexEditorModel, SIGNAL(SettingsFileUpdated()), this, SLOT(SettingsFileModelUpdated()));
+    connect(&IndexEditorModel::instance(), SIGNAL(SettingsFileUpdated()), this, SLOT(SettingsFileModelUpdated()));
 }

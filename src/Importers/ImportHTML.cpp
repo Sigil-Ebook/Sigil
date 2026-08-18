@@ -161,7 +161,7 @@ void ImportHTML::LoadMetadata(const QString & source)
     QList<GumboNode*> nodes = gi.get_all_nodes_with_tag(GUMBO_TAG_META); 
     for (int i = 0; i < nodes.count(); ++i) {
         GumboNode* node = nodes.at(i);
-        MetaEntry meta = HTMLMetadata::Instance()->MapHTMLToOPFMetadata(node, gi);
+        MetaEntry meta = HTMLMetadata::instance().MapHTMLToOPFMetadata(node, gi);
         if (!meta.m_name.isEmpty() && !meta.m_content.isEmpty()) {
             metadata.append(meta);
         }

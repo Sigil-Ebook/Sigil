@@ -237,7 +237,7 @@ void MetaEditor::loadChoices()
     m_Choices[cat] = buildChoices(COLLECT);
 
     cat = PName("role");
-    QStringList rolenames = MarcRelators::instance()->GetSortedNames();
+    QStringList rolenames = MarcRelators::instance().GetSortedNames();
     QStringList  rchoices;
     foreach(QString aval, rolenames) {
         rchoices << aval + _GS + RCode(aval);
@@ -245,7 +245,7 @@ void MetaEditor::loadChoices()
     rchoices.sort();
     m_Choices[cat] = rchoices;
 
-    QStringList langnames = Language::instance()->GetSortedPrimaryLanguageNames();
+    QStringList langnames = Language::instance().GetSortedPrimaryLanguageNames();
     QStringList  lchoices;
     foreach(QString aval, langnames) {
         lchoices << aval + _GS + LCode(aval);
@@ -279,7 +279,7 @@ void MetaEditor::loadE2Choices()
     m_Choices[cat] = buildChoices(SCHEMES);
 
     cat = PName("opf:role");
-    QStringList rolenames = MarcRelators::instance()->GetSortedNames();
+    QStringList rolenames = MarcRelators::instance().GetSortedNames();
     QStringList  rchoices;
     foreach(QString aval, rolenames) {
         rchoices << aval + _GS + RCode(aval);
@@ -287,7 +287,7 @@ void MetaEditor::loadE2Choices()
     rchoices.sort();
     m_Choices[cat] = rchoices;
 
-    QStringList langnames = Language::instance()->GetSortedPrimaryLanguageNames();
+    QStringList langnames = Language::instance().GetSortedPrimaryLanguageNames();
     QStringList  lchoices;
     foreach(QString aval, langnames) {
         lchoices << aval + _GS + LCode(aval);
@@ -473,11 +473,11 @@ const QString MetaEditor::PCode  (const QString& name)
     return name;
 }
 
-const QString MetaEditor::LName  (const QString& code) { return Language::instance()->GetLanguageName(code, code); }
-const QString MetaEditor::LCode  (const QString& name) { return Language::instance()->GetLanguageCode(name, name); }
+const QString MetaEditor::LName  (const QString& code) { return Language::instance().GetLanguageName(code, code); }
+const QString MetaEditor::LCode  (const QString& name) { return Language::instance().GetLanguageCode(name, name); }
 
-const QString MetaEditor::RName  (const QString& code) { return MarcRelators::instance()->GetName(code);     }
-const QString MetaEditor::RCode  (const QString& name) { return MarcRelators::instance()->GetCode(name);     }
+const QString MetaEditor::RName  (const QString& code) { return MarcRelators::instance().GetName(code);     }
+const QString MetaEditor::RCode  (const QString& name) { return MarcRelators::instance().GetCode(name);     }
 
 
 
@@ -497,7 +497,7 @@ void MetaEditor::selectElement()
         if (code == "dc:language") {
             QStringList langcodes;
             QString title = tr("Select Language");
-            AddMetadata addvalue(title, Language::instance()->GetLangMap(), this);
+            AddMetadata addvalue(title, Language::instance().GetLangMap(), this);
             if (addvalue.exec() == QDialog::Accepted) {
                  langcodes = addvalue.GetSelectedEntries();
             }
@@ -597,7 +597,7 @@ void MetaEditor::selectE2Element()
         if (code == "dc:language") {
             QStringList langcodes;
             QString title = tr("Select Language");
-            AddMetadata addvalue(title, Language::instance()->GetLangMap(), this);
+            AddMetadata addvalue(title, Language::instance().GetLangMap(), this);
             if (addvalue.exec() == QDialog::Accepted) {
                  langcodes = addvalue.GetSelectedEntries();
             }
@@ -705,7 +705,7 @@ void MetaEditor::selectProperty()
                 insertChild(PName(code), code, "", "");
                 QStringList langcodes;
                 QString title = tr("Select Language");
-                AddMetadata addvalue(title, Language::instance()->GetLangMap(), this);
+                AddMetadata addvalue(title, Language::instance().GetLangMap(), this);
                 if (addvalue.exec() == QDialog::Accepted) {
                     langcodes = addvalue.GetSelectedEntries();
                 }
@@ -718,7 +718,7 @@ void MetaEditor::selectProperty()
         } else if ((code == "xml:lang") || (code == "altlang")) {
             QStringList langcodes;
             QString title = tr("Select Language");
-            AddMetadata addvalue(title, Language::instance()->GetLangMap(), this);
+            AddMetadata addvalue(title, Language::instance().GetLangMap(), this);
             if (addvalue.exec() == QDialog::Accepted) {
                 langcodes = addvalue.GetSelectedEntries();
             }
@@ -730,7 +730,7 @@ void MetaEditor::selectProperty()
         } else if (code == "role") {
             QStringList rolecodes;
             QString title = tr("Select Role");
-            AddMetadata addrole(title, MarcRelators::instance()->GetCodeMap(), this);
+            AddMetadata addrole(title, MarcRelators::instance().GetCodeMap(), this);
             if (addrole.exec() == QDialog::Accepted) {
                 rolecodes = addrole.GetSelectedEntries();
             }
@@ -772,7 +772,7 @@ void MetaEditor::selectE2Property()
         } else if (code == "xml:lang") {
             QStringList langcodes;
             QString title = tr("Select Language");
-            AddMetadata addvalue(title, Language::instance()->GetLangMap(), this);
+            AddMetadata addvalue(title, Language::instance().GetLangMap(), this);
             if (addvalue.exec() == QDialog::Accepted) {
                 langcodes = addvalue.GetSelectedEntries();
             }
@@ -784,7 +784,7 @@ void MetaEditor::selectE2Property()
         } else if (code == "opf:role") {
             QStringList rolecodes;
             QString title = tr("Select Role");
-            AddMetadata addrole(title, MarcRelators::instance()->GetCodeMap(), this);
+            AddMetadata addrole(title, MarcRelators::instance().GetCodeMap(), this);
             if (addrole.exec() == QDialog::Accepted) {
                 rolecodes = addrole.GetSelectedEntries();
             }
@@ -984,7 +984,7 @@ void MetaEditor::loadMetadataElements()
          tr("Custom Element") << "custom-element" << tr("An empty metadata element you can modify.")  << 
          tr("Meta Element (primary)") << "meta" << tr("An empty primary metadata element you can modify.");
     for (int i = 0; i < data.count(); i++) {
-        QString name = data.at(i++);
+        QString name = data.at(i++).trimmed();
         QString code = data.at(i++);
         QString description = data.at(i);
         DescriptiveInfo minfo;
@@ -1032,7 +1032,7 @@ void MetaEditor::loadMetadataProperties()
         tr("Custom Property") << "custom-property" << tr("An empty metadata property or attribute you can modify.");
 
     for (int i = 0; i < data.count(); i++) {
-        QString name = data.at(i++);
+        QString name = data.at(i++).trimmed();
         QString code = data.at(i++);
         QString description = data.at(i);
         DescriptiveInfo minfo;
@@ -1062,7 +1062,7 @@ void MetaEditor::loadMetadataXProperties()
         tr("Collection Type") << "collection-type" << tr("Property used with belongs-to-collection. Indicates the form or nature of a collection.") <<
         tr("Source of") << "source-of" << tr("Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication.");
     for (int i = 0; i < data.count(); i++) {
-        QString name = data.at(i++);
+        QString name = data.at(i++).trimmed();
         QString code = data.at(i++);
         QString description = data.at(i);
         DescriptiveInfo minfo;
@@ -1097,7 +1097,7 @@ void MetaEditor::loadE2MetadataXProperties()
         tr("Universally Unique Identifier") << "UUID"  << tr("Identifier Scheme: Universally Unique Identifier") <<
         tr("Amazon Unique Identifier") <<  "AMAZON" << tr("Identifier Scheme: Amazon Unique Identifier");
     for (int i = 0; i < data.count(); i++) {
-        QString name = data.at(i++);
+        QString name = data.at(i++).trimmed();
         QString code = data.at(i++);
         QString description = data.at(i);
         DescriptiveInfo minfo;
@@ -1153,7 +1153,7 @@ void MetaEditor::loadE2MetadataElements()
          tr("Custom Element") << "custom-element" << tr("An empty element for you to modify");
 
     for (int i = 0; i < data.count(); i++) {
-        QString name = data.at(i++);
+        QString name = data.at(i++).trimmed();
         QString code = data.at(i++);
         QString description = data.at(i);
         DescriptiveInfo meta;
@@ -1187,7 +1187,7 @@ void MetaEditor::loadE2MetadataProperties()
          tr("Custom Attribute") << "custom-property" << tr("An empty metadata attribute you can modify.");
 
     for (int i = 0; i < data.count(); i++) {
-        QString name = data.at(i++);
+        QString name = data.at(i++).trimmed();
         QString code = data.at(i++);
         QString description = data.at(i);
         DescriptiveInfo minfo;

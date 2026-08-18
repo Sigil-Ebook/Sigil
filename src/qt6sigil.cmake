@@ -2,10 +2,6 @@
 #     Build Sigil against Qt6 - requires cmake 3.16+ and a C++17 compiler
 #############################################################################
 
-if (CMAKE_VERSION VERSION_GREATER "3.27.9")
-    cmake_policy(SET CMP0153 OLD)
-endif()
-
 set(QT6_NEEDED 6.4)
 
 # Qt6 gets shiny new(ish) teal icons
@@ -148,46 +144,29 @@ if( APPLE )
     # Qt6 gets shiny new(ish) teal icons
     set( ICON_SRC_PATH  ${PROJECT_SOURCE_DIR}/Resource_Files/icon/app_icons_alt/Sigil.icns )
 
-
-    if( CMAKE_GENERATOR STREQUAL Xcode )
-        exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/Resources")
-        exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/polyfills")
-        exec_program("cp ${MATHJAX_CUSTOM} ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/polyfills")
-        exec_program("cp ${ICON_SRC_PATH} ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/Resources")
-        exec_program("cp ${PROJECT_SOURCE_DIR}/Resource_Files/icon/epub.icns ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/Resources")
-        # Create translation directory.
-        exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/translations")
-        exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/hunspell_dictionaries")
-        exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/plugin_launchers")
-        exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/plugin_launchers/python")
-        exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/python3lib")
-        exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/lib")
-        exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Release/Sigil.app/Contents/examples")
-    else()
-        exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
-        exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/polyfills")
-        exec_program("cp ${MATHJAX_CUSTOM} ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/polyfills")
-        exec_program("cp ${ICON_SRC_PATH} ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
-        exec_program("cp ${PROJECT_SOURCE_DIR}/Resource_Files/icon/epub.icns ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources")
-        # Create translation directory.
-        exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/translations")
-        exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/hunspell_dictionaries")
-        exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/plugin_launchers")
-        exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/plugin_launchers/python")
-        exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/python3lib")
-        exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/lib")
-        exec_program("mkdir -p ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/examples")
-    endif()
+    execute_process(COMMAND mkdir -p "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources" )
+    execute_process(COMMAND mkdir -p "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/polyfills" )
+    execute_process(COMMAND cp "${MATHJAX_CUSTOM}" "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/polyfills" )
+    execute_process(COMMAND cp "${ICON_SRC_PATH}" "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources" )
+    execute_process(COMMAND cp "${PROJECT_SOURCE_DIR}/Resource_Files/icon/epub.icns" "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/Resources" )
+    # Create translation directory.
+    execute_process(COMMAND mkdir -p "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/translations" )
+    execute_process(COMMAND mkdir -p "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/hunspell_dictionaries" )
+    execute_process(COMMAND mkdir -p "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/plugin_launchers" )
+    execute_process(COMMAND mkdir -p "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/plugin_launchers/python" )
+    execute_process(COMMAND mkdir -p "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/python3lib" )
+    execute_process(COMMAND mkdir -p "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/lib" )
+    execute_process(COMMAND mkdir -p "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Sigil.app/Contents/examples" )
 
     if ( PKG_SYSTEM_PYTHON )
         configure_file( Resource_Files/python_pkg/osx_add_python_framework6.py ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/osx_add_python_framework6.py )
     endif()
 
     # Copy the PLIST file...
-    exec_program("cp ${PROJECT_SOURCE_DIR}/Resource_Files/mac/MacOSXBundleInfo.plist ${PROJECT_BINARY_DIR}")
+    execute_process(COMMAND cp "${PROJECT_SOURCE_DIR}/Resource_Files/mac/MacOSXBundleInfo.plist" "${PROJECT_BINARY_DIR}" )
 
     # ...and set the Sigil version string
-    exec_program("sed -i -e 's/SGVERSION/${SIGIL_FULL_VERSION}/g' ${PROJECT_BINARY_DIR}/MacOSXBundleInfo.plist")
+    execute_process(COMMAND sed -i "" -e "s/SGVERSION/${SIGIL_FULL_VERSION}/g" "${PROJECT_BINARY_DIR}/MacOSXBundleInfo.plist" )
 endif()
 
 #############################################################################
@@ -203,6 +182,7 @@ include_directories( BEFORE
                      ${ZLIB_INCLUDE_DIRS}
                      ${PYTHON_INCLUDE_DIRS}
                      ${GUMBO_INCLUDE_DIRS}
+                     ${LEXBOR_INCLUDE_DIRS}
                      ${CMAKE_CURRENT_SOURCE_DIR}
                      ${CMAKE_CURRENT_BINARY_DIR} )
 
@@ -219,7 +199,7 @@ else()
 endif()
 
 # LIBS_TO_LINK for all platforms
-set( LIBS_TO_LINK ${HUNSPELL_LIBRARIES} ${PCRE2_LIBRARIES} ${GUMBO_LIBRARIES} ${MINIZIP_LIBRARIES}
+set( LIBS_TO_LINK ${HUNSPELL_LIBRARIES} ${PCRE2_LIBRARIES} ${GUMBO_LIBRARIES} ${LEXBOR_LIBRARIES} ${MINIZIP_LIBRARIES}
                   Qt6::Widgets  Qt6::Xml  Qt6::PrintSupport  Qt6::WebEngineCore  
                   Qt6::WebEngineWidgets  Qt6::Network  Qt6::Concurrent Qt6::Svg)
 
@@ -279,11 +259,16 @@ endif()
 
 get_target_property(QMAKE_EXECUTABLE Qt6::qmake LOCATION)
 function(QUERY_QMAKE VAR RESULT)
-    exec_program(${QMAKE_EXECUTABLE} ARGS "-query ${VAR}" RETURN_VALUE return_code OUTPUT_VARIABLE output )
-    if(NOT return_code)
+    execute_process(
+        COMMAND ${QMAKE_EXECUTABLE} -query ${VAR}
+        ERROR_VARIABLE error_code
+        OUTPUT_VARIABLE output
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+    )
+    if(NOT error_code)
         file(TO_CMAKE_PATH "${output}" output)
         set(${RESULT} ${output} PARENT_SCOPE)
-    endif(NOT return_code)
+    endif(NOT error_code)
 endfunction(QUERY_QMAKE)
 
 # For Mac, add frameworks and make a DMG
@@ -326,7 +311,7 @@ if( APPLE )
         # message( "LANG_ID = ${LANG_ID}")
         set( QTBASE_QM ${QT_TRANSLATIONS_DIR}/qtbase_${LANG_ID}.qm )
         # message( "QTBASE_QM = ${QTBASE_QM}" )
-        if ( EXISTS ${QTBASE_QM} )
+        if(IS_DIRECTORY "${QTBASE_QM}" )
             add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD COMMAND cp ${QTBASE_QM} ${WORK_DIR}/Sigil.app/Contents/translations/ )
         endif()
     endforeach( QM )

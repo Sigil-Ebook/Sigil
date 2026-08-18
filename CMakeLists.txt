@@ -59,7 +59,7 @@ set( CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake_e
 
 set( SIGIL_MAJOR_VERSION 2 )
 set( SIGIL_MINOR_VERSION 8 )
-set( SIGIL_REVISION_VERSION 1 )
+set( SIGIL_REVISION_VERSION 5 )
 set( SIGIL_FULL_VERSION ${SIGIL_MAJOR_VERSION}.${SIGIL_MINOR_VERSION}.${SIGIL_REVISION_VERSION} )
 
 if( UNIX AND NOT APPLE )
@@ -171,6 +171,10 @@ endif()
 # We have an internal version because it diverges from Google's and GitHub's
 # versions and neither want's our epub specific changes.
 add_subdirectory( internal/gumbo )
+
+# lexborcss is our main modern css parser
+# it has changes not yet upstream but a feature request has been made
+add_subdirectory( internal/lexbor )
 
 # Add external process wrapper for appimages
 if( APPIMAGE_BUILD )

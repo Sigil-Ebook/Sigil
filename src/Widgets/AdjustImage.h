@@ -132,8 +132,10 @@ private:
     QRubberBand*  m_rb;
     int m_draggingHandle;
 
-    QString m_fileName;
+    QString m_fileName;  // this is the full absolute path
     QString m_mediatype;
+    double m_ffsize = 0.0;
+    QString m_fsize;
 
     QVector<QImage> m_history;
     QVector<QImage> m_reverseHistory;

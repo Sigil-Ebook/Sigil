@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2014-2020 Kevin Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2014-2026 Kevin Hendricks, Stratford, Ontario Canada
 **
 **  This file is part of Sigil.
 **
@@ -48,7 +48,7 @@ PreferencesWidget::ResultActions PreserveEntitiesWidget::saveSettings()
     QList<std::pair<ushort, QString>> codenames;
     for (int i = 0; i < ui.entityList->count(); ++i) {
         QString name = ui.entityList->item(i)->text();
-        ushort code = XMLEntities::instance()->GetEntityCode(name);
+        ushort code = XMLEntities::instance().GetEntityCode(name);
         if (code > 0) {
             std::pair <ushort, QString> epair( code, name );
             codenames.append(epair);
@@ -78,7 +78,7 @@ void PreserveEntitiesWidget::addEntities()
     // Add the entities to the list
     foreach(QString name, names) {
         if (!name.isEmpty() && !invalid.contains(name)) {
-            if (XMLEntities::instance()->GetEntityCode(name) > 0) {
+            if (XMLEntities::instance().GetEntityCode(name) > 0) {
                 QListWidgetItem *item = new QListWidgetItem(name, ui.entityList);
                 item->setFlags(item->flags() | Qt::ItemIsEditable);
                 ui.entityList->addItem(item);

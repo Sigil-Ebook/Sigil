@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2016  Kevin B. Hendricks, Stratford, ON, Canada
-**  Copyright (C) 2011  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2016-2026  Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2011       John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **
@@ -40,7 +40,13 @@ class Language
     Q_DECLARE_TR_FUNCTIONS(Language)
 
 public:
-    static Language *instance();
+    static Language& instance() {
+        static Language the_instance;
+        return the_instance;
+    }
+
+    Language(const Language&) = delete;
+    Language& operator=(const Language&) = delete;
 
     QString GetLanguageName(QString language_code, QString ow=QString() );
     QString GetLanguageCode(QString language_name, QString ow=QString() );
@@ -49,6 +55,7 @@ public:
 
 private:
     Language();
+    ~Language() = default;
 
     void SetLanguageMap();
 
@@ -59,7 +66,6 @@ private:
 
     QStringList m_sortedPrimaryLanguageNames;
 
-    static Language *m_instance;
 };
 
 #endif // LANGUAGE_H

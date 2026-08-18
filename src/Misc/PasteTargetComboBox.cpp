@@ -1,9 +1,9 @@
 /************************************************************************
 **
-**  Copyright (C) 2018-2024 Kevin B. Hendricks, Stratford Ontario Canada
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012 Dave Heiland
-**  Copyright (C) 2012 Grant Drake
+**  Copyright (C) 2018-2026 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2012      John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012      Dave Heiland
+**  Copyright (C) 2012      Grant Drake
 **
 **  This file is part of Sigil.
 **
@@ -48,7 +48,7 @@ void PasteTargetComboBox::PasteText(const QString &text)
 
 bool PasteTargetComboBox::PasteClipNumber(int clip_number)
 {
-    ClipEditorModel::clipEntry *clip = ClipEditorModel::instance()->GetEntryFromNumber(clip_number);
+    ClipEditorModel::clipEntry *clip = ClipEditorModel::instance().GetEntryFromNumber(clip_number);
     if (!clip) {
         return false;
     }

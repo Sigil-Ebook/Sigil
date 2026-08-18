@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2020-2025  Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2020-2026  Kevin B. Hendricks, Stratford, ON, Canada
 **
 **  This file is part of Sigil.
 **
@@ -67,7 +67,7 @@ void URLSchemeHandler::requestStarted(QWebEngineUrlRequestJob *request)
         QFileInfo fi(local_file);
         if (fi.exists()) {
             // FIXME - use file contents to sniff for the best media-type instead of just file extension
-            QString mt = MediaTypes::instance()->GetMediaTypeFromExtension(fi.suffix().toLower(), "application/octet-stream");
+            QString mt = MediaTypes::instance().GetMediaTypeFromExtension(fi.suffix().toLower(), "application/octet-stream");
             content_type = mt;
 
             // Work around bug in QtWebEngine when using custom schemes that load audio and video resources

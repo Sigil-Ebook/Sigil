@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2011      John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -47,8 +47,13 @@ public:
         QString    wordchars;
     };
 
-    static SpellCheck *instance();
-    ~SpellCheck();
+    static SpellCheck& instance() {
+        static SpellCheck the_instance;
+        return the_instance;
+    }
+
+    SpellCheck(const SpellCheck&) = delete;
+    SpellCheck& operator=(const SpellCheck&) = delete;
 
     void UpdateLangCodeToDictMapping();
 
@@ -93,6 +98,8 @@ public:
 
 private:
     SpellCheck();
+    ~SpellCheck();
+
     QHash<QString, QString> m_dictionaries;
     QHash<QString, QString> m_langcode2dict;
     mutable QMutex mutex;
@@ -100,8 +107,6 @@ private:
     QSet<QString> m_ignoredWords;
     struct HDictionary m_primary;
     struct HDictionary m_secondary;
-    
-    static SpellCheck *m_instance;
 };
 
 #endif // SPELLCHECK_H

@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2021 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2016-2026 Kevin B. Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -310,9 +310,7 @@ void AnchorUpdates::UpdateTOCEntries(NCXResource *ncx_resource, const QString &o
     args.append(QVariant(dictkeys));
     args.append(QVariant(dictvals));
 
-    EmbeddedPython * epython  = EmbeddedPython::instance();
-
-    QVariant res = epython->runInPython( QString("xmlprocessor"),
+    QVariant res = EmbeddedPython::instance().runInPython( QString("xmlprocessor"),
                                          QString("anchorNCXUpdates"),
                                          args,
                                          &rv,
@@ -346,9 +344,7 @@ void AnchorUpdates::UpdateTOCEntriesAfterMerge(NCXResource *ncx_resource, const 
     args.append(QVariant(sink_bookpath));
     args.append(QVariant(merged_bookpaths));
 
-    EmbeddedPython * epython  = EmbeddedPython::instance();
-
-    QVariant res = epython->runInPython( QString("xmlprocessor"),
+    QVariant res = EmbeddedPython::instance().runInPython( QString("xmlprocessor"),
                                          QString("anchorNCXUpdatesAfterMerge"),
                                          args,
                                          &rv,

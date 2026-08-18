@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2022 Kevin B. Hendricks Stratford, ON, Canada 
+**  Copyright (C) 2016-2026 Kevin B. Hendricks Stratford, ON, Canada 
 **
 **  This file is part of Sigil.
 **
@@ -29,16 +29,22 @@
 #include "Parsers/GumboInterface.h"
 #include "Parsers/OPFParser.h" // for MetaEntry
 
-class QMutex;
 class QString;
+
+/* Singleton */
 
 class HTMLMetadata : public QObject
 {
     Q_OBJECT
 
 public:
+    static HTMLMetadata& instance() {
+        static HTMLMetadata the_instance;
+        return the_instance;
+    }
 
-    static HTMLMetadata *Instance();
+    HTMLMetadata(const HTMLMetadata&) = delete;
+    HTMLMetadata& operator=(const HTMLMetadata&) = delete;
 
     /**
      * Maps DC and <meta> metadata elements to "internal" MetaElements.
@@ -54,22 +60,14 @@ private:
 
     // Constructor is private because
     // this is a singleton class
-    HTMLMetadata(){};
+    HTMLMetadata() = default;
+    ~HTMLMetadata() = default;
 
     // Converts HTML sourced Dublin Core metadata to OPF style metadata
     MetaEntry HtmlToOpfDC(QString mname, QString mvalue, const QHash<QString,QString>& matts);
 
     // Converts free form metadata into internal book metadata
     MetaEntry FixupHTMLMetadata(QString name, QString value, const QHash<QString,QString>& matts);
-
-
-    ///////////////////////////////
-    // PRIVATE MEMBER VARIABLES
-    ///////////////////////////////
-
-    static QMutex s_AccessMutex;
-
-    static HTMLMetadata *m_Instance;
 
 };
 

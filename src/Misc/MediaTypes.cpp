@@ -65,18 +65,6 @@ const QStringList MISC_XML_MIMETYPES   = QStringList() << "application/oebps-pag
                                                        << "text/xml";
 
 
-MediaTypes *MediaTypes::m_instance = 0;
-
-MediaTypes *MediaTypes::instance()
-{
-    if (m_instance == 0) {
-        m_instance = new MediaTypes();
-    }
-
-    return m_instance;
-}
-
-
 QString MediaTypes::GetMediaTypeFromExtension(const QString &extension, const QString &fallback)
 {
     return m_ExtToMType.value(extension, fallback);

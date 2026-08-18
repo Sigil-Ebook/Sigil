@@ -1,9 +1,9 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford, Ontario, Canada
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012 Dave Heiland
-**  Copyright (C) 2012 Grant Drake
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2012      John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012      Dave Heiland
+**  Copyright (C) 2012      Grant Drake
 **
 **  This file is part of Sigil.
 **
@@ -51,16 +51,6 @@ static const int FULLNAME_ROLE = Qt::UserRole + 2;
 
 static const QString SEARCH_EXAMPLES_FILE = "search_entries.ini";
 
-SearchEditorModel *SearchEditorModel::m_instance = 0;
-
-SearchEditorModel *SearchEditorModel::instance()
-{
-    if (m_instance == 0) {
-        m_instance = new SearchEditorModel();
-    }
-
-    return m_instance;
-}
 
 SearchEditorModel::SearchEditorModel(QObject *parent)
     : QStandardItemModel(parent),
@@ -90,13 +80,6 @@ SearchEditorModel::SearchEditorModel(QObject *parent)
             this, SLOT(RowsRemovedHandler(const QModelIndex &, int, int)));
 }
 
-SearchEditorModel::~SearchEditorModel()
-{
-    if (m_instance) {
-        delete m_instance;
-        m_instance = 0;
-    }
-}
 
 void SearchEditorModel::SetDataModified(bool modified)
 {
@@ -248,7 +231,7 @@ void SearchEditorModel::SettingsFileChanged(const QString &path) const
             m_FSWatcher->addPath(path);
         }
 
-        instance()->LoadInitialData();
+        instance().LoadInitialData();
         emit SettingsFileUpdated();
     }
 }

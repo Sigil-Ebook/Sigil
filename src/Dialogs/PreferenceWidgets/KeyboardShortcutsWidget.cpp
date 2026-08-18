@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2011      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2011      Grzegorz Wolszczak <grzechu81@gmail.com>
 **
@@ -55,13 +55,11 @@ PreferencesWidget::ResultActions KeyboardShortcutsWidget::saveSettings()
 {
     PreferencesWidget::ResultActions results = PreferencesWidget::ResultAction_None;
 
-    KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
-
     for (int i = 0; i < ui.commandList->topLevelItemCount(); i++) {
         QTreeWidgetItem *item = ui.commandList->topLevelItem(i);
         const QString id = item->text(COL_ID);
         const QKeySequence keySequence = item->text(COL_SHORTCUT);
-        sm->setKeySequence(id, keySequence);
+        KeyboardShortcutManager::instance().setKeySequence(id, keySequence);
     }
 
     SettingsStore settings;
@@ -201,12 +199,10 @@ void KeyboardShortcutsWidget::assignButtonClickedSlot()
 
 void KeyboardShortcutsWidget::resetAllButtonClickedSlot()
 {
-    KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
-
     // Go through all items
     for (int i = 0; i < ui.commandList->topLevelItemCount(); i++) {
         QTreeWidgetItem *item = ui.commandList->topLevelItem(i);
-        QKeySequence seq = sm->keyboardShortcut(item->text(COL_ID)).defaultKeySequence();
+        QKeySequence seq = KeyboardShortcutManager::instance().keyboardShortcut(item->text(COL_ID)).defaultKeySequence();
 #ifdef Q_OS_MAC
         item->setText(COL_SHORTCUT, seq.toString(QKeySequence::NativeText));
 #else
@@ -219,11 +215,10 @@ void KeyboardShortcutsWidget::resetAllButtonClickedSlot()
 
 void KeyboardShortcutsWidget::readSettings()
 {
-    KeyboardShortcutManager *sm = KeyboardShortcutManager::instance();
     ui.commandList->clear();
-    QStringList ids = sm->ids();
+    QStringList ids = KeyboardShortcutManager::instance().ids();
     foreach(QString id, ids) {
-        KeyboardShortcut shortcut = sm->keyboardShortcut(id);
+        KeyboardShortcut shortcut = KeyboardShortcutManager::instance().keyboardShortcut(id);
 
         if (!shortcut.isEmpty()) {
             QTreeWidgetItem *item = new QTreeWidgetItem();

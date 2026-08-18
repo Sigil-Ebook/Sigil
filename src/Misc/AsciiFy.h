@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2020 Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2020-2026 Kevin B. Hendricks, Stratford, ON, Canada
 **
 **  This file is part of Sigil.
 **
@@ -38,7 +38,13 @@ class AsciiFy
 
 public:
 
-    static AsciiFy *instance();
+    static AsciiFy& instance() {
+        static AsciiFy the_instance;
+        return the_instance;
+    }
+
+    AsciiFy(const AsciiFy&) = delete;
+    AsciiFy& operator=(const AsciiFy&) = delete;
     
     QString convertToPlainAscii(const QString &ninput) const;
     
@@ -48,9 +54,9 @@ public:
 private:
 
     // constructor must be private since singleton
-    AsciiFy();
+    AsciiFy() = default;
+    ~AsciiFy() = default;;
 
-    static AsciiFy *m_instance;
     static const char *unidecode_text;
     static const size_t unidecode_pos[];
 

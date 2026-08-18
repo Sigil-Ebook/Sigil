@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2011  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2011      John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **
@@ -28,16 +29,6 @@
 #include "Misc/SettingsStore.h"
 
 static const QString SETTINGS_GROUP = "shortcuts";
-KeyboardShortcutManager *KeyboardShortcutManager::m_instance = 0;
-
-KeyboardShortcutManager *KeyboardShortcutManager::instance()
-{
-    if (m_instance == 0) {
-        m_instance = new KeyboardShortcutManager();
-    }
-
-    return m_instance;
-}
 
 KeyboardShortcutManager::~KeyboardShortcutManager()
 {

@@ -52,7 +52,7 @@ Inspector::Inspector(QWidget *parent, Qt::WindowFlags flags) :
     m_ZoomOut(new QShortcut(QKeySequence(Qt::CTRL | Qt::Key_Minus), this)),
     m_ZoomReset(new QShortcut(QKeySequence(Qt::CTRL | Qt::Key_0), this))
 {
-    m_inspectView = new QWebEngineView(WebProfileMgr::instance()->GetInspectorProfile(), this);
+    m_inspectView = new QWebEngineView(WebProfileMgr::instance().GetInspectorProfile(), this);
     setAttribute(Qt::WA_DeleteOnClose, false);
     setWindowTitle(tr("Inspect Page or Element"));
     setMinimumSize(QSize(200, 200));

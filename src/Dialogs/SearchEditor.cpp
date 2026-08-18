@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2012      Grant Drake
@@ -81,8 +81,7 @@ SearchEditor::~SearchEditor()
 
 void SearchEditor::SetupSearchEditorTree()
 {
-    m_SearchEditorModel = SearchEditorModel::instance();
-    ui.SearchEditorTree->setModel(m_SearchEditorModel);
+    ui.SearchEditorTree->setModel(&SearchEditorModel::instance());
     ui.SearchEditorTree->setContextMenuPolicy(Qt::CustomContextMenu);
     ui.SearchEditorTree->setSortingEnabled(false);
     ui.SearchEditorTree->setWordWrap(true);
@@ -144,7 +143,7 @@ void SearchEditor::ShowMessage(const QString &message)
 
 bool SearchEditor::SaveData(QList<SearchEditorModel::searchEntry *> entries, QString filename)
 {
-    QString message = m_SearchEditorModel->SaveData(entries, filename);
+    QString message = SearchEditorModel::instance().SaveData(entries, filename);
 
     if (!message.isEmpty()) {
         Utility::DisplayStdErrorDialog(tr("Cannot save entries.") + "\n\n" + message);
@@ -155,7 +154,7 @@ bool SearchEditor::SaveData(QList<SearchEditorModel::searchEntry *> entries, QSt
 
 bool SearchEditor::SaveTextData(QList<SearchEditorModel::searchEntry *> entries, QString filename, QChar sep)
 {
-    QString message = m_SearchEditorModel->SaveTextData(entries, filename, sep);
+    QString message = SearchEditorModel::instance().SaveTextData(entries, filename, sep);
 
     if (!message.isEmpty()) {
         Utility::DisplayStdErrorDialog(tr("Cannot save entries.") + "\n\n" + message);
@@ -271,15 +270,15 @@ SearchEditorModel::searchEntry* SearchEditor::GetSelectedEntry(bool show_warning
         QModelIndexList selected_indexes = ui.SearchEditorTree->selectionModel()->selectedRows(0);
 
         if (selected_indexes.count() == 1) {
-            item = m_SearchEditorModel->itemFromIndex(selected_indexes.first());
+            item = SearchEditorModel::instance().itemFromIndex(selected_indexes.first());
         } else if (show_warning) {
             Utility::DisplayStdErrorDialog(tr("You cannot select more than one entry when using this action."));
             return entry;
         }
 
         if (item) {
-            if (!m_SearchEditorModel->ItemIsGroup(item)) {
-                entry = m_SearchEditorModel->GetEntry(item);
+            if (!SearchEditorModel::instance().ItemIsGroup(item)) {
+                entry = SearchEditorModel::instance().GetEntry(item);
                 if (m_SearchToLoad) delete m_SearchToLoad;
                 m_SearchToLoad = entry;
             } else if (show_warning) {
@@ -303,14 +302,14 @@ void SearchEditor::SetCurrentEntriesFromFullName(const QString &name)
     QList<SearchEditorModel::searchEntry *> selected_entries;
 
 
-    QStandardItem * nameditem = m_SearchEditorModel->GetItemFromName(name);
+    QStandardItem * nameditem = SearchEditorModel::instance().GetItemFromName(name);
     if (nameditem) {
-        QList<QStandardItem *> items = m_SearchEditorModel->GetNonGroupItems(nameditem);
+        QList<QStandardItem *> items = SearchEditorModel::instance().GetNonGroupItems(nameditem);
         if (!ItemsAreUnique(items)) {
             return;
         }
 
-        foreach(SearchEditorModel::searchEntry* entry, m_SearchEditorModel->GetEntries(items)) {
+        foreach(SearchEditorModel::searchEntry* entry, SearchEditorModel::instance().GetEntries(items)) {
             m_CurrentSearchEntries << entry;
         }
     }
@@ -327,13 +326,13 @@ QList<SearchEditorModel::searchEntry *> SearchEditor::GetSelectedEntries()
     QList<SearchEditorModel::searchEntry *> selected_entries;
 
     if (ui.SearchEditorTree->selectionModel()->hasSelection()) {
-        QList<QStandardItem *> items = m_SearchEditorModel->GetNonGroupItems(GetSelectedItems());
+        QList<QStandardItem *> items = SearchEditorModel::instance().GetNonGroupItems(GetSelectedItems());
 
         if (!ItemsAreUnique(items)) {
             return selected_entries;
         }
 
-        selected_entries = m_SearchEditorModel->GetEntries(items);
+        selected_entries = SearchEditorModel::instance().GetEntries(items);
     }
 
     return selected_entries;
@@ -347,7 +346,7 @@ QList<QStandardItem *> SearchEditor::GetSelectedItems()
     QModelIndexList selected_indexes = ui.SearchEditorTree->selectionModel()->selectedRows(0);
     QList<QStandardItem *> selected_items;
     foreach(QModelIndex index, selected_indexes) {
-        selected_items.append(m_SearchEditorModel->itemFromIndex(index));
+        selected_items.append(SearchEditorModel::instance().itemFromIndex(index));
     }
     return selected_items;
 }
@@ -382,7 +381,7 @@ QStandardItem *SearchEditor::AddEntry(bool is_group, SearchEditorModel::searchEn
                 return parent_item;
             }
 
-            if (!m_SearchEditorModel->ItemIsGroup(parent_item)) {
+            if (!SearchEditorModel::instance().ItemIsGroup(parent_item)) {
                 row = parent_item->row() + 1;
                 parent_item = parent_item->parent();
             }
@@ -394,7 +393,7 @@ QStandardItem *SearchEditor::AddEntry(bool is_group, SearchEditorModel::searchEn
         ui.SearchEditorTree->expand(parent_item->index());
     }
 
-    new_item = m_SearchEditorModel->AddEntryToModel(search_entry, is_group, parent_item, row);
+    new_item = SearchEditorModel::instance().AddEntryToModel(search_entry, is_group, parent_item, row);
     QModelIndex new_index = new_item->index();
     // Select the added item and set it for editing
     ui.SearchEditorTree->selectionModel()->clear();
@@ -472,7 +471,7 @@ bool SearchEditor::Copy()
 
     // verify user is not trying to copy groups
     foreach(QStandardItem * item, GetSelectedItems()) {
-        SearchEditorModel::searchEntry *entry = m_SearchEditorModel->GetEntry(item);
+        SearchEditorModel::searchEntry *entry = SearchEditorModel::instance().GetEntry(item);
         bool is_group = entry->is_group;
         delete entry;
         if (is_group) {
@@ -523,7 +522,7 @@ void SearchEditor::Delete()
         if (index.isValid()) {
             row = index.row();
             parent_index = index.parent();
-            m_SearchEditorModel->removeRows(row, 1, parent_index);
+            SearchEditorModel::instance().removeRows(row, 1, parent_index);
         }
     }
 
@@ -531,9 +530,9 @@ void SearchEditor::Delete()
     int parent_row_count;
 
     if (parent_index.isValid()) {
-        parent_row_count = m_SearchEditorModel->itemFromIndex(parent_index)->rowCount();
+        parent_row_count = SearchEditorModel::instance().itemFromIndex(parent_index)->rowCount();
     } else {
-        parent_row_count = m_SearchEditorModel->invisibleRootItem()->rowCount();
+        parent_row_count = SearchEditorModel::instance().invisibleRootItem()->rowCount();
     }
 
     if (parent_row_count && row >= parent_row_count) {
@@ -545,7 +544,7 @@ void SearchEditor::Delete()
         parent_index = parent_index.parent();
     }
 
-    QModelIndex select_index = m_SearchEditorModel->index(row, 0, parent_index);
+    QModelIndex select_index = SearchEditorModel::instance().index(row, 0, parent_index);
     ui.SearchEditorTree->setCurrentIndex(select_index);
     ui.SearchEditorTree->selectionModel()->select(select_index, QItemSelectionModel::SelectCurrent | QItemSelectionModel::Rows);
 }
@@ -556,7 +555,7 @@ void SearchEditor::Reload()
     button_pressed = Utility::warning(this, tr("Sigil"), tr("Are you sure you want to reload all entries?  This will overwrite any unsaved changes."), QMessageBox::Ok | QMessageBox::Cancel);
 
     if (button_pressed == QMessageBox::Ok) {
-        m_SearchEditorModel->LoadInitialData();
+        SearchEditorModel::instance().LoadInitialData();
     }
 }
 
@@ -602,11 +601,11 @@ void SearchEditor::Import()
         QStandardItem *item = AddGroup();
 
         if (item) {
-            m_SearchEditorModel->Rename(item, "Imported");
+            SearchEditorModel::instance().Rename(item, "Imported");
             if (ext == "ini") {
-                m_SearchEditorModel->LoadData(filename, item);
+                SearchEditorModel::instance().LoadData(filename, item);
             } else {
-                m_SearchEditorModel->LoadTextData(filename, item, sep);
+                SearchEditorModel::instance().LoadTextData(filename, item, sep);
             }
             m_LastFolderOpen = QFileInfo(filename).absolutePath();
             WriteSettings();
@@ -617,7 +616,7 @@ void SearchEditor::Import()
 void SearchEditor::ExportAll()
 {
     QList<QStandardItem *> items;
-    QStandardItem *item = m_SearchEditorModel->invisibleRootItem();
+    QStandardItem *item = SearchEditorModel::instance().invisibleRootItem();
     QModelIndex parent_index;
 
     for (int row = 0; row < item->rowCount(); row++) {
@@ -635,7 +634,7 @@ void SearchEditor::Export()
 
     QList<QStandardItem *> items = GetSelectedItems();
 
-    if (!ItemsAreUnique(m_SearchEditorModel->GetNonParentItems(items))) {
+    if (!ItemsAreUnique(SearchEditorModel::instance().GetNonParentItems(items))) {
         return;
     }
 
@@ -647,16 +646,16 @@ void SearchEditor::ExportItems(QList<QStandardItem *> items)
     QList<SearchEditorModel::searchEntry *> entries;
     foreach(QStandardItem * item, items) {
         // Get all subitems of an item not just the item itself
-        QList<QStandardItem *> sub_items = m_SearchEditorModel->GetNonParentItems(item);
+        QList<QStandardItem *> sub_items = SearchEditorModel::instance().GetNonParentItems(item);
         // Get the parent path of the item
         QString parent_path = "";
 
         if (item->parent()) {
-            parent_path = m_SearchEditorModel->GetFullName(item->parent());
+            parent_path = SearchEditorModel::instance().GetFullName(item->parent());
         }
 
         foreach(QStandardItem * item, sub_items) {
-            SearchEditorModel::searchEntry *entry = m_SearchEditorModel->GetEntry(item);
+            SearchEditorModel::searchEntry *entry = SearchEditorModel::instance().GetEntry(item);
             // Remove the top level paths since we're exporting a subset
             entry->fullname.replace(QRegularExpression(parent_path), "");
             entry->name = entry->fullname;
@@ -715,13 +714,13 @@ void SearchEditor::ExportItems(QList<QStandardItem *> items)
 void SearchEditor::FillControls()
 {
     if (ui.SearchEditorTree->selectionModel()->hasSelection()) {
-        QList<QStandardItem *> items = m_SearchEditorModel->GetNonGroupItems(GetSelectedItems());
+        QList<QStandardItem *> items = SearchEditorModel::instance().GetNonGroupItems(GetSelectedItems());
 
         if (!ItemsAreUnique(items)) return;
 
         if (items.size() < 2) return;
 
-        m_SearchEditorModel->FillControls(items);
+        SearchEditorModel::instance().FillControls(items);
     }
 }
 
@@ -747,7 +746,7 @@ bool SearchEditor::FilterEntries(const QString &text, QStandardItem *item)
 
     if (item) {
         // Hide the entry if it doesn't contain the entered text, otherwise show it
-        SearchEditorModel::searchEntry *entry = m_SearchEditorModel->GetEntry(item);
+        SearchEditorModel::searchEntry *entry = SearchEditorModel::instance().GetEntry(item);
 
         if (ui.Filter->currentIndex() == 0) {
             hidden = !(text.isEmpty() || entry->name.toLower().contains(lowercaseText));
@@ -760,7 +759,7 @@ bool SearchEditor::FilterEntries(const QString &text, QStandardItem *item)
 
         ui.SearchEditorTree->setRowHidden(item->row(), parent_index, hidden);
     } else {
-        item = m_SearchEditorModel->invisibleRootItem();
+        item = SearchEditorModel::instance().invisibleRootItem();
     }
 
     // Recursively set children
@@ -782,7 +781,7 @@ void SearchEditor::FilterEditTextChangedSlot(const QString &text)
     ui.SearchEditorTree->selectionModel()->clear();
 
     if (!text.isEmpty()) {
-        SelectFirstVisibleNonGroup(m_SearchEditorModel->invisibleRootItem());
+        SelectFirstVisibleNonGroup(SearchEditorModel::instance().invisibleRootItem());
     }
 
     return;
@@ -797,9 +796,9 @@ bool SearchEditor::SelectFirstVisibleNonGroup(QStandardItem *item)
     }
 
     // If the item is not a group and its visible select it and finish
-    if (item != m_SearchEditorModel->invisibleRootItem() && !ui.SearchEditorTree->isRowHidden(item->row(), parent_index)) {
-        if (!m_SearchEditorModel->ItemIsGroup(item)) {
-            ui.SearchEditorTree->selectionModel()->select(m_SearchEditorModel->index(item->row(), 0, parent_index), QItemSelectionModel::Select | QItemSelectionModel::Rows);
+    if (item != SearchEditorModel::instance().invisibleRootItem() && !ui.SearchEditorTree->isRowHidden(item->row(), parent_index)) {
+        if (!SearchEditorModel::instance().ItemIsGroup(item)) {
+            ui.SearchEditorTree->selectionModel()->select(SearchEditorModel::instance().index(item->row(), 0, parent_index), QItemSelectionModel::Select | QItemSelectionModel::Rows);
             ui.SearchEditorTree->setCurrentIndex(item->index());
             return true;
         }
@@ -986,7 +985,7 @@ void SearchEditor::ForceClose()
 
 bool SearchEditor::MaybeSaveDialogSaysProceed(bool is_forced)
 {
-    if (m_SearchEditorModel->IsDataModified()) {
+    if (SearchEditorModel::instance().IsDataModified()) {
         QMessageBox::StandardButton button_pressed;
         QMessageBox::StandardButtons buttons = is_forced ? QMessageBox::Save | QMessageBox::Discard
                                                : QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel;
@@ -1002,7 +1001,7 @@ bool SearchEditor::MaybeSaveDialogSaysProceed(bool is_forced)
         } else if (button_pressed == QMessageBox::Cancel) {
             return false;
         } else {
-            m_SearchEditorModel->LoadInitialData();
+            SearchEditorModel::instance().LoadInitialData();
         }
     }
 
@@ -1034,11 +1033,11 @@ void SearchEditor::MoveVertical(bool move_down)
     // Identify the selected item
     QModelIndex index = selected_indexes.first();
     int row = index.row();
-    QStandardItem *item = m_SearchEditorModel->itemFromIndex(index);
+    QStandardItem *item = SearchEditorModel::instance().itemFromIndex(index);
     QStandardItem *source_parent_item = item->parent();
 
     if (!source_parent_item) {
-        source_parent_item = m_SearchEditorModel->invisibleRootItem();
+        source_parent_item = SearchEditorModel::instance().invisibleRootItem();
     }
 
     QStandardItem *destination_parent_item = source_parent_item;
@@ -1047,7 +1046,7 @@ void SearchEditor::MoveVertical(bool move_down)
     if (move_down) {
         if (row >= source_parent_item->rowCount() - 1) {
             // We are the last child for this group.
-            if (source_parent_item == m_SearchEditorModel->invisibleRootItem()) {
+            if (source_parent_item == SearchEditorModel::instance().invisibleRootItem()) {
                 // Can't go any lower than this
                 return;
             }
@@ -1056,7 +1055,7 @@ void SearchEditor::MoveVertical(bool move_down)
             destination_parent_item = source_parent_item->parent();
 
             if (!destination_parent_item) {
-                destination_parent_item = m_SearchEditorModel->invisibleRootItem();
+                destination_parent_item = SearchEditorModel::instance().invisibleRootItem();
             }
 
             destination_row = source_parent_item->index().row() + 1;
@@ -1066,7 +1065,7 @@ void SearchEditor::MoveVertical(bool move_down)
     } else {
         if (row == 0) {
             // We are the first child for this parent.
-            if (source_parent_item == m_SearchEditorModel->invisibleRootItem()) {
+            if (source_parent_item == SearchEditorModel::instance().invisibleRootItem()) {
                 // Can't go any higher than this
                 return;
             }
@@ -1075,7 +1074,7 @@ void SearchEditor::MoveVertical(bool move_down)
             destination_parent_item = source_parent_item->parent();
 
             if (!destination_parent_item) {
-                destination_parent_item = m_SearchEditorModel->invisibleRootItem();
+                destination_parent_item = SearchEditorModel::instance().invisibleRootItem();
             }
 
             destination_row = source_parent_item->index().row();
@@ -1090,8 +1089,8 @@ void SearchEditor::MoveVertical(bool move_down)
     // Get index
     QModelIndex destination_index = destination_parent_item->child(destination_row, 0)->index();
     // Make sure the path to the item is updated
-    QStandardItem *destination_item = m_SearchEditorModel->itemFromIndex(destination_index);
-    m_SearchEditorModel->UpdateFullName(destination_item);
+    QStandardItem *destination_item = SearchEditorModel::instance().itemFromIndex(destination_index);
+    SearchEditorModel::instance().UpdateFullName(destination_item);
     // Select the item row again
     ui.SearchEditorTree->selectionModel()->clear();
     ui.SearchEditorTree->setCurrentIndex(destination_index);
@@ -1124,11 +1123,11 @@ void SearchEditor::MoveHorizontal(bool move_left)
     // Identify the source information
     QModelIndex source_index = selected_indexes.first();
     int source_row = source_index.row();
-    QStandardItem *source_item = m_SearchEditorModel->itemFromIndex(source_index);
+    QStandardItem *source_item = SearchEditorModel::instance().itemFromIndex(source_index);
     QStandardItem *source_parent_item = source_item->parent();
 
     if (!source_parent_item) {
-        source_parent_item = m_SearchEditorModel->invisibleRootItem();
+        source_parent_item = SearchEditorModel::instance().invisibleRootItem();
     }
 
     QStandardItem *destination_parent_item;
@@ -1136,7 +1135,7 @@ void SearchEditor::MoveHorizontal(bool move_left)
 
     if (move_left) {
         // Skip if at root or otherwise at top level
-        if (!source_parent_item || source_parent_item == m_SearchEditorModel->invisibleRootItem()) {
+        if (!source_parent_item || source_parent_item == SearchEditorModel::instance().invisibleRootItem()) {
             return;
         }
 
@@ -1144,7 +1143,7 @@ void SearchEditor::MoveHorizontal(bool move_left)
         destination_parent_item = source_parent_item->parent();
 
         if (!destination_parent_item) {
-            destination_parent_item = m_SearchEditorModel->invisibleRootItem();
+            destination_parent_item = SearchEditorModel::instance().invisibleRootItem();
         }
 
         destination_row = source_parent_item->index().row() + 1;
@@ -1155,13 +1154,13 @@ void SearchEditor::MoveHorizontal(bool move_left)
             return;
         }
 
-        QStandardItem *item = m_SearchEditorModel->itemFromIndex(index_above);
+        QStandardItem *item = SearchEditorModel::instance().itemFromIndex(index_above);
 
         if (source_parent_item == item) {
             return;
         }
 
-        SearchEditorModel::searchEntry *entry = m_SearchEditorModel->GetEntry(item);
+        SearchEditorModel::searchEntry *entry = SearchEditorModel::instance().GetEntry(item);
 
         // Only move right if immediately under a group
         if (entry ->is_group) {
@@ -1183,8 +1182,8 @@ void SearchEditor::MoveHorizontal(bool move_left)
     destination_parent_item->insertRow(destination_row, row_items);
     QModelIndex destination_index = destination_parent_item->child(destination_row)->index();
     // Make sure the path to the item is updated
-    QStandardItem *destination_item = m_SearchEditorModel->itemFromIndex(destination_index);
-    m_SearchEditorModel->UpdateFullName(destination_item);
+    QStandardItem *destination_item = SearchEditorModel::instance().itemFromIndex(destination_index);
+    SearchEditorModel::instance().UpdateFullName(destination_item);
     // Select the item row again
     ui.SearchEditorTree->selectionModel()->clear();
     ui.SearchEditorTree->setCurrentIndex(destination_index);
@@ -1235,8 +1234,8 @@ void SearchEditor::ConnectSignalsSlots()
     connect(m_CollapseAll, SIGNAL(triggered()), this, SLOT(CollapseAll()));
     connect(m_ExpandAll,   SIGNAL(triggered()), this, SLOT(ExpandAll()));
     connect(m_FillIn,      SIGNAL(triggered()), this, SLOT(FillControls()));
-    connect(m_SearchEditorModel, SIGNAL(SettingsFileUpdated()), this, SLOT(SettingsFileModelUpdated()));
-    connect(m_SearchEditorModel, SIGNAL(ItemDropped(const QModelIndex &)), this, SLOT(ModelItemDropped(const QModelIndex &)));
+    connect(&SearchEditorModel::instance(), SIGNAL(SettingsFileUpdated()), this, SLOT(SettingsFileModelUpdated()));
+    connect(&SearchEditorModel::instance(), SIGNAL(ItemDropped(const QModelIndex &)), this, SLOT(ModelItemDropped(const QModelIndex &)));
     connect(ui.SearchEditorTree->selectionModel(), SIGNAL(selectionChanged(const QItemSelection&, const QItemSelection&)), this, SLOT(SelectionChanged()));
 
 }

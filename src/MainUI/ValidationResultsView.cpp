@@ -199,9 +199,7 @@ QStringList ValidationResultsView::ValidateFile(QString &apath)
     QList<QVariant> args;
     args.append(QVariant(apath));
 
-    EmbeddedPython * epython  = EmbeddedPython::instance();
-
-    QVariant res = epython->runInPython( QString("sanitycheck"),
+    QVariant res = EmbeddedPython::instance().runInPython( QString("sanitycheck"),
                                          QString("perform_sanity_check"),
                                          args,
                                          &rv,

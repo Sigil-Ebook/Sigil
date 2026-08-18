@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2021 Kevin B. Hendricks, Stratford Ontario
+**  Copyright (C) 2016-2026 Kevin B. Hendricks, Stratford Ontario
 **
 **  This file is part of Sigil.
 **
@@ -273,7 +273,7 @@ QString NavProcessor::BuildTOC(const QList<NavTOCEntry> & toclist)
     QString step = "  ";
     QString base = step.repeated(2);
     res << "\n" + step + "<nav epub:type=\"toc\" id=\"toc\" role=\"doc-toc\">\n";
-    res << base + "<h1>" + Landmarks::instance()->GetTitle("toc", m_language) + "</h1>\n";
+    res << base + "<h1>" + Landmarks::instance().GetTitle("toc", m_language) + "</h1>\n";
     res << base + "<ol>\n";
     foreach(NavTOCEntry te, toclist) {
         int lvl = te.lvl;
@@ -326,7 +326,7 @@ QString NavProcessor::BuildLandmarks(const QList<NavLandmarkEntry> & landlist)
     QString step = "  ";
     QString base = step.repeated(2);
     res << "\n" + step + "<nav epub:type=\"landmarks\" id=\"landmarks\" hidden=\"\">\n";
-    res << base + "<h1>" + Landmarks::instance()->GetTitle("landmarks", m_language) + "</h1>\n";
+    res << base + "<h1>" + Landmarks::instance().GetTitle("landmarks", m_language) + "</h1>\n";
     res << base + "<ol>\n";
     foreach(NavLandmarkEntry le, landlist) {
         QString etype = le.etype;
@@ -348,7 +348,7 @@ QString NavProcessor::BuildPageList(const QList<NavPageListEntry> & pagelist)
     QString step = "  ";
     QString base = step.repeated(3);
     res << "\n" + step + "<nav epub:type=\"page-list\" id=\"page-list\" role=\"doc-pagelist\" hidden=\"\">\n";
-    res << base + "<h1>" + Landmarks::instance()->GetTitle("page-list", m_language) + "</h1>\n";
+    res << base + "<h1>" + Landmarks::instance().GetTitle("page-list", m_language) + "</h1>\n";
     res << "\n" + base + "<ol>\n";
     foreach(NavPageListEntry pe, pagelist) {
         QString pagename = Utility::EncodeXML(pe.pagename);
@@ -503,7 +503,7 @@ void NavProcessor::AddLandmarkCode(const Resource *resource, QString new_code, b
         current_code = le.etype;
     }
     if ((current_code != new_code) || !toggle) {
-        QString title = Landmarks::instance()->GetTitle(new_code, m_language);
+        QString title = Landmarks::instance().GetTitle(new_code, m_language);
         if (pos > -1) {
             NavLandmarkEntry le = landlist.at(pos);
             le.etype = new_code;
@@ -597,7 +597,7 @@ QString NavProcessor::GetLandmarkNameForResource(const Resource *resource, QStri
     QString name;
     QString etype = GetLandmarkCodeForResource(resource, tgt_id);
     if (!etype.isEmpty()) {
-        name = Landmarks::instance()->GetName(etype);
+        name = Landmarks::instance().GetName(etype);
     }
     return name;
 }
@@ -637,7 +637,7 @@ QHash <QString, QStringList> NavProcessor::GetLandmarkNameForPaths()
         if (semantic_types.contains(parts.at(0))) {
             names = semantic_types[parts.at(0)];
         }
-        names << Landmarks::instance()->GetName(etype);
+        names << Landmarks::instance().GetName(etype);
         semantic_types[parts.at(0)] = names;
     }
     return semantic_types;

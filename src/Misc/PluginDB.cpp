@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2018-2025  Kevin Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2018-2026  Kevin Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2018-2025  Doug Massay
 **  Copyright (C) 2014  John Schember <john@nachtimwald.com>
 **
@@ -33,16 +33,6 @@
 #include "Misc/Utility.h"
 #include "sigil_constants.h"
 
-PluginDB *PluginDB::m_instance = 0;
-
-PluginDB *PluginDB::instance()
-{
-    if (m_instance == 0) {
-        m_instance = new PluginDB();
-    }
-
-    return m_instance;
-}
 
 PluginDB::PluginDB()
 {
@@ -62,11 +52,6 @@ PluginDB::~PluginDB()
         delete p;
     }
     m_plugins.clear();
-
-    if (m_instance) {
-        delete m_instance;
-        m_instance = 0;
-    }
 }
 
 QString PluginDB::pluginsPath()

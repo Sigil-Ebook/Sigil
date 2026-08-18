@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2012      Grant Drake
@@ -32,16 +32,13 @@
 
 #include "Misc/SettingsStore.h"
 
+/* Singleton */
+
 class SearchEditorModel : public QStandardItemModel
 {
     Q_OBJECT
 
 public:
-    SearchEditorModel(QObject *parent = 0);
-    ~SearchEditorModel();
-
-    static SearchEditorModel *instance();
-
     struct searchEntry {
         bool is_group;
         QString fullname;
@@ -51,6 +48,14 @@ public:
         QString controls;
     };
 
+    static SearchEditorModel& instance() {
+        static SearchEditorModel the_instance;
+        return the_instance;
+    }
+
+    SearchEditorModel(const SearchEditorModel&) = delete;
+    SearchEditorModel& operator=(const SearchEditorModel&) = delete;
+    
     bool IsDataModified();
 
     bool ItemIsGroup(QStandardItem *item);
@@ -104,6 +109,9 @@ private slots:
     void SettingsFileChanged(const QString &path) const;
 
 private:
+    SearchEditorModel(QObject *parent = 0);
+    ~SearchEditorModel() = default;
+
     void SetDataModified(bool modified);
 
     bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent);
@@ -114,8 +122,6 @@ private:
     QString CheckEntries(QList<SearchEditorModel::searchEntry *> entries);
 
     void AddExampleEntries();
-
-    static SearchEditorModel *m_instance;
 
     QString m_SettingsPath;
 

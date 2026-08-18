@@ -110,7 +110,7 @@ ViewPreview::ViewPreview(QWidget *parent, bool setbackground)
       m_LoadOkay(false),
       m_overlay(new LoadingOverlay(this))
 {
-    QWebEngineProfile* profile = WebProfileMgr::instance()->GetPreviewProfile();
+    QWebEngineProfile* profile = WebProfileMgr::instance().GetPreviewProfile();
     m_ViewWebPage = new WebEngPage(profile, this, setbackground);
     setPage(m_ViewWebPage);
     

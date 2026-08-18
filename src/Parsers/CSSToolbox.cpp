@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2022 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2022-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **
 **  This file is part of Sigil.
 **
@@ -26,7 +26,7 @@
 #include <QFileInfo>
 #include <QDebug>
 
-#include "Parsers/qCSSParser.h"  // css parser
+#include "Parsers/CSSParser.h"  // css parser
 #include "Parsers/QuickParser.h" // xhtml parser
 #include "Misc/Utility.h"
 #include "Parsers/TagAtts.h"  // simple ordered QHash class
@@ -53,16 +53,15 @@ QSet<QString> CSSToolbox::generate_class_set(const QString& cssdata)
 {
     QSet<QString> classset;
     CSSParser cp;
-    cp.set_level("CSS3.0");
     cp.parse_css(cssdata);
     QVector<QString> errors = cp.get_parse_errors();
     for(int i = 0; i < errors.size(); i++) {
         qDebug() << "  CSS Parser Error: " << errors[i] << "\n";
     }
     // now identify all class names
-    CSSParser::token atoken = cp.get_next_token();
-    while(atoken.type != CSSParser::CSS_END) {
-        if (atoken.type == CSSParser::SEL_START && !atoken.data.startsWith('@')) {
+    CSSParser::csstoken atoken = cp.get_next_token();
+    while(atoken.type != TKN_CSS_END) {
+        if (atoken.type == TKN_SELECTOR) {
             QStringList sels = CSSParser::splitGroupSelector(atoken.data);
             foreach(QString asel, sels) {
                 std::pair<int, QString> res = CSSParser::findNextClassInSelector(asel, 0);
@@ -150,20 +149,19 @@ int CSSToolbox::compare_properties(const QHash<QString, QString> &tgt, const QHa
 // copy selector from css
 QString CSSToolbox::copy_selector_from_css(const QString& sel, const QString &cssdata)
 {
-    QVector<CSSParser::token> csstokens;
+    QVector<CSSParser::csstoken> csstokens;
     bool in_selector = false;
     bool in_group = false;
     CSSParser cp;
-    cp.set_level("CSS3.0");
     cp.parse_css(cssdata);
     QVector<QString> errors = cp.get_parse_errors();
     for(int i = 0; i < errors.size(); i++) {
         qDebug() << "  CSS Parser Error: " << errors[i] << "\n";
     }
     // now store the sequence of parsed tokens for selector sel
-    CSSParser::token atoken = cp.get_next_token();
-    while(atoken.type != CSSParser::CSS_END) {
-        if (atoken.type == CSSParser::SEL_START && !atoken.data.startsWith('@')) {
+    CSSParser::csstoken atoken = cp.get_next_token();
+    while(atoken.type != TKN_CSS_END) {
+        if (atoken.type == TKN_SELECTOR) {
             // if matches entire selector or one of the selector group
             if (atoken.data == sel) {
                 in_selector = true;
@@ -177,9 +175,10 @@ QString CSSToolbox::copy_selector_from_css(const QString& sel, const QString &cs
             }
         }
         if (in_selector) {
-            CSSParser::token temp;
+            CSSParser::csstoken temp;
             temp.pos = atoken.pos;
             temp.line = atoken.line;
+            temp.col = atoken.col;
             temp.type = atoken.type;
             if (in_group) {
                 temp.data = sel;
@@ -188,7 +187,7 @@ QString CSSToolbox::copy_selector_from_css(const QString& sel, const QString &cs
             }
             csstokens.append(temp);        
         }
-        if (atoken.type == CSSParser::SEL_END && !atoken.data.startsWith('@')) {
+        if (atoken.type == TKN_SEL_BLOCK_END) {
             if (atoken.data == sel || CSSParser::splitGroupSelector(atoken.data).contains(sel)) {
                 in_selector = false;
                 in_group = false;
@@ -196,14 +195,14 @@ QString CSSToolbox::copy_selector_from_css(const QString& sel, const QString &cs
         }
         atoken = cp.get_next_token();
     }
-    CSSParser::token temp;
-    temp.pos = -1;
-    temp.line = -1;
-    temp.type = CSSParser::CSS_END;
+    CSSParser::csstoken temp;
+    temp.pos = 0;
+    temp.line = 0;
+    temp.col = 0;
+    temp.type = TKN_CSS_END;
     temp.data = "";
     csstokens.append(temp);
     CSSParser np;
-    np.set_level("CSS3.0");
     np.set_csstokens(csstokens);
     QString ncssdata = np.serialize_css(false);
     return ncssdata;
@@ -213,46 +212,47 @@ QString CSSToolbox::copy_selector_from_css(const QString& sel, const QString &cs
 // remove properties from css
 QString CSSToolbox::remove_properties_from_css(const QStringList& proplist, const QString &cssdata)
 {
-    QVector<CSSParser::token> csstokens;
+    QVector<CSSParser::csstoken> csstokens;
     bool in_selector = false;
     bool remove_property = false;
     CSSParser cp;
-    cp.set_level("CSS3.0");
     cp.parse_css(cssdata);
     QVector<QString> errors = cp.get_parse_errors();
     for(int i = 0; i < errors.size(); i++) {
         qDebug() << "  CSS Parser Error: " << errors[i] << "\n";
     }
+   
     // store the sequence of parsed tokens but skip the selector in question
-    CSSParser::token atoken = cp.get_next_token();
-    while(atoken.type != CSSParser::CSS_END) {
-        if (atoken.type == CSSParser::SEL_START && !atoken.data.startsWith('@')) in_selector = true;
-        if (atoken.type == CSSParser::SEL_END && !atoken.data.startsWith('@')) in_selector = false;
-        if (in_selector && atoken.type == CSSParser::PROPERTY) {
+    CSSParser::csstoken atoken = cp.get_next_token();
+    while(atoken.type != TKN_CSS_END) {
+        if (atoken.type == TKN_SELECTOR) in_selector = true;
+        if (atoken.type == TKN_SEL_BLOCK_END) in_selector = false;
+        if (in_selector && atoken.type == TKN_PROPERTY) {
             if (proplist.contains(atoken.data)) remove_property = true;
         }
         if (!remove_property) {
-            CSSParser::token temp;
+            CSSParser::csstoken temp;
             temp.pos = atoken.pos;
             temp.line = atoken.line;
+            temp.col = atoken.col;
             temp.type = atoken.type;
             temp.data = atoken.data;
             csstokens.append(temp);        
         }
-        if (remove_property && atoken.type == CSSParser::VALUE) {
+        if (remove_property && atoken.type == TKN_PROPERTY_VALUE) {
             remove_property = false;
         }
         atoken = cp.get_next_token();
     }
-    CSSParser::token temp;
-    temp.pos = -1;
-    temp.line = -1;
-    temp.type = CSSParser::CSS_END;
+    CSSParser::csstoken temp;
+    temp.pos = 0;
+    temp.line = 0;
+    temp.col = 0;
+    temp.type = TKN_CSS_END;
     temp.data = "";
     csstokens.append(temp);
     // now recreate the new cssdata
     CSSParser np;
-    np.set_level("CSS3.0");
     np.set_csstokens(csstokens);
     QString ncssdata = np.serialize_css(false);
     return ncssdata;
@@ -262,11 +262,10 @@ QString CSSToolbox::remove_properties_from_css(const QStringList& proplist, cons
 // erase selector from css
 QString CSSToolbox::erase_selector_from_css(const QString& sel, const QString &cssdata)
 {
-    QVector<CSSParser::token> csstokens;
+    QVector<CSSParser::csstoken> csstokens;
     bool in_selector = false;
     bool in_group = false;
     CSSParser cp;
-    cp.set_level("CSS3.0");
     cp.parse_css(cssdata);
     QVector<QString> errors = cp.get_parse_errors();
     for(int i = 0; i < errors.size(); i++) {
@@ -274,9 +273,9 @@ QString CSSToolbox::erase_selector_from_css(const QString& sel, const QString &c
     }
     // store the sequence of parsed tokens but skip the selector in question
     // if it is not part of a group
-    CSSParser::token atoken = cp.get_next_token();
-    while(atoken.type != CSSParser::CSS_END) {
-        if (atoken.type == CSSParser::SEL_START && !atoken.data.startsWith('@')) {
+    CSSParser::csstoken atoken = cp.get_next_token();
+    while(atoken.type != TKN_CSS_END) {
+        if (atoken.type == TKN_SELECTOR && !atoken.data.startsWith('@')) {
             if (atoken.data == sel) {
                 in_selector = true;
             } else {
@@ -294,7 +293,7 @@ QString CSSToolbox::erase_selector_from_css(const QString& sel, const QString &c
         }
         
         // update atoken.data for changed selectors of a group if needed
-        if (atoken.type == CSSParser::SEL_END && !atoken.data.startsWith('@')) {
+        if (atoken.type == TKN_SEL_BLOCK_END && !atoken.data.startsWith('@')) {
             if (in_group) {
                 QStringList sels = CSSParser::splitGroupSelector(atoken.data);
                 sels.removeOne(sel);
@@ -302,28 +301,29 @@ QString CSSToolbox::erase_selector_from_css(const QString& sel, const QString &c
             }
         }
         if (!in_selector) {
-            CSSParser::token temp;
+            CSSParser::csstoken temp;
             temp.pos = atoken.pos;
             temp.line = atoken.line;
+            temp.col = atoken.col;
             temp.type = atoken.type;
             temp.data = atoken.data;
             csstokens.append(temp);        
         }
-        if (atoken.type == CSSParser::SEL_END && !atoken.data.startsWith('@')) {
+        if (atoken.type == TKN_SEL_BLOCK_END && !atoken.data.startsWith('@')) {
             in_selector = false;
             in_group = false;
         }
         atoken = cp.get_next_token();
     }
-    CSSParser::token temp;
-    temp.pos = -1;
-    temp.line = -1;
-    temp.type = CSSParser::CSS_END;
+    CSSParser::csstoken temp;
+    temp.pos = 0;
+    temp.line = 0;
+    temp.col = 0;
+    temp.type = TKN_CSS_END;
     temp.data = "";
     csstokens.append(temp);
     // now recreate the new cssdata
     CSSParser np;
-    np.set_level("CSS3.0");
     np.set_csstokens(csstokens);
     QString ncssdata = np.serialize_css(false);
     return ncssdata;
@@ -333,18 +333,17 @@ QString CSSToolbox::erase_selector_from_css(const QString& sel, const QString &c
 // replace all occurences of oldclass in selectors with newclass in cssdata
 QString CSSToolbox::rename_class_in_css(const QString &oldclass, const QString &newclass, const QString &cssdata)
 {
-    QVector<CSSParser::token> csstokens;
+    QVector<CSSParser::csstoken> csstokens;
     CSSParser cp;
-    cp.set_level("CSS3.0");
     cp.parse_css(cssdata);
     QVector<QString> errors = cp.get_parse_errors();
     for(int i = 0; i < errors.size(); i++) {
         qDebug() << "  CSS Parser Error: " << errors[i] << "\n";
     }
     // now store the sequence of parsed tokens after making any modifications
-    CSSParser::token atoken = cp.get_next_token();
-    while(atoken.type != CSSParser::CSS_END) {
-        if (atoken.type == CSSParser::SEL_START && !atoken.data.startsWith('@')) {
+    CSSParser::csstoken atoken = cp.get_next_token();
+    while(atoken.type != TKN_CSS_END) {
+        if (atoken.type == TKN_SELECTOR) {
             QStringList sels = CSSParser::splitGroupSelector(atoken.data);
             QStringList nsels;
             foreach(QString asel, sels) {
@@ -364,23 +363,24 @@ QString CSSToolbox::rename_class_in_css(const QString &oldclass, const QString &
             }
             atoken.data = nsels.join(",");
         }
-        CSSParser::token temp;
+        CSSParser::csstoken temp;
         temp.pos = atoken.pos;
         temp.line = atoken.line;
+        temp.col = atoken.col;
         temp.type = atoken.type;
         temp.data = atoken.data;
         csstokens.append(temp);        
         atoken = cp.get_next_token();
     }
-    CSSParser::token temp;
-    temp.pos = -1;
-    temp.line = -1;
-    temp.type = CSSParser::CSS_END;
+    CSSParser::csstoken temp;
+    temp.pos = 0;
+    temp.line = 0;
+    temp.col = 0;
+    temp.type = TKN_CSS_END;
     temp.data = "";
     csstokens.append(temp);
     // now recreate the new cssdata
     CSSParser np;
-    np.set_level("CSS3.0");
     np.set_csstokens(csstokens);
     QString ncssdata = np.serialize_css(false);
     return ncssdata;

@@ -969,7 +969,7 @@ bool CodeViewEditor::FindNext(const QString &search_regex,
                               bool marked_text,
                               int split_at)
 {
-    SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
+    SPCRE *spcre = PCRECache::instance().getObject(search_regex);
     SPCRE::MatchInfo match_info;
     QString txt = toPlainText();
     int start_offset = 0;
@@ -1067,7 +1067,7 @@ bool CodeViewEditor::FindNext(const QString &search_regex,
 
 int CodeViewEditor::Count(const QString &search_regex, Searchable::Direction direction, bool wrap, bool marked_text)
 {
-    SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
+    SPCRE *spcre = PCRECache::instance().getObject(search_regex);
     QString txt= toPlainText();
     int start = 0;
     int end = txt.length();
@@ -1094,7 +1094,7 @@ int CodeViewEditor::Count(const QString &search_regex, Searchable::Direction dir
 
 bool CodeViewEditor::ReplaceSelected(const QString &search_regex, const QString &replacement, Searchable::Direction direction, bool replace_current)
 {
-    SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
+    SPCRE *spcre = PCRECache::instance().getObject(search_regex);
     int selection_start = textCursor().selectionStart();
     int selection_end = textCursor().selectionEnd();
 
@@ -1186,7 +1186,7 @@ int CodeViewEditor::ReplaceAll(const QString &search_regex,
     }
     int marked_text_length = text.length();
 
-    SPCRE *spcre = PCRECache::instance()->getObject(search_regex);
+    SPCRE *spcre = PCRECache::instance().getObject(search_regex);
     QList<SPCRE::MatchInfo> match_info = spcre->getEveryMatchInfo(text);
 
     // Run though all match offsets making the replacement in reverse order.
@@ -1518,8 +1518,7 @@ bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
 
         // If a misspelled word is selected try to offer spelling suggestions.
         if (offer_spelling) {
-            SpellCheck *sc = SpellCheck::instance();
-            QStringList suggestions = sc->suggestPS(selected_word);
+            QStringList suggestions = SpellCheck::instance().suggestPS(selected_word);
             QAction *suggestAction = 0;
 
             // We want to limit the number of suggestions so we don't
@@ -1555,7 +1554,7 @@ bool CodeViewEditor::AddSpellCheckContextMenu(QMenu *menu)
             }
 
             // Allow the user to select a dictionary
-            QStringList dictionaries = sc->userDictionaries();
+            QStringList dictionaries = SpellCheck::instance().userDictionaries();
             QMenu *dictionary_menu = new QMenu(menu);
             dictionary_menu->setTitle(tr("Add To Dictionary"));
 
@@ -1829,7 +1828,7 @@ void CodeViewEditor::AddClipContextMenu(QMenu *menu)
         menu->addMenu(clips_menu);
     }
 
-    CreateMenuEntries(clips_menu, 0, ClipEditorModel::instance()->invisibleRootItem());
+    CreateMenuEntries(clips_menu, 0, ClipEditorModel::instance().invisibleRootItem());
 
     QAction *saveClipAction = new QAction(tr("Add To Clips") + "...", menu);
 
@@ -1861,7 +1860,7 @@ bool CodeViewEditor::CreateMenuEntries(QMenu *parent_menu, QAction *topAction, Q
         if (!item->data().toBool()) {
             clipAction = new QAction(item->text(), parent_menu);
             connect(clipAction, SIGNAL(triggered()), m_clipMapper, SLOT(map()));
-            m_clipMapper->setMapping(clipAction, ClipEditorModel::instance()->GetFullName(item));
+            m_clipMapper->setMapping(clipAction, ClipEditorModel::instance().GetFullName(item));
 
             if (!topAction) {
                 parent_menu->addAction(clipAction);
@@ -2239,8 +2238,8 @@ bool CodeViewEditor::InsertRole(const QString &attribute_value)
     int pos = textCursor().selectionStart();
     QString element_name = GetOpeningTagName(pos);
     QString attribute_name = "role";
-    QStringList tag_list = AriaRoles::instance()->AllowedTags(attribute_value);
-    QString etype = AriaRoles::instance()->EpubTypeMapping(attribute_value);
+    QStringList tag_list = AriaRoles::instance().AllowedTags(attribute_value);
+    QString etype = AriaRoles::instance().EpubTypeMapping(attribute_value);
     if (etype == attribute_value) {
         // this is an epub:type only attribute
         attribute_name = "epub:type";
@@ -2608,22 +2607,19 @@ void CodeViewEditor::addToUserDictionary(const QString &text)
 {
     QString word = text.split("\t")[0];
     QString dict_name = text.split("\t")[1];
-    SpellCheck *sc = SpellCheck::instance();
-    sc->addToUserDictionary(word, dict_name);
+    SpellCheck::instance().addToUserDictionary(word, dict_name);
     emit SpellingHighlightRefreshRequest();
 }
 
 void CodeViewEditor::addToDefaultDictionary(const QString &text)
 {
-    SpellCheck *sc = SpellCheck::instance();
-    sc->addToUserDictionary(text);
+    SpellCheck::instance().addToUserDictionary(text);
     emit SpellingHighlightRefreshRequest();
 }
 
 void CodeViewEditor::ignoreWord(const QString &text)
 {
-    SpellCheck *sc = SpellCheck::instance();
-    sc->ignoreWord(text);
+    SpellCheck::instance().ignoreWord(text);
     emit SpellingHighlightRefreshRequest();
 }
 
@@ -2634,7 +2630,7 @@ void CodeViewEditor::PasteText(const QString &text)
 
 bool CodeViewEditor::PasteClipNumber(int clip_number)
 {
-    ClipEditorModel::clipEntry *clip = ClipEditorModel::instance()->GetEntryFromNumber(clip_number);
+    ClipEditorModel::clipEntry *clip = ClipEditorModel::instance().GetEntryFromNumber(clip_number);
     if (!clip) {
         return false;
     }
@@ -2656,7 +2652,7 @@ bool CodeViewEditor::PasteClipEntries(const QList<ClipEditorModel::clipEntry *> 
 
 void CodeViewEditor::PasteClipEntryFromName(const QString &name)
 {
-    ClipEditorModel::clipEntry *clip = ClipEditorModel::instance()->GetEntryFromName(name);
+    ClipEditorModel::clipEntry *clip = ClipEditorModel::instance().GetEntryFromName(name);
     PasteClipEntry(clip);
 }
 

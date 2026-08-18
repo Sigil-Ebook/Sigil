@@ -120,6 +120,10 @@ public:
 
     static bool ForceCopyFile(const QString &fullinpath, const QString &fulloutpath);
 
+    // Copy File from src (full abs path) to dest (full abs path) with write with truncation
+    // without ever deleting the dest file file first
+    static bool OverWriteFileWith(const QString src, const QString dest);
+
     static bool SMoveFile(const QString &oldfilepath, const QString &newfilepath);
 
     static bool RenameFile(const QString &oldfilepath, const QString &newfilepath);

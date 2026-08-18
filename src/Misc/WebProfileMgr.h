@@ -39,8 +39,14 @@ class WebProfileMgr
 {
 
 public:
+    static WebProfileMgr& instance() {
+        static WebProfileMgr the_instance;
+        return the_instance;
+    }
 
-    static WebProfileMgr *instance();
+    WebProfileMgr(const WebProfileMgr&) = delete;
+    WebProfileMgr& operator=(const WebProfileMgr&) = delete;
+
     QWebEngineProfile* GetPreviewProfile();
     QWebEngineProfile* GetOneTimeProfile();
     QWebEngineProfile* GetInspectorProfile();
@@ -50,6 +56,8 @@ public:
 private:
 
     WebProfileMgr();
+    ~WebProfileMgr() = default;
+    
     void InitializeDefaultSettings(QWebEngineSettings* web_settings);
     URLInterceptor* m_URLint;
     URLSchemeHandler* m_URLhandler;
@@ -59,7 +67,6 @@ private:
     QString m_onetime_storage_path;
     QWebEngineProfile * m_inspector_profile = nullptr;
     QWebEngineProfile * m_onetime_profile = nullptr;
-    static WebProfileMgr *m_instance;
 };
 
 #endif // WEBPROFILEMGR_H

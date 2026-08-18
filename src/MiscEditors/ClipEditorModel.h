@@ -1,9 +1,9 @@
 /************************************************************************
 **
-**  Copyright (C) 2019 Kevin B. Hendricks, Stratford, Ontario, Canada
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012 Dave Heiland
-**  Copyright (C) 2012 Grant Drake
+**  Copyright (C) 2019-2026 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2012      John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012      Dave Heiland
+**  Copyright (C) 2012      Grant Drake
 **
 **  This file is part of Sigil.
 **
@@ -32,15 +32,13 @@
 
 #include "Misc/SettingsStore.h"
 
+/* Singleton */
+
 class ClipEditorModel : public QStandardItemModel
 {
     Q_OBJECT
 
 public:
-    ClipEditorModel(QObject *parent = 0);
-    ~ClipEditorModel();
-
-    static ClipEditorModel *instance();
 
     struct clipEntry {
         bool is_group;
@@ -48,6 +46,14 @@ public:
         QString name;
         QString text;
     };
+
+    static ClipEditorModel& instance() {
+        static ClipEditorModel the_instance;
+        return the_instance;
+    }
+
+    ClipEditorModel(const ClipEditorModel&) = delete;
+    ClipEditorModel& operator=(const ClipEditorModel&) = delete;
 
     bool IsDataModified();
 
@@ -99,6 +105,8 @@ private slots:
     void SettingsFileChanged(const QString &path) const;
 
 private:
+    ClipEditorModel(QObject *parent = 0);
+    ~ClipEditorModel();
     void BlankOutClipNumber(QStandardItem *item);
     void SetDataModified(bool modified);
     bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent);
@@ -109,8 +117,6 @@ private:
     QStandardItem *GetItemFromNumber(int clip_number);
 
     void AddExampleEntries();
-
-    static ClipEditorModel *m_instance;
 
     QString m_SettingsPath;
 

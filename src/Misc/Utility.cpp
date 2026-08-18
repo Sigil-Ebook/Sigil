@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2025 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2016-2024 Doug Massay
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -40,6 +40,7 @@
 
 #include <QApplication>
 #include <QDir>
+#include <QByteArray>
 #include <QFile>
 #include <QFileInfo>
 #include <QProcess>
@@ -389,6 +390,25 @@ bool Utility::ForceCopyFile(const QString &fullinpath, const QString &fulloutpat
     return QFile::copy(fullinpath, fulloutpath);
 }
 
+// Copy File from src (full abs path) to dest (full abs path) with write with truncation
+// without ever deleting the dest file file first
+bool Utility::OverWriteFileWith(const QString src, const QString dest)
+{
+    QFile src_file(src);
+    QFile dest_file(dest);
+    if (!src_file.open(QIODevice::ReadOnly)) return false;
+    if (!dest_file.open(QIODevice::WriteOnly | QIODevice::Truncate)) return false;
+    const qint64 bufsize = 4096;
+    QByteArray buffer;
+    buffer.resize(bufsize);
+    while(!src_file.atEnd()) {
+        buffer = src_file.read(bufsize);
+        if (dest_file.write(buffer) == -1) {
+            return false;
+        }
+    }
+    return true;
+}
 
 // Needed to add the S to this routine name to prevent collisions on Windows
 // We had to do the same thing for DeleteFile earlier

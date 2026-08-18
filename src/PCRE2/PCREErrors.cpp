@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2021 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2021-2026 Kevin B. Hendricks, Stratford, Ontario, Canada
 **
 **  This file is part of Sigil.
 **
@@ -24,17 +24,6 @@
 #include <QHash>
 
 #include "PCRE2/PCREErrors.h"
-
-PCREErrors *PCREErrors::m_instance = 0;
-
-PCREErrors *PCREErrors::instance()
-{
-    if (m_instance == 0) {
-        m_instance = new PCREErrors();
-    }
-
-    return m_instance;
-}
 
 PCREErrors::PCREErrors()
 {

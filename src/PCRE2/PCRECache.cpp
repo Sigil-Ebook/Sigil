@@ -1,7 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2019  Kevin B. Hendricks, Stratford, Ontario, Canada
-**  Copyright (C) 2011  John Schember <john@nachtimwald.com>
+**  Copyright (C) 2019-2026  Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2011       John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
 **
@@ -22,21 +22,7 @@
 
 #include "PCRE2/PCRECache.h"
 
-PCRECache *PCRECache::m_instance = 0;
-
-PCRECache *PCRECache::instance()
-{
-    if (m_instance == 0) {
-        m_instance = new PCRECache();
-    }
-
-    return m_instance;
-}
-
-PCRECache::PCRECache()
-{
   // defaults to maxCacheCost of 100
-}
 
 bool PCRECache::insert(const QString &key, SPCRE *object)
 {

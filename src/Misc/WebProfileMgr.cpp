@@ -37,17 +37,6 @@
 #include "Misc/WebProfileMgr.h"
 
 
-WebProfileMgr *WebProfileMgr::m_instance = 0;
-
-WebProfileMgr *WebProfileMgr::instance()
-{
-    if (m_instance == 0) {
-        m_instance = new WebProfileMgr();
-    }
-
-    return m_instance;
-}
-
 QWebEngineProfile*  WebProfileMgr::GetPreviewProfile()
 {
     // Create Dynamic Preview Profile - Off The Record

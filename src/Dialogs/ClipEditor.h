@@ -1,8 +1,9 @@
 /************************************************************************
 **
-**  Copyright (C) 2012 John Schember <john@nachtimwald.com>
-**  Copyright (C) 2012 Dave Heiland
-**  Copyright (C) 2012 Grant Drake
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford, Ontario Canada
+**  Copyright (C) 2012      John Schember <john@nachtimwald.com>
+**  Copyright (C) 2012      Dave Heiland
+**  Copyright (C) 2012      Grant Drake
 **
 **  This file is part of Sigil.
 **
@@ -140,8 +141,6 @@ private:
     QAction *m_CollapseAll;
     QAction *m_ExpandAll;
     QAction *m_AutoFill;
-
-    ClipEditorModel *m_ClipEditorModel;
 
     QSharedPointer<Book> m_Book;
 

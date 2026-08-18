@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2025 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2016-2026 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
@@ -156,6 +156,13 @@ QSharedPointer<Book> ImportEPUB::GetBook(bool extract_metadata)
         QString warning = tr("Files exist in epub that are not listed in the manifest, they will be ignored.");
         warning = warning + SEP + notInManifest.join("\n"); 
         AddLoadWarning(warning);
+    }
+
+    // create warning if duplicate file paths exist in the manifest
+    if (!m_DuplicateFilePaths.isEmpty()) {
+        QString dupwarning = QObject::tr("The OPF manifest contains duplicate file paths. You should edit your OPF file's manifest to remove the duplication.");
+        dupwarning = dupwarning + SEP + m_DuplicateFilePaths.join("\n"); 
+        AddLoadWarning(dupwarning);
     }
 
     LoadFolderStructure();
@@ -809,17 +816,17 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
     // qDebug() << "ImportEpub with Manifest item: " << href << apath;
     QString extension = QFileInfo(apath).suffix().toLower();
      // validate the media type if we can, and warn otherwise
-    QString group = MediaTypes::instance()->GetGroupFromMediaType(type,"");
-    QString ext_mtype = MediaTypes::instance()->GetMediaTypeFromExtension(extension,"");
+    QString group = MediaTypes::instance().GetGroupFromMediaType(type,"");
+    QString ext_mtype = MediaTypes::instance().GetMediaTypeFromExtension(extension,"");
     if (ext_mtype.isEmpty()) {
         if (!file_full_path.isEmpty()) {
             // sniff for magic bytes in the file
-            ext_mtype = MediaTypes::instance()->GetFileDataMimeType(file_full_path, "");
+            ext_mtype = MediaTypes::instance().GetFileDataMimeType(file_full_path, "");
         }
     }
     // if it is generic xml lets try and refine it if possible
     if (ext_mtype == "application/xml") {
-        ext_mtype = MediaTypes::instance()->GetMediaTypeFromXML(file_full_path, "application/xml");
+        ext_mtype = MediaTypes::instance().GetMediaTypeFromXML(file_full_path, "application/xml");
     }
     if (type.isEmpty() || group.isEmpty()) {
         const QString warning = apath + "\n     '" + type + "' -> '" + ext_mtype + "'";;
@@ -872,9 +879,6 @@ void ImportEPUB::ReadManifestItemElement(QXmlStreamReader *opf_reader)
             } else {
                 if (!m_DuplicateFilePaths.contains(file_path)) {
                     m_DuplicateFilePaths << file_path;
-                    const QString load_warning = QObject::tr("The OPF manifest contains duplicate file paths for: %1").arg(file_path) +
-                  " - " + QObject::tr("You should edit your OPF file's manifest to remove the duplication.");
-                    AddLoadWarning(load_warning);
                 }
             }
         } else {

@@ -1,6 +1,6 @@
 /************************************************************************
  **
- **  Copyright (C) 2023-2024 Kevin B. Hendricks, Stratford, Ontario Canada
+ **  Copyright (C) 2023-2026 Kevin B. Hendricks, Stratford, Ontario Canada
  **
  **  This file is part of Sigil.
  **
@@ -41,7 +41,7 @@ PdfView::PdfView(QWidget *parent)
       m_WebView(new QWebEngineView(this)),
       m_layout(new QVBoxLayout(this))
 {
-    QWebEngineProfile* profile = WebProfileMgr::instance()->GetOneTimeProfile();
+    QWebEngineProfile* profile = WebProfileMgr::instance().GetOneTimeProfile();
     m_WebView->setPage(new SimplePage(profile, m_WebView));
     m_WebView->setContextMenuPolicy(Qt::NoContextMenu);
     m_WebView->setFocusPolicy(Qt::NoFocus);

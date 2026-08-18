@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2021 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2011      John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -32,7 +32,7 @@ LanguageWidget::LanguageWidget()
 {
     ui.setupUi(this);
     // Metadata language combobox
-    foreach(QString lang, Language::instance()->GetSortedPrimaryLanguageNames()) {
+    foreach(QString lang, Language::instance().GetSortedPrimaryLanguageNames()) {
         ui.cbMetadataLanguage->addItem(lang);
     }
     // UI language combobox - smaller subset of available languages
@@ -41,7 +41,7 @@ LanguageWidget::LanguageWidget()
         // Convert standard language codes to those used for translations.
         QString std_language_code = language_code;
         std_language_code.replace("_", "-");
-        QString language_name = Language::instance()->GetLanguageName(std_language_code);
+        QString language_name = Language::instance().GetLanguageName(std_language_code);
 
         if (language_name.isEmpty()) {
             language_name = language_code;
@@ -61,8 +61,8 @@ PreferencesWidget::ResultActions LanguageWidget::saveSettings()
     PreferencesWidget::ResultActions results = PreferencesWidget::ResultAction_None;
 
     SettingsStore settings;
-    settings.setDefaultMetadataLang(Language::instance()->GetLanguageCode(ui.cbMetadataLanguage->currentText()));
-    settings.setUILanguage(Language::instance()->GetLanguageCode(ui.cbUILanguage->currentText()).replace("-", "_"));
+    settings.setDefaultMetadataLang(Language::instance().GetLanguageCode(ui.cbMetadataLanguage->currentText()));
+    settings.setUILanguage(Language::instance().GetLanguageCode(ui.cbUILanguage->currentText()).replace("-", "_"));
 
     if (ui.cbUILanguage->currentText() != m_UILanguage) {
         results = results | PreferencesWidget::ResultAction_RestartSigil;
@@ -75,10 +75,10 @@ void LanguageWidget::readSettings()
 {
     SettingsStore settings;
     // Metadata Language
-    int index = ui.cbMetadataLanguage->findText(Language::instance()->GetLanguageName(settings.defaultMetadataLang()));
+    int index = ui.cbMetadataLanguage->findText(Language::instance().GetLanguageName(settings.defaultMetadataLang()));
 
     if (index == -1) {
-        index = ui.cbMetadataLanguage->findText(Language::instance()->GetLanguageName("en"));
+        index = ui.cbMetadataLanguage->findText(Language::instance().GetLanguageName("en"));
 
         if (index == -1) {
             index = 0;
@@ -88,16 +88,16 @@ void LanguageWidget::readSettings()
     
 // UI Language
     QString langcode = settings.uiLanguage().replace("_","-");
-    index = ui.cbUILanguage->findText(Language::instance()->GetLanguageName(langcode));
+    index = ui.cbUILanguage->findText(Language::instance().GetLanguageName(langcode));
 
     // try again with just part of language code that exists before the "-"
     if (index == -1) {
         langcode = langcode.split("-").at(0);
-        index = ui.cbUILanguage->findText(Language::instance()->GetLanguageName(langcode));
+        index = ui.cbUILanguage->findText(Language::instance().GetLanguageName(langcode));
     }
 
     if (index == -1) {
-        index = ui.cbUILanguage->findText(Language::instance()->GetLanguageName("en"));
+        index = ui.cbUILanguage->findText(Language::instance().GetLanguageName("en"));
 
         if (index == -1) {
             index = 0;

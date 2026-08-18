@@ -98,8 +98,7 @@ void ClipsWindow::SetFocusOnClips()
 
 void ClipsWindow::SetupTreeView()
 {
-    m_ClipsModel = ClipEditorModel::instance();
-    m_TreeView->setModel(m_ClipsModel);
+    m_TreeView->setModel(&ClipEditorModel::instance());
     m_TreeView->setSortingEnabled(false);
     m_TreeView->setWordWrap(false);
     m_TreeView->setAlternatingRowColors(false);
@@ -123,7 +122,7 @@ void ClipsWindow::SetupTreeView()
 
 void ClipsWindow::ItemClickedHandler(const QModelIndex &index)
 {
-    ClipEditorModel::clipEntry *clip = ClipEditorModel::instance()->GetEntry(index);
+    ClipEditorModel::clipEntry *clip = ClipEditorModel::instance().GetEntry(index);
 
     QList<ClipEditorModel::clipEntry *> clips;
     clips.append(clip);

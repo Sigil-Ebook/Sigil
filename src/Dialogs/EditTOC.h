@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2024 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2016-2026 Kevin B. Hendricks, Stratford, Ontario, Canada
 **  Copyright (C) 2013      Dave Heiland
 **
 **  This file is part of Sigil.
@@ -24,12 +24,13 @@
 #ifndef EDITTOC_H
 #define EDITTOC_H
 
-#include <QtCore/QList>
-#include <QtCore/QSharedPointer>
-#include <QtWidgets/QDialog>
-#include <QtGui/QStandardItemModel>
+#include <QList>
+#include <QSharedPointer>
+#include <QDialog>
+#include <QStandardItemModel>
+#include <QModelIndex>
 #include <QAction>
-#include <QtWidgets/QMenu>
+#include <QMenu>
 #include <QPointer>
 
 #include "MainUI/TOCModel.h"
@@ -46,12 +47,20 @@ class EditTOC : public QDialog
 {
     Q_OBJECT
 
+
+    struct ContiguousRange {
+        QModelIndex parent;
+        int startRow;
+        int endRow;
+    };
+
 public:
 
     EditTOC(QSharedPointer<Book> book, QList<Resource *> resources, QWidget *parent = 0);
 
     ~EditTOC();
 
+        
 protected:
     bool eventFilter(QObject *obj, QEvent *event);
 
@@ -74,6 +83,12 @@ private slots:
     void OpenContextMenu(const QPoint &point);
     
 private:
+
+    void sortItemSelectionRanges(QTreeView* treeView, QItemSelection& selection);
+    void StructureUserSelections();
+    
+    QList<ContiguousRange> getContiguousRanges(const QList<QStandardItem*> &items);
+
     void AddEntry(bool above);
     QModelIndex CheckSelection(int row);
 
@@ -84,6 +99,7 @@ private:
     void AddEntryToParentItem(const TOCModel::TOCEntry &entry, QStandardItem *parent, int level);
 
     void ExpandChildren(QStandardItem *item);
+    void ReselectAndExpandItems(const QList<QStandardItem*> &items);
 
     void CreateContextMenuActions();
     void SetupContextMenu(const QPoint &point);

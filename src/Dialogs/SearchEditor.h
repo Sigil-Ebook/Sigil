@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2022-2024 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2022-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **  Copyright (C) 2012      Grant Drake
@@ -175,8 +175,6 @@ private:
     QAction *m_CollapseAll;
     QAction *m_ExpandAll;
     QAction *m_FillIn;
-
-    SearchEditorModel *m_SearchEditorModel;
 
     QString m_LastFolderOpen;
 

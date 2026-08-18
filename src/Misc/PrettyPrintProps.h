@@ -41,8 +41,14 @@ class PrettyPrintProps
     Q_DECLARE_TR_FUNCTIONS(PrettyPrintProps)
 
 public:
+    static PrettyPrintProps& instance() {
+        static PrettyPrintProps the_instance;
+        return the_instance;
+    }
 
-    static PrettyPrintProps *instance();
+    PrettyPrintProps(const PrettyPrintProps&) = delete;
+    PrettyPrintProps& operator=(const PrettyPrintProps&) = delete;
+
     bool inset_structural(const std::string &s) const;
     bool inset_inline(const std::string &s) const;
     bool inset_preservespace(const std::string &s) const;
@@ -57,6 +63,8 @@ public:
 private:
 
     PrettyPrintProps();
+    ~PrettyPrintProps() = default;
+    
     void ParsePrettyPrintXml();
 
     std::unordered_set<std::string> m_structural;
@@ -68,8 +76,6 @@ private:
 
     std::string m_indent_string = "  ";
     int m_singlespace = false;
-
-    static PrettyPrintProps *m_instance;
 };
 
 #endif // PRETTYPRINTPROPS_H

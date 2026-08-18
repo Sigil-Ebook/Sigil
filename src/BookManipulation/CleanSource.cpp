@@ -81,9 +81,8 @@ QString CleanSource::XMLPrettyPrintBS4(const QString &source, const QString mtyp
     QList<QVariant> args;
     args.append(QVariant(source));
     args.append(QVariant(mtype));
-    EmbeddedPython * epython  = EmbeddedPython::instance();
 
-    QVariant res = epython->runInPython( QString("xmlprocessor"),
+    QVariant res = EmbeddedPython::instance().runInPython( QString("xmlprocessor"),
                                          QString("repairXML"),
                                          args,
                                          &rv,
@@ -115,9 +114,8 @@ XhtmlDoc::WellFormedError CleanSource::WellFormedXMLCheck(const QString &source,
     QList<QVariant> args;
     args.append(QVariant(source));
     args.append(QVariant(mtype));
-    EmbeddedPython * epython  = EmbeddedPython::instance();
 
-    QVariant res = epython->runInPython( QString("xmlprocessor"),
+    QVariant res = EmbeddedPython::instance().runInPython( QString("xmlprocessor"),
                                          QString("WellFormedXMLCheck"),
                                          args,
                                          &rv,
@@ -142,9 +140,8 @@ bool CleanSource::IsWellFormedXML(const QString &source, const QString mtype)
     QList<QVariant> args;
     args.append(QVariant(source));
     args.append(QVariant(mtype));
-    EmbeddedPython * epython  = EmbeddedPython::instance();
 
-    QVariant res = epython->runInPython( QString("xmlprocessor"),
+    QVariant res = EmbeddedPython::instance().runInPython( QString("xmlprocessor"),
                                          QString("IsWellFormedXML"),
                                          args,
                                          &rv,

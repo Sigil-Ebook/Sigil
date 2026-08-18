@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2025  Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2019-2026  Kevin B. Hendricks, Stratford, ON, Canada
 **
 **  This file is part of Sigil.
 **
@@ -40,8 +40,14 @@ class MediaTypes
     Q_DECLARE_TR_FUNCTIONS(MediaTypes)
 
 public:
+    static MediaTypes& instance() {
+        static MediaTypes the_instance;
+        return the_instance;
+    }
 
-    static MediaTypes *instance();
+    MediaTypes(const MediaTypes&) = delete;
+    MediaTypes& operator=(const MediaTypes&) = delete;
+    
     QString GetMediaTypeFromExtension(const QString &extension, const QString &fallback = "");
     QString GetFileDataMimeType(const QString &absolute_file_path, const QString &fallback = "");
     QString GetMediaTypeFromXML(const QString& absolute_file_path, const QString &fallback = "");
@@ -52,6 +58,7 @@ public:
 private:
 
     MediaTypes();
+    ~MediaTypes() = default;
 
     void SetExtToMTypeMap();
 
@@ -69,7 +76,6 @@ private:
 
     QHash<QString, QString>m_MTypeToExt;
     
-    static MediaTypes *m_instance;
 };
 
 #endif // MEDIATYPES_H

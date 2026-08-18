@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2020 Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2016-2026 Kevin B. Hendricks, Stratford, ON, Canada
 **
 **  This file is part of Sigil.
 **
@@ -44,8 +44,13 @@ class Landmarks
     Q_DECLARE_TR_FUNCTIONS(Landmarks)
 
 public:
+    static Landmarks& instance() {
+        static Landmarks the_instance;
+        return the_instance;
+    }
 
-    static Landmarks *instance();
+    Landmarks(const Landmarks&) = delete;
+    Landmarks& operator=(const Landmarks&) = delete;
 
     QString GetName(const QString &code);
     QString GetTitle(const QString &code, const QString &lang);
@@ -61,6 +66,7 @@ public:
 private:
 
     Landmarks();
+    ~Landmarks() = default;
 
     void SetLandmarksMap();
 
@@ -79,9 +85,6 @@ private:
     QHash<QString, QString> m_GuideLandMap;
     
     QHash<QString,QString> m_CodeToRawTitle;
-
-    static Landmarks *m_instance;
-
 
 };
 

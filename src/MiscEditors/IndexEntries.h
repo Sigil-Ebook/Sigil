@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2020 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **
@@ -28,14 +28,20 @@
 #include <QStandardItem>
 
 /**
+ * Singleton
  *   Holds the Index entries to put into the Index
  */
 class IndexEntries
 {
 
 public:
-    static IndexEntries *instance();
-    ~IndexEntries();
+    static IndexEntries& instance() {
+        static IndexEntries the_instance;
+        return the_instance;
+    }
+
+    IndexEntries(const IndexEntries&) = delete;
+    IndexEntries& operator=(const IndexEntries&) = delete;
 
     void Clear();
 
@@ -45,12 +51,12 @@ public:
 
 private:
     IndexEntries();
+    ~IndexEntries() = default;
 
     QStandardItem *AddEntryToModel(QString entry, QStandardItem *parent_item, int row);
 
     QStandardItem *m_BookIndexRootItem;
 
-    static IndexEntries *m_instance;
 };
 
 #endif // INDEXENTRIES_H

@@ -1,6 +1,7 @@
 /************************************************************************
 **
 **  Copyright (C) 2015-2026  Kevin B. Hendricks Stratford, ON, Canada
+**  Copyright (C) 2026       Doug Massay
 **  Copyright (C) 2009-2011  Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -364,6 +365,7 @@ HTMLResource *Book::CreateEmptyHTMLFile(const QString &folderpath)
         data = CleanSource::Mend(Utility::ReadUnicodeTextFile(template_path), version);
     }
     html_resource->SetText(data);
+    html_resource->SaveToDisk();
     SetModified(true);
     return html_resource;
 }
@@ -424,8 +426,8 @@ HTMLResource *Book::CreateEmptyNavFile(bool update_opf,
     HTMLResource * html_resource = qobject_cast<HTMLResource *>(resource);
     SettingsStore ss;
     QString defaultLanguage = ss.defaultMetadataLang();
-    QString navtitle = Landmarks::instance()->GetName("toc");
-    QString guidetitle = Landmarks::instance()->GetName("landmarks");
+    QString navtitle = Landmarks::instance().GetName("toc");
+    QString guidetitle = Landmarks::instance().GetName("landmarks");
     QString start = tr("Start");
     QString navtext = 
         EMPTY_NAV_FILE_START.arg(defaultLanguage).arg(defaultLanguage).arg(stylehref) +
@@ -520,6 +522,7 @@ CSSResource *Book::CreateEmptyCSSFile(const QString &folderpath)
         data = Utility::ReadUnicodeTextFile(template_path);
     }
     css_resource->SetText(data);
+    css_resource->SaveToDisk();
     SetModified(true);
     return css_resource;
 }

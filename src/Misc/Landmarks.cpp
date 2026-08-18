@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2023 Kevin B. Hendricks, Stratford, Ontario, Canada
+**  Copyright (C) 2016-2026 Kevin B. Hendricks, Stratford, Ontario, Canada
 **
 **  This file is part of Sigil.
 **
@@ -29,16 +29,6 @@
 #include "Misc/UILanguage.h"
 #include "Misc/Landmarks.h"
 
-Landmarks *Landmarks::m_instance = 0;
-
-Landmarks *Landmarks::instance()
-{
-    if (m_instance == 0) {
-        m_instance = new Landmarks();
-    }
-
-    return m_instance;
-}
 
 Landmarks::Landmarks()
 {

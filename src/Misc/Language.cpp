@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2025 Kevin B. Hendricks, Stratford, ON, Canada
+**  Copyright (C) 2016-2026 Kevin B. Hendricks, Stratford, ON, Canada
 **  Copyright (C) 2011      John Schember <john@nachtimwald.com>
 **
 **  This file is part of Sigil.
@@ -27,16 +27,6 @@
 #include "Misc/UILanguage.h"
 #include "Misc/Language.h"
 
-Language *Language::m_instance = 0;
-
-Language *Language::instance()
-{
-    if (m_instance == 0) {
-        m_instance = new Language();
-    }
-
-    return m_instance;
-}
 
 QString Language::GetLanguageName(QString code, QString ow)
 {

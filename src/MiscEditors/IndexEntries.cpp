@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **
@@ -25,29 +25,10 @@
 #include "MiscEditors/IndexEntries.h"
 #include "MiscEditors/IndexEditorModel.h"
 
-IndexEntries *IndexEntries::m_instance = 0;
-
-IndexEntries *IndexEntries::instance()
-{
-    if (m_instance == 0) {
-        m_instance = new IndexEntries();
-    }
-
-    return m_instance;
-}
-
 IndexEntries::IndexEntries()
     :
     m_BookIndexRootItem(new QStandardItem())
 {
-}
-
-IndexEntries::~IndexEntries()
-{
-    if (m_instance) {
-        delete m_instance;
-        m_instance = 0;
-    }
 }
 
 QStandardItem *IndexEntries::GetRootItem()
