@@ -917,17 +917,17 @@ bool Utility::UnZip(const QString &zippath, const QString &destpath)
                 qfile_name = "/" + qfile_name.replace("\\","");
 
                 if (qfile_name.contains("/../")) evil_or_corrupt_epub = true;
-                qfile_name = qfile_name.replace("/../","/");
+                while(qfile_name.contains("/../")) qfile_name.replace("/../","/");
     
                 while(qfile_name.startsWith("/")) { 
                     qfile_name = qfile_name.remove(0,1);
                 }
-                    
+
                 if (cp437_file_name.contains("\\")) evil_or_corrupt_epub = true; 
                 cp437_file_name = "/" + cp437_file_name.replace("\\","");
 
                 if (cp437_file_name.contains("/../")) evil_or_corrupt_epub = true;
-                cp437_file_name = cp437_file_name.replace("/../","/");
+                while(cp437_file_name.contains("/../")) cp437_file_name.replace("/../","/");
     
                 while(cp437_file_name.startsWith("/")) { 
                   cp437_file_name = cp437_file_name.remove(0,1);
