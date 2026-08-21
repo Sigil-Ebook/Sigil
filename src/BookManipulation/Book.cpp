@@ -1683,6 +1683,14 @@ bool Book::XhtmlUsesStyleProperty(HTMLResource* html_resource, QString property)
 
 bool Book::SafePrettyPrintResources(QList<HTMLResource*> resources)
 {
+    // perform well-formed check on all the html resources and abort if not well formed
+    foreach (HTMLResource * hresource, resources) {
+        if (!hresource->FileIsWellFormed()) {
+            Utility::warning(Utility::GetMainWindow(), tr("Sigil"),
+                                 tr("PrettyPrint cancelled: %1, XML not well formed.").arg(hresource->ShortPathName()));
+            return false;
+        }
+    }
     QProgressDialog progress(QObject::tr("PrettyPrinting..."), 0, 0, resources.count(), Utility::GetMainWindow());
     progress.setMinimumDuration(PROGRESS_BAR_MINIMUM_DURATION);
     int progress_value = 0;
@@ -1721,6 +1729,11 @@ QString Book::SafePrettyPrint(const QString& bookpath, const QString& original_t
     if (resource) {
         HTMLResource* html_resource = qobject_cast<HTMLResource*>(resource);
         if (html_resource) {
+            if (!html_resource->FileIsWellFormed()) {
+                Utility::warning(Utility::GetMainWindow(), tr("Sigil"),
+                                 tr("PrettyPrint cancelled: %1, XML not well formed.").arg(html_resource->ShortPathName()));
+                return original_text;
+            }            
             QString version = html_resource->GetEpubVersion();
             bool keep_whitespace = XhtmlUsesStyleProperty(html_resource, "white-space");
             newsource = CleanSource::PrettyPrint(newsource, keep_whitespace, version);
