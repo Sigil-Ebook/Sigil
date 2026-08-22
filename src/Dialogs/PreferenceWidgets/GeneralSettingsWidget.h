@@ -58,6 +58,8 @@ private:
     void connectSignalsToSlots();
 
     bool m_disable_gpu;
+    int m_remoteOn;
+    int m_javascriptOn;
     Ui::GeneralSettingsWidget ui;
 };
 

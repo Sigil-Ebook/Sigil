@@ -118,8 +118,16 @@ PreferencesWidget::ResultActions GeneralSettingsWidget::saveSettings()
     settings.setClipboardHistoryLimit(int(ui.clipLimitSpin->value()));
     settings.setTempFolderHome(new_temp_folder_home);
     settings.setDisableGPU(new_disable_gpu);
-    // if you change this setting you need to restart sigil to see the change
+    // if you changed disable gpu you need to restart sigil to see the change
     if (new_disable_gpu != m_disable_gpu) {
+        results = results | PreferencesWidget::ResultAction_RestartSigil;
+    }
+    // if you change javascript on you need to restart sigil to see the change
+    if (new_javascript_on_level != m_javascriptOn) {
+        results = results | PreferencesWidget::ResultAction_RestartSigil;
+    }
+    // if you changed remote access on you need to restart sigil to see the change
+    if (new_remote_on_level != m_remoteOn) {
         results = results | PreferencesWidget::ResultAction_RestartSigil;
     }
     settings.setSkipPrintPreview(ui.chkSkipPrintPreview->isChecked());
@@ -151,10 +159,10 @@ void GeneralSettingsWidget::readSettings()
     int cleanOn = settings.cleanOn();
     ui.MendOnOpen->setChecked(cleanOn & CLEANON_OPEN);
     ui.MendOnSave->setChecked(cleanOn & CLEANON_SAVE);
-    int remoteOn = settings.remoteOn();
-    ui.AllowRemote->setChecked(remoteOn);
-    int javascriptOn = settings.javascriptOn();
-    ui.AllowJavascript->setChecked(javascriptOn);
+    m_remoteOn = settings.remoteOn();
+    ui.AllowRemote->setChecked(m_remoteOn);
+    m_javascriptOn = settings.javascriptOn();
+    ui.AllowJavascript->setChecked(m_javascriptOn);
     ui.clipLimitSpin->setValue(int(settings.clipboardHistoryLimit()));
     QString temp_folder_home = settings.tempFolderHome();
     ui.lineEdit->setText(temp_folder_home);
