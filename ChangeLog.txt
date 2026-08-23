@@ -18,7 +18,7 @@ Sigil-2.8.5-beta
    Bug Fixes
      - move all singleton C++ classes to use the Meyers form to fix leaks, bugs, and speed startup
      - prevent leak in Python redirect (contributed by rinne1998)
-     - fix BookBrowser drag and drop errors with non-contiguos selections.
+     - fix BookBrowser drag and drop errors with non-contiguous selections.
      - remove use of deprecated cmake features in build process
      - add code for future support of image/jxf and image/avif formats per epub3.4 spec
          but neither is directly supported by Qt or QtWebEngine (yet).
@@ -27,6 +27,7 @@ Sigil-2.8.5-beta
      - fix missing translations for the Image Resize dialog (contributed by BeckyDTP)
      - make sure css templates content survives other imports
      - avoid unchanged search resource rewrites to prevent undo history being lost (contributed by rinne1998)
+     - fix crash in AppImage when secure links and or remote resources with secure links were present.
 
 
 
