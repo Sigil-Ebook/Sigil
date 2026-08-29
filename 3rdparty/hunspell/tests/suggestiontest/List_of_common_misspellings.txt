@@ -3962,7 +3962,7 @@ wholey	wholly
 wholy	wholly, holy
 whta	what
 whther	whether
-wich	which, witch
+which	which, witch
 widesread	widespread
 wief	wife
 wierd	weird
