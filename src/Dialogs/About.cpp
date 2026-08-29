@@ -68,7 +68,7 @@ About::About(QWidget *parent)
                       "<li>Grzegorz Wolszczak</li>" +
                       "</ul>" +
                       "<h4>" + tr("Translators") + "</h4>" +
-                      "<ul><li><a href=\"https://www.transifex.com/projects/p/sigil/\">https://explore.transifex.com/zdpo/sigil/</a></li></ul>" +
+                      "<ul><li><a href=\"https://explore.transifex.com/zdpo/sigil/\">https://explore.transifex.com/zdpo/sigil/</a></li></ul>" +
                       "<h4>" + tr("Original Creator") + "</h4>" +
                       "<ul><li>Strahinja Marković  (" + tr("retired") + ")</li></ul>";
     ui.creditsDisplay->setText(credits);
