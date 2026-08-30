@@ -12,7 +12,7 @@ Links
 
 * Its current code repository is located at https://github.com/Sigil-Ebook/Sigil
 
-* Translations are located at https://app.transifex.com/zdpo/sigil
+* Translations are located at https://explore.transifex.com/zdpo/sigil/
 
 * Support forums are located at http://www.mobileread.com/forums
     Select Sigil from the list of main forums
