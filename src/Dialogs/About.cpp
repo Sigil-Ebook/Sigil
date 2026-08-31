@@ -23,6 +23,7 @@
 #include <QtCore/QFile>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
+#include <QTextBrowser>
 
 #include "Dialogs/About.h"
 #include "Misc/Utility.h"
@@ -71,7 +72,8 @@ About::About(QWidget *parent)
                       "<ul><li><a href=\"https://explore.transifex.com/zdpo/sigil/\">https://explore.transifex.com/zdpo/sigil/</a></li></ul>" +
                       "<h4>" + tr("Original Creator") + "</h4>" +
                       "<ul><li>Strahinja Marković  (" + tr("retired") + ")</li></ul>";
-    ui.creditsDisplay->setText(credits);
+    ui.creditsDisplay->setOpenExternalLinks(true);
+    ui.creditsDisplay->setHtml(credits);
 }
 
 
