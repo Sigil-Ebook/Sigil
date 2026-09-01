@@ -301,10 +301,12 @@ QHash<QString, QString> ImportEPUB::ParseEncryptionXml()
                 encryption_algo = encryption.attributes().value("", "Algorithm").toString();
             } else if (encryption.name().compare(QLatin1String("CipherReference")) == 0) {
                 // Note: fragments are not part of the CipherReference specs so this is okay
+                // Note: uri path must be absolute from epub root, not relative to META-INF
+                // according to spec.
                 uri = Utility::URLDecodePath(encryption.attributes().value("", "URI").toString());
-                // hack to handle non-spec encryption file url relative to META-INF instead
-                // of being absolute from epub root as the spec calls for
-                if (uri.startsWith("../")) uri = uri.mid(3,-1);
+                uri = "/" + uri.replace("\\","");
+                while(uri.contains("/../")) uri.replace("/../","/");
+                while(uri.startsWith("/")) uri = uri.remove(0,1);
                 encrypted_files[ uri ] = encryption_algo;
             }
         }
@@ -488,7 +490,7 @@ void ImportEPUB::ExtractContainer()
                 qfile_name = "/" + qfile_name.replace("\\","");
 
                 if (qfile_name.contains("/../")) evil_or_corrupt_epub = true;
-                qfile_name = qfile_name.replace("/../","/");
+                while(qfile_name.contains("/../")) qfile_name.replace("/../","/");
 
                 while(qfile_name.startsWith("/")) { 
                     qfile_name = qfile_name.remove(0,1);
@@ -498,7 +500,7 @@ void ImportEPUB::ExtractContainer()
                 cp437_file_name = "/" + cp437_file_name.replace("\\","");
 
                 if (cp437_file_name.contains("/../")) evil_or_corrupt_epub = true;
-                cp437_file_name = cp437_file_name.replace("/../","/");
+                while(cp437_file_name.contains("/../")) cp437_file_name.replace("/../","/");
 
                 while(cp437_file_name.startsWith("/")) { 
                     cp437_file_name = cp437_file_name.remove(0,1);
@@ -631,8 +633,13 @@ void ImportEPUB::LocateOPF()
                 container.attributes().value("", "media-type") == OEBPS_MIMETYPE) {
                 // As per OCF spec, the first rootfile element
                 // with the OEBPS mimetype is considered the "main" one.
+                // this is a full book path not a relative path from META-INF
                 if (m_OPFFilePath.isEmpty()) {
-                    m_OPFFilePath = m_ExtractedFolderPath + "/" + container.attributes().value("", "full-path").toString();
+                    QString apath = container.attributes().value("", "full-path").toString();
+                    apath = "/" + apath.replace("\\","");
+                    while(apath.contains("/../")) apath = apath.replace("/../", "/");
+                    while(apath.startsWith("/")) apath = apath.remove(0,1);
+                    m_OPFFilePath = m_ExtractedFolderPath + "/" + apath;
                 }
                 num_opf++;
 

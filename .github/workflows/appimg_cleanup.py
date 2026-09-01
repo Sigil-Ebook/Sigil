@@ -37,6 +37,8 @@ exclude_libs = [
     "libmircore.so.1",
     "libmirprotobuf.so.3",
     "libmount.so.1",
+    "libnss3.so",
+    "libnssutil3.so",
     "libpango-1.0.so.0",
     "libpangocairo-1.0.so.0",
     "libpangoft2-1.0.so.0",

@@ -256,13 +256,13 @@ The default install prefix is /usr/local. If you wish to change the install loca
 
 You can also customize/override where the Sigil support files get installed (`<CMAKE_INSTALL_PREFIX>/share` by default) with the `-DSHARE_INSTALL_PREFIX` option (not recommended for beginners).
 
-If cmake couldn't automatically find the necessary Python 3.4 (or higher) stuff it needs (like if you installed manually in an unusual location, or you want to use a different Python version) you may need to tell cmake *specifically* where things can be found. Do so with:
+If cmake couldn't automatically find the necessary Python 3.9 (or higher) stuff it needs (like if you installed manually in an unusual location, or you want to use a different Python version) you may need to tell cmake *specifically* where things can be found. Do so with:
 
->`-DPYTHON_LIBRARY=<the full path to the python3.9 (or higher) shared library> (usually something similar to /usr/lib/libpython39.so)`
+>`-DPython3_LIBRARIES=<the full path to the python3.9 (or higher) shared library> (usually something similar to /usr/lib/libpython39.so)`
 
->`-DPYTHON_INCLUDE_DIR=<the full path to the directory where python3.9's (or higher) header files can be found> (ex: /usr/include/python3.9)`
+>`-DPython3_INCLUDE_DIRS=<the full path to the directory where python3.9's (or higher) header files can be found> (ex: /usr/include/python3.9)`
 
->`-DPYTHON_EXECUTABLE=<the full path to the python3.6 (or higher) interpreter> (ex: /usr/bin/python)`
+>`-DPython3_EXECUTABLE=<the full path to the python3.6 (or higher) interpreter> (ex: /usr/bin/python)`
 
 Once the cmake configure command finishes with no errors, build Sigil with:
 
@@ -282,7 +282,7 @@ To test if Sigil's Python 3.9+ plugin framework is fully functional, you can do 
 
 1. Install the very latest testplugin_vxxx.zip from the 'docs' folder of your downloaded/extracted [Sigil source code](#sigil)
 2. open Sigil to the normal nearly blank template epub it generates when opened
-3. use Plugins->Manage Plugins menu and make sure you have a Python 3.4+ interpreter configured 
+3. use Plugins->Manage Plugins menu and make sure you have a Python 3.9+ interpreter configured 
 4. use the "Add Plugin" button to navigate to and add testplugin_vXXX.zip and then hit "Okay" to exit the Manage Plugins Dialog
 5. use Plugins->Edit->testplugin to launch the plugin and hit the "Start" button to run it
 6. check the plugin output window for your missing or broken plugin test results
@@ -325,14 +325,6 @@ There are several configuration and environment variable options that can tailor
 **(After Sigil 2.0 and Qt6, the teal icon is standard)**
 
 The following three cmake options are used to manually specify which Python3 you want to use when building Sigil instead of relying on the included cmake utilities to try and automatically find a suitable version.
-
--DPYTHON_LIBRARY=`<the path to the python3.x shared library>`
-
--DPYTHON_INCLUDE_DIR=`<the path to the directory where python3.x's header files can be found>`
-
--DPYTHON_EXECUTABLE=`<the path to the python3.x interpreter>`
-
--DTRY_NEWER_FINDPYTHON3=(0|1) Defaults to 0. If you use cmake 3.18 or higher you may want to take advantage of its newer FindPython3 module.  If so, the above directives used to define specific versions of Python3 are as follows:
 
 -DPython3_LIBRARIES=`<the path to the python3.x shared library>`
 

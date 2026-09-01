@@ -268,7 +268,7 @@
         <number>0</number>
        </property>
        <item>
-        <widget class="QTextEdit" name="creditsDisplay"/>
+        <widget class="QTextBrowser" name="creditsDisplay"/>
        </item>
       </layout>
      </widget>

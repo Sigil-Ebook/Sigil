@@ -218,7 +218,7 @@ void SelectFiles::SetImages()
             }
             QPixmap pixmap = QPixmap::fromImage(image);
             if (pixmap.height() > m_ThumbnailSize || pixmap.width() > m_ThumbnailSize) {
-                pixmap = pixmap.scaled(QSize(m_ThumbnailSize, m_ThumbnailSize), Qt::KeepAspectRatio);
+                pixmap = pixmap.scaled(QSize(m_ThumbnailSize, m_ThumbnailSize), Qt::KeepAspectRatio, Qt::SmoothTransformation);
             }
             QStandardItem *icon_item = new QStandardItem();
             icon_item->setData(QVariant(pixmap), Qt::DecorationRole);
