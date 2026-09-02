@@ -70,6 +70,7 @@ public:
     bool isCropEnabled();
     bool isUndoEnabled();
     bool isRedoEnabled();
+    bool hasUnsavedChanges() const;
                           
 public slots:
     void doSave();
@@ -84,6 +85,7 @@ public slots:
     void doCropConfirm();
     void doCropCancel();
     void doResizeImage();
+    void doRefresh();
 
 signals:
     void InternalZoomFactorChanged(double factor);
@@ -112,6 +114,7 @@ private:
     void extendToolTip(QAction* m, const QString sc);
     int GetHandleAtPosition(const QPoint& pos);
     void clampCropRectToBounds();
+    void resetImageState();
     
     Ui::AdjustImage *ui;
     QVBoxLayout* vlayout;
@@ -120,6 +123,7 @@ private:
     QScrollArea * m_scrollArea;
     QLabel * m_imageLabel;
     QImage m_image;
+    QImage m_originalImage;  // Store original image for refresh
     QLabel * m_description;
 
     bool m_croppingState;
