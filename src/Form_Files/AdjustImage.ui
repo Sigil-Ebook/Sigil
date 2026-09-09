@@ -26,6 +26,7 @@
    <addaction name="separator"/>
    <addaction name="actionUndo"/>
    <addaction name="actionRedo"/>
+   <addaction name="actionReload"/>
    <addaction name="separator"/>
    <addaction name="actionRotateLeft"/>
    <addaction name="actionRotateRight"/>
@@ -95,7 +96,7 @@
     <string>Crop</string>
    </property>
    <property name="toolTip">
-    <string>Crop image.</string>
+    <string>Crop image to selection (Ctrl+Drag on image to select area).</string>
    </property>
   </action>
   <action name="actionSave">
@@ -170,6 +171,14 @@
    </property>
    <property name="toolTip">
     <string>Zoom image to fit.</string>
+   </property>
+  </action>
+  <action name="actionReload">
+   <property name="text">
+    <string>Reload</string>
+   </property>
+   <property name="toolTip">
+    <string>Reload image from disk.</string>
    </property>
   </action>
  </widget>
