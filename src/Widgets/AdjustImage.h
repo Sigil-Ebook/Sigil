@@ -49,12 +49,34 @@
 #include <QDebug>
 #include <QVBoxLayout>
 #include <QToolBar>
+#include <QIcon>
 
 class QAction;
 
 namespace Ui {
 class AdjustImage;
 }
+
+enum CornerPosition {
+    CornerNone = 0,
+    CornerTopLeft,
+    CornerTopRight,
+    CornerBottomLeft,
+    CornerBottomRight
+};
+
+class CornerHandle : public QWidget
+{
+public:
+    CornerHandle(CornerPosition pos, QWidget* parent = nullptr);
+    CornerPosition position() const { return m_position; }
+
+protected:
+    void paintEvent(QPaintEvent* event) override;
+
+private:
+    CornerPosition m_position;
+};
 
 class AdjustImage : public QWidget
 {
@@ -70,7 +92,6 @@ public:
     bool isCropEnabled();
     bool isUndoEnabled();
     bool isRedoEnabled();
-    bool hasUnsavedChanges() const;
                           
 public slots:
     void doSave();
@@ -82,13 +103,14 @@ public slots:
     void doRotateLeft();
     void doRotateRight();
     void doCrop();
-    void doCropConfirm();
-    void doCropCancel();
     void doResizeImage();
-    void doRefresh();
+    void doReload();
 
 signals:
     void InternalZoomFactorChanged(double factor);
+
+protected:
+    void keyPressEvent(QKeyEvent* event) override;
 
 private slots:
     bool eventFilter(QObject* watched, QEvent* event) override;
@@ -100,7 +122,8 @@ private:
     void WriteSettings();
     void ConnectSignalsToSlots();
     void adjustScrollBar(QScrollBar *scrollBar, double factor);
-    void changeCroppingState(bool changeTo);
+    void clearCropSelection();
+    void updateCropHandles();
     void refreshLabel();
     void rotateImage(int angle);
     void resizeImage(int tgtw, int tgth); 
@@ -112,9 +135,7 @@ private:
     void UpdateImageDescription();
     QRect BuildRect(const QPoint& p1, const QPoint& p2);
     void extendToolTip(QAction* m, const QString sc);
-    int GetHandleAtPosition(const QPoint& pos);
-    void clampCropRectToBounds();
-    void resetImageState();
+    QIcon createReloadIcon();
     
     Ui::AdjustImage *ui;
     QVBoxLayout* vlayout;
@@ -123,23 +144,26 @@ private:
     QScrollArea * m_scrollArea;
     QLabel * m_imageLabel;
     QImage m_image;
-    QImage m_originalImage;  // Store original image for refresh
     QLabel * m_description;
 
-    bool m_croppingState;
-    bool m_croppingRegionSelected;
+    bool m_selectingCrop;
+    bool m_hasCropSelection;
+    QRect m_cropRect;
     QPoint m_croppingStart;
     QPoint m_croppingEnd;
     QPoint m_rbstart;
     QPoint m_rbend;
-    QPoint m_lastMousePos;
     QRubberBand*  m_rb;
-    int m_draggingHandle;
 
-    QString m_fileName;  // this is the full absolute path
+    CornerHandle* m_handleTL;
+    CornerHandle* m_handleTR;
+    CornerHandle* m_handleBL;
+    CornerHandle* m_handleBR;
+    CornerPosition m_draggingHandle;
+    QPoint m_dragAnchor;
+
+    QString m_fileName;
     QString m_mediatype;
-    double m_ffsize = 0.0;
-    QString m_fsize;
 
     QVector<QImage> m_history;
     QVector<QImage> m_reverseHistory;
