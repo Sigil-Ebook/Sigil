@@ -43,16 +43,22 @@ static const QString IMAGE_HTML_BASE =
     "<html>"
     "<head>"
     "<style type=\"text/css\">"
-    "body { -webkit-user-select: none; margin: 0; }"
-    "div { text-align: center; margin: 8px 0; }"
-    "img { display: block; margin: 0 auto; border: 1px solid; max-width: 100%; max-height: calc(100vh - 75px); }"
-    "hr { width: 75%; }"
+    "* { margin: 0; padding: 0; }"
+    "html, body { width: 100%; height: 100%; }"
+    "body { -webkit-user-select: none; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: transparent; }"
+    ".image-container { display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; height: 100%; }"
+    ".image-info { text-align: center; margin-bottom: 8px; white-space: nowrap; }"
+    ".image-separator { width: 75%; height: 1px; margin: 4px 0; }"
+    ".image-wrapper { display: flex; justify-content: center; align-items: center; flex: 1; width: 100%; }"
+    "img { display: block; max-width: 95%; max-height: 90vh; object-fit: contain; border: 1px solid; }"
     "</style>"
     "</head>"
     "<body>"
-    "<div>%2&times;%3px | %4 KB | %5%6</div>"
-    "<hr />"
-    "<p><img src=\"%1\" /></p>"
+    "<div class=\"image-container\">"
+    "<div class=\"image-info\">%2&times;%3px | %4 KB | %5%6</div>"
+    "<div class=\"image-separator\"></div>"
+    "<div class=\"image-wrapper\"><img src=\"%1\" /></div>"
+    "</div>"
     "</body>"
     "</html>";
 
@@ -63,7 +69,7 @@ ImageView::ImageView(QWidget *parent)
     m_WebView(new QWebEngineView(this)),
     m_layout(new QVBoxLayout(this))
 {
-    QWebEngineProfile* profile = WebProfileMgr::instance().GetOneTimeProfile();
+    QWebEngineProfile* profile = WebProfileMgr::instance()->GetOneTimeProfile();
     m_WebView->setPage(new SimplePage(profile, m_WebView));
     m_WebView->setContextMenuPolicy(Qt::NoContextMenu);
     m_WebView->setFocusPolicy(Qt::NoFocus);
