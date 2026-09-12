@@ -302,6 +302,11 @@ public:
     bool IsDataOnDiskWellFormed(HTMLResource *html_resource);
 
     /**
+     * @return true if free of tag/attribute syntax errors
+     */
+    bool IsDataGumboWellFormed(HTMLResource *html_resource);
+
+    /**
      * Reformats All the book's html resources using 'Mend' or 'PrettyPrint
      */
     void ReformatAllHTML(bool to_valid);
