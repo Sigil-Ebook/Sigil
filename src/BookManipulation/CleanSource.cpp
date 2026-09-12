@@ -116,7 +116,7 @@ XhtmlDoc::WellFormedError CleanSource::WellFormedXMLCheck(const QString &source,
     args.append(QVariant(mtype));
 
     QVariant res = EmbeddedPython::instance().runInPython( QString("xmlprocessor"),
-                                         QString("WellFormedXMLCheck"),
+                                         QString("WellFormedXMLErrorCheck"),
                                          args,
                                          &rv,
                                          error_traceback);    

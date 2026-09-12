@@ -668,8 +668,17 @@ void ImportEPUB::LocateOPF()
 
 void ImportEPUB::ReadOPF()
 {
-    QString opf_text = CleanSource::ProcessXML(PrepareOPFForReading(Utility::ReadUnicodeTextFile(m_OPFFilePath)),
-                                               OEBPS_MIMETYPE);
+    QString opf_text = PrepareOPFForReading(Utility::ReadUnicodeTextFile(m_OPFFilePath));
+    XhtmlDoc::WellFormedError opferror = CleanSource::WellFormedXMLCheck(opf_text, OEBPS_MIMETYPE);
+    if (opferror.line != -1) {
+        // original opf is not well formed, emit load warning
+        QString error_message = opferror.message + " " + QObject::tr("near" ) + " " +
+            QString::number(opferror.line) + ":" + QString::number(opferror.column) + "<br/><br/>" +
+            QObject::tr("Will attempt auto repair.");
+        AddLoadWarning(QObject::tr("Malformed OPF") + " - " + error_message);
+    };
+
+    opf_text = CleanSource::ProcessXML(opf_text, OEBPS_MIMETYPE);
 
     QXmlStreamReader opf_reader(opf_text);
     QString ncx_id_on_spine;
