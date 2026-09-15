@@ -40,8 +40,10 @@
 #include <QKeySequence>
 #include "Misc/SettingsStore.h"
 #include "Dialogs/ImageResizeDialog.h"
+#include "Widgets/BetterRubberBand.h"
 #include "Widgets/AdjustImage.h"
 #include "ui_AdjustImage.h"
+
 
 static const QString SETTINGS_GROUP = "adjust_image";
 static QStringList SAVE_QUALITY_MEDIATYPES = QStringList() << "image/jpeg" << "image/webp" << "image/avif" << "image/jxl";
@@ -66,9 +68,9 @@ AdjustImage::AdjustImage(const QString filepath, const QString& mediatype,  QWid
     m_imageLabel->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
     m_imageLabel->setScaledContents(true);
     m_imageLabel->installEventFilter(this);
-    // rubber band must be a child of the m_imageLabel
+    // our rubber band must be a child of the m_imageLabel
     // otherwise there is a coordinate nightmare
-    m_rb = new QRubberBand(QRubberBand::Rectangle, m_imageLabel);
+    m_rb = new BetterRubberBand(QRubberBand::Rectangle, m_imageLabel);
     m_rb->hide();
 
     m_scrollArea = new QScrollArea;
@@ -197,10 +199,18 @@ void AdjustImage::changeCroppingState(bool changeTo)
     m_croppingState = changeTo;
     ui->actionCrop->setDisabled(changeTo);
 
-    if (changeTo)
-        setCursor(Qt::CrossCursor);
-    else
-        setCursor(Qt::ArrowCursor);
+    if (changeTo) {
+        updateActions(false);
+        m_rb->setGeometry(0, 0, (m_image.width()/2), (m_image.height()/2));
+        m_rb->show();
+        QString msg = tr("Crop Mode: Enter to Crop, Escape to Abort");
+        m_statusBar->showMessage(msg);
+    } else {
+        m_rb->hide();
+        updateActions(true);
+        QString msg = tr("Exiting Crop Mode");
+        m_statusBar->showMessage(msg);
+    }
 }
 
 void AdjustImage::refreshLabel()
@@ -293,6 +303,32 @@ void AdjustImage::updateActions(bool updateTo)
 }
 
 
+void AdjustImage::keyPressEvent(QKeyEvent *event)
+{
+    qDebug() << "keyPressEvent" << event;
+    if (!m_croppingState) {
+        QWidget::keyPressEvent(event);
+        return;
+    }
+    if (event->key() == Qt::Key_Escape) {
+        m_rb->hide();
+        refreshLabel();
+        changeCroppingState(false);
+        updateActions(true);
+    } else if ((event->key() == Qt::Key_Return) || (event->key() == Qt::Key_Enter)) {
+        saveToHistoryWithClear(m_image);
+        m_croppingStart = m_rb->getTopLeftPos() / m_scaleFactor;
+        m_croppingEnd = m_rb->getBottomRightPos() / m_scaleFactor;
+        m_rb->hide();
+        QRect rect = BuildRect(m_croppingStart, m_croppingEnd);
+        m_image = m_image.copy(rect);
+        refreshLabel();
+        changeCroppingState(false);
+    } else {
+        QWidget::keyPressEvent(event);
+    }
+}
+
 // Slots
 
 bool AdjustImage::eventFilter(QObject* watched, QEvent* event)
@@ -302,34 +338,6 @@ bool AdjustImage::eventFilter(QObject* watched, QEvent* event)
 
     switch (event->type())
     {
-        case QEvent::MouseButtonPress:
-        {
-            if (!m_croppingState) break;
-            const QMouseEvent* const me = static_cast<const QMouseEvent*>(event);
-            m_croppingStart = me->pos() / m_scaleFactor;
-            // QRubberBand scales with m_imageLabel scaling
-            m_rbstart = me->pos();
-            m_rb->setGeometry(QRect(m_rbstart, QSize()));
-            m_rb->show();
-            break;
-        }
-
-        case QEvent::MouseButtonRelease:
-        {
-            if (!m_croppingState) break;
-            saveToHistoryWithClear(m_image);
-            const QMouseEvent* const me = static_cast<const QMouseEvent*>(event);
-            m_croppingEnd = me->pos() / m_scaleFactor;
-            m_rbend = me->pos();
-            m_rb->setGeometry(BuildRect(m_rbstart, m_rbend));
-            m_rb->hide();
-            QRect rect = BuildRect(m_croppingStart, m_croppingEnd);
-            m_image = m_image.copy(rect);
-            refreshLabel();
-            changeCroppingState(false);
-            break;
-        }
-
         case QEvent::MouseMove:
         {
             const QMouseEvent* const me = static_cast<const QMouseEvent*>(event);
@@ -340,35 +348,19 @@ bool AdjustImage::eventFilter(QObject* watched, QEvent* event)
             int y_pos = std::round(position.y()/ m_scaleFactor);
             msg = msg.arg(x_pos).arg(y_pos).arg(sf);
             m_statusBar->showMessage(msg);
-            if (m_croppingState) {
-                m_rbend = position;
-                m_rb->setGeometry(BuildRect(m_rbstart, m_rbend));
-            }
             break;
         }
 
         default:
             break;
     }
-    return false;
+    return QObject::eventFilter(watched, event);
 }
-
 
 void AdjustImage::doCrop()
 {
     changeCroppingState(true);
 }
-
-#if 0
-void AdjustImage::toggleFullscreen()
-{
-    if(isFullScreen()) {
-        this->showNormal();
-    } else {
-        this->showFullScreen();
-    }
-}
-#endif
 
 void AdjustImage::doResizeImage()
 {
@@ -518,6 +510,5 @@ void AdjustImage::ConnectSignalsToSlots()
     connect(ui->actionZoomToFit,   SIGNAL(triggered()), this, SLOT(doZoomToFit()));
     connect(ui->actionRedo,        SIGNAL(triggered()), this, SLOT(doRedo()));
     connect(ui->actionUndo,        SIGNAL(triggered()), this, SLOT(doUndo()));
-    // connect(ui->actionFullscreen,  SIGNAL(triggered()), this, SLOT(toggleFullscreen()));
     connect(ui->actionShowToolbar, SIGNAL(triggered(bool)), this, SLOT(toggleShowToolbar(bool)));
 }

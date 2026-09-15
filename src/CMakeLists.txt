@@ -242,6 +242,10 @@ set( WIDGET_FILES
     Widgets/ImageView.h
     Widgets/AdjustImage.cpp
     Widgets/AdjustImage.h
+    Widgets/BetterRubberBand.cpp
+    Widgets/BetterRubberBand.h
+    Widgets/RubberBandHandle.cpp
+    Widgets/RubberBandHandle.h
     Widgets/AVView.cpp
     Widgets/AVView.h
     Widgets/PdfView.cpp

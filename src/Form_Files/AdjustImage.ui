@@ -95,7 +95,7 @@
     <string>Crop</string>
    </property>
    <property name="toolTip">
-    <string>Crop image.</string>
+    <string>Crop image Mode: Use Enter to Crop to selection and Escape to abort crop</string>
    </property>
   </action>
   <action name="actionSave">

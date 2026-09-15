@@ -45,10 +45,11 @@
 #include <QPaintEvent>
 #include <QPainter>
 #include <QPoint>
-#include <QRubberBand>
 #include <QDebug>
 #include <QVBoxLayout>
 #include <QToolBar>
+
+class BetterRubberBand;
 
 class QAction;
 
@@ -90,7 +91,9 @@ private slots:
     bool eventFilter(QObject* watched, QEvent* event) override;
     void toggleShowToolbar(bool checked);
 
-  
+protected:
+    void keyPressEvent(QKeyEvent *event) override;
+
 private:
     void ReadSettings();
     void WriteSettings();
@@ -121,9 +124,7 @@ private:
     bool m_croppingState;
     QPoint m_croppingStart;
     QPoint m_croppingEnd;
-    QPoint m_rbstart;
-    QPoint m_rbend;
-    QRubberBand*  m_rb;
+    BetterRubberBand*  m_rb;
 
     QString m_fileName;  // this is the full absolute path
     QString m_mediatype;
