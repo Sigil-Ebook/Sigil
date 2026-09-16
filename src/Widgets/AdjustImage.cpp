@@ -203,6 +203,7 @@ void AdjustImage::changeCroppingState(bool changeTo)
         updateActions(false);
         m_rb->setGeometry(0, 0, (m_image.width()/2), (m_image.height()/2));
         m_rb->show();
+        setFocus();
         QString msg = tr("Crop Mode: Enter to Crop, Escape to Abort");
         m_statusBar->showMessage(msg);
     } else {
@@ -305,7 +306,6 @@ void AdjustImage::updateActions(bool updateTo)
 
 void AdjustImage::keyPressEvent(QKeyEvent *event)
 {
-    qDebug() << "keyPressEvent" << event;
     if (!m_croppingState) {
         QWidget::keyPressEvent(event);
         return;
