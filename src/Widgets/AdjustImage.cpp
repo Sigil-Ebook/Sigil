@@ -51,7 +51,8 @@ static QStringList SAVE_QUALITY_MEDIATYPES = QStringList() << "image/jpeg" << "i
 AdjustImage::AdjustImage(const QString filepath, const QString& mediatype,  QWidget *parent) :
     QWidget(parent),
     ui(new Ui::AdjustImage),
-    m_mediatype(mediatype)
+    m_mediatype(mediatype),
+    m_lastPos(QPoint(0,0))
 {
     ui->setupUi(this);
     m_mainToolBar = ui->mainToolBar;
@@ -289,6 +290,7 @@ void AdjustImage::scaleImageUsing(double factor)
 
     ui->actionZoomIn->setEnabled(m_scaleFactor < 3.0);
     ui->actionZoomOut->setEnabled(m_scaleFactor > 0.333);
+    UpdateZoomedCoordinates();
 }
 
 
@@ -330,6 +332,17 @@ void AdjustImage::keyPressEvent(QKeyEvent *event)
     }
 }
 
+void AdjustImage::UpdateZoomedCoordinates()
+{
+    QString sf = QString::number(m_scaleFactor, 'f', 4);
+    QString msg = tr("(x,y) coordinates:") + " (%1,%2)  " + tr("Zoom") + " (%3)";
+    int x_pos = std::round(m_lastPos.x() / m_scaleFactor);
+    int y_pos = std::round(m_lastPos.y()/ m_scaleFactor);
+    msg = msg.arg(x_pos).arg(y_pos).arg(sf);
+    m_statusBar->showMessage(msg);
+}
+
+
 // Slots
 
 bool AdjustImage::eventFilter(QObject* watched, QEvent* event)
@@ -343,12 +356,8 @@ bool AdjustImage::eventFilter(QObject* watched, QEvent* event)
         {
             const QMouseEvent* const me = static_cast<const QMouseEvent*>(event);
             const QPoint position = me->pos();
-            QString sf = QString::number(m_scaleFactor, 'f', 4);
-            QString msg = tr("(x,y) coordinates:") + " (%1,%2)  " + tr("Zoom") + " (%3)";
-            int x_pos = std::round(position.x() / m_scaleFactor);
-            int y_pos = std::round(position.y()/ m_scaleFactor);
-            msg = msg.arg(x_pos).arg(y_pos).arg(sf);
-            m_statusBar->showMessage(msg);
+            m_lastPos = position;
+            UpdateZoomedCoordinates();
             break;
         }
 
@@ -475,11 +484,13 @@ void AdjustImage::doRedo()
 void AdjustImage::doZoomIn()
 {
     scaleImageBy(1.25);
+    UpdateZoomedCoordinates();
 }
 
 void AdjustImage::doZoomOut()
 {
     scaleImageBy(0.80);
+    UpdateZoomedCoordinates();
 }
 
 void AdjustImage::doZoomToFit()
@@ -497,6 +508,7 @@ void AdjustImage::doZoomToFit()
     }
     double scaleBy = scaleTo / m_scaleFactor;
     scaleImageBy(scaleBy);
+    UpdateZoomedCoordinates();
 }
 
 

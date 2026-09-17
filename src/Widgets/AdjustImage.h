@@ -98,6 +98,7 @@ protected:
 private:
     void ReadSettings();
     void WriteSettings();
+    void UpdateZoomedCoordinates();
     void ConnectSignalsToSlots();
     void adjustScrollBar(QScrollBar *scrollBar, double factor);
     void changeCroppingState(bool changeTo);
@@ -131,6 +132,7 @@ private:
     QString m_mediatype;
     double m_ffsize = 0.0;
     QString m_fsize;
+    QPoint m_lastPos;
 
     QVector<QImage> m_history;
     QVector<QImage> m_reverseHistory;
