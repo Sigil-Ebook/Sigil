@@ -430,6 +430,7 @@ void AdjustImage::doSave()
             m_statusBar->showMessage(tr("Image successfully saved."));
             m_ffsize = QFile(m_fileName).size() / 1024.0;
             m_fsize =  QLocale().toString(m_ffsize, 'f', 2);
+            emit SetImageContentModified();
         } else {
             m_statusBar->showMessage(tr("Image save failed: ") + writer.errorString() );
         }

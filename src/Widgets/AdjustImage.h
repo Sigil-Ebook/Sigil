@@ -86,6 +86,7 @@ public slots:
 
 signals:
     void InternalZoomFactorChanged(double factor);
+    void SetImageContentModified();
 
 private slots:
     bool eventFilter(QObject* watched, QEvent* event) override;

@@ -7038,6 +7038,10 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
         connect(tab,   SIGNAL(TabUpdated()), this, SLOT(UpdatePreviewTabRequest()));
     }
 
+    if (rType == Resource::ImageResourceType) {
+        connect(tab,   SIGNAL(ImageContentChanged()), m_Book.data(), SLOT(SetModified()));
+    }
+
     if (rType == Resource::SVGResourceType) {
         connect(tab,   SIGNAL(ViewImageRequest(const QUrl &)),
                 this,  SLOT(ViewImageDialog(const QUrl &)));

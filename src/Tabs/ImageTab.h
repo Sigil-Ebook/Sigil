@@ -54,6 +54,10 @@ public:
 
     void ThemeChangeRefresh();
 
+signals:
+
+    void ImageContentChanged();
+
 public slots:
     void RefreshContent();
 
@@ -78,6 +82,9 @@ public slots:
     void RotateRight();
     void CropImage();
     void ResizeImage();
+
+    void EmitImageContentChanged();
+
 
 protected:
     bool event(QEvent* event) override;
