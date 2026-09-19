@@ -121,6 +121,8 @@ public:
 
     QString GetNameOfCurrentCodepointInPython(int cp);
 
+    bool ConvertPngToGifInPython(const QString& pngpath, const QString& gifpath);
+
 private:
 
     ///////////////////////////////

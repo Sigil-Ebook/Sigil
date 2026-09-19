@@ -38,12 +38,14 @@
 #include <QImageWriter>
 #include <QInputDialog>
 #include <QKeySequence>
+#include <QTemporaryFile>
 #include "Misc/SettingsStore.h"
+#include "Misc/Utility.h"
+#include "EmbedPython/PythonRoutines.h"
 #include "Dialogs/ImageResizeDialog.h"
 #include "Widgets/BetterRubberBand.h"
 #include "Widgets/AdjustImage.h"
 #include "ui_AdjustImage.h"
-
 
 static const QString SETTINGS_GROUP = "adjust_image";
 static QStringList SAVE_QUALITY_MEDIATYPES = QStringList() << "image/jpeg" << "image/webp" << "image/avif" << "image/jxl";
@@ -403,6 +405,27 @@ void AdjustImage::doSave()
     if (m_mediatype.startsWith("image/")) {
         format = m_mediatype.mid(6,-1).toUpper();
     }
+    if (format == "GIF") {
+        // Qt can read but not write even static GIF files
+        // So save to a temp png file and ask PIL to convert it to GIF
+        QString targetDir = Utility::DefinePrefsDir() + "/workspace";
+        QTemporaryFile tempFile(targetDir + "/XXXXXX.png");
+        bool success = false;
+        if (tempFile.open()) {
+            success = m_image.save(&tempFile, "PNG", -1);
+            tempFile.close();
+            if (success) {
+                PythonRoutines pr;
+                success = pr.ConvertPngToGifInPython(tempFile.fileName(), m_fileName);
+            }
+        }
+        if (success) {
+            m_statusBar->showMessage(tr("Image successfully saved."));
+        } else {
+            m_statusBar->showMessage(tr("Image save failed."));
+        }
+        return;
+    }
     // if an unknown format just default to let QImage decide based on filename
     if (format.isEmpty()) {
         bool success = m_image.save(m_fileName);
@@ -444,7 +467,6 @@ void AdjustImage::doSave()
             m_statusBar->showMessage(tr("Image save failed: ") + writer.errorString() );
         }
     }
-    
 }
 
 

@@ -542,3 +542,21 @@ QString PythonRoutines::GetNameOfCurrentCodepointInPython(int cp)
     charname = res.toString();
     return charname;
 }
+
+bool PythonRoutines::ConvertPngToGifInPython(const QString& pngpath, const QString& gifpath)
+{
+    int rv = 0;
+    QString traceback;
+    QString module = "imagesupport";
+    QList<QVariant> args;
+    args.append(QVariant(pngpath));
+    args.append(QVariant(gifpath));
+    QVariant res = EmbeddedPython::instance().runInPython(module, QString("convert_png_to_static_gif"), args, &rv, traceback, true);
+    if (rv) {
+        fprintf(stderr, "convert_png_to_static_gif error %d traceback %s\n",rv, traceback.toStdString().c_str());
+    }
+    int v = res.toInt();
+    args.clear();
+    if (v) return true;
+    return false;
+}
