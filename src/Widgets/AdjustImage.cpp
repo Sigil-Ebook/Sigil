@@ -405,12 +405,18 @@ void AdjustImage::doSave()
     if (m_mediatype.startsWith("image/")) {
         format = m_mediatype.mid(6,-1).toUpper();
     }
-    if (format == "GIF") {
+    bool success = false;
+
+    if ((format == "PBM") || (format == "PGM")) {
+        m_statusBar->showMessage(tr("PBM and PGM Image formats can not be saved. Save aborted."));
+        return;
+
+    } else if (format == "GIF") {
         // Qt can read but not write even static GIF files
         // So save to a temp png file and ask PIL to convert it to GIF
         QString targetDir = Utility::DefinePrefsDir() + "/workspace";
         QTemporaryFile tempFile(targetDir + "/XXXXXX.png");
-        bool success = false;
+        success = false;
         if (tempFile.open()) {
             success = m_image.save(&tempFile, "PNG", -1);
             tempFile.close();
@@ -419,21 +425,11 @@ void AdjustImage::doSave()
                 success = pr.ConvertPngToGifInPython(tempFile.fileName(), m_fileName);
             }
         }
-        if (success) {
-            m_statusBar->showMessage(tr("Image successfully saved."));
-        } else {
-            m_statusBar->showMessage(tr("Image save failed."));
-        }
-        return;
-    }
-    // if an unknown format just default to let QImage decide based on filename
-    if (format.isEmpty()) {
-        bool success = m_image.save(m_fileName);
-        if (success) {
-            m_statusBar->showMessage(tr("Image successfully saved."));
-        } else {
-            m_statusBar->showMessage(tr("Image save failed."));
-        }
+
+    } else if (format.isEmpty()) {
+        // if an unknown format just default to let QImage decide based on filename
+        success = m_image.save(m_fileName);
+
     } else {
         int quality = -1;
         // handle lossy image types
@@ -446,7 +442,7 @@ void AdjustImage::doSave()
             quality = QInputDialog::getInt(nullptr, tr("Image Quality"),
                                            tr("Enter quality level (0-100):"), quality, 0, 100, 1, &ok);
             if (!ok) {
-                m_statusBar->showMessage(tr("Image save failed. "));
+                m_statusBar->showMessage(tr("Image save aborted, as quality unavailable."));
                 return;
             }
             if (m_mediatype == "image/jpeg") m_jpeg_quality = quality;
@@ -457,15 +453,15 @@ void AdjustImage::doSave()
         QImageWriter writer(m_fileName, format.toUtf8().data());
         if (quality != -1) writer.setQuality(quality);
         writer.setOptimizedWrite(true);
-        bool success = writer.write(m_image);
-        if (success) {
-            m_statusBar->showMessage(tr("Image successfully saved."));
-            m_ffsize = QFile(m_fileName).size() / 1024.0;
-            m_fsize =  QLocale().toString(m_ffsize, 'f', 2);
-            emit SetImageContentModified();
-        } else {
-            m_statusBar->showMessage(tr("Image save failed: ") + writer.errorString() );
-        }
+        success = writer.write(m_image);
+    }
+    if (success) {
+        m_statusBar->showMessage(tr("Image successfully saved."));
+        m_ffsize = QFile(m_fileName).size() / 1024.0;
+        m_fsize =  QLocale().toString(m_ffsize, 'f', 2);
+        emit SetImageContentModified();
+    } else {
+        m_statusBar->showMessage(tr("Image save failed. Add Existing backup of image for safety."));
     }
 }
 
