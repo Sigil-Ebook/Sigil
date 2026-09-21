@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2024 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012 John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012 Dave Heiland
 **
@@ -25,11 +25,11 @@
 #ifndef SELECTCHARACTER_H
 #define SELECTCHARACTER_H
 
-#include <QtWidgets/QDialog>
+#include <QDialog>
 
-#include "BookManipulation/Book.h"
+// #include "BookManipulation/Book.h"
+// #include "ResourceObjects/Resource.h"
 #include "Misc/SettingsStore.h"
-#include "ResourceObjects/Resource.h"
 #include "ui_SelectCharacter.h"
 
 class QGridLayout;
@@ -56,11 +56,10 @@ private slots:
     void SetSelectedCharacter(const QString &text);
 
 private:
-
     void AddGrid(const QStringList &characters, int width);
+    void AddFlow(const QStringList &characters);
     void ReadSettings();
     void connectSignalsSlots();
-
     QSignalMapper *m_buttonMapper;
     SettingsStore::SpecialCharacterAppearance m_SpecialCharacterAppearance;
 

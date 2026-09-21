@@ -1,6 +1,7 @@
 /************************************************************************
 **
-**  Copyright (C) 2018-2024 Kevin B. Hendricks, Stratford, ON Canada
+**  Copyright (C) 2018-2026 Kevin B. Hendricks, Stratford, ON Canada
+**  Copyright (C) 2026      BeckyEbook
 **  Copyright (C) 2012      John Schember <john@nachtimwald.com>
 **  Copyright (C) 2012      Dave Heiland
 **
@@ -21,15 +22,25 @@
 **
 *************************************************************************/
 
-#include <QtWidgets/QCompleter>
-#include <QtWidgets/QLineEdit>
-#include <QtWidgets/QToolButton>
-#include <QtWidgets/QApplication>
-#include <QtCore/QSignalMapper>
+#include <QCompleter>
+#include <QLineEdit>
+#include <QWidget>
+#include <QLabel>
+#include <QToolButton>
+#include <QApplication>
+#include <QSignalMapper>
 #include <QScrollArea>
 #include <QVBoxLayout>
+#include <QFile>
+#include <QTextStream>
+#include <QLayout>
+#include <QLayoutItem>
+#include <QStyle>
+#include <QXmlStreamReader>
+#include <QDebug>
 #include "Dialogs/SelectCharacter.h"
-#include "ResourceObjects/HTMLResource.h"
+#include "Widgets/FlowLayout.h"
+#include "Misc/Utility.h"
 
 static QString SETTINGS_GROUP = "select_character";
 
@@ -46,6 +57,7 @@ SelectCharacter::SelectCharacter(QWidget *parent)
     QWidget *viewport = new QWidget;
     viewport->setLayout(ui.character_box);
     QScrollArea * scrollArea = new QScrollArea;
+    scrollArea->setWidgetResizable(true);
     scrollArea->setWidget(viewport);
     QVBoxLayout *vbox = new QVBoxLayout;
     vbox->addWidget(scrollArea);
@@ -56,6 +68,7 @@ SelectCharacter::~SelectCharacter()
 {
     WriteSettings();
 }
+
 
 void SelectCharacter::show()
 {
@@ -73,12 +86,69 @@ void SelectCharacter::show()
             button->setFont(font);
         }
     }
-
     QDialog::show();
 }
 
 void SelectCharacter::SetList()
 {
+    QStringList custom_characters;
+    // Use special_characters.xml from the Sigil preferences folder if present.
+    QString custom_path = Utility::DefinePrefsDir() + "/special_characters.xml";
+    QString char_xml;
+    if (QFile::exists(custom_path)) {
+        char_xml = Utility::ReadUnicodeTextFile(custom_path, false);
+    }
+    if (!char_xml.isEmpty()) {
+        QXmlStreamReader xml_reader(char_xml);
+        bool underway = false;
+        QString version;
+        while(!xml_reader.atEnd()) {
+            xml_reader.readNext();
+            if (xml_reader.isEndElement()) {
+                if (xml_reader.name().compare(QLatin1String("specialchars")) == 0) underway = false;
+            } else if (xml_reader.isStartElement()) {
+                if (xml_reader.name().compare(QLatin1String("specialchars")) == 0) {
+                    version = xml_reader.attributes().value("", "version").toString();
+                    if (version.isEmpty()) version = "1.0.0";
+                    underway = true;
+                } else if (xml_reader.name().compare(QLatin1String("chargroup")) == 0) {
+                    if (underway) {
+                        QString group_label = xml_reader.attributes().value("", "label").toString();
+                        if (!group_label.startsWith("[")) group_label = "[" + group_label;
+                        if (!group_label.endsWith("]")) group_label = group_label + "]";
+                        custom_characters << group_label;
+                        custom_characters << QString("") << QString("") << QString("");
+                    }
+                } else if (xml_reader.name().compare(QLatin1String("cp")) == 0) {
+                    if (underway) {
+                        QString hexcd = xml_reader.attributes().value("", "hex").toString();
+                        QString label = xml_reader.attributes().value("", "label").toString();
+                        QString desc = xml_reader.attributes().value("", "desc").toString();
+                        bool ok = false;
+                        char32_t codepoint = (char32_t) hexcd.toUInt(&ok, 16);
+                        if (!ok) continue;
+                        QString sval = QString::fromUcs4(&codepoint, 1);
+                        QString entity = "&#x" + hexcd + ";";
+                        custom_characters << sval << label << entity << desc;
+                    }
+                }
+            }
+            if (xml_reader.hasError()) {
+                QString error = QString(tr("Unable to read special_characters xml. \nLine: %1 Column %2 - %3)")
+                                        .arg(xml_reader.lineNumber())
+                                        .arg(xml_reader.columnNumber())
+                                        .arg(xml_reader.errorString()));
+                qDebug() << error;
+                custom_characters = QStringList();
+            }
+        }
+        // A non-empty custom file replaces the built-in character lists.
+        if (!custom_characters.isEmpty()) {
+            AddFlow(custom_characters);
+            return;
+        }
+    }
+
     // chars to insert, chars to display, tooltip entity, tooltip desc
     // http://www.utf8-chartable.de/unicode-utf8-table.pl?utf8=0x&htmlent=1
     QStringList spaces = QStringList()
@@ -391,6 +461,63 @@ void SelectCharacter::AddGrid(const QStringList &characters, int width)
     }
 
     ui.character_box->addLayout(grid);
+}
+
+
+void SelectCharacter::AddFlow(const QStringList &characters)
+{
+    QToolButton *button;
+    bool has_started = false;
+    QFont font(m_SpecialCharacterAppearance.font_family, m_SpecialCharacterAppearance.font_size);
+
+    FlowLayout *flow = new FlowLayout(0, -1, -1);
+    int i = 0;
+    while (i + 3 < characters.count()) {
+
+        const QString &insert_text = characters.at(i);
+        QString display_text = characters.at(i + 1);
+
+        if (display_text.isEmpty()) {
+            display_text = insert_text;
+        }
+
+        const QString &entity = characters.at(i + 2);
+        const QString &description = characters.at(i + 3);
+
+        i += 4;
+
+        if (insert_text.isEmpty()) {
+            continue;
+        }
+
+        // handle group names
+        if (insert_text.startsWith("[")) {
+            QLabel* lbl = new QLabel(insert_text);
+            if (has_started) {
+                flow->addLineBreak();
+            }
+            flow->addWidget(lbl);
+            flow->addLineBreak();
+            continue;
+        }
+
+        button = new QToolButton(this);
+        button->setAutoRaise(true);
+        button->setToolTip(entity + " " + description);
+        button->setText(display_text);
+        button->setFont(font);
+        button->setFocusPolicy(Qt::TabFocus);
+
+        connect(button, SIGNAL(clicked()),
+                m_buttonMapper, SLOT(map()));
+
+        m_buttonMapper->setMapping(button, insert_text);
+
+        flow->addWidget(button);
+        has_started = true;
+    }
+
+    ui.character_box->addLayout(flow);
 }
 
 void SelectCharacter::SetSelectedCharacter(const QString &text)

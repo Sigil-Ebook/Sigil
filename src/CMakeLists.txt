@@ -269,6 +269,8 @@ set( WIDGET_FILES
     Widgets/SourceEditor.h
     Widgets/AlertBox.cpp
     Widgets/AlertBox.h
+    Widgets/FlowLayout.cpp
+    Widgets/FlowLayout.h
     )
 
 set( EXPORTER_FILES

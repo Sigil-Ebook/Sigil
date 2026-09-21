@@ -14,6 +14,9 @@ Sigil-2.8.5-beta
      - try to allow Sigil dock recent items on  macOS platform
      - allow multiple selection in the TOC Editor to speed larger changes.
      - add image initial size to Sigil"s Image tab.
+     - add ability to create your own Insert Special Characters dialog using special_characters.xml in
+       Sigil prefs folder.  Design and Code credit goes completely to BeckyEbook.
+     - Completely redesign AdjustImage Cropping to make it more usable. Thanks to byword77
 
    Bug Fixes
      - move all singleton C++ classes to use the Meyers form to fix leaks, bugs, and speed startup
@@ -28,7 +31,9 @@ Sigil-2.8.5-beta
      - make sure css templates content survives other imports
      - avoid unchanged search resource rewrites to prevent undo history being lost (contributed by rinne1998)
      - fix crash in AppImage when secure links and or remote resources with secure links were present.
-
+     - detect malformed OPFs on initial epub load and warn user before auto repairing it
+     - fix bug in AdjustImage for handling gif Images that Qt can not write using python PIL
+     - fix numerous user nits in the AdjustImage/Image Tab
 
 
 Sigil 2.8.1
