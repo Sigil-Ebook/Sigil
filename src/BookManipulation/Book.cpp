@@ -218,7 +218,7 @@ const QString HTML5_COVER_SOURCE =
     "<body>\n"
     "  <div style=\"height: 100vh; text-align: center; padding: 0pt; margin: 0pt;\">\n"
     "    <svg xmlns=\"http://www.w3.org/2000/svg\" height=\"100%\" preserveAspectRatio=\"xMidYMid meet\" version=\"1.1\" viewBox=\"0 0 SGC_IMAGE_WIDTH SGC_IMAGE_HEIGHT\" width=\"100%\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n"
-    "      <image width=\"SGC_IMAGE_WIDTH\" height=\"SGC_IMAGE_HEIGHT\" xlink:href=\"SGC_IMAGE_FILENAME\"/>\n"
+    "      <image width=\"SGC_IMAGE_WIDTH\" height=\"SGC_IMAGE_HEIGHT\" xlink:href=\"SGC_IMAGE_FILENAME\" href=\"SGC_IMAGE_FILENAME\" />\n"
     "    </svg>\n"
     "  </div>\n"
     "</body>\n"
