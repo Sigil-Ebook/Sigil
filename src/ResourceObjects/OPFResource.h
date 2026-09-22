@@ -163,6 +163,10 @@ public:
 
     bool isNavInSpine() const;
 
+    // these were added for managing backwards compatibility with older epub2 only e-readers
+    void RemoveExistingEpub2CoverMeta();
+    void AddEpub2CoverMeta(Resource* image_resource);
+
  signals:
     void TextChanging();
     void LoadedFromDisk();

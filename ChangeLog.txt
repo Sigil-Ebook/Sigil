@@ -20,6 +20,7 @@ Sigil-2.8.5-beta
      - make Sigil meta use epub version specific forms for Epub 3.4 spec changes
      - make svg cover images add href alongside xlink:href for Epub 3.4 spec changes
      - make epub3 not add or use old epub2 cover metadata for Epub 3.4 spec changes
+     - Allow epub3 Tools to control creation and removal of cover metadata to ease backwards compatibility
 
    Bug Fixes
      - move all singleton C++ classes to use the Meyers form to fix leaks, bugs, and speed startup

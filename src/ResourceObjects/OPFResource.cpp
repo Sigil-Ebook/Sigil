@@ -1299,6 +1299,30 @@ QHash <QString, QStringList>  OPFResource::GetGuideSemanticNameForPaths()
     return semantic_types;
 }
 
+void OPFResource::RemoveExistingEpub2CoverMeta()
+{
+    QWriteLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
+    OPFParser p;
+    p.parse(source);
+    int pos = GetCoverMeta(p);
+    if (pos > -1) {
+        MetaEntry me = p.m_metadata.at(pos);
+        p.m_metadata.removeAt(pos);
+    }
+    UpdateText(p);
+}
+
+
+void OPFResource::AddEpub2CoverMeta(Resource * image_resource) {
+    QWriteLocker locker(&GetLock());
+    QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
+    OPFParser p;
+    p.parse(source);
+    AddCoverMetaForImage(image_resource, p);
+    UpdateText(p);
+}
+
 
 void OPFResource::SetResourceAsCoverImage(ImageResource *image_resource)
 {

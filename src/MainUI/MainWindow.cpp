@@ -2775,6 +2775,9 @@ bool MainWindow::RemoveNCXGuideFromEpub3()
     // clear the guide
     m_Book->GetOPF()->ClearSemanticCodesInGuide();
 
+    // and finally remove any old meta for the cover image
+    m_Book->GetOPF()->RemoveExistingEpub2CoverMeta();
+    
     m_TableOfContents->Refresh();
     m_BookBrowser->BookContentModified();
     m_BookBrowser->Refresh();
@@ -2870,6 +2873,13 @@ bool MainWindow::GenerateNCXGuideFromNav()
                 m_Book->GetOPF()->AddGuideSemanticCode(html_resource, guide_code, false, parts.at(1));
             }
         }
+    }
+
+    // add back in Epub2 Cover Meta if needed
+    QString cover_bookpath = m_Book->GetOPF()->GetCoverImagePath();
+    Resource * cover_resource = m_Book->GetFolderKeeper()->GetResourceByBookPathNoThrow(cover_bookpath);
+    if (cover_resource) {
+        m_Book->GetOPF()->AddEpub2CoverMeta(cover_resource);
     }
     m_TableOfContents->Refresh();
     m_BookBrowser->BookContentModified();
