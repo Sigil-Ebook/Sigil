@@ -544,10 +544,21 @@ bool OPFResource::IsCoverImage(const ImageResource *image_resource) const
 
 bool OPFResource::IsCoverImageCheck(QString resource_id, const OPFParser & p) const
 {
-    int pos = GetCoverMeta(p);
-    if (pos > -1) {
-        MetaEntry me = p.m_metadata.at(pos);
-        return me.m_atts.value(QString("content"),QString("")) == resource_id;
+    if (p.m_package.m_version.startsWith("3")) {
+        int pos = p.m_idpos.value(resource_id, -1);
+        if (pos > -1) {
+            ManifestEntry man = p.m_manifest.at(pos);
+            if (man.m_atts.contains("properties")) {
+                QString properties = man.m_atts["properties"];
+                return properties.contains("cover-image");
+            }
+        }
+    } else {
+        int pos = GetCoverMeta(p);
+        if (pos > -1) {
+            MetaEntry me = p.m_metadata.at(pos);
+            return me.m_atts.value(QString("content"),QString("")) == resource_id;
+        }
     }
     return false;
 }
@@ -559,7 +570,17 @@ bool OPFResource::CoverImageExists() const
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
-    return GetCoverMeta(p) > -1;
+    if (p.m_package.m_version.startsWith("3")) {
+        // walk manifest properties looking for cover-image                                                                     
+        foreach(ManifestEntry man, p.m_manifest) {
+            if (man.m_atts.value("properties","").contains("cover-image")) {
+                return true;
+            }
+        }
+        return false; 
+    } else {    
+        return GetCoverMeta(p) > -1;
+    }
 }
 
 
@@ -570,21 +591,26 @@ QString OPFResource::GetCoverImagePath() const
     OPFParser p;
     p.parse(source);
     QString bkpath;
-    int pos  = GetCoverMeta(p);
-    if (pos > -1) {
-	MetaEntry me = p.m_metadata.at(pos);
-        QString cover_id = me.m_atts.value(QString("content"),QString(""));
-        ManifestEntry man = p.m_manifest.at(p.m_idpos[cover_id]);
-        QString apath = Utility::URLDecodePath(man.m_href);
-        bkpath = Utility::buildBookPath(apath, GetFolder());
-    } else {
-        // walk manifest properties looking for cover-image
-        foreach(ManifestEntry me, p.m_manifest) {
-            if (me.m_atts.value("properties","").contains("cover-image")) {
-                QString apath = Utility::URLDecodePath(me.m_href);
+    if (p.m_package.m_version.startsWith("3")) {
+        // walk manifest properties looking for cover-image                                                                     
+        foreach(ManifestEntry man, p.m_manifest) {
+            if (man.m_atts.value("properties","").contains("cover-image")) {
+                QString apath = Utility::URLDecodePath(man.m_href);
                 bkpath = Utility::buildBookPath(apath, GetFolder());
                 break;
             }
+        }
+    } else {
+        int pos  = GetCoverMeta(p);
+        if (pos > -1) {
+            MetaEntry me = p.m_metadata.at(pos);
+            QString cover_id = me.m_atts.value(QString("content"),QString(""));
+            int mp = p.m_idpos.value(cover_id, -1);
+            if (mp > -1) {
+                ManifestEntry man = p.m_manifest.at(mp);
+                QString apath = Utility::URLDecodePath(man.m_href);
+                bkpath = Utility::buildBookPath(apath, GetFolder());
+            }   
         }
     }
     return bkpath;
@@ -768,21 +794,21 @@ void OPFResource::AddResource(const Resource *resource)
 
 void OPFResource::RemoveCoverImageProperty(QString& resource_id, OPFParser& p)
 {
-    // remove the cover image property from manifest with resource_id
+    // remove the cover image property from manifest with resource_id                                                           
     if (!resource_id.isEmpty()) {
         int pos = p.m_idpos.value(resource_id, -1);
-        if (pos >= 0 ) {
-            ManifestEntry me = p.m_manifest.at(p.m_idpos[resource_id]);
-            QString properties = me.m_atts.value("properties", "");
+        if (pos > -1) {
+            ManifestEntry man = p.m_manifest.at(p.m_idpos[resource_id]);
+            QString properties = man.m_atts.value("properties", "");
             if (properties.contains("cover-image")) {
                 properties = properties.remove("cover-image");
                 properties = properties.simplified();
             }
-            me.m_atts.remove("properties");
+            man.m_atts.remove("properties");
             if (!properties.isEmpty()) {
-                me.m_atts["properties"] = properties;
+                man.m_atts["properties"] = properties;
             }
-            p.m_manifest.replace(pos, me);
+            p.m_manifest.replace(pos, man);
         }
     }
 }
@@ -790,18 +816,19 @@ void OPFResource::RemoveCoverImageProperty(QString& resource_id, OPFParser& p)
 
 void OPFResource::AddCoverImageProperty(QString& resource_id, OPFParser& p)
 {
-    // add the cover image property from manifest with resource_id
+    // add the cover image property from manifest with resource_id                                                              
     if (!resource_id.isEmpty()) {
         int pos = p.m_idpos.value(resource_id, -1);
         if (pos >= 0 ) {
-            ManifestEntry me = p.m_manifest.at(p.m_idpos[resource_id]);
-            QString properties = me.m_atts.value("properties", "cover-image");
+            ManifestEntry man = p.m_manifest.at(p.m_idpos[resource_id]);
+            QString properties = man.m_atts.value("properties", "");
             if (!properties.contains("cover-image")) {
                 properties = properties.append(" cover-image");
+                properties = properties.simplified();
             }
-            me.m_atts.remove("properties");
-            me.m_atts["properties"] = properties;
-            p.m_manifest.replace(pos, me);
+            man.m_atts.remove("properties");
+            man.m_atts["properties"] = properties;
+            p.m_manifest.replace(pos, man);
         }
     }
 }
@@ -812,7 +839,7 @@ void OPFResource::RemoveCoverMetaForImage(const Resource *resource, OPFParser& p
     int pos = GetCoverMeta(p);
     QString resource_id = GetResourceManifestID(resource, p);
 
-    // Remove entry if there is a cover in meta and if this file is marked as cover
+    // Remove entry if there is a cover in meta and if this file is marked as cover                                             
     if (pos > -1) {
        MetaEntry me = p.m_metadata.at(pos);
        if (me.m_atts.value(QString("content"),QString("")) == resource_id) {
@@ -826,7 +853,7 @@ void OPFResource::AddCoverMetaForImage(const Resource *resource, OPFParser &p)
     int pos = GetCoverMeta(p);
     QString resource_id = GetResourceManifestID(resource, p);
 
-    // If a cover entry exists, update its id, else create one
+    // If a cover entry exists, update its id, else create one                                                                  
     if (pos > -1) {
         MetaEntry me = p.m_metadata.at(pos);
         me.m_atts["content"] = resource_id;
@@ -1281,8 +1308,7 @@ void OPFResource::SetResourceAsCoverImage(ImageResource *image_resource)
     p.parse(source);
     QString resource_id = GetResourceManifestID(image_resource, p);
 
-    // First deal with any previous covers by removing 
-    // related metadata and manifest properties
+    // First deal with any previous covers by removing any epub2 cover metadata
     QString old_cover_resource_id;
     int pos = GetCoverMeta(p);
     if (pos > -1) {
@@ -1290,16 +1316,26 @@ void OPFResource::SetResourceAsCoverImage(ImageResource *image_resource)
         old_cover_resource_id = me.m_atts.value(QString("content"),QString(""));
         p.m_metadata.removeAt(pos);
     }
-    if (!old_cover_resource_id.isEmpty()) {
-        if (p.m_package.m_version.startsWith("3")) {
-            RemoveCoverImageProperty(old_cover_resource_id, p);
+    // now walk the manifest removing all existing cover-image properties
+    if (p.m_package.m_version.startsWith("3")) {
+        foreach(ManifestEntry man, p.m_manifest) {
+            QString properties = man.m_atts.value("properties", "");
+            if (properties.contains("cover-image")) {
+                properties = properties.remove("cover-image");
+                properties = properties.simplified();
+                man.m_atts.remove("properties");
+                if (!properties.isEmpty()) {
+                    man.m_atts["properties"] = properties;
+                }
+                p.m_manifest.replace(pos, man);
+            }
         }
     }
-
-    // Now add in new metadata and manifest properties
-    AddCoverMetaForImage(image_resource, p);
+    // Now add in cover metadata or update manifest properties under epub3                                                                      
     if (p.m_package.m_version.startsWith("3")) {
         AddCoverImageProperty(resource_id, p);
+    } else {
+        AddCoverMetaForImage(image_resource, p);
     }
     UpdateText(p);
 }
@@ -1879,8 +1915,8 @@ QString OPFResource::GetManifestPropertiesForResource(const Resource * resource)
     QString href = Utility::URLEncodePath(GetRelativePathToResource(resource));
     int pos = p.m_hrefpos.value(href, -1);
     if ((pos >= 0) && (pos < p.m_manifest.count())) {
-        ManifestEntry me = p.m_manifest.at(pos);
-        properties = me.m_atts.value("properties","");
+        ManifestEntry man = p.m_manifest.at(pos);
+        properties = man.m_atts.value("properties","");
     }
     return properties;
 }
@@ -1897,10 +1933,10 @@ QHash <QString, QString>  OPFResource::GetManifestPropertiesForPaths()
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
-    foreach(ManifestEntry me, p.m_manifest) {
-        QString apath = Utility::URLDecodePath(me.m_href);
-        if (me.m_atts.contains("properties")){
-            QString properties = me.m_atts["properties"];
+    foreach(ManifestEntry man, p.m_manifest) {
+        QString apath = Utility::URLDecodePath(man.m_href);
+        if (man.m_atts.contains("properties")){
+            QString properties = man.m_atts["properties"];
             apath = Utility::buildBookPath(apath, GetFolder());
             manifest_properties_all[apath] = properties;
         }

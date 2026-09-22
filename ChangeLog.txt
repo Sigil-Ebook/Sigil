@@ -17,6 +17,9 @@ Sigil-2.8.5-beta
      - add ability to create your own Insert Special Characters dialog using special_characters.xml in
        Sigil prefs folder.  Design and Code credit goes completely to BeckyEbook.
      - Completely redesign AdjustImage Cropping to make it more usable. Thanks to byword77
+     - make Sigil meta use epub version specific forms for Epub 3.4 spec changes
+     - make svg cover images add href alongside xlink:href for Epub 3.4 spec changes
+     - make epub3 not add or use old epub2 cover metadata for Epub 3.4 spec changes
 
    Bug Fixes
      - move all singleton C++ classes to use the Meyers form to fix leaks, bugs, and speed startup
