@@ -488,26 +488,44 @@ void OPFResource::UpdateNCXLocationInManifest(const NCXResource *ncx)
 
 void OPFResource::AddSigilVersionMeta()
 {
+    QString version = GetEpubVersion();
     QWriteLocker locker(&GetLock());
     QString source = CleanSource::ProcessXML(GetText(),"application/oebps-package+xml");
     OPFParser p;
     p.parse(source);
     for (int i=0; i < p.m_metadata.count(); ++i) {
         MetaEntry me = p.m_metadata.at(i);
-        if ((me.m_name == "meta") && (me.m_atts.contains("name"))) {  
-            QString name = me.m_atts[QString("name")];
-            if (name == SIGIL_VERSION_META_NAME) {
-                me.m_atts["content"] = QString(SIGIL_VERSION);
-                p.m_metadata.replace(i, me);
-                UpdateText(p);
-                return;
+        if (version.startsWith("3")) {
+            if ((me.m_name == "meta") && (me.m_atts.contains("property"))) {  
+                QString property = me.m_atts[QString("property")];
+                if ((property == "schema:softwareVersion") && me.m_content.startsWith("Sigil")) {
+                    me.m_content = "Sigil-" + QString(SIGIL_VERSION);
+                    p.m_metadata.replace(i, me);
+                    UpdateText(p);
+                    return;
+                }
+            }
+        } else {    
+            if ((me.m_name == "meta") && (me.m_atts.contains("name"))) {  
+                QString name = me.m_atts[QString("name")];
+                if (name == SIGIL_VERSION_META_NAME) {
+                    me.m_atts["content"] = QString(SIGIL_VERSION);
+                    p.m_metadata.replace(i, me);
+                    UpdateText(p);
+                    return;
+                }
             }
         }
     }
     MetaEntry me;
     me.m_name = "meta";
-    me.m_atts[QString("name")] = QString("Sigil version");
-    me.m_atts[QString("content")] = QString(SIGIL_VERSION);
+    if (version.startsWith("3")) {
+        me.m_atts[QString("property")] = QString("schema:softwareVersion");
+        me.m_content = "Sigil-" + QString(SIGIL_VERSION);
+    } else {
+        me.m_atts[QString("name")] = QString("Sigil version");
+        me.m_atts[QString("content")] = QString(SIGIL_VERSION);
+    }
     p.m_metadata.append(me);
     UpdateText(p);
 }
