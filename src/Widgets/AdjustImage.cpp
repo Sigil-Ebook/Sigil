@@ -36,6 +36,7 @@
 #include <QFile>
 #include <QLocale>
 #include <QImageWriter>
+#include <QImageReader>
 #include <QInputDialog>
 #include <QKeySequence>
 #include <QTemporaryFile>
@@ -63,6 +64,16 @@ AdjustImage::AdjustImage(const QString filepath, const QString& mediatype,  QWid
     updateActions(false);
     ui->actionUndo->setEnabled(false);
     ui->actionRedo->setEnabled(false);
+
+    // figure out which formats are read and which are write
+    foreach (QByteArray sf, QImageReader::supportedImageFormats()) {
+        m_ReadSupported.insert(QString::fromLatin1(sf).toUpper());
+    }
+    foreach (QByteArray sf, QImageWriter::supportedImageFormats()) {
+        m_WriteSupported.insert(QString::fromLatin1(sf).toUpper());
+    }
+    // and map in our Pillow support for GIF writing
+    m_WriteSupported.insert("GIF");
 
     m_imageLabel = new QLabel;
     m_imageLabel->resize(0, 0);
@@ -407,8 +418,8 @@ void AdjustImage::doSave()
     }
     bool success = false;
 
-    if ((format == "PBM") || (format == "PGM")) {
-        m_statusBar->showMessage(tr("PBM and PGM Image formats can not be saved. Save aborted."));
+    if (!m_WriteSupported.contains(format)) {
+        m_statusBar->showMessage(tr("Image format is not supported for write and can not be saved. Save aborted."));
         return;
 
     } else if (format == "GIF") {

@@ -48,6 +48,7 @@
 #include <QDebug>
 #include <QVBoxLayout>
 #include <QToolBar>
+#include <QSet>
 
 class BetterRubberBand;
 
@@ -143,6 +144,8 @@ private:
     int m_jxl_quality;
     int m_avif_quality;
 
+    QSet<QString> m_ReadSupported;
+    QSet<QString> m_WriteSupported;
 };
 
 #endif // ADJUSTIMAGE_H
