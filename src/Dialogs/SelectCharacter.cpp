@@ -101,11 +101,13 @@ void SelectCharacter::SetList()
     if (!char_xml.isEmpty()) {
         QXmlStreamReader xml_reader(char_xml);
         bool underway = false;
+        bool group_hidden = false;
         QString version;
         while(!xml_reader.atEnd()) {
             xml_reader.readNext();
             if (xml_reader.isEndElement()) {
                 if (xml_reader.name().compare(QLatin1String("specialchars")) == 0) underway = false;
+                else if (xml_reader.name().compare(QLatin1String("chargroup")) == 0) group_hidden = false;
             } else if (xml_reader.isStartElement()) {
                 if (xml_reader.name().compare(QLatin1String("specialchars")) == 0) {
                     version = xml_reader.attributes().value("", "version").toString();
@@ -113,6 +115,12 @@ void SelectCharacter::SetList()
                     underway = true;
                 } else if (xml_reader.name().compare(QLatin1String("chargroup")) == 0) {
                     if (underway) {
+                        QString hidden_val = xml_reader.attributes().value("", "hidden").toString().trimmed();
+                        if (hidden_val.compare(QLatin1String("true"), Qt::CaseInsensitive) == 0 || hidden_val == QLatin1String("1")) {
+                            group_hidden = true;
+                            continue;
+                        }
+                        group_hidden = false;
                         QString group_label = xml_reader.attributes().value("", "label").toString();
                         if (!group_label.startsWith("[")) group_label = "[" + group_label;
                         if (!group_label.endsWith("]")) group_label = group_label + "]";
@@ -120,7 +128,7 @@ void SelectCharacter::SetList()
                         custom_characters << QString("") << QString("") << QString("");
                     }
                 } else if (xml_reader.name().compare(QLatin1String("cp")) == 0) {
-                    if (underway) {
+                    if (underway && !group_hidden) {
                         QString hexcd = xml_reader.attributes().value("", "hex").toString();
                         QString label = xml_reader.attributes().value("", "label").toString();
                         QString desc = xml_reader.attributes().value("", "desc").toString();
