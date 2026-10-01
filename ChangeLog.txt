@@ -1,4 +1,4 @@
-Sigil-2.8.5-beta
+Sigil-2.8.5
    New Features
      - remove outdated CSS parser and replace it with a modern spec-compliant Lexbor based css parser.
          See https://github.com/lexbor/lexbor. Note: Required upstream changes have been approved
@@ -7,7 +7,6 @@ Sigil-2.8.5-beta
          replace our internal version of lexbor with a released lexbor version as it will currently
          not work. We will keep it internal with our own patches and statically linked to prevent dll issues
          until those requested changes are properly upstreamed.
-         
      - improve bulk addition speed of AddExisting/Drop Zone when replacing already existing images
          by directly using file write with truncation and thereby never touching the opf
      - speed up Bookbrowser Refresh by bulk adding and removal items. (contributed by rinne1998)
@@ -37,7 +36,7 @@ Sigil-2.8.5-beta
      - fix crash in AppImage when secure links and or remote resources with secure links were present.
      - detect malformed OPFs on initial epub load and warn user before auto repairing it
      - fix bug in AdjustImage for handling gif Images that Qt can not write using python PIL
-     - fix numerous user nits in the AdjustImage/Image Tab
+     - fix numerous user nits in the AdjustImage/Image Tab and make it saer for image types that are read only
 
 
 Sigil 2.8.1
