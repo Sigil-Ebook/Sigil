@@ -52,37 +52,37 @@
         <translation>作者</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="42"/>
+        <location filename="../../Dialogs/About.cpp" line="43"/>
         <source>GNU General Public License v3</source>
         <translation>GNU 通用公共授權第 3 版</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="52"/>
+        <location filename="../../Dialogs/About.cpp" line="53"/>
         <source>Developers(s)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="57"/>
+        <location filename="../../Dialogs/About.cpp" line="58"/>
         <source>Previous Developer(s)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="61"/>
+        <location filename="../../Dialogs/About.cpp" line="62"/>
         <source>Code Contributors</source>
         <translation>程式碼貢獻者</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="70"/>
+        <location filename="../../Dialogs/About.cpp" line="71"/>
         <source>Translators</source>
         <translation>翻譯者</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="72"/>
+        <location filename="../../Dialogs/About.cpp" line="73"/>
         <source>Original Creator</source>
         <translation>原始建立者</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="73"/>
+        <location filename="../../Dialogs/About.cpp" line="74"/>
         <source>retired</source>
         <translation>已退休</translation>
     </message>
@@ -219,7 +219,7 @@
     </message>
     <message>
         <location filename="../../Form_Files/AdjustImage.ui" line="98"/>
-        <source>Crop image.</source>
+        <source>Crop image Mode: Use Enter to Crop to selection and Escape to abort crop</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -283,75 +283,84 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="99"/>
-        <location filename="../../Widgets/AdjustImage.cpp" line="107"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="115"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="123"/>
         <source>Adjust Image</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="108"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="124"/>
         <source>Cannot load %1.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="177"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="193"/>
         <source>shades</source>
         <translation>陰影</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="177"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="193"/>
         <source>colors</source>
         <translation>顏色</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="178"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="194"/>
         <source>Grayscale</source>
         <translation>灰階</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="178"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="194"/>
         <source>Color</source>
         <translation>顏色</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="338"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="222"/>
+        <source>Crop Mode: Enter to Crop, Escape to Abort</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="227"/>
+        <source>Exiting Crop Mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="351"/>
         <source>(x,y) coordinates:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="338"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="351"/>
         <source>Zoom</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="408"/>
-        <location filename="../../Widgets/AdjustImage.cpp" line="437"/>
-        <source>Image successfully saved.</source>
+        <location filename="../../Widgets/AdjustImage.cpp" line="422"/>
+        <source>Image format is not supported for write and can not be saved. Save aborted.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="410"/>
-        <source>Image save failed.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="421"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="453"/>
         <source>Image Quality</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="422"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="454"/>
         <source>Enter quality level (0-100):</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="424"/>
-        <source>Image save failed. </source>
+        <location filename="../../Widgets/AdjustImage.cpp" line="456"/>
+        <source>Image save aborted, as quality unavailable.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="441"/>
-        <source>Image save failed: </source>
+        <location filename="../../Widgets/AdjustImage.cpp" line="470"/>
+        <source>Image successfully saved.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="475"/>
+        <source>Image save failed. Add Existing backup of image for safety.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1702,9 +1711,21 @@ if a sans-serif font-family specified in your CSS</source>
 <context>
     <name>Book</name>
     <message>
-        <location filename="../../BookManipulation/Book.cpp" line="430"/>
+        <location filename="../../BookManipulation/Book.cpp" line="431"/>
         <source>Start</source>
         <translation>開始</translation>
+    </message>
+    <message>
+        <location filename="../../BookManipulation/Book.cpp" line="1696"/>
+        <location filename="../../BookManipulation/Book.cpp" line="1740"/>
+        <source>Sigil</source>
+        <translation>Sigil</translation>
+    </message>
+    <message>
+        <location filename="../../BookManipulation/Book.cpp" line="1697"/>
+        <location filename="../../BookManipulation/Book.cpp" line="1741"/>
+        <source>PrettyPrint cancelled: %1, XML not well formed.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4820,17 +4841,17 @@ mended.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="226"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="234"/>
         <source>Incorrect Path for External Xhtml Editor selected</source>
         <translation>選擇的外部 Xhtml 編輯器路徑不正確</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="243"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="251"/>
         <source>Select Folder for Temporary Files</source>
         <translation>選擇暫存檔案的資料夾</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="260"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="268"/>
         <source>Incorrect Folder for Temporary Files selected</source>
         <translation>選擇的暫存檔案的資料夾不正確</translation>
     </message>
@@ -5621,22 +5642,22 @@ You can then check or uncheck individual headings in the list above.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="567"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="572"/>
         <source>shades</source>
         <translation>陰影</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="567"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="572"/>
         <source>colors</source>
         <translation>顏色</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="568"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="573"/>
         <source>Grayscale</source>
         <translation>灰階</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="568"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="573"/>
         <source>Color</source>
         <translation>顏色</translation>
     </message>
@@ -5682,7 +5703,7 @@ You can then check or uncheck individual headings in the list above.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="613"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="615"/>
         <source>Epub has missing or improperly specified OPF.</source>
         <translation>Epub 遺失或未正確指定 OPF。</translation>
     </message>
@@ -12571,41 +12592,41 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../MainUI/MainWindow.cpp" line="2105"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2347"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2512"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3087"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3183"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3239"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3097"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3193"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3249"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3273"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3287"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3393"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3409"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3414"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3427"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3446"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3460"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3475"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3479"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3495"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3508"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3513"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3525"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3259"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3283"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3297"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3403"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3419"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3424"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3437"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3456"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3470"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3485"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3489"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3505"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3518"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3523"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3535"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3540"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3742"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3749"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3765"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3824"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3856"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4055"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5263"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5304"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5310"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5316"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5545"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5565"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5621"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5885"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6091"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3545"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3550"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3752"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3759"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3775"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3834"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3866"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4065"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5273"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5314"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5320"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5326"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5555"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5575"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5631"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5895"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6101"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -12626,17 +12647,17 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="882"/>
         <location filename="../../MainUI/MainWindow.cpp" line="884"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5619"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5621"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6089"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6091"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5629"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5631"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6099"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6101"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] - epub%2 - %3</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="882"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5619"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6089"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5629"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6099"/>
         <source>Sigil [std]</source>
         <translation type="unfinished"/>
     </message>
@@ -12958,7 +12979,7 @@ This action cannot be reversed.</source>
         <location filename="../../MainUI/MainWindow.cpp" line="2718"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2738"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2761"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2793"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2796"/>
         <source>Not Available for epub2.</source>
         <translation>不適用於 epub2。</translation>
     </message>
@@ -12983,330 +13004,330 @@ This action cannot be reversed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2783"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2786"/>
         <source>NCX and Guide removed.</source>
         <translation>NCX 和 Guide 已移除。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2810"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2843"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2813"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2846"/>
         <source>NCX and Guide generation failed.</source>
         <translation>NCX 和 Guide 產生失敗。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2879"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2889"/>
         <source>NCX and Guide generated.</source>
         <translation>NCX 和 Guide 已產生。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2976"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2986"/>
         <source>An existing Index file has been found.</source>
         <translation>找到已存在的索引檔案。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3068"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3078"/>
         <source>Styles deleted.</source>
         <translation>樣式已刪除。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3076"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3086"/>
         <source>Reports Being Generated.</source>
         <translation>正在產生報告。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3087"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3097"/>
         <source>Reports cancelled due to XML not well formed.</source>
         <translation>報告已取消，因為 XML 格式不正確。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3183"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3193"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
         <translation>刪除未使用的媒體檔案已取消，因為 XML 格式不正確。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3233"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3243"/>
         <source>Unused media files deleted.</source>
         <translation>未使用的媒體檔案已刪除。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3236"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3239"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3246"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3249"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation>沒有未使用的圖片、影片或音效檔可以刪除。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3249"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3259"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation>刪除未使用的樣式已取消，因為 XML 格式不正確。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3271"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3273"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3281"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3283"/>
         <source>There are no unused stylesheet selectors to delete.</source>
         <translation>沒有未使用的樣式表選擇器可以刪除。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3287"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3297"/>
         <source>You cannot insert a file at this position.</source>
         <translation>您不能在此位置插入檔案。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3294"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3304"/>
         <source>Insert File</source>
         <translation>插入檔案</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3347"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3357"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>檔案 &quot;%1&quot; 不存在。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3393"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3414"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3403"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3424"/>
         <source>You cannot insert an id at this position.</source>
         <translation>您不能在此位置插入 ID。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3409"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3419"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation>ID 不合法 - 需要以字母開頭，後面跟著字母、數字、_ : - 或 .</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3427"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3437"/>
         <source>You can only insert an aria clips in xhtml files.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3446"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3456"/>
         <source>Inserting an aria clip failed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3460"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3479"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3470"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3489"/>
         <source>You cannot insert an aria role at this position.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3475"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3485"/>
         <source>The selected role cannot be used on this tag.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3495"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3513"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3505"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3523"/>
         <source>You cannot insert a link at this position.</source>
         <translation>您不能在此位置插入連結。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3508"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3518"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>連結不合法 - 不能含有 &apos;&lt;&apos; 或 &apos;&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3525"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3535"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation>您不能在此位置標記索引而不選取任何文字。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3535"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3545"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>項目不合法 - 不能含有 &apos;&lt;&apos; 或 &apos;&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3540"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3550"/>
         <source>You cannot mark an index at this position.</source>
         <translation>您不能在此位置標記索引。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3651"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3663"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3682"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3661"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3673"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3692"/>
         <source>Select the destination to paste into first.</source>
         <translation>先選擇要貼上的目標。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3671"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3681"/>
         <source>Pasted clip entry %1.</source>
         <translation>已貼上片段條目 %1。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3742"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3752"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>選擇了一個資源，而沒有可併入的資源。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3750"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3760"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>您確定您要合併選取的檔案嗎？
 這個動作無法回復。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3765"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3775"/>
         <source>Merge cancelled: XHTML files involved in merge are not well formed.</source>
         <translation>合併已取消：要合併的 XHTML 檔案格式不正確。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3824"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3834"/>
         <source>Cannot merge file %1</source>
         <translation>無法合併檔案 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3838"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3848"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>合併已完成。您可能需要重新產生或編輯您的目錄表。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3856"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3866"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation>連結樣式表取消：%1，XML 格式不正確。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3986"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3996"/>
         <source>Word updated.</source>
         <translation>單字已更新。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4055"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4065"/>
         <source>Link Javascripts cancelled: %1, XML not well formed.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4165"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4175"/>
         <source>File(s) deleted.</source>
         <translation>檔案已刪除。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4176"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4186"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>編輯目錄已取消。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4181"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4191"/>
         <source>Table Of Contents edited.</source>
         <translation>目錄已編輯。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4199"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4209"/>
         <source>Generate TOC cancelled.</source>
         <translation>建立目錄已取消。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4224"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4234"/>
         <source>Table Of Contents generated.</source>
         <translation>目錄已產生。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4226"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4236"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>沒有變更目錄的需要。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4304"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4314"/>
         <source>An existing HTML Table of Contents file has been found.</source>
         <translation>找到已存在的 HTML 目錄檔案。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4389"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4399"/>
         <source>Text selection marked.</source>
         <translation>已標記選取的文字。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4391"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4409"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4401"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4419"/>
         <source>Text selection unmarked.</source>
         <translation>已取消標記選取的文字。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4458"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4468"/>
         <source>Metadata Editor cancelled.</source>
         <translation>中繼資料編輯器已取消。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4461"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4471"/>
         <source>Metadata edited.</source>
         <translation>中繼資料已編輯。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4581"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4591"/>
         <source>RunPlugin</source>
         <translation>執行外掛</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4594"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4604"/>
         <source>RunAutomate</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4620"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4630"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>EPUB 沒有包含任何 CSS 樣式表，因此無法驗證。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4651"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4661"/>
         <source>This EPUB does not contain any CSS stylesheets to reformat.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5176"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5186"/>
         <source>%1%2 - Line: %3, Col: %4</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5263"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5273"/>
         <source>File cannot be split at this position.</source>
         <translation>檔案無法從此位置分割。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5286"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5296"/>
         <source>Split completed.</source>
         <translation>分割完成。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5304"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5314"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>無法分割，因為至少有一個檔不是 HTML 檔。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5310"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5320"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>無法分割：%1，因為 XML 格式不正確</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5316"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5326"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>無法分割，因為至少有一個檔不是 HTML 檔。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5349"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5359"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>分割已完成。您可能需要更新目錄。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5351"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5361"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
         <translation>找不到分割檔案標記。請使用「插入」─「分割標記」。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5546"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5556"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>文件已更改。
 您要儲存您的變更嗎？</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5567"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5577"/>
         <source>Should Sigil overwrite this file?</source>
         <translation>Sigil 應該覆寫這個檔案嗎？</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5761"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5771"/>
         <source>No importer for file type: %1</source>
         <translation>沒有此檔案型態的匯入器：%1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5768"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5778"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -13319,138 +13340,138 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
 請試著設定「整理源碼」選項為「開啟時修復 HTML 代碼」然後重新載入該檔案。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5773"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5783"/>
         <source>Loading file...</source>
         <translation>載入檔案中...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5787"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5797"/>
         <source>File loaded.</source>
         <translation>檔案已載入。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5813"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5823"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>這個檔案使用了DRM加密。Sigil無法開啟這類檔案。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5821"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5831"/>
         <source>Cannot load EPUB: %1</source>
         <translation>無法載入 EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5826"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5836"/>
         <source>Cannot load file %1: %2</source>
         <translation>無法載入檔案 %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5853"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5863"/>
         <source>Saving EPUB...</source>
         <translation>儲存 EPUB...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5862"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5872"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil 無法儲存型態為 &quot;%1&quot; 的檔案。
 請選擇不同的格式。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5886"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5896"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to mend on Save.
 
 Do you want to automatically mend the files before saving? Or cancel the Save?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5891"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5901"/>
         <source>Saving EPUB... cancelled</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5917"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5927"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>EPUB 已儲存，但並非所有的 HTML 檔格式都正確。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5919"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5929"/>
         <source>EPUB saved.</source>
         <translation>EPUB 已儲存。</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5925"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5935"/>
         <source>Cannot save file %1: %2</source>
         <translation>無法儲存檔案 %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6058"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6068"/>
         <source>EPUB files (*.epub)</source>
         <translation>EPUB檔案(*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6059"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6060"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6061"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6069"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6070"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6071"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>HTML檔案 (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6062"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6072"/>
         <source>Text files (*.txt)</source>
         <translation>文字檔案(*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6063"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6073"/>
         <source>All files (*.*)</source>
         <translation>所有檔案(*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6071"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6081"/>
         <source>EPUB file (*.epub)</source>
         <translation>EPUB檔案(*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6175"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6185"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>保留現有的標題屬性現在為：</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6176"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6186"/>
         <source>ON</source>
         <translation>開</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6176"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6186"/>
         <source>OFF</source>
         <translation>關</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6201"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6211"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7187"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7201"/>
         <source>Focus changed to CodeView window.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7196"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7210"/>
         <source>Focus changed to BookBrowser window.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7205"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7219"/>
         <source>Focus changed to Preview window.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7214"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7228"/>
         <source>Focus changed to Table Of Contents window.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7223"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7237"/>
         <source>Focus changed to Clips window.</source>
         <translation type="unfinished"/>
     </message>
@@ -17458,12 +17479,12 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 <context>
     <name>OPFResource</name>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1683"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1761"/>
         <source>[Title here]</source>
         <translation>[這裡填入標題]</translation>
     </message>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1693"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1771"/>
         <source>[Main title here]</source>
         <translation>[這裡填入主要標題]</translation>
     </message>
@@ -18612,7 +18633,7 @@ Entities can be separated by lines, commas, or spaces.</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../BookManipulation/Book.cpp" line="1685"/>
+        <location filename="../../BookManipulation/Book.cpp" line="1701"/>
         <source>PrettyPrinting...</source>
         <translation type="unfinished"/>
     </message>
@@ -18638,13 +18659,13 @@ Entities can be separated by lines, commas, or spaces.</source>
         <translation>自訂 Epub 配置設計師</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="191"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="199"/>
         <location filename="../../Misc/OpenExternally.cpp" line="346"/>
         <source>Applications</source>
         <translation>應用程式</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="208"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="216"/>
         <source>Select External Xhtml Editor</source>
         <translation>選擇外部 Xhtml 編輯器</translation>
     </message>
@@ -18670,7 +18691,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="264"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="990"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="1006"/>
         <source>Sigil has created a new one for you.</source>
         <translation>Sigil 已建立新的。</translation>
     </message>
@@ -18680,91 +18701,106 @@ Entities can be separated by lines, commas, or spaces.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="314"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="316"/>
         <source>Error parsing encryption xml.
 Line: %1 Column %2 - %3</source>
         <translation>剖析加密 XML 時發生錯誤。
 第 %1 行第 %2 欄 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="434"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="436"/>
         <source>Cannot unzip EPUB: %1</source>
         <translation>無法解壓縮 EPUB：%1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="510"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="512"/>
         <source>Possible evil or corrupt epub file name: %1</source>
         <translation>可能的邪惡或損壞的 epub 檔案名稱：%1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="541"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="550"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="570"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="578"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="543"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="552"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="572"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="580"/>
         <source>Cannot extract file: %1</source>
         <translation>無法展開檔案: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="591"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="593"/>
         <source>Cannot open EPUB: %1</source>
         <translation>無法開啟 EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="645"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="652"/>
         <source>Unable to parse container.xml file.
 Line: %1 Column %2 - %3</source>
         <translation>無法剖析 container.xml 檔。
 第 %1 行第 %2 欄 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="653"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="660"/>
         <source>This epub has multiple renditions (multiple OPF files). Editing this epub in Sigil will produce a normal single rendition epub using only the main (first) OPF file found.</source>
         <translation>這個 epub 有 multiple renditions（多個 OPF 檔案）。在 Sigil 編輯這個 epub 會只使用找到的主要（第一個） OPF 檔案產生一般的 single rendition epub。</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="657"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="664"/>
         <source>No appropriate OPF file found</source>
         <translation>找不到合適的 OPF 檔</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="710"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="675"/>
+        <source>near</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Importers/ImportEPUB.cpp" line="677"/>
+        <source>Will attempt auto repair.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Importers/ImportEPUB.cpp" line="678"/>
+        <source>Malformed OPF</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Importers/ImportEPUB.cpp" line="726"/>
         <source>Unable to read OPF file.
 Line: %1 Column %2 - %3</source>
         <translation>無法讀取 OPF 檔。
 第 %1 行第 %2 欄 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="844"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="860"/>
         <source>The OPF has an illegal Manifest entry for a file inside the META-INF folder for file &quot;%1&quot;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="845"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="861"/>
         <source>You should edit your OPF file to remove this entry.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="864"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="880"/>
         <source>The OPF manifest contains duplicate ids for: %1</source>
         <translation>OPF 清單包含以下項目的重覆 id： %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="865"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="881"/>
         <source>A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.</source>
         <translation>暫時指定一個 id 以便載入此 EPUB。您應該編輯您的 OPF 檔將重覆的 id 移除。</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="962"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="978"/>
         <source>The OPF file did not identify the NCX file correctly.</source>
         <translation>OPF 檔無法正確辨識 NCX 檔。</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="963"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="979"/>
         <source>Sigil has used the following file as the NCX:</source>
         <translation>Sigil 已使用以下的檔案作為NCX:</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="989"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="1005"/>
         <source>The OPF file does not contain an NCX file.</source>
         <translation>OPF 檔未包含 NCX 檔。</translation>
     </message>
@@ -19679,1247 +19715,1253 @@ Do you want to save your changes?</source>
         <translation>插入特殊字元</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="85"/>
-        <source>non-breaking space</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="86"/>
-        <source>en space</source>
-        <translation>en 空格</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="87"/>
-        <source>em space</source>
-        <translation>em 空格</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="88"/>
-        <source>thin space</source>
-        <translation>窄空格</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="89"/>
-        <source>soft hyphen</source>
-        <translation>軟連字符</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="90"/>
-        <source>narrow non-breaking space</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="94"/>
-        <source>left single quote</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="95"/>
-        <source>right single quote</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="96"/>
-        <source>left double quote</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="97"/>
-        <source>right double quote</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="98"/>
-        <source>left-pointing single angle quote</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="99"/>
-        <source>right-pointing single angle quote</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="100"/>
-        <source>left-pointing double angle quote</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="101"/>
-        <source>right-pointing double angle quote</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="102"/>
-        <source>apostrophe</source>
-        <translation>單引號</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="103"/>
-        <source>double quote</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="104"/>
-        <source>single low-9 quote</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="105"/>
-        <source>double low-9 quote</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="106"/>
-        <source>em dash</source>
-        <translation>em 連接號</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="107"/>
-        <source>en dash</source>
-        <translation>en 連接號</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="108"/>
-        <source>section sign</source>
-        <translation>分節符號</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="109"/>
-        <source>pilcrow - paragraph sign</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="110"/>
-        <source>dagger</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="111"/>
-        <source>double dagger</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="112"/>
-        <source>ampersand</source>
-        <translation>&amp; 號</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="113"/>
-        <source>less-than sign</source>
-        <translation>小於符號</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="114"/>
-        <source>greater-than sign</source>
-        <translation>大於符號</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="115"/>
-        <source>copyright</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="116"/>
-        <source>registered sign</source>
-        <translation>註冊符號</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="117"/>
-        <source>trademark symbol</source>
-        <translation>商標符號</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="118"/>
-        <source>left arrow</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="119"/>
-        <source>right arrow</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="120"/>
-        <source>bullet</source>
-        <translation>項目符號</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="121"/>
-        <source>middle dot</source>
-        <translation>間隔號</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="122"/>
-        <source>degree sign</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="123"/>
-        <source>plus minus sign</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="124"/>
-        <source>minus sign</source>
-        <translation>減號</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="125"/>
-        <source>multiplication sign</source>
-        <translation>乘號</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="126"/>
-        <source>division sign</source>
-        <translation>除號</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="127"/>
-        <source>fraction 1/4</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="128"/>
-        <source>fraction 1/2</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="129"/>
-        <source>fraction 3/4</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="130"/>
-        <source>fraction 1/3</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="131"/>
-        <source>fraction 2/3</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="132"/>
-        <source>fraction 1/8</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="133"/>
-        <source>fraction 3/8</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="134"/>
-        <source>fraction 5/8</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="135"/>
-        <source>fraction 7/8</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="136"/>
-        <source>horizontal ellipsis</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="137"/>
-        <source>micron</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="138"/>
-        <source>cent sign</source>
-        <translation>分符號</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="139"/>
-        <source>pound sign</source>
-        <translation>英鎊符號</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="140"/>
-        <source>euro sign</source>
-        <translation>歐元符號</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="141"/>
-        <source>inverted question mark</source>
-        <translation>倒置問號</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="142"/>
-        <source>inverted exclamation mark</source>
-        <translation>倒置驚嘆號</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="143"/>
-        <source>diaeresis</source>
-        <translation>分音符</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="144"/>
-        <source>acute accent</source>
-        <translation>尖音符</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="145"/>
-        <source>cedilla</source>
-        <translation>軟音符</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="146"/>
-        <source>circumflex accent</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="147"/>
-        <source>small tilde</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="148"/>
-        <source>capital A with grave</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="149"/>
-        <source>capital A with acute</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="150"/>
-        <source>capital A with circumflex</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="151"/>
-        <source>capital A with tilde</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="152"/>
-        <source>capital A with diaeresis</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="153"/>
-        <source>capital A with ring above</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="154"/>
-        <source>capital AE</source>
+        <source>Unable to read special_characters xml. 
+Line: %1 Column %2 - %3)</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="155"/>
-        <source>capital C with cedilla</source>
+        <source>non-breaking space</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="156"/>
-        <source>capital E with grave</source>
-        <translation type="unfinished"/>
+        <source>en space</source>
+        <translation>en 空格</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="157"/>
-        <source>capital E with acute</source>
-        <translation type="unfinished"/>
+        <source>em space</source>
+        <translation>em 空格</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="158"/>
-        <source>capital E with circumflex</source>
-        <translation type="unfinished"/>
+        <source>thin space</source>
+        <translation>窄空格</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="159"/>
-        <source>capital E with diaeresis</source>
-        <translation type="unfinished"/>
+        <source>soft hyphen</source>
+        <translation>軟連字符</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="160"/>
-        <source>capital I with grave</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="161"/>
-        <source>capital I with acute</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="162"/>
-        <source>capital I with circumflex</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="163"/>
-        <source>capital I with diaeresis</source>
+        <source>narrow non-breaking space</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="164"/>
-        <source>capital eth</source>
+        <source>left single quote</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="165"/>
-        <source>capital N with tilde</source>
+        <source>right single quote</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="166"/>
-        <source>capital O with grave</source>
+        <source>left double quote</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="167"/>
-        <source>capital O with acute</source>
+        <source>right double quote</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="168"/>
-        <source>capital O with circumflex</source>
+        <source>left-pointing single angle quote</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="169"/>
-        <source>capital O with tilde</source>
+        <source>right-pointing single angle quote</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="170"/>
-        <source>capital O with diaeresis</source>
+        <source>left-pointing double angle quote</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="171"/>
-        <source>capital O with stroke</source>
+        <source>right-pointing double angle quote</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="172"/>
-        <source>capital ligature OE</source>
-        <translation type="unfinished"/>
+        <source>apostrophe</source>
+        <translation>單引號</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="173"/>
-        <source>capital S with caron</source>
+        <source>double quote</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="174"/>
-        <source>capital U with grave</source>
+        <source>single low-9 quote</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="175"/>
-        <source>capital U with acute</source>
+        <source>double low-9 quote</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="176"/>
-        <source>capital U with circumflex</source>
-        <translation type="unfinished"/>
+        <source>em dash</source>
+        <translation>em 連接號</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="177"/>
-        <source>capital U with diaeresis</source>
-        <translation type="unfinished"/>
+        <source>en dash</source>
+        <translation>en 連接號</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="178"/>
-        <source>capital Y with acute</source>
-        <translation type="unfinished"/>
+        <source>section sign</source>
+        <translation>分節符號</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="179"/>
-        <source>capital Y with diaeresis</source>
+        <source>pilcrow - paragraph sign</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="180"/>
-        <source>capital THORN</source>
+        <source>dagger</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="181"/>
-        <source>small sharp s</source>
+        <source>double dagger</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="182"/>
-        <source>small a with grave</source>
-        <translation type="unfinished"/>
+        <source>ampersand</source>
+        <translation>&amp; 號</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="183"/>
-        <source>small a with acute</source>
-        <translation type="unfinished"/>
+        <source>less-than sign</source>
+        <translation>小於符號</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="184"/>
-        <source>small a with circumflex</source>
-        <translation type="unfinished"/>
+        <source>greater-than sign</source>
+        <translation>大於符號</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="185"/>
-        <source>small a with tilde</source>
+        <source>copyright</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="186"/>
-        <source>small a with diaeresis</source>
-        <translation type="unfinished"/>
+        <source>registered sign</source>
+        <translation>註冊符號</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="187"/>
-        <source>small a with ring above</source>
-        <translation type="unfinished"/>
+        <source>trademark symbol</source>
+        <translation>商標符號</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="188"/>
-        <source>small ae</source>
+        <source>left arrow</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="189"/>
-        <source>small c with cedilia</source>
+        <source>right arrow</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="190"/>
-        <source>small e with grave</source>
-        <translation type="unfinished"/>
+        <source>bullet</source>
+        <translation>項目符號</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="191"/>
-        <source>small e with acute</source>
-        <translation type="unfinished"/>
+        <source>middle dot</source>
+        <translation>間隔號</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="192"/>
-        <source>small e with circumflex</source>
+        <source>degree sign</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="193"/>
-        <source>small e with diaeresis</source>
+        <source>plus minus sign</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="194"/>
-        <source>small i with grave</source>
-        <translation type="unfinished"/>
+        <source>minus sign</source>
+        <translation>減號</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="195"/>
-        <source>small i with acute</source>
-        <translation type="unfinished"/>
+        <source>multiplication sign</source>
+        <translation>乘號</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="196"/>
-        <source>small i with circumflex</source>
-        <translation type="unfinished"/>
+        <source>division sign</source>
+        <translation>除號</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="197"/>
-        <source>small i with diaeresis</source>
+        <source>fraction 1/4</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="198"/>
-        <source>small eth</source>
+        <source>fraction 1/2</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="199"/>
-        <source>small n with tilde</source>
+        <source>fraction 3/4</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="200"/>
-        <source>small o with grave</source>
+        <source>fraction 1/3</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="201"/>
-        <source>small o with acute</source>
+        <source>fraction 2/3</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="202"/>
-        <source>small o with circumflex</source>
+        <source>fraction 1/8</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="203"/>
-        <source>small o with tilde</source>
+        <source>fraction 3/8</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="204"/>
-        <source>small o with diaeresis</source>
+        <source>fraction 5/8</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="205"/>
-        <source>small o with stroke</source>
+        <source>fraction 7/8</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="206"/>
-        <source>small ligature oe</source>
+        <source>horizontal ellipsis</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="207"/>
-        <source>small s with caron</source>
+        <source>micron</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="208"/>
-        <source>small u with grave</source>
-        <translation type="unfinished"/>
+        <source>cent sign</source>
+        <translation>分符號</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="209"/>
-        <source>small u with acute</source>
-        <translation type="unfinished"/>
+        <source>pound sign</source>
+        <translation>英鎊符號</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="210"/>
-        <source>small u with circumflex</source>
-        <translation type="unfinished"/>
+        <source>euro sign</source>
+        <translation>歐元符號</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="211"/>
-        <source>small u with diaeresis</source>
-        <translation type="unfinished"/>
+        <source>inverted question mark</source>
+        <translation>倒置問號</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="212"/>
-        <source>small y with acute</source>
-        <translation type="unfinished"/>
+        <source>inverted exclamation mark</source>
+        <translation>倒置驚嘆號</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="213"/>
-        <source>small y with diaeresis</source>
-        <translation type="unfinished"/>
+        <source>diaeresis</source>
+        <translation>分音符</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="214"/>
-        <source>small thorn</source>
-        <translation type="unfinished"/>
+        <source>acute accent</source>
+        <translation>尖音符</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="215"/>
-        <source>feminine ordinal indicator</source>
-        <translation type="unfinished"/>
+        <source>cedilla</source>
+        <translation>軟音符</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="216"/>
-        <source>masculine ordinal indicator</source>
+        <source>circumflex accent</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="217"/>
-        <source>infinity</source>
-        <translation>無窮</translation>
+        <source>small tilde</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="218"/>
+        <source>capital A with grave</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="219"/>
+        <source>capital A with acute</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="220"/>
+        <source>capital A with circumflex</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="221"/>
-        <source>Greek capital letter Alpha</source>
-        <translation>希臘大寫字母Alpha</translation>
+        <source>capital A with tilde</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="222"/>
-        <source>Greek lower letter alpha</source>
+        <source>capital A with diaeresis</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="223"/>
-        <source>Greek capital letter Beta</source>
-        <translation>希臘大寫字母Beta</translation>
+        <source>capital A with ring above</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="224"/>
-        <source>Greek lower letter beta</source>
+        <source>capital AE</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="225"/>
-        <source>Greek capital letter Chi</source>
-        <translation>希臘大寫字母Chi</translation>
+        <source>capital C with cedilla</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="226"/>
-        <source>Greek lower letter chi</source>
+        <source>capital E with grave</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="227"/>
-        <source>Greek capital letter Delta</source>
-        <translation>希臘大寫字母Delta</translation>
+        <source>capital E with acute</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="228"/>
-        <source>Greek lower letter delta</source>
+        <source>capital E with circumflex</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="229"/>
-        <source>Greek capital letter Epsilon</source>
-        <translation>希臘大寫字母Epsilon</translation>
+        <source>capital E with diaeresis</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="230"/>
-        <source>Greek lower letter epsilon</source>
+        <source>capital I with grave</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="231"/>
-        <source>Greek capital letter Eta</source>
-        <translation>希臘大寫字母Eta</translation>
+        <source>capital I with acute</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="232"/>
-        <source>Greek lower letter eta</source>
+        <source>capital I with circumflex</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="233"/>
-        <source>Greek capital letter Gamma</source>
-        <translation>希臘大寫字母Gamma</translation>
+        <source>capital I with diaeresis</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="234"/>
-        <source>Greek lower letter gamma</source>
+        <source>capital eth</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="235"/>
-        <source>Greek capital letter Iota</source>
-        <translation>希臘大寫字母lota</translation>
+        <source>capital N with tilde</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="236"/>
-        <source>Greek lower letter iota</source>
+        <source>capital O with grave</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="237"/>
-        <source>Greek capital letter Kappa</source>
-        <translation>希臘大寫字母Kappa</translation>
+        <source>capital O with acute</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="238"/>
-        <source>Greek lower letter kappa</source>
+        <source>capital O with circumflex</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="239"/>
-        <source>Greek capital letter Lambda</source>
-        <translation>希臘大寫字母Lambda</translation>
+        <source>capital O with tilde</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="240"/>
-        <source>Greek lower letter lambda</source>
+        <source>capital O with diaeresis</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="241"/>
-        <source>Greek capital letter Mu</source>
-        <translation>希臘大寫字母Mu</translation>
+        <source>capital O with stroke</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="242"/>
-        <source>Greek lower letter mu</source>
+        <source>capital ligature OE</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="243"/>
-        <source>Greek capital letter Nu</source>
-        <translation>希臘大寫字母Nu</translation>
+        <source>capital S with caron</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="244"/>
-        <source>Greek lower letter nu</source>
+        <source>capital U with grave</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="245"/>
-        <source>Greek capital letter Omega</source>
-        <translation>希臘大寫字母Omega</translation>
+        <source>capital U with acute</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="246"/>
-        <source>Greek lower letter omega</source>
+        <source>capital U with circumflex</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="247"/>
-        <source>Greek capital letter Omicron</source>
-        <translation>希臘大寫字母Omicron</translation>
+        <source>capital U with diaeresis</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="248"/>
-        <source>Greek lower letter omicron</source>
+        <source>capital Y with acute</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="249"/>
-        <source>Greek capital letter Phi</source>
-        <translation>希臘大寫字母Phi</translation>
+        <source>capital Y with diaeresis</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="250"/>
-        <source>Greek lower letter phi</source>
+        <source>capital THORN</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="251"/>
-        <source>Greek capital letter Pi</source>
-        <translation>希臘大寫字母Pi</translation>
+        <source>small sharp s</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="252"/>
-        <source>Greek lower letter pi</source>
+        <source>small a with grave</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="253"/>
-        <source>Greek double prime</source>
+        <source>small a with acute</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="254"/>
-        <source>Greek single prime</source>
+        <source>small a with circumflex</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="255"/>
-        <source>Greek capital letter Psi</source>
-        <translation>希臘大寫字母Psi</translation>
+        <source>small a with tilde</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="256"/>
-        <source>Greek lower letter psi</source>
+        <source>small a with diaeresis</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="257"/>
-        <source>Greek capital letter Rho</source>
-        <translation>希臘大寫字母Rho</translation>
+        <source>small a with ring above</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="258"/>
-        <source>Greek lower letter rho</source>
+        <source>small ae</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="259"/>
-        <source>Greek capital letter Sigma</source>
-        <translation>希臘大寫字母Sigma</translation>
+        <source>small c with cedilia</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="260"/>
-        <source>Greek lower letter sigma</source>
+        <source>small e with grave</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="261"/>
-        <source>Greek capital letter Tau</source>
-        <translation>希臘大寫字母Tau</translation>
+        <source>small e with acute</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="262"/>
-        <source>Greek lower letter tau</source>
+        <source>small e with circumflex</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="263"/>
-        <source>Greek capital letter Theta</source>
-        <translation>希臘大寫字母Theta</translation>
+        <source>small e with diaeresis</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="264"/>
-        <source>Greek lower letter theta</source>
+        <source>small i with grave</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="265"/>
-        <source>Greek capital letter Upsilon</source>
-        <translation>希臘大寫字母Upsilon</translation>
+        <source>small i with acute</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="266"/>
-        <source>Greek lower letter upsilon</source>
+        <source>small i with circumflex</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="267"/>
-        <source>Greek capital letter Xi</source>
-        <translation>希臘大寫字母Xi</translation>
+        <source>small i with diaeresis</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="268"/>
-        <source>Greek lower letter xi</source>
+        <source>small eth</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="269"/>
-        <source>Greek capital letter Zeta</source>
-        <translation>希臘大寫字母Zeta</translation>
+        <source>small n with tilde</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="270"/>
-        <source>Greek lower letter zeta</source>
+        <source>small o with grave</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="271"/>
+        <source>small o with acute</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="272"/>
+        <source>small o with circumflex</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="273"/>
+        <source>small o with tilde</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="274"/>
-        <source>alef symbol</source>
-        <translation>阿列夫符號</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="275"/>
-        <source>logical and</source>
-        <translation>邏輯與</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="276"/>
-        <source>logical or</source>
-        <translation>邏輯或</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="277"/>
-        <source>intersection</source>
-        <translation>交集</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="278"/>
-        <source>union</source>
-        <translation>集合</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="279"/>
-        <source>congruent to</source>
-        <translation>全等</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="280"/>
-        <source>downwards arrow with corner leftwards</source>
-        <translation>向下再向左箭頭</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="281"/>
-        <source>currency sign</source>
-        <translation>貨幣符號</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="282"/>
-        <source>downwards double arrow</source>
-        <translation>向下雙線箭頭</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="283"/>
-        <source>upwards double arrow</source>
-        <translation>向上雙線箭頭</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="284"/>
-        <source>downwards arrow</source>
-        <translation>向下箭頭</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="285"/>
-        <source>upwards arrow</source>
-        <translation>向上箭頭</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="286"/>
-        <source>empty set</source>
-        <translation>空集合</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="287"/>
-        <source>identical to</source>
-        <translation>相同</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="288"/>
-        <source>there exists</source>
-        <translation>存在量詞</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="289"/>
-        <source>Latin small letter f with hook</source>
-        <translation>有尾勾的小寫拉丁字母f</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="290"/>
-        <source>for all</source>
-        <translation>全稱量詞</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="291"/>
-        <source>fraction slash</source>
-        <translation>分數斜線</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="292"/>
-        <source>left right double arrow</source>
-        <translation>向左向右雙線箭頭</translation>
-    </message>
-    <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="293"/>
-        <source>left right single arrow</source>
+        <source>small o with diaeresis</source>
         <translation type="unfinished"/>
     </message>
     <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="275"/>
+        <source>small o with stroke</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="276"/>
+        <source>small ligature oe</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="277"/>
+        <source>small s with caron</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="278"/>
+        <source>small u with grave</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="279"/>
+        <source>small u with acute</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="280"/>
+        <source>small u with circumflex</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="281"/>
+        <source>small u with diaeresis</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="282"/>
+        <source>small y with acute</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="283"/>
+        <source>small y with diaeresis</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="284"/>
+        <source>small thorn</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="285"/>
+        <source>feminine ordinal indicator</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="286"/>
+        <source>masculine ordinal indicator</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="287"/>
+        <source>infinity</source>
+        <translation>無窮</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="291"/>
+        <source>Greek capital letter Alpha</source>
+        <translation>希臘大寫字母Alpha</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="292"/>
+        <source>Greek lower letter alpha</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="293"/>
+        <source>Greek capital letter Beta</source>
+        <translation>希臘大寫字母Beta</translation>
+    </message>
+    <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="294"/>
-        <source>black-letter capital I</source>
-        <translation>黑體大寫字母 I</translation>
+        <source>Greek lower letter beta</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="295"/>
-        <source>integral</source>
-        <translation>整數</translation>
+        <source>Greek capital letter Chi</source>
+        <translation>希臘大寫字母Chi</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="296"/>
-        <source>element of</source>
-        <translation>屬於</translation>
+        <source>Greek lower letter chi</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="297"/>
-        <source>leftwards double arrow</source>
-        <translation>向左雙線箭頭</translation>
+        <source>Greek capital letter Delta</source>
+        <translation>希臘大寫字母Delta</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="298"/>
-        <source>double right arrow</source>
+        <source>Greek lower letter delta</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../../Dialogs/SelectCharacter.cpp" line="299"/>
+        <source>Greek capital letter Epsilon</source>
+        <translation>希臘大寫字母Epsilon</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="300"/>
+        <source>Greek lower letter epsilon</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="301"/>
+        <source>Greek capital letter Eta</source>
+        <translation>希臘大寫字母Eta</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="302"/>
+        <source>Greek lower letter eta</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="303"/>
+        <source>Greek capital letter Gamma</source>
+        <translation>希臘大寫字母Gamma</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="304"/>
+        <source>Greek lower letter gamma</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="305"/>
+        <source>Greek capital letter Iota</source>
+        <translation>希臘大寫字母lota</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="306"/>
+        <source>Greek lower letter iota</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="307"/>
+        <source>Greek capital letter Kappa</source>
+        <translation>希臘大寫字母Kappa</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="308"/>
+        <source>Greek lower letter kappa</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="309"/>
+        <source>Greek capital letter Lambda</source>
+        <translation>希臘大寫字母Lambda</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="310"/>
+        <source>Greek lower letter lambda</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="311"/>
+        <source>Greek capital letter Mu</source>
+        <translation>希臘大寫字母Mu</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="312"/>
+        <source>Greek lower letter mu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="313"/>
+        <source>Greek capital letter Nu</source>
+        <translation>希臘大寫字母Nu</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="314"/>
+        <source>Greek lower letter nu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="315"/>
+        <source>Greek capital letter Omega</source>
+        <translation>希臘大寫字母Omega</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="316"/>
+        <source>Greek lower letter omega</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="317"/>
+        <source>Greek capital letter Omicron</source>
+        <translation>希臘大寫字母Omicron</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="318"/>
+        <source>Greek lower letter omicron</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="319"/>
+        <source>Greek capital letter Phi</source>
+        <translation>希臘大寫字母Phi</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="320"/>
+        <source>Greek lower letter phi</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="321"/>
+        <source>Greek capital letter Pi</source>
+        <translation>希臘大寫字母Pi</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="322"/>
+        <source>Greek lower letter pi</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="323"/>
+        <source>Greek double prime</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="324"/>
+        <source>Greek single prime</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="325"/>
+        <source>Greek capital letter Psi</source>
+        <translation>希臘大寫字母Psi</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="326"/>
+        <source>Greek lower letter psi</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="327"/>
+        <source>Greek capital letter Rho</source>
+        <translation>希臘大寫字母Rho</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="328"/>
+        <source>Greek lower letter rho</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="329"/>
+        <source>Greek capital letter Sigma</source>
+        <translation>希臘大寫字母Sigma</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="330"/>
+        <source>Greek lower letter sigma</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="331"/>
+        <source>Greek capital letter Tau</source>
+        <translation>希臘大寫字母Tau</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="332"/>
+        <source>Greek lower letter tau</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="333"/>
+        <source>Greek capital letter Theta</source>
+        <translation>希臘大寫字母Theta</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="334"/>
+        <source>Greek lower letter theta</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="335"/>
+        <source>Greek capital letter Upsilon</source>
+        <translation>希臘大寫字母Upsilon</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="336"/>
+        <source>Greek lower letter upsilon</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="337"/>
+        <source>Greek capital letter Xi</source>
+        <translation>希臘大寫字母Xi</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="338"/>
+        <source>Greek lower letter xi</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="339"/>
+        <source>Greek capital letter Zeta</source>
+        <translation>希臘大寫字母Zeta</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="340"/>
+        <source>Greek lower letter zeta</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="344"/>
+        <source>alef symbol</source>
+        <translation>阿列夫符號</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="345"/>
+        <source>logical and</source>
+        <translation>邏輯與</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="346"/>
+        <source>logical or</source>
+        <translation>邏輯或</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="347"/>
+        <source>intersection</source>
+        <translation>交集</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="348"/>
+        <source>union</source>
+        <translation>集合</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="349"/>
+        <source>congruent to</source>
+        <translation>全等</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="350"/>
+        <source>downwards arrow with corner leftwards</source>
+        <translation>向下再向左箭頭</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="351"/>
+        <source>currency sign</source>
+        <translation>貨幣符號</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="352"/>
+        <source>downwards double arrow</source>
+        <translation>向下雙線箭頭</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="353"/>
+        <source>upwards double arrow</source>
+        <translation>向上雙線箭頭</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="354"/>
+        <source>downwards arrow</source>
+        <translation>向下箭頭</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="355"/>
+        <source>upwards arrow</source>
+        <translation>向上箭頭</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="356"/>
+        <source>empty set</source>
+        <translation>空集合</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="357"/>
+        <source>identical to</source>
+        <translation>相同</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="358"/>
+        <source>there exists</source>
+        <translation>存在量詞</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="359"/>
+        <source>Latin small letter f with hook</source>
+        <translation>有尾勾的小寫拉丁字母f</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="360"/>
+        <source>for all</source>
+        <translation>全稱量詞</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="361"/>
+        <source>fraction slash</source>
+        <translation>分數斜線</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="362"/>
+        <source>left right double arrow</source>
+        <translation>向左向右雙線箭頭</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="363"/>
+        <source>left right single arrow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="364"/>
+        <source>black-letter capital I</source>
+        <translation>黑體大寫字母 I</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="365"/>
+        <source>integral</source>
+        <translation>整數</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="366"/>
+        <source>element of</source>
+        <translation>屬於</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="367"/>
+        <source>leftwards double arrow</source>
+        <translation>向左雙線箭頭</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="368"/>
+        <source>double right arrow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="369"/>
         <source>left-pointing angle bracket</source>
         <translation>左角括號</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="300"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="370"/>
         <source>right-pointing angle bracket</source>
         <translation>右角括號</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="301"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="371"/>
         <source>left ceiling</source>
         <translation>左取頂高斯符號</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="302"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="372"/>
         <source>right ceiling</source>
         <translation>右取頂高斯符號</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="303"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="373"/>
         <source>less-than or equal to</source>
         <translation>小於或等於</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="304"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="374"/>
         <source>greater-than or equal to</source>
         <translation>大於或等於</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="305"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="375"/>
         <source>left floor</source>
         <translation>左取底高斯符號</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="306"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="376"/>
         <source>right floor</source>
         <translation>右取底高斯符號</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="307"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="377"/>
         <source>asterisk operator</source>
         <translation>星號運算子</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="308"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="378"/>
         <source>lozenge</source>
         <translation>菱形</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="309"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="379"/>
         <source>macron</source>
         <translation>長音符號</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="310"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="380"/>
         <source>nabla</source>
         <translation>向量微分算子</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="311"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="381"/>
         <source>not equal to</source>
         <translation>不等於</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="312"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="382"/>
         <source>contains as member</source>
         <translation>包含成員</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="313"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="383"/>
         <source>not sign</source>
         <translation>非符號</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="314"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="384"/>
         <source>not an element of</source>
         <translation>不屬於</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="315"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="385"/>
         <source>not a subset of</source>
         <translation>非子集</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="316"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="386"/>
         <source>overline</source>
         <translation>上劃線</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="317"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="387"/>
         <source>circled plus</source>
         <translation>圓圈加號</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="318"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="388"/>
         <source>circled times</source>
         <translation>圓圈乘號</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="319"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="389"/>
         <source>partial differential</source>
         <translation>偏微分符號</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="320"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="390"/>
         <source>per mille sign</source>
         <translation>千分比符號</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="321"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="391"/>
         <source>up tack</source>
         <translation>正交符號</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="322"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="392"/>
         <source>Greek pi symbol</source>
         <translation>希臘pi符號</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="323"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="393"/>
         <source>n-ary product</source>
         <translation>連乘符號</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="324"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="394"/>
         <source>proportional to</source>
         <translation>正比</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="325"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="395"/>
         <source>square root</source>
         <translation>平方根</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="326"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="396"/>
         <source>black-letter capital R</source>
         <translation>黑體字母大寫 R</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="327"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="397"/>
         <source>dot operator</source>
         <translation>點運算子</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="328"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="398"/>
         <source>Greek small letter final sigma</source>
         <translation>希臘小寫字母結束sigma</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="329"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="399"/>
         <source>tilde operator</source>
         <translation>波浪號運算符</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="330"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="400"/>
         <source>subset of</source>
         <translation>子集</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="331"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="401"/>
         <source>superset of</source>
         <translation>超集</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="332"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="402"/>
         <source>subset of or equal to</source>
         <translation>子集或等於</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="333"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="403"/>
         <source>superset of or equal to</source>
         <translation>超集或等於</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="334"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="404"/>
         <source>n-ary summation</source>
         <translation>求和符號</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="335"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="405"/>
         <source>superscript one</source>
         <translation>上標 1</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="336"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="406"/>
         <source>superscript two</source>
         <translation>上標 2</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="337"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="407"/>
         <source>superscript three</source>
         <translation>上標 3</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="338"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="408"/>
         <source>therefore sign</source>
         <translation>所以符號</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="339"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="409"/>
         <source>Greek theta symbol</source>
         <translation>希臘 theta 符號</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="340"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="410"/>
         <source>Greek Upsilon with hook symbol</source>
         <translation>希臘有鉤的Upsilon符號</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="341"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="411"/>
         <source>script capital P</source>
         <translation>手寫大寫 P</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="342"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="412"/>
         <source>yen sign</source>
         <translation>日元／人民幣符號</translation>
     </message>

@@ -52,37 +52,37 @@
         <translation>Autoři</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="42"/>
+        <location filename="../../Dialogs/About.cpp" line="43"/>
         <source>GNU General Public License v3</source>
         <translation>GNU General Public License v3</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="52"/>
+        <location filename="../../Dialogs/About.cpp" line="53"/>
         <source>Developers(s)</source>
         <translation>Vývojář(i)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="57"/>
+        <location filename="../../Dialogs/About.cpp" line="58"/>
         <source>Previous Developer(s)</source>
         <translation>Předchozí vývojář(i)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="61"/>
+        <location filename="../../Dialogs/About.cpp" line="62"/>
         <source>Code Contributors</source>
         <translation>Přispěvatelé kódu</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="70"/>
+        <location filename="../../Dialogs/About.cpp" line="71"/>
         <source>Translators</source>
         <translation>Překladatelé</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="72"/>
+        <location filename="../../Dialogs/About.cpp" line="73"/>
         <source>Original Creator</source>
         <translation>Původní tvůrce</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/About.cpp" line="73"/>
+        <location filename="../../Dialogs/About.cpp" line="74"/>
         <source>retired</source>
         <translation>již na projektu nepracuje</translation>
     </message>
@@ -219,8 +219,8 @@
     </message>
     <message>
         <location filename="../../Form_Files/AdjustImage.ui" line="98"/>
-        <source>Crop image.</source>
-        <translation>Oříznout obrázek.</translation>
+        <source>Crop image Mode: Use Enter to Crop to selection and Escape to abort crop</source>
+        <translation>Režim oříznutí obrázku: Klávesou Enter ořízněte obrázek podle výběru, klávesou Escape oříznutí zrušte</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AdjustImage.ui" line="107"/>
@@ -283,76 +283,85 @@
         <translation>Zvětšit obrázek na celou obrazovku.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="99"/>
-        <location filename="../../Widgets/AdjustImage.cpp" line="107"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="115"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="123"/>
         <source>Adjust Image</source>
         <translation>Upravit obrázek</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="108"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="124"/>
         <source>Cannot load %1.</source>
         <translation>Nelze nahrát %1.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="177"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="193"/>
         <source>shades</source>
         <translation>Odstíny</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="177"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="193"/>
         <source>colors</source>
         <translation>Barvy</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="178"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="194"/>
         <source>Grayscale</source>
         <translation>Stupnice šedi</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="178"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="194"/>
         <source>Color</source>
         <translation>Barva</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="338"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="222"/>
+        <source>Crop Mode: Enter to Crop, Escape to Abort</source>
+        <translation>Režim oříznutí: klávesou Enter provedete oříznutí, klávesou Escape činnost zrušíte</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="227"/>
+        <source>Exiting Crop Mode</source>
+        <translation>Ukončení režimu oříznutí</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="351"/>
         <source>(x,y) coordinates:</source>
         <translation>souřadnice (x, y):</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="338"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="351"/>
         <source>Zoom</source>
         <translation>Přiblížení</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="408"/>
-        <location filename="../../Widgets/AdjustImage.cpp" line="437"/>
-        <source>Image successfully saved.</source>
-        <translation>Obrázek byl úspěšně uložen.</translation>
+        <location filename="../../Widgets/AdjustImage.cpp" line="422"/>
+        <source>Image format is not supported for write and can not be saved. Save aborted.</source>
+        <translation>Tento formát obrázku není podporován pro zápis a nelze jej uložit. Uložení bylo zrušeno.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="410"/>
-        <source>Image save failed.</source>
-        <translation>Obrázek se nepodařilo uložit.</translation>
-    </message>
-    <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="421"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="453"/>
         <source>Image Quality</source>
         <translation>Kvalita obrázku</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="422"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="454"/>
         <source>Enter quality level (0-100):</source>
         <translation>Zadejte úroveň kvality (0–100):</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="424"/>
-        <source>Image save failed. </source>
-        <translation>Obrázek se nepodařilo uložit. </translation>
+        <location filename="../../Widgets/AdjustImage.cpp" line="456"/>
+        <source>Image save aborted, as quality unavailable.</source>
+        <translation>Uložení obrázku bylo zrušeno, protože není dostupná kvalita.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="441"/>
-        <source>Image save failed: </source>
-        <translation>Obrázek se nepodařilo uložit: </translation>
+        <location filename="../../Widgets/AdjustImage.cpp" line="470"/>
+        <source>Image successfully saved.</source>
+        <translation>Obrázek byl úspěšně uložen.</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="475"/>
+        <source>Image save failed. Add Existing backup of image for safety.</source>
+        <translation>Uložení obrazu se nezdařilo. Pro jistotu přidejte stávající zálohu obrázku.</translation>
     </message>
 </context>
 <context>
@@ -1055,7 +1064,7 @@ pokud je ve vašem CSS stanovena rodina bezpatkového písma</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="176"/>
         <source>A section of supplemental information located after the primary content that informs the content but is not central to it.</source>
-        <translation> Část doplňujících informací, která se nachází za hlavním obsahem, doplňuje jej, ale není pro něj stěžejní.</translation>
+        <translation>Část doplňujících informací, která se nachází za hlavním obsahem, doplňuje jej, ale není pro něj stěžejní.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="177"/>
@@ -1065,7 +1074,7 @@ pokud je ve vašem CSS stanovena rodina bezpatkového písma</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="177"/>
         <source>A link that allows the user to return to a related location in the content (e.g., from a footnote to its references or from a glossary definition to where a term is used.)</source>
-        <translation>Odkaz umožňující uživateli vrátit se na související místo v obsahu (např. z poznámky pod čarou k odkazům ma ní nebo z definice v glosáři na místo, kde je termín použit).</translation>
+        <translation>Odkaz umožňující uživateli vrátit se na související místo v obsahu (např. z poznámky pod čarou k odkazům na ní nebo z vymezení ve slovníčku na místo, kde je pojem použit).</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="178"/>
@@ -1075,7 +1084,7 @@ pokud je ve vašem CSS stanovena rodina bezpatkového písma</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="178"/>
         <source>A list of external references cited in the work, which may be to print or digital sources.</source>
-        <translation>Seznam externích zdrojů citovaných v díle, které mohou odkazovat na tištěné i digitální zdroje.</translation>
+        <translation>Seznam vnějších zdrojů citovaných v díle, které mohou odkazovat na tištěné i digitální zdroje.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="179"/>
@@ -1085,7 +1094,7 @@ pokud je ve vašem CSS stanovena rodina bezpatkového písma</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="179"/>
         <source>A single reference to an external source in a bibliography. [epub:type ONLY]</source>
-        <translation>Jednotlivý odkaz na externí zdroj v seznamu literatury. [pouze epub:type]</translation>
+        <translation>Jednotlivý odkaz na vnější zdroj v seznamu literatury. [pouze epub:type]</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="180"/>
@@ -1135,7 +1144,7 @@ pokud je ve vašem CSS stanovena rodina bezpatkového písma</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="184"/>
         <source>An image that sets the mood or tone for the work and typically includes the title and author.</source>
-        <translation>Obraz, který navozuje náladu nebo tón díla a typicky obsahuje název a autora.</translation>
+        <translation>Obraz, který navozuje náladu nebo tón díla a obvykle obsahuje název a autora.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="185"/>
@@ -1145,7 +1154,7 @@ pokud je ve vašem CSS stanovena rodina bezpatkového písma</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="185"/>
         <source>An acknowledgement of the source of integrated content from third-party sources, such as photos.  Typically identifies the creator, copyright, and any restrictions on reuse.</source>
-        <translation>Uznání zdroje obsahu převzatého od třetích stran, jako jsou například fotografie. Typicky uvádí tvůrce, autorská práva a případná omezení pro další použití.</translation>
+        <translation>Uznání zdroje obsahu převzatého od třetích stran, jako jsou například fotografie. Obvykle uvádí tvůrce, autorská práva a případná omezení pro další použití.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="186"/>
@@ -1175,7 +1184,7 @@ pokud je ve vašem CSS stanovena rodina bezpatkového písma</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="188"/>
         <source>One of a collection of notes that occur at the end of a work, or a section within it that provides additional context to a referenced passage of text. [epub:type ONLY]</source>
-        <translation>Jedna ze souboru poznámek, které se nacházejí na konci díla nebo jeho části a poskytují další kontext k odkazované pasáži textu. [pouze epub:type]</translation>
+        <translation>Jedna ze souboru poznámek, které se nacházejí na konci díla nebo jeho části a poskytují další souvislost k odkazované pasáži textu. [pouze epub:type]</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="189"/>
@@ -1195,7 +1204,7 @@ pokud je ve vašem CSS stanovena rodina bezpatkového písma</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="190"/>
         <source>A quotation set at the start of the work or a section that establishes the theme or sets the mood.</source>
-        <translation>Citát umístěný na začátku díla nebo části, který nastoluje téma nebo navozuje náladu.</translation>
+        <translation>Citát umístěný na začátku díla nebo části, který nastoluje hlavní myšlenku nebo navozuje náladu.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="191"/>
@@ -1205,7 +1214,7 @@ pokud je ve vašem CSS stanovena rodina bezpatkového písma</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="191"/>
         <source>A concluding section of narrative that wraps up or comments on the actions and events of the work, typically from a future perspective.</source>
-        <translation>Závěrečná část vyprávění, která uzavírá nebo komentuje děj a události díla, typicky z budoucí perspektivy.</translation>
+        <translation>Závěrečná část vyprávění, která uzavírá nebo se vyjadřuje k ději a událostem díla, obvykle z budoucí perspektivy.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="192"/>
@@ -1215,7 +1224,7 @@ pokud je ve vašem CSS stanovena rodina bezpatkového písma</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="192"/>
         <source>A set of corrections discovered after initial publication of the work, sometimes referred to as corrigenda.</source>
-        <translation>Soubor oprav objevených po prvním vydání díla, někdy označovaný jako corrigenda.</translation>
+        <translation>Soubor oprav objevených po prvním vydání díla, někdy označovaný jako opravenka (corrigenda).</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="193"/>
@@ -1225,7 +1234,7 @@ pokud je ve vašem CSS stanovena rodina bezpatkového písma</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="193"/>
         <source>An illustration of a key concept of the work, such as a code listing, case study or problem. [aria role ONLY]</source>
-        <translation>Ilustrace klíčového konceptu díla, jako je ukázka kódu, případová studie nebo problém. [pouze aria role]</translation>
+        <translation>Názorný příklad klíčového pojetí díla, jako je ukázka kódu, případová studie nebo problém. [pouze aria role]</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="194"/>
@@ -1235,7 +1244,7 @@ pokud je ve vašem CSS stanovena rodina bezpatkového písma</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="194"/>
         <source>Ancillary information, such as a citation or commentary, that provides additional context to a referenced passage of text.</source>
-        <translation>Doplňující informace, jako je citace nebo komentář, které poskytují další kontext k odkazované pasáži textu.</translation>
+        <translation>Doplňující informace, jako je citace nebo výklad, které poskytují další souvislost k odkazované pasáži textu.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="195"/>
@@ -1265,17 +1274,17 @@ pokud je ve vašem CSS stanovena rodina bezpatkového písma</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="197"/>
         <source>A brief dictionary of new, uncommon, or specialized terms used in the content.</source>
-        <translation>Stručný slovník nových, neobvyklých nebo odborných termínů použitých v obsahu.</translation>
+        <translation>Stručný slovník nových, neobvyklých nebo odborných pojmů použitých v obsahu.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="198"/>
         <source>Glossary Reference</source>
-        <translation>Odkaz na glosář</translation>
+        <translation>Odkaz na slovníček</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="198"/>
         <source>A reference to a glossary definition.</source>
-        <translation>Odkaz na definici v glosáři.</translation>
+        <translation>Odkaz na vymezení ve slovníčku.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="199"/>
@@ -1315,7 +1324,7 @@ pokud je ve vašem CSS stanovena rodina bezpatkového písma</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="202"/>
         <source>Notifies the user of consequences that might arise from an action or event.  Examples include warnings, cautions and dangers.</source>
-        <translation>Upozorňuje uživatele na následky, které mohou vyplynout z akce nebo události. Příklady zahrnují varování, upozornění a nebezpečí.</translation>
+        <translation>Upozorňuje uživatele na následky, které mohou vyplynout z jednání nebo události. Příklady zahrnují varování, upozornění a nebezpečí.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="203"/>
@@ -1325,7 +1334,7 @@ pokud je ve vašem CSS stanovena rodina bezpatkového písma</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="203"/>
         <source>A separator denoting the position before which a break occurs between contiguous pages in a statically paginated version of the content.</source>
-        <translation>Oddělovač označující pozici, před níž dochází k zalomení mezi sousedními stránkami ve staticky stránkované verzi obsahu.</translation>
+        <translation>Oddělovač označující místo, před nímž dochází k zalomení mezi sousedními stránkami ve staticky stránkované verzi obsahu.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="204"/>
@@ -1335,7 +1344,7 @@ pokud je ve vašem CSS stanovena rodina bezpatkového písma</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="204"/>
         <source>A section of text appearing at the bottom of a page that provides context about the current work and location within it. The page footer is distinct from the body text and normally follows a repeating template that contains (possibly truncated) items such as the document title, current section, author name(s), and page number.</source>
-        <translation>Část textu zobrazená v dolní části stránky, která poskytuje kontext o aktuálním díle a poloze v něm. Zápatí stránky je odlišné od hlavního textu a obvykle používá opakující se šablonu obsahující (případně zkrácené) položky, jako je název dokumentu, aktuální oddíl, jméno autora a číslo stránky.</translation>
+        <translation>Část textu zobrazená v dolní části stránky, která poskytuje souvislost o nynějším díle a poloze v něm. Zápatí stránky je odlišné od hlavního textu a obvykle používá opakující se šablonu obsahující (případně zkrácené) položky, jako je název dokumentu, současný oddíl, jméno autora a číslo stránky.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="205"/>
@@ -1345,7 +1354,7 @@ pokud je ve vašem CSS stanovena rodina bezpatkového písma</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="205"/>
         <source>A section of text appearing at the top of a page that provides context about the current work and location within it. The page header is distinct from the body text and normally follows a repeating template that contains (possibly truncated) items such as the document title, current section, author name(s), and page number.</source>
-        <translation>Část textu zobrazená v horní části stránky, která poskytuje kontext o aktuálním díle a poloze v něm. Záhlaví stránky je odlišné od hlavního textu a obvykle používá opakující se šablonu obsahující (případně zkrácené) položky, jako je název dokumentu, aktuální oddíl, jméno autora a číslo stránky.</translation>
+        <translation>Část textu zobrazená v horní části stránky, která poskytuje souvislost o nynějším díle a poloze v něm. Záhlaví stránky je odlišné od hlavního textu a obvykle používá opakující se šablonu obsahující (případně zkrácené) položky, jako je název dokumentu, současný oddíl, jméno autora a číslo stránky.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="206"/>
@@ -1365,7 +1374,7 @@ pokud je ve vašem CSS stanovena rodina bezpatkového písma</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="207"/>
         <source>A major structural division in a work that contains a set of related sections dealing with a particular subject, narrative arc, or similar encapsulated theme.</source>
-        <translation>Hlavní strukturní část díla, která obsahuje sadu souvisejících oddílů zabývajících se určitým tématem, dějovým obloukem nebo podobně uceleným námětem.</translation>
+        <translation>Hlavní stavební část díla, která obsahuje sadu souvisejících oddílů zabývajících se určitým předmětem, dějovým obloukem nebo podobně uceleným námětem.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="208"/>
@@ -1405,7 +1414,7 @@ pokud je ve vašem CSS stanovena rodina bezpatkového písma</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="211"/>
         <source>A distinctively placed or highlighted quotation from the current content designed to draw attention to a topic or highlight a key point.</source>
-        <translation>Výrazně umístěný nebo zvýrazněný citát z aktuálního obsahu určený k upoutání pozornosti na téma nebo ke zdůraznění klíčové myšlenky.</translation>
+        <translation>Výrazně umístěný nebo zvýrazněný citát ze současného obsahu určený k upoutání pozornosti na téma nebo ke zdůraznění klíčové myšlenky.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="212"/>
@@ -1425,7 +1434,7 @@ pokud je ve vašem CSS stanovena rodina bezpatkového písma</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="213"/>
         <source>An explanatory or alternate title for the work, or a section or components within it.</source>
-        <translation>Vysvětlující nebo alternativní název díla, nebo oddílu či součásti v něm.</translation>
+        <translation>Vysvětlující nebo náhradní název díla, nebo oddílu či součásti v něm.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="214"/>
@@ -1435,7 +1444,7 @@ pokud je ve vašem CSS stanovena rodina bezpatkového písma</translation>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="214"/>
         <source>Helpful information that clarifies some aspect of the content or assists in comprehension.</source>
-        <translation>Užitečné informace, které objasňují některý aspekt obsahu nebo usnadňují jeho pochopení.</translation>
+        <translation>Užitečné informace, které objasňují některou stránku obsahu nebo usnadňují jeho pochopení.</translation>
     </message>
     <message>
         <location filename="../../Misc/AriaRoles.cpp" line="215"/>
@@ -1702,9 +1711,21 @@ pokud je ve vašem CSS stanovena rodina bezpatkového písma</translation>
 <context>
     <name>Book</name>
     <message>
-        <location filename="../../BookManipulation/Book.cpp" line="430"/>
+        <location filename="../../BookManipulation/Book.cpp" line="431"/>
         <source>Start</source>
         <translation>Začátek</translation>
+    </message>
+    <message>
+        <location filename="../../BookManipulation/Book.cpp" line="1696"/>
+        <location filename="../../BookManipulation/Book.cpp" line="1740"/>
+        <source>Sigil</source>
+        <translation>Sigil</translation>
+    </message>
+    <message>
+        <location filename="../../BookManipulation/Book.cpp" line="1697"/>
+        <location filename="../../BookManipulation/Book.cpp" line="1741"/>
+        <source>PrettyPrint cancelled: %1, XML not well formed.</source>
+        <translation>PrettyPrint zrušeno: %1, XML není správně utvořeno.</translation>
     </message>
 </context>
 <context>
@@ -1799,7 +1820,7 @@ Nahradit jej?</translation>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="971"/>
         <source>Overwrite of image &quot;%1&quot; failed.</source>
-        <translation type="unfinished"/>
+        <translation>Přepsání obrázku „%1“ se nezdařilo.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="977"/>
@@ -4849,17 +4870,17 @@ opraven.</translation>
         <translation>Rozlišení DPI při tisku:</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="226"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="234"/>
         <source>Incorrect Path for External Xhtml Editor selected</source>
         <translation>Je vybrána nesprávná cesta pro externí editor XHTML</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="243"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="251"/>
         <source>Select Folder for Temporary Files</source>
         <translation>Vybrat složku pro dočasné soubory</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="260"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="268"/>
         <source>Incorrect Folder for Temporary Files selected</source>
         <translation>Vybrána nesprávná složka pro dočasné soubory</translation>
     </message>
@@ -5529,17 +5550,17 @@ Pak můžete označit nebo zrušit označení jednotlivých nadpisů v seznamu v
     <message>
         <location filename="../../Dialogs/ImageResizeDialog.cpp" line="14"/>
         <source>Width:</source>
-        <translation type="unfinished"/>
+        <translation>Šířka:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ImageResizeDialog.cpp" line="23"/>
         <source>Height:</source>
-        <translation type="unfinished"/>
+        <translation>Výška:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ImageResizeDialog.cpp" line="31"/>
         <source>Keep Aspect Ratio</source>
-        <translation type="unfinished"/>
+        <translation>Zachovat poměr stran</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ImageResizeDialog.cpp" line="37"/>
@@ -5627,7 +5648,7 @@ Pak můžete označit nebo zrušit označení jednotlivých nadpisů v seznamu v
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="380"/>
         <source>Redo Change</source>
-        <translation>Znovu provést změnu</translation>
+        <translation>Provést změnu znovu</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="381"/>
@@ -5650,22 +5671,22 @@ Pak můžete označit nebo zrušit označení jednotlivých nadpisů v seznamu v
         <translation>Změnit velikost obrázku</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="567"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="572"/>
         <source>shades</source>
         <translation>Odstíny</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="567"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="572"/>
         <source>colors</source>
         <translation>Barvy</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="568"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="573"/>
         <source>Grayscale</source>
         <translation>Stupnice šedi</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="568"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="573"/>
         <source>Color</source>
         <translation>Barva</translation>
     </message>
@@ -5698,20 +5719,20 @@ Pak můžete označit nebo zrušit označení jednotlivých nadpisů v seznamu v
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="156"/>
         <source>Files exist in epub that are not listed in the manifest, they will be ignored.</source>
-        <translation>V ePubu existují soubory, které nejsou uvedeny v manifestu, budou ignorovány.</translation>
+        <translation>V EPUBu existují soubory, které nejsou uvedeny v manifestu, budou ignorovány.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="206"/>
         <source>This EPUB had HTML files that were not well formed or are missing a DOCTYPE, html, head or body elements.&lt;br/&gt;&lt;br&gt;They were automatically fixed based on your Preference setting to Clean on Open.</source>
-        <translation>Tento ePub obsahoval HTML soubory, které nebyly správně utvořené nebo postrádaly DOCTYPE, html, head nebo body elementy.&lt;br/&gt;&lt;br&gt;Byly automaticky opraveny na základě vašeho nastavení Vyčistit při otevření.</translation>
+        <translation>Tento EPUB obsahoval HTML soubory, které nebyly správně utvořené nebo postrádaly DOCTYPE, html, head nebo body elementy.&lt;br/&gt;&lt;br&gt;Byly automaticky opraveny na základě vašeho nastavení Vyčistit při otevření.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="212"/>
         <source>This EPUB has HTML files that are not well formed or are missing a DOCTYPE, html, head or body elements.&lt;br/&gt;&lt;/br&gt;Fix these manually or use Sigil&apos;s Mend tool to automatically fixed these errors or omissions.</source>
-        <translation>Tento ePub obsahuje HTML soubory, které nejsou správně utvořené nebo postrádají DOCTYPE, html, head nebo body elementy.&lt;br/&gt;&lt;/br&gt;Opravte je ručně nebo použijte nástroj Sigil Opravit k automatické opravě těchto chyb či nedostatků.</translation>
+        <translation>Tento EPUB obsahuje HTML soubory, které nejsou správně utvořené nebo postrádají DOCTYPE, html, head nebo body elementy.&lt;br/&gt;&lt;/br&gt;Opravte je ručně nebo použijte nástroj Sigilu pro opravy k automatické opravě těchto chyb či nedostatků.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="613"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="615"/>
         <source>Epub has missing or improperly specified OPF.</source>
         <translation>EPUB má chybějící nebo nesprávně stanovené OPF.</translation>
     </message>
@@ -6384,7 +6405,7 @@ Chcete uložit své změny?</translation>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="191"/>
         <source>A major structural division of a piece of writing, typically encapsulating a set of related chapters.</source>
-        <translation>Hlavní strukturní oddíl textu, obvykle zahrnující sadu souvisejících kapitol.</translation>
+        <translation>Hlavní stavební oddíl textu, obvykle zahrnující sadu souvisejících kapitol.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="192"/>
@@ -6434,7 +6455,7 @@ Chcete uložit své změny?</translation>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="196"/>
         <source>A collection of notes appearing at the rear (backmatter) of the work, or at the end of a section. Status: Deprecated</source>
-        <translation>Soubor poznámek vyskytujících se na konci (zadní části) díla nebo na konci sekce. Stav: Zastaralé</translation>
+        <translation>Soubor poznámek vyskytujících se na konci (zadní části) díla nebo na konci oddílu. Stav: Zastaralé</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="197"/>
@@ -6494,7 +6515,7 @@ Chcete uložit své změny?</translation>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="202"/>
         <source>A warning or caution about specific material. Status: Deprecated - Replaced by &apos;notice&apos;.</source>
-        <translation>Varování nebo výstraha týkající se konkrétního materiálu. Stav: Zastaralé – nahrazeno výrazem „notice“.</translation>
+        <translation>Varování nebo výstraha týkající se určitého pramene. Stav: Zastaralé – nahrazeno výrazem „notice“.</translation>
     </message>
 </context>
 <context>
@@ -9475,7 +9496,7 @@ slovníku pro ověření pravopisu.</translation>
         <source>Move the selected javascripts up in priority.
 
 Javascripts that are listed first are loaded first.</source>
-        <translation>Zvýšit prioritu vybraných skriptů JavaScript. Javascripty uvedené na prvním místě se načítají jako první.</translation>
+        <translation>Zvýšit přednost vybraných skriptů JavaScript. Javascripty uvedené na prvním místě se načítají jako první.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkJavascripts.ui" line="51"/>
@@ -9485,7 +9506,7 @@ Javascripts that are listed first are loaded first.</source>
     <message>
         <location filename="../../Form_Files/LinkJavascripts.ui" line="64"/>
         <source>Move the selected javascripts down in priority.</source>
-        <translation>Snížit prioritu vybraných skriptů JavaScript.</translation>
+        <translation>Snížit přednost vybraných skriptů JavaScript.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/LinkJavascripts.ui" line="67"/>
@@ -9706,7 +9727,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="126"/>
         <source>&amp;Insert</source>
-        <translation>&amp;Vložka</translation>
+        <translation>&amp;Vložení</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="130"/>
@@ -9716,7 +9737,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="165"/>
         <source>Cli&amp;p2</source>
-        <translation>Klip&amp;p2</translation>
+        <translation>Úry&amp;vek2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="215"/>
@@ -9771,7 +9792,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="350"/>
         <source>Spe&amp;llcheck</source>
-        <translation>Ověření &amp;pravopisu</translation>
+        <translation>Ověřit &amp;pravopis</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="364"/>
@@ -9791,7 +9812,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="416"/>
         <source>&amp;Plugins</source>
-        <translation>&amp;Zásuvné moduly</translation>
+        <translation>&amp;Přídavné moduly</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="422"/>
@@ -9817,7 +9838,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="483"/>
         <source>Add Existing</source>
-        <translation>Přidat existující</translation>
+        <translation>Přidat stávající</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="496"/>
@@ -9853,7 +9874,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="584"/>
         <source>Insert</source>
-        <translation>Vložka</translation>
+        <translation>Vložení</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="603"/>
@@ -9873,12 +9894,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="643"/>
         <source>Plugins Set 1</source>
-        <translation>Sada zásuvných modulů 1</translation>
+        <translation>Sada přídavných modulů 1</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="659"/>
         <source>Plugins Set 2</source>
-        <translation>Sada zásuvných modulů 2</translation>
+        <translation>Sada přídavných modulů 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="675"/>
@@ -9938,7 +9959,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="853"/>
         <source>Clip Bar2</source>
-        <translation>Lišta klipů 2</translation>
+        <translation>Panel úryvků 2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="899"/>
@@ -9961,27 +9982,27 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="917"/>
         <source>ePub&amp;2</source>
-        <translation>ePub&amp;2</translation>
+        <translation>EPUB&amp;2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="920"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New ePub2&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new ePub2 book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Nový ePub2&lt;/b&gt;&lt;/p&gt;
-&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Vytvořit novou knihu ve formátu ePub2.&lt;/p&gt;</translation>
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Nový EPUB2&lt;/b&gt;&lt;/p&gt;
+&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Vytvořit novou knihu ve formátu EPUB2.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="932"/>
         <source>ePub&amp;3</source>
-        <translation>ePub&amp;3</translation>
+        <translation>EPUB&amp;3</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="935"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;New ePub3&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Create a new ePub3 book.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Nový ePub3&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Nový EPUB3&lt;/b&gt;&lt;/p&gt;
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Vytvořit novou knihu ve formátu ePub3.&lt;/p&gt;</translation>
     </message>
     <message>
@@ -10436,14 +10457,14 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="1378"/>
         <source>Aria Clip...</source>
-        <translation>Aria klip...</translation>
+        <translation>Aria úryvek...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1381"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Insert Aria Clip&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Insert a Aria code clip.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Vložit Aria klip&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Vložit Aria úryvek&lt;/b&gt;&lt;/p&gt;
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Vložit Aria úryvek kódu.&lt;/p&gt;</translation>
     </message>
     <message>
@@ -10587,12 +10608,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="1542"/>
         <source>Restructure Epub to Sigil Norm</source>
-        <translation>Převést Epub na normu Sigil</translation>
+        <translation>Převést EPUB na normu Sigil</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1545"/>
         <source>Restructure Epub to Sigil Standard Form</source>
-        <translation>Převést Epub na standardní formu Sigil</translation>
+        <translation>Převést EPUB na standardní formu Sigil</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1550"/>
@@ -10607,12 +10628,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="1558"/>
         <source>Rebase OPF Manifest IDs on Current Filenames</source>
-        <translation>Aktualizovat ID v manifestu OPF podle aktuálních názvů souborů</translation>
+        <translation>Aktualizovat ID v manifestu OPF podle nynějších názvů souborů</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1561"/>
         <source>Updates each Manifest ID to reflect its current file name</source>
-        <translation>Aktualizuje každé ID v manifestu, aby odpovídalo aktuálnímu názvu souboru</translation>
+        <translation>Aktualizuje každé ID v manifestu, aby odpovídalo nynějšímu názvu souboru</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1570"/>
@@ -10782,14 +10803,14 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="1717"/>
         <source>Remove Tag Pair</source>
-        <translation>Odebrat pár tagů</translation>
+        <translation>Odebrat dvojici značek</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1720"/>
         <source>
      &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Remove Open and Close Tag Pair.&lt;/p&gt;
     </source>
-        <translation>&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Odebrat pár otevíracího a uzavíracího tagu.&lt;/p&gt;
+        <translation>&lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Odebrat dvojici otevírací a uzavírací značky.&lt;/p&gt;
     </translation>
     </message>
     <message>
@@ -11098,7 +11119,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="1979"/>
         <source>Delete &amp;Unused Stylesheet Selectors...</source>
-        <translation>Odstranit &amp;nepoužité selektory stylů...</translation>
+        <translation>Odstranit &amp;nepoužité voliče stylů...</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1984"/>
@@ -11228,7 +11249,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="2089"/>
         <source>Restart Current Search</source>
-        <translation>Restartovat aktuální hledání</translation>
+        <translation>Restartovat nynější hledání</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2094"/>
@@ -11533,402 +11554,402 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="2336"/>
         <source>Clip 21</source>
-        <translation>Klip 21</translation>
+        <translation>Úryvek 21</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2339"/>
         <source>Insert Clip 21</source>
-        <translation>Vložit klip 21</translation>
+        <translation>Vložit úryvek 21</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2344"/>
         <source>Clip 22</source>
-        <translation>Klip 22</translation>
+        <translation>Úryvek 22</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2347"/>
         <source>Insert Clip 22</source>
-        <translation>Vložit klip 22</translation>
+        <translation>Vložit úryvek 22</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2352"/>
         <source>Clip 23</source>
-        <translation>Klip 23</translation>
+        <translation>Úryvek 23</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2355"/>
         <source>Insert Clip 23</source>
-        <translation>Vložit klip 23</translation>
+        <translation>Vložit úryvek 23</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2360"/>
         <source>Clip 24</source>
-        <translation>Klip 24</translation>
+        <translation>Úryvek 24</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2363"/>
         <source>Insert Clip 24</source>
-        <translation>Vložit klip 24</translation>
+        <translation>Vložit úryvek 24</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2368"/>
         <source>Clip 25</source>
-        <translation>Klip 25</translation>
+        <translation>Úryvek 25</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2371"/>
         <source>Insert Clip 25</source>
-        <translation>Vložit klip 25</translation>
+        <translation>Vložit úryvek 25</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2376"/>
         <source>Clip 26</source>
-        <translation>Klip 26</translation>
+        <translation>Úryvek 26</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2379"/>
         <source>Insert Clip 26</source>
-        <translation>Vložit klip 26</translation>
+        <translation>Vložit úryvek 26</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2384"/>
         <source>Clip 27</source>
-        <translation>Klip 27</translation>
+        <translation>Úryvek 27</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2387"/>
         <source>Insert Clip 27</source>
-        <translation>Vložit klip 27</translation>
+        <translation>Vložit úryvek 27</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2392"/>
         <source>Clip 28</source>
-        <translation>Klip 28</translation>
+        <translation>Úryvek 28</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2395"/>
         <source>Insert Clip 28</source>
-        <translation>Vložit klip 28</translation>
+        <translation>Vložit úryvek 28</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2400"/>
         <source>Clip 29</source>
-        <translation>Klip 29</translation>
+        <translation>Úryvek 29</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2403"/>
         <source>Insert Clip 29</source>
-        <translation>Vložit klip 29</translation>
+        <translation>Vložit úryvek 29</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2408"/>
         <source>Clip 30</source>
-        <translation>Klip 30</translation>
+        <translation>Úryvek 30</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2411"/>
         <source>Insert Clip 30</source>
-        <translation>Vložit klip 30</translation>
+        <translation>Vložit úryvek 30</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2416"/>
         <source>Clip 31</source>
-        <translation>Klip 31</translation>
+        <translation>Úryvek 31</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2419"/>
         <source>Insert Clip 31</source>
-        <translation>Vložit klip 31</translation>
+        <translation>Vložit úryvek 31</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2424"/>
         <source>Clip 32</source>
-        <translation>Klip 32</translation>
+        <translation>Úryvek 32</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2427"/>
         <source>Insert Clip 32</source>
-        <translation>Vložit klip 32</translation>
+        <translation>Vložit úryvek 32</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2432"/>
         <source>Clip 33</source>
-        <translation>Klip 33</translation>
+        <translation>Úryvek 33</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2435"/>
         <source>Insert Clip 33</source>
-        <translation>Vložit klip 33</translation>
+        <translation>Vložit úryvek 33</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2440"/>
         <source>Clip 34</source>
-        <translation>Klip 34</translation>
+        <translation>Úryvek 34</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2443"/>
         <source>Insert Clip 34</source>
-        <translation>Vložit klip 34</translation>
+        <translation>Vložit úryvek 34</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2448"/>
         <source>Clip 35</source>
-        <translation>Klip 35</translation>
+        <translation>Úryvek 35</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2451"/>
         <source>Insert Clip 35</source>
-        <translation>Vložit klip 35</translation>
+        <translation>Vložit úryvek 35</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2456"/>
         <source>Clip 36</source>
-        <translation>Klip 36</translation>
+        <translation>Úryvek 36</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2459"/>
         <source>Insert Clip 36</source>
-        <translation>Vložit klip 36</translation>
+        <translation>Vložit úryvek 36</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2464"/>
         <source>Clip 37</source>
-        <translation>Klip 37</translation>
+        <translation>Úryvek 37</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2467"/>
         <source>Insert Clip 37</source>
-        <translation>Vložit klip 37</translation>
+        <translation>Vložit úryvek 37</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2472"/>
         <source>Clip 38</source>
-        <translation>Klip 38</translation>
+        <translation>Úryvek 38</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2475"/>
         <source>Insert Clip 38</source>
-        <translation>Vložit klip 38</translation>
+        <translation>Vložit úryvek 38</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2480"/>
         <source>Clip 39</source>
-        <translation>Klip 39</translation>
+        <translation>Úryvek 39</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2483"/>
         <source>Insert Clip 39</source>
-        <translation>Vložit klip 39</translation>
+        <translation>Vložit úryvek 39</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2488"/>
         <source>Clip 40</source>
-        <translation>Klip 40</translation>
+        <translation>Úryvek 40</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2491"/>
         <source>Insert Clip 40</source>
-        <translation>Vložit klip 40</translation>
+        <translation>Vložit úryvek 40</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2496"/>
         <source>Clip 41</source>
-        <translation>Klip 41</translation>
+        <translation>Úryvek 41</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2499"/>
         <source>Insert Clip 41</source>
-        <translation>Vložit klip 41</translation>
+        <translation>Vložit úryvek 41</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2504"/>
         <source>Clip 42</source>
-        <translation>Klip 42</translation>
+        <translation>Úryvek 42</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2507"/>
         <source>Insert Clip 42</source>
-        <translation>Vložit klip 42</translation>
+        <translation>Vložit úryvek 42</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2512"/>
         <source>Clip 43</source>
-        <translation>Klip 43</translation>
+        <translation>Úryvek 43</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2515"/>
         <source>Insert Clip 43</source>
-        <translation>Vložit klip 43</translation>
+        <translation>Vložit úryvek 43</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2520"/>
         <source>Clip 44</source>
-        <translation>Klip 44</translation>
+        <translation>Úryvek 44</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2523"/>
         <source>Insert Clip 44</source>
-        <translation>Vložit klip 44</translation>
+        <translation>Vložit úryvek 44</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2528"/>
         <source>Clip 45</source>
-        <translation>Klip 45</translation>
+        <translation>Úryvek 45</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2531"/>
         <source>Insert Clip 45</source>
-        <translation>Vložit klip 45</translation>
+        <translation>Vložit úryvek 45</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2536"/>
         <source>Clip 46</source>
-        <translation>Klip 46</translation>
+        <translation>Úryvek 46</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2539"/>
         <source>Insert Clip 46</source>
-        <translation>Vložit klip 46</translation>
+        <translation>Vložit úryvek 46</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2544"/>
         <source>Clip 47</source>
-        <translation>Klip 47</translation>
+        <translation>Úryvek 47</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2547"/>
         <source>Insert Clip 47</source>
-        <translation>Vložit klip 47</translation>
+        <translation>Vložit úryvek 47</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2552"/>
         <source>Clip 48</source>
-        <translation>Klip 48</translation>
+        <translation>Úryvek 48</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2555"/>
         <source>Insert Clip 48</source>
-        <translation>Vložit klip 48</translation>
+        <translation>Vložit úryvek 48</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2560"/>
         <source>Clip 49</source>
-        <translation>Klip 49</translation>
+        <translation>Úryvek 49</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2563"/>
         <source>Insert Clip 49</source>
-        <translation>Vložit klip 49</translation>
+        <translation>Vložit úryvek 49</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2568"/>
         <source>Clip 50</source>
-        <translation>Klip 50</translation>
+        <translation>Úryvek 50</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2571"/>
         <source>Insert Clip 50</source>
-        <translation>Vložit klip 50</translation>
+        <translation>Vložit úryvek 50</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2576"/>
         <source>Clip 51</source>
-        <translation>Klip 51</translation>
+        <translation>Úryvek 51</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2579"/>
         <source>Insert Clip 51</source>
-        <translation>Vložit klip 51</translation>
+        <translation>Vložit úryvek 51</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2584"/>
         <source>Clip 52</source>
-        <translation>Klip 52</translation>
+        <translation>Úryvek 52</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2587"/>
         <source>Insert Clip 52</source>
-        <translation>Vložit klip 52</translation>
+        <translation>Vložit úryvek 52</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2592"/>
         <source>Clip 53</source>
-        <translation>Klip 53</translation>
+        <translation>Úryvek 53</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2595"/>
         <source>Insert Clip 53</source>
-        <translation>Vložit klip 53</translation>
+        <translation>Vložit úryvek 53</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2600"/>
         <source>Clip 54</source>
-        <translation>Klip 54</translation>
+        <translation>Úryvek 54</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2603"/>
         <source>Insert Clip 54</source>
-        <translation>Vložit klip 54</translation>
+        <translation>Vložit úryvek 54</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2608"/>
         <source>Clip 55</source>
-        <translation>Klip 55</translation>
+        <translation>Úryvek 55</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2611"/>
         <source>Insert Clip 55</source>
-        <translation>Vložit klip 55</translation>
+        <translation>Vložit úryvek 55</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2616"/>
         <source>Clip 56</source>
-        <translation>Klip 56</translation>
+        <translation>Úryvek 56</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2619"/>
         <source>Insert Clip 56</source>
-        <translation>Vložit klip 56</translation>
+        <translation>Vložit úryvek 56</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2624"/>
         <source>Clip 57</source>
-        <translation>Klip 57</translation>
+        <translation>Úryvek 57</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2627"/>
         <source>Insert Clip 57</source>
-        <translation>Vložit klip 57</translation>
+        <translation>Vložit úryvek 57</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2632"/>
         <source>Clip 58</source>
-        <translation>Klip 58</translation>
+        <translation>Úryvek 58</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2635"/>
         <source>Insert Clip 58</source>
-        <translation>Vložit klip 58</translation>
+        <translation>Vložit úryvek 58</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2640"/>
         <source>Clip 59</source>
-        <translation>Klip 59</translation>
+        <translation>Úryvek 59</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2643"/>
         <source>Insert Clip 59</source>
-        <translation>Vložit klip 59</translation>
+        <translation>Vložit úryvek 59</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2648"/>
         <source>Clip 60</source>
-        <translation>Klip 60</translation>
+        <translation>Úryvek 60</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2651"/>
         <source>Insert Clip 60</source>
-        <translation>Vložit klip 60</translation>
+        <translation>Vložit úryvek 60</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="2659"/>
@@ -12396,12 +12417,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="3162"/>
         <source>Generate &amp;NCX/Guide for epub2 e-readers</source>
-        <translation>Generovat &amp;NCX/Guide pro čtečky epub2</translation>
+        <translation>Generovat &amp;NCX/Guide pro čtečky EPUB2</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3167"/>
         <source>Create a Custom Empty Epub</source>
-        <translation>Vytvořit vlastní prázdný ePub</translation>
+        <translation>Vytvořit vlastní prázdný EPUB</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3172"/>
@@ -12426,17 +12447,17 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="3196"/>
         <source>Create Checkpoint for Epub</source>
-        <translation>Vytvořit kontrolní bod pro ePub</translation>
+        <translation>Vytvořit kontrolní bod pro EPUB</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3205"/>
         <source>Restore Epub from previous Checkpoint</source>
-        <translation>Obnovit ePub z předchozího kontrolního bodu</translation>
+        <translation>Obnovit EPUB z předchozího kontrolního bodu</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3214"/>
         <source>Compare Epub against Previous Checkpoint</source>
-        <translation>Porovnat ePub s předchozím kontrolním bodem</translation>
+        <translation>Porovnat EPUB s předchozím kontrolním bodem</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="3223"/>
@@ -12476,7 +12497,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../Form_Files/main.ui" line="3258"/>
         <source>Focus on Clips Window</source>
-        <translation>Zaměřit na okno výstřižků</translation>
+        <translation>Zaměřit na okno úryvků</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="333"/>
@@ -12496,7 +12517,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="442"/>
         <source>skipped since not an epub3</source>
-        <translation>přeskočeno, protože nejde o epub3</translation>
+        <translation>přeskočeno, protože nejde o EPUB3</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="467"/>
@@ -12538,7 +12559,7 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="535"/>
         <source>Validation tool found errors - Abort or Ignore?</source>
-        <translation>Ověřovací nástroj nalezl chyby – přerušit, nebo ignorovat?</translation>
+        <translation>Ověřovací nástroj nalezl chyby – přerušit, nebo přehlížet?</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="544"/>
@@ -12548,12 +12569,12 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="547"/>
         <source>Ignored Validation Errors</source>
-        <translation>Chyby ověření ignorovány</translation>
+        <translation>Chyby ověření přehlíženy</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="550"/>
         <source>Validation Tool Reported No Problems Found</source>
-        <translation>Ověřovací nástroj nehlásil žádné problémy</translation>
+        <translation>Ověřovací nástroj nehlásil žádné potíže</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="557"/>
@@ -12603,41 +12624,41 @@ Stylové listy, které jsou uvedeny jako první, mají přednost před pozdějš
         <location filename="../../MainUI/MainWindow.cpp" line="2105"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2347"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2512"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3087"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3183"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3239"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3097"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3193"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3249"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3273"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3287"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3393"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3409"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3414"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3427"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3446"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3460"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3475"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3479"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3495"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3508"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3513"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3525"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3259"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3283"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3297"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3403"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3419"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3424"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3437"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3456"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3470"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3485"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3489"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3505"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3518"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3523"/>
         <location filename="../../MainUI/MainWindow.cpp" line="3535"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3540"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3742"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3749"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3765"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3824"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3856"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4055"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5263"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5304"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5310"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5316"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5545"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5565"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5621"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5885"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6091"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3545"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3550"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3752"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3759"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3775"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3834"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3866"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4065"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5273"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5314"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5320"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5326"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5555"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5575"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5631"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5895"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6101"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -12658,17 +12679,17 @@ Tento krok nelze vrátit zpět.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="882"/>
         <location filename="../../MainUI/MainWindow.cpp" line="884"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5619"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5621"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6089"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6091"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5629"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5631"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6099"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6101"/>
         <source>%1[*] - epub%2 - %3</source>
         <translation>%1[*] - epub%2 - %3</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="882"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="5619"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6089"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5629"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6099"/>
         <source>Sigil [std]</source>
         <translation>Sigil [std]</translation>
     </message>
@@ -12725,12 +12746,12 @@ Tento krok nelze vrátit zpět.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1194"/>
         <source>Epub Generate from Tag Failed.</source>
-        <translation>Generování Epubu z tagu selhalo.</translation>
+        <translation>Vytváření EPUBu ze značky selhalo.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1199"/>
         <source>Epub Generation succeeded</source>
-        <translation>Generování Epubu proběhlo úspěšně</translation>
+        <translation>Vytváření EPUBu proběhlo úspěšně</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1213"/>
@@ -12740,7 +12761,7 @@ Tento krok nelze vrátit zpět.</translation>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1214"/>
         <source>Your current book will be replaced losing any unsaved changes ... Are you sure you want to proceed?</source>
-        <translation>Vaše aktuální kniha bude nahrazena a přijdete o všechny neuložené změny ... Opravdu chcete pokračovat?</translation>
+        <translation>Vaše nynější kniha bude nahrazena a přijdete o všechny neuložené změny ... Opravdu chcete pokračovat?</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1238"/>
@@ -12991,7 +13012,7 @@ Tento krok nelze vrátit zpět.</translation>
         <location filename="../../MainUI/MainWindow.cpp" line="2718"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2738"/>
         <location filename="../../MainUI/MainWindow.cpp" line="2761"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2793"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2796"/>
         <source>Not Available for epub2.</source>
         <translation>Nedostupné pro EPUB 2.</translation>
     </message>
@@ -13016,330 +13037,330 @@ Tento krok nelze vrátit zpět.</translation>
         <translation>Nav přidán do OPF Spine.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2783"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2786"/>
         <source>NCX and Guide removed.</source>
         <translation>NCX a Guide odstraněny.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2810"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="2843"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2813"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2846"/>
         <source>NCX and Guide generation failed.</source>
-        <translation>Generování NCX a Guide se nezdařilo.</translation>
+        <translation>Vytváření NCX a Guide se nezdařilo.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2879"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2889"/>
         <source>NCX and Guide generated.</source>
-        <translation>NCX a Guide vygenerovány.</translation>
+        <translation>NCX a Guide vytvořeny.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="2976"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="2986"/>
         <source>An existing Index file has been found.</source>
         <translation>Byl nalezen existující soubor rejstříku.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3068"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3078"/>
         <source>Styles deleted.</source>
         <translation>Styly smazány.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3076"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3086"/>
         <source>Reports Being Generated.</source>
-        <translation>Sestavy se generují.</translation>
+        <translation>Sestavy se vytváří.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3087"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3097"/>
         <source>Reports cancelled due to XML not well formed.</source>
         <translation>Zprávy zrušeny kvůli nedobře utvořenému XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3183"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3193"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
         <translation>Smazání nepoužívaných multimediálních souborů zrušeno kvůli nedobře utvořenému XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3233"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3243"/>
         <source>Unused media files deleted.</source>
         <translation>Nepoužívané multimediální soubory smazány.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3236"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3239"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3246"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3249"/>
         <source>There are no unused image, video or audio files to delete.</source>
         <translation>Nejsou žádné nepoužívané obrázky, obrazové nebo zvukové záznamy ke smazání.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3249"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3259"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
         <translation>Smazání nepoužívaných stylů zrušeno kvůli nedobře utvořenému XML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3271"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3273"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3281"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3283"/>
         <source>There are no unused stylesheet selectors to delete.</source>
-        <translation>Nejsou žádné nepoužité selektory stylů ke smazání.</translation>
+        <translation>Nejsou žádné nepoužité voliče stylů ke smazání.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3287"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3297"/>
         <source>You cannot insert a file at this position.</source>
         <translation>Nemůžete vložit soubor v této poloze.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3294"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3304"/>
         <source>Insert File</source>
         <translation>Vložit soubor</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3347"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3357"/>
         <source>The file &quot;%1&quot; does not exist.</source>
         <translation>Soubor &quot;%1&quot; neexistuje.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3393"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3414"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3403"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3424"/>
         <source>You cannot insert an id at this position.</source>
         <translation>Nemůžete vložit ID v této poloze.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3409"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3419"/>
         <source>ID is invalid - must start with a letter, followed by letter number _ : - or .</source>
         <translation>ID je neplatné - musí začínat písmenem, následováno číslem písmene _ : - nebo .</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3427"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3437"/>
         <source>You can only insert an aria clips in xhtml files.</source>
-        <translation>Aria klipy lze vkládat pouze do souborů xhtml.</translation>
+        <translation>Aria úryvky lze vkládat pouze do souborů xhtml.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3446"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3456"/>
         <source>Inserting an aria clip failed.</source>
-        <translation>Vložení aria klipu se nezdařilo.</translation>
+        <translation>Vložení aria úryvku se nezdařilo.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3460"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3479"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3470"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3489"/>
         <source>You cannot insert an aria role at this position.</source>
-        <translation>Na této pozici nelze vložit aria roli.</translation>
+        <translation>V této poloze nelze vložit aria roli.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3475"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3485"/>
         <source>The selected role cannot be used on this tag.</source>
-        <translation>Vybranou roli nelze použít na tomto tagu.</translation>
+        <translation>Vybranou roli nelze použít na této značce.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3495"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3513"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3505"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3523"/>
         <source>You cannot insert a link at this position.</source>
         <translation>Nemůžete vložit odkaz v této poloze.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3508"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3518"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Odkaz je neplatný - nemůže obsahovat &apos;&lt;&apos; nebo &apos;&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3525"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3535"/>
         <source>You cannot mark an index at this position or without selecting text.</source>
         <translation>Nemůžete označit rejstřík v této poloze nebo bez vybrání textu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3535"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3545"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
         <translation>Položka je neplatná - nemůže obsahovat &apos;&lt;&apos; nebo &apos;&gt;&apos;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3540"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3550"/>
         <source>You cannot mark an index at this position.</source>
         <translation>Nemůžete označit rejstřík v této poloze.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3651"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3663"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="3682"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3661"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3673"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3692"/>
         <source>Select the destination to paste into first.</source>
         <translation>Vyberte cíl, do kterého vkládat nejprve.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3671"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3681"/>
         <source>Pasted clip entry %1.</source>
         <translation>Vložena položka úryvku %1.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3742"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3752"/>
         <source>One resource selected and there is no previous resource to merge into.</source>
         <translation>Jeden zdroj byl vybrán, ale není tu předchozí zdroj, se kterým by se sloučil.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3750"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3760"/>
         <source>Are you sure you want to merge the selected files?
 This action cannot be reversed.</source>
         <translation>Jste si jistý, že chcete sloučit vybrané soubory?
 Tento krok nelze vrátit zpět.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3765"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3775"/>
         <source>Merge cancelled: XHTML files involved in merge are not well formed.</source>
         <translation>Sloučení zrušeno: XHTML soubory zahrnuté ve sloučení nejsou správně utvořené.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3824"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3834"/>
         <source>Cannot merge file %1</source>
         <translation>Nelze sloučit soubor %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3838"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3848"/>
         <source>Merge completed. You may need to regenerate or edit your Table Of Contents.</source>
         <translation>Sloučení dokončeno. Možná bude potřeba vytvořit obsah znovu nebo jej upravit.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3856"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3866"/>
         <source>Link Stylesheets cancelled: %1, XML not well formed.</source>
         <translation>Odkazování stylových listů zrušeno: %1, XML není dobře utvořen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="3986"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="3996"/>
         <source>Word updated.</source>
         <translation>Slovo aktualizováno.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4055"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4065"/>
         <source>Link Javascripts cancelled: %1, XML not well formed.</source>
         <translation>Propojení Javascriptů zrušeno: %1, XML není správně utvořené.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4165"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4175"/>
         <source>File(s) deleted.</source>
         <translation>Soubor(y) smazán.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4176"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4186"/>
         <source>Edit Table of Contents cancelled.</source>
         <translation>Upravení obsahu zrušeno.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4181"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4191"/>
         <source>Table Of Contents edited.</source>
         <translation>Obsah upraven.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4199"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4209"/>
         <source>Generate TOC cancelled.</source>
         <translation>Vytvoření obsahu zrušeno.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4224"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4234"/>
         <source>Table Of Contents generated.</source>
         <translation>Obsah vytvořen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4226"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4236"/>
         <source>No Table Of Contents changes were necessary.</source>
         <translation>Nebyly nutné žádné změny obsahu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4304"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4314"/>
         <source>An existing HTML Table of Contents file has been found.</source>
         <translation>Byl nalezen existující soubor HTML obsahu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4389"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4399"/>
         <source>Text selection marked.</source>
         <translation>Výběr textu označen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4391"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="4409"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4401"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4419"/>
         <source>Text selection unmarked.</source>
         <translation>Výběr textu odznačen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4458"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4468"/>
         <source>Metadata Editor cancelled.</source>
         <translation>Editor popisu zrušen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4461"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4471"/>
         <source>Metadata edited.</source>
         <translation>Popisná data upravena.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4581"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4591"/>
         <source>RunPlugin</source>
         <translation>Spustit přídavný modul</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4594"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4604"/>
         <source>RunAutomate</source>
         <translation>RunAutomate</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4620"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4630"/>
         <source>This EPUB does not contain any CSS stylesheets to validate.</source>
         <translation>Tento EPUB neobsahuje žádné stylové listy ke schválení.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="4651"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="4661"/>
         <source>This EPUB does not contain any CSS stylesheets to reformat.</source>
         <translation>Tento EPUB neobsahuje žádné CSS styly k přeformátování.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5176"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5186"/>
         <source>%1%2 - Line: %3, Col: %4</source>
         <translation>%1%2 - Řádek: %3, Sloupec: %4</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5263"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5273"/>
         <source>File cannot be split at this position.</source>
         <translation>Soubor nelze v tomto místě rozdělit.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5286"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5296"/>
         <source>Split completed.</source>
         <translation>Rozdělení dokončeno.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5304"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5314"/>
         <source>Cannot split since at least one file is not an HTML file.</source>
         <translation>Nelze rozdělit, protože alespoň jeden soubor není souborem HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5310"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5320"/>
         <source>Cannot split: %1 XML is not well formed</source>
         <translation>Nelze rozdělit: %1 XML není dobře utvořen</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5316"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5326"/>
         <source>Cannot split since at least one file may not be an HTML file.</source>
         <translation>Nelze rozdělit, protože alespoň jeden soubor nemusí být souborem HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5349"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5359"/>
         <source>Split completed. You may need to update the Table of Contents.</source>
         <translation>Rozdělení dokončeno. Možná bude potřeba obnovit obsah.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5351"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5361"/>
         <source>No split file markers found. Use Insert-&gt;Split Marker.</source>
-        <translation>Nenalezeny žádné značky pro rozdělení souboru. Použijte Vložka-&gt;Značka pro rozdělení.</translation>
+        <translation>Nenalezeny žádné značky pro rozdělení souboru. Použijte Vložení → Značka pro rozdělení.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5546"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5556"/>
         <source>The document has been modified.
 Do you want to save your changes?</source>
         <translation>Dokument byl změněn.
 Chcete uložit své změny?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5567"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5577"/>
         <source>Should Sigil overwrite this file?</source>
         <translation>Má Sigil přepsat tento soubor?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5761"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5771"/>
         <source>No importer for file type: %1</source>
         <translation>Žádný zavaděč pro souborový typ: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5768"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5778"/>
         <source>The following file was not loaded due to invalid content or not well formed XML:
 
 %1 (line %2: %3)
@@ -13352,44 +13373,44 @@ Try setting the Clean Source preference to Mend XHTML Source Code on Open and re
 Pokuste se nastavit nastavení pro uklizení zdroje na Spravit zdrojový kód XHTML při otevření a soubor nahrát znovu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5773"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5783"/>
         <source>Loading file...</source>
         <translation>Nahrává se soubor...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5787"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5797"/>
         <source>File loaded.</source>
         <translation>Soubor nahrán.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5813"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5823"/>
         <source>The creator of this file has encrypted it with DRM. Sigil cannot open such files.</source>
         <translation>Tvůrce tohoto souboru jej zašifroval DRM. Sigil takové soubory otevřít nedokáže.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5821"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5831"/>
         <source>Cannot load EPUB: %1</source>
         <translation>Nelze nahrát EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5826"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5836"/>
         <source>Cannot load file %1: %2</source>
         <translation>Nelze nahrát soubor %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5853"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5863"/>
         <source>Saving EPUB...</source>
         <translation>Ukládá se EPUB...</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5862"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5872"/>
         <source>Sigil cannot save files of type &quot;%1&quot;.
 Please choose a different format.</source>
         <translation>Sigil nedokáže ukládat soubory typu &quot;%1&quot;.
 Vyberte, prosím, jiný formát.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5886"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5896"/>
         <source>This EPUB has HTML files that are not well formed and your current Clean Source preferences are set to mend on Save.
 
 Do you want to automatically mend the files before saving? Or cancel the Save?</source>
@@ -13397,96 +13418,96 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
 Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5891"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5901"/>
         <source>Saving EPUB... cancelled</source>
         <translation>Ukládání EPUB... zrušeno</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5917"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5927"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
         <translation>EPUB uložen, ale ne všechny soubory HTML jsou utvořeny dobře.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5919"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5929"/>
         <source>EPUB saved.</source>
         <translation>EPUB uložen.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="5925"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="5935"/>
         <source>Cannot save file %1: %2</source>
         <translation>Nelze uložit soubor %1: %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6058"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6068"/>
         <source>EPUB files (*.epub)</source>
         <translation>Soubory EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6059"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6060"/>
-        <location filename="../../MainUI/MainWindow.cpp" line="6061"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6069"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6070"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6071"/>
         <source>HTML files (*.htm *.html *.xhtml)</source>
         <translation>Soubory HTML (*.htm *.html *.xhtml)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6062"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6072"/>
         <source>Text files (*.txt)</source>
         <translation>Textové soubory (*.txt)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6063"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6073"/>
         <source>All files (*.*)</source>
         <translation>Všechny soubory (*.*)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6071"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6081"/>
         <source>EPUB file (*.epub)</source>
         <translation>Soubor EPUB (*.epub)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6175"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6185"/>
         <source>Preserve existing heading attributes is now:</source>
         <translation>Zachování stávajících vlastností nadpisů je nyní:</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6176"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6186"/>
         <source>ON</source>
         <translation>ZAPNUTO</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6176"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6186"/>
         <source>OFF</source>
         <translation>VYPNUTO</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="6201"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="6211"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7187"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7201"/>
         <source>Focus changed to CodeView window.</source>
         <translation>Zaměření přepnuto na okno Zobrazení kódu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7196"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7210"/>
         <source>Focus changed to BookBrowser window.</source>
         <translation>Zaměření přepnuto na okno Prohlížeče knihy.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7205"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7219"/>
         <source>Focus changed to Preview window.</source>
         <translation>Zaměření přepnuto na okno Náhledu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7214"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7228"/>
         <source>Focus changed to Table Of Contents window.</source>
         <translation>Zaměření přepnuto na okno Obsahu.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/MainWindow.cpp" line="7223"/>
+        <location filename="../../MainUI/MainWindow.cpp" line="7237"/>
         <source>Focus changed to Clips window.</source>
-        <translation>Zaměření přepnuto na okno Klipů.</translation>
+        <translation>Zaměření přepnuto na okno Úryvků.</translation>
     </message>
 </context>
 <context>
@@ -13593,7 +13614,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="69"/>
         <source>ePub FileName</source>
-        <translation>Název souboru ePub</translation>
+        <translation>Název souboru EPUB</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="74"/>
@@ -13613,7 +13634,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="89"/>
         <source>ePub:UUID</source>
-        <translation>ePub:UUID</translation>
+        <translation>EPUB:UUID</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ManageRepos.ui" line="113"/>
@@ -14012,7 +14033,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="134"/>
         <source>A person, family, or organization involved in manufacturing a resource by embossing Braille cells using a stylus, special embossing printer, or other device.</source>
-        <translation>Osoba, rodina nebo organizace podílející se na výrobě zdroje vytlačováním braillských buněk pomocí raznice, speciální vytlačovací tiskárny nebo jiného zařízení.</translation>
+        <translation>Osoba, rodina nebo organizace podílející se na výrobě zdroje vytlačováním braillských buněk pomocí raznice, zvláštní vytlačovací tiskárny nebo jiného zařízení.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="135"/>
@@ -14022,7 +14043,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="135"/>
         <source>A person, family, or organization involved in broadcasting a resource to an audience via radio, television, webcast, etc.</source>
-        <translation>Osoba, rodina nebo organizace podílející se na vysílání zdroje publiku prostřednictvím rádia, televize, webového vysílání atd.</translation>
+        <translation>Osoba, rodina nebo organizace podílející se na vysílání zdroje publiku prostřednictvím rádia, televize, internetového vysílání atd.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="136"/>
@@ -14097,12 +14118,12 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="143"/>
         <source>Collection registrar</source>
-        <translation>Registrátor sbírky</translation>
+        <translation>Zapisovatel sbírky</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="143"/>
         <source>A curator who lists or inventories the items in an aggregate work such as a collection of items or works.</source>
-        <translation>Kurátor, který vypisuje nebo inventarizuje položky souhrnného díla, například sbírky položek nebo děl.</translation>
+        <translation>Správce, který vypisuje nebo inventarizuje položky souhrnného díla, například sbírky položek nebo děl.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="144"/>
@@ -14402,7 +14423,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="173"/>
         <source>A court governed by court rules, regardless of their official nature (e.g., laws, administrative regulations.)</source>
-        <translation>Soud řízený soudními pravidly bez ohledu na jejich oficiální povahu (např. zákony, správní předpisy).</translation>
+        <translation>Soud řízený soudními pravidly bez ohledu na jejich úřední povahu (např. zákony, správní předpisy).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="174"/>
@@ -14602,7 +14623,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="193"/>
         <source>A place from which a resource, e.g., a serial, is distributed.</source>
-        <translation>Místo, ze kterého je zdroj, např. periodikum, distribuován.</translation>
+        <translation>Místo, ze kterého je zdroj, např. příběh na pokračování, rozesílán.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="194"/>
@@ -14662,7 +14683,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="199"/>
         <source>A person, family, or organization contributing to a collective or aggregate work by selecting and putting together works, or parts of works, by one or more creators. For compilations of data, information, etc., that result in new works, see compiler.</source>
-        <translation>Osoba, rodina nebo organizace přispívající ke kolektivnímu nebo souhrnnému dílu výběrem a sestavováním děl nebo jejich částí od jednoho či více tvůrců. Pro kompilace dat, informací atd., které vedou k novým dílům, viz kompilátor.</translation>
+        <translation>Osoba, rodina nebo organizace přispívající ke společnému nebo souhrnnému dílu výběrem a sestavováním děl nebo jejich částí od jednoho či více tvůrců. Pro soubory dat, informací atd., které vedou k novým dílům, viz sestavovatel (kompilátor).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="200"/>
@@ -14672,7 +14693,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="200"/>
         <source>A person, family, or organization responsible for assembling, arranging, and trimming film, video, or other moving image formats, including both visual and audio aspects.</source>
-        <translation>Osoba, rodina nebo organizace odpovědná za sestavování, uspořádání a stříhání filmu, videa nebo jiných formátů pohyblivého obrazu, včetně vizuálních i zvukových aspektů.</translation>
+        <translation>Osoba, rodina nebo organizace odpovědná za sestavování, uspořádání a stříhání filmu, videa nebo jiných formátů pohyblivého obrazu, včetně obrazových a zvukových stránek.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="201"/>
@@ -14732,7 +14753,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="206"/>
         <source>A place where an event such as a conference or a concert took place.</source>
-        <translation>Místo, kde se konala událost, jako je konference nebo koncert.</translation>
+        <translation>Místo, kde se konala událost, jako je výroční shromáždění nebo hudební vystoupení.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="207"/>
@@ -14752,7 +14773,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="208"/>
         <source>Use for a person or organization that executed the facsimile.</source>
-        <translation>Použijte pro osobu nebo organizaci, která provedla výrobu faksimilie.</translation>
+        <translation>Použijte pro osobu nebo organizaci, která provedla výrobu přesné kopie.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="209"/>
@@ -14762,7 +14783,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="209"/>
         <source>Use for a person or organization that manages or supervises the work done to collect raw data or do research in an actual setting or environment (typically applies to the natural and social sciences).</source>
-        <translation>Použijte pro osobu nebo organizaci, která spravuje a má na starost práci udělanou pro sběr surových dat nebo dělá výzkum v opravdovém prostředí (typicky se věnuje přírodním a společenským vědám).</translation>
+        <translation>Použijte pro osobu nebo organizaci, která spravuje a má na starost práci udělanou pro sběr surových dat nebo dělá výzkum v opravdovém prostředí (obvykle se věnuje přírodním a společenským vědám).</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="210"/>
@@ -15372,7 +15393,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="270"/>
         <source> performer contributing to a resource by participating in a program (often broadcast) where topics are discussed, usually with participation of experts in fields related to the discussion.</source>
-        <translation>Účinkující přispívající ke zdroji účastí v pořadu (často vysílaném), kde se diskutuje o tématech, obvykle za účasti odborníků z oborů souvisejících s diskuzí.</translation>
+        <translation>Účinkující přispívající ke zdroji účastí v pořadu (často vysílaném), kde se rozebírají témata, obvykle za účasti odborníků z oborů souvisejících s rozpravou.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="271"/>
@@ -15492,7 +15513,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="282"/>
         <source>A person who is the faculty moderator of an academic disputation, normally proposing a thesis and participating in the ensuing disputation.</source>
-        <translation>Osoba, která je akademickým moderátorem disputace, obvykle předkládá tezi a účastní se následné disputace.</translation>
+        <translation>Osoba, která je akademickým prostředníkem disputace, obvykle předkládá tvrzení a účastní se následné pře.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="283"/>
@@ -15502,7 +15523,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="283"/>
         <source>A person or organization mentioned in an &apos;X presents&apos; credit for moving image materials and who is associated with production, finance, or distribution in some way. A vanity credit; in early years, normally the head of a studio.</source>
-        <translation>Osoba nebo organizace uvedená v kreditu „X uvádí“ u materiálů pohyblivého obrazu, která je nějak spojena s produkcí, financováním nebo distribucí. Prestižní kredit; v počátcích obvykle vedoucí studia.</translation>
+        <translation>Osoba nebo organizace uvedená v kreditu „X uvádí“ u materiálů pohyblivého obrazu, která je nějak spojena s výrobou, financováním nebo šířením. Prestižní kredit; v počátcích obvykle vedoucí studia.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="284"/>
@@ -15562,7 +15583,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="289"/>
         <source>An organization that is responsible for financial, technical, and organizational management of a production for stage, screen, audio recording, television, webcast, etc.</source>
-        <translation>Organizace odpovědná za finanční, technické a organizační řízení produkce pro jeviště, plátno, zvukovou nahrávku, televizi, webové vysílání atd.</translation>
+        <translation>Organizace odpovědná za finanční, technické a organizační řízení produkce pro jeviště, plátno, zvukovou nahrávku, televizi, internetové vysílání atd.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="290"/>
@@ -15572,7 +15593,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="290"/>
         <source>A person or organization responsible for designing the overall visual appearance of a moving image production.</source>
-        <translation>Osoba nebo organizace odpovědná za návrh celkového vizuálního vzhledu produkce pohyblivého obrazu.</translation>
+        <translation>Osoba nebo organizace odpovědná za návrh celkového vizuálního vzhledu tvorby pohyblivého obrazu.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="291"/>
@@ -15652,7 +15673,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="298"/>
         <source>The place where a resource is published.</source>
-        <translation>Místo, kde je zdroj publikován.</translation>
+        <translation>Místo, kde je zdroj uveřejněn.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="299"/>
@@ -15702,7 +15723,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="303"/>
         <source>A producer responsible for most of the business aspects of a radio program.</source>
-        <translation>Producent odpovědný za většinu obchodních aspektů rozhlasového pořadu.</translation>
+        <translation>Producent odpovědný za většinu obchodních stránek rozhlasového pořadu.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="304"/>
@@ -15728,7 +15749,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="306"/>
         <source>A person contributing to a resource by supervising the technical aspects of a sound or video recording session.</source>
-        <translation>Osoba přispívající ke zdroji dohledem nad technickými aspekty zvukového nebo video nahrávání.</translation>
+        <translation>Osoba přispívající ke zdroji dohledem nad technickými stránkami zvukového nebo obrazového nahrávání.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="307"/>
@@ -15858,7 +15879,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="319"/>
         <source>A person, family, or organization responsible for the set of technical, editorial, and intellectual procedures aimed at compensating for the degradation of an item by bringing it back to a state as close as possible to its original condition.</source>
-        <translation>Osoba, rodina nebo organizace odpovědná za soubor technických, redakčních a intelektuálních postupů zaměřených na kompenzaci degradace předmětu jeho navrácením do stavu co nejbližšího původnímu.</translation>
+        <translation>Osoba, rodina nebo organizace odpovědná za soubor technických, vydavatelských a rozumových postupů zaměřených na vyrovnání zhoršení předmětu jeho navrácením do stavu co nejbližšího původnímu.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="320"/>
@@ -16128,7 +16149,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="346"/>
         <source>A producer responsible for most of the business aspects of a television program.</source>
-        <translation>Producent odpovědný za většinu obchodních aspektů televizního pořadu.</translation>
+        <translation>Producent odpovědný za většinu obchodních stránek televizního pořadu.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="347"/>
@@ -16208,7 +16229,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="354"/>
         <source>An actor contributing to a resource by providing the voice for characters in radio and audio productions and for animated characters in moving image works, as well as by providing voice overs in radio and television commercials, dubbed resources, etc.</source>
-        <translation>Herec přispívající ke zdroji propůjčením hlasu postavám v rozhlasových a zvukových produkcích a animovaným postavám v dílech pohyblivého obrazu, jakož i namluvením komentářů v rozhlasových a televizních reklamách, dabovaných zdrojích atd.</translation>
+        <translation>Herec přispívající ke zdroji propůjčením hlasu postavám v rozhlasových a zvukových produkcích a animovaným postavám v dílech pohyblivého obrazu, jakož i namluvením komentářů v rozhlasových a televizních reklamách, namluvených zdrojích atd.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="355"/>
@@ -16258,7 +16279,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="359"/>
         <source>A person, family, or organization contributing to an expression of a work by providing an interpretation or critical explanation of the original work.</source>
-        <translation>Osoba, rodina nebo organizace přispívající k vyjádření díla poskytnutím výkladu nebo kritického vysvětlení původního díla.</translation>
+        <translation>Osoba, rodina nebo organizace přispívající k vyjádření díla poskytnutím výkladu nebo klíčového vysvětlení původního díla.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="360"/>
@@ -16367,7 +16388,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="178"/>
         <source>Use OK to commit your metadata changes to the epub, otherwise use Cancel.</source>
-        <translation>Pomocí OK uložíte změny metadat do epubu, jinak použijte Zrušit.</translation>
+        <translation>Použijte OK pro uložení změn popisu do EPUB, jinak použijte Zrušit.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="92"/>
@@ -16382,7 +16403,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="172"/>
         <source>Add Metadata element</source>
-        <translation>Přidat prvek metadat</translation>
+        <translation>Přidat prvek popisu</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="173"/>
@@ -16408,7 +16429,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
         <location filename="../../Dialogs/MetaEditor.cpp" line="490"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="590"/>
         <source>Add Metadata Element</source>
-        <translation>Přidat prvek metadat</translation>
+        <translation>Přidat prvek popisu</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="499"/>
@@ -16541,7 +16562,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="763"/>
         <source>Add Propety to Element</source>
-        <translation>Přidat vlastnost k elementu</translation>
+        <translation>Přidat vlastnost k prvku</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="797"/>
@@ -16654,7 +16675,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="967"/>
         <source>Used to indicate that the given EPUB Publication is of a specialized type..</source>
-        <translation>Slouží k označení, že daná publikace EPUB je specializovaného typu.</translation>
+        <translation>Slouží k označení, že daná publikace EPUB je zaměřeného typu.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="968"/>
@@ -16688,7 +16709,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="970"/>
         <source>Specifies the language of the publication. Select from the dropdown menu</source>
-        <translation>Určuje jazyk publikace. Vyberte z rozevírací nabídky</translation>
+        <translation>Určuje jazyk publikace. Vyberte z rozbalovací nabídky</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="971"/>
@@ -16734,7 +16755,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="974"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The Role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
-        <translation>Představuje jméno osoby, organizace apod. odpovědné za vytvoření obsahu publikace EPUB. K elementu lze připojit vlastnost Role, která označuje, jakou funkci autor při tvorbě obsahu zastával.</translation>
+        <translation>Představuje jméno osoby, organizace apod. odpovědné za vytvoření obsahu publikace EPUB. K prvku lze připojit vlastnost Role, která označuje, jakou funkci autor při tvorbě obsahu zastával.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="975"/>
@@ -16745,17 +16766,17 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="975"/>
         <source>Represents the name of a person, organization, etc. that played a secondary role in the creation of the content of an EPUB Publication. The Role property can be attached to the element to indicate the function the creator played in the creation of the content.</source>
-        <translation>Představuje jméno osoby, organizace apod., která hrála vedlejší roli při vytváření obsahu publikace EPUB. K elementu lze připojit vlastnost Role, která označuje, jakou funkci autor při tvorbě obsahu zastával.</translation>
+        <translation>Představuje jméno osoby, organizace apod., která hrála vedlejší roli při vytváření obsahu publikace EPUB. K prvku lze připojit vlastnost Role, která označuje, jakou funkci autor při tvorbě obsahu zastával.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="976"/>
         <source>Belongs to a Collection</source>
-        <translation>Patří do kolekce</translation>
+        <translation>Patří do sbírky</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="976"/>
         <source>Identifies the name of a collection to which the EPUB Publication belongs. An EPUB Publication may belong to one or more collections.</source>
-        <translation>Identifikuje název kolekce, do níž publikace EPUB patří. Publikace EPUB může patřit do jedné nebo více kolekcí.</translation>
+        <translation>Určuje název sbírky, do níž publikace EPUB patří. Publikace EPUB může patřit do jedné nebo více sbírek.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="977"/>
@@ -16766,7 +16787,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="977"/>
         <source>A title of the publication.  A publication may have only one main title but may have numerous other title types.  These include main, subtitle, short, collection, edition, and expanded title types.</source>
-        <translation>Název publikace. Publikace může mít pouze jeden hlavní název, ale může mít řadu dalších typů názvů. Patří mezi ně hlavní, podnázev, krátký, kolekce, vydání a rozšířený typ názvu.</translation>
+        <translation>Název publikace. Publikace může mít pouze jeden hlavní název, ale může mít řadu dalších typů názvů. Patří mezi ně hlavní, podnázev, krátký, sbírka, vydání a rozšířený typ názvu.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="978"/>
@@ -16806,7 +16827,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="981"/>
         <source>A Universally Unique Identifier generated for this publication.</source>
-        <translation>Univerzální jedinečný identifikátor (UUID) vygenerovaný pro tuto publikaci.</translation>
+        <translation>Univerzální jedinečný identifikátor (UUID) vytvořený pro tuto publikaci.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="982"/>
@@ -16832,17 +16853,17 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="984"/>
         <source>An empty metadata element you can modify.</source>
-        <translation>Prázdný metadatový element, který můžete upravit.</translation>
+        <translation>Prázdný popisný prvek, který můžete upravit.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="985"/>
         <source>Meta Element (primary)</source>
-        <translation>Element Meta (primární)</translation>
+        <translation>Meta prvek (hlavní)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="985"/>
         <source>An empty primary metadata element you can modify.</source>
-        <translation>Prázdný primární metadatový element, který můžete upravit.</translation>
+        <translation>Prázdný hlavní popisný prvek, který můžete upravit.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1011"/>
@@ -16865,7 +16886,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1012"/>
         <source>Optional, language specifying attribute.  Uses same codes as Language. Not for use with Language, Date, or Identifier metadata elements.</source>
-        <translation>Volitelný atribut určující jazyk. Používá stejné kódy jako Jazyk. Nepoužívejte u metadatových elementů Language, Date nebo Identifier.</translation>
+        <translation>Volitelný atribut určující jazyk. Používá stejné kódy jako Jazyk. Nepoužívejte u popisných prvků Language, Date nebo Identifier.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1013"/>
@@ -16875,7 +16896,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1013"/>
         <source>Optional text direction attribute for this metadata item. right-to-left (rtl). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
-        <translation>Volitelný atribut směru textu pro tuto metadatovou položku. Zprava doleva (rtl). Nepoužívejte u metadatových elementů dc:language, dc:date nebo dc:identifier.</translation>
+        <translation>Volitelný atribut směru textu pro tuto popisnou položku. Zprava doleva (rtl). Nepoužívejte u popisných prvků dc:language, dc:date nebo dc:identifier.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1014"/>
@@ -16885,7 +16906,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1014"/>
         <source>Optional text direction attribute for this metadata item. left-to-right (ltr). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
-        <translation>Volitelný atribut směru textu pro tuto metadatovou položku. Zleva doprava (ltr). Nepoužívejte u metadatových elementů dc:language, dc:date nebo dc:identifier.</translation>
+        <translation>Volitelný atribut směru textu pro tuto popisnou položku. Zleva doprava (ltr). Nepoužívejte u popisných prvků dc:language, dc:date nebo dc:identifier.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1015"/>
@@ -16965,27 +16986,27 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1022"/>
         <source>Language code for the language used in the associated alternate-script property value.</source>
-        <translation>Kód jazyka použitého v přidružené hodnotě vlastnosti v alternativním písmu.</translation>
+        <translation>Kód jazyka použitého v přidružené hodnotě vlastnosti v náhradním písmu.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1023"/>
         <source>Collection is a Set</source>
-        <translation>Kolekce je sada</translation>
+        <translation>Sbírka je sada</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1023"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;set&apos; should be used for a finite collection of works that together constitute a single intellectual unit; typically issued together and able to be sold as a unit..</source>
-        <translation>Vlastnost používaná s belongs-to-collection. Označuje formu nebo povahu kolekce. Hodnota „set“ by se měla použít pro konečnou kolekci děl, která společně tvoří jednu intelektuální jednotku; obvykle vydávaná společně a prodejná jako celek.</translation>
+        <translation>Vlastnost používaná s belongs-to-collection. Označuje druh nebo povahu sbírky. Hodnota „set“ by se měla použít pro konečnou sbírku děl, která společně tvoří jednu duševní jednotku; obvykle vydávaná společně a prodejná jako celek.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1024"/>
         <source>Collection is a Series</source>
-        <translation>Kolekce je série</translation>
+        <translation>Sbírka je série</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1024"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection. The value &apos;series&apos;&apos; should be used for a sequence of related works that are formally identified as a group; typically open-ended with works issued individually over time.</source>
-        <translation>Vlastnost používaná s belongs-to-collection. Označuje formu nebo povahu kolekce. Hodnota „series“ by se měla použít pro sekvenci souvisejících děl, která jsou formálně označena jako skupina; obvykle otevřená, s díly vydávanými jednotlivě v průběhu času.</translation>
+        <translation>Vlastnost používaná s belongs-to-collection. Označuje formu nebo povahu kolekce. Hodnota „series“ by se měla použít pro řadu souvisejících děl, která jsou formálně označena jako skupina; obvykle otevřená, s díly vydávanými jednotlivě v průběhu času.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1025"/>
@@ -16995,7 +17016,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1025"/>
         <source>Indicates the numeric position in which to display the current property relative to identical metadata properties (e.g., to indicate the order in which to render multiple titles or multiple authors).</source>
-        <translation>Označuje číselnou pozici, ve které se má aktuální vlastnost zobrazit vzhledem ke shodným metadatovým vlastnostem (např. pro určení pořadí, ve kterém se mají vykreslit více názvů nebo více autorů).</translation>
+        <translation>Označuje číselnou polohu, ve které se má nynější vlastnost zobrazit vzhledem ke shodným popisným vlastnostem (např. pro určení pořadí, ve kterém se má vykreslit více názvů nebo více autorů).</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1026"/>
@@ -17012,12 +17033,12 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1027"/>
         <source>Position In Group</source>
-        <translation>Pozice ve skupině</translation>
+        <translation>Umístění ve skupině</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1027"/>
         <source>Indicates the numeric position in which the EPUB Publication is ordered relative to other works belonging to the same group (whether all EPUB Publications or not).</source>
-        <translation>Označuje číselnou pozici, ve které je publikace EPUB seřazena vzhledem k ostatním dílům patřícím do stejné skupiny (ať už jde o všechny publikace EPUB, nebo ne).</translation>
+        <translation>Označuje číselnou polohu, ve které je publikace EPUB seřazena vzhledem k ostatním dílům patřícím do stejné skupiny (ať už jde o všechny publikace EPUB, nebo ne).</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1028"/>
@@ -17060,7 +17081,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1031"/>
         <source>Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication. This specification defines the pagination value to indicate that the referenced source element is the source of the pagebreak properties defined in the content. This value should be set whenever pagination is included and the print source is known. Valid values: pagination.</source>
-        <translation>Označuje jedinečný aspekt adaptovaného zdrojového zdroje, který byl zachován v daném vydání publikace EPUB. Tato specifikace definuje hodnotu pagination k označení, že odkazovaný zdrojový prvek je zdrojem vlastností pagebreak definovaných v obsahu. Tato hodnota by měla být nastavena vždy, když je zahrnuto stránkování a tištěný zdroj je znám. Platné hodnoty: pagination.</translation>
+        <translation>Označuje jedinečnou stránku přizpůsobeného zdrojového zdroje, který byl zachován v daném vydání publikace EPUB. Tato specifikace stanovuje hodnotu pagination k označení, že odkazovaný zdrojový prvek je zdrojem vlastností pagebreak stanovených v obsahu. Tato hodnota by měla být nastavena vždy, když je zahrnuto stránkování a tištěný zdroj je znám. Platné hodnoty: pagination.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1032"/>
@@ -17075,7 +17096,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1060"/>
         <source>Optional text direction attribute for this metadata item.</source>
-        <translation>Volitelný atribut směru textu pro tuto položku metadat.</translation>
+        <translation>Volitelný atribut směru textu pro tuto popisnou položku.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1061"/>
@@ -17090,12 +17111,12 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1062"/>
         <source>Collection Type</source>
-        <translation>Typ kolekce</translation>
+        <translation>Typ sbírky</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1062"/>
         <source>Property used with belongs-to-collection. Indicates the form or nature of a collection.</source>
-        <translation>Vlastnost používaná s belongs-to-collection. Označuje formu nebo povahu kolekce.</translation>
+        <translation>Vlastnost používaná s belongs-to-collection. Označuje formu nebo povahu sbírky.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1063"/>
@@ -17105,7 +17126,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1063"/>
         <source>Indicates a unique aspect of an adapted source resource that has been retained in the given Rendition of the EPUB Publication.</source>
-        <translation>Označuje jedinečný aspekt adaptovaného zdroje, který byl zachován v daném vykreslení publikace EPUB.</translation>
+        <translation>Označuje jedinečnou stránku přizpůsobeného zdroje, který byl zachován v daném vykreslení publikace EPUB.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1090"/>
@@ -17204,12 +17225,12 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1127"/>
         <source>The main title of the epub publication.  Only one title may exist.</source>
-        <translation>Hlavní název publikace epub. Může existovat pouze jeden název.</translation>
+        <translation>Hlavní název publikace EPUB. Může být pouze jeden název.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1128"/>
         <source>Represents the name of a person, organization, etc. responsible for the creation of the content of an EPUB Publication. The attributes opf:role, opf:scheme and opf:file-as can be attached to the element to indicate the function the creator played in the creation of the content.</source>
-        <translation>Představuje jméno osoby, organizace apod. odpovědné za vytvoření obsahu publikace EPUB. K elementu lze připojit atributy opf:role, opf:scheme a opf:file-as, které označují funkci, jakou tvůrce při vytváření obsahu hrál.</translation>
+        <translation>Představuje jméno osoby, organizace apod. odpovědné za vytvoření obsahu publikace EPUB. K prvku lze připojit atributy opf:role, opf:scheme a opf:file-as, které označují funkci, jakou tvůrce při vytváření obsahu hrál.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1129"/>
@@ -17224,7 +17245,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1133"/>
         <source>A date associated with this epub, typically refined by event type information</source>
-        <translation>Datum spojené s tímto epubem, obvykle upřesněné informací o typu události</translation>
+        <translation>Datum spojené s tímto EPUBem, obvykle upřesněné informací o typu události</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1134"/>
@@ -17318,7 +17339,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1181"/>
         <source>Optional, language specifying attribute.  Uses same codes as dc:language. Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
-        <translation>Volitelný atribut určující jazyk. Používá stejné kódy jako dc:language. Nepoužívejte s prvky metadat dc:language, dc:date nebo dc:identifier.</translation>
+        <translation>Volitelný atribut určující jazyk. Používá stejné kódy jako dc:language. Nepoužívejte s prvky popisných dat dc:language, dc:date nebo dc:identifier.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1184"/>
@@ -17491,12 +17512,12 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
 <context>
     <name>OPFResource</name>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1683"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1761"/>
         <source>[Title here]</source>
         <translation>[Název]</translation>
     </message>
     <message>
-        <location filename="../../ResourceObjects/OPFResource.cpp" line="1693"/>
+        <location filename="../../ResourceObjects/OPFResource.cpp" line="1771"/>
         <source>[Main title here]</source>
         <translation>[Hlavní název]</translation>
     </message>
@@ -17584,7 +17605,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="61"/>
         <source>internal error: unexpected repeat</source>
-        <translation>interní chyba: neočekávané opakování</translation>
+        <translation>vnitřní chyba: neočekávané opakování</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="62"/>
@@ -17649,7 +17670,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="78"/>
         <source>internal error: code overflow</source>
-        <translation>interní chyba: přetečení kódu</translation>
+        <translation>vnitřní chyba: přetečení kódu</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="79"/>
@@ -17689,7 +17710,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="90"/>
         <source>internal error in pcre2_study(): should not occur</source>
-        <translation>interní chyba v pcre2_study(): nemělo by nastat</translation>
+        <translation>vnitřní chyba v pcre2_study(): nemělo by nastat</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="91"/>
@@ -17794,12 +17815,12 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="119"/>
         <source>internal error: overran compiling workspace</source>
-        <translation>interní chyba: přetečení kompilačního pracovního prostoru</translation>
+        <translation>vnitřní chyba: přetečení kompilačního pracovního prostoru</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="120"/>
         <source>internal error: previously-checked referenced subpattern not found</source>
-        <translation>interní chyba: dříve zkontrolovaný odkazovaný podvzor nenalezen</translation>
+        <translation>vnitřní chyba: dříve zkontrolovaný odkazovaný podvzor nenalezen</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="121"/>
@@ -17814,7 +17835,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="125"/>
         <source>internal error: unknown newline setting</source>
-        <translation>interní chyba: neznámé nastavení nového řádku</translation>
+        <translation>vnitřní chyba: neznámé nastavení nového řádku</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="126"/>
@@ -17849,7 +17870,7 @@ Chcete soubory před uložením automaticky opravit? Nebo uložení zrušit?</tr
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="134"/>
         <source>internal error: parsed pattern overflow</source>
-        <translation>interní chyba: přetečení rozparsovaného vzoru</translation>
+        <translation>vnitřní chyba: přetečení rozparsovaného vzoru</translation>
     </message>
     <message>
         <location filename="../../PCRE2/PCREErrors.cpp" line="135"/>
@@ -18342,7 +18363,7 @@ Jste si jistý, že chcete pokračovat?</translation>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="261"/>
         <source>Quick Launch Plugin Assignments</source>
-        <translation>Přiřazení zásuvných modulů pro rychlé spuštění</translation>
+        <translation>Přiřazení přídavných modulů pro rychlé spuštění</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PPluginWidget.ui" line="271"/>
@@ -18534,7 +18555,7 @@ Entity mohou být oddělena řádky, čárkami, nebo mezerami.</translation>
         <location filename="../../Dialogs/PreviewFileDialog.cpp" line="89"/>
         <location filename="../../Dialogs/PreviewFileDialog.cpp" line="114"/>
         <source>no preview available</source>
-        <translation>náhled není k dispozici</translation>
+        <translation>náhled není dostupný</translation>
     </message>
 </context>
 <context>
@@ -18645,7 +18666,7 @@ Entity mohou být oddělena řádky, čárkami, nebo mezerami.</translation>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../BookManipulation/Book.cpp" line="1685"/>
+        <location filename="../../BookManipulation/Book.cpp" line="1701"/>
         <source>PrettyPrinting...</source>
         <translation>Formátování...</translation>
     </message>
@@ -18668,18 +18689,18 @@ Entity mohou být oddělena řádky, čárkami, nebo mezerami.</translation>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="91"/>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="290"/>
         <source>Custom Epub Layout Designer</source>
-        <translation>Návrhář vlastního rozvržení ePub</translation>
+        <translation>Návrhář vlastního rozvržení EPUB</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="191"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="199"/>
         <location filename="../../Misc/OpenExternally.cpp" line="346"/>
         <source>Applications</source>
         <translation>Programy</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="208"/>
+        <location filename="../../Dialogs/PreferenceWidgets/GeneralSettingsWidget.cpp" line="216"/>
         <source>Select External Xhtml Editor</source>
-        <translation>Vybrat externí editor XHTML</translation>
+        <translation>Vybrat vnější editor XHTML</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Reports.cpp" line="124"/>
@@ -18694,7 +18715,7 @@ Entity mohou být oddělena řádky, čárkami, nebo mezerami.</translation>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="163"/>
         <source>The OPF manifest contains duplicate file paths. You should edit your OPF file&apos;s manifest to remove the duplication.</source>
-        <translation type="unfinished"/>
+        <translation>Manifest souboru OPF obsahuje zdvojené cesty k souborům. Měli byste upravit manifest souboru OPF a odstranit tato zdvojení.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="263"/>
@@ -18703,7 +18724,7 @@ Entity mohou být oddělena řádky, čárkami, nebo mezerami.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="264"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="990"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="1006"/>
         <source>Sigil has created a new one for you.</source>
         <translation>Sigil pro vás jednu vytvořil.</translation>
     </message>
@@ -18713,98 +18734,113 @@ Entity mohou být oddělena řádky, čárkami, nebo mezerami.</translation>
         <translation>Zkontrolujte a opravte pořadí v OPF Spine.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="314"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="316"/>
         <source>Error parsing encryption xml.
 Line: %1 Column %2 - %3</source>
         <translation>Chyba při zpracování zakódování xml.
 Řádek: %1, Sloupec %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="434"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="436"/>
         <source>Cannot unzip EPUB: %1</source>
         <translation>Nelze rozbalit EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="510"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="512"/>
         <source>Possible evil or corrupt epub file name: %1</source>
-        <translation>Možný škodlivý nebo poškozený název souboru epub: %1</translation>
+        <translation>Možný škodlivý nebo poškozený název souboru EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="541"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="550"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="570"/>
-        <location filename="../../Importers/ImportEPUB.cpp" line="578"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="543"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="552"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="572"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="580"/>
         <source>Cannot extract file: %1</source>
         <translation>Nelze vytáhnout soubor: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="591"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="593"/>
         <source>Cannot open EPUB: %1</source>
         <translation>Nelze otevřít EPUB: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="645"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="652"/>
         <source>Unable to parse container.xml file.
 Line: %1 Column %2 - %3</source>
         <translation>Nelze zpracovat soubor container.xml.
 Řádek: %1, Sloupec %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="653"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="660"/>
         <source>This epub has multiple renditions (multiple OPF files). Editing this epub in Sigil will produce a normal single rendition epub using only the main (first) OPF file found.</source>
         <translation>Tato e-kniha má více vydání (více souborů OPF). Úprava této e-knihy v aplikaci Sigil vytvoří běžnou e-knihu s jedním vydáním pouze za použití hlavního (prvního) nalezeného souboru OPF.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="657"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="664"/>
         <source>No appropriate OPF file found</source>
         <translation>Nenalezen žádný náležitý soubor OPF</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="710"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="675"/>
+        <source>near</source>
+        <translation>blízko</translation>
+    </message>
+    <message>
+        <location filename="../../Importers/ImportEPUB.cpp" line="677"/>
+        <source>Will attempt auto repair.</source>
+        <translation>Pokusí se o automatickou opravu.</translation>
+    </message>
+    <message>
+        <location filename="../../Importers/ImportEPUB.cpp" line="678"/>
+        <source>Malformed OPF</source>
+        <translation>Chybně vytvořený OPF</translation>
+    </message>
+    <message>
+        <location filename="../../Importers/ImportEPUB.cpp" line="726"/>
         <source>Unable to read OPF file.
 Line: %1 Column %2 - %3</source>
         <translation>Nelze přečíst soubor OPF.
 Řádek: %1, Sloupec %2 - %3</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="844"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="860"/>
         <source>The OPF has an illegal Manifest entry for a file inside the META-INF folder for file &quot;%1&quot;</source>
         <translation>Soubor OPF obsahuje neplatnou položku manifestu pro soubor uvnitř složky META-INF pro soubor „%1“</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="845"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="861"/>
         <source>You should edit your OPF file to remove this entry.</source>
-        <translation>Měli byste upravit svůj soubor OPF a tuto položku odstranit.</translation>
+        <translation>Měl byste upravit svůj soubor OPF a tuto položku odstranit.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="864"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="880"/>
         <source>The OPF manifest contains duplicate ids for: %1</source>
         <translation>Manifest OPF obsahuje zdvojená ID pro: %1</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="865"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="881"/>
         <source>A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.</source>
         <translation>Pro nahrání tohoto EPUB bylo přiřazeno dočasné ID. Měl byste kvůli odstranění zdvojení váš soubor OPF upravit.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="962"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="978"/>
         <source>The OPF file did not identify the NCX file correctly.</source>
         <translation>Soubor OPF nerozpoznal soubor NCX správně.</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="963"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="979"/>
         <source>Sigil has used the following file as the NCX:</source>
         <translation>Sigil použil následující soubor jako NCX:</translation>
     </message>
     <message>
-        <location filename="../../Importers/ImportEPUB.cpp" line="989"/>
+        <location filename="../../Importers/ImportEPUB.cpp" line="1005"/>
         <source>The OPF file does not contain an NCX file.</source>
         <translation>Soubor OPF neobsahuje soubor NCX.</translation>
     </message>
     <message>
         <location filename="../../Importers/Importer.cpp" line="47"/>
         <source>The OPF contains missing or unrecognized media types.  Temporary media types have been generated. You should edit your OPF to fix these.</source>
-        <translation>Soubor OPF obsahuje chybějící nebo nerozpoznané typy médií. Byly vygenerovány dočasné typy médií. Měli byste svůj soubor OPF opravit.</translation>
+        <translation>Soubor OPF obsahuje chybějící nebo nerozpoznané typy médií. Byly vytvořeny dočasné typy médií. Měli byste svůj soubor OPF opravit.</translation>
     </message>
     <message>
         <location filename="../../main.cpp" line="875"/>
@@ -19315,7 +19351,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="104"/>
         <source>Target: Current File</source>
-        <translation>Cíl: Aktuální soubor</translation>
+        <translation>Cíl: Nynější soubor</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="105"/>
@@ -19380,7 +19416,7 @@ including entries in selected groups.</source>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="118"/>
         <source>Option: Minimal Match</source>
-        <translation>Volba: Minimální shoda</translation>
+        <translation>Volba: Velmi malá shoda</translation>
     </message>
     <message>
         <location filename="../../Dialogs/SearchEditor.cpp" line="119"/>
@@ -19625,7 +19661,7 @@ Chcete uložit své změny?</translation>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="467"/>
         <source>Target: Current File</source>
-        <translation>Cíl: Aktuální soubor</translation>
+        <translation>Cíl: Nynější soubor</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="470"/>
@@ -19690,22 +19726,22 @@ Chcete uložit své změny?</translation>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="506"/>
         <source>Option: Minimal Match</source>
-        <translation>Možnost: Minimální shoda</translation>
+        <translation>Volba: Velmi malá shoda</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="509"/>
         <source>Option: Auto Tokenise</source>
-        <translation>Možnost: Automatická tokenizace</translation>
+        <translation>Volba: Automatické tokenizování</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="512"/>
         <source>Option: Wrap</source>
-        <translation>Možnost: Zalamování</translation>
+        <translation>Volba: Zalamování</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="515"/>
         <source>Option: Text Only</source>
-        <translation>Možnost: Pouze text</translation>
+        <translation>Volba: Pouze text</translation>
     </message>
     <message>
         <location filename="../../MiscEditors/SearchEditorModel.cpp" line="810"/>
@@ -19721,1247 +19757,1254 @@ Chcete uložit své změny?</translation>
         <translation>Vložit zvláštní znak</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="85"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="137"/>
+        <source>Unable to read special_characters xml. 
+Line: %1 Column %2 - %3)</source>
+        <translation>Nelze přečíst XML se zvláštními znaky (special_characters).
+Řádek: %1, Sloupec %2 - %3</translation>
+    </message>
+    <message>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="155"/>
         <source>non-breaking space</source>
         <translation>Nezalomitelná mezera</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="86"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="156"/>
         <source>en space</source>
         <translation>Mezera en</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="87"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="157"/>
         <source>em space</source>
         <translation>Mezera em</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="88"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="158"/>
         <source>thin space</source>
         <translation>Úzká mezera</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="89"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="159"/>
         <source>soft hyphen</source>
         <translation>Měkké dělítko</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="90"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="160"/>
         <source>narrow non-breaking space</source>
         <translation>Úzká nezalomitelná mezera</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="94"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="164"/>
         <source>left single quote</source>
         <translation>jednoduchá levá uvozovka</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="95"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="165"/>
         <source>right single quote</source>
         <translation>jednoduchá pravá uvozovka</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="96"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="166"/>
         <source>left double quote</source>
         <translation>dvojitá levá uvozovka</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="97"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="167"/>
         <source>right double quote</source>
         <translation>dvojitá pravá uvozovka</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="98"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="168"/>
         <source>left-pointing single angle quote</source>
         <translation>Vlevo směřující jednoduchá špičatá uvozovka</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="99"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="169"/>
         <source>right-pointing single angle quote</source>
         <translation>Vpravo směřující jednoduchá špičatá uvozovka</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="100"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="170"/>
         <source>left-pointing double angle quote</source>
         <translation>Vlevo směřující dvojitá špičatá uvozovka</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="101"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="171"/>
         <source>right-pointing double angle quote</source>
         <translation>Vpravo směřující dvojitá špičatá uvozovka</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="102"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="172"/>
         <source>apostrophe</source>
         <translation>Odsuvník</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="103"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="173"/>
         <source>double quote</source>
         <translation>dvojitá uvozovka</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="104"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="174"/>
         <source>single low-9 quote</source>
         <translation>spodní jednoduchá uvozovka</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="105"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="175"/>
         <source>double low-9 quote</source>
         <translation>spodní dvojitá uvozovka</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="106"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="176"/>
         <source>em dash</source>
         <translation>Pomlčka em</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="107"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="177"/>
         <source>en dash</source>
         <translation>Pomlčka en</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="108"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="178"/>
         <source>section sign</source>
         <translation>Značka u oddílu textu</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="109"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="179"/>
         <source>pilcrow - paragraph sign</source>
         <translation>Značka odstavce</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="110"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="180"/>
         <source>dagger</source>
         <translation>křížek</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="111"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="181"/>
         <source>double dagger</source>
         <translation>dvojitý křížek</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="112"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="182"/>
         <source>ampersand</source>
         <translation>Symbol &amp;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="113"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="183"/>
         <source>less-than sign</source>
         <translation>Znaménko menší než</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="114"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="184"/>
         <source>greater-than sign</source>
         <translation>Znaménko větší než</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="115"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="185"/>
         <source>copyright</source>
         <translation>Kopírovací právo</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="116"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="186"/>
         <source>registered sign</source>
         <translation>Znak registrováno</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="117"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="187"/>
         <source>trademark symbol</source>
         <translation>Symbol obchodní značka</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="118"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="188"/>
         <source>left arrow</source>
         <translation>Šipka vlevo</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="119"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="189"/>
         <source>right arrow</source>
         <translation>Šipka vpravo</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="120"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="190"/>
         <source>bullet</source>
         <translation>Kulatá odrážka</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="121"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="191"/>
         <source>middle dot</source>
         <translation>Tečka uprostřed</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="122"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="192"/>
         <source>degree sign</source>
         <translation>Znak stupně</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="123"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="193"/>
         <source>plus minus sign</source>
         <translation>Znaménko plus minus</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="124"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="194"/>
         <source>minus sign</source>
         <translation>Znaménko minus</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="125"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="195"/>
         <source>multiplication sign</source>
         <translation>Znaménko násobení (krát)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="126"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="196"/>
         <source>division sign</source>
         <translation>Znaménko pro dělení</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="127"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="197"/>
         <source>fraction 1/4</source>
         <translation>Zlomek 1/4</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="128"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="198"/>
         <source>fraction 1/2</source>
         <translation>Zlomek 1/2</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="129"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="199"/>
         <source>fraction 3/4</source>
         <translation>Zlomek 3/4</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="130"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="200"/>
         <source>fraction 1/3</source>
         <translation>Zlomek 1/3</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="131"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="201"/>
         <source>fraction 2/3</source>
         <translation>Zlomek 2/3</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="132"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="202"/>
         <source>fraction 1/8</source>
         <translation>Zlomek 1/8</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="133"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="203"/>
         <source>fraction 3/8</source>
         <translation>Zlomek 3/8</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="134"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="204"/>
         <source>fraction 5/8</source>
         <translation>Zlomek 5/8</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="135"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="205"/>
         <source>fraction 7/8</source>
         <translation>Zlomek 7/8</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="136"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="206"/>
         <source>horizontal ellipsis</source>
         <translation>Vodorovná výpustka</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="137"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="207"/>
         <source>micron</source>
         <translation>Mikron</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="138"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="208"/>
         <source>cent sign</source>
         <translation>Značka pro cent</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="139"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="209"/>
         <source>pound sign</source>
         <translation>Značka pro libru</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="140"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="210"/>
         <source>euro sign</source>
         <translation>Znak pro Euro</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="141"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="211"/>
         <source>inverted question mark</source>
         <translation>Obrácený otazník</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="142"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="212"/>
         <source>inverted exclamation mark</source>
         <translation>Obrácený vykřičník</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="143"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="213"/>
         <source>diaeresis</source>
         <translation>Přehláska</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="144"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="214"/>
         <source>acute accent</source>
         <translation>Hlavní přízvuk</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="145"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="215"/>
         <source>cedilla</source>
         <translation>Cédille (háček pod písmeny c, s či t)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="146"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="216"/>
         <source>circumflex accent</source>
         <translation>Přízvuk se stříškou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="147"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="217"/>
         <source>small tilde</source>
         <translation>Malá vlnovka</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="148"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="218"/>
         <source>capital A with grave</source>
         <translation>Velké písmeno A s tupým přízvukem</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="149"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="219"/>
         <source>capital A with acute</source>
         <translation>Velké písmeno A s ostrým přízvukem</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="150"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="220"/>
         <source>capital A with circumflex</source>
         <translation>Velké písmeno A se stříškou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="151"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="221"/>
         <source>capital A with tilde</source>
         <translation>Velké písmeno A s vlnovkou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="152"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="222"/>
         <source>capital A with diaeresis</source>
         <translation>Velké písmeno A s přehláskou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="153"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="223"/>
         <source>capital A with ring above</source>
         <translation>Velké písmeno A s kroužkem</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="154"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="224"/>
         <source>capital AE</source>
         <translation>Velká písmena AE</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="155"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="225"/>
         <source>capital C with cedilla</source>
         <translation>Velké písmeno C s háčkem pod písmenem (cédille)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="156"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="226"/>
         <source>capital E with grave</source>
         <translation>Velké písmeno E s tupým přízvukem</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="157"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="227"/>
         <source>capital E with acute</source>
         <translation>Velké písmeno E s ostrým přízvukem</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="158"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="228"/>
         <source>capital E with circumflex</source>
         <translation>Velké písmeno E se stříškou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="159"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="229"/>
         <source>capital E with diaeresis</source>
         <translation>Velké písmeno E s přehláskou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="160"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="230"/>
         <source>capital I with grave</source>
         <translation>Velké písmeno I s tupým přízvukem</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="161"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="231"/>
         <source>capital I with acute</source>
         <translation>Velké písmeno I s ostrým přízvukem</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="162"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="232"/>
         <source>capital I with circumflex</source>
         <translation>Velké písmeno I se stříškou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="163"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="233"/>
         <source>capital I with diaeresis</source>
         <translation>Velké písmeno I s přehláskou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="164"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="234"/>
         <source>capital eth</source>
         <translation>Velké písmeno Ð (Eth)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="165"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="235"/>
         <source>capital N with tilde</source>
         <translation>Velké písmeno N s vlnovkou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="166"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="236"/>
         <source>capital O with grave</source>
         <translation>Velké písmeno O s tupým přízvukem</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="167"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="237"/>
         <source>capital O with acute</source>
         <translation>Velké písmeno O s ostrým přízvukem</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="168"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="238"/>
         <source>capital O with circumflex</source>
         <translation>Velké písmeno O se stříškou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="169"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="239"/>
         <source>capital O with tilde</source>
         <translation>Velké písmeno O s vlnovkou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="170"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="240"/>
         <source>capital O with diaeresis</source>
         <translation>Velké písmeno O s přehláskou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="171"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="241"/>
         <source>capital O with stroke</source>
         <translation>Velké písmeno O s tahem</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="172"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="242"/>
         <source>capital ligature OE</source>
         <translation>Velké písmeno oe (slitek)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="173"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="243"/>
         <source>capital S with caron</source>
         <translation>Velké písmeno S s háčkem</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="174"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="244"/>
         <source>capital U with grave</source>
         <translation>Velké písmeno U s tupým přízvukem</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="175"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="245"/>
         <source>capital U with acute</source>
         <translation>Velké písmeno U s ostrým přízvukem</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="176"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="246"/>
         <source>capital U with circumflex</source>
         <translation>Velké písmeno U se stříškou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="177"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="247"/>
         <source>capital U with diaeresis</source>
         <translation>Velké písmeno U s přehláskou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="178"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="248"/>
         <source>capital Y with acute</source>
         <translation>Velké písmeno Y s ostrým přízvukem</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="179"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="249"/>
         <source>capital Y with diaeresis</source>
         <translation>Velké písmeno Y s přehláskou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="180"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="250"/>
         <source>capital THORN</source>
         <translation>Velké písmeno Þ (Þorn, Thorn)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="181"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="251"/>
         <source>small sharp s</source>
         <translation>Malé ostré s</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="182"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="252"/>
         <source>small a with grave</source>
         <translation>Malé písmeno a s tupým přízvukem</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="183"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="253"/>
         <source>small a with acute</source>
         <translation>Malé písmeno a s ostrým přízvukem</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="184"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="254"/>
         <source>small a with circumflex</source>
         <translation>Malé písmeno a se stříškou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="185"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="255"/>
         <source>small a with tilde</source>
         <translation>Malé písmeno a s vlnovkou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="186"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="256"/>
         <source>small a with diaeresis</source>
         <translation>Malé písmeno a s přehláskou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="187"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="257"/>
         <source>small a with ring above</source>
         <translation>Malé písmeno a s kroužkem nad</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="188"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="258"/>
         <source>small ae</source>
         <translation>Malé æ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="189"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="259"/>
         <source>small c with cedilia</source>
         <translation>Malé písmeno c s háčkem pod písmenem (cédille)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="190"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="260"/>
         <source>small e with grave</source>
         <translation>Malé písmeno e s tupým přízvukem</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="191"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="261"/>
         <source>small e with acute</source>
         <translation>Malé písmeno e s ostrým přízvukem</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="192"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="262"/>
         <source>small e with circumflex</source>
         <translation>Malé písmeno e se stříškou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="193"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="263"/>
         <source>small e with diaeresis</source>
         <translation>Malé písmeno e s přehláskou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="194"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="264"/>
         <source>small i with grave</source>
         <translation>Malé písmeno i s tupým přízvukem</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="195"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="265"/>
         <source>small i with acute</source>
         <translation>Malé písmeno i s ostrým přízvukem</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="196"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="266"/>
         <source>small i with circumflex</source>
         <translation>Malé písmeno i se stříškou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="197"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="267"/>
         <source>small i with diaeresis</source>
         <translation>Malé písmeno i s přehláskou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="198"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="268"/>
         <source>small eth</source>
         <translation>Malé ð (eth)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="199"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="269"/>
         <source>small n with tilde</source>
         <translation>Malé písmeno n s vlnovkou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="200"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="270"/>
         <source>small o with grave</source>
         <translation>Malé písmeno o s tupým přízvukem</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="201"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="271"/>
         <source>small o with acute</source>
         <translation>Malé písmeno o s ostrým přízvukem</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="202"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="272"/>
         <source>small o with circumflex</source>
         <translation>Malé písmeno o se stříškou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="203"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="273"/>
         <source>small o with tilde</source>
         <translation>Malé písmeno o s vlnovkou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="204"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="274"/>
         <source>small o with diaeresis</source>
         <translation>Malé písmeno o s přehláskou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="205"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="275"/>
         <source>small o with stroke</source>
         <translation>Malé písmeno o s tahem</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="206"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="276"/>
         <source>small ligature oe</source>
         <translation>Malé písmeno œ (slitek)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="207"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="277"/>
         <source>small s with caron</source>
         <translation>Malé písmeno s s háčkem (změkčení)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="208"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="278"/>
         <source>small u with grave</source>
         <translation>Malé písmeno u s tupým přízvukem</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="209"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="279"/>
         <source>small u with acute</source>
         <translation>Malé písmeno u s ostrým přízvukem</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="210"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="280"/>
         <source>small u with circumflex</source>
         <translation>malé u se stříškou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="211"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="281"/>
         <source>small u with diaeresis</source>
         <translation>malé přehlasované u</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="212"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="282"/>
         <source>small y with acute</source>
         <translation>malé y s čárkou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="213"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="283"/>
         <source>small y with diaeresis</source>
         <translation>malé y s přehláskou</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="214"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="284"/>
         <source>small thorn</source>
         <translation>Malé þ (þorn, thorn)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="215"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="285"/>
         <source>feminine ordinal indicator</source>
         <translation>ženský řadový indikátor</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="216"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="286"/>
         <source>masculine ordinal indicator</source>
         <translation>mužský řadový indikátor</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="217"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="287"/>
         <source>infinity</source>
         <translation>Nekonečno</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="221"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="291"/>
         <source>Greek capital letter Alpha</source>
         <translation>Velké řecké písmeno alfa</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="222"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="292"/>
         <source>Greek lower letter alpha</source>
         <translation>řecké malé písmeno alfa</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="223"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="293"/>
         <source>Greek capital letter Beta</source>
         <translation>Velké řecké písmeno beta</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="224"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="294"/>
         <source>Greek lower letter beta</source>
         <translation>řecké malé písmeno beta</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="225"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="295"/>
         <source>Greek capital letter Chi</source>
         <translation>Velké řecké písmeno chí</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="226"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="296"/>
         <source>Greek lower letter chi</source>
         <translation>řecké malé písmeno chí</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="227"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="297"/>
         <source>Greek capital letter Delta</source>
         <translation>Velké řecké písmeno delta</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="228"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="298"/>
         <source>Greek lower letter delta</source>
         <translation>řecké malé písmeno delta</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="229"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="299"/>
         <source>Greek capital letter Epsilon</source>
         <translation>Velké řecké písmeno Epsilon</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="230"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="300"/>
         <source>Greek lower letter epsilon</source>
         <translation>řecké malé písmeno epsilon</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="231"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="301"/>
         <source>Greek capital letter Eta</source>
         <translation>Velké řecké písmeno éta</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="232"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="302"/>
         <source>Greek lower letter eta</source>
         <translation>Řecké malé písmeno éta</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="233"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="303"/>
         <source>Greek capital letter Gamma</source>
         <translation>Velké řecké písmeno gamma</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="234"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="304"/>
         <source>Greek lower letter gamma</source>
         <translation>Řecké malé písmeno gama</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="235"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="305"/>
         <source>Greek capital letter Iota</source>
         <translation>Velké řecké písmeno ióta</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="236"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="306"/>
         <source>Greek lower letter iota</source>
         <translation>Řecké malé písmeno ióta</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="237"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="307"/>
         <source>Greek capital letter Kappa</source>
         <translation>Velké řecké písmeno kappa</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="238"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="308"/>
         <source>Greek lower letter kappa</source>
         <translation>Řecké malé písmeno kappa</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="239"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="309"/>
         <source>Greek capital letter Lambda</source>
         <translation>Velké řecké písmeno lambda</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="240"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="310"/>
         <source>Greek lower letter lambda</source>
         <translation>Řecké malé písmeno lambda</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="241"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="311"/>
         <source>Greek capital letter Mu</source>
         <translation>Velké řecké písmeno mí</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="242"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="312"/>
         <source>Greek lower letter mu</source>
         <translation>Řecké malé písmeno mí</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="243"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="313"/>
         <source>Greek capital letter Nu</source>
         <translation>Velké řecké písmeno ný</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="244"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="314"/>
         <source>Greek lower letter nu</source>
         <translation>Řecké malé písmeno ný</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="245"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="315"/>
         <source>Greek capital letter Omega</source>
         <translation>Velké řecké písmeno Ó mega</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="246"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="316"/>
         <source>Greek lower letter omega</source>
         <translation>Řecké malé písmeno omega</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="247"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="317"/>
         <source>Greek capital letter Omicron</source>
         <translation>Velké řecké písmeno o mikron</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="248"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="318"/>
         <source>Greek lower letter omicron</source>
         <translation>Řecké malé písmeno omikron</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="249"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="319"/>
         <source>Greek capital letter Phi</source>
         <translation>Velké řecké písmeno fí</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="250"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="320"/>
         <source>Greek lower letter phi</source>
         <translation>Řecké malé písmeno fí</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="251"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="321"/>
         <source>Greek capital letter Pi</source>
         <translation>Velké řecké písmeno pí</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="252"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="322"/>
         <source>Greek lower letter pi</source>
         <translation>Řecké malé písmeno pí</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="253"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="323"/>
         <source>Greek double prime</source>
         <translation>Řecký dvojitý prim</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="254"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="324"/>
         <source>Greek single prime</source>
         <translation>Řecký jednoduchý prim</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="255"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="325"/>
         <source>Greek capital letter Psi</source>
         <translation>Velké řecké písmeno psí</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="256"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="326"/>
         <source>Greek lower letter psi</source>
         <translation>Řecké malé písmeno psí</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="257"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="327"/>
         <source>Greek capital letter Rho</source>
         <translation>Velké řecké písmeno rhó</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="258"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="328"/>
         <source>Greek lower letter rho</source>
         <translation>Řecké malé písmeno ró</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="259"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="329"/>
         <source>Greek capital letter Sigma</source>
         <translation>Velké řecké písmeno sigma</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="260"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="330"/>
         <source>Greek lower letter sigma</source>
         <translation>Řecké malé písmeno sigma</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="261"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="331"/>
         <source>Greek capital letter Tau</source>
         <translation>Velké řecké písmeno tau</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="262"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="332"/>
         <source>Greek lower letter tau</source>
         <translation>Řecké malé písmeno tau</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="263"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="333"/>
         <source>Greek capital letter Theta</source>
         <translation>Velké řecké písmeno théta</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="264"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="334"/>
         <source>Greek lower letter theta</source>
         <translation>Řecké malé písmeno théta</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="265"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="335"/>
         <source>Greek capital letter Upsilon</source>
         <translation>Velké řecké písmeno Y psilon</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="266"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="336"/>
         <source>Greek lower letter upsilon</source>
         <translation>Řecké malé písmeno ypsilon</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="267"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="337"/>
         <source>Greek capital letter Xi</source>
         <translation>Velké řecké písmeno ksí</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="268"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="338"/>
         <source>Greek lower letter xi</source>
         <translation>Řecké malé písmeno ksí</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="269"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="339"/>
         <source>Greek capital letter Zeta</source>
         <translation>Velké řecké písmeno zéta</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="270"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="340"/>
         <source>Greek lower letter zeta</source>
         <translation>Řecké malé písmeno zéta</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="274"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="344"/>
         <source>alef symbol</source>
         <translation>Symbol aleph</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="275"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="345"/>
         <source>logical and</source>
         <translation>Logické ANO</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="276"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="346"/>
         <source>logical or</source>
         <translation>Logické NEBO</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="277"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="347"/>
         <source>intersection</source>
         <translation>Průnik</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="278"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="348"/>
         <source>union</source>
         <translation>Sjednocení</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="279"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="349"/>
         <source>congruent to</source>
         <translation>Shodný s</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="280"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="350"/>
         <source>downwards arrow with corner leftwards</source>
         <translation>Šipka směřující dolů s rohem doleva</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="281"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="351"/>
         <source>currency sign</source>
         <translation>Znak měny</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="282"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="352"/>
         <source>downwards double arrow</source>
         <translation>Dvojitá šipka směřující dolů</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="283"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="353"/>
         <source>upwards double arrow</source>
         <translation>Dvojitá šipka směřující nahoru</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="284"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="354"/>
         <source>downwards arrow</source>
         <translation>Šipka směřující dolů</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="285"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="355"/>
         <source>upwards arrow</source>
         <translation>Šipka směřující nahoru</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="286"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="356"/>
         <source>empty set</source>
         <translation>Prázdná množina</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="287"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="357"/>
         <source>identical to</source>
         <translation>Stejné s</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="288"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="358"/>
         <source>there exists</source>
         <translation>Je</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="289"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="359"/>
         <source>Latin small letter f with hook</source>
         <translation>Latinské malé písmeno f s háčkem</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="290"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="360"/>
         <source>for all</source>
         <translation>Pro vše</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="291"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="361"/>
         <source>fraction slash</source>
         <translation>Zlomková čára</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="292"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="362"/>
         <source>left right double arrow</source>
         <translation>Dvojitá šipka vlevo vpravo</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="293"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="363"/>
         <source>left right single arrow</source>
         <translation>Jednoduchá obousměrná šipka</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="294"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="364"/>
         <source>black-letter capital I</source>
         <translation>Černé velké písmeno I</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="295"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="365"/>
         <source>integral</source>
         <translation>Integrál</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="296"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="366"/>
         <source>element of</source>
         <translation>Prvek</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="297"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="367"/>
         <source>leftwards double arrow</source>
         <translation>Dvojitá šipka směřující doleva</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="298"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="368"/>
         <source>double right arrow</source>
         <translation>Dvojitá šipka vpravo</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="299"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="369"/>
         <source>left-pointing angle bracket</source>
         <translation>Vlevo směřující špičatá závorka</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="300"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="370"/>
         <source>right-pointing angle bracket</source>
         <translation>Vpravo směřující špičatá závorka</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="301"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="371"/>
         <source>left ceiling</source>
         <translation>Strop vlevo</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="302"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="372"/>
         <source>right ceiling</source>
         <translation>Strop vpravo</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="303"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="373"/>
         <source>less-than or equal to</source>
         <translation>Menší než nebo rovná se</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="304"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="374"/>
         <source>greater-than or equal to</source>
         <translation>Větší než nebo rovná se</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="305"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="375"/>
         <source>left floor</source>
         <translation>Dno vlevo</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="306"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="376"/>
         <source>right floor</source>
         <translation>Dno vpravo</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="307"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="377"/>
         <source>asterisk operator</source>
         <translation>Operátor hvězdička</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="308"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="378"/>
         <source>lozenge</source>
         <translation>Kosočtverec</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="309"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="379"/>
         <source>macron</source>
         <translation>Vodorovná čárka nad samohláskou označující její délku nebo přízvučnost</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="310"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="380"/>
         <source>nabla</source>
         <translation>Symbol nabla</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="311"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="381"/>
         <source>not equal to</source>
         <translation>Není rovno</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="312"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="382"/>
         <source>contains as member</source>
         <translation>Obsahuje jako člen</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="313"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="383"/>
         <source>not sign</source>
         <translation>Znak ne</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="314"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="384"/>
         <source>not an element of</source>
         <translation>Není prvkem</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="315"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="385"/>
         <source>not a subset of</source>
         <translation>Není podmnožina</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="316"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="386"/>
         <source>overline</source>
         <translation>Nadtržení</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="317"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="387"/>
         <source>circled plus</source>
         <translation>Plus v kroužku</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="318"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="388"/>
         <source>circled times</source>
         <translation>tenzorový součin</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="319"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="389"/>
         <source>partial differential</source>
         <translation>Částečný rozdíl</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="320"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="390"/>
         <source>per mille sign</source>
         <translation>Značka promile</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="321"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="391"/>
         <source>up tack</source>
         <translation>Připínáček nahoru</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="322"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="392"/>
         <source>Greek pi symbol</source>
         <translation>Řecký symbol pro pí</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="323"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="393"/>
         <source>n-ary product</source>
         <translation>n-ární součin</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="324"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="394"/>
         <source>proportional to</source>
         <translation>Poměrný k</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="325"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="395"/>
         <source>square root</source>
         <translation>Odmocnina</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="326"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="396"/>
         <source>black-letter capital R</source>
         <translation>Černé velké písmeno R</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="327"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="397"/>
         <source>dot operator</source>
         <translation>Operátor tečka</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="328"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="398"/>
         <source>Greek small letter final sigma</source>
         <translation>Malé řecké písmeno koncová sigma</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="329"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="399"/>
         <source>tilde operator</source>
         <translation>Operátor vlnovka</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="330"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="400"/>
         <source>subset of</source>
         <translation>Podmnožina</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="331"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="401"/>
         <source>superset of</source>
         <translation>Nadmnožina</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="332"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="402"/>
         <source>subset of or equal to</source>
         <translation>Podmnožina nebo rovná se</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="333"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="403"/>
         <source>superset of or equal to</source>
         <translation>Nadmnožina nebo rovná se</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="334"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="404"/>
         <source>n-ary summation</source>
         <translation>n-ární součet</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="335"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="405"/>
         <source>superscript one</source>
         <translation>Horní index 1</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="336"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="406"/>
         <source>superscript two</source>
         <translation>Horní index 2</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="337"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="407"/>
         <source>superscript three</source>
         <translation>Horní index 3</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="338"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="408"/>
         <source>therefore sign</source>
         <translation>Znaménko proto</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="339"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="409"/>
         <source>Greek theta symbol</source>
         <translation>Řecký symbol pro thétu</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="340"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="410"/>
         <source>Greek Upsilon with hook symbol</source>
         <translation>Řecký symbol pro Y psilon s háčkem</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="341"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="411"/>
         <source>script capital P</source>
         <translation>Velké skriptové písmeno P</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="342"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="412"/>
         <source>yen sign</source>
         <translation>Značka pro jen</translation>
     </message>
@@ -21077,7 +21120,7 @@ se mají přidat do vaší knihy a automaticky vložit do vašeho dokumentu.</tr
 
 The dropdown box shows existing Folder paths for this file type.</source>
         <translation>Zadejte nebo vyberte cestu e-knihy k požadované cílové složce.
-Rozevírací seznam zobrazuje existující cesty složek pro tento typ souboru.</translation>
+Rozevírací seznam zobrazuje stávající cesty složek pro tento typ souboru.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFolder.ui" line="27"/>
@@ -21193,12 +21236,12 @@ Názvy ID musí být jedinečné a začínat písmenem.</translation>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="22"/>
         <source>Primary Language Dictionary:</source>
-        <translation>Primární jazykový slovník:</translation>
+        <translation>Hlavní jazykový slovník:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="55"/>
         <source>Secondary Language Dictionary:</source>
-        <translation>Sekundární jazykový slovník:</translation>
+        <translation>Vedlejší jazykový slovník:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PSpellCheckWidget.ui" line="91"/>
@@ -21377,7 +21420,7 @@ napsaných slov.</translation>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="14"/>
         <source>Spellcheck</source>
-        <translation>Ověření pravopisu</translation>
+        <translation>Ověřit pravopis</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SpellcheckEditor.ui" line="22"/>
@@ -21594,7 +21637,7 @@ Použijte v případě, že upravujete jakékoli soubory HTML, když je otevřen
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="14"/>
         <source>CSS Selectors</source>
-        <translation>Selektory CSS</translation>
+        <translation>Voliče CSS</translation>
     </message>
     <message>
         <location filename="../../Form_Files/ReportsStylesInCSSFilesWidget.ui" line="34"/>
@@ -21624,7 +21667,7 @@ Použijte v případě, že upravujete jakékoli soubory HTML, když je otevřen
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="90"/>
         <source>&lt;p&gt;This is a list of the CSS selectors in all CSS files and whether or not the selector was matched in an HTML file.&lt;p&gt;</source>
-        <translation>&lt;p&gt;Toto je seznam selektorů CSS ve všech souborech CSS a informace o tom, zda byl selektor použit v některém souboru HTML.&lt;p&gt;</translation>
+        <translation>&lt;p&gt;Toto je seznam voličů CSS ve všech souborech CSS a informace o tom, zda byl volič použit v některém souboru HTML.&lt;p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="91"/>
@@ -21634,7 +21677,7 @@ Použijte v případě, že upravujete jakékoli soubory HTML, když je otevřen
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="92"/>
         <source>&lt;p&gt;Due to the complexities of CSS you must check your code manually to be absolutely certain if a selector is used or not.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Vzhledem ke složitosti CSS musíte svůj kód zkontrolovat ručně, abyste si byli zcela jisti, zda je selektor použit, či nikoli.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Vzhledem ke složitosti CSS musíte svůj kód prověřit ručně, abyste si byli zcela jisti, zda je volič použit, či nikoli.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/StylesInCSSFilesWidget.cpp" line="92"/>
@@ -21751,12 +21794,12 @@ Pokračovat a použít požadovaný název souboru?</translation>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="118"/>
         <source>Export Validation Results</source>
-        <translation>Exportovat výsledky ověření</translation>
+        <translation>Vyvést výsledky ověření</translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="151"/>
         <source>Export of Validation Results failed: </source>
-        <translation>Export výsledků ověření se nezdařil: </translation>
+        <translation>Vyvedení výsledků ověření se nezdařilo: </translation>
     </message>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="332"/>
