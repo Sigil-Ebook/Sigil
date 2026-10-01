@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2015-2019 Kevin B. Hendricks, Stratford Ontario Canada
+**  Copyright (C) 2015-2026 Kevin B. Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -27,7 +27,8 @@
 #include "ResourceObjects/FontResource.h"
 
 FontResource::FontResource(const QString &mainfolder, const QString &fullfilepath, QObject *parent)
-    : Resource(mainfolder, fullfilepath, parent)
+    : Resource(mainfolder, fullfilepath, parent),
+      m_ObfuscationAlgorithm("")
 {
 }
 
