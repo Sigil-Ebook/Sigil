@@ -68,7 +68,6 @@ qrc_*
 *.pbxindex
 *.build
 *.smp
-*.pl
 *.pyc
 *.pyo
 *.orig
