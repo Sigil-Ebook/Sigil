@@ -12,15 +12,19 @@ Sigil-2.8.5
      - speed up Bookbrowser Refresh by bulk adding and removal items. (contributed by rinne1998)
      - try to allow Sigil dock recent items on  macOS platform
      - allow multiple selection in the TOC Editor to speed larger changes.
-     - add image initial size to Sigil"s Image tab.
+     - add image initial size to Sigil's Image tab.
      - add ability to create your own Insert Special Characters dialog using special_characters.xml in
        Sigil prefs folder.  Design and Code credit goes completely to BeckyEbook.
      - Completely redesign AdjustImage Cropping to make it more usable. Thanks to byword77
-     - make Sigil meta use epub version specific forms for Epub 3.4 spec changes
+     - make Sigil meta use epub version specific tags for Epub 3.4 spec changes
      - make svg cover images add href alongside xlink:href for Epub 3.4 spec changes
      - make epub3 not add or use old epub2 cover metadata for Epub 3.4 spec changes
-     - Allow epub3 Tools to control creation and removal of cover metadata to ease backwards compatibility
+     - allow epub3 Tools to control creation and removal of cover metadata to ease backwards compatibility
+     - add support for qt image formats plugins to support avif and jxl images
+     - add suport for polyfilling jxl images in Preview using the URLSchemeHandler
+     - add qt image plugins tp support Epub 3.4 spec for avif and jxl image formats
 
+    
    Bug Fixes
      - move all singleton C++ classes to use the Meyers form to fix leaks, bugs, and speed startup
      - prevent leak in Python redirect (contributed by rinne1998)
@@ -35,8 +39,11 @@ Sigil-2.8.5
      - avoid unchanged search resource rewrites to prevent undo history being lost (contributed by rinne1998)
      - fix crash in AppImage when secure links and or remote resources with secure links were present.
      - detect malformed OPFs on initial epub load and warn user before auto repairing it
-     - fix bug in AdjustImage for handling gif Images that Qt can not write using python PIL
+     - fix bug in AdjustImage for handling gif Images that Qt can not write using python PIL to create them
      - fix numerous user nits in the AdjustImage/Image Tab and make it saer for image types that are read only
+     - fix crash when adding a font and referencing it before its obfuscation type is set
+     - use QImageReader and QImageWriter supportedImageFormats to prevent AdjustImage bugs
+    
 
 
 Sigil 2.8.1
