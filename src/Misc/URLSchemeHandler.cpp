@@ -27,6 +27,8 @@
 #include <QWebEngineUrlSchemeHandler>
 #include <QBuffer>
 #include <QFile>
+#include <QImage>
+#include <QImageReader>
 #include <QFileInfo>
 #include <QDebug>
 #include "MainUI/MainApplication.h"
@@ -38,10 +40,13 @@
 #define DBG if(0)
 
 static const QStringList REDIRECT = QStringList() << "audio/mp4" << "video/mp4" << "audio/mpeg" << "application/pdf";
+static const QByteArray JXL_MIME_TYPE = "image/jxl";
 
 URLSchemeHandler::URLSchemeHandler(QObject *parent)
-    : QWebEngineUrlSchemeHandler(parent)
+    : QWebEngineUrlSchemeHandler(parent),
+      can_polyfill_jxl(false)
 {
+    can_polyfill_jxl = QImageReader::supportedMimeTypes().contains(JXL_MIME_TYPE);
 }
 
 
@@ -86,16 +91,24 @@ void URLSchemeHandler::requestStarted(QWebEngineUrlRequestJob *request)
             //
             // Since filling partial requests does not seem feasible in QtWebEngine without a whole
             // lot of effort, redirect them to use the url file: scheme so that the entire file gets requested
-            
+
             if (REDIRECT.contains(mt) && url.scheme() == "sigil") {
                 request->redirect(fileurl);
                 return;
             }
-            
-            QFile file(local_file);
-            if (file.open(QIODevice::ReadOnly)) {
-                data = file.readAll();
-                file.close();
+            if ((mt == QString::fromLatin1(JXL_MIME_TYPE)) && can_polyfill_jxl && (url.scheme() == "sigil")) {
+                QImage jxlfile(local_file);
+                QBuffer buffer(&data);
+                if (buffer.open(QIODevice::WriteOnly)) {
+                    jxlfile.save(&buffer, "PNG");
+                }
+                content_type = "image/png";
+            } else {
+                QFile file(local_file);
+                if (file.open(QIODevice::ReadOnly)) {
+                    data = file.readAll();
+                    file.close();
+                }
             }
         } else {
             qDebug() << "URLSchemeHandler will fail request because no local file found: " << url;

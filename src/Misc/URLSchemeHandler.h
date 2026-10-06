@@ -31,5 +31,7 @@ class URLSchemeHandler : public QWebEngineUrlSchemeHandler
 public:
     URLSchemeHandler(QObject *parent = nullptr);
     void requestStarted(QWebEngineUrlRequestJob *job) Q_DECL_OVERRIDE;
+private:
+    bool can_polyfill_jxl;
 };
 #endif // URLSCHEMEHANDLER_H
