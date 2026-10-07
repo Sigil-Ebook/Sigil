@@ -40,7 +40,7 @@
 #include "Widgets/ImageView.h"
 
 static const QString IMAGE_HTML_BASE =
-    "<html>"
+    "<html xmlns=\"http://www.w3.org/1999/xhtml\">"
     "<head>"
     "<style type=\"text/css\">"
     "body { -webkit-user-select: none; margin: 0; }"
@@ -114,7 +114,9 @@ void ImageView::ShowImage(QString path)
     const double ffsize = fileInfo.size() / 1024.0;
     const QString fsize = QLocale().toString(ffsize, 'f', 2);
     const QImage img(path);
-    const QUrl imgUrl = QUrl::fromLocalFile(path);
+    QUrl imgUrl = QUrl::fromLocalFile(path);
+    imgUrl.setScheme("sigil");
+    imgUrl.setHost("");
     QString colors_shades = img.isGrayscale() ? tr("shades") : tr("colors");
     QString grayscale_color = img.isGrayscale() ? tr("Grayscale") : tr("Color");
     QString colorsInfo = "";

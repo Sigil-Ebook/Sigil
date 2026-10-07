@@ -1,4 +1,4 @@
-/************************************************************************
+/*********************AA***************************************************
 **
 **  Copyright (C) 2015-2026 Kevin B, Hendricks, Stratford Ontario Canada
 **  Copyright (C) 2012-2013 John Schember <john@nachtimwald.com>
@@ -50,7 +50,7 @@ static const int THUMBNAIL_SIZE_INCREMENT = 50;
 static QString SETTINGS_GROUP = "select_images";
 
 const QString IMAGE_HTML_BASE_PREVIEW =
-    "<html>"
+    "<html xmlns=\"http://www.w3.org/1999/xhtml\">"
     "<head>"
     "<style type=\"text/css\">"
     "body { -webkit-user-select: none; }"
@@ -63,7 +63,7 @@ const QString IMAGE_HTML_BASE_PREVIEW =
     "</html>";
 
 const QString AUDIO_HTML_BASE =
-    "<html>"
+    "<html xmlns=\"http://www.w3.org/1999/xhtml\">"
     "<head>"
     "<style type=\"text/css\">"
     "body { -webkit-user-select: none; }"
@@ -76,7 +76,7 @@ const QString AUDIO_HTML_BASE =
     "</html>";
 
 const QString VIDEO_HTML_BASE =
-    "<html>"
+    "<html xmlns=\"http://www.w3.org/1999/xhtml\">"
     "<head>"
     "<style type=\"text/css\">"
     "body { -webkit-user-select: none; }"
@@ -165,7 +165,7 @@ QStringList SelectFiles::SelectedImages()
 void SelectFiles::SetImages()
 {
     ui.Details->clear();
-    QString html = "<html><head><title></title></head><body></body></html>";
+    QString html = "<html xmlns=\"http://www.w3.org/1999/xhtml\"><head><title></title></head><body></body></html>";
     if (Utility::IsDarkMode()) {
         html = Utility::AddDarkCSS(html);
     }
@@ -344,7 +344,9 @@ void SelectFiles::SetPreviewImage()
 
         // Define detailed information label
         const QImage img(path);
-        const QUrl imgUrl = QUrl::fromLocalFile(path);
+        QUrl imgUrl = QUrl::fromLocalFile(path);
+        imgUrl.setScheme("sigil");
+        imgUrl.setHost("");
         QString colors_shades = img.isGrayscale() ? tr("shades") : tr("colors");
         QString grayscale_color = img.isGrayscale() ? tr("Grayscale") : tr("Color");
         QString colorsInfo = "";
@@ -359,8 +361,8 @@ void SelectFiles::SetPreviewImage()
                   .arg(fsize).arg(grayscale_color).arg(colorsInfo);
 
         // MainWindow::clearMemoryCaches();
-        const QUrl resourceUrl = QUrl::fromLocalFile(path);
-        QString html = IMAGE_HTML_BASE_PREVIEW.arg(resourceUrl.toString());
+        QUrl resourceUrl = QUrl::fromLocalFile(path);
+        QString html = IMAGE_HTML_BASE_PREVIEW.arg(imgUrl.toString());
         if (Utility::IsDarkMode()) {
             html = Utility::AddDarkCSS(html);
         }

@@ -171,7 +171,8 @@ WebProfileMgr::WebProfileMgr()
 
     // Use URLInterceptor for protection
     m_onetime_profile->setUrlRequestInterceptor(m_URLint);
-
+    // Use URLSchemeHandler for polyfill of jxl by png
+    m_onetime_profile->installUrlSchemeHandler("sigil", m_URLhandler);
 
     // Create Shared Inspector Profile
     // -------------------------------

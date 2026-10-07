@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2019-2025 Kevin B. Hendricks
+**  Copyright (C) 2019-2026 Kevin B. Hendricks
 **  Copyright (C) 2013      Dave Heiland
 **
 **  This file is part of Sigil.
