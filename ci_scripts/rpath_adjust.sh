@@ -14,6 +14,8 @@ install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Conte
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/imageformats/libqtiff.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/imageformats/libqwbmp.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/imageformats/libqwebp.dylib
+install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/imageformats/libqavif.dylib
+install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/imageformats/libqjpegxl6.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/networkinformation/libqscnetworkreachability.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/platforminputcontexts/libqtvirtualkeyboardplugin.dylib
 install_name_tool -add_rpath @loader_path/../../Frameworks ./bin/Sigil.app/Contents/PlugIns/platforms/libqcocoa.dylib
