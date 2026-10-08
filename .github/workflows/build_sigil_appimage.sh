@@ -184,7 +184,7 @@ setup_qt6() {
       retry curl -kLC- -o "/usr/src/qtimageformats${QT6_FN}.zip" "${imageformats_url}"
       touch "/usr/src/qtimageformats${QT6_FN}.zip.download_ok"
     fi
-    unzip -o "/reporoot/qtimageformats${QT6_FN}.zip" -d "/opt/sigiltools/Qt/$QT6_VER_FULL/gcc_64/plugins/imageformats/"
+    unzip -o "/usr/src/qtimageformats${QT6_FN}.zip" -d "/opt/sigiltools/Qt/$QT6_VER_FULL/gcc_64/plugins/imageformats/"
   fi
 }
 
