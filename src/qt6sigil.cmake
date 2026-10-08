@@ -438,7 +438,7 @@ elseif (MSVC)
 
     # windeploy doesn't always want to pick up our custom jxl imageformat plugin so copy it manually if it exists.
     if ( EXISTS ${JXL_PLUGIN_SRC_PATH} )
-        add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy ${JXL_PLUGIN_SRC_PATH} ${MAIN_PACKAGE_DIR/imageformats/} )
+        add_custom_command( TARGET ${TARGET_FOR_COPY} POST_BUILD COMMAND cmake -E copy ${JXL_PLUGIN_SRC_PATH} ${MAIN_PACKAGE_DIR}/imageformats/ )
     endif()
 
     # Copy the translation qm files
