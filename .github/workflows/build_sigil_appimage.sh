@@ -173,6 +173,19 @@ setup_qt6() {
   export PATH=/opt/sigiltools/Qt/$QT6_VER_FULL/gcc_64/bin:$PATH
   export LD_LIBRARY_PATH=/opt/sigiltools/Qt/${QT6_VER_FULL}/gcc_64/lib:$LD_LIBRARY_PATH
   echo "Qt version $(qmake -v)"
+  imageformats_url="https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/qtimageformats${QT6_FN}.zip"
+  if [ -f "/reporoot/qtimageformats${QT6_FN}.zip" ]; then
+    echo "Using local QtImageFormats Plugin archive"
+    unzip -o "/reporoot/qtimageformats${QT6_FN}.zip" -d "/opt/sigiltools/Qt/$QT6_VER_FULL/gcc_64/plugins/imageformats"
+  else
+    if [ ! -f "/usr/src/qtimageformats${QT6_FN}.zip.download_ok" ]; then
+      echo "Downloading remote QtImageFormats Plugin archive"
+      rm -f "/usr/src/qtimageformats${QT6_FN}.zip"
+      retry curl -kLC- -o "/usr/src/qtimageformats${QT6_FN}.zip" "${imageformats_url}"
+      touch "/usr/src/qtimageformats${QT6_FN}.zip.download_ok"
+    fi
+    unzip -o "/reporoot/qtimageformats${QT6_FN}.zip" -d "/opt/sigiltools/Qt/$QT6_VER_FULL/gcc_64/plugins/imageformats/"
+  fi
 }
 
 setup_webengine() {
