@@ -173,18 +173,20 @@ setup_qt6() {
   export PATH=/opt/sigiltools/Qt/$QT6_VER_FULL/gcc_64/bin:$PATH
   export LD_LIBRARY_PATH=/opt/sigiltools/Qt/${QT6_VER_FULL}/gcc_64/lib:$LD_LIBRARY_PATH
   echo "Qt version $(qmake -v)"
-  imageformats_url="https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/qtimageformats${QT6_FN}.zip"
-  if [ -f "/reporoot/qtimageformats${QT6_FN}.zip" ]; then
+  imageformats_url="https://github.com/dougmassay/win-qtwebkit-5.212/releases/download/v5.212-1/qtimageformats${QT6_FN}.tar.xz"
+  if [ -f "/reporoot/qtimageformats${QT6_FN}.tar.xz" ]; then
     echo "Using local QtImageFormats Plugin archive"
-    unzip -o "/reporoot/qtimageformats${QT6_FN}.zip" -d "/opt/sigiltools/Qt/$QT6_VER_FULL/gcc_64/plugins/imageformats"
+    # unzip -o "/reporoot/qtimageformats${QT6_FN}.zip" -d "/opt/sigiltools/Qt/$QT6_VER_FULL/gcc_64/plugins/imageformats"
+    tar -xJf "/reporoot/qtimageformats${QT6_FN}.tar.xz" -C "/opt/sigiltools/Qt/$QT6_VER_FULL/gcc_64/plugins/imageformats"
   else
-    if [ ! -f "/usr/src/qtimageformats${QT6_FN}.zip.download_ok" ]; then
+    if [ ! -f "/usr/src/qtimageformats${QT6_FN}.tar.xz.download_ok" ]; then
       echo "Downloading remote QtImageFormats Plugin archive"
-      rm -f "/usr/src/qtimageformats${QT6_FN}.zip"
-      retry curl -kLC- -o "/usr/src/qtimageformats${QT6_FN}.zip" "${imageformats_url}"
-      touch "/usr/src/qtimageformats${QT6_FN}.zip.download_ok"
+      rm -f "/usr/src/qtimageformats${QT6_FN}.tar.xz"
+      retry curl -kLC- -o "/usr/src/qtimageformats${QT6_FN}.tar.xz" "${imageformats_url}"
+      touch "/usr/src/qtimageformats${QT6_FN}.tar.xz.download_ok"
     fi
-    unzip -o "/usr/src/qtimageformats${QT6_FN}.zip" -d "/opt/sigiltools/Qt/$QT6_VER_FULL/gcc_64/plugins/imageformats/"
+    # unzip -o "/usr/src/qtimageformats${QT6_FN}.zip" -d "/opt/sigiltools/Qt/$QT6_VER_FULL/gcc_64/plugins/imageformats"
+    tar -xJf "/usr/src/qtimageformats${QT6_FN}.tar.xz" -C "/opt/sigiltools/Qt/$QT6_VER_FULL/gcc_64/plugins/imageformats"
   fi
 }
 
@@ -269,6 +271,8 @@ build_appimage() {
   export EXTRA_QT_MODULES="waylandcompositor"
   ./linuxdeploy-x86_64.AppImage --appdir sigil.AppDir --custom-apprun=${SELF_DIR}/AppRun --plugin qt
   python3 "${SELF_DIR}/appimg_cleanup.py" /build/sigil.AppDir/usr/lib $PY_SHORT_VER
+  cp -fv "/opt/sigiltools/Qt/$QT6_VER_FULL/gcc_64/plugins/imageformats/libqavif.so" /build/sigil.AppDir/usr/plugins/imageformats/
+  cp -fv "/opt/sigiltools/Qt/$QT6_VER_FULL/gcc_64/plugins/imageformats/libjpegxl6.so" /build/sigil.AppDir/usr/plugins/imageformats/
   #cp -fv "${SELF_DIR}/AppRun" /build/sigil.AppDir/
   LDAI_UPDATE_INFORMATION="gh-releases-zsync|Sigil-Ebook|Sigil|latest|Sigil-*x86_64.AppImage.zsync" \
   LDAI_VERBOSE=1 \
