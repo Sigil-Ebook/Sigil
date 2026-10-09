@@ -707,9 +707,9 @@ QStringList XhtmlDoc::GetAllMediaPathsFromMediaChildren(const QString & source, 
         // each element node will only hold one of the following attributes
         GumboAttribute* attr = gumbo_get_attribute(&node->v.element.attributes, "src");
         if (!attr) {
-            // search for xlink:href using gumbo attribute namespace
+            // search for xlink:href or href using gumbo attribute namespace
             attr = gumbo_get_attribute(&node->v.element.attributes, "href");
-            if (attr && attr->attr_namespace != GUMBO_ATTR_NAMESPACE_XLINK) attr = NULL;
+            if (attr && node->v.element.tag != GUMBO_TAG_IMAGE) attr = NULL;
         }
         if (!attr) {
             // search for altimg attribute from math tag
