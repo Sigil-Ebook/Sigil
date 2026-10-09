@@ -100,9 +100,9 @@ void URLSchemeHandler::requestStarted(QWebEngineUrlRequestJob *request)
                 QImage jxlfile(local_file);
                 QBuffer buffer(&data);
                 if (buffer.open(QIODevice::WriteOnly)) {
-                    jxlfile.save(&buffer, "PNG");
+                    jxlfile.save(&buffer, "JPG", 95);
                 }
-                content_type = "image/png";
+                content_type = "image/jpg";
             } else {
                 QFile file(local_file);
                 if (file.open(QIODevice::ReadOnly)) {
