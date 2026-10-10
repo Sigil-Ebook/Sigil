@@ -21,8 +21,7 @@ Sigil-2.8.5
      - make epub3 not add or use old epub2 cover metadata for Epub 3.4 spec changes
      - allow epub3 Tools to control creation and removal of cover metadata to ease backwards compatibility
      - add support for qt image formats plugins to support avif and jxl images
-     - add suport for polyfilling jxl images in Preview using the URLSchemeHandler
-     - add qt image plugins tp support Epub 3.4 spec for avif and jxl image formats
+     - add support for polyfilling jxl images in Preview using the URLSchemeHandler and jpeg format
 
     
    Bug Fixes
