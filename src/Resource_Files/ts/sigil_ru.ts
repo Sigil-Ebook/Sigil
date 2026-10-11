@@ -215,12 +215,12 @@
     <message>
         <location filename="../../Form_Files/AdjustImage.ui" line="95"/>
         <source>Crop</source>
-        <translation>Обрезать</translation>
+        <translation>Кадрировать</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AdjustImage.ui" line="98"/>
         <source>Crop image Mode: Use Enter to Crop to selection and Escape to abort crop</source>
-        <translation type="unfinished"/>
+        <translation>Режим кадрирования: Клавиша «Enter» – обрезать по выделению; Клавиша «Esc» – выйти из режима</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AdjustImage.ui" line="107"/>
@@ -316,12 +316,12 @@
     <message>
         <location filename="../../Widgets/AdjustImage.cpp" line="222"/>
         <source>Crop Mode: Enter to Crop, Escape to Abort</source>
-        <translation type="unfinished"/>
+        <translation>Режим кадрирования: «Enter» – обрезать, «Esc» – выйти</translation>
     </message>
     <message>
         <location filename="../../Widgets/AdjustImage.cpp" line="227"/>
         <source>Exiting Crop Mode</source>
-        <translation type="unfinished"/>
+        <translation>Выход из режима кадрирования</translation>
     </message>
     <message>
         <location filename="../../Widgets/AdjustImage.cpp" line="351"/>
@@ -336,7 +336,7 @@
     <message>
         <location filename="../../Widgets/AdjustImage.cpp" line="422"/>
         <source>Image format is not supported for write and can not be saved. Save aborted.</source>
-        <translation type="unfinished"/>
+        <translation>Формат изображения не поддерживается, сохранить его невозможно. Сохранение прервано.</translation>
     </message>
     <message>
         <location filename="../../Widgets/AdjustImage.cpp" line="453"/>
@@ -346,12 +346,12 @@
     <message>
         <location filename="../../Widgets/AdjustImage.cpp" line="454"/>
         <source>Enter quality level (0-100):</source>
-        <translation>Введите значение качества (0–100):</translation>
+        <translation>Введите значение качества (0 – 100):</translation>
     </message>
     <message>
         <location filename="../../Widgets/AdjustImage.cpp" line="456"/>
         <source>Image save aborted, as quality unavailable.</source>
-        <translation type="unfinished"/>
+        <translation>Сохранение изображения прервано, так как качество недоступно.</translation>
     </message>
     <message>
         <location filename="../../Widgets/AdjustImage.cpp" line="470"/>
@@ -361,7 +361,7 @@
     <message>
         <location filename="../../Widgets/AdjustImage.cpp" line="475"/>
         <source>Image save failed. Add Existing backup of image for safety.</source>
-        <translation type="unfinished"/>
+        <translation>Сохранить изображение не удалось. Добавьте его существующую резервную копию для подстраховки.</translation>
     </message>
 </context>
 <context>
@@ -623,12 +623,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="472"/>
         <source>Choose which icon theme you want to use (requires Sigil restart).</source>
-        <translation>Выберите, какую тему значков Вы хотите использовать (требуется перезапуск Sigil).</translation>
+        <translation>Выберите тему значков, которую хотите использовать (требуется перезапуск Sigil).</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="475"/>
         <source>Select your icon theme:</source>
-        <translation>Выберите стиль оформления значков:</translation>
+        <translation>Стиль оформления значков:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="487"/>
@@ -723,22 +723,22 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="715"/>
         <source>Determine if the BookBrowser should show full paths</source>
-        <translation>Определите, должен ли Книжный Браузер показывать полные пути к файлам</translation>
+        <translation>Определяет, должен ли Браузер книг отображать полные пути к файлам</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="718"/>
         <source>Control Book Browser Appearance:</source>
-        <translation>Внешний вид Книжного Браузера:</translation>
+        <translation>Параметры Браузера книг:</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="730"/>
         <source>Check to make BookBrowser show full paths.</source>
-        <translation>Установите флажок, чтобы в окне Книжного Браузера отображались полные пути к файлам.</translation>
+        <translation>Установите флажок и Браузер книг будет отображать полные пути к файлам.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="733"/>
         <source>BookBrowser should show full paths.</source>
-        <translation>Показывать полные пути к файлам в окне Книжного Браузера.</translation>
+        <translation>Показывать полные пути к файлам в окне «Структура книги».</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="746"/>
@@ -1513,7 +1513,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/AutomateEditor.ui" line="184"/>
         <source>Use OK to commit your changes to the file, otherwise use Cancel.</source>
-        <translation>Нажмите OK, чтобы зафиксировать изменения в файле иначе нажмите Отменить.</translation>
+        <translation>Нажмите «OK», чтобы зафиксировать изменения в файле или нажмите «Отменить».</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="65"/>
@@ -1565,12 +1565,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="344"/>
         <source>Add Nav to OPF Spine.</source>
-        <translation>Добавить Nav в раздел Spine файла OPF.</translation>
+        <translation>Добавить Nav в тег ‹spine› файла OPF.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="345"/>
         <source>Add Nav to OPF Spine with linear=&apos;no&apos;.</source>
-        <translation>Добавить Nav в раздел Spine файла OPF с «linear=&quot;no&quot;».</translation>
+        <translation>Добавить Nav в тег ‹spine› файла OPF с «linear=&quot;no&quot;».</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="346"/>
@@ -1630,7 +1630,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="357"/>
         <source>Remove Nav from OPF Spine.</source>
-        <translation>Удалить Nav из раздела Spine файла OPF.</translation>
+        <translation>Удалить Nav из тега ‹spine› файла OPF.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="358"/>
@@ -1725,7 +1725,7 @@ if a sans-serif font-family specified in your CSS</source>
         <location filename="../../BookManipulation/Book.cpp" line="1697"/>
         <location filename="../../BookManipulation/Book.cpp" line="1741"/>
         <source>PrettyPrint cancelled: %1, XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>PrettyPrint отменено: %1, ошибки в структуре XML.</translation>
     </message>
 </context>
 <context>
@@ -1777,7 +1777,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="389"/>
         <source>The file &quot;%1&quot; does not exist.</source>
-        <translation>Файл &quot;%1&quot; не существует.</translation>
+        <translation>Файл «%1» не существует.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="772"/>
@@ -1795,44 +1795,44 @@ if a sans-serif font-family specified in your CSS</source>
         <source>File is not an image and cannot be used:
 
 &quot;%1&quot;.</source>
-        <translation>Файл не является изображением и поэтому не может быть использован:
+        <translation>Файл не является изображением и не может быть использован:
 
-&quot;%1&quot;.</translation>
+«%1».</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="921"/>
         <source>File is not multimedia (image, video, audio) and cannot be inserted:
 
 &quot;%1&quot;.</source>
-        <translation>Файл не является изображением, видео или аудио, и поэтому не может быть вставлен:
+        <translation>Файл не является изображением, видео или аудио и не может быть вставлен:
 
-&quot;%1&quot;.</translation>
+«%1».</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="944"/>
         <source>The multimedia file &quot;%1&quot; already exists in the book.
 
 OK to replace?</source>
-        <translation>Медиафайл &quot;%1&quot; уже есть в книге.
+        <translation>Медиафайл «%1» уже есть в книге.
 
-Нажмите ОК чтобы заменить.</translation>
+Нажмите «ОК» чтобы заменить.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="971"/>
         <source>Overwrite of image &quot;%1&quot; failed.</source>
-        <translation type="unfinished"/>
+        <translation>Сбой во время перезаписи изображения «%1».</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="977"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
-        <translation>Не удалось удалить или заменить файл &quot;%1&quot;.</translation>
+        <translation>Не удалось удалить или заменить файл «%1».</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="982"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
-        <translation>Не удалось загрузить &quot;%1&quot;
+        <translation>Не удалось загрузить «%1»
 Файл с таким именем уже есть в книге.</translation>
     </message>
     <message>
@@ -1867,7 +1867,7 @@ A file with this name already exists in the book.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1166"/>
         <source>One or more files already exists.  OK to overwrite?</source>
-        <translation>Один или несколько файлов уже существуют. Нажмите OK, чтобы заменить.</translation>
+        <translation>Один или несколько файлов уже существуют. Нажмите «OK», чтобы заменить.</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1183"/>
@@ -1882,7 +1882,7 @@ A file with this name already exists in the book.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1415"/>
         <source>Filenames cannot contain these characters: &quot;%1&quot;.</source>
-        <translation>Имена файлов не могут содержать символы: &quot;%1&quot;.</translation>
+        <translation>Имена файлов не могут содержать символы: «%1».</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1477"/>
@@ -1892,7 +1892,7 @@ A file with this name already exists in the book.</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1548"/>
         <source>Destination Folder has invalid path &quot;%1&quot;</source>
-        <translation>У папки назначения недопустимый путь &quot;%1&quot;</translation>
+        <translation>У папки назначения недопустимый путь «%1»</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="1582"/>
@@ -2406,7 +2406,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="266"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Сохранить отчёт как файл с разделителями запятыми</translation>
+        <translation>Сохранить отчёт как файл в формате CSV</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/CharactersInHTMLFilesWidget.cpp" line="279"/>
@@ -2479,7 +2479,7 @@ There always has to be at least one.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="256"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Сохранить отчёт как файл с разделителями запятыми</translation>
+        <translation>Сохранить отчёт как файл в формате CSV</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ClassesInHTMLFilesWidget.cpp" line="269"/>
@@ -2872,7 +2872,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1692"/>
         <source>Mend and Prettify Code - All HTML Files</source>
-        <translation>Исправить и отформатировать код - все HTML-файлы</translation>
+        <translation>Исправить и отформатировать код – все HTML-файлы</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1693"/>
@@ -2882,7 +2882,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1694"/>
         <source>Mend Code - All HTML Files</source>
-        <translation>Исправить код - все HTML-файлы</translation>
+        <translation>Исправить код – все HTML-файлы</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="1724"/>
@@ -2947,7 +2947,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2053"/>
         <source>Enter new class name</source>
-        <translation>Введите новое имя класса</translation>
+        <translation>Введите новое название класса</translation>
     </message>
     <message>
         <location filename="../../ViewEditors/CodeViewEditor.cpp" line="2073"/>
@@ -3806,7 +3806,7 @@ locations and names for the OPF, NCX and/or Nav.</source>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="179"/>
         <source>Use OK to commit your custom epub design, otherwise use Cancel.</source>
-        <translation>Используйте «OK», чтобы зафиксировать свой собственный дизайн ePUB иначе используйте «Отменить».</translation>
+        <translation>Используйте «OK», чтобы зафиксировать свой собственный дизайн ePUB или используйте «Отменить».</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="146"/>
@@ -4539,7 +4539,7 @@ Valid only when searching HTML files.</source>
 <context>
     <name>FontResource</name>
     <message>
-        <location filename="../../ResourceObjects/FontResource.cpp" line="70"/>
+        <location filename="../../ResourceObjects/FontResource.cpp" line="71"/>
         <source>No reliable font data</source>
         <translation>Нет достоверных данных шрифта</translation>
     </message>
@@ -5517,7 +5517,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="338"/>
         <source>Save Report As Comma Separated File</source>
-        <translation>Сохранить отчёт как файл с разделителями запятыми</translation>
+        <translation>Сохранить отчёт как файл в формате CSV</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/ImageFilesWidget.cpp" line="351"/>
@@ -5545,17 +5545,17 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/ImageResizeDialog.cpp" line="14"/>
         <source>Width:</source>
-        <translation type="unfinished"/>
+        <translation>Ширина:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ImageResizeDialog.cpp" line="23"/>
         <source>Height:</source>
-        <translation type="unfinished"/>
+        <translation>Высота:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ImageResizeDialog.cpp" line="31"/>
         <source>Keep Aspect Ratio</source>
-        <translation type="unfinished"/>
+        <translation>Сохранить пропорции</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ImageResizeDialog.cpp" line="37"/>
@@ -5689,22 +5689,22 @@ You can then check or uncheck individual headings in the list above.</source>
 <context>
     <name>ImageView</name>
     <message>
-        <location filename="../../Widgets/ImageView.cpp" line="118"/>
+        <location filename="../../Widgets/ImageView.cpp" line="120"/>
         <source>shades</source>
         <translation>оттенки</translation>
     </message>
     <message>
-        <location filename="../../Widgets/ImageView.cpp" line="118"/>
+        <location filename="../../Widgets/ImageView.cpp" line="120"/>
         <source>colors</source>
         <translation>цвета</translation>
     </message>
     <message>
-        <location filename="../../Widgets/ImageView.cpp" line="119"/>
+        <location filename="../../Widgets/ImageView.cpp" line="121"/>
         <source>Grayscale</source>
         <translation>Ч/Б</translation>
     </message>
     <message>
-        <location filename="../../Widgets/ImageView.cpp" line="119"/>
+        <location filename="../../Widgets/ImageView.cpp" line="121"/>
         <source>Color</source>
         <translation>Цветное</translation>
     </message>
@@ -5729,7 +5729,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="615"/>
         <source>Epub has missing or improperly specified OPF.</source>
-        <translation>OPF отсутствует или неверно сформирован.</translation>
+        <translation>В ePUB отсутствует файл OPF или он указан некорректно.</translation>
     </message>
 </context>
 <context>
@@ -6159,7 +6159,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="167"/>
         <source>The publications cover(s), jacket information, etc.</source>
-        <translation>Обложка (-и) изданий, информация на обложках и т.д.</translation>
+        <translation>Обложка(и) изданий, информация на обложках и т.д.</translation>
     </message>
     <message>
         <location filename="../../Misc/Landmarks.cpp" line="168"/>
@@ -9454,11 +9454,11 @@ Do you want to save your changes?</source>
 If a translation for specific word or phrase is not available it will be displayed in English.
 
 Use Preferences-&gt;Spellcheck Dictionaries to set the Spellcheck dictionary.</source>
-        <translation>Вы должны перезагрузить Sigil после изменения языка интерфейса.
+        <translation>Вы должны перезапустить Sigil после изменения языка интерфейса.
 
-Если перевод для некоторых слов или фраз не доступен, они будут отображаться на английском.
+Если перевод для некоторых слов или фраз недоступен, они будут отображаться на английском.
 
-Используйте Настройки-&gt;Проверка орфографии, чтобы установить орфографические словари.</translation>
+Используйте Настройки-&gt;Словари орфографии для добавления орфографических словарей.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="43"/>
@@ -9635,7 +9635,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="87"/>
         <source>Report shows all source and target links using the anchor tag &quot;a&quot;.</source>
-        <translation>Отчёт показывает все исходные и целевые ссылки, использующие якорный тег «a».</translation>
+        <translation>Отчёт показывает все исходные и целевые ссылки, использующие якорный тег ‹a›.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="160"/>
@@ -12522,7 +12522,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../MainUI/MainWindow.cpp" line="486"/>
         <location filename="../../MainUI/MainWindow.cpp" line="510"/>
         <source>Missing or unknown Saved Search name</source>
-        <translation>Имя для сохраненного поиска отсутствует или неизвестно</translation>
+        <translation>Название сохраненного поиска отсутствует или неизвестно</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="490"/>
@@ -12557,7 +12557,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="535"/>
         <source>Validation tool found errors - Abort or Ignore?</source>
-        <translation>Ошибки при валидации - Прервать или игнорировать?</translation>
+        <translation>Ошибки при валидации – Прервать или игнорировать?</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="544"/>
@@ -12916,7 +12916,7 @@ This action cannot be reversed.</source>
         <location filename="../../MainUI/MainWindow.cpp" line="2104"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
-        <translation>Файл больше не существует. Нажмите OK, чтобы убрать его из меню.
+        <translation>Файл больше не существует. Нажмите «OK», чтобы убрать его из меню.
 %1</translation>
     </message>
     <message>
@@ -13021,17 +13021,17 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2724"/>
         <source>Nav removed from OPF Spine.</source>
-        <translation>Nav удалён из раздела Spine файла OPF.</translation>
+        <translation>Nav удалён из тега ‹spine› файла OPF.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2745"/>
         <source>Nav added to OPF Spine with linear=&quot;no&quot;</source>
-        <translation>Nav добавлен в раздел Spine файла OPF с «linear=&quot;no&quot;».</translation>
+        <translation>Nav добавлен в тег ‹spine› файла OPF с «linear=&quot;no&quot;».</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2747"/>
         <source>Nav added to OPF Spine.</source>
-        <translation>Nav добавлен в раздел Spine файла OPF.</translation>
+        <translation>Nav добавлен в тег ‹spine› файла OPF.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2786"/>
@@ -13152,7 +13152,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3518"/>
         <source>Link is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
-        <translation>Ссылка недействительна — она не должна содержать «&lt;» или «&gt;»</translation>
+        <translation>Ссылка недействительна – она не должна содержать «&lt;» или «&gt;»</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3535"/>
@@ -13162,7 +13162,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3545"/>
         <source>Entry is invalid - cannot contain &apos;&lt;&apos; or &apos;&gt;&apos;</source>
-        <translation>Элемент недействителен — он не должен содержать «&lt;» или «&gt;»</translation>
+        <translation>Элемент недействителен – он не должен содержать «&lt;» или «&gt;»</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3550"/>
@@ -13302,7 +13302,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5186"/>
         <source>%1%2 - Line: %3, Col: %4</source>
-        <translation>%1%2 - Стр.: %3, Кол.: %4</translation>
+        <translation>%1%2 – Стр: %3, Стлб: %4</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5273"/>
@@ -14172,7 +14172,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="148"/>
         <source>Use for a person or organization responsible for the commentary or explanatory notes about a text. For the writer of manuscript annotations in a printed book, use Annotator [ann].</source>
-        <translation>Лицо или организация, ответственные за комментарии или пояснения к тексту. Для автора рукописной аннотации в печатной книге используется код [ann] — Автор аннотации.</translation>
+        <translation>Лицо или организация, ответственные за комментарии или пояснения к тексту. Для автора рукописной аннотации в печатной книге используется код [ann] – Автор аннотации.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="149"/>
@@ -14287,7 +14287,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="160"/>
         <source>Contestant</source>
-        <translation>Противная сторона, выдвигающая в суде возражения против искового требования, постановления, решения и т. п.</translation>
+        <translation>Противная сторона, выдвигающая в суде возражения против искового требования, постановления, решения и т.п.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="160"/>
@@ -14297,7 +14297,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="161"/>
         <source>Contestant-appellant</source>
-        <translation>Противная сторона, выдвигающая в суде возражения против искового требования, постановления, решения и т. п. и подавшая апелляционную жалобу</translation>
+        <translation>Противная сторона, выдвигающая в суде возражения против искового требования, постановления, решения и т.п. и подавшая апелляционную жалобу</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="161"/>
@@ -14307,7 +14307,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="162"/>
         <source>Contestant-appellee</source>
-        <translation>Противная сторона, выдвигающая в суде возражения против искового требования, постановления, решения и т. п., против которой подана апелляционная жалоба в апелляционном процессе</translation>
+        <translation>Противная сторона, выдвигающая в суде возражения против искового требования, постановления, решения и т.п., против которой подана апелляционная жалоба в апелляционном процессе</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="162"/>
@@ -14642,7 +14642,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="195"/>
         <source>Use for a person or organization who is the donor of a book, manuscript, etc., to its present owner. Donors to previous owners are designated as Former owner [fmo] or Inscriber [ins].</source>
-        <translation>Лицо или организация, подарившие книгу, рукопись и т. д. её нынешнему владельцу. Дарители предыдущим владельцам обозначаются кодом [fmo] — Бывший владелец или [ins] — Автор дарственной надписи.</translation>
+        <translation>Лицо или организация, подарившие книгу, рукопись и т. д. её нынешнему владельцу. Дарители предыдущим владельцам обозначаются кодом [fmo] – Бывший владелец или [ins] – Автор дарственной надписи.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="196"/>
@@ -14862,7 +14862,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="217"/>
         <source>Use for a person or organization who owned an item at any time in the past. Includes those to whom the material was once presented. A person or organization giving the item to the present owner is designated as Donor [dnr].</source>
-        <translation>Лицо или организация, когда-либо в прошлом являвшиеся собственником данного объекта, в т.ч. лицо или организация, которому он был подарен. Лицо или организацию, подарившие данный объект её нынешнему владельцу, следует обозначать кодом [dnr] — Даритель.</translation>
+        <translation>Лицо или организация, когда-либо в прошлом являвшиеся собственником данного объекта, в т.ч. лицо или организация, которому он был подарен. Лицо или организацию, подарившие данный объект её нынешнему владельцу, следует обозначать кодом [dnr] – Даритель.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="218"/>
@@ -15998,7 +15998,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="331"/>
         <source>Use for a person whose signature appears without a presentation or other statement indicative of provenance. When there is a presentation statement, use Inscriber [ins].</source>
-        <translation>Лицо, являющееся автором подписи без её пояснения или иного указания на происхождение этой подписи. Если речь идет о дарственной надписи/подписи, следует использовать код [ins] — Автор дарственной надписи.</translation>
+        <translation>Лицо, являющееся автором подписи без её пояснения или иного указания на происхождение этой подписи. Если речь идет о дарственной надписи/подписи, следует использовать код [ins] – Автор дарственной надписи.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="332"/>
@@ -16168,7 +16168,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="348"/>
         <source>Use for a person who prepares a handwritten or typewritten copy from original material, including from dictated or orally recorded material. For makers of pen-facsimiles, use Facsimilist [fac].</source>
-        <translation>Лицо, которое делает копию с оригинального материала от руки или на печатной машинке, в том числе с материала, записанного под диктовку или с устной записи. Для обозначения лиц изготавливающих факсимиле от руки используется код [fac] —  Факсимилист.</translation>
+        <translation>Лицо, которое делает копию с оригинального материала от руки или на печатной машинке, в том числе с материала, записанного под диктовку или с устной записи. Для обозначения лиц изготавливающих факсимиле от руки используется код [fac] – Факсимилист.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="349"/>
@@ -16248,7 +16248,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="356"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the end-grain of a wood block.</source>
-        <translation>Лицо или организация, которое (-ая) создает печатные формы, вырезая рельефные изображения на поперечном распиле деревянного блока.</translation>
+        <translation>Лицо или организация, которое(ая) создает печатные формы, вырезая рельефные изображения на поперечном распиле деревянного блока.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="357"/>
@@ -16258,7 +16258,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="357"/>
         <source>Use for a person or organization who makes prints by cutting the image in relief on the plank side of a wood block.</source>
-        <translation>Лицо или организация, которое (-ая) создает печатные формы, вырезая рельефные изображения на продольном распиле деревянного блока.</translation>
+        <translation>Лицо или организация, которое(ая) создает печатные формы, вырезая рельефные изображения на продольном распиле деревянного блока.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="358"/>
@@ -16443,31 +16443,31 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
         <location filename="../../Dialogs/MetaEditor.cpp" line="510"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="610"/>
         <source>[ISBN here]</source>
-        <translation>[Здесь ISBN]</translation>
+        <translation>[Место для ISBN]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="514"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="615"/>
         <source>[ISSN here]</source>
-        <translation>[Здесь ISBN]</translation>
+        <translation>[Место для ISSN]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="518"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="620"/>
         <source>[DOI here]</source>
-        <translation>[Здесь DOI]</translation>
+        <translation>[Место для DOI]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="522"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="625"/>
         <source>[UUID here]</source>
-        <translation>[Здесь UIDD]</translation>
+        <translation>[Место для UUID]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="526"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="630"/>
         <source>[Amazon ASIN here]</source>
-        <translation>[Здесь ASIN]</translation>
+        <translation>[Место для Amazon ASIN]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="530"/>
@@ -16479,19 +16479,19 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
         <location filename="../../Dialogs/MetaEditor.cpp" line="550"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="648"/>
         <source>[Author name here]</source>
-        <translation>[Здесь имя автора]</translation>
+        <translation>[Место для имя автора]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="556"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="653"/>
         <source>[Creator name here]</source>
-        <translation>[Здесь имя создателя]</translation>
+        <translation>[Место для имя создателя]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="560"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="657"/>
         <source>[Contributor name here]</source>
-        <translation>[Здесь имя соавтора]</translation>
+        <translation>[Место для имя соавтора]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="564"/>
@@ -16500,7 +16500,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
         <location filename="../../Dialogs/MetaEditor.cpp" line="751"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="798"/>
         <source>[Value here]</source>
-        <translation>[Нужно значение]</translation>
+        <translation>[Укажите здесь значение]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="568"/>
@@ -16545,7 +16545,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="748"/>
         <source>[Insert scheme type here]</source>
-        <translation>[Нужен тип схемы]</translation>
+        <translation>[Укажите здесь тип схемы]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="750"/>
@@ -16842,12 +16842,12 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
         <location filename="../../Dialogs/MetaEditor.cpp" line="983"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1149"/>
         <source>Identifier: Custom</source>
-        <translation>Идентификатор: пользовательский</translation>
+        <translation>Идентификатор: Custom</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="983"/>
         <source>A custom identifier based on a specified scheme</source>
-        <translation>Пользовательский идентификатор, основывающийся на указанной схеме</translation>
+        <translation>Произвольный (определённый пользователем) идентификатор, основанный на заданной схеме</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="984"/>
@@ -16915,7 +16915,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1015"/>
         <source>Indicates the associated title is the main title of the publication.  Only one main title should exist.</source>
-        <translation>Указывает, что этот заголовок — основной заголовок публикации. Допустим только один основной заголовок.</translation>
+        <translation>Указывает, что этот заголовок – основной заголовок публикации. Допустим только один основной заголовок.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1016"/>
@@ -16925,7 +16925,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1016"/>
         <source>Indicates that the associated title is a subtitle of the publication if one exists..</source>
-        <translation>Указывает, что этот заголовок — подзаголовок публикации, если он существует.</translation>
+        <translation>Указывает, что этот заголовок – подзаголовок публикации, если он существует.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1017"/>
@@ -16935,7 +16935,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1017"/>
         <source>Indicates that the associated title is a shortened title of the publication if one exists.</source>
-        <translation>Указывает, что этот заголовок — сокращённый подзаголовок публикации, если он существует.</translation>
+        <translation>Указывает, что этот заголовок – сокращённый подзаголовок публикации, если он существует.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1018"/>
@@ -17171,45 +17171,45 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
         <location filename="../../Dialogs/MetaEditor.cpp" line="1094"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1144"/>
         <source>Digital Object Identifier</source>
-        <translation>Digital Object Identifier, т.е. Идентификатор Цифрового Объекта</translation>
+        <translation>Цифровой идентификатор объекта (DOI)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1094"/>
         <source>Identifier Scheme: Digital Object Identifier</source>
-        <translation>Схема идентификатора: Цифровой идентификатор объекта (DOI)</translation>
+        <translation>Схема идентификатора: Цифровой идентификатор объекта</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1095"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1145"/>
         <source>International Standard Book Number</source>
-        <translation>International Standard Book Number, т.е. Международный Стандартный Книжный Номер</translation>
+        <translation>Международный стандартный номер книги (ISBN)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1095"/>
         <source>Identifier Scheme: International Standard Book Number</source>
-        <translation>Схема идентификатора: Международный стандартный книжный номер (ISBN)</translation>
+        <translation>Схема идентификатора: Международный стандартный номер книги</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1096"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1146"/>
         <source>International Standard Serial Number</source>
-        <translation>Международный стандартный номер серии</translation>
+        <translation>Международный стандартный номер периодического издания (ISSN)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1096"/>
         <source>Identifier Scheme: International Standard Serial Number</source>
-        <translation>Схема идентификатора: Международный стандартный серийный номер (ISSN)</translation>
+        <translation>Схема идентификатора: Международный стандартный номер периодического издания</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1097"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1147"/>
         <source>Universally Unique Identifier</source>
-        <translation>Универсальный уникальный идентификатор</translation>
+        <translation>Универсальный уникальный идентификатор (UUID)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1097"/>
         <source>Identifier Scheme: Universally Unique Identifier</source>
-        <translation>Схема идентификатора: Универсально уникальный идентификатор (UUID)</translation>
+        <translation>Схема идентификатора: Универсальный уникальный идентификатор</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1098"/>
@@ -17513,7 +17513,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../ResourceObjects/OPFResource.cpp" line="1761"/>
         <source>[Title here]</source>
-        <translation>[Место заголовка]</translation>
+        <translation>[Место для заголовка]</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/OPFResource.cpp" line="1771"/>
@@ -18263,7 +18263,7 @@ Are you Sure You Want to Continue?</source>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="975"/>
         <source>Status: cleaning up - modifying files</source>
-        <translation>Состояние: очистка — изменение файлов</translation>
+        <translation>Состояние: очистка – изменение файлов</translation>
     </message>
     <message>
         <location filename="../../Dialogs/PluginRunner.cpp" line="1012"/>
@@ -18714,7 +18714,7 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="163"/>
         <source>The OPF manifest contains duplicate file paths. You should edit your OPF file&apos;s manifest to remove the duplication.</source>
-        <translation type="unfinished"/>
+        <translation>Манифест OPF содержит дубликаты путей к файлам. Необходимо отредактировать тег ‹manifest› файла OPF, чтобы их удалить.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="263"/>
@@ -18730,14 +18730,14 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="265"/>
         <source>Please verify and correct the OPF Spine order.</source>
-        <translation>Проверьте и исправьте порядок OPF Spine.</translation>
+        <translation>Проверьте и исправьте порядок чтения OPF Spine.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="316"/>
         <source>Error parsing encryption xml.
 Line: %1 Column %2 - %3</source>
         <translation>Ошибка обработки XML-шифрования.
-Строка: %1, столбец %2 - %3</translation>
+строка: %1, столбец: %2 - %3</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="436"/>
@@ -18767,7 +18767,7 @@ Line: %1 Column %2 - %3</source>
         <source>Unable to parse container.xml file.
 Line: %1 Column %2 - %3</source>
         <translation>Не удалось обработать файл container.xml.
-Срока: %1, столбец %2 - %3</translation>
+срока: %1, столбец: %2 - %3</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="660"/>
@@ -18782,24 +18782,24 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="675"/>
         <source>near</source>
-        <translation type="unfinished"/>
+        <translation>- в районе позиции</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="677"/>
         <source>Will attempt auto repair.</source>
-        <translation type="unfinished"/>
+        <translation>Будет выполнена попытка автоматической правки.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="678"/>
         <source>Malformed OPF</source>
-        <translation type="unfinished"/>
+        <translation>Неправильно сформированный OPF</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="726"/>
         <source>Unable to read OPF file.
 Line: %1 Column %2 - %3</source>
-        <translation>Не удалось прочесть OPF-файл.
-Строка: %1, столбец %2 - %3</translation>
+        <translation>Не удалось прочитать файл OPF.
+строка: %1, столбец: %2 - %3</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="860"/>
@@ -18819,7 +18819,7 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="881"/>
         <source>A temporary id has been assigned to load this EPUB. You should edit your OPF file to remove the duplication.</source>
-        <translation>Временный идентификатор был назначен для загрузки этот ePUB. Вы должны отредактировать ваш файл OPF, чтобы удалить дублирование.</translation>
+        <translation>Для загрузки этого файла EPUB был присвоен временный идентификатор. Необходимо отредактировать файл OPF, чтобы удалить дублирование.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="978"/>
@@ -18834,7 +18834,7 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="1005"/>
         <source>The OPF file does not contain an NCX file.</source>
-        <translation>OPF-файл не содержит NCX-файл.</translation>
+        <translation>Файл OPF не содержит NCX-файл.</translation>
     </message>
     <message>
         <location filename="../../Importers/Importer.cpp" line="47"/>
@@ -18896,7 +18896,7 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Misc/UpdateChecker.cpp" line="99"/>
         <source>&lt;p&gt;A newer version of Sigil is available, version &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Would you like to go to the download page?&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Доступна новая версия  Sigil — версия &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Вы хотите перейти на страницу загрузки?&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Доступна новая версия  Sigil – версия &lt;b&gt;%1&lt;/b&gt;.&lt;br/&gt;&lt;p&gt;Вы хотите перейти на страницу загрузки?&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../Misc/Utility.cpp" line="505"/>
@@ -19755,1253 +19755,1254 @@ Do you want to save your changes?</source>
         <translation>Вставить специальный символ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="137"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="145"/>
         <source>Unable to read special_characters xml. 
 Line: %1 Column %2 - %3)</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось прочитать special_characters xml.
+строка: %1, столбец: %2 - %3)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="155"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="163"/>
         <source>non-breaking space</source>
         <translation>неразрывный пробел</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="156"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="164"/>
         <source>en space</source>
         <translation>пробел шириной в половину кегля</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="157"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="165"/>
         <source>em space</source>
         <translation>пробел шириной в 1 кегль</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="158"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="166"/>
         <source>thin space</source>
         <translation>пробел шириной в 1/5 кегля</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="159"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="167"/>
         <source>soft hyphen</source>
         <translation>мягкий перенос</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="160"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="168"/>
         <source>narrow non-breaking space</source>
         <translation>узкий неразрывный пробел</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="164"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="172"/>
         <source>left single quote</source>
         <translation>левая одинарная кавычка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="165"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="173"/>
         <source>right single quote</source>
         <translation>правая одинарная кавычка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="166"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="174"/>
         <source>left double quote</source>
         <translation>левая двойная кавычка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="167"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="175"/>
         <source>right double quote</source>
         <translation>правая двойная кавычка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="168"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="176"/>
         <source>left-pointing single angle quote</source>
         <translation>одинарная угловая кавычка, указывающая влево</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="169"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="177"/>
         <source>right-pointing single angle quote</source>
         <translation>одинарная угловая кавычка, указывающая вправо</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="170"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="178"/>
         <source>left-pointing double angle quote</source>
         <translation>двойная угловая кавычка, указывающая влево</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="171"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="179"/>
         <source>right-pointing double angle quote</source>
         <translation>двойная угловая кавычка, указывающая вправо</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="172"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="180"/>
         <source>apostrophe</source>
         <translation>апостроф</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="173"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="181"/>
         <source>double quote</source>
         <translation>двойная кавычка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="174"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="182"/>
         <source>single low-9 quote</source>
         <translation>одинарная кавычка цитирования</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="175"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="183"/>
         <source>double low-9 quote</source>
         <translation>двойная кавычка цитирования</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="176"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="184"/>
         <source>em dash</source>
         <translation>длинное тире</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="177"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="185"/>
         <source>en dash</source>
         <translation>среднее тире</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="178"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="186"/>
         <source>section sign</source>
         <translation>знак параграфа</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="179"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="187"/>
         <source>pilcrow - paragraph sign</source>
         <translation>знак абзаца</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="180"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="188"/>
         <source>dagger</source>
         <translation>типографский крестик</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="181"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="189"/>
         <source>double dagger</source>
         <translation>двойной типографский крестик</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="182"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="190"/>
         <source>ampersand</source>
         <translation>амперсант</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="183"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="191"/>
         <source>less-than sign</source>
         <translation>знак меньше</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="184"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="192"/>
         <source>greater-than sign</source>
         <translation>знак больше</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="185"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="193"/>
         <source>copyright</source>
         <translation>символ авторского права</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="186"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="194"/>
         <source>registered sign</source>
         <translation>знак правовой охраны товарного знака</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="187"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="195"/>
         <source>trademark symbol</source>
         <translation>товарный знак</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="188"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="196"/>
         <source>left arrow</source>
         <translation>стрелка влево</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="189"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="197"/>
         <source>right arrow</source>
         <translation>стрелка вправо</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="190"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="198"/>
         <source>bullet</source>
         <translation>маркер списка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="191"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="199"/>
         <source>middle dot</source>
         <translation>интерпункт</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="192"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="200"/>
         <source>degree sign</source>
         <translation>символ градуса</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="193"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="201"/>
         <source>plus minus sign</source>
         <translation>символ плюс-минус</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="194"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="202"/>
         <source>minus sign</source>
         <translation>знак минус</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="195"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="203"/>
         <source>multiplication sign</source>
         <translation>знак умножения</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="196"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="204"/>
         <source>division sign</source>
         <translation>знак деления</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="197"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="205"/>
         <source>fraction 1/4</source>
         <translation>дробь 1/4</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="198"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="206"/>
         <source>fraction 1/2</source>
         <translation>дробь 1/2</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="199"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="207"/>
         <source>fraction 3/4</source>
         <translation>дробь 3/4</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="200"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="208"/>
         <source>fraction 1/3</source>
         <translation>дробь 1/3</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="201"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="209"/>
         <source>fraction 2/3</source>
         <translation>дробь 2/3</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="202"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="210"/>
         <source>fraction 1/8</source>
         <translation>дробь 1/8</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="203"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="211"/>
         <source>fraction 3/8</source>
         <translation>дробь 3/8</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="204"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="212"/>
         <source>fraction 5/8</source>
         <translation>дробь 5/8</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="205"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="213"/>
         <source>fraction 7/8</source>
         <translation>дробь 7/8</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="206"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="214"/>
         <source>horizontal ellipsis</source>
         <translation>многоточие</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="207"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="215"/>
         <source>micron</source>
         <translation>микрон</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="208"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="216"/>
         <source>cent sign</source>
         <translation>знак цента</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="209"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="217"/>
         <source>pound sign</source>
         <translation>знак фунта стерлингов</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="210"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="218"/>
         <source>euro sign</source>
         <translation>знак евро</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="211"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="219"/>
         <source>inverted question mark</source>
         <translation>перевёрнутый вопросительный знак</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="212"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="220"/>
         <source>inverted exclamation mark</source>
         <translation>перевёрнутый восклицательный знак</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="213"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="221"/>
         <source>diaeresis</source>
         <translation>умляут</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="214"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="222"/>
         <source>acute accent</source>
         <translation>акут</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="215"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="223"/>
         <source>cedilla</source>
         <translation>седиль</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="216"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="224"/>
         <source>circumflex accent</source>
         <translation>циркумфлекс</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="217"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="225"/>
         <source>small tilde</source>
         <translation>малая тильда</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="218"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="226"/>
         <source>capital A with grave</source>
         <translation>заглавная A с грависом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="219"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="227"/>
         <source>capital A with acute</source>
         <translation>заглавная A с акутом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="220"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="228"/>
         <source>capital A with circumflex</source>
         <translation>заглавная A с циркумфлексом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="221"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="229"/>
         <source>capital A with tilde</source>
         <translation>заглавная A с тильдой</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="222"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="230"/>
         <source>capital A with diaeresis</source>
         <translation> заглавная A с диерезисом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="223"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="231"/>
         <source>capital A with ring above</source>
         <translation>заглавная A с кольцом наверху</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="224"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="232"/>
         <source>capital AE</source>
         <translation>заглавная AE</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="225"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="233"/>
         <source>capital C with cedilla</source>
         <translation>заглавная буква С с седилью</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="226"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="234"/>
         <source>capital E with grave</source>
         <translation>заглавная E с грависом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="227"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="235"/>
         <source>capital E with acute</source>
         <translation>заглавная E с акутом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="228"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="236"/>
         <source>capital E with circumflex</source>
         <translation>заглавная E с циркумфлексом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="229"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="237"/>
         <source>capital E with diaeresis</source>
         <translation> заглавная E с диерезисом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="230"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="238"/>
         <source>capital I with grave</source>
         <translation>заглавная I с грависом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="231"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="239"/>
         <source>capital I with acute</source>
         <translation>заглавная I с акутом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="232"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="240"/>
         <source>capital I with circumflex</source>
         <translation>заглавная I с циркумфлексом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="233"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="241"/>
         <source>capital I with diaeresis</source>
         <translation> заглавная I с диерезисом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="234"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="242"/>
         <source>capital eth</source>
         <translation>латинская заглавная буква Эт</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="235"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="243"/>
         <source>capital N with tilde</source>
         <translation>заглавная N с тильдой</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="236"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="244"/>
         <source>capital O with grave</source>
         <translation>заглавная O с грависом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="237"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="245"/>
         <source>capital O with acute</source>
         <translation>заглавная O с акутом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="238"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="246"/>
         <source>capital O with circumflex</source>
         <translation>заглавная O с циркумфлексом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="239"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="247"/>
         <source>capital O with tilde</source>
         <translation>заглавная O с тильдой</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="240"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="248"/>
         <source>capital O with diaeresis</source>
         <translation> заглавная O с диерезисом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="241"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="249"/>
         <source>capital O with stroke</source>
         <translation>заглавная O со штрихом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="242"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="250"/>
         <source>capital ligature OE</source>
         <translation>заглавная лигатура ΟΕ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="243"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="251"/>
         <source>capital S with caron</source>
         <translation>заглавная S с гачеком</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="244"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="252"/>
         <source>capital U with grave</source>
         <translation>заглавная U с грависом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="245"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="253"/>
         <source>capital U with acute</source>
         <translation>заглавная U с акутом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="246"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="254"/>
         <source>capital U with circumflex</source>
         <translation>заглавная U с циркумфлексом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="247"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="255"/>
         <source>capital U with diaeresis</source>
         <translation> заглавная U с диерезисом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="248"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="256"/>
         <source>capital Y with acute</source>
         <translation>заглавная Y с акутом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="249"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="257"/>
         <source>capital Y with diaeresis</source>
         <translation> заглавная Y с диерезисом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="250"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="258"/>
         <source>capital THORN</source>
         <translation>заглавная Торн</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="251"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="259"/>
         <source>small sharp s</source>
         <translation>строчная эсцет</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="252"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="260"/>
         <source>small a with grave</source>
         <translation>строчная a с грависом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="253"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="261"/>
         <source>small a with acute</source>
         <translation>строчная a с акутом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="254"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="262"/>
         <source>small a with circumflex</source>
         <translation>строчная a с циркумфлексом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="255"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="263"/>
         <source>small a with tilde</source>
         <translation>строчная a с тильдой</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="256"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="264"/>
         <source>small a with diaeresis</source>
         <translation>строчная a с диерезисом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="257"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="265"/>
         <source>small a with ring above</source>
         <translation>строчная a с кольцом наверху</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="258"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="266"/>
         <source>small ae</source>
         <translation>строчная ae</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="259"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="267"/>
         <source>small c with cedilia</source>
         <translation>строчная c с седилью</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="260"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="268"/>
         <source>small e with grave</source>
         <translation>строчная e с грависом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="261"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="269"/>
         <source>small e with acute</source>
         <translation>строчная e с акутом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="262"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="270"/>
         <source>small e with circumflex</source>
         <translation>строчная e с циркумфлексом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="263"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="271"/>
         <source>small e with diaeresis</source>
         <translation>строчная e с диерезисом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="264"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="272"/>
         <source>small i with grave</source>
         <translation>строчная i с грависом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="265"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="273"/>
         <source>small i with acute</source>
         <translation>строчная i с акутом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="266"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="274"/>
         <source>small i with circumflex</source>
         <translation>строчная i с циркумфлексом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="267"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="275"/>
         <source>small i with diaeresis</source>
         <translation>строчная i с диерезисом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="268"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="276"/>
         <source>small eth</source>
         <translation>латинская строчная буква эт</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="269"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="277"/>
         <source>small n with tilde</source>
         <translation>строчная n с тильдой</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="270"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="278"/>
         <source>small o with grave</source>
         <translation>строчная o с грависом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="271"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="279"/>
         <source>small o with acute</source>
         <translation>строчная o с акутом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="272"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="280"/>
         <source>small o with circumflex</source>
         <translation>строчная o с циркумфлексом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="273"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="281"/>
         <source>small o with tilde</source>
         <translation>строчная o с тильдой</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="274"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="282"/>
         <source>small o with diaeresis</source>
         <translation>строчная o с диерезисом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="275"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="283"/>
         <source>small o with stroke</source>
         <translation>строчная o со штрихом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="276"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="284"/>
         <source>small ligature oe</source>
         <translation>строчная лигатура oe</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="277"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="285"/>
         <source>small s with caron</source>
         <translation>строчная s с гачеком</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="278"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="286"/>
         <source>small u with grave</source>
         <translation>строчная u с грависом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="279"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="287"/>
         <source>small u with acute</source>
         <translation>строчная u с акутом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="280"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="288"/>
         <source>small u with circumflex</source>
         <translation>строчная u с циркумфлексом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="281"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="289"/>
         <source>small u with diaeresis</source>
         <translation>строчная u с диерезисом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="282"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="290"/>
         <source>small y with acute</source>
         <translation>строчная y с акутом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="283"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="291"/>
         <source>small y with diaeresis</source>
         <translation>строчная y с диерезисом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="284"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="292"/>
         <source>small thorn</source>
         <translation>латинская строчная буква торн</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="285"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="293"/>
         <source>feminine ordinal indicator</source>
         <translation>порядковый указатель женского рода</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="286"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="294"/>
         <source>masculine ordinal indicator</source>
         <translation>порядковый указатель мужского рода</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="287"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="295"/>
         <source>infinity</source>
         <translation>бесконечность</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="291"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="299"/>
         <source>Greek capital letter Alpha</source>
         <translation>греческая заглавная буква Альфа</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="292"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="300"/>
         <source>Greek lower letter alpha</source>
         <translation>греческая строчная буква гамма</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="293"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="301"/>
         <source>Greek capital letter Beta</source>
         <translation>греческая заглавная буква Бета</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="294"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="302"/>
         <source>Greek lower letter beta</source>
         <translation>Греческая строчная буква бета</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="295"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="303"/>
         <source>Greek capital letter Chi</source>
         <translation>греческая заглавная буква Хи</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="296"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="304"/>
         <source>Greek lower letter chi</source>
         <translation>Греческая строчная буква хи</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="297"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="305"/>
         <source>Greek capital letter Delta</source>
         <translation>греческая заглавная буква Дельта</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="298"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="306"/>
         <source>Greek lower letter delta</source>
         <translation>Греческая строчная буква дельта</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="299"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="307"/>
         <source>Greek capital letter Epsilon</source>
         <translation>греческая заглавная буква Эпсилон</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="300"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="308"/>
         <source>Greek lower letter epsilon</source>
         <translation>Греческая строчная буква эпсилон</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="301"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="309"/>
         <source>Greek capital letter Eta</source>
         <translation>греческая заглавная буква Эта</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="302"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="310"/>
         <source>Greek lower letter eta</source>
         <translation>греческая строчная буква эта</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="303"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="311"/>
         <source>Greek capital letter Gamma</source>
         <translation>греческая заглавная буква Гамма</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="304"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="312"/>
         <source>Greek lower letter gamma</source>
         <translation>греческая строчная буква гамма</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="305"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="313"/>
         <source>Greek capital letter Iota</source>
         <translation>греческая заглавная буква Йота</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="306"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="314"/>
         <source>Greek lower letter iota</source>
         <translation>Греческая строчная буква йота</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="307"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="315"/>
         <source>Greek capital letter Kappa</source>
         <translation>греческая заглавная буква Каппа</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="308"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="316"/>
         <source>Greek lower letter kappa</source>
         <translation>Греческая строчная буква каппа</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="309"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="317"/>
         <source>Greek capital letter Lambda</source>
         <translation>греческая заглавная буква Лямбда</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="310"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="318"/>
         <source>Greek lower letter lambda</source>
         <translation>Греческая строчная буква лямбда</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="311"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="319"/>
         <source>Greek capital letter Mu</source>
         <translation>греческая заглавная буква Мю</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="312"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="320"/>
         <source>Greek lower letter mu</source>
         <translation>Греческая строчная буква мю</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="313"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="321"/>
         <source>Greek capital letter Nu</source>
         <translation>греческая заглавная буква Ню</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="314"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="322"/>
         <source>Greek lower letter nu</source>
         <translation>Греческая строчная буква ню</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="315"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="323"/>
         <source>Greek capital letter Omega</source>
         <translation>греческая заглавная буква Омега</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="316"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="324"/>
         <source>Greek lower letter omega</source>
         <translation>Греческая строчная буква омега</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="317"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="325"/>
         <source>Greek capital letter Omicron</source>
         <translation>греческая заглавная буква Омикрон</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="318"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="326"/>
         <source>Greek lower letter omicron</source>
         <translation>Греческая строчная буква омикрон</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="319"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="327"/>
         <source>Greek capital letter Phi</source>
         <translation>греческая заглавная буква Фи</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="320"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="328"/>
         <source>Greek lower letter phi</source>
         <translation>Греческая строчная буква фи</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="321"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="329"/>
         <source>Greek capital letter Pi</source>
         <translation>греческая заглавная буква Пи</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="322"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="330"/>
         <source>Greek lower letter pi</source>
         <translation>греческая строчная буква пи</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="323"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="331"/>
         <source>Greek double prime</source>
         <translation>греческая вторая производная</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="324"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="332"/>
         <source>Greek single prime</source>
         <translation>греческая производная</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="325"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="333"/>
         <source>Greek capital letter Psi</source>
         <translation>греческая заглавная буква Пси</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="326"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="334"/>
         <source>Greek lower letter psi</source>
         <translation>греческая строчная буква пси</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="327"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="335"/>
         <source>Greek capital letter Rho</source>
         <translation>греческая заглавная буква Ро</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="328"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="336"/>
         <source>Greek lower letter rho</source>
         <translation>греческая строчная буква ро</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="329"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="337"/>
         <source>Greek capital letter Sigma</source>
         <translation>греческая заглавная буква Сигма</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="330"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="338"/>
         <source>Greek lower letter sigma</source>
         <translation>греческая строчная буква сигма</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="331"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="339"/>
         <source>Greek capital letter Tau</source>
         <translation>греческая заглавная буква Тау</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="332"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="340"/>
         <source>Greek lower letter tau</source>
         <translation>греческая строчная буква тау</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="333"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="341"/>
         <source>Greek capital letter Theta</source>
         <translation>греческая заглавная буква Тета</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="334"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="342"/>
         <source>Greek lower letter theta</source>
         <translation>Греческая строчная буква тета</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="335"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="343"/>
         <source>Greek capital letter Upsilon</source>
         <translation>греческая заглавная буква Ипсилон</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="336"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="344"/>
         <source>Greek lower letter upsilon</source>
         <translation>Греческая строчная буква ипсилон</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="337"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="345"/>
         <source>Greek capital letter Xi</source>
         <translation>греческая заглавная буква Кси</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="338"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="346"/>
         <source>Greek lower letter xi</source>
         <translation>Греческая строчная буква кси</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="339"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="347"/>
         <source>Greek capital letter Zeta</source>
         <translation>греческая заглавная буква Дзета</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="340"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="348"/>
         <source>Greek lower letter zeta</source>
         <translation>Греческая строчная буква дзета</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="344"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="352"/>
         <source>alef symbol</source>
         <translation>алеф</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="345"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="353"/>
         <source>logical and</source>
         <translation>логическое и</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="346"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="354"/>
         <source>logical or</source>
         <translation>логическое или</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="347"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="355"/>
         <source>intersection</source>
         <translation>пересечение</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="348"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="356"/>
         <source>union</source>
         <translation>объединение</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="349"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="357"/>
         <source>congruent to</source>
         <translation>конгруэнтно</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="350"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="358"/>
         <source>downwards arrow with corner leftwards</source>
         <translation>стрелка вниз, с поворотом влево</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="351"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="359"/>
         <source>currency sign</source>
         <translation>знак валюты</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="352"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="360"/>
         <source>downwards double arrow</source>
         <translation>парные стрелки вниз</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="353"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="361"/>
         <source>upwards double arrow</source>
         <translation>парные стрелки вверх</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="354"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="362"/>
         <source>downwards arrow</source>
         <translation>стрелка вниз</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="355"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="363"/>
         <source>upwards arrow</source>
         <translation>стрелка вверх</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="356"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="364"/>
         <source>empty set</source>
         <translation>пустое множество</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="357"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="365"/>
         <source>identical to</source>
         <translation>тождественно равно</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="358"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="366"/>
         <source>there exists</source>
         <translation>существует</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="359"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="367"/>
         <source>Latin small letter f with hook</source>
         <translation>латинская строчная f с крюком снизу</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="360"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="368"/>
         <source>for all</source>
         <translation>для всех</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="361"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="369"/>
         <source>fraction slash</source>
         <translation>косая черта</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="362"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="370"/>
         <source>left right double arrow</source>
         <translation>двойная стрелка влево-вправо</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="363"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="371"/>
         <source>left right single arrow</source>
         <translation>одинарная стрелка влево-вправо</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="364"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="372"/>
         <source>black-letter capital I</source>
         <translation>готическая заглавная I</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="365"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="373"/>
         <source>integral</source>
         <translation>интеграл</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="366"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="374"/>
         <source>element of</source>
         <translation>принадлежит</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="367"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="375"/>
         <source>leftwards double arrow</source>
         <translation>парные стрелки вниз</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="368"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="376"/>
         <source>double right arrow</source>
         <translation>двойная стрелка вправо</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="369"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="377"/>
         <source>left-pointing angle bracket</source>
         <translation>левая угловая скобка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="370"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="378"/>
         <source>right-pointing angle bracket</source>
         <translation>правая угловая скобка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="371"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="379"/>
         <source>left ceiling</source>
         <translation>предельный уровень слева</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="372"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="380"/>
         <source>right ceiling</source>
         <translation>предельный уровень справа</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="373"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="381"/>
         <source>less-than or equal to</source>
         <translation>знак меньше или равно</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="374"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="382"/>
         <source>greater-than or equal to</source>
         <translation>знак больше или равно</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="375"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="383"/>
         <source>left floor</source>
         <translation>пол слева</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="376"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="384"/>
         <source>right floor</source>
         <translation>пол справа</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="377"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="385"/>
         <source>asterisk operator</source>
         <translation>звёздочка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="378"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="386"/>
         <source>lozenge</source>
         <translation>ромб</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="379"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="387"/>
         <source>macron</source>
         <translation>знак долготы над гласным</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="380"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="388"/>
         <source>nabla</source>
         <translation>набла</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="381"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="389"/>
         <source>not equal to</source>
         <translation>не равно</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="382"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="390"/>
         <source>contains as member</source>
         <translation>содержит</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="383"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="391"/>
         <source>not sign</source>
         <translation>знак не</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="384"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="392"/>
         <source>not an element of</source>
         <translation>не принадлежит</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="385"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="393"/>
         <source>not a subset of</source>
         <translation>не включено в</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="386"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="394"/>
         <source>overline</source>
         <translation>надчёркивание</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="387"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="395"/>
         <source>circled plus</source>
         <translation>плюс в кружке</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="388"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="396"/>
         <source>circled times</source>
         <translation>тензорное произведение</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="389"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="397"/>
         <source>partial differential</source>
         <translation>частный дифференциал</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="390"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="398"/>
         <source>per mille sign</source>
         <translation>знак промилле</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="391"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="399"/>
         <source>up tack</source>
         <translation>перпендикуляр</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="392"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="400"/>
         <source>Greek pi symbol</source>
         <translation>греческий символ пи</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="393"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="401"/>
         <source>n-ary product</source>
         <translation>произведение</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="394"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="402"/>
         <source>proportional to</source>
         <translation>пропорционально</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="395"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="403"/>
         <source>square root</source>
         <translation>квадратный корень</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="396"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="404"/>
         <source>black-letter capital R</source>
         <translation>готическая заглавная R</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="397"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="405"/>
         <source>dot operator</source>
         <translation>точечный оператор</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="398"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="406"/>
         <source>Greek small letter final sigma</source>
         <translation>греческая финальная строчная сигма</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="399"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="407"/>
         <source>tilde operator</source>
         <translation>оператор тильда</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="400"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="408"/>
         <source>subset of</source>
         <translation>строго включено в</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="401"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="409"/>
         <source>superset of</source>
         <translation>строго включает в себя</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="402"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="410"/>
         <source>subset of or equal to</source>
         <translation>включено в</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="403"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="411"/>
         <source>superset of or equal to</source>
         <translation>включает в себя</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="404"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="412"/>
         <source>n-ary summation</source>
         <translation>сумма</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="405"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="413"/>
         <source>superscript one</source>
         <translation>надстрочное 1</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="406"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="414"/>
         <source>superscript two</source>
         <translation>надстрочное 2</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="407"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="415"/>
         <source>superscript three</source>
         <translation>надстрочное 3</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="408"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="416"/>
         <source>therefore sign</source>
         <translation>знак следовательно</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="409"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="417"/>
         <source>Greek theta symbol</source>
         <translation>греческая буква тета</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="410"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="418"/>
         <source>Greek Upsilon with hook symbol</source>
         <translation>греческий символ ипсилон с крючком</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="411"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="419"/>
         <source>script capital P</source>
         <translation>прописная заглавная P</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="412"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="420"/>
         <source>yen sign</source>
         <translation>знак иены</translation>
     </message>
@@ -21084,22 +21085,22 @@ your book and automatically insert into your document.</source>
         <translation>Миниатюры</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="348"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="350"/>
         <source>shades</source>
         <translation>оттенки</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="348"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="350"/>
         <source>colors</source>
         <translation>цвета</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="349"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="351"/>
         <source>Grayscale</source>
         <translation>Ч/Б</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="349"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="351"/>
         <source>Color</source>
         <translation>Цветное</translation>
     </message>

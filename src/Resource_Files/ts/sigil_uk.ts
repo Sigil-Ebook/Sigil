@@ -215,12 +215,12 @@
     <message>
         <location filename="../../Form_Files/AdjustImage.ui" line="95"/>
         <source>Crop</source>
-        <translation>Обрізати</translation>
+        <translation>Кадрувати</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AdjustImage.ui" line="98"/>
         <source>Crop image Mode: Use Enter to Crop to selection and Escape to abort crop</source>
-        <translation type="unfinished"/>
+        <translation>Режим кадрування: Клавіша «Enter» – обрізати до виділеного; Клавіша «Esc» – вийти з режиму</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AdjustImage.ui" line="107"/>
@@ -316,12 +316,12 @@
     <message>
         <location filename="../../Widgets/AdjustImage.cpp" line="222"/>
         <source>Crop Mode: Enter to Crop, Escape to Abort</source>
-        <translation type="unfinished"/>
+        <translation>Режим кадрування: «Enter» – обрізати, «Esc» – вийти</translation>
     </message>
     <message>
         <location filename="../../Widgets/AdjustImage.cpp" line="227"/>
         <source>Exiting Crop Mode</source>
-        <translation type="unfinished"/>
+        <translation>Вихід з режиму кадрування</translation>
     </message>
     <message>
         <location filename="../../Widgets/AdjustImage.cpp" line="351"/>
@@ -336,7 +336,7 @@
     <message>
         <location filename="../../Widgets/AdjustImage.cpp" line="422"/>
         <source>Image format is not supported for write and can not be saved. Save aborted.</source>
-        <translation type="unfinished"/>
+        <translation>Формат зображення не підтримується, його неможливо зберегти. Збереження перервано.</translation>
     </message>
     <message>
         <location filename="../../Widgets/AdjustImage.cpp" line="453"/>
@@ -346,12 +346,12 @@
     <message>
         <location filename="../../Widgets/AdjustImage.cpp" line="454"/>
         <source>Enter quality level (0-100):</source>
-        <translation>Введіть значення якості (0-100):</translation>
+        <translation>Введіть значення якості (0 – 100):</translation>
     </message>
     <message>
         <location filename="../../Widgets/AdjustImage.cpp" line="456"/>
         <source>Image save aborted, as quality unavailable.</source>
-        <translation type="unfinished"/>
+        <translation>Збереження зображення перервано, оскільки якість недоступна.</translation>
     </message>
     <message>
         <location filename="../../Widgets/AdjustImage.cpp" line="470"/>
@@ -361,7 +361,7 @@
     <message>
         <location filename="../../Widgets/AdjustImage.cpp" line="475"/>
         <source>Image save failed. Add Existing backup of image for safety.</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося зберегти зображення. Додайте його наявну резервну копію для надійности.</translation>
     </message>
 </context>
 <context>
@@ -733,12 +733,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="730"/>
         <source>Check to make BookBrowser show full paths.</source>
-        <translation>Позначте чекбокс і  БукБраузер буде показувати повні шляхи до файлів у вікні «Структура книги».</translation>
+        <translation>Позначте чекбокс і  БукБраузер буде показувати повні шляхи до файлів у вікні «Структура Книги».</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="733"/>
         <source>BookBrowser should show full paths.</source>
-        <translation>Показувати повний шлях до файлів у вікні «Структура книги».</translation>
+        <translation>Показувати повний шлях до файлів у вікні «Структура Книги».</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="746"/>
@@ -1477,7 +1477,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/AutomateEditor.ui" line="68"/>
         <source>Remove an Automate List element.</source>
-        <translation>Вилучити елемент списку автоматизації.</translation>
+        <translation>Прибрати елемент списку автоматизації.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/AutomateEditor.ui" line="71"/>
@@ -1565,12 +1565,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="344"/>
         <source>Add Nav to OPF Spine.</source>
-        <translation>Додати Nav до розділу Spine файлу OPF.</translation>
+        <translation>Додати Nav до тегу ‹spine› файлу OPF.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="345"/>
         <source>Add Nav to OPF Spine with linear=&apos;no&apos;.</source>
-        <translation>Додати Nav до розділу Spine файлу OPF з «linear=&quot;no&quot;».</translation>
+        <translation>Додати Nav до тегу ‹spine› файлу OPF з «linear=&quot;no&quot;».</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="346"/>
@@ -1630,7 +1630,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="357"/>
         <source>Remove Nav from OPF Spine.</source>
-        <translation>Прибрати Nav з розділу Spine файлу OPF.</translation>
+        <translation>Прибрати Nav з тегу ‹spine› файлу OPF.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/AutomateEditor.cpp" line="358"/>
@@ -1725,7 +1725,7 @@ if a sans-serif font-family specified in your CSS</source>
         <location filename="../../BookManipulation/Book.cpp" line="1697"/>
         <location filename="../../BookManipulation/Book.cpp" line="1741"/>
         <source>PrettyPrint cancelled: %1, XML not well formed.</source>
-        <translation type="unfinished"/>
+        <translation>PrettyPrint скасовано: %1, XML неправильно сформований.</translation>
     </message>
 </context>
 <context>
@@ -1820,7 +1820,7 @@ OK to replace?</source>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="971"/>
         <source>Overwrite of image &quot;%1&quot; failed.</source>
-        <translation type="unfinished"/>
+        <translation>Збій під час перезапису зображення «%1».</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="977"/>
@@ -2037,7 +2037,7 @@ There always has to be at least one.</source>
         <location filename="../../MainUI/BookBrowser.cpp" line="1957"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="2209"/>
         <source>None</source>
-        <translation>Нема</translation>
+        <translation>Пусто</translation>
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="2194"/>
@@ -3162,7 +3162,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="328"/>
         <source>Restrict the find or replace to the HTML files selected in the Book Browser in Code View.</source>
-        <translation>Обмежити пошук або заміну файлами HTML, вибраними у вікні Структури Книги.</translation>
+        <translation>Обмежити пошук або заміну файлами HTML, вибраними у вікні «Структура Книги».</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="330"/>
@@ -3194,7 +3194,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="337"/>
         <source>Restrict the find or replace to the CSS files selected in the Book Browser in Code View.</source>
-        <translation>Обмежити пошук або заміну файлами CSS, вибраними у вікні Структури Книги.</translation>
+        <translation>Обмежити пошук або заміну файлами CSS, вибраними у вікні «Структура Книги».</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="339"/>
@@ -3238,7 +3238,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="349"/>
         <source>Restrict the find or replace to the SVG files selected in the Book Browser in Code View.</source>
-        <translation>Обмежити пошук або заміну файлами SVG, вибраними у вікні Структури Книги.</translation>
+        <translation>Обмежити пошук або заміну файлами SVG, вибраними у вікні «Структура Книги».</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="351"/>
@@ -3253,7 +3253,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="352"/>
         <source>Restrict the find or replace to the JS files selected in the Book Browser in Code View.</source>
-        <translation>Обмежити пошук або заміну файлами JS, вибраними у вікні Структури Книги.</translation>
+        <translation>Обмежити пошук або заміну файлами JS, вибраними у вікні «Структура Книги».</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="354"/>
@@ -3264,7 +3264,7 @@ other end to continue searching.</source>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="355"/>
         <source>Restrict the find or replace to other XML files selected in the Book Browser under the Misc Folder in Code View.</source>
-        <translation>Обмежити пошук або заміну іншими файлами XML, вибраними у вікні Структури Книги у каталозі Misc.</translation>
+        <translation>Обмежити пошук або заміну іншими файлами XML, вибраними у вікні «Структура Книги» у каталозі Misc.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/Controls.cpp" line="361"/>
@@ -3746,7 +3746,7 @@ You can also use the right arrow key.</source>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="68"/>
         <source>Save the current design to an ini file.</source>
-        <translation>Зберегти поточний дизайн у файл ini</translation>
+        <translation>Зберегти поточний дизайн у файл ini.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="71"/>
@@ -3776,7 +3776,7 @@ You can also use the right arrow key.</source>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="120"/>
         <source>Remove an existing file type marker or folder.</source>
-        <translation>Видалити існуючий маркер типу файлу або папку.</translation>
+        <translation>Прибрати існуючий маркер типу файлу або папку.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="123"/>
@@ -3786,7 +3786,7 @@ You can also use the right arrow key.</source>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="133"/>
         <source>Rename a folder or OPF, NCX or Nav marker.</source>
-        <translation>Перейменувати папку або OPF, NCX або Nav маркер.</translation>
+        <translation>Перейменувати папку або маркер OPF, NCX, Nav.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="136"/>
@@ -3799,15 +3799,15 @@ You can also use the right arrow key.</source>
 the types of files that can be stored in each folder.  
 The file type markers can also be used to specify 
 locations and names for the OPF, NCX and/or Nav.</source>
-        <translation>Додайте папки/підпапки та маркери файлів, які визначають
+        <translation>Додайте папки/підпапки та маркери файлів. Маркери визначають
 типи файлів, які можна зберігати у кожній папці.
-Маркери типу файлів також можуть використовуватися для вказівки
+Також, маркери можуть використовуватися для вказівки
 розташування та назви для OPF, NCX та/або Nav.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/EmptyLayout.ui" line="179"/>
         <source>Use OK to commit your custom epub design, otherwise use Cancel.</source>
-        <translation>Натисніть «OK», щоб зберегти власний дизайн ePUB, інакше натисніть «Скасувати».</translation>
+        <translation>Натисніть «OK», щоб зберегти власний дизайн ePUB або натисніть «Скасувати».</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="146"/>
@@ -3817,7 +3817,7 @@ locations and names for the OPF, NCX and/or Nav.</source>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="146"/>
         <source>Style files</source>
-        <translation>Файли Стилів</translation>
+        <translation>Файли таблиць стилів</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="147"/>
@@ -3832,12 +3832,12 @@ locations and names for the OPF, NCX and/or Nav.</source>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="148"/>
         <source>Audio files</source>
-        <translation>Файли Аудіо</translation>
+        <translation>Файли аудіо</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="148"/>
         <source>Video files</source>
-        <translation>Файли Відео</translation>
+        <translation>Файли відео</translation>
     </message>
     <message>
         <location filename="../../Dialogs/EmptyLayout.cpp" line="149"/>
@@ -4302,7 +4302,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2193"/>
         <source>Restrict the find or replace to the HTML files selected in the Book Browser in Code View.</source>
-        <translation>Обмежити пошук або заміну файлами HTML, вибраними у вікні Структури Книги.</translation>
+        <translation>Обмежити пошук або заміну файлами HTML, вибраними у вікні «Структура Книги».</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2195"/>
@@ -4334,7 +4334,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2202"/>
         <source>Restrict the find or replace to the CSS files selected in the Book Browser in Code View.</source>
-        <translation>Обмежити пошук або заміну файлами CSS, вибраними у вікні Структури Книги.</translation>
+        <translation>Обмежити пошук або заміну файлами CSS, вибраними у вікні «Структура Книги».</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2204"/>
@@ -4378,7 +4378,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2214"/>
         <source>Restrict the find or replace to the SVG files selected in the Book Browser in Code View.</source>
-        <translation>Обмежити пошук або заміну файлами SVG, вибраними у вікні Структури Книги.</translation>
+        <translation>Обмежити пошук або заміну файлами SVG, вибраними у вікні «Структура Книги».</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2216"/>
@@ -4393,7 +4393,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2217"/>
         <source>Restrict the find or replace to the JS files selected in the Book Browser in Code View.</source>
-        <translation>Обмежити пошук або заміну файлами JS, вибраними у вікні Структури Книги.</translation>
+        <translation>Обмежити пошук або заміну файлами JS, вибраними у вікні «Структура Книги».</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2219"/>
@@ -4404,7 +4404,7 @@ Valid only when searching HTML files.</source>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2220"/>
         <source>Restrict the find or replace to the XML files selected in the Misc folder of the Book Browser in Code View.</source>
-        <translation>Обмежити пошук або заміну файлами XML, вибраними у каталозі Misc у вікні Структури Книги.</translation>
+        <translation>Обмежити пошук або заміну файлами XML, вибраними у каталозі Misc у вікні «Структура Книги».</translation>
     </message>
     <message>
         <location filename="../../MainUI/FindReplace.cpp" line="2223"/>
@@ -4539,7 +4539,7 @@ Valid only when searching HTML files.</source>
 <context>
     <name>FontResource</name>
     <message>
-        <location filename="../../ResourceObjects/FontResource.cpp" line="70"/>
+        <location filename="../../ResourceObjects/FontResource.cpp" line="71"/>
         <source>No reliable font data</source>
         <translation>Немає достовірних даних про шрифт</translation>
     </message>
@@ -4651,7 +4651,7 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="164"/>
         <source>Number of clipboard history items to save (0 disables):</source>
-        <translation>Кількість елементів історії буфера обміну для збереження (0 – не зберігати):</translation>
+        <translation>Кількість елементів збережених в історії буфера обміну (0 – не зберігати):</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="179"/>
@@ -4990,7 +4990,7 @@ mended.</source>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="164"/>
         <source>The publications cover(s), jacket information, etc.</source>
-        <translation>Обкладинка(-ки) видань, інформація на суперобкладинках і т.д.</translation>
+        <translation>Обкладинка(ки) видань, інформація на суперобкладинках і т.д.</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="165"/>
@@ -5170,7 +5170,7 @@ mended.</source>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="182"/>
         <source>A collection of notes. It can be used to identify footnotes, rear notes, marginal notes, inline notes, and similar when legacy naming conventions are not desired. Status: Deprecated - Replaced by: &apos;footnotes&apos;, &apos;rearnotes&apos;</source>
-        <translation>Збірка нотаток. Її можна використовувати для ідентифікації виносок, задніх нотаток, граничних приміток, вбудованих нотаток тощо, коли застарілі угоди про іменування не бажані. Статус: застарілий - замінено на: «виноски», «замітки»</translation>
+        <translation>Збірка нотаток. Її можна використовувати для ідентифікації виносок, задніх нотаток, граничних приміток, вбудованих нотаток тощо, коли застарілі угоди про іменування не бажані. Статус: застарілий – замінено на: «виноски», «замітки»</translation>
     </message>
     <message>
         <location filename="../../Misc/GuideItems.cpp" line="183"/>
@@ -5545,17 +5545,17 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Dialogs/ImageResizeDialog.cpp" line="14"/>
         <source>Width:</source>
-        <translation type="unfinished"/>
+        <translation>Ширина:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ImageResizeDialog.cpp" line="23"/>
         <source>Height:</source>
-        <translation type="unfinished"/>
+        <translation>Висота:</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ImageResizeDialog.cpp" line="31"/>
         <source>Keep Aspect Ratio</source>
-        <translation type="unfinished"/>
+        <translation>Зберегти пропорції</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ImageResizeDialog.cpp" line="37"/>
@@ -5689,22 +5689,22 @@ You can then check or uncheck individual headings in the list above.</source>
 <context>
     <name>ImageView</name>
     <message>
-        <location filename="../../Widgets/ImageView.cpp" line="118"/>
+        <location filename="../../Widgets/ImageView.cpp" line="120"/>
         <source>shades</source>
         <translation>тіні</translation>
     </message>
     <message>
-        <location filename="../../Widgets/ImageView.cpp" line="118"/>
+        <location filename="../../Widgets/ImageView.cpp" line="120"/>
         <source>colors</source>
         <translation>кольори</translation>
     </message>
     <message>
-        <location filename="../../Widgets/ImageView.cpp" line="119"/>
+        <location filename="../../Widgets/ImageView.cpp" line="121"/>
         <source>Grayscale</source>
         <translation>Відтінки сірого</translation>
     </message>
     <message>
-        <location filename="../../Widgets/ImageView.cpp" line="119"/>
+        <location filename="../../Widgets/ImageView.cpp" line="121"/>
         <source>Color</source>
         <translation>Колір</translation>
     </message>
@@ -5714,7 +5714,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="156"/>
         <source>Files exist in epub that are not listed in the manifest, they will be ignored.</source>
-        <translation> Якщо ePUB містить файли, які не вказані у маніфесті, вони будуть проігноровані.</translation>
+        <translation>Якщо ePUB містить файли, які не вказані у маніфесті, вони будуть проігноровані.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="206"/>
@@ -9458,7 +9458,7 @@ Use Preferences-&gt;Spellcheck Dictionaries to set the Spellcheck dictionary.</s
 
 Якщо переклад певного слова чи фрази недоступний, вони відображатимуться англійською мовою.
 
-Використовуйте Налаштування -&gt; Орфографічні Словники, щоб встановити словник перевірки орфографії.</translation>
+Використовуйте Налаштування -&gt; Орфографічні Словники, щоб додати словник перевірки орфографії.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="43"/>
@@ -9473,7 +9473,7 @@ Use Preferences-&gt;Spellcheck Dictionaries to set the Spellcheck dictionary.</s
     <message>
         <location filename="../../Form_Files/PLanguageWidget.ui" line="60"/>
         <source>Default Language For Metadata:</source>
-        <translation>Мова за замовчуванням для МетаДаних:</translation>
+        <translation>Мова за замовчуванням для Метаданих:</translation>
     </message>
 </context>
 <context>
@@ -9635,12 +9635,12 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="87"/>
         <source>Report shows all source and target links using the anchor tag &quot;a&quot;.</source>
-        <translation>Звіт показує усі джерела та цільові посилання за допомогою якорного тега «a».</translation>
+        <translation>Звіт показує усі джерела та цільові посилання за допомогою якорного тега ‹a›.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="160"/>
         <source>n/a</source>
-        <translation>n/a</translation>
+        <translation>н/д</translation>
     </message>
     <message>
         <location filename="../../Dialogs/ReportsWidgets/LinksWidget.cpp" line="164"/>
@@ -9853,7 +9853,7 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
         <location filename="../../Form_Files/main.ui" line="541"/>
         <location filename="../../MainUI/MainWindow.cpp" line="646"/>
         <source>Edit</source>
-        <translation>Редагувати</translation>
+        <translation>Коректив</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="557"/>
@@ -10329,14 +10329,14 @@ Stylesheets that are listed first take precedence over later stylesheets.</sourc
     <message>
         <location filename="../../Form_Files/main.ui" line="1266"/>
         <source>&amp;Metadata Editor...</source>
-        <translation>Редактор &amp;МетаДаних…</translation>
+        <translation>Редактор &amp;Метаданих…</translation>
     </message>
     <message>
         <location filename="../../Form_Files/main.ui" line="1269"/>
         <source>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Metadata Editor&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Edit and display information about your book including the author and title.&lt;/p&gt;</source>
-        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Редактор МетаДаних&lt;/b&gt;&lt;/p&gt;
+        <translation>&lt;p style=&quot;padding-top: 0.5em;&quot; &gt;&lt;b&gt;Редактор Метаданих&lt;/b&gt;&lt;/p&gt;
 
 &lt;p style=&quot;margin-left: 0.5em;&quot;&gt;Редагувати та відобразити інформацію про свою книгу, включаючи автора та назву.&lt;/p&gt;</translation>
     </message>
@@ -12897,7 +12897,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1878"/>
         <source>Warning: </source>
-        <translation>Попередження:</translation>
+        <translation>Попередження: </translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="1975"/>
@@ -12918,7 +12918,7 @@ This action cannot be reversed.</source>
         <location filename="../../MainUI/MainWindow.cpp" line="2104"/>
         <source>This file no longer exists. Click OK to remove it from the menu.
 %1</source>
-        <translation>Цей файл більше не існує. Натисніть «OK», щоб видалити його з меню.
+        <translation>Цей файл більше не існує. Натисніть «OK», щоб прибрати його з меню.
 %1</translation>
     </message>
     <message>
@@ -13023,17 +13023,17 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2724"/>
         <source>Nav removed from OPF Spine.</source>
-        <translation>Nav видалено з розділу Spine файлу OPF.</translation>
+        <translation>Nav видалено з тегу ‹spine› файлу OPF.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2745"/>
         <source>Nav added to OPF Spine with linear=&quot;no&quot;</source>
-        <translation>Nav додано до розділу Spine файлу OPF з «linear=&quot;no&quot;».</translation>
+        <translation>Nav додано до тегу ‹spine› файлу OPF з «linear=&quot;no&quot;».</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2747"/>
         <source>Nav added to OPF Spine.</source>
-        <translation>Nav додано до розділу Spine файлу OPF.</translation>
+        <translation>Nav додано до тегу ‹spine› файлу OPF.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="2786"/>
@@ -13074,7 +13074,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3193"/>
         <source>Delete Unused Media Files cancelled due to XML not well formed.</source>
-        <translation>Видалення невикористаних медіафайлів скасовано через неправильне формування XML.</translation>
+        <translation>Видалення невикористаних медіафайлів скасовано через неправильно сформований XML.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3243"/>
@@ -13090,7 +13090,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3259"/>
         <source>Delete Unused Styles cancelled due to XML not well formed.</source>
-        <translation>Видалення невикористаних стилів скасовано через неправильне формування XML.</translation>
+        <translation>Видалення невикористаних стилів скасовано через неправильно сформований XML.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="3281"/>
@@ -13274,12 +13274,12 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4468"/>
         <source>Metadata Editor cancelled.</source>
-        <translation>Роботу Редактора МетаДаних скасовано.</translation>
+        <translation>Роботу Редактора Метаданих скасовано.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4471"/>
         <source>Metadata edited.</source>
-        <translation>МетаДані відредаговані.</translation>
+        <translation>Метадані відредаговані.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="4591"/>
@@ -13304,7 +13304,7 @@ This action cannot be reversed.</source>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5186"/>
         <source>%1%2 - Line: %3, Col: %4</source>
-        <translation>%1%2 - Ряд.: %3, Стовп.: %4</translation>
+        <translation>%1%2 – Ряд.: %3, Стовп.: %4</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5273"/>
@@ -13425,7 +13425,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5927"/>
         <source>EPUB saved, but not all HTML files are well formed.</source>
-        <translation>ePUB збережено, але не всі файли HTML добре сформовані.</translation>
+        <translation>ePUB збережено, але не всі файли HTML сформовані правильно.</translation>
     </message>
     <message>
         <location filename="../../MainUI/MainWindow.cpp" line="5929"/>
@@ -16337,22 +16337,22 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="20"/>
         <source>MetaData Editor</source>
-        <translation>Редактор МетаДаних</translation>
+        <translation>Редактор Метаданих</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="55"/>
         <source>Add a new metadata element.</source>
-        <translation>Додати новий елемент МетаДаних.</translation>
+        <translation>Додати новий елемент Метаданих.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="58"/>
         <source>Add Metadata</source>
-        <translation>Додати МетаДані</translation>
+        <translation>Додати Метадані</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="68"/>
         <source>Add a new property or attribute to an existing metadata element.</source>
-        <translation>Додайте нову властивість або атрибут до існуючого елемента МетаДаних.</translation>
+        <translation>Додайте нову властивість або атрибут до існуючого елемента Метаданих.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="71"/>
@@ -16362,17 +16362,17 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="81"/>
         <source>Remove a metadata element or property.</source>
-        <translation>Видалити елемент або властивість МетаДаних.</translation>
+        <translation>Видалити елемент або властивість Метаданих.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="84"/>
         <source>Remove</source>
-        <translation>Вилучити</translation>
+        <translation>Прибрати</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="106"/>
         <source>Move selected metadata element or property up.</source>
-        <translation>Перемістити вибраний елемент МетаДаних або властивість вгору.</translation>
+        <translation>Перемістити вибраний елемент Метаданих або властивість вгору.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="109"/>
@@ -16383,12 +16383,12 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="119"/>
         <source>Move selected metadata element or property down.</source>
-        <translation>Перемістити вибраний елемент МетаДаних або властивість вниз.</translation>
+        <translation>Перемістити вибраний елемент Метаданих або властивість вниз.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/MetaEditor.ui" line="178"/>
         <source>Use OK to commit your metadata changes to the epub, otherwise use Cancel.</source>
-        <translation>Натисніть «ОК», щоб внести Ваші зміни метаданих в ePUB, інакше натисніть «Скасувати».</translation>
+        <translation>Натисніть «ОК», щоб внести Ваші зміни метаданих в ePUB або натисніть «Скасувати».</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="92"/>
@@ -16403,7 +16403,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="172"/>
         <source>Add Metadata element</source>
-        <translation>Додати елемент МетаДаних</translation>
+        <translation>Додати елемент Метаданих</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="173"/>
@@ -16444,55 +16444,55 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
         <location filename="../../Dialogs/MetaEditor.cpp" line="510"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="610"/>
         <source>[ISBN here]</source>
-        <translation>[ISBN отут]</translation>
+        <translation>[Місце для ISBN]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="514"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="615"/>
         <source>[ISSN here]</source>
-        <translation>[ISSN отут]</translation>
+        <translation>[Місце для ISSN]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="518"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="620"/>
         <source>[DOI here]</source>
-        <translation>[DOI отут]</translation>
+        <translation>[Місце для DOI]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="522"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="625"/>
         <source>[UUID here]</source>
-        <translation>[UUID отут]</translation>
+        <translation>[Місце для UUID]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="526"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="630"/>
         <source>[Amazon ASIN here]</source>
-        <translation>[Amazon ASIN отут]</translation>
+        <translation>[Місце для Amazon ASIN]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="530"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="635"/>
         <source>[Custom identifier here]</source>
-        <translation>[Кастомний ідентифікатор отут]</translation>
+        <translation>[Довільний ідентифікатор]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="550"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="648"/>
         <source>[Author name here]</source>
-        <translation>[Ім&apos;я автора отут]</translation>
+        <translation>[Місце для Ім&apos;я автора]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="556"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="653"/>
         <source>[Creator name here]</source>
-        <translation>[Ім&apos;я основного автора отут]</translation>
+        <translation>[Місце для Ім&apos;я основного автора]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="560"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="657"/>
         <source>[Contributor name here]</source>
-        <translation>[Імена співавторів отут]</translation>
+        <translation>[Місце для Імена співавторів]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="564"/>
@@ -16501,7 +16501,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
         <location filename="../../Dialogs/MetaEditor.cpp" line="751"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="798"/>
         <source>[Value here]</source>
-        <translation>[Значення отут]</translation>
+        <translation>[Впишіть тут значення]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="568"/>
@@ -16520,17 +16520,17 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="578"/>
         <source>Invalid characters were detected in the element name</source>
-        <translation type="unfinished"/>
+        <translation>У назві елемента виявлено недопустимі символи</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="578"/>
         <source>Invalid XML element name.</source>
-        <translation type="unfinished"/>
+        <translation>Невалідна назва елемента XML.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="674"/>
         <source>Add Property to Element</source>
-        <translation>Додати властивість до елементу</translation>
+        <translation>Додати властивість до елемента</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="732"/>
@@ -16541,12 +16541,12 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="746"/>
         <source>[Insert identifier type here]</source>
-        <translation>[Вставити тип ідентифікатора отут]</translation>
+        <translation>[Вставити тут тип ідентифікатора]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="748"/>
         <source>[Insert scheme type here]</source>
-        <translation>[Вставити тип схеми отут]</translation>
+        <translation>[Вставити тут тип схеми]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="750"/>
@@ -16562,7 +16562,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="763"/>
         <source>Add Propety to Element</source>
-        <translation>Додати властивість до елементу</translation>
+        <translation>Додати властивість до елемента</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="797"/>
@@ -16573,17 +16573,17 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="797"/>
         <source>[Custom metadata property/attribute]</source>
-        <translation>[Кастомна властивість/атрибут МетаДаних]</translation>
+        <translation>[Кастомна властивість/атрибут Метаданих]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="856"/>
         <source>[Place value here]</source>
-        <translation>[Помістити значення отут]</translation>
+        <translation>[Помістити тут значення]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="895"/>
         <source>[Your value here]</source>
-        <translation>[Ваше значення отут]</translation>
+        <translation>[Тут Ваше значення]</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="960"/>
@@ -16848,22 +16848,22 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="983"/>
         <source>A custom identifier based on a specified scheme</source>
-        <translation>Ідентифікатор що настроюється або ідентифікатор користувача або кастомний на основі визначеної схеми</translation>
+        <translation>Довільний (заданий користувачем) ідентифікатор на основі визначеної схеми</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="984"/>
         <source>An empty metadata element you can modify.</source>
-        <translation>Порожній елемент МетаДаних, який ви можете змінити.</translation>
+        <translation>Порожній елемент Метаданих, який ви можете змінити.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="985"/>
         <source>Meta Element (primary)</source>
-        <translation>Мета елемент (первинний)</translation>
+        <translation>Елемент Мета (первинний)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="985"/>
         <source>An empty primary metadata element you can modify.</source>
-        <translation>Порожній основний елемент МетаДаних, який ви можете змінити.</translation>
+        <translation>Порожній первинний елемент Метаданих, який ви можете змінити.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1011"/>
@@ -16886,7 +16886,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1012"/>
         <source>Optional, language specifying attribute.  Uses same codes as Language. Not for use with Language, Date, or Identifier metadata elements.</source>
-        <translation>Необов’язковий, атрибут мови. Використовує ті ж коди, що й Language. Не використовується для Language, Date або Identifier елементів МетаДаних.</translation>
+        <translation>Необов’язковий, атрибут мови. Використовує ті ж коди, що й Language. Не використовується для Language, Date або Identifier елементів Метаданих.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1013"/>
@@ -16896,7 +16896,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1013"/>
         <source>Optional text direction attribute for this metadata item. right-to-left (rtl). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
-        <translation>Необов’язковий атрибут тексту для цього елемента МетаДаних. справа-наліво (СН). Не використовується для dc:language, dc:date або dc:identifier елементів МетаДаних.</translation>
+        <translation>Необов’язковий атрибут тексту для цього елемента Метаданих. справа-наліво (СН). Не використовується для dc:language, dc:date або dc:identifier елементів Метаданих.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1014"/>
@@ -16906,7 +16906,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1014"/>
         <source>Optional text direction attribute for this metadata item. left-to-right (ltr). Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
-        <translation>Необов’язковий атрибут тексту для цього елемента МетаДаних. зліва-направо (ЗН). Не використовується для dc:language, dc:date або dc:identifier елементів МетаДаних.</translation>
+        <translation>Необов’язковий атрибут тексту для цього елемента Метаданих. зліва-направо (ЗН). Не використовується для dc:language, dc:date або dc:identifier елементів Метаданих.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1015"/>
@@ -17086,7 +17086,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1032"/>
         <source>An empty metadata property or attribute you can modify.</source>
-        <translation>Порожня властивість або атрибут МетаДаних, які Ви можете змінити.</translation>
+        <translation>Порожня властивість або атрибут Метаданих, які Ви можете змінити.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1060"/>
@@ -17096,7 +17096,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1060"/>
         <source>Optional text direction attribute for this metadata item.</source>
-        <translation>Необов’язковий атрибут напряму тексту для цього елемента МетаДаних.</translation>
+        <translation>Необов’язковий атрибут напряму тексту для цього елемента Метаданих.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1061"/>
@@ -17172,18 +17172,18 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
         <location filename="../../Dialogs/MetaEditor.cpp" line="1094"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1144"/>
         <source>Digital Object Identifier</source>
-        <translation>Цифровий ідентифікатор об&apos;єкта</translation>
+        <translation>Цифровий ідентифікатор об&apos;єкта (DOI)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1094"/>
         <source>Identifier Scheme: Digital Object Identifier</source>
-        <translation>Ідентифікатор схеми: Ідентифікатор цифрового об&apos;єкта</translation>
+        <translation>Ідентифікатор схеми: Цифровий ідентифікатор об&apos;єкта</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1095"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1145"/>
         <source>International Standard Book Number</source>
-        <translation>Міжнародний стандартний номер книги</translation>
+        <translation>Міжнародний стандартний номер книги (ISBN)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1095"/>
@@ -17194,18 +17194,18 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
         <location filename="../../Dialogs/MetaEditor.cpp" line="1096"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1146"/>
         <source>International Standard Serial Number</source>
-        <translation>Міжнародний стандартний серійний номер</translation>
+        <translation>Міжнародний стандартний номер періодичного видання (ISSN)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1096"/>
         <source>Identifier Scheme: International Standard Serial Number</source>
-        <translation>Ідентифікатор схеми: Міжнародний стандартний серійний номер</translation>
+        <translation>Ідентифікатор схеми: Міжнародний стандартний номер періодичного видання</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1097"/>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1147"/>
         <source>Universally Unique Identifier</source>
-        <translation>Універсальний унікальний ідентифікатор</translation>
+        <translation>Універсальний унікальний ідентифікатор (UUID)</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1097"/>
@@ -17339,7 +17339,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1181"/>
         <source>Optional, language specifying attribute.  Uses same codes as dc:language. Not for use with dc:language, dc:date, or dc:identifier metadata elements.</source>
-        <translation>Необов’язковий, атрибут мови. Використовує ті ж коди, що й dc: language. Не використовується для dc: langauge, dc: date або dc:identifier елементів МетаДаних.</translation>
+        <translation>Необов’язковий, атрибут мови. Використовує ті ж коди, що й dc: language. Не використовується для dc: langauge, dc: date або dc:identifier елементів Метаданих.</translation>
     </message>
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1184"/>
@@ -17369,7 +17369,7 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../Dialogs/MetaEditor.cpp" line="1187"/>
         <source>An empty metadata attribute you can modify.</source>
-        <translation>Порожній атрибут МетаДаних, який ви можете змінити.</translation>
+        <translation>Порожній атрибут Метаданих, який ви можете змінити.</translation>
     </message>
 </context>
 <context>
@@ -17514,12 +17514,12 @@ Do you want to automatically mend the files before saving? Or cancel the Save?</
     <message>
         <location filename="../../ResourceObjects/OPFResource.cpp" line="1761"/>
         <source>[Title here]</source>
-        <translation>[Назва отут]</translation>
+        <translation>[Місце для заголовка]</translation>
     </message>
     <message>
         <location filename="../../ResourceObjects/OPFResource.cpp" line="1771"/>
         <source>[Main title here]</source>
-        <translation>[Основний заголовок отут]</translation>
+        <translation>[Місце для основного заголовка]</translation>
     </message>
 </context>
 <context>
@@ -18715,12 +18715,12 @@ Entities can be separated by lines, commas, or spaces.</source>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="163"/>
         <source>The OPF manifest contains duplicate file paths. You should edit your OPF file&apos;s manifest to remove the duplication.</source>
-        <translation type="unfinished"/>
+        <translation>Маніфест OPF містить дублікати шляхів до файлів. Необхідно відредагувати тег ‹manifest› файлу OPF, щоб їх прибрати.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="263"/>
         <source>The OPF file does not contain a valid spine.</source>
-        <translation>Файл OPF не містить чинного списку потоку (spine).</translation>
+        <translation>Файл OPF не містить валідного порядку читання (spine).</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="264"/>
@@ -18738,7 +18738,7 @@ Entities can be separated by lines, commas, or spaces.</source>
         <source>Error parsing encryption xml.
 Line: %1 Column %2 - %3</source>
         <translation>Помилка синтаксичного аналізу шифрування xml.
-Рядок: %1 Стовпець %2 - %3</translation>
+рядок: %1 стовпець: %2 - %3</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="436"/>
@@ -18767,8 +18767,8 @@ Line: %1 Column %2 - %3</source>
         <location filename="../../Importers/ImportEPUB.cpp" line="652"/>
         <source>Unable to parse container.xml file.
 Line: %1 Column %2 - %3</source>
-        <translation>Неможливо проаналізувати файл container.xml.
-Рядок: %1 Стовпець %2 - %3</translation>
+        <translation>Не вдається проаналізувати файл container.xml.
+рядок: %1 стовпець: %2 - %3</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="660"/>
@@ -18783,24 +18783,24 @@ Line: %1 Column %2 - %3</source>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="675"/>
         <source>near</source>
-        <translation type="unfinished"/>
+        <translation>- у районі позиції</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="677"/>
         <source>Will attempt auto repair.</source>
-        <translation type="unfinished"/>
+        <translation>Буде виконано спробу автоматичного корективу.</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="678"/>
         <source>Malformed OPF</source>
-        <translation type="unfinished"/>
+        <translation>Неправильно сформований OPF</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="726"/>
         <source>Unable to read OPF file.
 Line: %1 Column %2 - %3</source>
         <translation>Не вдається прочитати файл OPF.
-Рядок: %1 Стовпець %2 - %3</translation>
+рядок: %1 стовпець: %2 - %3</translation>
     </message>
     <message>
         <location filename="../../Importers/ImportEPUB.cpp" line="860"/>
@@ -19757,1253 +19757,1254 @@ Do you want to save your changes?</source>
         <translation>Вставити спеціальний знак</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="137"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="145"/>
         <source>Unable to read special_characters xml. 
 Line: %1 Column %2 - %3)</source>
-        <translation type="unfinished"/>
+        <translation>Не вдається прочитати special_characters xml.
+рядок: %1 стовпець: %2 - %3)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="155"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="163"/>
         <source>non-breaking space</source>
         <translation>нерозривний пробіл</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="156"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="164"/>
         <source>en space</source>
         <translation>пробіл довжини N</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="157"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="165"/>
         <source>em space</source>
         <translation>пробіл довжини M</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="158"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="166"/>
         <source>thin space</source>
         <translation>вузький пробіл</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="159"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="167"/>
         <source>soft hyphen</source>
         <translation>м’який дефіс</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="160"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="168"/>
         <source>narrow non-breaking space</source>
         <translation>вузький нерозривний пробіл</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="164"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="172"/>
         <source>left single quote</source>
         <translation>ліва одинарна лапка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="165"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="173"/>
         <source>right single quote</source>
         <translation>права одинарна лапка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="166"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="174"/>
         <source>left double quote</source>
         <translation>ліва подвійна лапка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="167"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="175"/>
         <source>right double quote</source>
         <translation>права подвійна лапка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="168"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="176"/>
         <source>left-pointing single angle quote</source>
         <translation>ліва одинарна відкриваюча кутова лапка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="169"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="177"/>
         <source>right-pointing single angle quote</source>
         <translation>напрямлені вправо одинарні кутові лапки</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="170"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="178"/>
         <source>left-pointing double angle quote</source>
         <translation>напрямлені вліво подвійні кутові лапки</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="171"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="179"/>
         <source>right-pointing double angle quote</source>
         <translation>напрямлені вправо подвійні кутові лапки</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="172"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="180"/>
         <source>apostrophe</source>
         <translation>апостроф</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="173"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="181"/>
         <source>double quote</source>
         <translation>подвійні лапки</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="174"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="182"/>
         <source>single low-9 quote</source>
         <translation>нижня одинарна відкриваюча лапка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="175"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="183"/>
         <source>double low-9 quote</source>
         <translation>нижня подвійна відкриваюча лапка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="176"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="184"/>
         <source>em dash</source>
         <translation>довге тире</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="177"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="185"/>
         <source>en dash</source>
         <translation>коротке тире</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="178"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="186"/>
         <source>section sign</source>
         <translation>символ параграфа</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="179"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="187"/>
         <source>pilcrow - paragraph sign</source>
         <translation>знак абзацу</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="180"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="188"/>
         <source>dagger</source>
         <translation>друкарський хрестик</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="181"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="189"/>
         <source>double dagger</source>
         <translation>подві́йний хрестик</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="182"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="190"/>
         <source>ampersand</source>
         <translation>амперсанд</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="183"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="191"/>
         <source>less-than sign</source>
         <translation>знак менше</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="184"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="192"/>
         <source>greater-than sign</source>
         <translation>знак більше</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="185"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="193"/>
         <source>copyright</source>
         <translation>авторське право</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="186"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="194"/>
         <source>registered sign</source>
         <translation>зареєстрований товарний знак</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="187"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="195"/>
         <source>trademark symbol</source>
         <translation>символ торгової марки</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="188"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="196"/>
         <source>left arrow</source>
         <translation>стрілка вліво</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="189"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="197"/>
         <source>right arrow</source>
         <translation>стрілка вправо</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="190"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="198"/>
         <source>bullet</source>
         <translation>маркер списку</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="191"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="199"/>
         <source>middle dot</source>
         <translation>інтерпункт</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="192"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="200"/>
         <source>degree sign</source>
         <translation>знак градусу</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="193"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="201"/>
         <source>plus minus sign</source>
         <translation>знак плюс-мінус</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="194"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="202"/>
         <source>minus sign</source>
         <translation>знак мінус</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="195"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="203"/>
         <source>multiplication sign</source>
         <translation>знак множення</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="196"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="204"/>
         <source>division sign</source>
         <translation>знак ділення</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="197"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="205"/>
         <source>fraction 1/4</source>
         <translation>дріб 1/4</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="198"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="206"/>
         <source>fraction 1/2</source>
         <translation>дріб 1/2</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="199"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="207"/>
         <source>fraction 3/4</source>
         <translation>дріб 3/4</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="200"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="208"/>
         <source>fraction 1/3</source>
         <translation>дріб 1/3</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="201"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="209"/>
         <source>fraction 2/3</source>
         <translation>дріб 2/3</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="202"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="210"/>
         <source>fraction 1/8</source>
         <translation>дріб 1/8</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="203"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="211"/>
         <source>fraction 3/8</source>
         <translation>дріб 3/8</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="204"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="212"/>
         <source>fraction 5/8</source>
         <translation>дріб 5/8</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="205"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="213"/>
         <source>fraction 7/8</source>
         <translation>дріб 7/8</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="206"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="214"/>
         <source>horizontal ellipsis</source>
         <translation>горизонтальні три крапки</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="207"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="215"/>
         <source>micron</source>
         <translation>мікрон</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="208"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="216"/>
         <source>cent sign</source>
         <translation>знак цента</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="209"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="217"/>
         <source>pound sign</source>
         <translation>знак фунта</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="210"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="218"/>
         <source>euro sign</source>
         <translation>знак євро</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="211"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="219"/>
         <source>inverted question mark</source>
         <translation>перевернутий знак питання</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="212"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="220"/>
         <source>inverted exclamation mark</source>
         <translation>перевернутий знак оклику</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="213"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="221"/>
         <source>diaeresis</source>
         <translation>умлаут</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="214"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="222"/>
         <source>acute accent</source>
         <translation>акут</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="215"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="223"/>
         <source>cedilla</source>
         <translation>седиль</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="216"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="224"/>
         <source>circumflex accent</source>
         <translation>циркумфлексний наголос</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="217"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="225"/>
         <source>small tilde</source>
         <translation>мала тильда</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="218"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="226"/>
         <source>capital A with grave</source>
         <translation>велика A з гравісом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="219"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="227"/>
         <source>capital A with acute</source>
         <translation>велика A з акутом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="220"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="228"/>
         <source>capital A with circumflex</source>
         <translation>Велика A з циркумфлексом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="221"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="229"/>
         <source>capital A with tilde</source>
         <translation>велика A з тильдою</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="222"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="230"/>
         <source>capital A with diaeresis</source>
         <translation>велика A з тремою</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="223"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="231"/>
         <source>capital A with ring above</source>
         <translation>велика A з кільцем зверху</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="224"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="232"/>
         <source>capital AE</source>
         <translation>велика AE</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="225"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="233"/>
         <source>capital C with cedilla</source>
         <translation>велика C з седилею</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="226"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="234"/>
         <source>capital E with grave</source>
         <translation>велика E з гравісом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="227"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="235"/>
         <source>capital E with acute</source>
         <translation>велика E з акутом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="228"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="236"/>
         <source>capital E with circumflex</source>
         <translation>велика E з циркумфлексом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="229"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="237"/>
         <source>capital E with diaeresis</source>
         <translation>велика E з тремою</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="230"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="238"/>
         <source>capital I with grave</source>
         <translation>велика I з гравісом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="231"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="239"/>
         <source>capital I with acute</source>
         <translation>велика I з акутом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="232"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="240"/>
         <source>capital I with circumflex</source>
         <translation>велика I з циркумфлексом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="233"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="241"/>
         <source>capital I with diaeresis</source>
         <translation>велика I з тремою</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="234"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="242"/>
         <source>capital eth</source>
         <translation>велика eth</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="235"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="243"/>
         <source>capital N with tilde</source>
         <translation>велика N з тильдою</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="236"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="244"/>
         <source>capital O with grave</source>
         <translation>велика O з гравісом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="237"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="245"/>
         <source>capital O with acute</source>
         <translation>велика O з акутом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="238"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="246"/>
         <source>capital O with circumflex</source>
         <translation>велика O з циркумфлексом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="239"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="247"/>
         <source>capital O with tilde</source>
         <translation>велика O з тільдою</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="240"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="248"/>
         <source>capital O with diaeresis</source>
         <translation>велика O з тремою</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="241"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="249"/>
         <source>capital O with stroke</source>
         <translation>велика O діагонально перекреслена</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="242"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="250"/>
         <source>capital ligature OE</source>
         <translation>велика лігатура OE</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="243"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="251"/>
         <source>capital S with caron</source>
         <translation>велика S з гачеком</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="244"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="252"/>
         <source>capital U with grave</source>
         <translation>велика U з гравісом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="245"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="253"/>
         <source>capital U with acute</source>
         <translation>велика U з акутом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="246"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="254"/>
         <source>capital U with circumflex</source>
         <translation>велика U з циркумфлексом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="247"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="255"/>
         <source>capital U with diaeresis</source>
         <translation>велика U з тремою</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="248"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="256"/>
         <source>capital Y with acute</source>
         <translation>велика Y з акутом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="249"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="257"/>
         <source>capital Y with diaeresis</source>
         <translation>велика Y з тремою</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="250"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="258"/>
         <source>capital THORN</source>
         <translation>велика THORN</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="251"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="259"/>
         <source>small sharp s</source>
         <translation>есцет</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="252"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="260"/>
         <source>small a with grave</source>
         <translation>мала а з гравісом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="253"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="261"/>
         <source>small a with acute</source>
         <translation>мала а з акутом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="254"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="262"/>
         <source>small a with circumflex</source>
         <translation>мала а з циркумфлексом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="255"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="263"/>
         <source>small a with tilde</source>
         <translation>мала а з тильдою</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="256"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="264"/>
         <source>small a with diaeresis</source>
         <translation>мала а з тремою</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="257"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="265"/>
         <source>small a with ring above</source>
         <translation>мала а з кільцем зверху</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="258"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="266"/>
         <source>small ae</source>
         <translation>мала ae</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="259"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="267"/>
         <source>small c with cedilia</source>
         <translation>мала с з седилею</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="260"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="268"/>
         <source>small e with grave</source>
         <translation>мала e з гравісом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="261"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="269"/>
         <source>small e with acute</source>
         <translation>мала e з акутом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="262"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="270"/>
         <source>small e with circumflex</source>
         <translation>мала e з циркумфлексом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="263"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="271"/>
         <source>small e with diaeresis</source>
         <translation>мала e з тремою</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="264"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="272"/>
         <source>small i with grave</source>
         <translation>мала i з гравісом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="265"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="273"/>
         <source>small i with acute</source>
         <translation>мала i з акутом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="266"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="274"/>
         <source>small i with circumflex</source>
         <translation>мала i з циркумфлексом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="267"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="275"/>
         <source>small i with diaeresis</source>
         <translation>мала i з тремою</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="268"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="276"/>
         <source>small eth</source>
         <translation>мала eth</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="269"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="277"/>
         <source>small n with tilde</source>
         <translation>мала n з тильдою</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="270"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="278"/>
         <source>small o with grave</source>
         <translation>мала o з гравісом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="271"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="279"/>
         <source>small o with acute</source>
         <translation>мала o з акутом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="272"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="280"/>
         <source>small o with circumflex</source>
         <translation>мала o з циркумфлексом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="273"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="281"/>
         <source>small o with tilde</source>
         <translation>мала o з тильдою</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="274"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="282"/>
         <source>small o with diaeresis</source>
         <translation>мала o з тремою</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="275"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="283"/>
         <source>small o with stroke</source>
         <translation>мала o діагонально перекреслена</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="276"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="284"/>
         <source>small ligature oe</source>
         <translation>мала лігатура ае</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="277"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="285"/>
         <source>small s with caron</source>
         <translation>мала s з гачеком</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="278"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="286"/>
         <source>small u with grave</source>
         <translation>мала u з гравісом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="279"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="287"/>
         <source>small u with acute</source>
         <translation>мала u з акутом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="280"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="288"/>
         <source>small u with circumflex</source>
         <translation>мала u з циркумфлексом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="281"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="289"/>
         <source>small u with diaeresis</source>
         <translation>мала u з тремою</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="282"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="290"/>
         <source>small y with acute</source>
         <translation>мала y з акутом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="283"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="291"/>
         <source>small y with diaeresis</source>
         <translation>мала y з тремою</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="284"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="292"/>
         <source>small thorn</source>
         <translation>мала thorn</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="285"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="293"/>
         <source>feminine ordinal indicator</source>
         <translation>жіночий порядковий індикатор</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="286"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="294"/>
         <source>masculine ordinal indicator</source>
         <translation>чоловічий порядковий індикатор</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="287"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="295"/>
         <source>infinity</source>
         <translation>нескінченність</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="291"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="299"/>
         <source>Greek capital letter Alpha</source>
         <translation>Грецька велика літера Альфа</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="292"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="300"/>
         <source>Greek lower letter alpha</source>
         <translation>Грецька мала літера альфа</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="293"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="301"/>
         <source>Greek capital letter Beta</source>
         <translation>Грецька велика літера Бета</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="294"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="302"/>
         <source>Greek lower letter beta</source>
         <translation>Грецька мала літера бета</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="295"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="303"/>
         <source>Greek capital letter Chi</source>
         <translation>Грецька велика літера Хі</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="296"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="304"/>
         <source>Greek lower letter chi</source>
         <translation>Грецька мала літера хі</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="297"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="305"/>
         <source>Greek capital letter Delta</source>
         <translation>Грецька велика літера Дельта</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="298"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="306"/>
         <source>Greek lower letter delta</source>
         <translation>Грецька мала літера дельта</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="299"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="307"/>
         <source>Greek capital letter Epsilon</source>
         <translation>Грецька велика літера Епсілон</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="300"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="308"/>
         <source>Greek lower letter epsilon</source>
         <translation>Грецька мала літера епсілон</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="301"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="309"/>
         <source>Greek capital letter Eta</source>
         <translation>Грецька велика літера Ета</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="302"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="310"/>
         <source>Greek lower letter eta</source>
         <translation>Грецька мала літера ета</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="303"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="311"/>
         <source>Greek capital letter Gamma</source>
         <translation>Грецька велика літера Гамма</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="304"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="312"/>
         <source>Greek lower letter gamma</source>
         <translation>Грецька мала літера гамма</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="305"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="313"/>
         <source>Greek capital letter Iota</source>
         <translation>Грецька велика літера Йота</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="306"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="314"/>
         <source>Greek lower letter iota</source>
         <translation>Грецька мала літера йота</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="307"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="315"/>
         <source>Greek capital letter Kappa</source>
         <translation>Грецька велика літера Каппа</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="308"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="316"/>
         <source>Greek lower letter kappa</source>
         <translation>Грецька мала літера каппа</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="309"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="317"/>
         <source>Greek capital letter Lambda</source>
         <translation>Грецька велика літера Лямбда</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="310"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="318"/>
         <source>Greek lower letter lambda</source>
         <translation>Грецька мала літера лямбда</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="311"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="319"/>
         <source>Greek capital letter Mu</source>
         <translation>Грецька велика літера Мю</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="312"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="320"/>
         <source>Greek lower letter mu</source>
         <translation>Грецька мала літера мю</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="313"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="321"/>
         <source>Greek capital letter Nu</source>
         <translation>Грецька велика літера Ню</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="314"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="322"/>
         <source>Greek lower letter nu</source>
         <translation>Грецька мала літера ню</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="315"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="323"/>
         <source>Greek capital letter Omega</source>
         <translation>Грецька велика літера Омега</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="316"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="324"/>
         <source>Greek lower letter omega</source>
         <translation>Грецька мала літера омега</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="317"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="325"/>
         <source>Greek capital letter Omicron</source>
         <translation>Грецька велика літера Омікрон</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="318"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="326"/>
         <source>Greek lower letter omicron</source>
         <translation>Грецька мала літера омікрон</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="319"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="327"/>
         <source>Greek capital letter Phi</source>
         <translation>Грецька велика літера Фі</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="320"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="328"/>
         <source>Greek lower letter phi</source>
         <translation>Грецька мала літера фі</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="321"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="329"/>
         <source>Greek capital letter Pi</source>
         <translation>Грецька велика літера Пі</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="322"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="330"/>
         <source>Greek lower letter pi</source>
         <translation>Грецька мала літера пі</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="323"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="331"/>
         <source>Greek double prime</source>
         <translation>подвійний штрих</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="324"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="332"/>
         <source>Greek single prime</source>
         <translation>одинарний штрих</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="325"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="333"/>
         <source>Greek capital letter Psi</source>
         <translation>Грецька велика літера Псі</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="326"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="334"/>
         <source>Greek lower letter psi</source>
         <translation>Грецька мала літера псі</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="327"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="335"/>
         <source>Greek capital letter Rho</source>
         <translation>Грецька велика літера Ро</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="328"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="336"/>
         <source>Greek lower letter rho</source>
         <translation>Грецька мала літера ро</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="329"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="337"/>
         <source>Greek capital letter Sigma</source>
         <translation>Грецька велика літера Сигма</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="330"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="338"/>
         <source>Greek lower letter sigma</source>
         <translation>Грецька мала літера сигма</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="331"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="339"/>
         <source>Greek capital letter Tau</source>
         <translation>Грецька велика літера Тау</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="332"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="340"/>
         <source>Greek lower letter tau</source>
         <translation>Грецька мала літера тау</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="333"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="341"/>
         <source>Greek capital letter Theta</source>
         <translation>Грецька велика літера Тета</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="334"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="342"/>
         <source>Greek lower letter theta</source>
         <translation>Грецька мала літера тета</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="335"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="343"/>
         <source>Greek capital letter Upsilon</source>
         <translation>Грецька велика літера Іпсілон</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="336"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="344"/>
         <source>Greek lower letter upsilon</source>
         <translation>Грецька маленька літера упсилон</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="337"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="345"/>
         <source>Greek capital letter Xi</source>
         <translation>Грецька велика літера Ксi</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="338"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="346"/>
         <source>Greek lower letter xi</source>
         <translation>Грецька мала літера ксі</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="339"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="347"/>
         <source>Greek capital letter Zeta</source>
         <translation>Грецька велика літера Зета</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="340"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="348"/>
         <source>Greek lower letter zeta</source>
         <translation>Грецька мала літера дзета</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="344"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="352"/>
         <source>alef symbol</source>
         <translation>символ алеф</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="345"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="353"/>
         <source>logical and</source>
         <translation>логічне та</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="346"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="354"/>
         <source>logical or</source>
         <translation>логічне або</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="347"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="355"/>
         <source>intersection</source>
         <translation>перетин</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="348"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="356"/>
         <source>union</source>
         <translation>об&apos;єднання</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="349"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="357"/>
         <source>congruent to</source>
         <translation>наближено дорівнює</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="350"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="358"/>
         <source>downwards arrow with corner leftwards</source>
         <translation>вниз з кутом вправо / повернення каретки</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="351"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="359"/>
         <source>currency sign</source>
         <translation>знак валюти</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="352"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="360"/>
         <source>downwards double arrow</source>
         <translation>подвійна вниз</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="353"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="361"/>
         <source>upwards double arrow</source>
         <translation>подвійна вверх</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="354"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="362"/>
         <source>downwards arrow</source>
         <translation>вниз</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="355"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="363"/>
         <source>upwards arrow</source>
         <translation>вверх</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="356"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="364"/>
         <source>empty set</source>
         <translation>пуста множина / діаметр</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="357"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="365"/>
         <source>identical to</source>
         <translation>ідентично</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="358"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="366"/>
         <source>there exists</source>
         <translation>існує</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="359"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="367"/>
         <source>Latin small letter f with hook</source>
         <translation>латинська f з хвостиком</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="360"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="368"/>
         <source>for all</source>
         <translation>для всіх</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="361"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="369"/>
         <source>fraction slash</source>
         <translation>похила риска</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="362"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="370"/>
         <source>left right double arrow</source>
         <translation>одвійна влево-вправо</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="363"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="371"/>
         <source>left right single arrow</source>
         <translation>одинарна стрілка вліво-вправо</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="364"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="372"/>
         <source>black-letter capital I</source>
         <translation>чорна велика I</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="365"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="373"/>
         <source>integral</source>
         <translation>інтеграл</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="366"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="374"/>
         <source>element of</source>
         <translation>елемент з</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="367"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="375"/>
         <source>leftwards double arrow</source>
         <translation>подвійна стрілка вліво</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="368"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="376"/>
         <source>double right arrow</source>
         <translation>подвійна стрілка вправо</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="369"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="377"/>
         <source>left-pointing angle bracket</source>
         <translation>кутова дужка вліво</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="370"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="378"/>
         <source>right-pointing angle bracket</source>
         <translation>кутова дужка вправо</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="371"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="379"/>
         <source>left ceiling</source>
         <translation>ліва дужка округлення вверх</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="372"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="380"/>
         <source>right ceiling</source>
         <translation>права дужка округлення вверх</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="373"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="381"/>
         <source>less-than or equal to</source>
         <translation>менше чи дорівнює</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="374"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="382"/>
         <source>greater-than or equal to</source>
         <translation>більше чи дорівнює</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="375"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="383"/>
         <source>left floor</source>
         <translation>ліва дужка округлення вниз</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="376"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="384"/>
         <source>right floor</source>
         <translation>права книжка округлення вниз</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="377"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="385"/>
         <source>asterisk operator</source>
         <translation>зірочка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="378"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="386"/>
         <source>lozenge</source>
         <translation>ромб</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="379"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="387"/>
         <source>macron</source>
         <translation>макрон</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="380"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="388"/>
         <source>nabla</source>
         <translation>набла</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="381"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="389"/>
         <source>not equal to</source>
         <translation>не дорівнює</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="382"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="390"/>
         <source>contains as member</source>
         <translation>містить у собі елемент</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="383"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="391"/>
         <source>not sign</source>
         <translation>знак не</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="384"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="392"/>
         <source>not an element of</source>
         <translation>не є елементом</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="385"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="393"/>
         <source>not a subset of</source>
         <translation>не є підмножиною</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="386"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="394"/>
         <source>overline</source>
         <translation>верхня риска</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="387"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="395"/>
         <source>circled plus</source>
         <translation>пряма сума (плюс у кружечку)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="388"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="396"/>
         <source>circled times</source>
         <translation>векторний добуток (знак множення в кружечку)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="389"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="397"/>
         <source>partial differential</source>
         <translation>частковий диференціал</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="390"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="398"/>
         <source>per mille sign</source>
         <translation>знак проміле</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="391"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="399"/>
         <source>up tack</source>
         <translation>перпендикуляр</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="392"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="400"/>
         <source>Greek pi symbol</source>
         <translation>Грецький символ псі</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="393"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="401"/>
         <source>n-ary product</source>
         <translation>n-арний добуток</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="394"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="402"/>
         <source>proportional to</source>
         <translation>пропорційно до</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="395"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="403"/>
         <source>square root</source>
         <translation>квадратний корінь</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="396"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="404"/>
         <source>black-letter capital R</source>
         <translation>чорна велика R</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="397"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="405"/>
         <source>dot operator</source>
         <translation>оператор крапка</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="398"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="406"/>
         <source>Greek small letter final sigma</source>
         <translation>Грецька мала літера заключна сигма</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="399"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="407"/>
         <source>tilde operator</source>
         <translation>оператор тильда / подібно</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="400"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="408"/>
         <source>subset of</source>
         <translation>підмножина</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="401"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="409"/>
         <source>superset of</source>
         <translation>включає в себе</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="402"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="410"/>
         <source>subset of or equal to</source>
         <translation>підмножина чи еквівалентно</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="403"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="411"/>
         <source>superset of or equal to</source>
         <translation>включає в себе чи еквівалентно</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="404"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="412"/>
         <source>n-ary summation</source>
         <translation>n-арна сума</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="405"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="413"/>
         <source>superscript one</source>
         <translation>надрядковий індекс один</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="406"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="414"/>
         <source>superscript two</source>
         <translation>надрядковий індекс два</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="407"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="415"/>
         <source>superscript three</source>
         <translation>надрядковий індекс три</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="408"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="416"/>
         <source>therefore sign</source>
         <translation>знак випливає</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="409"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="417"/>
         <source>Greek theta symbol</source>
         <translation>Грецький символ тета</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="410"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="418"/>
         <source>Greek Upsilon with hook symbol</source>
         <translation>Грецький символ упсилон з гачком</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="411"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="419"/>
         <source>script capital P</source>
         <translation>рукописна велика P</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="412"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="420"/>
         <source>yen sign</source>
         <translation>знак єни</translation>
     </message>
@@ -21043,7 +21044,7 @@ Line: %1 Column %2 - %3)</source>
         <source>Choose which image, video, or audio files from your computer to add to
 your book and automatically insert into your document.</source>
         <translation>Виберіть зображення, відео чи аудіофайли з комп’ютера, які потрібно додати у
-Вашу книгу та автоматично вставити у Ваш документ.</translation>
+Вашу книгу та автоматично вставити у документ.</translation>
     </message>
     <message>
         <location filename="../../Form_Files/SelectFiles.ui" line="66"/>
@@ -21086,22 +21087,22 @@ your book and automatically insert into your document.</source>
         <translation>Мініатюри</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="348"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="350"/>
         <source>shades</source>
         <translation>тіні</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="348"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="350"/>
         <source>colors</source>
         <translation>кольори</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="349"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="351"/>
         <source>Grayscale</source>
         <translation>Відтінки сірого</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="349"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="351"/>
         <source>Color</source>
         <translation>Колір</translation>
     </message>
@@ -21827,7 +21828,7 @@ Continue using the requested filename?</source>
     <message>
         <location filename="../../MainUI/ValidationResultsView.cpp" line="423"/>
         <source>Offset</source>
-        <translation>Зміщення</translation>
+        <translation>Позиція</translation>
     </message>
 </context>
 <context>

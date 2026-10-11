@@ -4541,7 +4541,7 @@ Valid only when searching HTML files.</source>
 <context>
     <name>FontResource</name>
     <message>
-        <location filename="../../ResourceObjects/FontResource.cpp" line="70"/>
+        <location filename="../../ResourceObjects/FontResource.cpp" line="71"/>
         <source>No reliable font data</source>
         <translation>没有可靠的字体数据</translation>
     </message>
@@ -5692,22 +5692,22 @@ You can then check or uncheck individual headings in the list above.</source>
 <context>
     <name>ImageView</name>
     <message>
-        <location filename="../../Widgets/ImageView.cpp" line="118"/>
+        <location filename="../../Widgets/ImageView.cpp" line="120"/>
         <source>shades</source>
         <translation>渐变</translation>
     </message>
     <message>
-        <location filename="../../Widgets/ImageView.cpp" line="118"/>
+        <location filename="../../Widgets/ImageView.cpp" line="120"/>
         <source>colors</source>
         <translation>颜色</translation>
     </message>
     <message>
-        <location filename="../../Widgets/ImageView.cpp" line="119"/>
+        <location filename="../../Widgets/ImageView.cpp" line="121"/>
         <source>Grayscale</source>
         <translation>灰度</translation>
     </message>
     <message>
-        <location filename="../../Widgets/ImageView.cpp" line="119"/>
+        <location filename="../../Widgets/ImageView.cpp" line="121"/>
         <source>Color</source>
         <translation>颜色</translation>
     </message>
@@ -19760,1254 +19760,1254 @@ Do you want to save your changes?</source>
         <translation>插入特殊字符</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="137"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="145"/>
         <source>Unable to read special_characters xml. 
 Line: %1 Column %2 - %3)</source>
         <translation>无法读取特殊字符 xml. 
 行: %1 列 %2 - %3)</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="155"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="163"/>
         <source>non-breaking space</source>
         <translation>不间断空格</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="156"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="164"/>
         <source>en space</source>
         <translation>半角空格</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="157"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="165"/>
         <source>em space</source>
         <translation>全角空格</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="158"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="166"/>
         <source>thin space</source>
         <translation>窄空格</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="159"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="167"/>
         <source>soft hyphen</source>
         <translation>软连字符­</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="160"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="168"/>
         <source>narrow non-breaking space</source>
         <translation>压缩的不间断空格</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="164"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="172"/>
         <source>left single quote</source>
         <translation>左单引号</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="165"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="173"/>
         <source>right single quote</source>
         <translation>右单引号</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="166"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="174"/>
         <source>left double quote</source>
         <translation>左双引号</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="167"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="175"/>
         <source>right double quote</source>
         <translation>右双引号</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="168"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="176"/>
         <source>left-pointing single angle quote</source>
         <translation>左指向单角引号</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="169"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="177"/>
         <source>right-pointing single angle quote</source>
         <translation>右指向单角引号</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="170"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="178"/>
         <source>left-pointing double angle quote</source>
         <translation>右指向双角引号</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="171"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="179"/>
         <source>right-pointing double angle quote</source>
         <translation>右指向双角引号</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="172"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="180"/>
         <source>apostrophe</source>
         <translation>撇号&apos;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="173"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="181"/>
         <source>double quote</source>
         <translation>双引号</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="174"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="182"/>
         <source>single low-9 quote</source>
         <translation>单下9号引号</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="175"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="183"/>
         <source>double low-9 quote</source>
         <translation>双下9号引号</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="176"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="184"/>
         <source>em dash</source>
         <translation>长破折号—</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="177"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="185"/>
         <source>en dash</source>
         <translation>短破折号–</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="178"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="186"/>
         <source>section sign</source>
         <translation>小节号§</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="179"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="187"/>
         <source>pilcrow - paragraph sign</source>
         <translation>¶ - 段落符号</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="180"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="188"/>
         <source>dagger</source>
         <translation>剑号</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="181"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="189"/>
         <source>double dagger</source>
         <translation>双剑号</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="182"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="190"/>
         <source>ampersand</source>
         <translation>&amp; 符号</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="183"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="191"/>
         <source>less-than sign</source>
         <translation>小于号&lt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="184"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="192"/>
         <source>greater-than sign</source>
         <translation>大于号&gt;</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="185"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="193"/>
         <source>copyright</source>
         <translation>版权</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="186"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="194"/>
         <source>registered sign</source>
         <translation>注册商标符号®</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="187"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="195"/>
         <source>trademark symbol</source>
         <translation>商标符号™</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="188"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="196"/>
         <source>left arrow</source>
         <translation>左箭头</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="189"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="197"/>
         <source>right arrow</source>
         <translation>右箭头</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="190"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="198"/>
         <source>bullet</source>
         <translation>弹头</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="191"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="199"/>
         <source>middle dot</source>
         <translation>中点号符·</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="192"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="200"/>
         <source>degree sign</source>
         <translation>度数标记</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="193"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="201"/>
         <source>plus minus sign</source>
         <translation>加减号标记</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="194"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="202"/>
         <source>minus sign</source>
         <translation>减号−</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="195"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="203"/>
         <source>multiplication sign</source>
         <translation>乘号×</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="196"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="204"/>
         <source>division sign</source>
         <translation>除号÷</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="197"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="205"/>
         <source>fraction 1/4</source>
         <translation>分数 1/4</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="198"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="206"/>
         <source>fraction 1/2</source>
         <translation>分数 1/2</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="199"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="207"/>
         <source>fraction 3/4</source>
         <translation>分数 3/4</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="200"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="208"/>
         <source>fraction 1/3</source>
         <translation>分数 1/3</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="201"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="209"/>
         <source>fraction 2/3</source>
         <translation>分数 2/3</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="202"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="210"/>
         <source>fraction 1/8</source>
         <translation>分数 1/8</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="203"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="211"/>
         <source>fraction 3/8</source>
         <translation>分数 3/8</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="204"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="212"/>
         <source>fraction 5/8</source>
         <translation>分数 5/8</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="205"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="213"/>
         <source>fraction 7/8</source>
         <translation>分数 7/8</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="206"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="214"/>
         <source>horizontal ellipsis</source>
         <translation>水平省略号</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="207"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="215"/>
         <source>micron</source>
         <translation>长音符号</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="208"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="216"/>
         <source>cent sign</source>
         <translation>美分符号¢</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="209"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="217"/>
         <source>pound sign</source>
         <translation>英磅符号£</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="210"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="218"/>
         <source>euro sign</source>
         <translation>欧元符号€</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="211"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="219"/>
         <source>inverted question mark</source>
         <translation>倒置问号¿</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="212"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="220"/>
         <source>inverted exclamation mark</source>
         <translation>倒置感叹号¡</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="213"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="221"/>
         <source>diaeresis</source>
         <translation>分音符号¨</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="214"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="222"/>
         <source>acute accent</source>
         <translation>尖音符号´</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="215"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="223"/>
         <source>cedilla</source>
         <translation>变音符号¸</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="216"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="224"/>
         <source>circumflex accent</source>
         <translation>抑扬音</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="217"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="225"/>
         <source>small tilde</source>
         <translation>小波浪符 ∼</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="218"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="226"/>
         <source>capital A with grave</source>
         <translation>大写字母A带重音符 À</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="219"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="227"/>
         <source>capital A with acute</source>
         <translation>大写字母A带尖音符 Á</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="220"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="228"/>
         <source>capital A with circumflex</source>
         <translation>大写字母A带抑扬符 Â</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="221"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="229"/>
         <source>capital A with tilde</source>
         <translation>大写字母A带波浪符 Ã</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="222"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="230"/>
         <source>capital A with diaeresis</source>
         <translation>大写字母A带分音符 Ä</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="223"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="231"/>
         <source>capital A with ring above</source>
         <translation>大写字母A带上圆圈</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="224"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="232"/>
         <source>capital AE</source>
         <translation>大写字母AE</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="225"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="233"/>
         <source>capital C with cedilla</source>
         <translation>大写字母C带变音符</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="226"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="234"/>
         <source>capital E with grave</source>
         <translation>大写字母E带重音符 È</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="227"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="235"/>
         <source>capital E with acute</source>
         <translation>大写字母E带尖音符 É</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="228"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="236"/>
         <source>capital E with circumflex</source>
         <translation>大写字母E带抑扬符 Ê</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="229"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="237"/>
         <source>capital E with diaeresis</source>
         <translation>大写字母E带分音符 Ë</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="230"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="238"/>
         <source>capital I with grave</source>
         <translation>大写字母I带重音符Ì</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="231"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="239"/>
         <source>capital I with acute</source>
         <translation>大写字母I带尖音符 Í</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="232"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="240"/>
         <source>capital I with circumflex</source>
         <translation>大写字母I带抑扬符 Î</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="233"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="241"/>
         <source>capital I with diaeresis</source>
         <translation>大写字母I带分音符 Ï</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="234"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="242"/>
         <source>capital eth</source>
         <translation>大写字母Eth</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="235"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="243"/>
         <source>capital N with tilde</source>
         <translation>大写字母N带波浪符 Ñ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="236"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="244"/>
         <source>capital O with grave</source>
         <translation>大写字母O带重音符 Ò</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="237"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="245"/>
         <source>capital O with acute</source>
         <translation>大写字母O带尖音符 Ó</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="238"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="246"/>
         <source>capital O with circumflex</source>
         <translation>大写字母O带抑扬符 Ô</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="239"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="247"/>
         <source>capital O with tilde</source>
         <translation>大写字母O带波浪符 Õ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="240"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="248"/>
         <source>capital O with diaeresis</source>
         <translation>大写字母O带分音符 Ö</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="241"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="249"/>
         <source>capital O with stroke</source>
         <translation>大写字母O带斜线 Ø</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="242"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="250"/>
         <source>capital ligature OE</source>
         <translation>大写连字OE</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="243"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="251"/>
         <source>capital S with caron</source>
         <translation>大写字母S带抑扬符 Š</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="244"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="252"/>
         <source>capital U with grave</source>
         <translation>大写字母U带重音符 Ù</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="245"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="253"/>
         <source>capital U with acute</source>
         <translation>大写字母U带尖音符 Ú</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="246"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="254"/>
         <source>capital U with circumflex</source>
         <translation>大写字母U带抑扬符 Û</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="247"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="255"/>
         <source>capital U with diaeresis</source>
         <translation>大写字母U带分音符 Ü</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="248"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="256"/>
         <source>capital Y with acute</source>
         <translation>大写字母Y带尖音符 Ý</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="249"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="257"/>
         <source>capital Y with diaeresis</source>
         <translation>大写字母Y带分音符 Ÿ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="250"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="258"/>
         <source>capital THORN</source>
         <translation>大写字母 Ꝥ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="251"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="259"/>
         <source>small sharp s</source>
         <translation>小写字母尖S ß</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="252"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="260"/>
         <source>small a with grave</source>
         <translation>小写字母a带重音符 à</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="253"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="261"/>
         <source>small a with acute</source>
         <translation>小字母a带尖音符 á</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="254"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="262"/>
         <source>small a with circumflex</source>
         <translation>小写字母u带抑扬音符 û</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="255"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="263"/>
         <source>small a with tilde</source>
         <translation>小写字母a带波浪符 ã</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="256"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="264"/>
         <source>small a with diaeresis</source>
         <translation>小写字母a带分音符 ä</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="257"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="265"/>
         <source>small a with ring above</source>
         <translation>小写字母a带上圆圈å</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="258"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="266"/>
         <source>small ae</source>
         <translation>小写字母ae ᴂ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="259"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="267"/>
         <source>small c with cedilia</source>
         <translation>小写字母c带变音符 ç</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="260"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="268"/>
         <source>small e with grave</source>
         <translation>小写字母e带重音符 è</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="261"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="269"/>
         <source>small e with acute</source>
         <translation>小字母e带尖音符 é</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="262"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="270"/>
         <source>small e with circumflex</source>
         <translation>小写字母e带抑扬音符 ê</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="263"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="271"/>
         <source>small e with diaeresis</source>
         <translation>小写字母e带分音符 ë</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="264"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="272"/>
         <source>small i with grave</source>
         <translation>小写字母i带重音符 ì</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="265"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="273"/>
         <source>small i with acute</source>
         <translation>小字母i带尖音符 í</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="266"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="274"/>
         <source>small i with circumflex</source>
         <translation>小写字母i带抑扬音符 î</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="267"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="275"/>
         <source>small i with diaeresis</source>
         <translation>小写字母i带分音符 ï</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="268"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="276"/>
         <source>small eth</source>
         <translation>小写字母eth ᶞ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="269"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="277"/>
         <source>small n with tilde</source>
         <translation>小写字母n带波浪符 ñ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="270"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="278"/>
         <source>small o with grave</source>
         <translation>小写字母o带重音符 ò</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="271"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="279"/>
         <source>small o with acute</source>
         <translation>小字母o带尖音符 ó</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="272"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="280"/>
         <source>small o with circumflex</source>
         <translation>小写字母o带抑扬音符 ô</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="273"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="281"/>
         <source>small o with tilde</source>
         <translation>小写字母o带波浪符 õ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="274"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="282"/>
         <source>small o with diaeresis</source>
         <translation>小写字母o带分音符 ö</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="275"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="283"/>
         <source>small o with stroke</source>
         <translation>小写字母o带斜线 ø</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="276"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="284"/>
         <source>small ligature oe</source>
         <translation>小写连字œ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="277"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="285"/>
         <source>small s with caron</source>
         <translation>大写字母s带抑扬符 š</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="278"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="286"/>
         <source>small u with grave</source>
         <translation>小写字母u带重音符 ù</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="279"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="287"/>
         <source>small u with acute</source>
         <translation>小字母u带尖音符 ú</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="280"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="288"/>
         <source>small u with circumflex</source>
         <translation>小写字母u带抑扬音符 û</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="281"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="289"/>
         <source>small u with diaeresis</source>
         <translation>小写字母u带分音符 ü</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="282"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="290"/>
         <source>small y with acute</source>
         <translation>小字母y带尖音符 ý</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="283"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="291"/>
         <source>small y with diaeresis</source>
         <translation>小写字母y带分音符 ÿ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="284"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="292"/>
         <source>small thorn</source>
         <translation>小写字母 ꝥ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="285"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="293"/>
         <source>feminine ordinal indicator</source>
         <translation>女性序数记号 ª</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="286"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="294"/>
         <source>masculine ordinal indicator</source>
         <translation>阳性序数记号 º</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="287"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="295"/>
         <source>infinity</source>
         <translation>无穷∞</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="291"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="299"/>
         <source>Greek capital letter Alpha</source>
         <translation>希腊文大写字母Α</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="292"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="300"/>
         <source>Greek lower letter alpha</source>
         <translation>希腊文小写字母α</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="293"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="301"/>
         <source>Greek capital letter Beta</source>
         <translation>希腊文大写字母Β</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="294"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="302"/>
         <source>Greek lower letter beta</source>
         <translation>希腊文小写字母β</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="295"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="303"/>
         <source>Greek capital letter Chi</source>
         <translation>希腊文大写字母Χ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="296"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="304"/>
         <source>Greek lower letter chi</source>
         <translation>希腊文小写字母χ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="297"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="305"/>
         <source>Greek capital letter Delta</source>
         <translation>希腊文大写字母Δ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="298"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="306"/>
         <source>Greek lower letter delta</source>
         <translation>希腊文小写字母δ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="299"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="307"/>
         <source>Greek capital letter Epsilon</source>
         <translation>希腊文大写字母Ε</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="300"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="308"/>
         <source>Greek lower letter epsilon</source>
         <translation>希腊文小写字母ε</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="301"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="309"/>
         <source>Greek capital letter Eta</source>
         <translation>希腊文大写字母Η</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="302"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="310"/>
         <source>Greek lower letter eta</source>
         <translation>希腊文小写字母η</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="303"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="311"/>
         <source>Greek capital letter Gamma</source>
         <translation>希腊文大写字母Γ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="304"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="312"/>
         <source>Greek lower letter gamma</source>
         <translation>希腊文小写字母γ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="305"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="313"/>
         <source>Greek capital letter Iota</source>
         <translation>希腊文大写字母Ι</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="306"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="314"/>
         <source>Greek lower letter iota</source>
         <translation>希腊文小写字母ʅ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="307"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="315"/>
         <source>Greek capital letter Kappa</source>
         <translation>希腊文大写字母Κ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="308"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="316"/>
         <source>Greek lower letter kappa</source>
         <translation>希腊文小写字母κ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="309"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="317"/>
         <source>Greek capital letter Lambda</source>
         <translation>希腊文大写字母∧</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="310"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="318"/>
         <source>Greek lower letter lambda</source>
         <translation>希腊文小写字母λ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="311"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="319"/>
         <source>Greek capital letter Mu</source>
         <translation>希腊文大写字母Μ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="312"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="320"/>
         <source>Greek lower letter mu</source>
         <translation>希腊文小写字母μ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="313"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="321"/>
         <source>Greek capital letter Nu</source>
         <translation>希腊文大写字母Ν</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="314"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="322"/>
         <source>Greek lower letter nu</source>
         <translation>希腊文小写字母ν</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="315"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="323"/>
         <source>Greek capital letter Omega</source>
         <translation>希腊文大写字母Ώ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="316"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="324"/>
         <source>Greek lower letter omega</source>
         <translation>希腊小写字母ω</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="317"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="325"/>
         <source>Greek capital letter Omicron</source>
         <translation>希腊文大写字母Ο</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="318"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="326"/>
         <source>Greek lower letter omicron</source>
         <translation>希腊文小写字母o</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="319"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="327"/>
         <source>Greek capital letter Phi</source>
         <translation>希腊文大写字母Φ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="320"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="328"/>
         <source>Greek lower letter phi</source>
         <translation>希腊文小写字母φ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="321"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="329"/>
         <source>Greek capital letter Pi</source>
         <translation>希腊文大写字母Π</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="322"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="330"/>
         <source>Greek lower letter pi</source>
         <translation>希腊文小写字母π</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="323"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="331"/>
         <source>Greek double prime</source>
         <translation>希腊字母双撇号 ″</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="324"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="332"/>
         <source>Greek single prime</source>
         <translation>希腊字母单撇号 ′</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="325"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="333"/>
         <source>Greek capital letter Psi</source>
         <translation>希腊文大写字母Ψ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="326"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="334"/>
         <source>Greek lower letter psi</source>
         <translation>希腊文小写字母ψ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="327"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="335"/>
         <source>Greek capital letter Rho</source>
         <translation>希腊文大写字母Ρ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="328"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="336"/>
         <source>Greek lower letter rho</source>
         <translation>希腊文小写字母ρ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="329"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="337"/>
         <source>Greek capital letter Sigma</source>
         <translation>希腊文大写字母Σ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="330"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="338"/>
         <source>Greek lower letter sigma</source>
         <translation>希腊文小写字母σ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="331"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="339"/>
         <source>Greek capital letter Tau</source>
         <translation>希腊文大写字母Τ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="332"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="340"/>
         <source>Greek lower letter tau</source>
         <translation>希腊文小写字母τ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="333"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="341"/>
         <source>Greek capital letter Theta</source>
         <translation>希腊文大写字母Θ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="334"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="342"/>
         <source>Greek lower letter theta</source>
         <translation>希腊文小写字母θ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="335"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="343"/>
         <source>Greek capital letter Upsilon</source>
         <translation>希腊文大写字母Υ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="336"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="344"/>
         <source>Greek lower letter upsilon</source>
         <translation>希腊文小写字母υ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="337"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="345"/>
         <source>Greek capital letter Xi</source>
         <translation>希腊文大写字母Ξ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="338"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="346"/>
         <source>Greek lower letter xi</source>
         <translation>希腊文小写字母ξ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="339"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="347"/>
         <source>Greek capital letter Zeta</source>
         <translation>希腊文大写字母Ζ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="340"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="348"/>
         <source>Greek lower letter zeta</source>
         <translation>希腊文小写字母ζ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="344"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="352"/>
         <source>alef symbol</source>
         <translation>阿勒夫符号ℵ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="345"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="353"/>
         <source>logical and</source>
         <translation>逻辑与∧</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="346"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="354"/>
         <source>logical or</source>
         <translation>逻辑或∨</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="347"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="355"/>
         <source>intersection</source>
         <translation>交集∩</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="348"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="356"/>
         <source>union</source>
         <translation>并集∪</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="349"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="357"/>
         <source>congruent to</source>
         <translation>等价于≅</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="350"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="358"/>
         <source>downwards arrow with corner leftwards</source>
         <translation>角向左的下箭头↵</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="351"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="359"/>
         <source>currency sign</source>
         <translation>现金符号¤</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="352"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="360"/>
         <source>downwards double arrow</source>
         <translation>下双箭头⇓</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="353"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="361"/>
         <source>upwards double arrow</source>
         <translation>上双箭头⇑</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="354"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="362"/>
         <source>downwards arrow</source>
         <translation>下箭头↓</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="355"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="363"/>
         <source>upwards arrow</source>
         <translation>上箭头↑</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="356"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="364"/>
         <source>empty set</source>
         <translation>空集∅</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="357"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="365"/>
         <source>identical to</source>
         <translation>恒等于≡</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="358"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="366"/>
         <source>there exists</source>
         <translation>存在符∃</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="359"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="367"/>
         <source>Latin small letter f with hook</source>
         <translation>拉丁文小写f带钩ƒ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="360"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="368"/>
         <source>for all</source>
         <translation>任意符号∀</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="361"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="369"/>
         <source>fraction slash</source>
         <translation>分数斜线⁄</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="362"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="370"/>
         <source>left right double arrow</source>
         <translation>左右双箭头⇔</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="363"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="371"/>
         <source>left right single arrow</source>
         <translation>左右单箭头↔</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="364"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="372"/>
         <source>black-letter capital I</source>
         <translation>黑体字I大写 ℑ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="365"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="373"/>
         <source>integral</source>
         <translation>积分∫</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="366"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="374"/>
         <source>element of</source>
         <translation>属于符∈</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="367"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="375"/>
         <source>leftwards double arrow</source>
         <translation>左向双箭头⇐</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="368"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="376"/>
         <source>double right arrow</source>
         <translation>右双向箭头 ⇒</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="369"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="377"/>
         <source>left-pointing angle bracket</source>
         <translation>左尖括号〈</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="370"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="378"/>
         <source>right-pointing angle bracket</source>
         <translation>右尖括号〉</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="371"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="379"/>
         <source>left ceiling</source>
         <translation>左天花板符⌈</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="372"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="380"/>
         <source>right ceiling</source>
         <translation>右天花板符⌉</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="373"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="381"/>
         <source>less-than or equal to</source>
         <translation>小于或等于≤</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="374"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="382"/>
         <source>greater-than or equal to</source>
         <translation>大于或等于≥</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="375"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="383"/>
         <source>left floor</source>
         <translation>左地板⌊</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="376"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="384"/>
         <source>right floor</source>
         <translation>右地板符⌋</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="377"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="385"/>
         <source>asterisk operator</source>
         <translation>星号运算符∗</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="378"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="386"/>
         <source>lozenge</source>
         <translation>菱形◊</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="379"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="387"/>
         <source>macron</source>
         <translation>长音符号¯</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="380"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="388"/>
         <source>nabla</source>
         <translation>梯度符号∇</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="381"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="389"/>
         <source>not equal to</source>
         <translation>不等于≠</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="382"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="390"/>
         <source>contains as member</source>
         <translation>包含符∋</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="383"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="391"/>
         <source>not sign</source>
         <translation>否定符号¬</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="384"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="392"/>
         <source>not an element of</source>
         <translation>不属于符∉</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="385"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="393"/>
         <source>not a subset of</source>
         <translation>非子集⊄</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="386"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="394"/>
         <source>overline</source>
         <translation>上划线¯</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="387"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="395"/>
         <source>circled plus</source>
         <translation>直和符⊕</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="388"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="396"/>
         <source>circled times</source>
         <translation>矢量积符⊗</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="389"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="397"/>
         <source>partial differential</source>
         <translation>偏微分符∂</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="390"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="398"/>
         <source>per mille sign</source>
         <translation>千分号 ‰</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="391"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="399"/>
         <source>up tack</source>
         <translation>垂直符⊥</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="392"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="400"/>
         <source>Greek pi symbol</source>
         <translation>希腊符号π‮</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="393"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="401"/>
         <source>n-ary product</source>
         <translation>求积∏</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="394"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="402"/>
         <source>proportional to</source>
         <translation>成比例∝</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="395"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="403"/>
         <source>square root</source>
         <translation>平方根√</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="396"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="404"/>
         <source>black-letter capital R</source>
         <translation>黑体字R大写ℜ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="397"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="405"/>
         <source>dot operator</source>
         <translation>点运算符⋅</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="398"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="406"/>
         <source>Greek small letter final sigma</source>
         <translation>希腊文小写字母词尾σ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="399"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="407"/>
         <source>tilde operator</source>
         <translation>波浪运算符∼</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="400"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="408"/>
         <source>subset of</source>
         <translation>子集⊂</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="401"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="409"/>
         <source>superset of</source>
         <translation>超集⊃</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="402"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="410"/>
         <source>subset of or equal to</source>
         <translation>子集或等于⊆</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="403"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="411"/>
         <source>superset of or equal to</source>
         <translation>超集或等于⊇</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="404"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="412"/>
         <source>n-ary summation</source>
         <translation>求和∑</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="405"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="413"/>
         <source>superscript one</source>
         <translation>上标1符号¹</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="406"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="414"/>
         <source>superscript two</source>
         <translation>上标2符号²</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="407"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="415"/>
         <source>superscript three</source>
         <translation>上标3符号³</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="408"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="416"/>
         <source>therefore sign</source>
         <translation>所以∴</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="409"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="417"/>
         <source>Greek theta symbol</source>
         <translation>希腊文θ符号</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="410"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="418"/>
         <source>Greek Upsilon with hook symbol</source>
         <translation>带钩符号的希腊文υ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="411"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="419"/>
         <source>script capital P</source>
         <translation>脚本P大写℘</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="412"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="420"/>
         <source>yen sign</source>
         <translation>人民币符号¥</translation>
     </message>
@@ -21090,22 +21090,22 @@ your book and automatically insert into your document.</source>
         <translation>缩略图</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="348"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="350"/>
         <source>shades</source>
         <translation>渐变</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="348"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="350"/>
         <source>colors</source>
         <translation>颜色</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="349"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="351"/>
         <source>Grayscale</source>
         <translation>灰度</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="349"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="351"/>
         <source>Color</source>
         <translation>颜色</translation>
     </message>

@@ -4535,7 +4535,7 @@ Valid only when searching HTML files.</source>
 <context>
     <name>FontResource</name>
     <message>
-        <location filename="../../ResourceObjects/FontResource.cpp" line="70"/>
+        <location filename="../../ResourceObjects/FontResource.cpp" line="71"/>
         <source>No reliable font data</source>
         <translation>لا توجد معلومات خط موثوقة</translation>
     </message>
@@ -5685,22 +5685,22 @@ You can then check or uncheck individual headings in the list above.</source>
 <context>
     <name>ImageView</name>
     <message>
-        <location filename="../../Widgets/ImageView.cpp" line="118"/>
+        <location filename="../../Widgets/ImageView.cpp" line="120"/>
         <source>shades</source>
         <translation>ظِلال</translation>
     </message>
     <message>
-        <location filename="../../Widgets/ImageView.cpp" line="118"/>
+        <location filename="../../Widgets/ImageView.cpp" line="120"/>
         <source>colors</source>
         <translation>الالوان</translation>
     </message>
     <message>
-        <location filename="../../Widgets/ImageView.cpp" line="119"/>
+        <location filename="../../Widgets/ImageView.cpp" line="121"/>
         <source>Grayscale</source>
         <translation>تدرج رمادي</translation>
     </message>
     <message>
-        <location filename="../../Widgets/ImageView.cpp" line="119"/>
+        <location filename="../../Widgets/ImageView.cpp" line="121"/>
         <source>Color</source>
         <translation>لون</translation>
     </message>
@@ -19747,1253 +19747,1253 @@ Do you want to save your changes?</source>
         <translation>إدراج محرف خاص</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="137"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="145"/>
         <source>Unable to read special_characters xml. 
 Line: %1 Column %2 - %3)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="155"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="163"/>
         <source>non-breaking space</source>
         <translation>فراغ غير مقسّم</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="156"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="164"/>
         <source>en space</source>
         <translation>فراغ أن en</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="157"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="165"/>
         <source>em space</source>
         <translation>فراغ أم em</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="158"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="166"/>
         <source>thin space</source>
         <translation>فراغ نحيف</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="159"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="167"/>
         <source>soft hyphen</source>
         <translation>واصلة لينة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="160"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="168"/>
         <source>narrow non-breaking space</source>
         <translation>فراغ غير مقسّم نحيف</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="164"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="172"/>
         <source>left single quote</source>
         <translation>اقتباس مفرد يساراً</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="165"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="173"/>
         <source>right single quote</source>
         <translation>اقتباس مفرد يمينًا</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="166"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="174"/>
         <source>left double quote</source>
         <translation>اقتباس مزدوج يساراً</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="167"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="175"/>
         <source>right double quote</source>
         <translation>اقتباس مزدوج يمينًا</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="168"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="176"/>
         <source>left-pointing single angle quote</source>
         <translation>اقتباس مفرد الزاوية يشير يساراً</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="169"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="177"/>
         <source>right-pointing single angle quote</source>
         <translation>اقتباس مفرد الزاوية يشير يمينًا</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="170"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="178"/>
         <source>left-pointing double angle quote</source>
         <translation>اقتباس مزدوج الزاوية يشير يساراً</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="171"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="179"/>
         <source>right-pointing double angle quote</source>
         <translation>اقتباس مزدوج الزاوية يشير يمينًا</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="172"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="180"/>
         <source>apostrophe</source>
         <translation>الفاصلة العليا</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="173"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="181"/>
         <source>double quote</source>
         <translation>اقتباس مزدوج</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="174"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="182"/>
         <source>single low-9 quote</source>
         <translation>اقتباس 9 منخفض مفرد</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="175"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="183"/>
         <source>double low-9 quote</source>
         <translation>اقتباس 9 منخفض مزدوج</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="176"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="184"/>
         <source>em dash</source>
         <translation>شَرْطة أن em</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="177"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="185"/>
         <source>en dash</source>
         <translation>شَرْطة أن en</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="178"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="186"/>
         <source>section sign</source>
         <translation>علامة المقطع</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="179"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="187"/>
         <source>pilcrow - paragraph sign</source>
         <translation>بلكرو - علامة فقرة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="180"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="188"/>
         <source>dagger</source>
         <translation>خنجر</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="181"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="189"/>
         <source>double dagger</source>
         <translation>خنجر مزدوج</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="182"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="190"/>
         <source>ampersand</source>
         <translation>علامة الواو</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="183"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="191"/>
         <source>less-than sign</source>
         <translation>علامة الأقل-من</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="184"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="192"/>
         <source>greater-than sign</source>
         <translation>علامة الأكبر-من</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="185"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="193"/>
         <source>copyright</source>
         <translation>حقوق الطباعة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="186"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="194"/>
         <source>registered sign</source>
         <translation>علامة المسجلة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="187"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="195"/>
         <source>trademark symbol</source>
         <translation>رمز العلامة التجارية</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="188"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="196"/>
         <source>left arrow</source>
         <translation>سهم أيسر</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="189"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="197"/>
         <source>right arrow</source>
         <translation>سهم أيمن</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="190"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="198"/>
         <source>bullet</source>
         <translation>نقطية</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="191"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="199"/>
         <source>middle dot</source>
         <translation>نقطة وسطى</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="192"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="200"/>
         <source>degree sign</source>
         <translation>علامة الدرجة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="193"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="201"/>
         <source>plus minus sign</source>
         <translation>علامة زائد-ناقص</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="194"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="202"/>
         <source>minus sign</source>
         <translation>علامة السالب</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="195"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="203"/>
         <source>multiplication sign</source>
         <translation>علامة الضرب</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="196"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="204"/>
         <source>division sign</source>
         <translation>علامة القسمة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="197"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="205"/>
         <source>fraction 1/4</source>
         <translation>الكسر 1\4</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="198"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="206"/>
         <source>fraction 1/2</source>
         <translation>الكسر 1\2</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="199"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="207"/>
         <source>fraction 3/4</source>
         <translation>الكسر 3\4</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="200"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="208"/>
         <source>fraction 1/3</source>
         <translation>الكسر 1\3</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="201"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="209"/>
         <source>fraction 2/3</source>
         <translation>الكسر 2\3</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="202"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="210"/>
         <source>fraction 1/8</source>
         <translation>الكسر 1\8</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="203"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="211"/>
         <source>fraction 3/8</source>
         <translation>الكسر 3\8</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="204"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="212"/>
         <source>fraction 5/8</source>
         <translation>الكسر 5\8</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="205"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="213"/>
         <source>fraction 7/8</source>
         <translation>الكسر 7\8</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="206"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="214"/>
         <source>horizontal ellipsis</source>
         <translation>القطع الافقي</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="207"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="215"/>
         <source>micron</source>
         <translation>مايكرون</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="208"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="216"/>
         <source>cent sign</source>
         <translation>علامة السنت</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="209"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="217"/>
         <source>pound sign</source>
         <translation>علامة الباوند</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="210"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="218"/>
         <source>euro sign</source>
         <translation>علامة اليورو</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="211"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="219"/>
         <source>inverted question mark</source>
         <translation>علامة استفهام مقلوبة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="212"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="220"/>
         <source>inverted exclamation mark</source>
         <translation>علامة تعجب مقلوبة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="213"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="221"/>
         <source>diaeresis</source>
         <translation>الفاكّة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="214"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="222"/>
         <source>acute accent</source>
         <translation>نبر الحِدّة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="215"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="223"/>
         <source>cedilla</source>
         <translation>سديلة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="216"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="224"/>
         <source>circumflex accent</source>
         <translation>نبرة المكتنفة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="217"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="225"/>
         <source>small tilde</source>
         <translation>علامة تيلدة صغيرة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="218"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="226"/>
         <source>capital A with grave</source>
         <translation>حرف A كبير مع نبرة الشدة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="219"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="227"/>
         <source>capital A with acute</source>
         <translation>حرف A كبير مع نبرة الحدة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="220"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="228"/>
         <source>capital A with circumflex</source>
         <translation>حرف A كبير مع المكتنفة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="221"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="229"/>
         <source>capital A with tilde</source>
         <translation>حرف A كبير مع النبرة تيلدا</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="222"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="230"/>
         <source>capital A with diaeresis</source>
         <translation>حرف A كبير مع الفاكّة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="223"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="231"/>
         <source>capital A with ring above</source>
         <translation>حرف A كبير مع حلقة فوقه</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="224"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="232"/>
         <source>capital AE</source>
         <translation>المركّب AE كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="225"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="233"/>
         <source>capital C with cedilla</source>
         <translation>حرف C كبير مع سديلة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="226"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="234"/>
         <source>capital E with grave</source>
         <translation>حرف E كبير مع نبرة الشدة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="227"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="235"/>
         <source>capital E with acute</source>
         <translation>حرف E كبير مع نبرة الحدة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="228"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="236"/>
         <source>capital E with circumflex</source>
         <translation>حرف E كبير مع المكتنفة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="229"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="237"/>
         <source>capital E with diaeresis</source>
         <translation>حرف E كبير مع الفاكّة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="230"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="238"/>
         <source>capital I with grave</source>
         <translation>حرف I كبير مع نبرة الشدة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="231"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="239"/>
         <source>capital I with acute</source>
         <translation>حرف I كبير مع نبرة الحدة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="232"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="240"/>
         <source>capital I with circumflex</source>
         <translation>حرف I كبير مع المكتنفة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="233"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="241"/>
         <source>capital I with diaeresis</source>
         <translation>حرف I كبير مع الفاكّة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="234"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="242"/>
         <source>capital eth</source>
         <translation>حرف ذ eth كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="235"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="243"/>
         <source>capital N with tilde</source>
         <translation>حرف N كبير مع النبرة تيلدة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="236"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="244"/>
         <source>capital O with grave</source>
         <translation>حرف O كبير مع نبرة الشدة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="237"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="245"/>
         <source>capital O with acute</source>
         <translation>حرف O كبير مع نبرة الحدة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="238"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="246"/>
         <source>capital O with circumflex</source>
         <translation>حرف O كبير مع المكتنفة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="239"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="247"/>
         <source>capital O with tilde</source>
         <translation>حرف O كبير مع النبرة تيلدة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="240"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="248"/>
         <source>capital O with diaeresis</source>
         <translation>حرف O كبير مع الفاكّة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="241"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="249"/>
         <source>capital O with stroke</source>
         <translation>حرف O كبير مع الشطب</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="242"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="250"/>
         <source>capital ligature OE</source>
         <translation>تعانق OE كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="243"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="251"/>
         <source>capital S with caron</source>
         <translation>حرف S كبير مع علامة التحول</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="244"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="252"/>
         <source>capital U with grave</source>
         <translation>حرف U كبير مع نبرة الشدة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="245"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="253"/>
         <source>capital U with acute</source>
         <translation>حرف U كبير مع نبرة الحدة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="246"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="254"/>
         <source>capital U with circumflex</source>
         <translation>حرف U كبير مع المكتنفة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="247"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="255"/>
         <source>capital U with diaeresis</source>
         <translation>حرف U كبير مع الفاكّة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="248"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="256"/>
         <source>capital Y with acute</source>
         <translation>حرف Y كبير مع نبرة الحدة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="249"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="257"/>
         <source>capital Y with diaeresis</source>
         <translation>حرف Y كبير مع الفاكّة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="250"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="258"/>
         <source>capital THORN</source>
         <translation>حرف THORN كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="251"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="259"/>
         <source>small sharp s</source>
         <translation>حرف s صغير حادّ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="252"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="260"/>
         <source>small a with grave</source>
         <translation>حرف a صغير مع نبرة الشدة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="253"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="261"/>
         <source>small a with acute</source>
         <translation>حرف a صغير مع نبرة الحدة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="254"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="262"/>
         <source>small a with circumflex</source>
         <translation>حرف a صغير مع المكتنفة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="255"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="263"/>
         <source>small a with tilde</source>
         <translation>حرف a صغير مع النبرة تيلدا</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="256"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="264"/>
         <source>small a with diaeresis</source>
         <translation>حرف a صغير مع الفاكّة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="257"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="265"/>
         <source>small a with ring above</source>
         <translation>حرف a صغير مع حلقة فوقه</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="258"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="266"/>
         <source>small ae</source>
         <translation>المركب ae صغير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="259"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="267"/>
         <source>small c with cedilia</source>
         <translation>حرف c صغير مع سديلة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="260"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="268"/>
         <source>small e with grave</source>
         <translation>حرف e صغير مع نبرة الشدة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="261"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="269"/>
         <source>small e with acute</source>
         <translation>حرف e صغير مع نبرة الحدة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="262"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="270"/>
         <source>small e with circumflex</source>
         <translation>حرف e صغير مع المكتنفة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="263"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="271"/>
         <source>small e with diaeresis</source>
         <translation>حرف e صغير مع الفاكّة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="264"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="272"/>
         <source>small i with grave</source>
         <translation>حرف i صغير مع نبرة الشدة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="265"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="273"/>
         <source>small i with acute</source>
         <translation>حرف i صغير مع نبرة الحدة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="266"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="274"/>
         <source>small i with circumflex</source>
         <translation>حرف i صغير مع المكتنفة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="267"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="275"/>
         <source>small i with diaeresis</source>
         <translation>حرف i صغير مع الفاكّة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="268"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="276"/>
         <source>small eth</source>
         <translation>حرف ذ eth صغير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="269"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="277"/>
         <source>small n with tilde</source>
         <translation>حرف n صغير مع النبرة تيلدا</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="270"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="278"/>
         <source>small o with grave</source>
         <translation>حرف o صغير مع نبرة الشدة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="271"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="279"/>
         <source>small o with acute</source>
         <translation>حرف o صغير مع نبرة الحدة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="272"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="280"/>
         <source>small o with circumflex</source>
         <translation>حرف o صغير مع المكتنفة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="273"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="281"/>
         <source>small o with tilde</source>
         <translation>حرف o صغير مع النبرة تيلدا</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="274"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="282"/>
         <source>small o with diaeresis</source>
         <translation>حرف o صغير مع الفاكّة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="275"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="283"/>
         <source>small o with stroke</source>
         <translation>حرف o صغير مع شطب</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="276"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="284"/>
         <source>small ligature oe</source>
         <translation>التعانق oe صغير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="277"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="285"/>
         <source>small s with caron</source>
         <translation>حرف s صغير مع علامة التحول</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="278"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="286"/>
         <source>small u with grave</source>
         <translation>حرف u صغير مع نبرة الشدة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="279"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="287"/>
         <source>small u with acute</source>
         <translation>حرف u صغير مع نبرة الحدة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="280"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="288"/>
         <source>small u with circumflex</source>
         <translation>حرف u صغير مع المكتنفة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="281"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="289"/>
         <source>small u with diaeresis</source>
         <translation>حرف u صغير مع الفاكّة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="282"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="290"/>
         <source>small y with acute</source>
         <translation>حرف y صغير مع نبرة الحدة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="283"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="291"/>
         <source>small y with diaeresis</source>
         <translation>حرف y صغير مع الفاكّة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="284"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="292"/>
         <source>small thorn</source>
         <translation>حرف thorn صغير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="285"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="293"/>
         <source>feminine ordinal indicator</source>
         <translation>مؤشّر ترتيبي مؤنث</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="286"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="294"/>
         <source>masculine ordinal indicator</source>
         <translation>مؤشّر ترتيبي مذكر</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="287"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="295"/>
         <source>infinity</source>
         <translation>ما لا نهاية</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="291"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="299"/>
         <source>Greek capital letter Alpha</source>
         <translation>الحرف اليوناني ألفا كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="292"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="300"/>
         <source>Greek lower letter alpha</source>
         <translation>الحرف اليوناني ألفا منخفض</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="293"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="301"/>
         <source>Greek capital letter Beta</source>
         <translation>الحرف اليوناني بيتا كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="294"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="302"/>
         <source>Greek lower letter beta</source>
         <translation>الحرف اليوناني بيتا منخفض</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="295"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="303"/>
         <source>Greek capital letter Chi</source>
         <translation>الحرف اليوناني تشي كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="296"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="304"/>
         <source>Greek lower letter chi</source>
         <translation>الحرف اليوناني شي منخفض</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="297"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="305"/>
         <source>Greek capital letter Delta</source>
         <translation>الحرف اليوناني دلتا كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="298"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="306"/>
         <source>Greek lower letter delta</source>
         <translation>الحرف اليوناني دلتا منخفض</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="299"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="307"/>
         <source>Greek capital letter Epsilon</source>
         <translation>الحرف اليوناني إبسلون كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="300"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="308"/>
         <source>Greek lower letter epsilon</source>
         <translation>الحرف اليوناني إبسلون منخفض</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="301"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="309"/>
         <source>Greek capital letter Eta</source>
         <translation>الحرف اليوناني أيتا كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="302"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="310"/>
         <source>Greek lower letter eta</source>
         <translation>الحرف اليوناني ايتا منخفض</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="303"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="311"/>
         <source>Greek capital letter Gamma</source>
         <translation>الحرف اليوناني غاما كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="304"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="312"/>
         <source>Greek lower letter gamma</source>
         <translation>الحرف اليوناني غاما منخفض</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="305"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="313"/>
         <source>Greek capital letter Iota</source>
         <translation>الحرف اليوناني أيوتا كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="306"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="314"/>
         <source>Greek lower letter iota</source>
         <translation>الحرف اليوناني ايوتا منخفض</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="307"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="315"/>
         <source>Greek capital letter Kappa</source>
         <translation>الحرف اليوناني كابا كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="308"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="316"/>
         <source>Greek lower letter kappa</source>
         <translation>الحرف اليوناني كابا منخفض</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="309"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="317"/>
         <source>Greek capital letter Lambda</source>
         <translation>الحرف اليوناني لمدا كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="310"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="318"/>
         <source>Greek lower letter lambda</source>
         <translation>الحرف اليوناني لمدا منخفض</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="311"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="319"/>
         <source>Greek capital letter Mu</source>
         <translation>الحرف اليوناني ميو كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="312"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="320"/>
         <source>Greek lower letter mu</source>
         <translation>الحرف اليوناني ميو منخفض</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="313"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="321"/>
         <source>Greek capital letter Nu</source>
         <translation>الحرف اليوناني نيو كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="314"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="322"/>
         <source>Greek lower letter nu</source>
         <translation>الحرف اليوناني نيو منخفض</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="315"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="323"/>
         <source>Greek capital letter Omega</source>
         <translation>الحرف اليوناني أوميغا كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="316"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="324"/>
         <source>Greek lower letter omega</source>
         <translation>الحرف اليوناني اوميغا منخفض</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="317"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="325"/>
         <source>Greek capital letter Omicron</source>
         <translation>الحرف اليوناني أومايكرون كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="318"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="326"/>
         <source>Greek lower letter omicron</source>
         <translation>الحرف اليوناني أومايكرون منخفض</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="319"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="327"/>
         <source>Greek capital letter Phi</source>
         <translation>الحرف اليوناني فاي كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="320"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="328"/>
         <source>Greek lower letter phi</source>
         <translation>الحرف اليوناني فاي منخفض</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="321"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="329"/>
         <source>Greek capital letter Pi</source>
         <translation>الحرف اليوناني باي كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="322"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="330"/>
         <source>Greek lower letter pi</source>
         <translation>الحرف اليوناني باي منخفض</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="323"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="331"/>
         <source>Greek double prime</source>
         <translation>تشديد مزدوج يوناني</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="324"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="332"/>
         <source>Greek single prime</source>
         <translation>تشديد مفرد يوناني</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="325"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="333"/>
         <source>Greek capital letter Psi</source>
         <translation>الحرف اليوناني ساي كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="326"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="334"/>
         <source>Greek lower letter psi</source>
         <translation>الحرف اليوناني ساي منخفض</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="327"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="335"/>
         <source>Greek capital letter Rho</source>
         <translation>الحرف اليوناني رو كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="328"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="336"/>
         <source>Greek lower letter rho</source>
         <translation>الحرف اليوناني رو منخفض</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="329"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="337"/>
         <source>Greek capital letter Sigma</source>
         <translation>الحرف اليوناني سيغما كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="330"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="338"/>
         <source>Greek lower letter sigma</source>
         <translation>الحرف اليوناني سيغما منخفض</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="331"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="339"/>
         <source>Greek capital letter Tau</source>
         <translation>الحرف اليوناني تاو كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="332"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="340"/>
         <source>Greek lower letter tau</source>
         <translation>الحرف اليوناني تاو منخفض</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="333"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="341"/>
         <source>Greek capital letter Theta</source>
         <translation>الحرف اليوناني ثيتا كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="334"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="342"/>
         <source>Greek lower letter theta</source>
         <translation>الحرف اليوناني ثيتا منخفض</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="335"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="343"/>
         <source>Greek capital letter Upsilon</source>
         <translation>الحرف اليوناني يوبسلون كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="336"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="344"/>
         <source>Greek lower letter upsilon</source>
         <translation>الحرف اليوناني يوبسلون منخفض</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="337"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="345"/>
         <source>Greek capital letter Xi</source>
         <translation>الحرف اليوناني شي كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="338"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="346"/>
         <source>Greek lower letter xi</source>
         <translation>الحرف اليوناني شي منخفض</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="339"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="347"/>
         <source>Greek capital letter Zeta</source>
         <translation>الحرف اليوناني زيتا كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="340"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="348"/>
         <source>Greek lower letter zeta</source>
         <translation>الحرف اليوناني زيتا منخفض</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="344"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="352"/>
         <source>alef symbol</source>
         <translation>رمز حرف ألَف</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="345"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="353"/>
         <source>logical and</source>
         <translation>’و‘ and المنطقية</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="346"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="354"/>
         <source>logical or</source>
         <translation>’أو‘ or المنطقية</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="347"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="355"/>
         <source>intersection</source>
         <translation>تقاطُع</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="348"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="356"/>
         <source>union</source>
         <translation>اتحاد</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="349"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="357"/>
         <source>congruent to</source>
         <translation>متطابق مع</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="350"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="358"/>
         <source>downwards arrow with corner leftwards</source>
         <translation>سهم للأسفل مع زاوية لليسار</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="351"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="359"/>
         <source>currency sign</source>
         <translation>علامة العملة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="352"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="360"/>
         <source>downwards double arrow</source>
         <translation>سهم مزدوج للأسفل</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="353"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="361"/>
         <source>upwards double arrow</source>
         <translation>سهم مزدوج للأعلى</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="354"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="362"/>
         <source>downwards arrow</source>
         <translation>سهم للأسفل</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="355"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="363"/>
         <source>upwards arrow</source>
         <translation>سهم للأعلى</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="356"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="364"/>
         <source>empty set</source>
         <translation>مجموعة خالية</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="357"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="365"/>
         <source>identical to</source>
         <translation>مطابق لـ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="358"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="366"/>
         <source>there exists</source>
         <translation>حيث يوجد</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="359"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="367"/>
         <source>Latin small letter f with hook</source>
         <translation>الحرف اللاتيني f صغير مع كلّاب</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="360"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="368"/>
         <source>for all</source>
         <translation>للكُلّ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="361"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="369"/>
         <source>fraction slash</source>
         <translation>شرطة الكسر</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="362"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="370"/>
         <source>left right double arrow</source>
         <translation>سهم مزدوج يسار يمين</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="363"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="371"/>
         <source>left right single arrow</source>
         <translation>سهم مفرد يسار يمين</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="364"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="372"/>
         <source>black-letter capital I</source>
         <translation>حرف I أسود كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="365"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="373"/>
         <source>integral</source>
         <translation>جزء مكوِّن</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="366"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="374"/>
         <source>element of</source>
         <translation>عنصر من</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="367"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="375"/>
         <source>leftwards double arrow</source>
         <translation>سهم مزدوج باتجاه اليسار</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="368"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="376"/>
         <source>double right arrow</source>
         <translation>سهم أيمن مزدوج</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="369"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="377"/>
         <source>left-pointing angle bracket</source>
         <translation>قوس معقوف بزاوية تشير يساراً</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="370"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="378"/>
         <source>right-pointing angle bracket</source>
         <translation>قوس معقوف بزاوية تشير يميناً</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="371"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="379"/>
         <source>left ceiling</source>
         <translation>السقف الأيسر</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="372"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="380"/>
         <source>right ceiling</source>
         <translation>السقف الأيمن</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="373"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="381"/>
         <source>less-than or equal to</source>
         <translation>أقل من أو مساوٍ لـ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="374"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="382"/>
         <source>greater-than or equal to</source>
         <translation>أكبر من أو مساوٍ لـ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="375"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="383"/>
         <source>left floor</source>
         <translation>الأرضية اليسرى</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="376"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="384"/>
         <source>right floor</source>
         <translation>الأرضية اليمنى</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="377"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="385"/>
         <source>asterisk operator</source>
         <translation>مُعامِل المنجّمة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="378"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="386"/>
         <source>lozenge</source>
         <translation>معيني</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="379"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="387"/>
         <source>macron</source>
         <translation>تطويل</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="380"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="388"/>
         <source>nabla</source>
         <translation>نابلا</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="381"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="389"/>
         <source>not equal to</source>
         <translation>ليس مساويا لـ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="382"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="390"/>
         <source>contains as member</source>
         <translation>يحوي كعنصر</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="383"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="391"/>
         <source>not sign</source>
         <translation>علامة لا</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="384"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="392"/>
         <source>not an element of</source>
         <translation>ليس عنصرا من</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="385"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="393"/>
         <source>not a subset of</source>
         <translation>ليس مجموعة فرعية من</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="386"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="394"/>
         <source>overline</source>
         <translation>خط علوي</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="387"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="395"/>
         <source>circled plus</source>
         <translation>الموجب المحوَّط</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="388"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="396"/>
         <source>circled times</source>
         <translation>المرات المحوَّطة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="389"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="397"/>
         <source>partial differential</source>
         <translation>الاشتقاق الجزئي</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="390"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="398"/>
         <source>per mille sign</source>
         <translation>علامة لكل ميل</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="391"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="399"/>
         <source>up tack</source>
         <translation>مسمار مقلوب</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="392"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="400"/>
         <source>Greek pi symbol</source>
         <translation>رمز باي اليوناني</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="393"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="401"/>
         <source>n-ary product</source>
         <translation>حاصل n-ary</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="394"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="402"/>
         <source>proportional to</source>
         <translation>متناسب مع</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="395"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="403"/>
         <source>square root</source>
         <translation>جذر تربيعي</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="396"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="404"/>
         <source>black-letter capital R</source>
         <translation>حرف R أسود كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="397"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="405"/>
         <source>dot operator</source>
         <translation>مُعامِل النقطة</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="398"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="406"/>
         <source>Greek small letter final sigma</source>
         <translation>الحرف اليوناني سيغما صغير نهائي</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="399"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="407"/>
         <source>tilde operator</source>
         <translation>مُعامِل تيلدا</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="400"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="408"/>
         <source>subset of</source>
         <translation>مجموعة فرعية من</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="401"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="409"/>
         <source>superset of</source>
         <translation>مجموعة رئيسة لـ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="402"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="410"/>
         <source>subset of or equal to</source>
         <translation>مجموعة فرعية من أو مساويا لـ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="403"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="411"/>
         <source>superset of or equal to</source>
         <translation>مجموعة رئيسة أو مساوٍية لـ</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="404"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="412"/>
         <source>n-ary summation</source>
         <translation>مجموع n-ary</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="405"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="413"/>
         <source>superscript one</source>
         <translation>واحد مرتفع</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="406"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="414"/>
         <source>superscript two</source>
         <translation>اثنان مرتفع</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="407"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="415"/>
         <source>superscript three</source>
         <translation>ثلاثة مرتفع</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="408"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="416"/>
         <source>therefore sign</source>
         <translation>علامة ’لذلك‘</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="409"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="417"/>
         <source>Greek theta symbol</source>
         <translation>رمز ثيتا اليوناني</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="410"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="418"/>
         <source>Greek Upsilon with hook symbol</source>
         <translation>يوبسلون يوناني مع رمز كلّاب</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="411"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="419"/>
         <source>script capital P</source>
         <translation>حرف P خطي كبير</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectCharacter.cpp" line="412"/>
+        <location filename="../../Dialogs/SelectCharacter.cpp" line="420"/>
         <source>yen sign</source>
         <translation>علامة الين</translation>
     </message>
@@ -21076,22 +21076,22 @@ your book and automatically insert into your document.</source>
         <translation>المصغرات</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="348"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="350"/>
         <source>shades</source>
         <translation>ظِلال</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="348"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="350"/>
         <source>colors</source>
         <translation>الالوان</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="349"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="351"/>
         <source>Grayscale</source>
         <translation>تدرج رمادي</translation>
     </message>
     <message>
-        <location filename="../../Dialogs/SelectFiles.cpp" line="349"/>
+        <location filename="../../Dialogs/SelectFiles.cpp" line="351"/>
         <source>Color</source>
         <translation>لون</translation>
     </message>
