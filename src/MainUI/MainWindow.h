@@ -74,6 +74,7 @@ class ViewImage;
 class FlowTab;
 class QWidget;
 class FileDropZone;
+class Resource;
 
 /**
  * @mainpage
@@ -304,6 +305,7 @@ public slots:
     void FocusOnPreview();
     void FocusOnTOC();
     void FocusOnClips();
+    void HandleImageContentChanged(Resource* resource);
 
 signals:
     void SettingsChanged();

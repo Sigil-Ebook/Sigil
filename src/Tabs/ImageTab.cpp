@@ -512,7 +512,7 @@ void ImageTab::keyPressEvent(QKeyEvent *event)
 
 void ImageTab::EmitImageContentChanged()
 {
-    emit ImageContentChanged();
+    emit ImageContentChanged(m_Resource);
 }
 
 void ImageTab::ConnectSignalsToSlots()

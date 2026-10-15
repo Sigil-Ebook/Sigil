@@ -972,6 +972,8 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images, QSt
                         continue;
                     }
                     replacements_made = true;
+                    image_resource->FileChangedOnDisk();
+                    m_Book->ResourceUpdatedFromDisk(image_resource);
                     continue;
                 } catch (ResourceDoesNotExist&) {
                     Utility::DisplayStdErrorDialog(tr("Unable to delete or replace file \"%1\".").arg(filename)

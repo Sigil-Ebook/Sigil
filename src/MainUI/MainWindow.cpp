@@ -7049,7 +7049,7 @@ void MainWindow::MakeTabConnections(ContentTab *tab)
     }
 
     if (rType == Resource::ImageResourceType) {
-        connect(tab,   SIGNAL(ImageContentChanged()), m_Book.data(), SLOT(SetModified()));
+        connect(tab,   SIGNAL(ImageContentChanged(Resource*)), this, SLOT(HandleImageContentChanged(Resource *)));
     }
 
     if (rType == Resource::SVGResourceType) {
@@ -7243,5 +7243,16 @@ void MainWindow::FocusOn(QWidget* dw)
         dw->show();
         dw->activateWindow();
         dw->setFocus(Qt::ShortcutFocusReason);
+    }
+}
+
+void MainWindow::HandleImageContentChanged(Resource* resource)
+{
+    ImageResource* image_resource =  qobject_cast<ImageResource *>(resource);
+    if (image_resource) {
+        // do the sequence as if file was being watched
+        image_resource->FileChangedOnDisk();
+        m_Book->ResourceUpdatedFromDisk(image_resource);
+        UpdatePreview();
     }
 }

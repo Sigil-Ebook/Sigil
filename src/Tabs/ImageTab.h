@@ -36,6 +36,7 @@ class QEvent;
 class QKeyEvent;
 class AdjustImage;
 class WebViewPrinter;
+class Resource;
 
 class ImageTab : public ContentTab
 {
@@ -56,7 +57,7 @@ public:
 
 signals:
 
-    void ImageContentChanged();
+    void ImageContentChanged(Resource * resource);
 
 public slots:
     void RefreshContent();

@@ -306,10 +306,9 @@ void Resource::ResourceFileModified()
         QTimer::singleShot(WAIT_FOR_WRITE_DELAY, this, SLOT(ResourceFileModified()));
     } else {
         if (LoadFromDisk()) {
-            // will trigger marking the book as modified
+            // will trigger marking the book as modified 
             emit ResourceUpdatedFromDisk(this);
         }
-
         // will trigger updates in other resources that link to this resource
         emit ResourceUpdatedOnDisk();
     }
