@@ -40,6 +40,7 @@
 #include <QInputDialog>
 #include <QKeySequence>
 #include <QTemporaryFile>
+#include <QMessageBox>
 #include "Misc/SettingsStore.h"
 #include "Misc/Utility.h"
 #include "EmbedPython/PythonRoutines.h"
@@ -540,7 +541,28 @@ void AdjustImage::doZoomToFit()
     UpdateZoomedCoordinates();
 }
 
-
+void AdjustImage::doReloadImageFromDisk()
+{
+    if (!m_history.isEmpty()) {
+        QMessageBox::StandardButton reply = Utility::warning(this, tr("Reload Image From Disk"),
+            tr("This image has unsaved modifications.\nDo you want to discard all changes and reload from disk?"),
+            QMessageBox::Ok | QMessageBox::Cancel, QMessageBox::Cancel);
+        if (reply != QMessageBox::Ok) return;
+    }
+    QImage image_from_disk(m_fileName);
+    if (image_from_disk.isNull()) {
+        m_statusBar->showMessage(tr("Image reload from disk failed."));
+        return;
+    }
+    m_image = image_from_disk;
+    ui->actionUndo->setEnabled(false);
+    ui->actionRedo->setEnabled(false);
+    m_history.clear();
+    m_reverseHistory.clear();
+    refreshLabel();
+    m_statusBar->showMessage(tr("Image reloaded from disk."));
+}
+    
 void AdjustImage::ConnectSignalsToSlots()
 {
     connect(ui->actionCrop,        SIGNAL(triggered()), this, SLOT(doCrop()));

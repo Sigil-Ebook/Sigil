@@ -129,6 +129,7 @@ void ImageTab::RotateLeft()  { m_AdjImg->doRotateLeft();  }
 void ImageTab::RotateRight() { m_AdjImg->doRotateRight(); }
 void ImageTab::CropImage()   { m_AdjImg->doCrop();        }
 void ImageTab::ResizeImage() { m_AdjImg->doResizeImage(); }
+void ImageTab::ReloadImageFromDisk() { m_AdjImg->doReloadImageFromDisk(); }
 
 float ImageTab::GetZoomFactor() const
 {
@@ -349,6 +350,8 @@ bool ImageTab::SuccessfullySetupContextMenu(const QPoint &point)
         m_ContextMenu->addSeparator();
         m_ContextMenu->addAction(m_CropImage);
         m_ContextMenu->addAction(m_ResizeImage);
+        m_ContextMenu->addSeparator();
+        m_ContextMenu->addAction(m_ReloadImageFromDisk);
     }
 
     return true;
@@ -382,6 +385,7 @@ void ImageTab::CreateContextMenuActions()
     m_RotateRight     = new QAction(tr("Rotate Right"), this);
     m_CropImage       = new QAction(tr("Crop Image"),   this);
     m_ResizeImage     = new QAction(tr("Resize Image"), this);
+    m_ReloadImageFromDisk = new QAction(tr("Reload Image From Disk"), this);
 }
 
 
@@ -553,6 +557,7 @@ void ImageTab::ConnectSignalsToSlots()
     connect(m_RotateRight,    SIGNAL(triggered()),    this, SLOT(RotateRight()));
     connect(m_CropImage,      SIGNAL(triggered()),    this, SLOT(CropImage()));
     connect(m_ResizeImage,    SIGNAL(triggered()),    this, SLOT(ResizeImage()));
+    connect(m_ReloadImageFromDisk,    SIGNAL(triggered()),    this, SLOT(ReloadImageFromDisk()));
 }
 
 void ImageTab::Zoom()

@@ -83,6 +83,7 @@ public slots:
     void RotateRight();
     void CropImage();
     void ResizeImage();
+    void ReloadImageFromDisk();
 
     void EmitImageContentChanged();
 
@@ -150,6 +151,7 @@ private:
     QAction *m_RotateRight;
     QAction *m_CropImage;
     QAction *m_ResizeImage;
+    QAction *m_ReloadImageFromDisk;
 
     float m_CurrentZoomFactor;
 

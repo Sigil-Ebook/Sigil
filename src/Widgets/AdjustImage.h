@@ -84,6 +84,7 @@ public slots:
     void doRotateRight();
     void doCrop();
     void doResizeImage();
+    void doReloadImageFromDisk();
 
 signals:
     void InternalZoomFactorChanged(double factor);
