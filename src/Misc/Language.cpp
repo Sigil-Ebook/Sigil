@@ -464,6 +464,7 @@ void Language::SetLanguageMap()
          "goh"   << tr("German- Old High (ca.750-1050)") <<
          "gem"   << tr("Germanic languages") <<
          "gil"   << tr("Gilbertese") <<
+         "glk"   << tr("Gilaki") << 
          "gon"   << tr("Gondi") <<
          "gor"   << tr("Gorontalo") <<
          "got"   << tr("Gothic") <<
@@ -543,6 +544,7 @@ void Language::SetLanguageMap()
          "mwr"   << tr("Marwari") <<
          "mas"   << tr("Masai") <<
          "myn"   << tr("Mayan languages") <<
+         "mzn"   << tr("Mazandarani") <<
          "men"   << tr("Mende") <<
          "mic"   << tr("Mi'kmaq, Micmac") <<
          "min"   << tr("Minangkabau") <<

@@ -8433,1001 +8433,1011 @@ Do you want to save your changes?</source>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="467"/>
-        <source>Gondi</source>
+        <source>Gilaki</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="468"/>
-        <source>Gorontalo</source>
+        <source>Gondi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="469"/>
-        <source>Gothic</source>
+        <source>Gorontalo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="470"/>
-        <source>Grebo</source>
+        <source>Gothic</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="471"/>
-        <source>Greek- Ancient (to 1453)</source>
+        <source>Grebo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="472"/>
-        <source>Gwich&apos;in</source>
+        <source>Greek- Ancient (to 1453)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="473"/>
-        <source>Haida</source>
+        <source>Gwich&apos;in</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="474"/>
-        <source>Hawaiian</source>
+        <source>Haida</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="475"/>
-        <source>Hiligaynon</source>
+        <source>Hawaiian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="476"/>
-        <source>Himachali, Western Pahari languages</source>
+        <source>Hiligaynon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="477"/>
-        <source>Hittite</source>
+        <source>Himachali, Western Pahari languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="478"/>
-        <source>Hmong, Mong</source>
+        <source>Hittite</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="479"/>
-        <source>Hupa</source>
+        <source>Hmong, Mong</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="480"/>
-        <source>Iban</source>
+        <source>Hupa</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="481"/>
-        <source>Ijo languages</source>
+        <source>Iban</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="482"/>
-        <source>Iloko</source>
+        <source>Ijo languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="483"/>
-        <source>Inari Sami</source>
+        <source>Iloko</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="484"/>
-        <source>Indic languages</source>
+        <source>Inari Sami</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="485"/>
-        <source>Indo-European languages</source>
+        <source>Indic languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="486"/>
-        <source>Ingush</source>
+        <source>Indo-European languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="487"/>
-        <source>Iranian languages</source>
+        <source>Ingush</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="488"/>
-        <source>Irish- Middle (900-1200)</source>
+        <source>Iranian languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="489"/>
-        <source>Irish- Old (to 900)</source>
+        <source>Irish- Middle (900-1200)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="490"/>
-        <source>Iroquoian languages</source>
+        <source>Irish- Old (to 900)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="491"/>
-        <source>Jingpho, Kachin</source>
+        <source>Iroquoian languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="492"/>
-        <source>Judeo-Arabic</source>
+        <source>Jingpho, Kachin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="493"/>
-        <source>Judeo-Persian</source>
+        <source>Judeo-Arabic</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="494"/>
-        <source>Kabardian</source>
+        <source>Judeo-Persian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="495"/>
-        <source>Kabyle</source>
+        <source>Kabardian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="496"/>
-        <source>Kalmyk, Oirat</source>
+        <source>Kabyle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="497"/>
-        <source>Kamba</source>
+        <source>Kalmyk, Oirat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="498"/>
-        <source>Kapampangan, Pampanga</source>
+        <source>Kamba</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="499"/>
-        <source>Kara-Kalpak</source>
+        <source>Kapampangan, Pampanga</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="500"/>
-        <source>Karachay-Balkar</source>
+        <source>Kara-Kalpak</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="501"/>
-        <source>Karelian</source>
+        <source>Karachay-Balkar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="502"/>
-        <source>Karen languages</source>
+        <source>Karelian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="503"/>
-        <source>Kashubian</source>
+        <source>Karen languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="504"/>
-        <source>Kawi</source>
+        <source>Kashubian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="505"/>
-        <source>Khasi</source>
+        <source>Kawi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="506"/>
-        <source>Khoisan languages</source>
+        <source>Khasi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="507"/>
-        <source>Khotanese, Sakan</source>
+        <source>Khoisan languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="508"/>
-        <source>Kimbundu</source>
+        <source>Khotanese, Sakan</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="509"/>
-        <source>Klingon, tlhIngan-Hol</source>
+        <source>Kimbundu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="510"/>
-        <source>Konkani</source>
+        <source>Klingon, tlhIngan-Hol</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="511"/>
-        <source>Kosraean</source>
+        <source>Konkani</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="512"/>
-        <source>Kpelle</source>
+        <source>Kosraean</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="513"/>
-        <source>Kru languages</source>
+        <source>Kpelle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="514"/>
-        <source>Kumyk</source>
+        <source>Kru languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="515"/>
-        <source>Kurukh</source>
+        <source>Kumyk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="516"/>
-        <source>Kutenai</source>
+        <source>Kurukh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="517"/>
-        <source>Ladino</source>
+        <source>Kutenai</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="518"/>
-        <source>Lahnda</source>
+        <source>Ladino</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="519"/>
-        <source>Lamba</source>
+        <source>Lahnda</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="520"/>
-        <source>Land Dayak languages</source>
+        <source>Lamba</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="521"/>
-        <source>Lezghian</source>
+        <source>Land Dayak languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="522"/>
-        <source>Lojban</source>
+        <source>Lezghian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="523"/>
-        <source>German-Low, Low Saxon</source>
+        <source>Lojban</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="524"/>
-        <source>Lower Sorbian</source>
+        <source>German-Low, Low Saxon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="525"/>
-        <source>Lozi</source>
+        <source>Lower Sorbian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="526"/>
-        <source>Luba-Lulua</source>
+        <source>Lozi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="527"/>
-        <source>Luiseno</source>
+        <source>Luba-Lulua</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="528"/>
-        <source>Lule Sami</source>
+        <source>Luiseno</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="529"/>
-        <source>Lunda</source>
+        <source>Lule Sami</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="530"/>
-        <source>Luo (Kenya and Tanzania)</source>
+        <source>Lunda</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="531"/>
-        <source>Lushai</source>
+        <source>Luo (Kenya and Tanzania)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="532"/>
-        <source>Madurese</source>
+        <source>Lushai</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="533"/>
-        <source>Magahi</source>
+        <source>Madurese</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="534"/>
-        <source>Maithili</source>
+        <source>Magahi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="535"/>
-        <source>Makasar</source>
+        <source>Maithili</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="536"/>
-        <source>Manchu</source>
+        <source>Makasar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="537"/>
-        <source>Mandar</source>
+        <source>Manchu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="538"/>
-        <source>Mandingo</source>
+        <source>Mandar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="539"/>
-        <source>Manipuri</source>
+        <source>Mandingo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="540"/>
-        <source>Manobo languages</source>
+        <source>Manipuri</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="541"/>
-        <source>Mapuche/Mapudungun</source>
+        <source>Manobo languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="542"/>
-        <source>Mari</source>
+        <source>Mapuche/Mapudungun</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="543"/>
-        <source>Marwari</source>
+        <source>Mari</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="544"/>
-        <source>Masai</source>
+        <source>Marwari</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="545"/>
-        <source>Mayan languages</source>
+        <source>Masai</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="546"/>
-        <source>Mende</source>
+        <source>Mayan languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="547"/>
-        <source>Mi&apos;kmaq, Micmac</source>
+        <source>Mazandarani</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="548"/>
-        <source>Minangkabau</source>
+        <source>Mende</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="549"/>
-        <source>Mirandese</source>
+        <source>Mi&apos;kmaq, Micmac</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="550"/>
-        <source>Mohawk</source>
+        <source>Minangkabau</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="551"/>
-        <source>Moksha</source>
+        <source>Mirandese</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="552"/>
-        <source>Mon-Khmer languages</source>
+        <source>Mohawk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="553"/>
-        <source>Mongo</source>
+        <source>Moksha</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="554"/>
-        <source>Mossi</source>
+        <source>Mon-Khmer languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="555"/>
-        <source>Multiple languages</source>
+        <source>Mongo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="556"/>
-        <source>Munda languages</source>
+        <source>Mossi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="557"/>
-        <source>N&apos;Ko</source>
+        <source>Multiple languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="558"/>
-        <source>Nahuatl languages</source>
+        <source>Munda languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="559"/>
-        <source>Neapolitan</source>
+        <source>N&apos;Ko</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="560"/>
-        <source>Nepal Bhasa/Newari</source>
+        <source>Nahuatl languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="561"/>
-        <source>Nias</source>
+        <source>Neapolitan</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="562"/>
-        <source>Niger-Kordofanian languages</source>
+        <source>Nepal Bhasa/Newari</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="563"/>
-        <source>Nilo-Saharan languages</source>
+        <source>Nias</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="564"/>
-        <source>Niuean</source>
+        <source>Niger-Kordofanian languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="565"/>
-        <source>No linguistic content/Not applicable</source>
+        <source>Nilo-Saharan languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="566"/>
-        <source>Nogai</source>
+        <source>Niuean</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="567"/>
-        <source>Norse- Old</source>
+        <source>No linguistic content/Not applicable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="568"/>
-        <source>North American Indian languages</source>
+        <source>Nogai</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="569"/>
-        <source>Northern Frisian</source>
+        <source>Norse- Old</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="570"/>
-        <source>Northern Sotho, Sepedi, Pedi</source>
+        <source>North American Indian languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="571"/>
-        <source>Nubian languages</source>
+        <source>Northern Frisian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="572"/>
-        <source>Nyamwezi</source>
+        <source>Northern Sotho, Sepedi, Pedi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="573"/>
-        <source>Nyankole</source>
+        <source>Nubian languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="574"/>
-        <source>Nyoro</source>
+        <source>Nyamwezi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="575"/>
-        <source>Nzima</source>
+        <source>Nyankole</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="576"/>
-        <source>Occitan/Provencal- Old (to 1500)</source>
+        <source>Nyoro</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="577"/>
-        <source>Official/Imperial Aramaic (700-300 BCE)</source>
+        <source>Nzima</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="578"/>
-        <source>Osage</source>
+        <source>Occitan/Provencal- Old (to 1500)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="579"/>
-        <source>Otomian languages</source>
+        <source>Official/Imperial Aramaic (700-300 BCE)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="580"/>
-        <source>Pahlavi</source>
+        <source>Osage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="581"/>
-        <source>Palauan</source>
+        <source>Otomian languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="582"/>
-        <source>Pangasinan</source>
+        <source>Pahlavi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="583"/>
-        <source>Papiamento</source>
+        <source>Palauan</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="584"/>
-        <source>Papuan languages</source>
+        <source>Pangasinan</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="585"/>
-        <source>Paraguayan Guaraní</source>
+        <source>Papiamento</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="586"/>
-        <source>Persian- Old (ca.600-400 B.C.)</source>
+        <source>Papuan languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="587"/>
-        <source>Philippine languages</source>
+        <source>Paraguayan Guaraní</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="588"/>
-        <source>Phoenician</source>
+        <source>Persian- Old (ca.600-400 B.C.)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="589"/>
-        <source>Pohnpeian</source>
+        <source>Philippine languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="590"/>
-        <source>Prakrit languages</source>
+        <source>Phoenician</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="591"/>
-        <source>Rajasthani</source>
+        <source>Pohnpeian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="592"/>
-        <source>Rapanui</source>
+        <source>Prakrit languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="593"/>
-        <source>Rarotongan, Cook Islands Maori</source>
+        <source>Rajasthani</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="594"/>
-        <source>Reserved for local use</source>
+        <source>Rapanui</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="595"/>
-        <source>Romance languages</source>
+        <source>Rarotongan, Cook Islands Maori</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="596"/>
-        <source>Romany</source>
+        <source>Reserved for local use</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="597"/>
-        <source>Salishan languages</source>
+        <source>Romance languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="598"/>
-        <source>Samaritan Aramaic</source>
+        <source>Romany</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="599"/>
-        <source>Sami languages</source>
+        <source>Salishan languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="600"/>
-        <source>Sandawe</source>
+        <source>Samaritan Aramaic</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="601"/>
-        <source>Santali</source>
+        <source>Sami languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="602"/>
-        <source>Sasak</source>
+        <source>Sandawe</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="603"/>
-        <source>Scots</source>
+        <source>Santali</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="604"/>
-        <source>Selkup</source>
+        <source>Sasak</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="605"/>
-        <source>Semitic languages</source>
+        <source>Scots</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="606"/>
-        <source>Serer</source>
+        <source>Selkup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="607"/>
-        <source>Shan</source>
+        <source>Semitic languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="608"/>
-        <source>Sicilian</source>
+        <source>Serer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="609"/>
-        <source>Sidamo</source>
+        <source>Shan</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="610"/>
-        <source>Sign Languages</source>
+        <source>Sicilian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="611"/>
-        <source>Siksika</source>
+        <source>Sidamo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="612"/>
-        <source>Sino-Tibetan languages</source>
+        <source>Sign Languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="613"/>
-        <source>Siouan languages</source>
+        <source>Siksika</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="614"/>
-        <source>Skolt Sami</source>
+        <source>Sino-Tibetan languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="615"/>
-        <source>Slave (Athapascan)</source>
+        <source>Siouan languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="616"/>
-        <source>Slavic languages</source>
+        <source>Skolt Sami</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="617"/>
-        <source>Sogdian</source>
+        <source>Slave (Athapascan)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="618"/>
-        <source>Songhai languages</source>
+        <source>Slavic languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="619"/>
-        <source>Soninke</source>
+        <source>Sogdian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="620"/>
-        <source>Sorbian languages</source>
+        <source>Songhai languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="621"/>
-        <source>South American Indian languages</source>
+        <source>Soninke</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="622"/>
-        <source>Southern Altai</source>
+        <source>Sorbian languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="623"/>
-        <source>Southern Sami</source>
+        <source>South American Indian languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="624"/>
-        <source>Sranan Tongo</source>
+        <source>Southern Altai</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="625"/>
-        <source>Sukuma</source>
+        <source>Southern Sami</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="626"/>
-        <source>Sumerian</source>
+        <source>Sranan Tongo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="627"/>
-        <source>Susu</source>
+        <source>Sukuma</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="628"/>
-        <source>Alsatian, Swiss German, Alemannic</source>
+        <source>Sumerian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="629"/>
-        <source>Syriac</source>
+        <source>Susu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="630"/>
-        <source>Tai languages</source>
+        <source>Alsatian, Swiss German, Alemannic</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="631"/>
-        <source>Tamashek</source>
+        <source>Syriac</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="632"/>
-        <source>Tereno</source>
+        <source>Tai languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="633"/>
-        <source>Tetum</source>
+        <source>Tamashek</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="634"/>
-        <source>Tigre</source>
+        <source>Tereno</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="635"/>
-        <source>Timne</source>
+        <source>Tetum</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="636"/>
-        <source>Tiv</source>
+        <source>Tigre</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="637"/>
-        <source>Tlingit</source>
+        <source>Timne</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="638"/>
-        <source>Tok Pisin</source>
+        <source>Tiv</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="639"/>
-        <source>Tokelau</source>
+        <source>Tlingit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="640"/>
-        <source>Tonga (Nyasa)</source>
+        <source>Tok Pisin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="641"/>
-        <source>Tsimshian</source>
+        <source>Tokelau</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="642"/>
-        <source>Tumbuka</source>
+        <source>Tonga (Nyasa)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="643"/>
-        <source>Tupi languages</source>
+        <source>Tsimshian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="644"/>
-        <source>Turkish- Ottoman (1500-1928)</source>
+        <source>Tumbuka</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="645"/>
-        <source>Tuvalu</source>
+        <source>Tupi languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="646"/>
-        <source>Tuvinian</source>
+        <source>Turkish- Ottoman (1500-1928)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="647"/>
-        <source>Udmurt</source>
+        <source>Tuvalu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="648"/>
-        <source>Ugaritic</source>
+        <source>Tuvinian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="649"/>
-        <source>Umbundu</source>
+        <source>Udmurt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="650"/>
-        <source>Uncoded languages</source>
+        <source>Ugaritic</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="651"/>
-        <source>Undetermined</source>
+        <source>Umbundu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="652"/>
-        <source>Upper Sorbian</source>
+        <source>Uncoded languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="653"/>
-        <source>Vai</source>
+        <source>Undetermined</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="654"/>
-        <source>Votic</source>
+        <source>Upper Sorbian</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="655"/>
-        <source>Wakashan languages</source>
+        <source>Vai</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="656"/>
-        <source>Waray</source>
+        <source>Votic</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="657"/>
-        <source>Washo</source>
+        <source>Wakashan languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="658"/>
-        <source>Wolaitta, Wolaytta</source>
+        <source>Waray</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="659"/>
-        <source>Yakut</source>
+        <source>Washo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="660"/>
-        <source>Yao</source>
+        <source>Wolaitta, Wolaytta</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="661"/>
-        <source>Yapese</source>
+        <source>Yakut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="662"/>
-        <source>Yupik languages</source>
+        <source>Yao</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="663"/>
-        <source>Zande languages</source>
+        <source>Yapese</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="664"/>
-        <source>Zapotec</source>
+        <source>Yupik languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="665"/>
-        <source>Zenaga</source>
+        <source>Zande languages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="666"/>
+        <source>Zapotec</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="667"/>
+        <source>Zenaga</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="668"/>
         <source>Zuni</source>
         <translation type="unfinished"></translation>
     </message>
