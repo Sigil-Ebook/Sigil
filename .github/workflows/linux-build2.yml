@@ -1,0 +1,45 @@
+name: Build Sigil on Linux Distro
+
+on:
+
+  push:
+    branches: [ master ]
+    paths-ignore:
+    - 'docs/**'
+    - 'installer/win_installer_note.txt'
+    - 'ChangeLog.txt'
+    - 'COPYING.txt'
+    - 'version.xml'
+    - '.retired_travis.yml'
+    - '**/**.md'
+
+  pull_request:
+    branches: [ master ]
+    paths-ignore:
+    - 'docs/**'
+    - 'installer/win_installer_note.txt'
+    - 'ChangeLog.txt'
+    - 'COPYING.txt'
+    - 'version.xml'
+    - '.retired_travis.yml'
+    - '**/**.md'
+
+  workflow_dispatch:
+
+
+jobs:
+  build_on_distro:
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    name: Build Sigil on Linux
+    runs-on: ubuntu-latest
+
+    container:
+      image: ubuntu:24.04
+      options: --privileged
+      volumes:
+        - ${{ github.workspace }}:/reporoot
+      
+    steps:
+      - uses: actions/checkout@v6
+      - run: bash /reporoot/.github/workflows/build_sigil_on_distro.sh 
+
