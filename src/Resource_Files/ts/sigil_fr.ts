@@ -283,85 +283,107 @@
         <translation>Ajustement le zoom de l&apos;image à l&apos;écran.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="115"/>
-        <location filename="../../Widgets/AdjustImage.cpp" line="123"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="116"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="124"/>
         <source>Adjust Image</source>
         <translation>Ajuster l&apos;image</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="124"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="125"/>
         <source>Cannot load %1.</source>
         <translation>Impossible de charger %1</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="193"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="194"/>
         <source>shades</source>
         <translation>Nuances</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="193"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="194"/>
         <source>colors</source>
         <translation>Couleurs</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="194"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="195"/>
         <source>Grayscale</source>
         <translation>Niveaux de gris</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="194"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="195"/>
         <source>Color</source>
         <translation>Couleur</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="222"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="223"/>
         <source>Crop Mode: Enter to Crop, Escape to Abort</source>
         <translation>Mode Recadrage : Appuyez sur Entrée pour recadrer, Echap pour annuler</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="227"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="228"/>
         <source>Exiting Crop Mode</source>
         <translation>Quitter le mode Recadrage</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="351"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="352"/>
         <source>(x,y) coordinates:</source>
         <translation>Coordonnées (x, y) :</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="351"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="352"/>
         <source>Zoom</source>
         <translation>Zoom</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="422"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="423"/>
         <source>Image format is not supported for write and can not be saved. Save aborted.</source>
         <translation>Le format d&apos;image n&apos;est pas pris en charge pour l&apos;écriture et ne peut pas être enregistré. Enregistrement annuler.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="453"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="454"/>
         <source>Image Quality</source>
         <translation>Qualité de l&apos;image</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="454"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="455"/>
         <source>Enter quality level (0-100):</source>
         <translation>Entrez le niveau de qualité (0-100) :</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="456"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="457"/>
         <source>Image save aborted, as quality unavailable.</source>
         <translation>Enregistrement de l&apos;image a été annuler, car la qualité n&apos;est pas disponible.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="470"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="471"/>
         <source>Image successfully saved.</source>
         <translation>Image enregistré avec succès.</translation>
     </message>
     <message>
-        <location filename="../../Widgets/AdjustImage.cpp" line="475"/>
+        <location filename="../../Widgets/AdjustImage.cpp" line="476"/>
         <source>Image save failed. Add Existing backup of image for safety.</source>
         <translation>Échec de l&apos;enregistrement de l&apos;image. Ajoutez une sauvegarde existante de l&apos;image par mesure de sécurité.</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="547"/>
+        <source>Reload Image From Disk</source>
+        <translation>Recharger l&apos;image depuis le disque</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="548"/>
+        <source>This image has unsaved modifications.
+Do you want to discard all changes and reload from disk?</source>
+        <translation>Cette image contient des modifications non enregistrées.
+Souhaitez-vous annuler toutes les modifications et la recharger depuis le disque ?</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="554"/>
+        <source>Image reload from disk failed.</source>
+        <translation>Échec du rechargement de l&apos;image depuis le disque.</translation>
+    </message>
+    <message>
+        <location filename="../../Widgets/AdjustImage.cpp" line="563"/>
+        <source>Image reloaded from disk.</source>
+        <translation>Image rechargé depuis le disque.</translation>
     </message>
 </context>
 <context>
@@ -1743,7 +1765,7 @@ si aucune famille sans-serif de police n&apos;est spécifiée dans votre CSS</tr
     </message>
     <message>
         <location filename="../../MainUI/BookBrowser.cpp" line="99"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2361"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2363"/>
         <source>Open With</source>
         <translation>Ouvrir avec</translation>
     </message>
@@ -1756,11 +1778,11 @@ si aucune famille sans-serif de police n&apos;est spécifiée dans votre CSS</tr
         <location filename="../../MainUI/BookBrowser.cpp" line="304"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="772"/>
         <location filename="../../MainUI/BookBrowser.cpp" line="943"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="982"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1059"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1166"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1477"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1582"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="984"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1061"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1168"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1479"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1584"/>
         <source>Sigil</source>
         <translation>Sigil</translation>
     </message>
@@ -1821,12 +1843,12 @@ Le remplacer ?</translation>
         <translation>Échec de la réécriture de l&apos;image &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="977"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="979"/>
         <source>Unable to delete or replace file &quot;%1&quot;.</source>
         <translation>Impossible de supprimer ou de remplacer le fichier &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="982"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="984"/>
         <source>Unable to load &quot;%1&quot;
 
 A file with this name already exists in the book.</source>
@@ -1835,7 +1857,7 @@ A file with this name already exists in the book.</source>
 Un fichier du même nom existe déjà dans le livre.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1060"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1062"/>
         <source>The following file(s) were not loaded due to invalid content or not well formed XML:
 
 %1</source>
@@ -1844,373 +1866,373 @@ Un fichier du même nom existe déjà dans le livre.</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1073"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1075"/>
         <source>File(s) added or replaced.</source>
         <translation>Fichier(s) ajouté(s) ou remplacé(s).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1110"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1112"/>
         <source>Save As File</source>
         <translation>Enregistrer ce fichier sous</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1133"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1135"/>
         <source>Unable to save the file.</source>
         <translation>Impossible d&apos;enregistrer le fichier.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1144"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1146"/>
         <source>Choose the directory to save the files to</source>
         <translation>Choisissez le répertoire dans lequel enregistrer les fichiers.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1166"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1168"/>
         <source>One or more files already exists.  OK to overwrite?</source>
         <translation>Un ou plusieurs des fichiers existent déjà. Voulez-vous les écraser ?</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1183"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1185"/>
         <source>Unable to save files.  Destination may be a directory.</source>
         <translation>Impossible d&apos;enregistrer les fichiers. La cible est peut être un répertoire.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1191"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1193"/>
         <source>Unable to save files.</source>
         <translation>Impossible d&apos;enregistrer les fichiers.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1415"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1417"/>
         <source>Filenames cannot contain these characters: &quot;%1&quot;.</source>
         <translation>Les noms de fichiers ne peuvent pas contenir ces caractères : “%1”.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1477"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1479"/>
         <source>Cannot rename files since this would result in duplicate filenames.</source>
         <translation>Impossible de renommer les fichiers car le nom des fichiers serait en double.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1548"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1550"/>
         <source>Destination Folder has invalid path &quot;%1&quot;</source>
         <translation>Le dossier de destination a un chemin d&apos;accès invalide &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1582"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1584"/>
         <source>Cannot move files since this would result in duplicate filenames.</source>
         <translation>Impossible de déplacer des fichiers car cela entraînerait des noms de fichiers en double.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1629"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1631"/>
         <source>The Nav document cannot be removed.</source>
         <translation>Le document Nav ne peut pas être supprimé.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1637"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1639"/>
         <source>The NCX cannot be removed.</source>
         <translation>Le NCX ne peut pas être supprimé.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1644"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1646"/>
         <source>The OPF is required for epub and cannot be removed.</source>
         <translation>L&apos;OPF est requit dans un ePub et ne peut pas être supprimé.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1653"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1655"/>
         <source>You cannot remove all html files.
 There always has to be at least one.</source>
         <translation>Vous ne pouvez pas supprimer tous les fichiers HTML.
 Il faut toujours au minimum un fichier HTML.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1801"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1803"/>
         <source>Unable to set file as cover image.</source>
         <translation>Impossible de définir le fichier comme image de couverture.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1838"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1840"/>
         <source>(root folder)</source>
         <translation>(dossier racine)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1848"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1850"/>
         <source>FileName</source>
         <translation>Nom du fichier</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1851"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1853"/>
         <source>Folder</source>
         <translation>Dossier</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1854"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1856"/>
         <source>Media Type</source>
         <translation>Type de media</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1857"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1859"/>
         <source>File Size(kb)</source>
         <translation>Taille du fichier (Kb)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1860"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1862"/>
         <source>Epub Version</source>
         <translation>ePub Version</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1877"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1879"/>
         <source>Word Count</source>
         <translation>Nombre de mots</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1880"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1882"/>
         <source>Primary Language</source>
         <translation>Première langue </translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1887"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1889"/>
         <source>WellFormed</source>
         <translation>Correctement formaté</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1889"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1891"/>
         <source>Yes</source>
         <translation>Oui</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1891"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1893"/>
         <source>No</source>
         <translation>Aucun</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1894"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1896"/>
         <source>Linked Stylesheets</source>
         <translation>Feuilles de style liées</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1897"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1899"/>
         <source>Linked Javascripts</source>
         <translation>Javascripts liées</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1900"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1902"/>
         <source>Linked Images</source>
         <translation>Images liées</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1903"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1905"/>
         <source>Linked Audio</source>
         <translation>Audio liées</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1906"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1908"/>
         <source>Linked Video</source>
         <translation>Video liées</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1933"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1935"/>
         <source>Semantics OPF Guide or Nav Landmarks</source>
         <translation>Sémantique Guide OPF ou Nav Landmarks</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1942"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1944"/>
         <source>Manifest Properties</source>
         <translation>Manifeste de propriétés</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1945"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1947"/>
         <source>Defined Ids</source>
         <translation>Id défini</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1952"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1964"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1954"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1966"/>
         <source>Description</source>
         <translation>Description</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1955"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1957"/>
         <source>Obfuscation Algorithm</source>
         <translation>Algorithme d&apos;obfuscation</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="1957"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2209"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="1959"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2211"/>
         <source>None</source>
         <translation>Aucun</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2194"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2196"/>
         <source>Select All</source>
         <translation>Sélectionnez tout</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2195"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2197"/>
         <source>Add Blank HTML File</source>
         <translation>Ajouter une page HTML vierge</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2196"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2198"/>
         <source>Add Blank Stylesheet</source>
         <translation>Ajouter une feuille de style vierge</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2197"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2199"/>
         <source>Add Blank Javascript</source>
         <translation>Ajouter un Javascript vierge</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2198"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2200"/>
         <source>Add Blank SVG Image</source>
         <translation>Ajouter image SVG vierge</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2199"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2201"/>
         <source>View Image</source>
         <translation>Afficher l&apos;image</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2200"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2202"/>
         <source>Add Existing Files...</source>
         <translation>Ajouter des fichiers existants…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2201"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2202"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2203"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2204"/>
         <source>Add Copy</source>
         <translation>Ajouter une copie</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2203"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2205"/>
         <source>Rename</source>
         <translation>Renommer</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2204"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2206"/>
         <source>RegEx Rename</source>
         <translation>Renommer avec un Regex</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2205"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2207"/>
         <source>Move</source>
         <translation>Déplacer </translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2206"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2208"/>
         <source>Delete</source>
         <translation>Supprimer</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2207"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2209"/>
         <source>Cover Image</source>
         <translation>Image de couverture</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2208"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2210"/>
         <source>Merge</source>
         <translation>Fusionner</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2210"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2212"/>
         <source>Use Adobe&apos;s Method</source>
         <translation>Utilisez la méthode Adobe</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2211"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2213"/>
         <source>Use IDPF&apos;s Method</source>
         <translation>Utilisez la méthode de l&apos;IDPF</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2212"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2214"/>
         <source>Sort</source>
         <translation>Trier</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2213"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2215"/>
         <source>Change Reading Order</source>
         <translation>Modifier l&apos;ordre de lecture</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2214"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2216"/>
         <source>Renumber TOC Entries</source>
         <translation>Renuméroter les entrées de la TDM</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2215"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2217"/>
         <source>Link Stylesheets...</source>
         <translation>Lier des feuilles de style…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2216"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2218"/>
         <source>Link Javascripts...</source>
         <translation>Lier des Javascripts…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2217"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2219"/>
         <source>Add Semantics...</source>
         <translation>Ajouter des propriétés sémantiques…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2218"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2220"/>
         <source>Get Info...</source>
         <translation>Obtenir les info…</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2219"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2221"/>
         <source>Validate with W3C</source>
         <translation>Valider avec W3C</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2220"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2222"/>
         <source>Save As</source>
         <translation>Enregistrer sous</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2226"/>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2401"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2228"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2403"/>
         <source>Other Application</source>
         <translation>Autre application</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2227"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2229"/>
         <source>Clear Editor List</source>
         <translation>Effacer la liste d&apos;éditeurs</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2236"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2238"/>
         <source>Merge with previous file, or merge multiple files into one.</source>
         <translation>Fusionner avec le fichier précédent ou fusionner plusieurs fichiers en un seul.</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2239"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2241"/>
         <source>Rename selected file(s)</source>
         <translation>Renommer le(s) fichier(s) sélectionné(s)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2241"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2243"/>
         <source>Use Regular Expressions to Rename selected file(s)</source>
         <translation>Utiliser les expressions régulières pour renommer le(s) fichier(s) sélectionné(s)</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2244"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2246"/>
         <source>Move selected file(s) to a new folder</source>
         <translation>Déplacer le(s) fichier(s) sélectionné(s) vers un nouveau dossier</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2246"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2248"/>
         <source>Link Stylesheets to selected file(s).</source>
         <translation>Lier les feuilles de style au(x) fichier(s) sélectionné(s).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2248"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2250"/>
         <source>Link Javascripts to selected file(s).</source>
         <translation>Lier des Javascripts au(x) fichier(s) sélectionné(s).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2250"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2252"/>
         <source>Add Semantics to selected file(s).</source>
         <translation>Ajouter des propriétés sémantiques au(x) fichier(s) sélectionné(s).</translation>
     </message>
     <message>
-        <location filename="../../MainUI/BookBrowser.cpp" line="2252"/>
+        <location filename="../../MainUI/BookBrowser.cpp" line="2254"/>
         <source>Show Information about selected files.</source>
         <translation>Afficher les informations sur les fichiers sélectionnées.</translation>
     </message>
@@ -5593,94 +5615,99 @@ Vous pouvez alors cocher ou non chaque rubriques de la liste ci-dessus.</transla
 <context>
     <name>ImageTab</name>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="287"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="364"/>
-        <location filename="../../Tabs/ImageTab.cpp" line="365"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="288"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="367"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="368"/>
         <source>Open With</source>
         <translation>Ouvrir avec</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="323"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="324"/>
         <source>Other Application</source>
         <translation>Autre application</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="372"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="375"/>
         <source>Save As</source>
         <translation>Enregistrer sous</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="373"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="376"/>
         <source>Copy Image</source>
         <translation>Copier l&apos;image</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="375"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="378"/>
         <source>Save Changes</source>
         <translation>Changements enregistré</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="376"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="379"/>
         <source>Zoom In</source>
         <translation>Zoom avant</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="377"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="380"/>
         <source>Zoom Out</source>
         <translation>Zoom arrière</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="378"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="381"/>
         <source>Zoom to Fit</source>
         <translation>Ajustement le zoom à l&apos;écran</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="379"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="382"/>
         <source>Undo Change</source>
         <translation>Annuler la modification</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="380"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="383"/>
         <source>Redo Change</source>
         <translation>Rétablir la modification</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="381"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="384"/>
         <source>Rotate Left</source>
         <translation>Rotation vers la gauche</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="382"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="385"/>
         <source>Rotate Right</source>
         <translation>Rotation vers la droite</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="383"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="386"/>
         <source>Crop Image</source>
         <translation>Recadrer l&apos;image</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="384"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="387"/>
         <source>Resize Image</source>
         <translation>Redimensionner l&apos;image</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="572"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="388"/>
+        <source>Reload Image From Disk</source>
+        <translation>Recharger l&apos;image depuis le disque</translation>
+    </message>
+    <message>
+        <location filename="../../Tabs/ImageTab.cpp" line="577"/>
         <source>shades</source>
         <translation>Nuances</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="572"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="577"/>
         <source>colors</source>
         <translation>Couleurs</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="573"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="578"/>
         <source>Grayscale</source>
         <translation>Niveaux de gris</translation>
     </message>
     <message>
-        <location filename="../../Tabs/ImageTab.cpp" line="573"/>
+        <location filename="../../Tabs/ImageTab.cpp" line="578"/>
         <source>Color</source>
         <translation>Couleur</translation>
     </message>
@@ -8442,1001 +8469,1011 @@ Obsolète, remplacé par « Avertissement »</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="467"/>
+        <source>Gilaki</source>
+        <translation>Gilaki</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="468"/>
         <source>Gondi</source>
         <translation>Gondi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="468"/>
+        <location filename="../../Misc/Language.cpp" line="469"/>
         <source>Gorontalo</source>
         <translation>Gorontalo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="469"/>
+        <location filename="../../Misc/Language.cpp" line="470"/>
         <source>Gothic</source>
         <translation>Gothique</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="470"/>
+        <location filename="../../Misc/Language.cpp" line="471"/>
         <source>Grebo</source>
         <translation>Grebo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="471"/>
+        <location filename="../../Misc/Language.cpp" line="472"/>
         <source>Greek- Ancient (to 1453)</source>
         <translation>Grec ancien (jusqu&apos;en 1453)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="472"/>
+        <location filename="../../Misc/Language.cpp" line="473"/>
         <source>Gwich&apos;in</source>
         <translation>Gwich&apos;in</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="473"/>
+        <location filename="../../Misc/Language.cpp" line="474"/>
         <source>Haida</source>
         <translation>Haïda</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="474"/>
+        <location filename="../../Misc/Language.cpp" line="475"/>
         <source>Hawaiian</source>
         <translation>Hawaïen</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="475"/>
+        <location filename="../../Misc/Language.cpp" line="476"/>
         <source>Hiligaynon</source>
         <translation>Hiligaïnon</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="476"/>
+        <location filename="../../Misc/Language.cpp" line="477"/>
         <source>Himachali, Western Pahari languages</source>
         <translation>Himachali, Langues du Pahari occidental</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="477"/>
+        <location filename="../../Misc/Language.cpp" line="478"/>
         <source>Hittite</source>
         <translation>Hittite</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="478"/>
+        <location filename="../../Misc/Language.cpp" line="479"/>
         <source>Hmong, Mong</source>
         <translation>Hmong, Mong</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="479"/>
+        <location filename="../../Misc/Language.cpp" line="480"/>
         <source>Hupa</source>
         <translation>Hupa</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="480"/>
+        <location filename="../../Misc/Language.cpp" line="481"/>
         <source>Iban</source>
         <translation>Iban</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="481"/>
+        <location filename="../../Misc/Language.cpp" line="482"/>
         <source>Ijo languages</source>
         <translation>Langues Ijo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="482"/>
+        <location filename="../../Misc/Language.cpp" line="483"/>
         <source>Iloko</source>
         <translation>Iloko, Ilocano</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="483"/>
+        <location filename="../../Misc/Language.cpp" line="484"/>
         <source>Inari Sami</source>
         <translation>Same d&apos;Inari</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="484"/>
+        <location filename="../../Misc/Language.cpp" line="485"/>
         <source>Indic languages</source>
         <translation>Langues indo-aryennes</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="485"/>
+        <location filename="../../Misc/Language.cpp" line="486"/>
         <source>Indo-European languages</source>
         <translation>Langues indo-européennes</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="486"/>
+        <location filename="../../Misc/Language.cpp" line="487"/>
         <source>Ingush</source>
         <translation>Ingouche</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="487"/>
+        <location filename="../../Misc/Language.cpp" line="488"/>
         <source>Iranian languages</source>
         <translation>Langues iraniennes</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="488"/>
+        <location filename="../../Misc/Language.cpp" line="489"/>
         <source>Irish- Middle (900-1200)</source>
         <translation>Irlandais moyen (900-1200)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="489"/>
+        <location filename="../../Misc/Language.cpp" line="490"/>
         <source>Irish- Old (to 900)</source>
         <translation>Irlandais ancien (jusqu&apos;en 900)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="490"/>
+        <location filename="../../Misc/Language.cpp" line="491"/>
         <source>Iroquoian languages</source>
         <translation>Langues iroquoiennes</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="491"/>
+        <location filename="../../Misc/Language.cpp" line="492"/>
         <source>Jingpho, Kachin</source>
         <translation>Jinghpo, Kachin</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="492"/>
+        <location filename="../../Misc/Language.cpp" line="493"/>
         <source>Judeo-Arabic</source>
         <translation>Judéo-arabe</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="493"/>
+        <location filename="../../Misc/Language.cpp" line="494"/>
         <source>Judeo-Persian</source>
         <translation>Judéo-perse</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="494"/>
+        <location filename="../../Misc/Language.cpp" line="495"/>
         <source>Kabardian</source>
         <translation>Kabarde</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="495"/>
+        <location filename="../../Misc/Language.cpp" line="496"/>
         <source>Kabyle</source>
         <translation>Kabyle</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="496"/>
+        <location filename="../../Misc/Language.cpp" line="497"/>
         <source>Kalmyk, Oirat</source>
         <translation>Kalmouk, Oirat Kalmyk</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="497"/>
+        <location filename="../../Misc/Language.cpp" line="498"/>
         <source>Kamba</source>
         <translation>Kamba</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="498"/>
+        <location filename="../../Misc/Language.cpp" line="499"/>
         <source>Kapampangan, Pampanga</source>
         <translation>Kapampangan, Pampangan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="499"/>
+        <location filename="../../Misc/Language.cpp" line="500"/>
         <source>Kara-Kalpak</source>
         <translation>Karakalpak</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="500"/>
+        <location filename="../../Misc/Language.cpp" line="501"/>
         <source>Karachay-Balkar</source>
         <translation>Karatchaï balkar</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="501"/>
+        <location filename="../../Misc/Language.cpp" line="502"/>
         <source>Karelian</source>
         <translation>Carélien</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="502"/>
+        <location filename="../../Misc/Language.cpp" line="503"/>
         <source>Karen languages</source>
         <translation>Langues karens</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="503"/>
+        <location filename="../../Misc/Language.cpp" line="504"/>
         <source>Kashubian</source>
         <translation>Cachoubes</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="504"/>
+        <location filename="../../Misc/Language.cpp" line="505"/>
         <source>Kawi</source>
         <translation>Kawi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="505"/>
+        <location filename="../../Misc/Language.cpp" line="506"/>
         <source>Khasi</source>
         <translation>Khasi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="506"/>
+        <location filename="../../Misc/Language.cpp" line="507"/>
         <source>Khoisan languages</source>
         <translation>Langues khoïsan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="507"/>
+        <location filename="../../Misc/Language.cpp" line="508"/>
         <source>Khotanese, Sakan</source>
         <translation>Khotanais, Saka</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="508"/>
+        <location filename="../../Misc/Language.cpp" line="509"/>
         <source>Kimbundu</source>
         <translation>Kimbundu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="509"/>
+        <location filename="../../Misc/Language.cpp" line="510"/>
         <source>Klingon, tlhIngan-Hol</source>
         <translation>Klingon, tlhIngan-Hol</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="510"/>
+        <location filename="../../Misc/Language.cpp" line="511"/>
         <source>Konkani</source>
         <translation>Konkani</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="511"/>
+        <location filename="../../Misc/Language.cpp" line="512"/>
         <source>Kosraean</source>
         <translation>Kosrae</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="512"/>
+        <location filename="../../Misc/Language.cpp" line="513"/>
         <source>Kpelle</source>
         <translation>Kpèllé</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="513"/>
+        <location filename="../../Misc/Language.cpp" line="514"/>
         <source>Kru languages</source>
         <translation>Langues Kru</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="514"/>
+        <location filename="../../Misc/Language.cpp" line="515"/>
         <source>Kumyk</source>
         <translation>Koumyk</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="515"/>
+        <location filename="../../Misc/Language.cpp" line="516"/>
         <source>Kurukh</source>
         <translation>Kurukh</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="516"/>
+        <location filename="../../Misc/Language.cpp" line="517"/>
         <source>Kutenai</source>
         <translation>Kutenai</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="517"/>
+        <location filename="../../Misc/Language.cpp" line="518"/>
         <source>Ladino</source>
         <translation>Ladino</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="518"/>
+        <location filename="../../Misc/Language.cpp" line="519"/>
         <source>Lahnda</source>
         <translation>Lahnda</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="519"/>
+        <location filename="../../Misc/Language.cpp" line="520"/>
         <source>Lamba</source>
         <translation>Lamba</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="520"/>
+        <location filename="../../Misc/Language.cpp" line="521"/>
         <source>Land Dayak languages</source>
         <translation>Langues dayak des terres</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="521"/>
+        <location filename="../../Misc/Language.cpp" line="522"/>
         <source>Lezghian</source>
         <translation>Lezghien</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="522"/>
+        <location filename="../../Misc/Language.cpp" line="523"/>
         <source>Lojban</source>
         <translation>Lojban</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="523"/>
+        <location filename="../../Misc/Language.cpp" line="524"/>
         <source>German-Low, Low Saxon</source>
         <translation>Bas allemand, Bas saxon</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="524"/>
+        <location filename="../../Misc/Language.cpp" line="525"/>
         <source>Lower Sorbian</source>
         <translation>Bas sorabe</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="525"/>
+        <location filename="../../Misc/Language.cpp" line="526"/>
         <source>Lozi</source>
         <translation>Lozi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="526"/>
+        <location filename="../../Misc/Language.cpp" line="527"/>
         <source>Luba-Lulua</source>
         <translation>Luba-kasaï</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="527"/>
+        <location filename="../../Misc/Language.cpp" line="528"/>
         <source>Luiseno</source>
         <translation>Luiseño</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="528"/>
+        <location filename="../../Misc/Language.cpp" line="529"/>
         <source>Lule Sami</source>
         <translation>Same de Lule</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="529"/>
+        <location filename="../../Misc/Language.cpp" line="530"/>
         <source>Lunda</source>
         <translation>Lundas</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="530"/>
+        <location filename="../../Misc/Language.cpp" line="531"/>
         <source>Luo (Kenya and Tanzania)</source>
         <translation>Luo (Kenya et Tanzanie)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="531"/>
+        <location filename="../../Misc/Language.cpp" line="532"/>
         <source>Lushai</source>
         <translation>Lushai, Mizo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="532"/>
+        <location filename="../../Misc/Language.cpp" line="533"/>
         <source>Madurese</source>
         <translation>Madurai</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="533"/>
+        <location filename="../../Misc/Language.cpp" line="534"/>
         <source>Magahi</source>
         <translation>Magahi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="534"/>
+        <location filename="../../Misc/Language.cpp" line="535"/>
         <source>Maithili</source>
         <translation>Maïthili</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="535"/>
+        <location filename="../../Misc/Language.cpp" line="536"/>
         <source>Makasar</source>
         <translation>Makassar</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="536"/>
+        <location filename="../../Misc/Language.cpp" line="537"/>
         <source>Manchu</source>
         <translation>Mandchou</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="537"/>
+        <location filename="../../Misc/Language.cpp" line="538"/>
         <source>Mandar</source>
         <translation>Mandar</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="538"/>
+        <location filename="../../Misc/Language.cpp" line="539"/>
         <source>Mandingo</source>
         <translation>Mandinka</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="539"/>
+        <location filename="../../Misc/Language.cpp" line="540"/>
         <source>Manipuri</source>
         <translation>Manipur</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="540"/>
+        <location filename="../../Misc/Language.cpp" line="541"/>
         <source>Manobo languages</source>
         <translation>Langues manobo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="541"/>
+        <location filename="../../Misc/Language.cpp" line="542"/>
         <source>Mapuche/Mapudungun</source>
         <translation>Mapuche, Mapudungun</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="542"/>
+        <location filename="../../Misc/Language.cpp" line="543"/>
         <source>Mari</source>
         <translation>Mari</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="543"/>
+        <location filename="../../Misc/Language.cpp" line="544"/>
         <source>Marwari</source>
         <translation>Marwari</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="544"/>
+        <location filename="../../Misc/Language.cpp" line="545"/>
         <source>Masai</source>
         <translation>Massaïs</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="545"/>
+        <location filename="../../Misc/Language.cpp" line="546"/>
         <source>Mayan languages</source>
         <translation>Langues mayas</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="546"/>
+        <location filename="../../Misc/Language.cpp" line="547"/>
+        <source>Mazandarani</source>
+        <translation>Mazandarani</translation>
+    </message>
+    <message>
+        <location filename="../../Misc/Language.cpp" line="548"/>
         <source>Mende</source>
         <translation>Mendé</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="547"/>
+        <location filename="../../Misc/Language.cpp" line="549"/>
         <source>Mi&apos;kmaq, Micmac</source>
         <translation>Mi&apos;kmaq, Micmacs</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="548"/>
+        <location filename="../../Misc/Language.cpp" line="550"/>
         <source>Minangkabau</source>
         <translation>Minangkabau</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="549"/>
+        <location filename="../../Misc/Language.cpp" line="551"/>
         <source>Mirandese</source>
         <translation>Mirandais</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="550"/>
+        <location filename="../../Misc/Language.cpp" line="552"/>
         <source>Mohawk</source>
         <translation>Mohawk</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="551"/>
+        <location filename="../../Misc/Language.cpp" line="553"/>
         <source>Moksha</source>
         <translation>Mokcha</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="552"/>
+        <location filename="../../Misc/Language.cpp" line="554"/>
         <source>Mon-Khmer languages</source>
         <translation>Langues môn-khmer</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="553"/>
+        <location filename="../../Misc/Language.cpp" line="555"/>
         <source>Mongo</source>
         <translation>Mongo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="554"/>
+        <location filename="../../Misc/Language.cpp" line="556"/>
         <source>Mossi</source>
         <translation>Moré</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="555"/>
+        <location filename="../../Misc/Language.cpp" line="557"/>
         <source>Multiple languages</source>
         <translation>Langues multiples</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="556"/>
+        <location filename="../../Misc/Language.cpp" line="558"/>
         <source>Munda languages</source>
         <translation>Langues Munda</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="557"/>
+        <location filename="../../Misc/Language.cpp" line="559"/>
         <source>N&apos;Ko</source>
         <translation>N&apos;Ko</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="558"/>
+        <location filename="../../Misc/Language.cpp" line="560"/>
         <source>Nahuatl languages</source>
         <translation>Langues Nahuatl </translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="559"/>
+        <location filename="../../Misc/Language.cpp" line="561"/>
         <source>Neapolitan</source>
         <translation>Napolitain</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="560"/>
+        <location filename="../../Misc/Language.cpp" line="562"/>
         <source>Nepal Bhasa/Newari</source>
         <translation>Népal Bhasa/Newari</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="561"/>
+        <location filename="../../Misc/Language.cpp" line="563"/>
         <source>Nias</source>
         <translation>Nias</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="562"/>
+        <location filename="../../Misc/Language.cpp" line="564"/>
         <source>Niger-Kordofanian languages</source>
         <translation>Langues nigéro-kordofanienne</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="563"/>
+        <location filename="../../Misc/Language.cpp" line="565"/>
         <source>Nilo-Saharan languages</source>
         <translation>Langues nilo-sahariennes</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="564"/>
+        <location filename="../../Misc/Language.cpp" line="566"/>
         <source>Niuean</source>
         <translation>Niuean</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="565"/>
+        <location filename="../../Misc/Language.cpp" line="567"/>
         <source>No linguistic content/Not applicable</source>
         <translation>Aucun contenu linguistique / Non applicable</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="566"/>
+        <location filename="../../Misc/Language.cpp" line="568"/>
         <source>Nogai</source>
         <translation>Nogai</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="567"/>
+        <location filename="../../Misc/Language.cpp" line="569"/>
         <source>Norse- Old</source>
         <translation>Vieux Norrois</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="568"/>
+        <location filename="../../Misc/Language.cpp" line="570"/>
         <source>North American Indian languages</source>
         <translation>Langues indiennes d&apos;Amérique du Nord</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="569"/>
+        <location filename="../../Misc/Language.cpp" line="571"/>
         <source>Northern Frisian</source>
         <translation>Frison septentrional</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="570"/>
+        <location filename="../../Misc/Language.cpp" line="572"/>
         <source>Northern Sotho, Sepedi, Pedi</source>
         <translation>Sotho du Nord, Sepedi, Pedi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="571"/>
+        <location filename="../../Misc/Language.cpp" line="573"/>
         <source>Nubian languages</source>
         <translation>Langues nubiennes</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="572"/>
+        <location filename="../../Misc/Language.cpp" line="574"/>
         <source>Nyamwezi</source>
         <translation>Nyamwezi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="573"/>
+        <location filename="../../Misc/Language.cpp" line="575"/>
         <source>Nyankole</source>
         <translation>Nkore, Runyankole</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="574"/>
+        <location filename="../../Misc/Language.cpp" line="576"/>
         <source>Nyoro</source>
         <translation>Nyoro</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="575"/>
+        <location filename="../../Misc/Language.cpp" line="577"/>
         <source>Nzima</source>
         <translation>Nzema</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="576"/>
+        <location filename="../../Misc/Language.cpp" line="578"/>
         <source>Occitan/Provencal- Old (to 1500)</source>
         <translation>Occitan/Provençal ancien (avant 1500)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="577"/>
+        <location filename="../../Misc/Language.cpp" line="579"/>
         <source>Official/Imperial Aramaic (700-300 BCE)</source>
         <translation>Araméen officiel/impérial (700-300 av. JC)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="578"/>
+        <location filename="../../Misc/Language.cpp" line="580"/>
         <source>Osage</source>
         <translation>Osage</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="579"/>
+        <location filename="../../Misc/Language.cpp" line="581"/>
         <source>Otomian languages</source>
         <translation>Langues ottomanes</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="580"/>
+        <location filename="../../Misc/Language.cpp" line="582"/>
         <source>Pahlavi</source>
         <translation>Pehlevi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="581"/>
+        <location filename="../../Misc/Language.cpp" line="583"/>
         <source>Palauan</source>
         <translation>Paluan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="582"/>
+        <location filename="../../Misc/Language.cpp" line="584"/>
         <source>Pangasinan</source>
         <translation>Pangasinan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="583"/>
+        <location filename="../../Misc/Language.cpp" line="585"/>
         <source>Papiamento</source>
         <translation>Papiamento</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="584"/>
+        <location filename="../../Misc/Language.cpp" line="586"/>
         <source>Papuan languages</source>
         <translation>Langues papoues</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="585"/>
+        <location filename="../../Misc/Language.cpp" line="587"/>
         <source>Paraguayan Guaraní</source>
         <translation>Guaraní paraguayen</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="586"/>
+        <location filename="../../Misc/Language.cpp" line="588"/>
         <source>Persian- Old (ca.600-400 B.C.)</source>
         <translation>Perse ancien (600-400 av. JC)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="587"/>
+        <location filename="../../Misc/Language.cpp" line="589"/>
         <source>Philippine languages</source>
         <translation>Langues philippines</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="588"/>
+        <location filename="../../Misc/Language.cpp" line="590"/>
         <source>Phoenician</source>
         <translation>Phénicien</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="589"/>
+        <location filename="../../Misc/Language.cpp" line="591"/>
         <source>Pohnpeian</source>
         <translation>Pohnpei</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="590"/>
+        <location filename="../../Misc/Language.cpp" line="592"/>
         <source>Prakrit languages</source>
         <translation>Langues prakrit</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="591"/>
+        <location filename="../../Misc/Language.cpp" line="593"/>
         <source>Rajasthani</source>
         <translation>Rajasthani</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="592"/>
+        <location filename="../../Misc/Language.cpp" line="594"/>
         <source>Rapanui</source>
         <translation>Rapanui</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="593"/>
+        <location filename="../../Misc/Language.cpp" line="595"/>
         <source>Rarotongan, Cook Islands Maori</source>
         <translation>Maori des îles Cook, Rarotongien</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="594"/>
+        <location filename="../../Misc/Language.cpp" line="596"/>
         <source>Reserved for local use</source>
         <translation>Réservé pour une utilisation locale</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="595"/>
+        <location filename="../../Misc/Language.cpp" line="597"/>
         <source>Romance languages</source>
         <translation>Langues romanes</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="596"/>
+        <location filename="../../Misc/Language.cpp" line="598"/>
         <source>Romany</source>
         <translation>Romany</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="597"/>
+        <location filename="../../Misc/Language.cpp" line="599"/>
         <source>Salishan languages</source>
         <translation>Langues salish</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="598"/>
+        <location filename="../../Misc/Language.cpp" line="600"/>
         <source>Samaritan Aramaic</source>
         <translation>Hébreu samaritain</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="599"/>
+        <location filename="../../Misc/Language.cpp" line="601"/>
         <source>Sami languages</source>
         <translation>Langues sami</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="600"/>
+        <location filename="../../Misc/Language.cpp" line="602"/>
         <source>Sandawe</source>
         <translation>Sandawe</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="601"/>
+        <location filename="../../Misc/Language.cpp" line="603"/>
         <source>Santali</source>
         <translation>Santali</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="602"/>
+        <location filename="../../Misc/Language.cpp" line="604"/>
         <source>Sasak</source>
         <translation>Sasak</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="603"/>
+        <location filename="../../Misc/Language.cpp" line="605"/>
         <source>Scots</source>
         <translation>Scots</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="604"/>
+        <location filename="../../Misc/Language.cpp" line="606"/>
         <source>Selkup</source>
         <translation>Selkoupe</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="605"/>
+        <location filename="../../Misc/Language.cpp" line="607"/>
         <source>Semitic languages</source>
         <translation>Langues sémitiques</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="606"/>
+        <location filename="../../Misc/Language.cpp" line="608"/>
         <source>Serer</source>
         <translation>Sérère</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="607"/>
+        <location filename="../../Misc/Language.cpp" line="609"/>
         <source>Shan</source>
         <translation>Shan</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="608"/>
+        <location filename="../../Misc/Language.cpp" line="610"/>
         <source>Sicilian</source>
         <translation>Sicilien</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="609"/>
+        <location filename="../../Misc/Language.cpp" line="611"/>
         <source>Sidamo</source>
         <translation>Sidamo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="610"/>
+        <location filename="../../Misc/Language.cpp" line="612"/>
         <source>Sign Languages</source>
         <translation>Langue des signes</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="611"/>
+        <location filename="../../Misc/Language.cpp" line="613"/>
         <source>Siksika</source>
         <translation>Siksika</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="612"/>
+        <location filename="../../Misc/Language.cpp" line="614"/>
         <source>Sino-Tibetan languages</source>
         <translation>Langues sino-tibétaines</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="613"/>
+        <location filename="../../Misc/Language.cpp" line="615"/>
         <source>Siouan languages</source>
         <translation>Langues siouanes</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="614"/>
+        <location filename="../../Misc/Language.cpp" line="616"/>
         <source>Skolt Sami</source>
         <translation>Same skolt</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="615"/>
+        <location filename="../../Misc/Language.cpp" line="617"/>
         <source>Slave (Athapascan)</source>
         <translation>Slave (Athapascanes)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="616"/>
+        <location filename="../../Misc/Language.cpp" line="618"/>
         <source>Slavic languages</source>
         <translation>Langues slaves</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="617"/>
+        <location filename="../../Misc/Language.cpp" line="619"/>
         <source>Sogdian</source>
         <translation>Sogdien</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="618"/>
+        <location filename="../../Misc/Language.cpp" line="620"/>
         <source>Songhai languages</source>
         <translation>Langues songhaï</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="619"/>
+        <location filename="../../Misc/Language.cpp" line="621"/>
         <source>Soninke</source>
         <translation>Soninké</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="620"/>
+        <location filename="../../Misc/Language.cpp" line="622"/>
         <source>Sorbian languages</source>
         <translation>Langues sorabes</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="621"/>
+        <location filename="../../Misc/Language.cpp" line="623"/>
         <source>South American Indian languages</source>
         <translation>Langues indiennes d&apos;Amérique du Sud</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="622"/>
+        <location filename="../../Misc/Language.cpp" line="624"/>
         <source>Southern Altai</source>
         <translation>Altaï du Sud</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="623"/>
+        <location filename="../../Misc/Language.cpp" line="625"/>
         <source>Southern Sami</source>
         <translation>Same du Sud</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="624"/>
+        <location filename="../../Misc/Language.cpp" line="626"/>
         <source>Sranan Tongo</source>
         <translation>Sranan Tongo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="625"/>
+        <location filename="../../Misc/Language.cpp" line="627"/>
         <source>Sukuma</source>
         <translation>Soukouma</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="626"/>
+        <location filename="../../Misc/Language.cpp" line="628"/>
         <source>Sumerian</source>
         <translation>Sumérien</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="627"/>
+        <location filename="../../Misc/Language.cpp" line="629"/>
         <source>Susu</source>
         <translation>Soussou</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="628"/>
+        <location filename="../../Misc/Language.cpp" line="630"/>
         <source>Alsatian, Swiss German, Alemannic</source>
         <translation>Alsacien, Allemand suisse , Alémanique</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="629"/>
+        <location filename="../../Misc/Language.cpp" line="631"/>
         <source>Syriac</source>
         <translation>Syriaque</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="630"/>
+        <location filename="../../Misc/Language.cpp" line="632"/>
         <source>Tai languages</source>
         <translation>Langues Tai</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="631"/>
+        <location filename="../../Misc/Language.cpp" line="633"/>
         <source>Tamashek</source>
         <translation>Tamashek</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="632"/>
+        <location filename="../../Misc/Language.cpp" line="634"/>
         <source>Tereno</source>
         <translation>Tereno</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="633"/>
+        <location filename="../../Misc/Language.cpp" line="635"/>
         <source>Tetum</source>
         <translation>Tetum</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="634"/>
+        <location filename="../../Misc/Language.cpp" line="636"/>
         <source>Tigre</source>
         <translation>Tigre</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="635"/>
+        <location filename="../../Misc/Language.cpp" line="637"/>
         <source>Timne</source>
         <translation>Timne</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="636"/>
+        <location filename="../../Misc/Language.cpp" line="638"/>
         <source>Tiv</source>
         <translation>Tiv</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="637"/>
+        <location filename="../../Misc/Language.cpp" line="639"/>
         <source>Tlingit</source>
         <translation>Tlingit</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="638"/>
+        <location filename="../../Misc/Language.cpp" line="640"/>
         <source>Tok Pisin</source>
         <translation>Tok Pisin</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="639"/>
+        <location filename="../../Misc/Language.cpp" line="641"/>
         <source>Tokelau</source>
         <translation>Tokelau</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="640"/>
+        <location filename="../../Misc/Language.cpp" line="642"/>
         <source>Tonga (Nyasa)</source>
         <translation>Tonga (Nyasa)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="641"/>
+        <location filename="../../Misc/Language.cpp" line="643"/>
         <source>Tsimshian</source>
         <translation>Tsimshian</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="642"/>
+        <location filename="../../Misc/Language.cpp" line="644"/>
         <source>Tumbuka</source>
         <translation>Tumbuka</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="643"/>
+        <location filename="../../Misc/Language.cpp" line="645"/>
         <source>Tupi languages</source>
         <translation>Langues tupi</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="644"/>
+        <location filename="../../Misc/Language.cpp" line="646"/>
         <source>Turkish- Ottoman (1500-1928)</source>
         <translation>Turc ottoman (1500-1928)</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="645"/>
+        <location filename="../../Misc/Language.cpp" line="647"/>
         <source>Tuvalu</source>
         <translation>Tuvalu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="646"/>
+        <location filename="../../Misc/Language.cpp" line="648"/>
         <source>Tuvinian</source>
         <translation>Tuvinien</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="647"/>
+        <location filename="../../Misc/Language.cpp" line="649"/>
         <source>Udmurt</source>
         <translation>Udmurt</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="648"/>
+        <location filename="../../Misc/Language.cpp" line="650"/>
         <source>Ugaritic</source>
         <translation>Ougaritique</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="649"/>
+        <location filename="../../Misc/Language.cpp" line="651"/>
         <source>Umbundu</source>
         <translation>Umbundu</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="650"/>
+        <location filename="../../Misc/Language.cpp" line="652"/>
         <source>Uncoded languages</source>
         <translation>Langues non codées</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="651"/>
+        <location filename="../../Misc/Language.cpp" line="653"/>
         <source>Undetermined</source>
         <translation>Indéfini</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="652"/>
+        <location filename="../../Misc/Language.cpp" line="654"/>
         <source>Upper Sorbian</source>
         <translation>Haut-sorabe</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="653"/>
+        <location filename="../../Misc/Language.cpp" line="655"/>
         <source>Vai</source>
         <translation>Vai</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="654"/>
+        <location filename="../../Misc/Language.cpp" line="656"/>
         <source>Votic</source>
         <translation>Vote</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="655"/>
+        <location filename="../../Misc/Language.cpp" line="657"/>
         <source>Wakashan languages</source>
         <translation>Langues wakashanes</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="656"/>
+        <location filename="../../Misc/Language.cpp" line="658"/>
         <source>Waray</source>
         <translation>Waray</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="657"/>
+        <location filename="../../Misc/Language.cpp" line="659"/>
         <source>Washo</source>
         <translation>Washo</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="658"/>
+        <location filename="../../Misc/Language.cpp" line="660"/>
         <source>Wolaitta, Wolaytta</source>
         <translation>Wolaitta, Wolaytta</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="659"/>
+        <location filename="../../Misc/Language.cpp" line="661"/>
         <source>Yakut</source>
         <translation>Yakut</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="660"/>
+        <location filename="../../Misc/Language.cpp" line="662"/>
         <source>Yao</source>
         <translation>Yao</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="661"/>
+        <location filename="../../Misc/Language.cpp" line="663"/>
         <source>Yapese</source>
         <translation>Yapese</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="662"/>
+        <location filename="../../Misc/Language.cpp" line="664"/>
         <source>Yupik languages</source>
         <translation>Langues Yupik</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="663"/>
+        <location filename="../../Misc/Language.cpp" line="665"/>
         <source>Zande languages</source>
         <translation>Langues Zande</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="664"/>
+        <location filename="../../Misc/Language.cpp" line="666"/>
         <source>Zapotec</source>
         <translation>Zapotec</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="665"/>
+        <location filename="../../Misc/Language.cpp" line="667"/>
         <source>Zenaga</source>
         <translation>Zenaga</translation>
     </message>
     <message>
-        <location filename="../../Misc/Language.cpp" line="666"/>
+        <location filename="../../Misc/Language.cpp" line="668"/>
         <source>Zuni</source>
         <translation>Zuni</translation>
     </message>
