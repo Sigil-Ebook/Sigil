@@ -67,7 +67,19 @@ prepare_baseenv() {
     python3-lxml \
     python3-six \
     python3-css-parser \
-    python3-dulwich
+    python3-dulwich \
+    libxkbcommon-dev \
+    libnss3-dev \
+    libnspr4-dev \
+    libxcomposite-dev \
+    libxdamage-dev \
+    libxrender-dev \
+    libxrandr-dev
+    libxtst-dev \
+    libxi-dev \
+    libasound2-dev \
+    libxkbfile-dev \
+    libegl-dev
 
 
   apt-get autoremove --purge -y
