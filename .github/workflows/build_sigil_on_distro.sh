@@ -74,7 +74,7 @@ prepare_baseenv() {
     libxcomposite-dev \
     libxdamage-dev \
     libxrender-dev \
-    libxrandr-dev
+    libxrandr-dev \
     libxtst-dev \
     libxi-dev \
     libasound2-dev \
