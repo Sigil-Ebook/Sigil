@@ -2,7 +2,7 @@
 
 # WARNING!!  Do not attempt to run this script outside of a docker container. Doing so can damage your system!!
 
-# This script is for building the sigil appimage
+# This script is for building sigil with distro tools
 # Please run this script in docker image: ubuntu:24.04
 # E.g: docker run --rm -v `git rev-parse --show-toplevel`:/reporoot ubuntu:24.04 /reporoot/.github/workflows/build_sigil_on_distro.sh
 # Artifacts will copy to the same directory.
@@ -10,7 +10,7 @@
 set -o pipefail
 
 #export QT6_VER="6.4"
-#export QT6_VER_FULL=6.4.2
+export QT6_VER_FULL=6.4.2
 #export QT6_FN="642"
 export LC_ALL="C.UTF-8"
 export DEBIAN_FRONTEND=noninteractive
@@ -62,14 +62,6 @@ prepare_baseenv() {
     libhunspell-dev \
     libpcre2-dev \
     libminizip-dev\
-    qt6-webengine-dev \
-    qt6-webengine-dev-tools \
-    qt6-base-dev-tools \
-    qt6-tools-dev \
-    qt6-tools-dev-tools \
-    qt6-l10n-tools \
-    libqt6svg6-dev \
-    libqt6webenginecore6-bin \
     python3-dev \
     python3-pip \
     python3-lxml \
@@ -92,6 +84,9 @@ setup_qt6() {
   python3 -m aqt install-qt --outputdir /opt/sigiltools/Qt linux desktop "${QT6_VER_FULL}" gcc_64 -m qtpositioning qtpdf qtwebchannel qtserialport qtimageformats qtwebengine
   export PATH=/opt/sigiltools/Qt/$QT6_VER_FULL/gcc_64/bin:$PATH
   export LD_LIBRARY_PATH=/opt/sigiltools/Qt/${QT6_VER_FULL}/gcc_64/lib:$LD_LIBRARY_PATH
+  export Qt6_Dir="/opt/sigiltools/Qt/${QT6_VER_FULL}/gcc_64/lib/cmake/Qt6"
+  export Qt6_DIR="/opt/sigiltools/Qt/${QT6_VER_FULL}/gcc_64/lib/cmake/Qt6"
+  export QT_PLUGIN_PATH="/opt/sigiltools/Qt/${QT6_VER_FULL}/gcc_64/plugins"
   echo "Qt version $(qmake -v)"
 }
 
@@ -102,6 +97,7 @@ build_sigil() {
   cmake /reporoot \
     -G "Unix Makefiles" \
     -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_PREFIX_PATH="/opt/sigiltools/Qt/${QT6_VER_FULL}/gcc_64/lib/cmake" \
     -DUSE_SYSTEM_LIBS=1 \
     -DSYSTEM_LIBS_REQUIRED=1
   make -j$(getconf _NPROCESSORS_ONLN)
@@ -111,6 +107,6 @@ build_sigil() {
 
 time {
   prepare_baseenv
-  #setup_qt6
+  setup_qt6
   build_sigil
 }
