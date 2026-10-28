@@ -366,23 +366,24 @@
     <message>
         <location filename="../../Widgets/AdjustImage.cpp" line="547"/>
         <source>Reload Image From Disk</source>
-        <translation type="unfinished"/>
+        <translation>Поново учитај слику са диска</translation>
     </message>
     <message>
         <location filename="../../Widgets/AdjustImage.cpp" line="548"/>
         <source>This image has unsaved modifications.
 Do you want to discard all changes and reload from disk?</source>
-        <translation type="unfinished"/>
+        <translation>Ова слика има несачуване измене.
+Желите ли да одбаците све измене и да је поново учитате са диска?</translation>
     </message>
     <message>
         <location filename="../../Widgets/AdjustImage.cpp" line="554"/>
         <source>Image reload from disk failed.</source>
-        <translation type="unfinished"/>
+        <translation>Није успело поновно учитавање слике са диска.</translation>
     </message>
     <message>
         <location filename="../../Widgets/AdjustImage.cpp" line="563"/>
         <source>Image reloaded from disk.</source>
-        <translation type="unfinished"/>
+        <translation>Слика је поново учитана са диска.</translation>
     </message>
 </context>
 <context>
@@ -5689,7 +5690,7 @@ You can then check or uncheck individual headings in the list above.</source>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="388"/>
         <source>Reload Image From Disk</source>
-        <translation type="unfinished"/>
+        <translation>Поново учитај слику са диска</translation>
     </message>
     <message>
         <location filename="../../Tabs/ImageTab.cpp" line="577"/>
@@ -8468,7 +8469,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="467"/>
         <source>Gilaki</source>
-        <translation type="unfinished"/>
+        <translation>Гилаки</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="468"/>
@@ -8868,7 +8869,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="547"/>
         <source>Mazandarani</source>
-        <translation type="unfinished"/>
+        <translation>Мазандарани</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="548"/>

@@ -641,7 +641,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="472"/>
         <source>Choose which icon theme you want to use (requires Sigil restart).</source>
-        <translation>사용할 아이콘 테마를 선택하세요(시길을 다시 시작해야 적용됩니다)</translation>
+        <translation>사용할 아이콘 테마를 선택하세요(시길 재시작 필요)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="475"/>
@@ -721,7 +721,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="647"/>
         <source>(Needs Sigil Restart)</source>
-        <translation>(시길을 다시 시작해야합니다)</translation>
+        <translation>(시길 재시작 필요)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="676"/>
@@ -736,7 +736,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="692"/>
         <source>Change Font (Needs Sigil Restart)</source>
-        <translation>글꼴 변경(시길을 다시 시작해야합니다)</translation>
+        <translation>글꼴 변경(시길 재시작 필요)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="715"/>
@@ -766,12 +766,12 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="755"/>
         <source>Show colored border around Widgets when they have focus</source>
-        <translation>현재 사용 중인 위젯의 테두리 색 강조</translation>
+        <translation>사용 중인 위젯의 테두리 색 강조</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="758"/>
         <source>Highlight Widgets with Focus (Needs Sigil Restart)</source>
-        <translation>현재 사용 중인 위젯 강조(시길 재시작 필요)</translation>
+        <translation>사용 중인 위젯 강조(시길 재시작 필요)</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="768"/>
@@ -796,7 +796,7 @@ if a sans-serif font-family specified in your CSS</source>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="793"/>
         <source>Show Automation menu.</source>
-        <translation>자동화 메뉴 표시.</translation>
+        <translation>자동화 메뉴 표시</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PAppearanceWidget.ui" line="811"/>
@@ -3975,7 +3975,7 @@ locations and names for the OPF, NCX and/or Nav.</source>
     <message>
         <location filename="../../Widgets/FileDropZone.h" line="42"/>
         <source>Drop Files Here To Add to Epub</source>
-        <translation>여기에 파일을 드롭하여 EPUB에 추가</translation>
+        <translation>파일을 드롭하여 EPUB에 추가</translation>
     </message>
 </context>
 <context>
@@ -4683,7 +4683,7 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="243"/>
         <source> Control use of drag and drop to add files to an epub.</source>
-        <translation>EPUB에 파일을 추가할 때 드래그 앤 드롭 기능 적용</translation>
+        <translation>드래그 앤 드롭 파일 추가 기능 사용</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="261"/>
@@ -4693,7 +4693,7 @@ mended.</source>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="264"/>
         <source>May use drag and drop to add files.</source>
-        <translation>드래그 앤 드롭 기능을 사용하여 파일을 추가할 수 있습니다.</translation>
+        <translation>드래그 앤 드롭으로 파일 추가하는 영역 표시</translation>
     </message>
     <message>
         <location filename="../../Form_Files/PGeneralSettingsWidget.ui" line="288"/>
