@@ -13718,7 +13718,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="99"/>
         <source>Abridger</source>
-        <translation>Ograniczający</translation>
+        <translation>Autor skrótu</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="99"/>
@@ -13878,7 +13878,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="115"/>
         <source>Associated name</source>
-        <translation>Nazwy powiązane</translation>
+        <translation>Nazwa powiązana</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="115"/>
@@ -13888,7 +13888,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="116"/>
         <source>Attributed name</source>
-        <translation>Nazwa Atrybutu</translation>
+        <translation>Autor przypisany</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="116"/>
@@ -13998,7 +13998,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="127"/>
         <source>Binding designer</source>
-        <translation>Projektant introligator</translation>
+        <translation>Projektant oprawy</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="127"/>
@@ -14158,7 +14158,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="143"/>
         <source>Collection registrar</source>
-        <translation>Rejestrator Zbioru</translation>
+        <translation>Rejestrator zbioru</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="143"/>
@@ -14408,7 +14408,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="168"/>
         <source>Copyright claimant</source>
-        <translation>Prawa autorskie powoda</translation>
+        <translation>Zgłaszający prawa autorskie</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="168"/>
@@ -14418,7 +14418,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="169"/>
         <source>Copyright holder</source>
-        <translation>Właściciel Praw Autorskich</translation>
+        <translation>Właściciel praw autorskich</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="169"/>
@@ -14458,7 +14458,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="173"/>
         <source>Court governed</source>
-        <translation>Regulacje prawne</translation>
+        <translation>Sąd właściwy</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="173"/>
@@ -14508,7 +14508,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="178"/>
         <source>Dancer</source>
-        <translation>Tancerka</translation>
+        <translation>Tancerz</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="178"/>
@@ -14518,7 +14518,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="179"/>
         <source>Data contributor</source>
-        <translation>Specjalista danych</translation>
+        <translation>Dostawca danych</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="179"/>
@@ -14538,7 +14538,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="181"/>
         <source>Dedicatee</source>
-        <translation>Dedykacja</translation>
+        <translation>Adresat dedykacji</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="181"/>
@@ -14588,7 +14588,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="186"/>
         <source>Degree grantor</source>
-        <translation>Ranga nadającego</translation>
+        <translation>Instytucja nadająca stopień</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="186"/>
@@ -14708,7 +14708,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="198"/>
         <source>Editor</source>
-        <translation>Edytor</translation>
+        <translation>Redaktor</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="198"/>
@@ -14728,7 +14728,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="200"/>
         <source>Editor of moving image work</source>
-        <translation>Redaktor ruchomego obrazu pracy</translation>
+        <translation>Montażysta (redaktor dzieła filmowego)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="200"/>
@@ -14958,7 +14958,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="223"/>
         <source>Illuminator</source>
-        <translation>Dekorator</translation>
+        <translation>Iluminator</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="223"/>
@@ -14998,7 +14998,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="227"/>
         <source>Interviewee</source>
-        <translation>Ankietowany</translation>
+        <translation>Rozmówca (udzielający wywiadu)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="227"/>
@@ -15008,7 +15008,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="228"/>
         <source>Interviewer</source>
-        <translation>Ankieter</translation>
+        <translation>Przeprowadzający wywiad</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="228"/>
@@ -15098,7 +15098,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="237"/>
         <source>Lender</source>
-        <translation>Pożyczkodawcy</translation>
+        <translation>Pożyczkodawca</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="237"/>
@@ -15278,7 +15278,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="255"/>
         <source>Metadata contact</source>
-        <translation>Metadane kontaktu</translation>
+        <translation>Kontakt w sprawie metadanych</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="255"/>
@@ -15468,7 +15468,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="274"/>
         <source>Patron</source>
-        <translation>Szef</translation>
+        <translation>Mecenas</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="274"/>
@@ -15508,7 +15508,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="278"/>
         <source>Plaintiff</source>
-        <translation>Poszkodowany</translation>
+        <translation>Powód</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="278"/>
@@ -15518,22 +15518,22 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="279"/>
         <source>Plaintiff-appellant</source>
-        <translation>Poszkodowany - wnoszący odwołanie</translation>
+        <translation>Powód - wnoszący odwołanie</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="279"/>
         <source>Use for a plaintiff who takes an appeal from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
-        <translation>Użyj dla poszkodowanego, który odwołuje się z jednego sądu do drugiego lub jurysdykcji by zmienić wyrok, zazwyczaj w postępowaniu prawnym.</translation>
+        <translation>Użyj dla powoda, który odwołuje się z jednego sądu do drugiego lub jurysdykcji by zmienić wyrok, zazwyczaj w postępowaniu prawnym.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="280"/>
         <source>Plaintiff-appellee</source>
-        <translation>Poszkodowany - pozwany</translation>
+        <translation>Powód - pozwany</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="280"/>
         <source>Use for a plaintiff against whom an appeal is taken from one court or jurisdiction to another to reverse the judgment, usually in a legal proceeding.</source>
-        <translation>Użyj dla poszkodowanego, przeciwko któremu odwołanie jest wykonane z jednego sądu do drugiego lub jurysdykcji by zmienić wyrok, zazwyczaj w postępowaniu prawnym.</translation>
+        <translation>Użyj dla powoda przeciwko któremu odwołanie jest wykonane z jednego sądu do drugiego lub jurysdykcji by zmienić wyrok, zazwyczaj w postępowaniu prawnym.</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="281"/>
@@ -15598,7 +15598,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="287"/>
         <source>Process contact</source>
-        <translation>Znający procedury</translation>
+        <translation>Kontakt w sprawie procesu</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="287"/>
@@ -15628,7 +15628,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="290"/>
         <source>Production designer</source>
-        <translation>Kierownik produkcji</translation>
+        <translation>Scenograf (projektant produkcji)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="290"/>
@@ -15794,7 +15794,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="307"/>
         <source>Redactor</source>
-        <translation>Redaktor</translation>
+        <translation>Redaktor (opracowanie tekstu)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="307"/>
@@ -15904,7 +15904,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="318"/>
         <source>Restager</source>
-        <translation>Przygotowujący</translation>
+        <translation>Realizator wznowienia</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="318"/>
@@ -16044,7 +16044,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="332"/>
         <source>Singer</source>
-        <translation>Piosenkarka</translation>
+        <translation>Śpiewak (wokalista)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="332"/>
@@ -16134,7 +16134,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="341"/>
         <source>Supporting host</source>
-        <translation>Wsparcie gospodarza</translation>
+        <translation>Współprowadzący</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="341"/>
@@ -16204,7 +16204,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="348"/>
         <source>Transcriber</source>
-        <translation>Transkrypcja</translation>
+        <translation>Autor transkrypcji (transkrybent)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="348"/>
@@ -16284,7 +16284,7 @@ Czy automatycznie poprawić pliki przed zapisaniem? Lub anulować zapisywanie?</
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="356"/>
         <source>Wood-engraver</source>
-        <translation>Rzeźbiarz w drewnie</translation>
+        <translation>Drzeworytnik (drzeworyt sztorcowy)</translation>
     </message>
     <message>
         <location filename="../../Misc/MarcRelators.cpp" line="356"/>

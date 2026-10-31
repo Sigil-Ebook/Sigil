@@ -8471,7 +8471,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="467"/>
         <source>Gilaki</source>
-        <translation type="unfinished"/>
+        <translation>吉拉基语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="468"/>
@@ -8871,7 +8871,7 @@ Do you want to save your changes?</source>
     <message>
         <location filename="../../Misc/Language.cpp" line="547"/>
         <source>Mazandarani</source>
-        <translation type="unfinished"/>
+        <translation>马赞德兰语</translation>
     </message>
     <message>
         <location filename="../../Misc/Language.cpp" line="548"/>
