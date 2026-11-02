@@ -265,7 +265,7 @@ void BookBrowser::UpdateSelection(Resource *resource)
 
     if ((item_rect.top() < MIN_SPACE) || ((tv_rect.bottom() - item_rect.bottom()) < MIN_SPACE)) {
         // Too close to the top or bottom
-        m_TreeView->scrollTo(index, QAbstractItemView::PositionAtCenter);
+        m_TreeView->scrollTo(index, QAbstractItemView::EnsureVisible);
     }
 }
 
