@@ -76,7 +76,8 @@ TEXT_MIMETYPES = [
     'text/css',
     'application/x-dtbncx+xml',
     'application/oebps-package+xml',
-    'application/oebs-page-map+xml',
+    'application/oebps-page-map+xml',
+    'application/vnd.adobe-page-map+xml',
     'application/smil+xml',
     'application/adobe-page-template+xml',
     'application/vnd.adobe-page-template+xml',
@@ -434,7 +435,7 @@ class Wrapper(object):
     def getpagemapid(self):
         for id in self.id_to_mime:
             mime = self.id_to_mime[id]
-            if mime == "application/oebs-page-map+xml":
+            if mime in ("application/oebps-page-map+xml", "application/vnd.adobe-page-map+xml"):
                 return id
         return None
 
