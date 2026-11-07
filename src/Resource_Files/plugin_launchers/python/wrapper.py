@@ -81,7 +81,7 @@ TEXT_MIMETYPES = [
     'application/adobe-page-template+xml',
     'application/vnd.adobe-page-template+xml',
     'text/javascript',
-    'application/javascript'
+    'application/javascript',
     'application/pls+xml'
 ]
 
