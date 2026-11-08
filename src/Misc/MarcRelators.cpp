@@ -302,7 +302,6 @@ void MarcRelators::SetRelatorsMap()
          tr("Radio director") << "rdd" << tr("A director responsible for the general management and supervision of a radio program.") <<
          tr("Radio producer") << "rpc" << tr("A producer responsible for most of the business aspects of a radio program.") <<
          tr("Recipient") << "rcp" << tr("Use for a person or organization to whom correspondence is addressed.") <<
-         tr("Recording engineer") << "rce" << tr("Use for a person or organization who supervises the technical aspects of a sound or video recording session.") <<
          tr("Recording engineer") << "rce" << tr("A person contributing to a resource by supervising the technical aspects of a sound or video recording session.") <<
          tr("Redactor") << "red" << tr("Use for a person or organization who writes or develops the framework for an item without being intellectually responsible for its content.") <<
          tr("Renderer") << "ren" << tr("Use for a person or organization who prepares drawings of architectural designs (i.e., renderings) in accurate, representational perspective to show what the project will look like when completed.") <<
