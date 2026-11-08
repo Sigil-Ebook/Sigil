@@ -176,9 +176,9 @@ tr("Aside: Tip") << "tip" << "<aside role=\"doc-tip\" epub:type=\"tip\" aria-lab
 
 tr("Backlink from Footnote") << "fn_backlink" << "<a href=\"#ref_fn_N_\" epub:type=\"backlink\" role=\"doc-backlink\">LABEL_FOR_FOOTNOTE_BACKLINK [_N_]</a>" <<
 
-tr("Backlink from Endnote") << "endnote_backlink" << "<a href=\"HREF_RETURN_FROM_ENDNOTE#en_N_\" epub:type=\"backlink\" role=\"doc-backlink\">LABEL_FOR_ENDNOTE_BACKLINK [_N_]</a>" <<
+tr("Backlink from Endnote") << "endnote_backlink" << "<a href=\"HREF_RETURN_FROM_ENDNOTE#ref_en_N_\" epub:type=\"backlink\" role=\"doc-backlink\">LABEL_FOR_ENDNOTE_BACKLINK [_N_]</a>" <<
 
-tr("Endnote in li") << "endnote_li" << "    <li id=\"en_N_\" epub:type=\"endnote\">\n      <p>\\1\n        <a href=\"HREF_RETURN_FROM_ENDNOTE#en_N_\" epub:type=\"backlink\" role=\"doc-backlink\">LABEL_FOR_ENDNOTE_BACKLINK [_N_]</a>\n      </p>\n    </li>\n" <<
+tr("Endnote in li") << "endnote_li" << "    <li id=\"en_N_\">\n      <p>\\1\n        <a href=\"HREF_RETURN_FROM_ENDNOTE#ref_en_N_\" epub:type=\"backlink\" role=\"doc-backlink\">LABEL_FOR_ENDNOTE_BACKLINK [_N_]</a>\n      </p>\n    </li>\n" <<
 
 tr("Footnote in aside") << "fn_aside" << "<aside id=\"fn_N_\" epub:type=\"footnote\" role=\"doc-footnote\">\n  <p>\\1\n    <a href=\"#ref_fn_N_\" epub:type=\"backlink\" role=\"doc-backlink\">LABEL_FOR_FOOTNOTE_BACKLINK [_N_]</a>\n  </p>\n</aside>\n" <<
 
