@@ -1,3 +1,22 @@
+Sigil-2.8.6
+   Bug Fixes
+
+     - fix incorrect Aria Clips icon in the Fluent Theme (Thankyou BeckyEbook)
+
+     - fix bug in python plugin wrapper.py that caused application/javascript and application/pls+xml files
+         to be returned as bytes (utf-8) instead of normal python strings (Thankyou BeckyEbook)
+
+     - fix bug in PluginRunner and python wrapper.py in handling oebps-page-map+xml and
+         application/vnd.adobe-page-map.xml (Thankyou BeckyEbook)
+
+     - remove duplicate entry for Recording Engineer in MarcRelators list (Thank you BeckyEbook)
+
+     - fix endnote backlink in Aria Clips and remove deprecated epub:type endnote use (Thankyou BeckyEbook)
+
+     - fix bug in epub3 when updating or changing the cover image that can cause OPF manifest entry damage
+          (Thankyou ABeater)
+
+
 Sigil-2.8.5
    New Features
      - remove outdated CSS parser and replace it with a modern spec-compliant Lexbor based css parser.
