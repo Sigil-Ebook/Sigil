@@ -1342,7 +1342,8 @@ void OPFResource::SetResourceAsCoverImage(ImageResource *image_resource)
     }
     // now walk the manifest removing all existing cover-image properties
     if (p.m_package.m_version.startsWith("3")) {
-        foreach(ManifestEntry man, p.m_manifest) {
+        for (int i = 0; i < p.m_manifest.count(); ++i) {
+            ManifestEntry man = p.m_manifest.at(i);
             QString properties = man.m_atts.value("properties", "");
             if (properties.contains("cover-image")) {
                 properties = properties.remove("cover-image");
@@ -1351,7 +1352,7 @@ void OPFResource::SetResourceAsCoverImage(ImageResource *image_resource)
                 if (!properties.isEmpty()) {
                     man.m_atts["properties"] = properties;
                 }
-                p.m_manifest.replace(pos, man);
+                p.m_manifest.replace(i, man);
             }
         }
     }
