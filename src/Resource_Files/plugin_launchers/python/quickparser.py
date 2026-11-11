@@ -275,7 +275,8 @@ class QuickXHTMLParser(object):
         res.append('<%s' % tname)
         if tattr is not None:
             for key in tattr:
-                res.append(' %s="%s"' % (key, tattr[key]))
+                val = tattr[key].replace('"', '&quot;')
+                res.append(' %s="%s"' % (key, val))
         if ttype == 'single':
             res.append('/>')
         else :
