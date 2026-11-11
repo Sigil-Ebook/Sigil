@@ -2565,26 +2565,26 @@ bool MainWindow::AddCover()
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
     // Find existing cover HTML file if there is one.
+    // First collect information on semantic codes already set to find existing html cover
+    QHash<QString, QStringList> semantic_code_info;
+    if (version.startsWith('3')) {
+        NavProcessor navproc(m_Book->GetConstOPF()->GetNavResource());
+        semantic_code_info = navproc.GetLandmarkCodeForPaths();
+    } else {
+        semantic_code_info = m_Book->GetOPF()->GetSemanticCodeForPaths();
+    }
+
     HTMLResource *html_cover_resource = NULL;
-    QList<HTMLResource *> html_resources;
     QList<Resource *> resources = GetAllHTMLResources();
+
     foreach(Resource * resource, resources) {
         HTMLResource *html_resource = qobject_cast<HTMLResource *>(resource);
-
         if (html_resource) {
-            html_resources.append(html_resource);
-
             // Check if this is an existing cover file.
-            QString semantic_code;
-            if (version.startsWith('3')) {
-                NavProcessor navproc(m_Book->GetConstOPF()->GetNavResource());
-                semantic_code = navproc.GetLandmarkCodeForResource(html_resource);
-            } else {
-                semantic_code = m_Book->GetOPF()->GetGuideSemanticCodeForResource(html_resource);
-            }
-            if (semantic_code == "cover") {
+            QStringList semcodes = semantic_code_info.value(html_resource->GetRelativePath(), QStringList() << "");
+            if (semcodes.contains("cover")) {
                 html_cover_resource = html_resource;
-            } else if (resource->Filename().toLower() == HTML_COVER_FILENAME && html_cover_resource == NULL) {
+            } else if (html_resource->Filename().toLower() == HTML_COVER_FILENAME && html_cover_resource == NULL) {
                 html_cover_resource = html_resource;
             }
         }
