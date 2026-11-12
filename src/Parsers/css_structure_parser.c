@@ -914,13 +914,26 @@ css_consule_tokens(lxb_css_parser_t *parser,
     }
 }
 
+/* comments can occur inside selectors and other places so use a dedicated buffer */
 static void comment_info(const lxb_css_syntax_token_t * token, void *uctx)
 {
     /* Comment */
-    position_info(token, uctx);
-    set_tokenstate(TKN_COMMENT, uctx);
-    process_single_token(token, uctx);
-    push_csstoken(uctx);
+    if (token == NULL) return;
+    CtxData* actx = (CtxData*)(uctx);
+    DBuf comment_data = dbuf_new(64);
+    csstoken_type kind = TKN_COMMENT;
+    size_t line16 = 0;
+    size_t col16 = 0;
+    size_t pos16 = 0;
+    position_from_token(token, &line16, &col16, &pos16, uctx);
+    dbuf_null(&comment_data);
+    lxb_char_t* begin = (lxb_char_t *)lxb_css_syntax_token_base(token)->begin;
+    size_t len = lxb_css_syntax_token_base(token)->length;
+    dbuf_cat(&comment_data, (char*)begin, len);
+    if ((actx->cpp_instance != NULL) && (actx->add_csstoken_cb != NULL)) {
+        (*actx->add_csstoken_cb)(kind, pos16, line16, col16, comment_data.d, actx->cpp_instance);
+    }
+    dbuf_free(&comment_data);
 }
 
 
