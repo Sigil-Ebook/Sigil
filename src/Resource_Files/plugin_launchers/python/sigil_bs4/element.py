@@ -49,6 +49,7 @@ EBOOK_XML_PARENT_TAGS = ("package","metadata","manifest","spine","guide","ncx",
                           "navlabel", "pagelist", "pagetarget") 
 
 IS_ENTITY = re.compile(r"(&#\d+;|&#x[0-9a-fA-F]+;|&\w+;)")
+IS_NUMERIC_ENTITY = re.compile(r"(&#\d+;|&#x[0-9a-fA-F]+;)")
 
 
 def _alias(attr):
@@ -1337,9 +1338,11 @@ class Tag(PageElement):
                 pieces = IS_ENTITY.split(text);
                 for i in range(1, len(pieces),2):
                     piece = pieces[i]
-                    if piece not in ["&lt;", "&gt;", "&amp;"]:
+                    if piece not in ["&lt;", "&gt;", "&amp;", "&apos;", "&quot;"]:
                         # not a xml base entity
-                        piece = "&amp;" + piece[1:]
+                        if not IS_NUMERIC_ENTITY.match(piece):
+                            #disable named entities in pure xml for safety
+                            piece = "&amp;" + piece[1:]
                     pieces[i] = piece
                 text = "".join(pieces)
             if text:
