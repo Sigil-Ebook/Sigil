@@ -695,13 +695,17 @@ bool PluginRunner::processResultXML()
                 if (!coff_ok) {
                     vcharoffset = -1;
                 }
-
-                m_validationResults.append(ValidationResult(vtype, attr.value("bookpath").toString(), vlinenumber, vcharoffset, attr.value("message").toString()));
+                QString bookpath = Utility::URLDecodePath(attr.value("bookpath").toString());
+                m_validationResults.append(ValidationResult(vtype, bookpath, vlinenumber, vcharoffset, attr.value("message").toString()));
             }
         }
     }
     if (reader.hasError()) {
-        Utility::DisplayStdErrorDialog(tr("Error Parsing Result XML:  ") + reader.errorString());
+        const QString error = QString(QObject::tr("Error Line: %1 Column %2 - %3")
+                              .arg(reader.lineNumber())
+                              .arg(reader.columnNumber())
+                              .arg(reader.errorString()));
+        Utility::DisplayStdErrorDialog(tr("Error Parsing Result XML:  ") + error);
         m_result = "failed";
         return false;
     }
