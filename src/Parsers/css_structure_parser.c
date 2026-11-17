@@ -894,11 +894,19 @@ css_consule_tokens(lxb_css_parser_t *parser,
     if (token != NULL && token->type != LXB_CSS_SYNTAX_TOKEN__END) {
         position_info(token, uctx);
         while (token != NULL && token->type != LXB_CSS_SYNTAX_TOKEN__END) {
+#if 0 /* useful for debug */
+            fprintf(stderr, "Token Type: %d\n", (int)(token->type));
+            lxb_char_t* abegin = (lxb_char_t *)lxb_css_syntax_token_base(token)->begin;
+            size_t alen = lxb_css_syntax_token_base(token)->length;
+            fprintf(stderr, "     %.*s\n", (int)alen, (char*)abegin);
+#endif
             if (token->type == LXB_CSS_SYNTAX_TOKEN_WHITESPACE && cws) {
                  dbuf_cat(&actx->tkdata, " ", 1);
             } else if ((token->type == LXB_CSS_SYNTAX_TOKEN_STRING) ||
-                       (token->type == LXB_CSS_SYNTAX_TOKEN_IDENT) ) {
+                       (token->type == LXB_CSS_SYNTAX_TOKEN_IDENT) ||
+                       (token->type == LXB_CSS_SYNTAX_TOKEN_NUMBER)) {
                 /* need to use raw token data here as internal string data has been unescaped! */
+                /* and internal number tokens have been evaluated and simplified +1 -> 1 */
                 lxb_char_t* begin = (lxb_char_t *)lxb_css_syntax_token_base(token)->begin;
                 size_t len = lxb_css_syntax_token_base(token)->length;
                 dbuf_cat(&actx->tkdata, (char*)begin, len); /* use base raw data to save escapes */
@@ -1087,6 +1095,7 @@ css_blank_qualified_rule_prelude(lxb_css_parser_t *parser,
     }
     css_consule_tokens(parser, token, false, uctx);
     char* td = get_token_data(uctx);
+    /* fprintf(stderr, "In Qualified Rule with: %s\n",td); */
     check_selector(td, strlen(td), uctx);
     push_csstoken(uctx);
     set_curblk(uctx);
