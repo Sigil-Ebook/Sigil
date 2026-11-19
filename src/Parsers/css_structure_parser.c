@@ -873,6 +873,12 @@ static void process_single_token(const lxb_css_syntax_token_t* token, void *uctx
     CtxData* actx = (CtxData*)(uctx);
     dbuf_null(&actx->tkdata);
     if (token == NULL) return;
+#if 0 /* useful for debug */
+            fprintf(stderr, "Token Type: %d\n", (int)(token->type));
+            lxb_char_t* abegin = (lxb_char_t *)lxb_css_syntax_token_base(token)->begin;
+            size_t alen = lxb_css_syntax_token_base(token)->length;
+            fprintf(stderr, "     %.*s\n", (int)alen, (char*)abegin);
+#endif
     if ((token->type == LXB_CSS_SYNTAX_TOKEN_STRING) ||
         (token->type == LXB_CSS_SYNTAX_TOKEN_IDENT) ) {
         /* need to use raw token data here as internal string data has been unescaped! */
@@ -904,6 +910,7 @@ css_consule_tokens(lxb_css_parser_t *parser,
                  dbuf_cat(&actx->tkdata, " ", 1);
             } else if ((token->type == LXB_CSS_SYNTAX_TOKEN_STRING) ||
                        (token->type == LXB_CSS_SYNTAX_TOKEN_IDENT) ||
+                       (token->type == LXB_CSS_SYNTAX_TOKEN_DIMENSION) ||
                        (token->type == LXB_CSS_SYNTAX_TOKEN_NUMBER)) {
                 /* need to use raw token data here as internal string data has been unescaped! */
                 /* and internal number tokens have been evaluated and simplified +1 -> 1 */
@@ -1219,7 +1226,7 @@ css_blank_declaration_value(lxb_css_parser_t *parser,
     replace_newlines_in_token_data(uctx);
     char * td = get_token_data(uctx);
     check_value(td, strlen(td), uctx);
-    push_csstoken(uctx);
+    // push_csstoken(uctx);
     return lxb_css_parser_success(parser);
 }
 
@@ -1231,8 +1238,22 @@ css_blank_declaration_end(lxb_css_parser_t *parser,
                           bool important, bool failed)
 {
     /* Declaration End */
-    (void)parser; (void)declarations; (void)token; (void)ctx; (void)failed;
-    (void)offset; (void)important; 
+    (void)declarations; (void)ctx; (void)failed; (void)offset;
+
+#if 0 /* useful for debug */
+    fprintf(stderr, "Declaration End Token Type: %d\n", (int)(token->type));
+    lxb_char_t* abegin = (lxb_char_t *)lxb_css_syntax_token_base(token)->begin;
+    size_t alen = lxb_css_syntax_token_base(token)->length;
+    fprintf(stderr, "     %.*s\n", (int)alen, (char*)abegin);
+    fprintf(stderr, "In declaration_end with important: %d\n", (int) important);
+#endif
+
+    void *uctx = parser->uctx;
+    CtxData* actx = (CtxData*)(uctx);
+    if (important) {
+        dbuf_cat(&actx->tkdata, " !important",11);
+    }
+    push_csstoken(uctx);
     return LXB_STATUS_OK;
 }
 
