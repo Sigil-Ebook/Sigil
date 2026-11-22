@@ -325,6 +325,7 @@ void EditTOC::MoveLeft()
     QItemSelection selection = ui.TOCTree->selectionModel()->selection();
     sortItemSelectionRanges(ui.TOCTree, selection);
 
+#if 0
     // first walk selection to see if any items at at the boundary and abort the move
     // Can't move left if you are already a direct child of the root (parent index is invalid)
     bool at_boundary = false;
@@ -337,6 +338,7 @@ void EditTOC::MoveLeft()
         }
     }
     if (at_boundary) return;
+#endif
 
     for(int i = selection.size()-1; i >= 0; i--) {
         QItemSelectionRange range = selection.at(i);
@@ -377,7 +379,8 @@ void EditTOC::MoveRight()
     StructureUserSelections();
     QItemSelection selection = ui.TOCTree->selectionModel()->selection();
     sortItemSelectionRanges(ui.TOCTree, selection);
-    
+
+#if 0
     // first walk selection to see if any items at at the boundary and abort the move
     // Can't move right (indent) if row above you is already your parent
     bool at_boundary = false;
@@ -388,7 +391,8 @@ void EditTOC::MoveRight()
         }
     }
     if (at_boundary) return;
-    
+#endif
+
     // for (const QItemSelectionRange& range: selection) {
     //     qDebug() << "original range order: " << range.parent().row() << range.top() << range.bottom();
     // }
@@ -437,6 +441,7 @@ void EditTOC::MoveUp()
     //     qDebug() << "range: " << range.parent().row() << range.top() << range.bottom();
     // }
 
+#if 0
     // first walk selection to see if any items at at the boundary and abort the move
     // Can't move up if this row is already the top most row of its parent
     bool at_boundary = false;
@@ -447,7 +452,8 @@ void EditTOC::MoveUp()
 	    }
     }
     if (at_boundary) return;
-    
+#endif
+
     for (const QItemSelectionRange& range : selection) {
         QModelIndex parent = range.parent();
 	    QStandardItem *parent_item = m_TableOfContents->itemFromIndex(parent);
@@ -487,6 +493,7 @@ void EditTOC::MoveDown()
     //     qDebug() << "range: " << range.parent().row() << range.top() << range.bottom();
     // }
 
+#if 0
     // first walk selection to see if any items at the boundary and abort the move
     // can't move down if this row is already the last one of its parent
     bool at_boundary = false;
@@ -502,6 +509,7 @@ void EditTOC::MoveDown()
         }
     }
     if (at_boundary) return;
+#endif
 
     for (const QItemSelectionRange& range : selection) {
         QModelIndex parent = range.parent();
