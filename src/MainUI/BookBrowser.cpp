@@ -334,7 +334,7 @@ void BookBrowser::ReorderHTML()
         bookpaths << rsc->GetRelativePath();
         // qDebug() << "in: " << rsc->GetRelativePath();
     }
-    EditRO rodlg(bookpaths, selected);
+    EditRO rodlg(bookpaths, selected, Utility::GetMainWindow());
     if (rodlg.exec() == QDialog::Accepted) {
         QStringList neworder = rodlg.GetNewReadingOrder();
         if (!neworder.isEmpty()) {
