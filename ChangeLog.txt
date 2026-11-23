@@ -1,3 +1,17 @@
+pre-2.8.7
+   Bug Fixes
+     - force Linux builds of lexborcss to be builts only as static (Thank your sharkcz!)
+     - greatly speed up Add Cover when working with thousands of files
+     - fix css parser bug with comments now getting their own buffer to prevent issues inside selector parsing
+     - fix and improve quickparser.py handling of entities (Thank you BeckyEbook!)
+     - fix for our internal sigil_bs4 element.py to better handle numeric entities and not rule them out in ncx
+     - fix for filenames with ampersand in validation plugins by urlencode and urldecode during plugin use
+     - workaround lexbor css structure parser issues with a plus preceding a digit being simplified away
+     - workaround lexbor css structure parser issue not directly recreating !important
+     - make Change Reading Order dialog set MainWindow as its parent.
+     - disable at_boundary checks in EditTOC to allow testing
+
+
 Sigil-2.8.6
    Bug Fixes
 
