@@ -21,9 +21,12 @@
 **
 *************************************************************************/
 
+#include <QDebug>
 #include "Misc/Utility.h"
 #include "MiscEditors/IndexEntries.h"
 #include "MiscEditors/IndexEditorModel.h"
+
+#define DBG if(0)
 
 IndexEntries::IndexEntries()
     :
@@ -38,29 +41,37 @@ QStandardItem *IndexEntries::GetRootItem()
 
 void IndexEntries::AddOneEntry(QString text, QString bookpath, QString index_id_value)
 {
+    DBG qDebug()<< "Adding entry: " << text << bookpath << index_id_value;
     QStandardItem *parent_item = m_BookIndexRootItem;
     QStringList names = text.split("/", Qt::SkipEmptyParts);
     names.append(Utility::URLEncodePath(bookpath) + "#" +  Utility::URLEncodePath(index_id_value));
     // Add names in hierarchy
     foreach(QString name, names) {
+        DBG qDebug() << "    processing: " << name;
         bool found = false;
         int insert_at_row = -1;
 
         for (int r = 0; r < parent_item->rowCount(); r++) {
+            DBG qDebug() << "      checking row: " << r;
             if (name == parent_item->child(r, 0)->text()) {
                 parent_item = parent_item->child(r, 0);
                 found = true;
+                DBG qDebug() << "        parent found at: " << r;
                 break;
             }
             // If not already in tree, add the entry in sorted order
             // Only sort categories - leave bookpath#id (last child) in order found
-            else if (parent_item->child(0, 0)->rowCount() && (name.toLower().localeAwareCompare(parent_item->child(r, 0)->text().toLower()) < 0)) {
+            else if ((parent_item->child(0, 0)->rowCount() >= 0) && (name.toLower().localeAwareCompare(parent_item->child(r, 0)->text().toLower()) < 0)) {
                 insert_at_row = r ;
+                DBG qDebug() << "        parent not found, insert sorted at row: "	<< insert_at_row;
                 break;
+            } else {
+                DBG qDebug() << "        name is greater than row: " << r << " skip to next row with: " << found;
             }
         }
-
+        DBG qDebug() << "    end of parent search with: " << found << insert_at_row;;
         if (!found) {
+            DBG qDebug() << "    Add Entry to Model: " << name << parent_item << insert_at_row;
             parent_item = AddEntryToModel(name, parent_item, insert_at_row);
         }
     }
