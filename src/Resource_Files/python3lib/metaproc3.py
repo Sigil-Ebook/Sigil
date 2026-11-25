@@ -30,7 +30,7 @@ import os
 from hrefutils import urldecodepart, urlencodepart
 from metadata_utils import xmldecode, buildxml, valid_id, OPFMetadataParser
 from collections import OrderedDict
-
+from bcp47_utils import bcp47_normalize
 import re
 
 _metadata_pattern = re.compile(r'''(<\s*metadata[^>]*>.*<\s*/\s*metadata\s*>\s*)''', re.IGNORECASE | re.MULTILINE | re.DOTALL)
@@ -135,17 +135,11 @@ class MetadataProcessor(object):
                 # strip out extraneous dc namespace defintions on dc tags
                 if "xmlns:dc" in mattr:
                     del mattr["xmlns:dc"]
-                # fix improperly case language entries
+                # normalize case language entries
                 if mname == "dc:language":
                     if not mcontent:
                         mcontent = ""
-                    if not "-" in mcontent:
-                        mcontent = mcontent.lower()
-                    else:
-                        lang, region = mcontent.split("-")
-                        lang = lang.lower()
-                        region = region.upper()
-                        mcontent = lang + "-" + region;
+                    mcontent = bcp47_normalize(mcontent)
                 self.rec.append((mname, mcontent, mattr))
                 id = mattr.get("id",None)
                 if id is not None:
