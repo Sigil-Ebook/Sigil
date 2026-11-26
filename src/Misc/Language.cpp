@@ -1,4 +1,4 @@
-/************************************************************************
+************************************************************************
 **
 **  Copyright (C) 2016-2026 Kevin B. Hendricks, Stratford, ON, Canada
 **  Copyright (C) 2011      John Schember <john@nachtimwald.com>
@@ -20,9 +20,10 @@
 **
 *************************************************************************/
 
-#include <QtCore/QString>
-#include <QtCore/QStringList>
-
+#include <QString>
+#include <QStringList>
+#include <QXmlStreamReader>
+#include <QDebug>
 #include "Misc/Utility.h"
 #include "Misc/UILanguage.h"
 #include "Misc/Language.h"
@@ -667,6 +668,40 @@ void Language::SetLanguageMap()
          "zen"   << tr("Zenaga") <<
          "zun"   << tr("Zuni");
 
+
+    // add in any user specified extra language codes specified in
+    // extra_languages.xml in the Sigil preferences folder if present.
+    QString custom_path = Utility::DefinePrefsDir() + "/extra_languages.xml";
+    QString langcodes_xml;
+    if (QFile::exists(custom_path)) {
+        langcodes_xml = Utility::ReadUnicodeTextFile(custom_path, false);
+    }
+    if (!langcodes_xml.isEmpty()) {
+        QXmlStreamReader xml_reader(langcodes_xml);
+        bool underway = false;
+        while(!xml_reader.atEnd()) {
+            xml_reader.readNext();
+            if (xml_reader.isEndElement()) {
+                if (xml_reader.name().compare(QLatin1String("extralanguages")) == 0) underway = false;
+            } else if (xml_reader.isStartElement()) {
+                if (xml_reader.name().compare(QLatin1String("extralanguages")) == 0) underway = true;
+                if (xml_reader.name().compare(QLatin1String("addlanguage")) == 0) {
+                    if (underway) {
+                        QString langcd = xml_reader.attributes().value("", "code").toString();
+                        QString langnm = xml_reader.attributes().value("", "name").toString();
+                        if ( !langcd.isEmpty() && !langnm.isEmpty() ) data << langcd << langnm;
+                    }
+                }
+            }
+            if (xml_reader.hasError()) {
+                QString error = QString(tr("Unable to read extra_languages.xml. \nLine: %1 Column %2 - %3)")
+                                        .arg(xml_reader.lineNumber())
+                                        .arg(xml_reader.columnNumber())
+                                        .arg(xml_reader.errorString()));
+                qDebug() << error;
+            }
+        }
+    }
     for (int i = 0; i < data.count(); i++) {
         QString code = data.at(i++);
         QString name = data.at(i);

@@ -13,6 +13,10 @@ pre-2.8.7
      - prevent valid language codes from causing exceptions when editing Metadata
      - prevent crash from trying to replace non-image files using DropTarget or AddExisting
 
+   New Features
+     - update to the latest version of the Hunspell es dictionary (version 2.9)
+     - allow the user to specify extra languages via an extra_languages.xml file in Sigil Prefs
+
 
 Sigil-2.8.6
    Bug Fixes
