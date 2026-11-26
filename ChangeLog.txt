@@ -10,6 +10,8 @@ pre-2.8.7
      - workaround lexbor css structure parser issue not directly recreating !important
      - make Change Reading Order dialog set MainWindow as its parent.
      - fix for sometimes lost index sort ordering during creation
+     - prevent valid language codes from causing exceptions when editing Metadata
+     - prevent crash from trying to replace non-image files using DropTarget or AddExisting
 
 
 Sigil-2.8.6

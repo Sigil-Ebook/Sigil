@@ -925,11 +925,11 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images, QSt
 
         QString filename = QFileInfo(filepath).fileName();
         bool CoverImageSemanticsSet = false;
-        // try to see if an existing file has this filename and allow overwriting
+        // try to see if an existing file has this filename and allow overwriting for specific resource types
         QString existing_book_path = m_Book->GetFolderKeeper()->GetBookPathByPathEnd(filename);
         
         if (!existing_book_path.isEmpty()) {
-            // If this is an image prompt to replace it.
+            // If this is an image or binary resource  prompt to replace it.
             if (IMAGE_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower()) ||
                 SVG_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower()) ||
                 VIDEO_EXTENSIONS.contains(QFileInfo(filepath).suffix().toLower()) ||
@@ -941,7 +941,7 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images, QSt
                 if (!yes_to_all && !no_to_all) {
                    QMessageBox::StandardButton button_pressed;
                    button_pressed = Utility::warning(this, tr("Sigil"), 
-                        tr("The multimedia file \"%1\" already exists in the book.\n\nOK to replace?").arg(filename),
+                        tr("The resource file \"%1\" already exists in the book.\n\nOK to replace?").arg(filename),
                                   QMessageBox::Yes | QMessageBox::YesToAll | QMessageBox::No | QMessageBox::NoToAll);
 
                    if (button_pressed == QMessageBox::YesToAll) {
@@ -972,8 +972,8 @@ QStringList BookBrowser::AddExisting(bool only_multimedia, bool only_images, QSt
                         continue;
                     }
                     replacements_made = true;
-                    image_resource->FileChangedOnDisk();
-                    m_Book->ResourceUpdatedFromDisk(image_resource);
+                    old_resource->FileChangedOnDisk();
+                    m_Book->ResourceUpdatedFromDisk(old_resource);
                     continue;
                 } catch (ResourceDoesNotExist&) {
                     Utility::DisplayStdErrorDialog(tr("Unable to delete or replace file \"%1\".").arg(filename)
