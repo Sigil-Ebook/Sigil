@@ -21,12 +21,13 @@ REP nv mb
 REP seci cesi
 REP x cc
 REP y ll
-MAP 5
+MAP 6
 MAP aáAÁ
 MAP eéEÉ
 MAP iíIÍ
 MAP oóOÓ
 MAP uúüUÚÜ
+MAP nñNÑ
 PFX a Y 2
 PFX a 0 a [^aeiou]
 PFX a 0 an [aeiou]
@@ -42,10 +43,10 @@ PFX e Y 2
 PFX e 0 bi [^r]
 PFX e 0 bir r
 PFX f Y 6
-PFX f 0 con [^abehilopru]
+PFX f 0 con [^abehiloprug]
 PFX f 0 con ll
-PFX f 0 com pb
-PFX f 0 co [aehiou]
+PFX f 0 co [pb]
+PFX f 0 co [aehioug]
 PFX f 0 co l[^l]
 PFX f 0 cor r
 PFX g Y 3
@@ -71,10 +72,22 @@ PFX l 0 inter .
 PFX m Y 2
 PFX m 0 micro [^r]
 PFX m 0 micror r
+PFX 🔭 Y 2
+PFX 🔭 0 macro [^r]
+PFX 🔭 0 macror r
+PFX 🔍 Y 2
+PFX 🔍 0 mini [^r]
+PFX 🔍 0 minir r
+PFX 💯 Y 2
+PFX 💯 0 maxi [^r]
+PFX 💯 0 maxir r
 PFX n Y 3
 PFX n 0 pr e
 PFX n 0 pre [^er]
 PFX n 0 prer r
+PFX ⏩ Y 2
+PFX ⏩ 0 post s
+PFX ⏩ 0 pos [^s]
 PFX o Y 2
 PFX o 0 pro [^r]
 PFX o 0 pror r
@@ -93,6 +106,10 @@ PFX s Y 1
 PFX s 0 sub .
 PFX t Y 1
 PFX t 0 super .
+PFX ☎️ Y 3
+PFX ☎️ 0 tel e
+PFX ☎️ 0 teler r
+PFX ☎️ 0 tele [^er]
 PFX u Y 8
 PFX u e tran es
 PFX u 0 tran s
@@ -107,6 +124,19 @@ PFX v 0 contra [^r]
 PFX v 0 contrar r
 PFX w Y 1
 PFX w 0 ex	 .
+PFX 📏 Y 12
+PFX 📏 0 tera .
+PFX 📏 0 giga .
+PFX 📏 0 mega .
+PFX 📏 0 kilo .
+PFX 📏 0 hecto .
+PFX 📏 0 deca .
+PFX 📏 0 deci .
+PFX 📏 0 centi .
+PFX 📏 0 mili .
+PFX 📏 0 micro .
+PFX 📏 0 nano .
+PFX 📏 0 pico .
 SFX A Y 14
 SFX A r ción/S ar
 SFX A er ición/S [^cn]er
@@ -221,25 +251,24 @@ SFX N co quillo/S co
 SFX N go guillo/S go
 SFX N ca quilla/S ca
 SFX N ga guilla/S ga
-SFX O Y 18
-SFX O ta mo ta
-SFX O 0 ismo [dflnr]
-SFX O o ismo [^i]co
-SFX O o ismo [^o]ico
-SFX O ico ísmo oico
-SFX O a ismo [dt]a
-SFX O o ísmo eo
-SFX O e ismo [jrt]e
-SFX O 0 ismo ln
-SFX O án anismo án
-SFX O ón onismo ón
-SFX O o smo io
-SFX O o ismo [rst]o
-SFX O ía ismo ía
-SFX O a smo ia
-SFX O és esismo és
-SFX O 0 mo is
-SFX O o uismo go
+SFX O Y 17
+SFX O ta mo/S ta
+SFX O 0 ismo/S [dflnr]
+SFX O o ismo/S [^i]co
+SFX O o ismo/S [^o]ico
+SFX O ico ísmo/S oico
+SFX O a ismo/S [dt]a
+SFX O o ísmo/S eo
+SFX O e ismo/S [jrtp]e
+SFX O án anismo/S án
+SFX O ón onismo/S ón
+SFX O o smo/S io
+SFX O o ismo/S [rst]o
+SFX O ía ismo/S ía
+SFX O a smo/S ia
+SFX O és esismo/S és
+SFX O 0 mo/S is
+SFX O o uismo/S go
 SFX P Y 2
 SFX P r miento/S [ai]r
 SFX P er imiento/S er
@@ -279,7 +308,7 @@ SFX U ón oncito/S ón
 SFX U 0 cito/S or
 SFX U o íto/S eo
 SFX U zo cito/S zo
-SFX U 0 cito/S [djlnu]e
+SFX U 0 cito/S [djlnru]e
 SFX U z cecita/S z
 SFX U 0 ecito/S ur
 SFX U e ito/S [cpt]e
@@ -289,6 +318,31 @@ SFX U co quito/S co
 SFX U go guito/S go
 SFX U ca quita/S ca
 SFX U ga guita/S ga
+SFX 🧠 Y 2
+SFX 🧠 0 mente [^o]
+SFX 🧠 o amente o
+SFX 🥇 Y 16
+SFX 🥇 0 ísimo/GS l
+SFX 🥇 0 ísimo/GS [^o]r
+SFX 🥇 0 císimo/GS or
+SFX 🥇 z císimo/GS z
+SFX 🥇 a ísimo/GS [^í]a
+SFX 🥇 e ísimo/GS e
+SFX 🥇 i ísimo/GS i
+SFX 🥇 o ísimo/GS [^ií]o
+SFX 🥇 io ísimo/GS io
+SFX 🥇 ío iísimo/GS ío
+SFX 🥇 u ísimo/GS u
+SFX 🥇 án ancísimo/GS án
+SFX 🥇 én encísimo/GS én
+SFX 🥇 ín incísimo/GS ín
+SFX 🥇 ón oncísimo/GS ón
+SFX 🥇 0 císimo/GS [^áéíóú]n
+SFX 🏅 Y 4
+SFX 🏅 le ilísimo/GS ble
+SFX 🏅 ua üísimo/GS gua
+SFX 🏅 ue üísimo/GS gue
+SFX 🏅 uo üísimo/GS guo
 SFX R Y 240
 SFX R ar ás ar
 SFX R r mos [aei]r
@@ -2520,10 +2574,9 @@ SFX G ín inas ín
 SFX G ón onas ón
 SFX G és esas és
 SFX G ós osas ós
-SFX S Y 32
-SFX S 0 s [aceéfgiíkoóptuúw]
-SFX S 0 es [bdhíjlmrúxy]
-SFX S á aes á
+SFX S Y 31
+SFX S 0 s [aáceéfgiíkmoóptuúw]
+SFX S 0 es [bdhíjlrúxy]
 SFX S 0 es [^áeéíóú]n
 SFX S 0 es [^áéíóú]s
 SFX S án anes án
@@ -3069,7 +3122,9 @@ SFX Ë ír yéndoosla oír
 SFX Ë ír yéndooslo oír
 SFX Ë ír yéndooslas oír
 SFX Ë ír yéndooslos oír
-SFX Ì Y 388
+SFX Ì Y 406
+SFX Ì eglar églalo/GS eglar
+SFX Ì inir ínalo/GS inir
 SFX Ì abar ábala abar
 SFX Ì abar ábalas abar
 SFX Ì abar ábalo abar
@@ -3102,10 +3157,10 @@ SFX Ì ajar ájala ajar
 SFX Ì ajar ájalas ajar
 SFX Ì ajar ájalo ajar
 SFX Ì ajar ájalos ajar
-SFX Ì alar álala alar
-SFX Ì alar álalas alar
-SFX Ì alar álalo alar
-SFX Ì alar álalos alar
+SFX Ì alar álela alar
+SFX Ì alar álelas alar
+SFX Ì alar álelo alar
+SFX Ì alar álelos alar
 SFX Ì amar ámala amar
 SFX Ì amar ámalas amar
 SFX Ì amar ámalo amar
@@ -3278,6 +3333,10 @@ SFX Ì evar évala evar
 SFX Ì evar évalas evar
 SFX Ì evar évalo evar
 SFX Ì evar évalos evar
+SFX Ì ibir íbala ibir
+SFX Ì ibir íbalas ibir
+SFX Ì ibir íbalo ibir
+SFX Ì ibir íbalos ibir
 SFX Ì icar ícala icar
 SFX Ì icar ícalas icar
 SFX Ì icar ícalo icar
@@ -3318,6 +3377,10 @@ SFX Ì isar ísala isar
 SFX Ì isar ísalas isar
 SFX Ì isar ísalo isar
 SFX Ì isar ísalos isar
+SFX Ì istrar ístrela istrar
+SFX Ì istrar ístrelas istrar
+SFX Ì istrar ístrelo istrar
+SFX Ì istrar ístrelos istrar
 SFX Ì itar ítala itar
 SFX Ì itar ítalas itar
 SFX Ì itar ítalo itar
@@ -3414,6 +3477,10 @@ SFX Ì ujar újalas ujar
 SFX Ì ujar újala ujar
 SFX Ì ujar újalos ujar
 SFX Ì ujar újalo ujar
+SFX Ì ular úlela ular
+SFX Ì ular úlelas ular
+SFX Ì ular úlelo ular
+SFX Ì ular úlelos ular
 SFX Ì ulsar úlsalas ulsar
 SFX Ì ulsar úlsala ulsar
 SFX Ì ulsar úlsalos ulsar
@@ -3450,6 +3517,10 @@ SFX Ì uscar úscalas uscar
 SFX Ì uscar úscala uscar
 SFX Ì uscar úscalos uscar
 SFX Ì uscar úscalo uscar
+SFX Ì ustar ústela ustar
+SFX Ì ustar ústelas ustar
+SFX Ì ustar ústelo ustar
+SFX Ì ustar ústelos ustar
 SFX Ì utar útalas utar
 SFX Ì utar útala utar
 SFX Ì utar útalos utar
@@ -3458,7 +3529,8 @@ SFX Ì uzar úzalas uzar
 SFX Ì uzar úzala uzar
 SFX Ì uzar úzalos uzar
 SFX Ì uzar úzalo uzar
-SFX Í Y 174
+SFX Í Y 181
+SFX Í inir ínelo/GS inir
 SFX Í abar ábame abar
 SFX Í abar ábanos abar
 SFX Í r me r
@@ -3469,6 +3541,8 @@ SFX Í ablar áblame ablar
 SFX Í ablar áblanos ablar
 SFX Í acar ácame acar
 SFX Í acar ácanos acar
+SFX Í actar áctame actar
+SFX Í actar áctanos actar
 SFX Í agar ágame agar
 SFX Í agar áganos agar
 SFX Í ajar ájame ajar
@@ -3573,6 +3647,8 @@ SFX Í isar ísame isar
 SFX Í isar ísanos isar
 SFX Í itar ítame itar
 SFX Í itar ítanos itar
+SFX Í itir íteme itir
+SFX Í itir ítenos itir
 SFX Í iviar íviame iviar
 SFX Í iviar ívianos iviar
 SFX Í obrar óbrame obrar
@@ -3603,6 +3679,8 @@ SFX Í orrer órreme orrer
 SFX Í orrer órrenos orrer
 SFX Í otar ótame otar
 SFX Í otar ótanos otar
+SFX Í oyar óyame oyar
+SFX Í oyar óyanos oyar
 SFX Í ubir úbeme ubir
 SFX Í ubir úbenos ubir
 SFX Í ucar úcame ucar
@@ -4047,7 +4125,7 @@ SFX Ï urar úraselas urar
 SFX Ï urar úrasela urar
 SFX Ï urar úraselos urar
 SFX Ï urar úraselo urar
-SFX Ð Y 60
+SFX Ð Y 68
 SFX Ð egar iégala egar
 SFX Ð egar iégalas egar
 SFX Ð egar iégalo egar
@@ -4060,6 +4138,10 @@ SFX Ð r dla r
 SFX Ð r dlas r
 SFX Ð r dlo r
 SFX Ð r dlos r
+SFX Ð alar álala alar
+SFX Ð alar álalas alar
+SFX Ð alar álalo alar
+SFX Ð alar álalos alar
 SFX Ð ender iéndela ender
 SFX Ð ender iéndelas ender
 SFX Ð ender iéndelo ender
@@ -4108,6 +4190,10 @@ SFX Ð ostrar uéstrala ostrar
 SFX Ð ostrar uéstralas ostrar
 SFX Ð ostrar uéstralo ostrar
 SFX Ð ostrar uéstralos ostrar
+SFX Ð ustar ústala ustar
+SFX Ð ustar ústalas ustar
+SFX Ð ustar ústalo ustar
+SFX Ð ustar ústalos ustar
 SFX Ñ Y 26
 SFX Ñ ecer éceme ecer
 SFX Ñ ecer écenos ecer
@@ -6338,7 +6424,7 @@ SFX ó r éndome ucir
 SFX ó r éndonos ucir
 SFX ó r éndoos ucir
 SFX ó r éndote ucir
-SFX ô Y 138
+SFX ô Y 139
 SFX ô abar ábate abar
 SFX ô r te [aei]r
 SFX ô r os r
@@ -6408,6 +6494,7 @@ SFX ô estar éstate estar
 SFX ô eter étete eter
 SFX ô evar évate evar
 SFX ô ever évete ever
+SFX ô ibir íbete ibir
 SFX ô ibrar íbrate ibrar
 SFX ô icar ícate icar
 SFX ô idar ídate idar

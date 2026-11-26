@@ -9,7 +9,7 @@ Para: es es_AR es_BO es_CL es_CO es_CR es_CU es_DO es_EC es_ES es_GQ es_GT es_HN
 
   ****************************************************************************
 
-                                  Versión 2.8
+                                  Versión 2.9
 
 SUMARIO
 
