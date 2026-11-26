@@ -1,4 +1,4 @@
-************************************************************************
+/************************************************************************
 **
 **  Copyright (C) 2016-2026 Kevin B. Hendricks, Stratford, ON, Canada
 **  Copyright (C) 2011      John Schember <john@nachtimwald.com>
