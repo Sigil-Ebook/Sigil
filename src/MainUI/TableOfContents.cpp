@@ -1,6 +1,6 @@
 /************************************************************************
 **
-**  Copyright (C) 2016-2024 Kevin B Hendricks, Stratford, Ontario Canada 
+**  Copyright (C) 2016-2026 Kevin B Hendricks, Stratford, Ontario Canada
 **  Copyright (C) 2009-2011 Strahinja Markovic  <strahinja.markovic@gmail.com>
 **
 **  This file is part of Sigil.
@@ -63,7 +63,8 @@ TableOfContents::TableOfContents(QWidget *parent)
     connect(m_TreeView, SIGNAL(clicked(const QModelIndex &)), this, SLOT(ItemClickedHandler(const QModelIndex &)));
     connect(m_TreeView, SIGNAL(activated(const QModelIndex &)), this, SLOT(ItemClickedHandler(const QModelIndex &)));
     connect(&m_RefreshTimer, SIGNAL(timeout()), this, SLOT(Refresh()));
-    connect(m_TOCModel, SIGNAL(RefreshDone()), m_TreeView, SLOT(expandAll()));
+    // connect(m_TOCModel, SIGNAL(RefreshDone()), m_TreeView, SLOT(expandAll()));
+    connect(m_TOCModel, SIGNAL(RefreshDone()), this, SLOT(HandleRefreshDone()));
 }
 
 void TableOfContents::showEvent(QShowEvent *event)
@@ -124,6 +125,8 @@ void TableOfContents::SetBook(QSharedPointer<Book> book)
 
 void TableOfContents::Refresh()
 {
+    m_CollapsedSet.clear();
+    saveCollapsedState(m_TreeView, m_TOCModel, m_TreeView->rootIndex(), m_CollapsedSet);
     m_TOCModel->Refresh();
 }
 
@@ -204,5 +207,39 @@ void TableOfContents::contextMenuEvent(QContextMenuEvent *event)
     menu->exec(mapToGlobal(event->pos()));
     if (!menu.isNull()) {
         delete menu.data();
+    }
+}
+
+void TableOfContents::saveCollapsedState(QTreeView *view, QAbstractItemModel *model,
+                                         const QModelIndex &parent, QSet<QString> &collapsedIds) {
+    for (int row = 0; row < model->rowCount(parent); ++row) {
+        QModelIndex index = model->index(row, 0, parent);
+        if (!view->isExpanded(index)) {
+            collapsedIds.insert(index.data(Qt::DisplayRole).toString());
+            saveCollapsedState(view, model, index, collapsedIds);
+        }
+    }
+}
+
+void TableOfContents::restoreCollapsedState(QTreeView *view, QAbstractItemModel *model,
+                                            const QModelIndex &parent, const QSet<QString> &collapsedIds) {
+    for (int row = 0; row < model->rowCount(parent); ++row) {
+        QModelIndex index = model->index(row, 0, parent);
+        QString id = index.data(Qt::DisplayRole).toString();
+        if (collapsedIds.contains(id)) {
+            view->setExpanded(index, false);
+        } else {
+            view->setExpanded(index, true);
+        }
+        restoreCollapsedState(view, model, index, collapsedIds);
+    }
+}
+
+void TableOfContents::HandleRefreshDone()
+{
+    if (m_CollapsedSet.isEmpty()) {
+        m_TreeView->expandAll();
+    } else {
+        restoreCollapsedState(m_TreeView, m_TOCModel, m_TreeView->rootIndex(), m_CollapsedSet);
     }
 }

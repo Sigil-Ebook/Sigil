@@ -84,6 +84,8 @@ public slots:
 
     void SetFocusOnTOC();
 
+    void HandleRefreshDone();
+
 private slots:
 
     /**
@@ -121,6 +123,13 @@ private:
      */
     void SetupTreeView();
 
+    void saveCollapsedState(QTreeView *view, QAbstractItemModel *model,
+                            const QModelIndex &parent, QSet<QString> &collapsedIds);
+
+    void restoreCollapsedState(QTreeView *view, QAbstractItemModel *model,
+                               const QModelIndex &parent, const QSet<QString> &collapsedIds);
+
+
     ///////////////////////////////
     // PRIVATE MEMBER VARIABLES
     ///////////////////////////////
@@ -154,6 +163,8 @@ private:
      * The data model used to feed the tree view.
      */
     TOCModel *m_TOCModel;
+
+    QSet<QString> m_CollapsedSet;
 
     QString m_EpubVersion;
 
